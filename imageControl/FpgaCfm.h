@@ -1,7 +1,7 @@
 #ifndef __FPGACFM_H__
 #define __FPGACFM_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 #include "AbsUltraInterface.h"
 
 class FpgaCfm
@@ -58,7 +58,6 @@ class FpgaCfm
 
 	int SendClusterSize(INT16U cluster);
 
-
 	private:
 
 	enum
@@ -101,6 +100,5 @@ class FpgaCfm
 
     int DynamicFilter(INT16U *filter, INT32U size, INT32U offset) ;
 };
-
 
 #endif

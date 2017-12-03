@@ -1,6 +1,6 @@
 #ifndef CFPAGGENERAL_H
 #define CFPGAGENERAL_H
-#include "UsbControl.h"
+#include "imageControl/UsbControl.h"
 
 typedef unsigned long int U32, *PU32;
 

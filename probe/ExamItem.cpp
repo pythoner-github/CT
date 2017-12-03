@@ -8,18 +8,18 @@
  * date: 2009-6-7
  * @author: zhanglei
  */
-#include "ModeStatus.h"
+#include "imageProc/ModeStatus.h"
 #include <stdio.h>
 #include <string.h>
-#include "ExamItem.h"
-#include "../base/IniFile.h"
-#include "../include/Def.h"
-#include "ViewProbe.h"
-#include "ViewSystem.h"
+#include "probe/ExamItem.h"
+#include "base/IniFile.h"
+#include "Def.h"
+#include "probe/ViewProbe.h"
+#include "sysMan/ViewSystem.h"
 #include <locale.h>
 #include <libintl.h>
-#include "ImgPw.h"
-#include "FileMan.h"
+#include "imageControl/ImgPw.h"
+#include "patient/FileMan.h"
 
 #include <errno.h>
 //#include "ScanMode.h"
@@ -53,7 +53,6 @@
 // 26: "User2": 用户自定义2
 // 27: "User3": 用户自定义3
 // 28: "User4": 用户自定义4
-
 
 #ifdef VET
 #ifdef EMP_355
@@ -152,7 +151,6 @@ void ExamItem::GetUserItemInfo(char* probeModel, string &genfirstitem)
     string username;
     username = exam.ReadDefaultUserSelect(&ini);
 
-
     vector<string> useritemgroup;
     vector<string> vecExamItem;
     ExamItem examitem;
@@ -188,7 +186,6 @@ void ExamItem::GetUserItemInfo(char* probeModel, string &genfirstitem)
     }
 }
 
-
 void ExamItem::GetInitUserItemInfo(char* probeModel, string inituseritem, string &geninitfirstitem)
 {
     char probelist[256];
@@ -203,7 +200,6 @@ void ExamItem::GetInitUserItemInfo(char* probeModel, string inituseritem, string
     ExamItem exam;
     string username;
     username = exam.ReadDefaultUserSelect(&ini);
-
 
     vector<string> useritemgroup;
     vector<string> vecExamItem;
@@ -379,7 +375,6 @@ void ExamItem::GetImgOptimize(char* probeModel, ParaItem &para)
 	para = m_paraOptimize;
 }
 
-
 /*
  * @brief read parameter of examItem in config file, according to probeIndex and itemIndex
  * @para probeIndex [in] index of probe in PROBE_LIST
@@ -539,7 +534,6 @@ vector <string> ExamItem::GetCurrentProbeUserGroup(char *username)
     }
 }
 
-
 vector <string> ExamItem::GetDefaultUserGroup(void)
 {
     char path[256];
@@ -607,8 +601,6 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
     fclose(fp);
 }
 
-
-
  void ExamItem::GetDefaultUserItem(const char * group, char *userselect, char *probelist_value, char *useritem_value, char * department_value, char *genFirstItem)
 {
      char path1[256];
@@ -647,7 +639,6 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
     }
     fclose(fp);
 }
-
 
  void ExamItem::GetUserItem(const char * group, char *userselect, char *probelist_value, char *useritem_value, char * department_value, char *genFirstItem)
 {
@@ -746,7 +737,6 @@ void ExamItem::DeleteNewItemForMeasureFile(int probeIndex, const char *old_strin
     ptrIni->SyncConfigFile();
 }
 
-
 void ExamItem::DeleteNewItemForCommentFile(int probeIndex, const char *old_string, const char *str)
 {
     const gchar *username = ViewSystem::GetInstance()->GetUserName();
@@ -767,7 +757,6 @@ void ExamItem::DeleteNewItemForCommentFile(int probeIndex, const char *old_strin
     ptrIni->SyncConfigFile();
 }
 
-
 void ExamItem::WriteNewItemToCommentFile(int probeIndex, char *new_string, const char *str)
 {
     const gchar *username = ViewSystem::GetInstance()->GetUserName();
@@ -783,7 +772,6 @@ void ExamItem::WriteNewItemToCommentFile(int probeIndex, char *new_string, const
     }
     IniFile ini(path);
     IniFile *ptrIni= &ini;
-
 
  /*   char path[256];
     sprintf(path, "%s%s", CFG_RES_PATH, COMMENT_FILE);
@@ -833,7 +821,6 @@ void ExamItem::WriteNewItemToMeasureFile(int probeIndex, char *new_string, const
     ptrIni->SyncConfigFile();
 
 }
-
 
 void ExamItem::DeleteNewItemFile(int probeIndex, const char *old_string, const char *str)
 {
@@ -915,8 +902,6 @@ void ExamItem::WriteDefinedItemPara(int probeIndex, char *new_string,const char 
     WriteDefinedExamItemPara(str, PROBE_LIST[probeIndex] + "-" + new_string, &ini,PROBE_LIST[probeIndex],new_string,str_index);
 }
 
-
-
 void ExamItem::WriteDefaultDefinedItemPara(int probeIndex, char *new_string,const char *str, const char *str_index)
 {
     char path[256];
@@ -994,7 +979,6 @@ void ExamItem::ReadDefaultExamItem(int probeIndex, int itemIndex, ParaItem* para
     }
 }
 
-
 /*
  * @brief generate all probe's default image optimizing para, only used when the first time "OptimizePara.ini" file is generate
  */
@@ -1012,7 +996,6 @@ void ExamItem::GenerateDefaultImgOptimize()
 		WriteConfigOther(&m_paraOptimize, PROBE_LIST[i], &ini);
 	}
 }
-
 
 ///> private func
 /*
@@ -1294,7 +1277,6 @@ void ExamItem::InitItemOfProbe()
 	m_vecItemIndex[6].push_back(USER9);
 	m_vecItemIndex[6].push_back(USER10);
 
-
 	m_vecItemIndex[7].push_back(USER1);
 	m_vecItemIndex[7].push_back(USER2);
 	m_vecItemIndex[7].push_back(USER3);
@@ -1305,7 +1287,6 @@ void ExamItem::InitItemOfProbe()
 	m_vecItemIndex[7].push_back(USER8);
 	m_vecItemIndex[7].push_back(USER9);
 	m_vecItemIndex[7].push_back(USER10);
-
 
 	m_vecItemIndex[8].push_back(USER1);
 	m_vecItemIndex[8].push_back(USER2);
@@ -2046,7 +2027,6 @@ void ExamItem::WriteDefinedExamItemPara(const char *department, string section, 
     ini.SyncConfigFile();
 }
 
-
 void ExamItem::WriteDefaultDefinedExamItemPara(const char *department, string section, IniFile* ptrIni, string probelist,char *new_string,const char *str_index)
 {
     char str_name[256];
@@ -2068,7 +2048,6 @@ void ExamItem::WriteDefaultDefinedExamItemPara(const char *department, string se
     Ini.WriteInt((probelist + "-" + new_string).c_str(), "D2-Rotate", paraItem.d2.rotate);
     Ini.SyncConfigFile();
 }
-
 
 void ExamItem::WriteNewExamItem(const char *department, string section, IniFile* ptrIni, string probelist, const char *new_string,const char *str_index)
 {
@@ -2262,7 +2241,6 @@ void ExamItem::ReadConfigOther(ParaItem* paraItem, string section, IniFile* ptrI
 #endif
 }
 
-
 void ExamItem::WriteSelectedProbeItem(char *probeModel, IniFile* ptrIni, int item)
 {
     // write item to file
@@ -2296,7 +2274,6 @@ int ExamItem::ReadDefaultUserIndex(IniFile* ptrIni)
 	return (ptrIni->ReadInt("UserIndex", "DefaultUserIndex"));
 }
 
-
 void ExamItem::WriteDefaultUserSelect(IniFile* ptrIni, const char *username)
 {
     ptrIni->WriteString("UserSelect", "DefaultUser", username);
@@ -2313,7 +2290,6 @@ string ExamItem::ReadDefaultProbe(IniFile* ptrIni)
 	// read default probe from file
 	return (ptrIni->ReadString("ProbeModel", "ProbeModel"));
 }
-
 
 void ExamItem::WriteDefaultProbeItem(IniFile* ptrIni, int item)
 {
@@ -2396,7 +2372,6 @@ bool ExamItem::ReadUserItemFlag(IniFile* ptrIni)
                     for(j = size; j < ExamItem::BAND_PASS_SIZE_D2; j++)
                         para.pro2d.BandPassW[j] = 0;
                 }
-
 
                 sprintf(key_name, "%s-%d-%s", "D2", ProbeSocket::FREQ2D[index][i].emit, "TxFNum");
                 para.pro2d.txFNum = ptrIni->ReadInt(group_name, key_name);

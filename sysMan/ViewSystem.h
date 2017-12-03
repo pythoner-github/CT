@@ -3,11 +3,11 @@
 #define VIEW_SYSTEM_H
 #include <gtk/gtk.h>
 
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <string>
 #include <vector>
-#include "../probe/ExamItem.h"
-#include "CalcSetting.h"
+#include "probe/ExamItem.h"
+#include "sysMan/CalcSetting.h"
 #define NUM_KB 10
 #include <sqlite3.h>
 //typedef void (*pSetExamPara)(void);
@@ -421,7 +421,6 @@ private:
     GtkTreeIter InsertUnique(GtkTreeModel *model, GtkTreeIter *iter, const char *str);
     GtkTreeIter InsertUniqueComment(GtkTreeModel *model, const char *str);
 
-
     bool InitRecordFromShowArr(const char *childsection, int *start, int *end);
     bool ReadRecordFromDB(const char * sections, const char* templet, const char * childsection);
     void apply_report_setting(void);
@@ -458,7 +457,6 @@ private:
     //calc
     GtkWidget *m_calc_notebook;
     int  m_calc_page_num ;
-
 
     // TV Out
     GtkWidget *m_fixed_tvout;
@@ -648,7 +646,6 @@ private:
     void EntryFracDigitInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     void BtnOBCustomClicked(GtkButton *button);
     void EntryNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position); //addey by LL 2012-9-17
-
 
     void ChkBtnTAmaxToggled(GtkToggleButton *togglebutton);
     void ChkBtnPIToggled(GtkToggleButton *togglebutton);
@@ -846,7 +843,6 @@ private:
     static gboolean HandleUserSelectFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewSystem *data)
     { data->UserSelectFocusOut(widget, event); return FALSE;}
 
-
     static void on_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data)
     { data->notebookChanged(notebook, page, page_num); }
 
@@ -915,9 +911,7 @@ private:
     static void HandleBtnExportClicked(GtkButton *widget, ViewSystem *data) { return data->BtnExportClicked(widget); }
     static void HandleBtnRegisterClicked(GtkButton *widget, ViewSystem *data) { return data->BtnRegisterClicked(widget); }
 
-
 };
-
 
 class ViewCustomOB: public FakeXEvent
 {
@@ -990,8 +984,6 @@ class ViewCustomOB: public FakeXEvent
         static void on_entry_insert_custom_ob(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewCustomOB *data)
         { data->EntryFracDigitInsert(editable, new_text, new_text_length, position); }
 
-
-
         //signal handle
         void BtnOBCustomClearClicked(GtkButton *button);
         void BtnOBCustomSaveClicked(GtkButton *button);
@@ -1004,6 +996,5 @@ class ViewCustomOB: public FakeXEvent
         static void on_button_ob_custom_save_clicked(GtkButton *button, ViewCustomOB *data) { data->BtnOBCustomSaveClicked(button); }
         static void on_button_ob_custom_exit_clicked(GtkButton *button, ViewCustomOB *data) { data->BtnOBCustomExitClicked(button); }
 };
-
 
 #endif

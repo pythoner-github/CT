@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
-#include "CusSpin.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ModeStatus.h"
+#include "display/CusSpin.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "imageProc/ModeStatus.h"
 
 CusSpin::CusSpin(void)
 {

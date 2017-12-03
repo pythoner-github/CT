@@ -1,12 +1,11 @@
 #ifndef __HAL_H__
 #define __HAL_H__
 
-
 struct ezusb_control
 {
 	unsigned char request;//command
 	int value; //value to set
-	int len; // len of date returned in buf; 
+	int len; // len of date returned in buf;
 	unsigned char *buf;
 };
 
@@ -14,7 +13,7 @@ struct ezusb_control_probe
 {
 	unsigned char request;//command
 	unsigned short value; //value to set
-	int len; // len of date returned in buf; 
+	int len; // len of date returned in buf;
 	unsigned char *buf;
 };
 
@@ -61,6 +60,5 @@ struct ezusb_bulk_out
 #define EDGE_ENHANCE    0x5c
 #define RUN_EMIT        0x60
 #define CLK_NUM         0x64
-
 
 #endif

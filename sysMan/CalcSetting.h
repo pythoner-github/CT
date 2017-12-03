@@ -20,10 +20,10 @@
 #define __CALC_SETTING_H__
 
 #include <gtk/gtk.h>
-#include "MeasureDef.h"
-#include "FakeXEvent.h"
+#include "calcPeople/MeasureDef.h"
+#include "display/FakeXEvent.h"
 #include <vector>
-#include "ExamItem.h"
+#include "probe/ExamItem.h"
 
 #ifdef VET
 #ifdef EMP_355
@@ -52,7 +52,6 @@ struct CustomEtype
    std::string name;
    int etype;
 };
-
 
 struct CustomTypeAndMethod
 {
@@ -161,7 +160,6 @@ class CustomCalc:public FakeXEvent
         static void on_entry_focus_in(GtkEditable *editable, GdkEventFocus *event, CustomCalc *data)
         { data->EntryItemFocusIn(editable, event); }
 
-
         //signal handle
         gboolean WindowDeleteEvent(GtkWidget *widget, GdkEvent *event);
 
@@ -176,12 +174,10 @@ class CustomCalc:public FakeXEvent
 
 };
 
-
 enum {
     NAME_COLUMN,
     N_COLUMNS
 };
-
 
 class CalcSetting
 {
@@ -283,7 +279,6 @@ class CalcSetting
         void MeasureSequenceChanged(GtkComboBox *widget);
         void DepartmentCalcChanged(GtkComboBox *widget);
         static void HandleDepartmentCalcChanged(GtkComboBox *widget, CalcSetting *data) {data->DepartmentCalcChanged(widget); }
-
 
         static void HandleMeasureSequenceChanged(GtkComboBox *widget, CalcSetting *data) {data->MeasureSequenceChanged(widget); }
 

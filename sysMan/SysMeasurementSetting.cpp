@@ -1,6 +1,6 @@
 #include <string>
 #include "Def.h"
-#include "SysMeasurementSetting.h"
+#include "sysMan/SysMeasurementSetting.h"
 
 using std::string;
 
@@ -247,7 +247,6 @@ void SysMeasurementSetting::SetHeartBeatCycle(int cycle)
 {
     ptrIni->WriteInt("MeasurementSetting", "HeartBeatCycle", cycle);
 }
-
 
 void SysMeasurementSetting::SetUnitDist(int unit)
 {

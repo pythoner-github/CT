@@ -13,14 +13,14 @@
  */
 
 #include <math.h>
-#include "ImgPw.h"
-#include "Img2D.h"
-#include "GlobalClassMan.h"
-#include "HintArea.h"
-#include "ScanMode.h"
-#include "Zoom.h"
-#include "IoCtrl.h"
-#include "ProbeMan.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/Img2D.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/HintArea.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/Zoom.h"
+#include "periDevice/IoCtrl.h"
+#include "probe/ProbeMan.h"
 #include "ViewMain.h"
 int soundstatus=0;
 int ImgPw::SPECTRUM_SPEED[MAX_SPEED_INDEX] = {48, 64, 80, 96, 112, 127};//{24, 32, 40, 48, 56,60}; //PRF=8000hz
@@ -142,7 +142,7 @@ const unsigned int ImgPw::CW_PRF[MAX_PRF] = //hz
 
 const unsigned int ImgPw::WALL_FILTER[MAX_WALL_FILTER][7] =
 {
-	#include "../res/filter/Pw/wall_filter.h"
+#include "res/filter/Pw/wall_filter.h"
 };
 
 const unsigned int ImgPw::SIMULT2_PRF[MAX_SIMULT2_PRF_INDEX] = //hz
@@ -360,7 +360,6 @@ void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIte
         m_corAngleFastIndex = 2;
     else
         m_corAngleFastIndex = 1;
-
 
     //baseline
 	//m_baselineIndex = 0;
@@ -699,7 +698,6 @@ EKnobReturn ImgPw::ChangeGainPw(EKnobOper oper)
         return ERROR;
     }
 
-
 	m_gainPw = gain;
 
 	EKnobReturn ret = OK;
@@ -771,7 +769,6 @@ EKnobReturn ImgPw::ChangeGainCw(EKnobOper oper)
     {
         return ERROR;
     }
-
 
 	m_gainCw = gain;
 
@@ -1515,11 +1512,6 @@ void ImgPw::ChangeTSI(void)
     FocPos(m_svPos);
 }
 
-
-
-
-
-
 //#endif
 /*
  * @brief HPRF can work only when simult is off
@@ -2058,7 +2050,6 @@ EKnobReturn ImgPw::ChangeSVLength(EKnobOper oper)
 
 	m_svLen = index;
 
-
 	if (index == MIN_SV)
 		ret = MIN;
 	else if (index == (MAX_SV))
@@ -2357,7 +2348,6 @@ void ImgPw::WallFilter(int index, EKnobReturn ret)
 	// pw trace
 	CalcTraceFs(index, m_PRFIndex, m_baseline, m_angle);
 }
-
 
 /*
  * @breif calc and draw sv
@@ -2784,7 +2774,6 @@ void ImgPw::Simult3(bool on, EKnobReturn ret)
 	m_ptrUpdate->Simult(on, ret);
 }
 
-
 void ImgPw::HPRF(bool on, EKnobReturn ret)
 {
     m_HPRF = on;
@@ -3162,7 +3151,6 @@ bool ImgPw::CalcPRFSimult3(int prfSimult, int samplePos)
 
 	maxPeriod2D = maxPeriodCfm;
 
-
 	// if or not is out of range
 	int maxPRF = (float)1000000 / (maxPeriod2D + FOC_LOW_TIME + maxPeriodPw + FOC_LOW_TIME); //hzi
 	m_maxSimult3PRFIndex = GetSimult3PRFIndex(maxPRF);
@@ -3230,7 +3218,6 @@ void ImgPw::WhenPRFChanged(int index)
 #else
 	m_ptrCalc->CalcSoundStopDot(GetPRFValue(index));
 #endif
-
 
 	if (m_wallFilterIndex == (MAX_WALL_FILTER-1))
 		ret = MAX;
@@ -3472,7 +3459,6 @@ int ImgPw::SwitchHPRF(bool on, float svPos)
         //test
 
         num = m_ptrCalc->SVPosPRFToHPRF(svBegin, svEnd, GetPRFValue(m_PRFIndex));
-
 
         // recalc
 		float speed = m_ptrImg2D->GetSoundSpeed();
@@ -3904,7 +3890,6 @@ int ImgPw::GetPwLineOneImg(int spectrumSpeedIndex, int prf)
 		num = 12;
 	return num;
 }
-
 
 /*
  * @breif correct svPos(in dots) when local zoom

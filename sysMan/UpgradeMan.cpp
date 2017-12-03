@@ -5,15 +5,15 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#include "../include/Def.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "../base/IniFile.h"
-#include "FileMan.h"
-#include "PeripheralMan.h"
-#include "UpgradeMan.h"
-#include "ViewSystem.h"
-#include "ViewDialog.h"
+#include "Def.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "base/IniFile.h"
+#include "patient/FileMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "sysMan/UpgradeMan.h"
+#include "sysMan/ViewSystem.h"
+#include "display/ViewDialog.h"
 
 #define FILE_MAX_NUM 50
 #define FILENAME_MAX_LEN 255
@@ -31,7 +31,6 @@ const string UpgradeMan::m_info[] = { N_("Sure to upgrade?"),
 									  N_("Upgrade failed: Upgrade file not found!"),
 									  N_("Upgrade failed: Dest directory not found!"),
 									  N_("Upgrade failed!") };
-
 
 UpgradeMan* UpgradeMan::GetInstance()
 {

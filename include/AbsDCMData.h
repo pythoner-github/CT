@@ -10,8 +10,7 @@
 
 #ifndef ABS_DCMDATA_H
 #define ABS_DCMDATA_H
-#include "DCMDef.h"
-
+#include "periDevice/DCMDef.h"
 
 class CAbsDCMData
 {

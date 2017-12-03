@@ -9,10 +9,10 @@
 #include <string.h>
 #include <ctype.h>
 #include <gtk/gtk.h>
-#include "Printhpgl2.h"
-#include "Printdefaults.h"
-#include "Printmain.h"
-#include "Printfunctions.h"
+#include "periDevice/Printhpgl2.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
 
 int Printhpgl2::hpgl2black = 0;
 int Printhpgl2::hpgl2fit = 0;

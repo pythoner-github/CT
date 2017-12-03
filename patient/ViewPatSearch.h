@@ -1,10 +1,10 @@
 #ifndef _VIEW_PAT_SEARCH_H_
 #define _VIEW_PAT_SEARCH_H_
 
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <string>
 #include <vector>
-#include "Database.h"
+#include "patient/Database.h"
 
 class ViewPatSearch:public FakeXEvent
 {

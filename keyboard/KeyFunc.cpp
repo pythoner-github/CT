@@ -1,50 +1,49 @@
-
 #include <cups/cups.h>
 #include <iostream>
-#include "stdlib.h"
-#include "KeyFunc.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "ImgCfm.h"
-#include "GlobalClassMan.h"
-#include "MeasureFactory.h"
-#include "gui_func.h"
+#include <stdlib.h>
+#include "keyboard/KeyFunc.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/GlobalClassMan.h"
+#include "measure/MeasureFactory.h"
+#include "display/gui_func.h"
 #include "ViewMain.h"
-#include "PatientInfo.h"
-#include "ImgMan.h"
-#include "LightDef.h"
-#include "ImageArea.h"
-#include "ViewDialog.h"
-#include "Arrow.h"
-#include "NoteArea.h"
-#include "MeasureMan.h"
-#include "Knob2D.h"
-#include "KnobM.h"
-#include "KnobPw.h"
-#include "KnobCfm.h"
-#include "ImgProc2D.h"
-#include "ImgProcM.h"
-#include "ImgProcPw.h"
-#include "ImgProcCfm.h"
-#include "KnobNone.h"
-#include "SysOptions.h"
-#include "ScanMode.h"
-#include "PeripheralMan.h"
-#include "HintArea.h"
-#include "DrawHistogram.h"
-#include "MenuReview.h"
-#include "MenuBiopsy.h"
-#include "MenuCalcNew.h"
-#include "ViewNewPat.h"
-#include "Zoom.h"
-#include "ViewReport.h"
-#include "CalcSetting.h"
-#include "DCMMan.h"
-#include "SysDicomSetting.h"
-#include "ViewWorkList.h"
-#include "SysGeneralSetting.h"
-#include "ViewSystem.h"
-#include "MenuMeasure.h"
+#include "patient/PatientInfo.h"
+#include "patient/ImgMan.h"
+#include "keyboard/LightDef.h"
+#include "display/ImageArea.h"
+#include "display/ViewDialog.h"
+#include "comment/Arrow.h"
+#include "comment/NoteArea.h"
+#include "measure/MeasureMan.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/ImgProcCfm.h"
+#include "display/KnobNone.h"
+#include "sysMan/SysOptions.h"
+#include "imageProc/ScanMode.h"
+#include "periDevice/PeripheralMan.h"
+#include "display/HintArea.h"
+#include "measure/DrawHistogram.h"
+#include "imageProc/MenuReview.h"
+#include "probe/MenuBiopsy.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "patient/ViewNewPat.h"
+#include "imageProc/Zoom.h"
+#include "calcPeople/ViewReport.h"
+#include "sysMan/CalcSetting.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/SysDicomSetting.h"
+#include "patient/ViewWorkList.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/ViewSystem.h"
+#include "measure/MenuMeasure.h"
 
 int g_count11 = 0;
 extern bool g_calcPwStatus;
@@ -229,7 +228,6 @@ void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i
 	usleep(500000);
 #endif
 
-
 	// init 2D
 	Img2D* ptrImg2D = Img2D::GetInstance();
 	ptrImg2D->InitProbe2DOptimize(&p, &i);
@@ -318,7 +316,6 @@ void KeyAutoOptimize::BackupPara()
 	ImgProcCfm::GetInstance()->GetCurPara(&m_itemPara);
 #endif
 }
-
 
 ////////////////////////////////////////// [measure] //////////////////////////////////////
 bool KeyMeasure::Execute()
@@ -501,7 +498,6 @@ bool KeyCursor::Execute()
 	{
 		MultiFuncUndo();
 	}
-
 
 	return TRUE;
 }
@@ -923,7 +919,6 @@ bool KeyLocalZoom::ExitLocalZoom()
         //redraw biopsyline
         g_menuBiopsy.UpdateBiopsyLine();
 
-
 		// redraw line according to mode
 		if ((flag == 1) || (flag == 3))
 			ImgCfm::GetInstance()->ReDrawBox();
@@ -1012,7 +1007,6 @@ void KeyDepth::DepthExe(EKnobOper oper)
     g_menuBiopsy.ClearBiopsyLine();
     //prepare
     ImgCfm::GetInstance()->ChangeDepthBefore();
-
 
     //apply
     if (Img2D::GetInstance()->ChangeDepth(oper) != ERROR)

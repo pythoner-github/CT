@@ -1,23 +1,23 @@
 #include <gtk/gtk.h>
-#include "ImgPw.h"
-#include "FormatPw.h"
-#include "MenuPW.h"
-#include "CusSpin.h"
-#include "gui_func.h"
-#include "gui_global.h"
+#include "imageControl/ImgPw.h"
+#include "imageProc/FormatPw.h"
+#include "imageProc/MenuPW.h"
+#include "display/CusSpin.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
 #include "Def.h"
-#include "ImgProcPw.h"
-#include "ImageAreaDraw.h"
-#include "ModeStatus.h"
-#include "../measure/UpdateMeasure.h"
-#include "../display/HintArea.h"
-#include "../sysMan/SysMeasurementSetting.h"
-#include "../keyboard/KeyFunc.h"
-#include "SysOptions.h"
-#include "SysGeneralSetting.h"
+#include "imageProc/ImgProcPw.h"
+#include "display/ImageAreaDraw.h"
+#include "imageProc/ModeStatus.h"
+#include "measure/UpdateMeasure.h"
+#include "display/HintArea.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "keyboard/KeyFunc.h"
+#include "sysMan/SysOptions.h"
+#include "sysMan/SysGeneralSetting.h"
 //#include "UpdateMeasure.h"
-#include "MeasureCalc.h"
-#include "MeasureMan.h"
+#include "measure/MeasureCalc.h"
+#include "measure/MeasureMan.h"
 
 /***
  * 如果在同一个容器中添加相同的两个Widgets。此时对两个中的任意一个进行了操作切换之后都只会刷新最先加入容器中的widget
@@ -113,7 +113,6 @@ void MenuPW::UpdateDirectionModel(GtkTreeModel *model)
     gtk_tree_model_iter_next(model, &iter);
     gtk_list_store_set(store, &iter, 0, _("both"), -1);
 }
-
 
 GtkTreeModel *MenuPW::CreateThresholdModel()
 {
@@ -263,7 +262,6 @@ void MenuPW::Show(void)
     {
         ImgProcPw::GetInstance()->SetAutoCalc(TRUE);
     }
-
 
     SysGeneralSetting sysGeneralSetting;
     int index_direction = sysGeneralSetting.GetDirection();

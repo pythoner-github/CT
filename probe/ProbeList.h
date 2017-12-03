@@ -268,7 +268,6 @@ unsigned char Probe35D40JNDK[PROBE_INFO_SIZE] = //volume convex
     'N',		'D',		'K',		0x5a,
 };
 
-
 #ifdef VET
 unsigned char Probe55L60H[PROBE_INFO_SIZE] = //可视人流
 {

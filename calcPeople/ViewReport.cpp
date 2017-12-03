@@ -5,33 +5,33 @@
 #include <pango-1.0/pango/pangoft2.h>
 #include FT_FREETYPE_H
 
-#include "KeyValueOpr.h"
-#include "gui_global.h"
-#include "KeyDef.h"
-#include "PatientInfo.h"
-#include "ViewCalendar.h"
-#include "ViewReport.h"
-#include "ViewPrintPreview.h"
-#include "Usblp.h"
-#include "gui_func.h"
+#include "keyboard/KeyValueOpr.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyDef.h"
+#include "patient/PatientInfo.h"
+#include "display/ViewCalendar.h"
+#include "calcPeople/ViewReport.h"
+#include "periDevice/ViewPrintPreview.h"
+#include "periDevice/Usblp.h"
+#include "display/gui_func.h"
 #include "ViewMain.h"
-#include "SysGeneralSetting.h"
-#include "SysCalculateSetting.h"
-#include "MeasureMan.h"
-#include "MeasureTable.h"
-#include "MeaCalcFun.h"
-#include "ViewTemplet.h"
-#include "ImgMan.h"
-#include "TopArea.h"
-#include "ProbeSelect.h"
-#include "ViewSystem.h"
-#include "MenuCalcNew.h"
-#include "DCMMan.h"
-#include "ImgMan.h"
-#include "SysGeneralSetting.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/SysCalculateSetting.h"
+#include "measure/MeasureMan.h"
+#include "calcPeople/MeasureTable.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "calcPeople/ViewTemplet.h"
+#include "patient/ImgMan.h"
+#include "display/TopArea.h"
+#include "probe/ProbeSelect.h"
+#include "sysMan/ViewSystem.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "periDevice/DCMMan.h"
+#include "patient/ImgMan.h"
+#include "sysMan/SysGeneralSetting.h"
 
-#include "CreateBitmap.h"
-#include "MultiFuncFactory.h"
+#include "patient/CreateBitmap.h"
+#include "keyboard/MultiFuncFactory.h"
 extern pthread_t pidInitTable;
 extern gboolean ReportInit;
 
@@ -271,7 +271,6 @@ void ViewReport::CreateWindow(void)
 	gtk_editable_set_editable (GTK_EDITABLE (m_entryItem), FALSE);
 #endif
 
-
 	labelDate = gtk_label_new (_("Exam Date:"));
 	gtk_table_attach (GTK_TABLE (tablePatInfo), labelDate, 0, 1, 3, 4, (GtkAttachOptions) (GTK_FILL), (GtkAttachOptions) (0), 0, 0);
 	gtk_misc_set_alignment (GTK_MISC (labelDate), 0, 0.5);
@@ -316,7 +315,6 @@ void ViewReport::CreateWindow(void)
 #else
 	m_viewportGYN = CreateSW2NB(m_notebook, NB_GYN, _("Gynecology"));
 #endif
-
 
 	m_viewportSP = CreateSW2NB(m_notebook, NB_SP, _("Small Part"));
 #if (defined(EMP_313) || defined(EMP_322))
@@ -366,7 +364,6 @@ void ViewReport::CreateWindow(void)
 //	LoadMeasureData(NB_ABD);
 
 #else
-
 
 	int index = 0;
 	ExamItem::EItem item = ProbeSelect::GetItemIndex();
@@ -1150,7 +1147,6 @@ GtkWidget* ViewReport::CreateEditView(void)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw_indication), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sw_indication), GTK_SHADOW_IN);
 
-
     m_textview_indication = gtk_text_view_new ();
     m_buffer_indication = gtk_text_view_get_buffer(GTK_TEXT_VIEW(m_textview_indication));
     gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (m_textview_indication), GTK_WRAP_WORD_CHAR);
@@ -1253,7 +1249,6 @@ void ViewReport::BtnTransferClicked(GtkButton *button)
 {
     ViewTemplet::GetInstance()->CreateWindow();
 }
-
 
 void ViewReport::BtnClearIndicationClicked(GtkButton *button)
 {
@@ -1543,7 +1538,6 @@ int ViewReport::SearchIDFromCalcArr(gint stamp, gint row)
 	PRINTF("failed SearchIDFromCalcArr( stamp = %d, row = %d)\n", stamp, row);
 	return -1;
 }
-
 
 bool ViewReport::SetCheckToCalcArr(int id, char *title, bool fixed)
 {
@@ -2060,7 +2054,6 @@ GtkWidget* ViewReport::CreateObTable(int start, int end, int map_table[][CALC_MA
                 continue;
         }
 
-
 #ifdef VET
 
         result.id = i;
@@ -2304,7 +2297,6 @@ GtkWidget* ViewReport::CreateObTable(int start, int end, int map_table[][CALC_MA
 			gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 			g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width",  wide[6], NULL);
 
-
 			renderer = gtk_cell_renderer_text_new();
 			column = gtk_tree_view_column_new_with_attributes(("EDD"), renderer, "text", EDCB_OB_COL, NULL);
 			gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -2400,7 +2392,6 @@ GtkWidget* ViewReport::CreateGeneralTable(int section, int start, int end, int m
 	GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW (m_treeview_left));
 	gtk_tree_selection_set_mode(selection, GTK_SELECTION_NONE);
 
-
 	if (model != NULL)
 	{
 		gtk_tree_view_set_model (GTK_TREE_VIEW(m_treeview_left), model);
@@ -2424,7 +2415,6 @@ GtkWidget* ViewReport::CreateGeneralTable(int section, int start, int end, int m
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW (m_treeview_right));
 	gtk_tree_selection_set_mode(selection, GTK_SELECTION_NONE);
 
-
 	if (model2 != NULL)
 	{
 		gtk_tree_view_set_model (GTK_TREE_VIEW(m_treeview_right), model2);
@@ -2443,7 +2433,6 @@ GtkWidget* ViewReport::CreateGeneralTable(int section, int start, int end, int m
 		}
 		for(m=0; m<MEA_TIMES+1; m++)
 			result.data[m] = INVALID_VAL;
-
 
 		ret = ptrRes->GetValue(i, value, allvalue, IN_REPORT_MEAN);
 		if(ret!=MEA_SUCCESS)
@@ -2815,7 +2804,6 @@ int ViewReport::AddResultToTree3(GtkWidget * treeview, char *title, char *value,
 	return ++row;
 }
 
-
 void ViewReport::AddAverRes(GtkWidget *fixed, guint *y, const char *data)
 {
 	guint x1 = 20, x2 = 40;
@@ -2855,8 +2843,6 @@ void ViewReport::AddAverRes(GtkWidget *fixed, guint *y, const char *data)
             sprintf(title, "%s", "AUA");
             sprintf(value, " %dw%dd", ((int)calc_val[0])/7, ((int)calc_val[0])%7);
             rows = AddResultToTree3(treeview, title, value, "± 1w", id, rows);
-
-
 
             if(0 == i)
                 id = AVERRES_START_ID + 1;
@@ -3009,7 +2995,6 @@ void ViewReport::AddTDRes(GtkWidget *fixed, guint *y, const char *title)
 
 }
 #endif
-
 
 void ViewReport::AddOBEfwTable(GtkWidget *fixed, guint *y, const char *labstr, int fetal)
 {
@@ -3489,7 +3474,6 @@ void ViewReport::DrawGrowthCurve(int ObTable[][3], int StartDate, int MeasureNum
 		FormerX = x;
 		FormerY = y;
 	}
-
 
 	//标测量值的坐标点和LMP和上下限曲线及横轴的坐标点
 	x = Coordinate_Start_X + (GWDate-StartNum_X)*Unit_Len_X1/Unit_Len_X;

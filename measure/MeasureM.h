@@ -3,10 +3,10 @@
 #define MEASURE_M_H
 
 #include "AbsMeasure.h"
-#include "UpdateMeasure.h"
-#include "MeasureCalc.h"
-#include "MeasureDraw.h"
-#include "MeasureMan.h"
+#include "measure/UpdateMeasure.h"
+#include "measure/MeasureCalc.h"
+#include "measure/MeasureDraw.h"
+#include "measure/MeasureMan.h"
 
 class MMeasureTime: public AbsMeasure
 {

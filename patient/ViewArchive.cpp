@@ -11,34 +11,34 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <libavutil/time.h>
 #include <sys/vfs.h>
 #include <errno.h>
-#include "DCMMan.h"
-#include "KeyValueOpr.h"
-#include "ViewArchive.h"
-#include "ImgMan.h"
-#include "PeripheralMan.h"
-#include "VideoMan.h"
-#include "ViewCD.h"
-#include "ViewCalendar.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "KeyDef.h"
+#include "periDevice/DCMMan.h"
+#include "keyboard/KeyValueOpr.h"
+#include "patient/ViewArchive.h"
+#include "patient/ImgMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "patient/VideoMan.h"
+#include "periDevice/ViewCD.h"
+#include "display/ViewCalendar.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyDef.h"
 #include "ViewMain.h"
-#include "ViewArchiveImgMan.h"
-#include "ViewUdiskDataSelect.h"
-#include "ViewDialog.h"
-#include "SysDicomSetting.h"
-#include "TopArea.h"
-#include "HintArea.h"
-#include "ViewQueryRetrieve.h"
-#include "ViewDicomDataSelect.h"
-#include "SysGeneralSetting.h"
-#include "DCMRegister.h"
-#include "Replay.h"
-#include "DicomSend.h"
-#include "DicomSendPrinter.h"
+#include "patient/ViewArchiveImgMan.h"
+#include "patient/ViewUdiskDataSelect.h"
+#include "display/ViewDialog.h"
+#include "sysMan/SysDicomSetting.h"
+#include "display/TopArea.h"
+#include "display/HintArea.h"
+#include "patient/ViewQueryRetrieve.h"
+#include "patient/ViewDicomDataSelect.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "periDevice/DCMRegister.h"
+#include "imageProc/Replay.h"
+#include "patient/DicomSend.h"
+#include "patient/DicomSendPrinter.h"
 using std::ostringstream;
 using std::cout;
 using std::endl;
@@ -172,7 +172,6 @@ void ViewArchive::CreateWindow(void)
     GtkWidget *imgUdisk;
     GtkWidget *labelUdisk;
     GtkWidget *btnUdisk;
-
 
     GtkWidget *label_query_retrieve;
     GtkWidget *img_query_retrieve;
@@ -453,7 +452,6 @@ void ViewArchive::CreateWindow(void)
 	gtk_widget_set_size_request (labelDateStart, 90-12, 30);
 	gtk_misc_set_alignment (GTK_MISC (labelDateStart), 0, 0.5);
 
-
     labelDateEnd = gtk_label_new (_("Date End:"));
     gtk_fixed_put (GTK_FIXED (fixedSearch), labelDateEnd, 8, 110);
     gtk_widget_set_size_request (labelDateEnd, 90-12+10, 30);
@@ -470,7 +468,6 @@ void ViewArchive::CreateWindow(void)
         gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryYearStart, 100-12, 75);
         //g_signal_connect (G_OBJECT (m_entryYearStart), "insert-text", G_CALLBACK (HandleEntryOnlyNumInsert), this);
         g_signal_connect(G_OBJECT(m_entryYearStart), "insert_text", G_CALLBACK(on_entry_birth_date_year), this);
-
 
         GtkWidget *label1 = gtk_label_new (_("Y  "));
         gtk_widget_set_size_request (label1, 10+10, 30);
@@ -495,7 +492,6 @@ void ViewArchive::CreateWindow(void)
         GtkWidget *label13 = gtk_label_new (_("D  "));
         gtk_widget_set_size_request (label13, 10+10, 30);
         gtk_fixed_put (GTK_FIXED (fixedSearch), label13, 227+20-12, 75);
-
 
         m_entryYearEnd = gtk_entry_new ();
         gtk_entry_set_max_length (GTK_ENTRY(m_entryYearEnd), 4);
@@ -537,7 +533,6 @@ void ViewArchive::CreateWindow(void)
         gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryYearStart, 195-15+20-12, 75);
         //g_signal_connect (G_OBJECT (m_entryYearStart), "insert-text", G_CALLBACK (HandleEntryOnlyNumInsert), this);
         g_signal_connect(G_OBJECT(m_entryYearStart), "insert_text", G_CALLBACK(on_entry_birth_date_year), this);
-
 
         GtkWidget *label1 = gtk_label_new (_("D  "));
         gtk_widget_set_size_request (label1, 10+10, 30);
@@ -2412,7 +2407,6 @@ void ViewArchive::GetSelToDicom()
             string strDesDir = STORE_PATH;;
             strDesDir += "/tmp";
 
-
             GFile *dir = g_file_new_for_path(strDesDir.c_str());
             GError *err_mkdir = NULL;
             if(!g_file_make_directory(dir, NULL, &err_mkdir))
@@ -2569,7 +2563,6 @@ void ViewArchive::GetSelToDicom()
             time = hour + min + sec;
             dcmData.SetStudyTime(time);		//HMS
 
-
   			   dcmData.SetStudyDr(info.e.examDoctor); // to be continu
 
             dcmData.SetSID(sid);
@@ -2588,7 +2581,6 @@ void ViewArchive::GetSelToDicom()
 			else
 				partTemp = "";
             dcmData.SetPart(partTemp);
-
 
             string hospital;
             TopArea::GetInstance()->GetHospitalName(hospital);

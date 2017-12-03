@@ -3,7 +3,7 @@
 #define _VIEWCALCDIALOG_H_
 
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 
 class ViewCalcDialog : public FakeXEvent
 {

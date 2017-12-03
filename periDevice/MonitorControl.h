@@ -1,7 +1,6 @@
 #ifndef __MONITORCONTROL_H__
 #define __MONITORCONTROL_H__
 
-
 class MonitorControl
 {
     public:
@@ -21,7 +20,6 @@ class MonitorControl
     private:
         int DisplayWrite(unsigned char reg, unsigned char value = 0xff );//jufeng
         int DisplayWrite1(unsigned char reg);//ruixian
-
 
 #define VIDEO_ADDR1 0x37//睿显
 #define BRIGHT_ADD      0x03

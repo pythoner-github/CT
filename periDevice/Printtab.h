@@ -8,7 +8,7 @@
 #define PRINTTAB_H_
 
 #include <gtk/gtk.h>
-#include "Printlib.h"
+#include "periDevice/Printlib.h"
 
 class Printtab : public Printlib
 {

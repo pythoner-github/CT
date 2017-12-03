@@ -1,19 +1,15 @@
-
-
-
 #include <gtk/gtk.h>
-#include "MenuBiopsy.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ImageAreaDraw.h"
-#include "MenuArea.h"
-#include "BiopsyMan.h"
-#include "HintArea.h"
+#include "probe/MenuBiopsy.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "display/ImageAreaDraw.h"
+#include "display/MenuArea.h"
+#include "probe/BiopsyMan.h"
+#include "display/HintArea.h"
 
 MenuBiopsy g_menuBiopsy;
 bool MenuBiopsy::m_isDraw=false;
 bool MenuBiopsy::m_isDoubleLine=false;
-
 
 MenuBiopsy::MenuBiopsy(void)
 {
@@ -107,7 +103,6 @@ GtkWidget* MenuBiopsy::Create(void)
 	gtk_menu_bar_append(GTK_MENU_BAR(menuBar0),m_menuItemSetup);
 	g_signal_connect(G_OBJECT(m_menuItemSetup),"activate",G_CALLBACK(HandleMenuItemSetupActivate),this);
 	gtk_widget_show(m_menuItemSetup);
-
 
     gtk_box_pack_start(GTK_BOX(m_vboxBiopsy),menuBar0,false,false,0);
 
@@ -376,7 +371,6 @@ void MenuBiopsy::MenuItemAngleDeSelect(GtkMenuItem *menuitem)
 
 //	SetMenuBiopsyCursorYRange(128,188);
 	SetMenuBiopsyCursorYRange(128,250);
-
 
 }
 void MenuBiopsy::MenuItemAngleActivate(GtkMenuItem *menuitem)

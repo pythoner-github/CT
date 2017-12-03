@@ -9,10 +9,10 @@
 #include <ctype.h>
 #include <gtk/gtk.h>
 #include <string.h>
-#include "Printtext.h"
-#include "Printdefaults.h"
-#include "Printmain.h"
-#include "Printfunctions.h"
+#include "periDevice/Printtext.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
 
 GtkWidget *Printtext::textSizesFrame = NULL;
 GtkWidget *Printtext::textMarginsFrame = NULL;
@@ -665,7 +665,6 @@ void Printtext::TextForm(GtkWidget *container)
 	g_signal_connect(G_OBJECT(prettyCheck), "pressed", G_CALLBACK(button_wantprettycheck), this);
 	g_signal_connect(G_OBJECT(wrapCheck), "pressed", G_CALLBACK(button_wantprettycheck), this);
 }
-
 
 void Printtext::TextTab(void)
 {

@@ -8,7 +8,7 @@
 */
 
 #include <math.h>
-#include "Arrow.h"
+#include "comment/Arrow.h"
 
 CArrow::SHAPE CArrow::m_curShape = CArrow::HOLLOWARROW;
 CArrow::SIZE CArrow::m_curSize = CArrow::MID;

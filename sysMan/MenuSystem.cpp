@@ -1,12 +1,12 @@
 #include <gtk/gtk.h>
-#include "MenuSystem.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "MenuArea.h"
-#include "ViewSystem.h"
-#include "ModeStatus.h"
-#include "FreezeMode.h"
-#include "KeyFunc.h"
+#include "sysMan/MenuSystem.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "display/MenuArea.h"
+#include "sysMan/ViewSystem.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/FreezeMode.h"
+#include "keyboard/KeyFunc.h"
 
 MenuSystem g_menuSystem;
 

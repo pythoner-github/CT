@@ -24,25 +24,25 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <math.h>
-#include "ImageAreaDraw.h"
-#include "ImageArea.h"
-#include "gui_func.h"
+#include "display/ImageAreaDraw.h"
+#include "display/ImageArea.h"
+#include "display/gui_func.h"
 #include "Def.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "ImgProc2D.h"
-#include "ImgProcPw.h"
-#include "BiopsyLine.h"
-#include "MeasureCalc.h"
-#include "MeasureDraw.h"
-#include "UpdateMeasure.h"
-#include "../base/CalcTime.h"
-#include "../imageProc/Zoom.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "MenuPW.h"
-#include "ImageAreaPara.h"
-#include "MeasureMan.h"
-#include "SysMeasurementSetting.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcPw.h"
+#include "probe/BiopsyLine.h"
+#include "measure/MeasureCalc.h"
+#include "measure/MeasureDraw.h"
+#include "measure/UpdateMeasure.h"
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "imageProc/Zoom.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "imageProc/MenuPW.h"
+#include "display/ImageAreaPara.h"
+#include "measure/MeasureMan.h"
+#include "sysMan/SysMeasurementSetting.h"
 
 extern MenuPW g_menuPW;
 extern int g_setFunc;
@@ -3536,7 +3536,6 @@ void ImageAreaDraw::DrawBiopsyLine(int xDist, int yDist, int size, bool update)
         m_ptrImg->UpdateImgArea();
 }
 
-
 // xDist 为m_pointBiopsy和穿刺线起点的距离
 // yDist 为m_pointBiopsy和穿刺线终点的距离
 /*void ImageAreaDraw::DrawBiopsyLine(int xDist, int yDist, bool update)
@@ -4348,7 +4347,6 @@ void ImageAreaDraw::ReDrawSVCW(bool update)
     if (update)
         m_ptrImg->UpdateImgArea();
 }
-
 
 void ImageAreaDraw::SetPwScaleUnit(SCALEUNIT unit, bool update)
 {
@@ -5516,7 +5514,6 @@ void ImageAreaDraw::ReDrawLocalZoom(bool update)
     if (update)
         m_ptrImg->UpdateImgArea();
 }
-
 
 void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool LRStatus, bool UDStatus, GdkPoint pointLZ, bool draw, bool dash)
 {
@@ -6747,7 +6744,6 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
     }
 }
 
-
 void ImageAreaDraw::SetSteerAngle(int angle)
 {
     m_steerAngle = angle;
@@ -7139,7 +7135,6 @@ void ImageAreaDraw::EFOVZoomMiniatureBox(int start_x, int start_y, int end_x, in
     // gdk_draw_rectangle(m_pixmapEFOV, gc, false, start_x, start_y, end_x-start_x, end_y-start_y);
     // g_object_unref(gc);
 }
-
 
 void ImageAreaDraw::DrawEFOVZoomBox(int start_x,  int start_y, int end_x, int end_y)
 {

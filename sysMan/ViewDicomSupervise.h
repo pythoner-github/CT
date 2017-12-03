@@ -4,7 +4,7 @@
 #include <gtk/gtk.h>
 #include <vector>
 #include <string>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 
 class ViewDicomSupervise:public FakeXEvent
 {

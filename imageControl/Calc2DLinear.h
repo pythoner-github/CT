@@ -1,7 +1,7 @@
 #ifndef CALC_2D_LINEAR_H
 #define CALC_2D_LINEAR_H
 
-#include "Calc2D.h"
+#include "imageControl/Calc2D.h"
 
 class Calc2DLinear: public Calc2D
 {

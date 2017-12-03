@@ -1,23 +1,19 @@
-#include "ButtonCallBack.h"
+#include "sysMan/ButtonCallBack.h"
 #include <glib/gi18n.h>
-#include "DCMMan.h"
+#include "periDevice/DCMMan.h"
 #include <stdlib.h>
-#include "ViewDialog.h"
-#include "ViewSystem.h"
+#include "display/ViewDialog.h"
+#include "sysMan/ViewSystem.h"
 #define _DEBUG_ 1
-
 
 ButtonCallBack *ButtonCallBack::m_pInstance = NULL;
 ButtonCallBack::ButtonCallBack()
 {
 
-
-
 }
 
 ButtonCallBack::~ButtonCallBack()
 {
-
 
 }
 
@@ -102,7 +98,6 @@ void ButtonCallBack::ButtonPrintConnectClicked(GtkButton *button,GtkWidget *m_tr
     }
 }
 
-
 bool ButtonCallBack::ButtonPrintDeleteClicked(GtkButton *button,GtkWidget *m_treeview_worklist)
 {
     GtkTreeModel *model;
@@ -184,11 +179,6 @@ void ButtonCallBack::ButtonPrintDefaultClicked(GtkButton *button,GtkWidget *m_tr
 
 }
 
-
-
-
-
-
 void ButtonCallBack::ButtonPrintClearClicked(GtkButton *button,GtkWidget *m_combobox_worklist_device,GtkWidget *m_entry_worklist_name,GtkWidget *m_entry_worklist_AE,GtkWidget *m_entry_worklist_port)
 {
 
@@ -198,7 +188,6 @@ void ButtonCallBack::ButtonPrintClearClicked(GtkButton *button,GtkWidget *m_comb
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_name),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_AE),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_port),"");
-
 
 }
 
@@ -294,7 +283,6 @@ char * ButtonCallBack::GtkTreePortGet(GtkWidget *m_treeview_worklist)
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
 
-
 	while(exist)
 	{
 		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
@@ -307,7 +295,6 @@ char * ButtonCallBack::GtkTreePortGet(GtkWidget *m_treeview_worklist)
 
 	}
 
-
 	return port;
 
 }
@@ -317,7 +304,6 @@ printf("========================================================================
     char *device = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_worklist_device));
     const char *ae = gtk_entry_get_text(GTK_ENTRY(m_entry_worklist_AE));
     const char *port = gtk_entry_get_text(GTK_ENTRY(m_entry_worklist_port));
-
 
     if(ae[0] == '\0' ||port[0] == '\0'||device[0] == '\0')
     {
@@ -371,7 +357,6 @@ printf("========================================================================
         exist = gtk_tree_model_iter_next(model, &iter);
     }
 
-
     if(!CDCMMan::GetMe()->AddPrintService(device, tmp_serviceName, ae, atoi(port)))
     {
 		CDCMMan::GetMe()->DeletePrintService(device);
@@ -397,6 +382,5 @@ printf("========================================================================
     gtk_tree_model_iter_next(model, &iter);
 printf("===========================================================================\n");
     g_free(device);
-
 
 }

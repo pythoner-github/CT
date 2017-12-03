@@ -1,10 +1,9 @@
 #ifndef DRAWIMT_H
 #define DRAWIMT_H
 
-
 #include <math.h>
-#include "MeasureDraw.h"
-#include "UpdateMeasure.h"
+#include "measure/MeasureDraw.h"
+#include "measure/UpdateMeasure.h"
 
 class CDrawIMT
 {
@@ -30,7 +29,6 @@ class CDrawIMT
         void SetRoiMem(void);
         void SetInAdventIMTMem(void);
         void GetUpDownStatus(void);
-
 
         unsigned int m_on_off;
         POINT m_area_start;

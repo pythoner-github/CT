@@ -13,16 +13,16 @@
 #include <cups/ppd.h>
 #include <glib/gi18n.h>
 
-#include "Printlib.h"
-#include "Printmain.h"
-#include "Printgeneral.h"
-#include "Printfunctions.h"
-#include "Printtab.h"
-#include "Printhpgl2.h"
-#include "Printimage.h"
-#include "Printoutput.h"
-#include "Printppd.h"
-#include "Printtext.h"
+#include "periDevice/Printlib.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printgeneral.h"
+#include "periDevice/Printfunctions.h"
+#include "periDevice/Printtab.h"
+#include "periDevice/Printhpgl2.h"
+#include "periDevice/Printimage.h"
+#include "periDevice/Printoutput.h"
+#include "periDevice/Printppd.h"
+#include "periDevice/Printtext.h"
 
 class Printfunctions : public Printlib
 {

@@ -5,11 +5,11 @@
 #include <gdk/gdkkeysyms.h>
 #include <vector>
 #include <string>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include "Def.h"
-#include "VideoMan.h"
-#include "DicomSend.h"
-#include "DCMDef.h"
+#include "patient/VideoMan.h"
+#include "patient/DicomSend.h"
+#include "periDevice/DCMDef.h"
 using namespace std;
 
 typedef struct
@@ -20,8 +20,6 @@ typedef struct
 	int height;
 
 }areaImgInfo_t;
-
-
 
 typedef struct
 {
@@ -63,11 +61,9 @@ public:
 	void InitParameter(vector<string> examID);
 	void CreateWindow(vector<string> examID,Format format,FilmSize filmsize,ORIENTATION orientation,GdkColor *bgColor);
 
-
 	void UpdateCurPat(string examID, int curPat, int totalPat, bool cur);
 	void GetSnapsName(string examID, vector<string> &vec);
 	void DrawAreaExpose(GtkWidget *widget, GdkEventExpose *event);
-
 
 	void BtnNextImgPageClicked(GtkButton* button);
 	void BtnLastImgPageClicked(GtkButton* button);
@@ -129,7 +125,6 @@ public:
 	int m_maxImgPage;
 	gint m_idShowed;
 
-
 		GtkWidget *m_window;
 		GtkWidget *m_labName;
 	GtkWidget *m_labSex;
@@ -169,7 +164,6 @@ static void HandleBtnClearClicked(GtkButton *button, DicomSendPrinter* data)
 }
 static bool dealMousePress(GtkWidget *widget,GdkEventButton *event);
 
-
 	static void HandleDicomSendPrinterClicked(GtkMenuItem *menuitem, gpointer *data)
 	{
 		DicomSendPrinter::GetInstance()->BtnDisplayClicked(menuitem);
@@ -198,17 +192,14 @@ static bool dealMousePress(GtkWidget *widget,GdkEventButton *event);
 		{
 			data->BtnNextPatClicked(button);
 
-
 		}
 		static void HandleBtnLastPatClicked(GtkButton *button, DicomSendPrinter* data)
-
 
 		{ data->BtnLastPatClicked(button); }
 		static void HandleBtnExitClicked(GtkButton *button, DicomSendPrinter* data)
 			{
 			data->BtnExitClicked();
 			}
-
 
 };
 #endif

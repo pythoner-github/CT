@@ -15,12 +15,12 @@
 #define __MULTIFUNCARROW_H__
 
 #include "Def.h"
-#include "../include/AbsUpdateArrow.h"
-#include "KnobEvent.h"
-#include "../include/AbsMultiFunc.h"
-#include "Arrow.h"
-#include "KnobMenu.h"
-#include "CalcTime.h"
+#include "AbsUpdateArrow.h"
+#include "keyboard/KnobEvent.h"
+#include "AbsMultiFunc.h"
+#include "comment/Arrow.h"
+#include "display/KnobMenu.h"
+#include "accessories/osrfx2_src/CalcTime.h"
 
 class MultiFuncArrow: public CAbsUpdateArrow, public CKnobEvent, public AbsMultiFunc
 {

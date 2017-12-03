@@ -1,7 +1,7 @@
-#include "FakeXEvent.h"
-#include "gui_func.h"
-#include "KeyFunc.h"
-#include "KeyDef.h"
+#include "display/FakeXEvent.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyFunc.h"
+#include "keyboard/KeyDef.h"
 
 void FakeXEvent::KeyEvent(unsigned char keyValue)
 {

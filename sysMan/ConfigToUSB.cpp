@@ -1,16 +1,16 @@
 #include <dirent.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "FileMan.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "FakeXEvent.h"
-#include "PeripheralMan.h"
-#include "ViewDialog.h"
-#include "ViewArchive.h"
-#include "ViewArchiveImgMan.h"
-#include "ConfigToUSB.h"
-#include "ViewSystem.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/FileMan.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/PeripheralMan.h"
+#include "display/ViewDialog.h"
+#include "patient/ViewArchive.h"
+#include "patient/ViewArchiveImgMan.h"
+#include "sysMan/ConfigToUSB.h"
+#include "sysMan/ViewSystem.h"
 
 ConfigToUSB* ConfigToUSB::m_ptrInstance = NULL;
 
@@ -83,7 +83,6 @@ void ConfigToUSB::CreateWindow(GtkWindow *parent)
     m_treeBranch = create_treeview(1);
     gtk_widget_show (m_treeBranch);
     gtk_container_add (GTK_CONTAINER (swBranch), m_treeBranch);
-
 
     GtkWidget *imageOK = gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
     GtkWidget *labelOK = gtk_label_new_with_mnemonic (_("OK"));

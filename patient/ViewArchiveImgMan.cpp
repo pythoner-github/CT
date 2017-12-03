@@ -12,25 +12,25 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <dirent.h>
-#include "ViewArchiveImgMan.h"
-#include "gui_global.h"
-#include "KeyValueOpr.h"
-#include "gui_func.h"
-#include "KeyDef.h"
+#include "patient/ViewArchiveImgMan.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyValueOpr.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyDef.h"
 #include "ViewMain.h"
-#include "Database.h"
-#include "PatientInfo.h"
-#include "ImgMan.h"
-#include "Replay.h"
-#include "FreezeMode.h"
-#include "ViewReport.h"
-#include "ViewArchive.h"
-#include "ViewPrintPreview.h"
-#include "MenuReview.h"
-#include "KeyFunc.h"
-#include "Usblp.h"
+#include "patient/Database.h"
+#include "patient/PatientInfo.h"
+#include "patient/ImgMan.h"
+#include "imageProc/Replay.h"
+#include "imageProc/FreezeMode.h"
+#include "calcPeople/ViewReport.h"
+#include "patient/ViewArchive.h"
+#include "periDevice/ViewPrintPreview.h"
+#include "imageProc/MenuReview.h"
+#include "keyboard/KeyFunc.h"
+#include "periDevice/Usblp.h"
 #include "sysMan/SysGeneralSetting.h"
-#include "AviEncDecH264.h"
+#include "patient/AviEncDecH264.h"
 
 // global
 static gboolean TimerReviewCineAuto(gpointer data)
@@ -54,7 +54,6 @@ static gboolean ExitWindow(gpointer data)
     tmp->DestroyWindow();
     return FALSE;
 }
-
 
 ///< class
 ViewArchiveImgMan* ViewArchiveImgMan::m_ptrInstance = NULL;
@@ -266,7 +265,6 @@ void ViewArchiveImgMan::CreateWindow(vector<string> examID, const char *selected
 	gtk_misc_set_alignment (GTK_MISC (m_labSpecies), 0, 0.5);
 #endif
 
-
 	m_labSex = gtk_label_new ("");
 	gtk_box_pack_start (GTK_BOX (hboxPatInfo), m_labSex, FALSE, TRUE, 0);
 	gtk_misc_set_alignment (GTK_MISC (m_labSex), 0, 0.5);
@@ -399,7 +397,6 @@ void ViewArchiveImgMan::CreateWindow(vector<string> examID, const char *selected
 	UpdateCurPat(m_vecExamID[m_curPat], m_curPat, m_vecExamID.size());
 //	DisplayCineMenu(FALSE);
 	PRINTF("end of ViewArchiveImgMan: create window\n");
-
 
 	if(selected)
 	{
@@ -1165,7 +1162,6 @@ GtkWidget* ViewArchiveImgMan::CreatePatInfoArea(GtkWidget *fixed)
 	gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 1), labTabOB);
 #endif
 
-
 	//
 	GtkWidget *fixedTabCard = gtk_fixed_new ();
 	gtk_container_add (GTK_CONTAINER (notebook), fixedTabCard);
@@ -1726,7 +1722,6 @@ void ViewArchiveImgMan::UpdatePatInfo(string examID)
 	PatientInfo::Info info;
 	Database db;
 
-
 SysGeneralSetting sgs;
 int lang=sgs.GetLanguage();
 //SysGeneralSetting *sgs = new SysGeneralSetting;
@@ -1750,7 +1745,6 @@ int lang=sgs.GetLanguage();
 
 	gtk_label_set_text(GTK_LABEL(m_labEntryName), strTemp.c_str());
 #endif
-
 
 	//strTemp = info.p.name.first + info.p.name.mid + info.p.name.last;
 	//gtk_label_set_text(GTK_LABEL(m_labEntryName), strTemp.c_str());
@@ -2126,7 +2120,6 @@ void ViewArchiveImgMan::ReadCineToReplay(VideoMan::VideoItem *videoItem)
 	Replay::GetInstance()->EnterReadCine();
 	Replay::GetInstance()->SetUpdateFrameFunc(DrawImgData);
 
-
     if (videoItem->format == VideoMan::AVI)
     {
         ReadAviData(videoItem->path, NULL,  videoItem->frames, videoItem->width, videoItem->height, VideoMan::SaveReplay);
@@ -2173,7 +2166,6 @@ void ViewArchiveImgMan::DisplayCineMenu(bool yes)
 	else
 		gtk_widget_hide_all(m_hboxCineReplay);
 }
-
 
 /*
  * @brief update cine info in cine menu(progress bar and label)

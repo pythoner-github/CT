@@ -1,17 +1,17 @@
-#include "MeasureFactory.h"
-#include "Measure2D.h"
-#include "MeasureM.h"
-#include "MeasureD.h"
-#include "MeaCalcFun.h"
-#include "MeaResult.h"
-#include "MeaFactoryMainSingle.h"
-#include "ViewCalcDialog.h"
-#include "ImgProcPw.h"
+#include "measure/MeasureFactory.h"
+#include "measure/Measure2D.h"
+#include "measure/MeasureM.h"
+#include "measure/MeasureD.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "calcPeople/MeaResult.h"
+#include "calcPeople/MeaFactoryMainSingle.h"
+#include "display/ViewCalcDialog.h"
+#include "imageProc/ImgProcPw.h"
 #include <stdio.h>
-#include "../display/HintArea.h"
-#include "SysMeasurementSetting.h"
-#include "DrawHistogram.h"
-#include "MenuCalcNew.h"
+#include "display/HintArea.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "measure/DrawHistogram.h"
+#include "calcPeople/MenuCalcNew.h"
 
 MeaFactoryMainSingle* MeaFactoryMainSingle::m_ptrInstance = NULL;
 
@@ -419,7 +419,6 @@ unsigned int MeaFactoryMainSingle::NewSingleMeasure(const SingleItemInfo *ptrSin
 			else
 				g_ptrAbsMeasure = NULL;
 			break;
-
 
 		case TIME_M:
 		case HR_M:

@@ -8,17 +8,17 @@
  * date: 2009-5-11
  * @author: zhanglei
  */
-#include "gtk/gtk.h"
+#include <gtk/gtk.h>
 #include <math.h>
 #include <string.h>
-#include "Calc2D.h"
+#include "imageControl/Calc2D.h"
 #include "Def.h"
-#include "FpgaCtrl2D.h"
-#include "ModeStatus.h"
-#include "../base/CalcTime.h"
-#include "ProbeMan.h"
-#include "HintArea.h"
-#include "ViewSuperuser.h"
+#include "imageControl/FpgaCtrl2D.h"
+#include "imageProc/ModeStatus.h"
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "probe/ProbeMan.h"
+#include "display/HintArea.h"
+#include "sysMan/ViewSuperuser.h"
 #include "ViewMain.h"
 ///> dynamic range
 const int Calc2D::DYNAMIC_DATA[MAX_DYNAMIC_INDEX] = {197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197};
@@ -206,47 +206,47 @@ struct Calc2D::ProjectCalcPara* Calc2D::m_projectCalcPara = NULL;
 //filter parament
 const unsigned char Calc2D::m_filterDynamic[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/dync_lp_12M_0M_025_480seg.h"
+#include "res/filter/Convex/dync_lp_12M_0M_025_480seg.h"
 };
 const unsigned char Calc2D::m_filterMatch[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg.h"
+#include "res/filter/Convex/DynMatchFilter_480seg.h"
 };
 
 const unsigned char Calc2D::m_filterMatch_harmonic_1[30720] = //480*32*2
 {
 	//#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic.h"
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_12.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_12.h"
 };
 
 const unsigned char Calc2D::m_filterMatch_harmonic_2[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_23.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_23.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_3[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_34.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_34.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_4[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_45.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_45.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_5[30720] = //480*32*2
 {
-    #include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_56.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_56.h"
    // #include "../res/filter/Convex/DynMatchFilter_480seg_harmonic.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_6[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_67.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_67.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_7[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_78.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_78.h"
 };
 const unsigned char Calc2D::m_filterMatch_harmonic_8[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/DynMatchFilter_480seg_harmonic_78.h"
+#include "res/filter/Convex/DynMatchFilter_480seg_harmonic_78.h"
 };
 const short Calc2D::m_bp_compensation[32] =
 {
@@ -254,7 +254,6 @@ const short Calc2D::m_bp_compensation[32] =
 };
 
 bool Calc2D::m_singleAperture = FALSE;
-
 
 FpgaCtrl2D Calc2D::m_fpga;
 //=========================================================
@@ -1538,7 +1537,6 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
 
 }
 
-
 /*
  * @brief calc focus section and send to imging system
  *
@@ -2486,7 +2484,6 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
         CCompoundParaAdderCalc(steer, value, COMPOUND_SIZE);
         m_fpga.SendSpaceCompoundAdder((unsigned short*)value, COMPOUND_SIZE * sizeof(int)/sizeof(short));
 
-
 		// adder
 		int adderForLine;
 		int adderForDot;
@@ -2905,7 +2902,6 @@ void Calc2D::BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqD
 
 	float bandPassFreq1[5];
 	float bandPassFreq2[5];
-
 
 	for(i = 0; i < 5; i++)
 	{
@@ -3638,7 +3634,6 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
 
 }
 
-
 void Calc2D::ChangeFreqDynamicFilter(float data, int segment)
 {
     m_fcDynamicFilter[segment - 1] = data;
@@ -3911,7 +3906,6 @@ int Calc2D::GetCfmPrfIndex(int prfIndex)
 
 	return prfIndex;
 }
-
 
 ///> private
 
@@ -4848,7 +4842,6 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
 		delay[i] = 0;
 	}
 
-
     activeMaxLength = focPos;
     int lines = probeLines;
     int j;
@@ -5574,7 +5567,6 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 
 #ifdef EMP_PROJECT
 
-
     int sendChNum;
     float F_num_Tx = 5.0;
 
@@ -5662,7 +5654,6 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
         }
 
     }
-
 
 #else
 	int sendChNum;

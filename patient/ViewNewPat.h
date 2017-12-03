@@ -2,10 +2,10 @@
 #ifndef VIEW_NEW_PAT_H
 #define VIEW_NEW_PAT_H
 
-#include "FakeXEvent.h"
-#include "../include/AbsCalendarOpr.h"
-#include "PatientInfo.h"
-#include "DCMDef.h"
+#include "display/FakeXEvent.h"
+#include "AbsCalendarOpr.h"
+#include "patient/PatientInfo.h"
+#include "periDevice/DCMDef.h"
 
 class TopArea;
 
@@ -62,7 +62,6 @@ private:
     bool m_clearAll;            // clear all or examinfo
     GtkWidget *m_button_worklist;
     GtkWidget *m_warming_label;
-
 
     DCMSTUDYELEMENT m_studyInfo;
     static ViewNewPat* m_ptrInstance;

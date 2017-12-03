@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "ProbeSocket.h"
-#include "IniFile.h"
+#include "probe/ProbeSocket.h"
+#include "base/IniFile.h"
 
 using std::string;
 using std::vector;
@@ -72,6 +72,5 @@ class ProbeMan
         int m_curSocket;
         int m_defaultSocket;
 };
-
 
 #endif

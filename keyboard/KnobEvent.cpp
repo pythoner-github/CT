@@ -1,8 +1,8 @@
-#include "KnobEvent.h"
-#include "KnobMenu.h"
-#include "KeyDef.h"
-#include "KnobProjectMode.h"
-#include "ViewSuperuser.h"
+#include "keyboard/KnobEvent.h"
+#include "display/KnobMenu.h"
+#include "keyboard/KeyDef.h"
+#include "projectMode/KnobProjectMode.h"
+#include "sysMan/ViewSuperuser.h"
 void CKnobEvent::KnobEvent(unsigned char keyValue, unsigned char offset)
 {
 	KnobMenu* ptrKnob = KnobMenu::GetInstance();

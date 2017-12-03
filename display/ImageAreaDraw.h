@@ -2,10 +2,10 @@
 #ifndef IMAGE_AREA_2D_H
 #define IMAGE_AREA_2D_H
 
-#include "../imageProc/ModeStatus.h"
+#include "imageProc/ModeStatus.h"
 #include <vector>
-#include "../include/Def.h"
-#include "Image.h"
+#include "Def.h"
+#include "imageProc/Image.h"
 
 class ImageArea;
 using std::vector;

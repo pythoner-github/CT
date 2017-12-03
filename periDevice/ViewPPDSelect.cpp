@@ -1,16 +1,16 @@
-#include "gui_func.h"
-#include "gui_global.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "FakeXEvent.h"
-#include "ViewPPDSelect.h"
-#include "../patient/FileMan.h"
-#include "ViewPrinterAdd.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/ViewPPDSelect.h"
+#include "patient/FileMan.h"
+#include "periDevice/ViewPrinterAdd.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <time.h>
+#include <libavutil/time.h>
 
 ViewPPDSelect* ViewPPDSelect::m_ptrInstance = NULL;
 

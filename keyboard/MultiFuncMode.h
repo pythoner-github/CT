@@ -2,17 +2,17 @@
 #define MULTI_FUNC_MODE
 
 #include "AbsMultiFunc.h"
-#include "../imageControl/KnobM.h"
-#include "../imageControl/Img2D.h"
-#include "../imageProc/Replay.h"
-#include "KeyValueOpr.h"
-#include "LightDef.h"
-#include "../imageProc/ScanMode.h"
-#include "../imageProc/ModeStatus.h"
-#include "LightDef.h"
-#include "GlobalClassMan.h"
-#include "ImgProcPw.h"
-#include "MenuPW.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/Img2D.h"
+#include "imageProc/Replay.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/LightDef.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/ModeStatus.h"
+#include "keyboard/LightDef.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/MenuPW.h"
 
 //AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
 
@@ -173,7 +173,6 @@ class MultiFuncPwPdi: public MultiFuncPwCfmInit
 		void Update();
 };
 
-
 /*
  * @brief Anatomic M mode
  */
@@ -238,7 +237,6 @@ class MultiFuncCwInit: public AbsMultiFunc
 		CalcPw* m_ptrCalc;
 };
 
-
 /*
  * @brief cw
  */
@@ -255,7 +253,6 @@ class MultiFuncCw: public AbsMultiFunc
 		void KeyUp();
 		void KeyDown();
 		CalcPw* m_ptrCalc;
-
 
 };
 
@@ -314,6 +311,5 @@ class MultiFuncCwPdi: public MultiFuncCwCfmInit
 	public:
 		void Update();
 };
-
 
 #endif

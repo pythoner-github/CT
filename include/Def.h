@@ -1,7 +1,6 @@
 #ifndef __DEF_H__
 #define __DEF_H__
 
-//#include "./lib/opencv/include/cv.h"
 #include <opencv/cv.h>
 #include <stdio.h>
 #include <cassert>
@@ -269,14 +268,12 @@
 #endif
 #endif
 
-
 ///> define new type
 enum EKnobOper{SUB, ADD, ROTATE};
 
 enum EKnobReturn{ERROR, OK, MIN, MAX, PRESS};
 
 enum EDrawMode{COPY, XOR};
-
 
 #ifdef VET
 enum EStudy{ANIMAL, PART};

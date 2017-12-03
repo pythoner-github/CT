@@ -3,9 +3,9 @@
 #define _MENU_BIOPSY_H_
 
 #include "Def.h"
-#include "CusSpin.h"
-#include "BiopsyLine.h"
-#include "ImageAreaDraw.h"
+#include "display/CusSpin.h"
+#include "probe/BiopsyLine.h"
+#include "display/ImageAreaDraw.h"
 
 #define WIDTH_BIOPSY_MENU  175 //220
 #define HEIGHT_BIOPSY_MENU 635

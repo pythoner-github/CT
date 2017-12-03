@@ -10,7 +10,7 @@
 
 #include <gtk/gtk.h>
 #include <cups/ppd.h>
-#include "Printlib.h"
+#include "periDevice/Printlib.h"
 
 class Printppd : public Printlib
 {

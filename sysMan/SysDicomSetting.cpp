@@ -1,8 +1,8 @@
 #include <string>
 
-#include "../include/Def.h"
-#include "SysDicomSetting.h"
-#include "../base/IniFile.h"
+#include "Def.h"
+#include "sysMan/SysDicomSetting.h"
+#include "base/IniFile.h"
 
 using std::string;
 
@@ -60,7 +60,6 @@ void SysDicomSetting::GetLocalPort(string& localPort)
 {
     localPort = ptrIni->ReadString("DicomSetting", "LocalPort");
 }
-
 
 void SysDicomSetting::SetRemoteAE(const char* remoteAE)
 {

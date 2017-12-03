@@ -9,20 +9,20 @@
  * @author: zhanglei
  */
 
-#include "MultiFuncMode.h"
-#include "ScanMode.h"
-#include "ImgPw.h"
-#include "ImgCfm.h"
-#include "MultiFuncFactory.h"
-#include "gui_func.h"
-#include "FreezeMode.h"
-#include "ModeStatus.h"
-#include "KeyFunc.h"
-#include "ImgProcM.h"
-#include "ImgProc2D.h"
-#include "MeasureFactory.h"
-#include "ViewSuperuser.h"
-#include "MeasureD.h"
+#include "keyboard/MultiFuncMode.h"
+#include "imageProc/ScanMode.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/ImgCfm.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "display/gui_func.h"
+#include "imageProc/FreezeMode.h"
+#include "imageProc/ModeStatus.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/ImgProc2D.h"
+#include "measure/MeasureFactory.h"
+#include "sysMan/ViewSuperuser.h"
+#include "measure/MeasureD.h"
 
 bool updateoffsound=false;
 extern int soundstatus;

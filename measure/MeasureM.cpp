@@ -1,8 +1,7 @@
-#include "MeasureM.h"
+#include "measure/MeasureM.h"
 
 #include <iostream>
 using namespace std;
-
 
 ///>method: 0－时间，1－心率
 ///>re_display:本测量项的属性，包括计算项的计算公式
@@ -219,7 +218,6 @@ void MMeasureTime::Esc()
 	}
 }
 
-
 //M模式速度测量
 MMeasureVel::MMeasureVel(const SingleItemInfo *ptrSingleItemInfo)
 {
@@ -412,7 +410,6 @@ void MMeasureVel::Esc()
 		}
 	}
 }
-
 
 //M模式带距离的斜率测量
 MMeasureDistSlope::MMeasureDistSlope(const MultiItemInfo *ptrMultiItemInfo)

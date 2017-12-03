@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "DicomSend.h"
+#include "patient/DicomSend.h"
 #include <glib/gi18n.h>
 
 #define SCALE_WIDTH  1.25
@@ -15,7 +15,6 @@ DicomSend::DicomSend()
 void DicomSend::destroyItem()
 {
 	int i, total;
-
 
 	//gtk_widget_destroy(m_menu);
 	total = m_vecItem.size();
@@ -62,7 +61,6 @@ void DicomSend::createLabelButton(GtkWidget *fixedWin)
         gtk_fixed_put (GTK_FIXED (fixedWin), btnExport, 20*SCALE_WIDTH, (550-30)*SCALE_HEIGHT);
        g_signal_connect(G_OBJECT(btnExport), "event", G_CALLBACK(DicomSend::HandleDicomBtnExportEvent), this);
 
-
 }
 GtkWidget* DicomSend::create_button_icon(GtkWidget *label, GtkWidget *icon_image)
 {
@@ -100,7 +98,6 @@ void DicomSend::createPopup(char *label,HandleMenuItemCDActivate_t HandleMenuIte
 	gtk_widget_show(m_itemFlash);
 	m_vecItem.push_back(m_itemFlash);
 
-
 }
 int DicomSend::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 {
@@ -117,4 +114,3 @@ int DicomSend::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 {
 	return DicomSend::GetInstance()->BtnExportEvent(widget, event);
  }
-

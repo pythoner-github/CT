@@ -12,23 +12,23 @@
 #include <vector>
 #include <stdlib.h>
 #include <math.h>
-#include<time.h>
+#include <libavutil/time.h>
 #include "Def.h"
-#include "Measure2D.h"
-#include "MeasureMan.h"
-#include "ImageArea.h"
-#include "MeasureFactory.h"
-#include "DrawHistogram.h"
-#include "MeaFactoryMainSingle.h"
-#include "../display/HintArea.h"
+#include "measure/Measure2D.h"
+#include "measure/MeasureMan.h"
+#include "display/ImageArea.h"
+#include "measure/MeasureFactory.h"
+#include "measure/DrawHistogram.h"
+#include "calcPeople/MeaFactoryMainSingle.h"
+#include "display/HintArea.h"
 #include <stdio.h>
 #include <errno.h>
-#include "gui_global.h"
+#include "display/gui_global.h"
 #include <iostream>
 //#include "../IMT/IMTDef.h"
-#include "IMT.h"
-#include "CDrawIMT.h"
-#include "MenuMeasure.h"
+#include <IMT.h>
+#include "measure/CDrawIMT.h"
+#include "measure/MenuMeasure.h"
 using namespace std;
 using std::vector;
 
@@ -261,7 +261,6 @@ void D2MeasureDistDot::Esc()
 		m_update.ClearMeasure();
 	}
 }
-
 
 ///> Dist-两线法测距离
 D2MeasureDistLine::D2MeasureDistLine(const SingleItemInfo *ptrSingleItemInfo)
@@ -568,7 +567,6 @@ void D2MeasureLengthTrack::PressLeft(POINT p)
 
             m_ptrMan->SingleMeaDataMan((double)m_length, m_itemInfo, allData, SAVE);
             m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-
 
 			//m_update.D2LenTrack(m_length, attr, false);
 			//begin new track length measure
@@ -998,7 +996,6 @@ break;
 	}
 }
 
-
 ///>轨迹法测面积
 D2MeasureAreaTrack::D2MeasureAreaTrack(const SingleItemInfo *ptrSingleItemInfo):MOUSE_INTERVAL(2)
 {
@@ -1356,7 +1353,6 @@ void D2MeasureAreaTrack::Esc()
     m_trackTemp.clear();
 }
 
-
 ///>Simpson's测EDV和ESV
 D2MeasureSimpson::D2MeasureSimpson(const MultiItemInfo *ptrMultiItemInfo):MOUSE_INTERVAL(2)
 {
@@ -1670,7 +1666,6 @@ void D2MeasureSimpson::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 
-
 			m_mouse_count++;
 			if (m_mouse_count >= MOUSE_INTERVAL)
 			{
@@ -1775,7 +1770,6 @@ void D2MeasureSimpson::Value(EKnobOper opr)
 	unit_coeffi[2] = 1;
 	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
-
 
     if(opr == ADD)
     {//redraw
@@ -2463,7 +2457,6 @@ void D2MeasureAL::Value(EKnobOper opr)
 	unit_coeffi[2] = 1;
 	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
-
 
     if(opr == ADD)
     {//redraw
@@ -4190,7 +4183,6 @@ void D2MeasureSac3Axis::Esc()
 // 			m_step = 2;
 // 			break;
 
-
 // 		case 2:
 // 			if (m_isDraw)
 // 			{
@@ -4861,7 +4853,6 @@ D2MeasureVolEllipse2::D2MeasureVolEllipse2(const SingleItemInfo *ptrSingleItemIn
     m_item = ptrSingleItemInfo->item;
 	m_itemInfo = ptrSingleItemInfo;
 
-
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -4979,7 +4970,6 @@ void D2MeasureVolEllipse2::PressLeft(POINT p)
 
             m_ptrMan->SingleMeaDataMan(m_vol, m_itemInfo, allData, SAVE);
             m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-
 
 			//begin new dist measure
 			m_draw.ChangeCursorType(); // 更改鼠标类型
@@ -7024,7 +7014,6 @@ void D2MeasureRatioDistPeri::PressLeft(POINT p)
 			m_isDraw = TRUE;
 			break;
 
-
 		case 4:
 			{
 				if (m_isDraw)
@@ -7051,7 +7040,6 @@ void D2MeasureRatioDistPeri::PressLeft(POINT p)
 
                 m_ptrMan->SingleMeaDataMan((double)m_ratio, m_itemInfo, allData, SAVE);
 				m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-
 
 				//begin new dist measure
 				m_draw.ChangeCursorType(); // 更改鼠标类型
@@ -7485,7 +7473,6 @@ void D2MeasureRatioArea::PressLeft(POINT p)
 			    m_update.D2RatioVol(m_vol1, m_vol2, m_ratio, attr);
 
 			break;
-
 
 		case 5:
 			if (m_isDraw)
@@ -9528,8 +9515,6 @@ D2MeasureIMT::D2MeasureIMT(bool dir)
 
 }
 
-
-
 D2MeasureIMT::~D2MeasureIMT()
 {
 #if 0
@@ -9590,7 +9575,6 @@ void D2MeasureIMT::PressLeft(POINT p)
                 }
                 m_draw.DrawCursor(m_p1, FALSE);
                 m_draw.DrawIMTBox(m_p1, m_tempP, TRUE);
-
 
                 if (m_p1.x < m_tempP.x)
                 {
@@ -9852,7 +9836,6 @@ void D2MeasureIMT::Esc() //press point and other keyboard
         CDrawIMT::GetInstance()->GetRealIMTStatus(m_RealIMTStatus);
         //m_ImtStatus = FALSE;
         //CDrawIMT::GetInstance()->GetIMTStatus(m_ImtStatus);
-
 
         //clear mesure result
         m_update.ClearMeasure();

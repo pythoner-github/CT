@@ -1,7 +1,7 @@
 #ifndef __IOCTRL_H__
 #define __IOCTRL_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 #include "AbsUltraInterface.h"
 
 class IoCtrl
@@ -68,6 +68,5 @@ class IoCtrl
 
 		static AbsUltraInterface* m_ptrInterface;
 };
-
 
 #endif

@@ -23,7 +23,6 @@ namespace DCM
 		unsigned int bottom;				//!< Specifies the y-coordinate of the lower-right corner of the rectangle.
 	} RECT, *PRECT;
 
-
 	enum EDCMPrintColor { GRAYSCALE, COLOR };
 	enum EDCMPriorities { HIGH, MIDDLE, LOW };
 	enum EDCMPrintFormat { STD1X1, STD1X2, STD2X2, STD2X3, STD3X3, STD3X4, STD3X5, STD4X4, STD4X5, STD4X6 };

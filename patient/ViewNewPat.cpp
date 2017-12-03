@@ -1,33 +1,32 @@
 #include <gtk/gtk.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ViewNewPat.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/ViewNewPat.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
 #include "ViewMain.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <time.h>
-#include "../sysMan/SysGeneralSetting.h"
-#include "SysCalculateSetting.h"
+#include <libavutil/time.h>
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/SysCalculateSetting.h"
 #include <string.h>
-#include "Database.h"
-#include "ViewPatSearch.h"
+#include "patient/Database.h"
+#include "patient/ViewPatSearch.h"
 #include <sstream>
 #include <glib.h>
-#include "KeyFunc.h"
-#include "MeaCalcFun.h"
-#include "MeasureMan.h"
-#include "ViewCalendar.h"
-#include "../display/ViewDialog.h"
-#include "TopArea.h"
-#include "ViewSystem.h"
-#include "ViewWorkList.h"
-#include "DCMMan.h"
-#include "UpgradeMan.h"
-#include "SysDicomSetting.h"
-#include "DCMRegister.h"
-
+#include "keyboard/KeyFunc.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "measure/MeasureMan.h"
+#include "display/ViewCalendar.h"
+#include "display/ViewDialog.h"
+#include "display/TopArea.h"
+#include "sysMan/ViewSystem.h"
+#include "patient/ViewWorkList.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/UpgradeMan.h"
+#include "sysMan/SysDicomSetting.h"
+#include "periDevice/DCMRegister.h"
 
 using std::ostringstream;
 using std::string;
@@ -1258,7 +1257,6 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
                 }
             }
 
-
             gtk_label_set_text(GTK_LABEL(m_warming_label), warming);
 			//gtk_entry_set_text(GTK_ENTRY(widget), "");
 			gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
@@ -1678,7 +1676,6 @@ GtkWidget* ViewNewPat::create_note_other(void)
 	fixed_tab_other = gtk_fixed_new ();
 	gtk_widget_show (fixed_tab_other);
 
-
 //hlx
 #ifdef VET
 	label_other_tel = gtk_label_new (_("Owner Telephone:"));
@@ -1705,8 +1702,6 @@ GtkWidget* ViewNewPat::create_note_other(void)
 	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_other_tel), 9679);
 #ifdef VET
     g_signal_connect(G_OBJECT(m_entry_other_tel), "insert_text", G_CALLBACK(on_entry_name_insert), this);
-
-
 
 	label_other_address = gtk_label_new (_("Owner Address:"));
 #else
@@ -3047,7 +3042,6 @@ void ViewNewPat::InsertPatientInfo(const char *ID, PatientInfo::Name patientName
                 gtk_combo_box_set_active(GTK_COMBO_BOX (m_comboboxGender), 1);
             else if(strcmp(sex , "O")==0)
                 gtk_combo_box_set_active(GTK_COMBO_BOX (m_comboboxGender), 2);
-
 
         }
         else

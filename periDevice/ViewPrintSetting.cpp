@@ -1,12 +1,12 @@
-#include "ViewPrintSetting.h"
-#include "../display/gui_func.h"
-#include "../display/gui_global.h"
-#include "../keyboard/KeyValueOpr.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "../keyboard/KeyDef.h"
-#include "../sysMan/SysPrinterSetting.h"
-#include "Printer.h"
-#include "ViewPrintPreview.h"
+#include "periDevice/ViewPrintSetting.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyValueOpr.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "keyboard/KeyDef.h"
+#include "sysMan/SysPrinterSetting.h"
+#include "periDevice/Printer.h"
+#include "periDevice/ViewPrintPreview.h"
 
 const int MediaSizeMax = 5;
 const int LandscapeMax = 2;

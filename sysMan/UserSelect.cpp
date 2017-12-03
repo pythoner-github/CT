@@ -1,14 +1,13 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <gtk/gtk.h>
-#include "UserSelect.h"
-#include "ViewSystem.h"
-#include "FileMan.h"
+#include "sysMan/UserSelect.h"
+#include "sysMan/ViewSystem.h"
+#include "patient/FileMan.h"
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include <locale.h>
 #include <glib/gi18n.h> // define the label of "_" in this head file
-
 
 const char* listname[] = {};
 #define LIST_COUNT (sizeof(listname)/sizeof(listname[0]))
@@ -176,7 +175,6 @@ void UserSelect::create_commentdefined_dir(void)
 
 }
 
-
 void UserSelect::create_usercalcdefined_dir(void)
 {
     // make directory if not exist
@@ -306,7 +304,6 @@ bool UserSelect::insert_username_db(const char *db_dbname, const char *record)
     char *errmsg = NULL;
     char buf[1024];
 
-
     if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
     {
         PRINTF("Open Database Error!\n");
@@ -425,10 +422,7 @@ void UserSelect::open_username(void)
 
     setvbuf(fp_user, NULL, _IONBF, 0);
 
-
-
 }
-
 
 void UserSelect::create_list(void)
 {

@@ -4,10 +4,10 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <string>
-#include "IniFile.h"
-#include "DCMMan.h"
-#include "ButtonCallBack.h"
-#include "string.h"
+#include "base/IniFile.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/ButtonCallBack.h"
+#include <string.h>
 using namespace std;
 #include "Def.h"
 
@@ -104,7 +104,6 @@ class DicomPrint
     GtkWidget *m_button_add;
     GtkWidget *m_button_clear;
 
-
     GtkWidget *m_combobox_device;
     GtkWidget *m_entry_print_name;
     GtkWidget *m_treeview_print;
@@ -150,7 +149,6 @@ static DCMPRINTCONFIGELEMENT element;
 static void HandleListClicked(GtkTreeSelection *treeselection,gpointer  user_data)
 {
     int row = 0;
-
 
     bool ret = 0;
     int i = 0;

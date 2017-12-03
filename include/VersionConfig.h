@@ -33,7 +33,6 @@ class VersionConfig
 		///> get config info in low level
 		inline int GetProbeSum() const;
 
-
 	private:
 		VersionConfig()
 		{
@@ -46,7 +45,6 @@ class VersionConfig
 
 		static class VersionConfig* m_ptrInstance;
 };
-
 
 ///> defination of member of class
 

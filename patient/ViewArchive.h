@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <string>
-#include "FakeXEvent.h"
-#include "Database.h"
+#include "display/FakeXEvent.h"
+#include "patient/Database.h"
 #include "AbsCalendarOpr.h"
 
 using std::vector;
@@ -170,7 +170,6 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
         int m_selNum ;
         //	GtkWidget *m_comboboxSource;
 
-
 		GtkWidget *m_framePreview;
 		GtkWidget *m_viewportPreview;
 		GtkWidget *m_tablePreview;
@@ -232,7 +231,6 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
 	//	void BtnToggleMb(GtkToggleButton *toggleButton);
 	//	void BtnToggleGb(GtkToggleButton *toggleButton);
 
-
 		// signal connect
 		static void HandleEventBoxCalendarStartPress(GtkWidget *widget, GdkEventButton *event, ViewArchive *data) { data->EventBoxCalendarStartPress(widget, event); }
 		static void HandleEventBoxCalendarEndPress(GtkWidget *widget, GdkEventButton *event, ViewArchive *data) { data->EventBoxCalendarEndPress(widget, event); }
@@ -245,8 +243,6 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
 		static void HandleBtnUnselectAllClicked(GtkButton *button, ViewArchive *data) { data->BtnUnselectAllClicked(button); }
 		static void HandleBtnSendClicked(GtkButton *button, ViewArchive *data) { data->BtnSendClicked(); }
 		static void HandleBtnSendDicomClicked(GtkMenuItem *menuitem, gpointer *data) {  ViewArchive::GetInstance()->BtnSendClicked(); }
-
-
 
 		static int HandleBtnExportEvent(GtkWidget *widget, GdkEvent *event, ViewArchive *data) { return data->BtnExportEvent(widget, event); }
 		static int HandleBtnUdiskEvent(GtkWidget *widget, GdkEvent *event, ViewArchive *data) { return data->BtnImportEvent(widget, event); }

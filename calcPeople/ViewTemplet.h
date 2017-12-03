@@ -1,7 +1,7 @@
 #ifndef _VIEW_TEMPLET_H_
 #define _VIEW_TEMPLET_H_
 
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <sqlite3.h>
 
 #define TEMPLET_EN_DB "./res/glossary_en.db"
@@ -17,7 +17,6 @@ public:
     void DestroyWindow(void);
     bool DefaultFactory(void);
  void tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data);
-
 
 private:
     ViewTemplet();

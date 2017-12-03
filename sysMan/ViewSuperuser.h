@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 
 class ViewSuperuser:public FakeXEvent
 {

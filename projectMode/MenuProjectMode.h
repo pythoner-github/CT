@@ -1,9 +1,9 @@
 #ifndef __MENU_PROJECT_MODE_H__
 #define __MENU_PROJECT_MODE_H__
 
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <gtk/gtk.h>
-#include "ExamItem.h"
+#include "probe/ExamItem.h"
 #ifdef EMP_PROJECT
 using std::vector;
 using std::string;
@@ -56,7 +56,6 @@ class MenuProjectMode:public FakeXEvent
         {
             if(data)data->DefaultClicked(button);
         }
-
 
         void CreateDeleteWindow(void);
         static void HandleBtnCancelClicked(GtkButton *button, MenuProjectMode *data)
@@ -117,7 +116,6 @@ class ViewProjectMode:public FakeXEvent
         void EntryNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
         static void OnEntryNewinsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewProjectMode *data)
     	{ if(data)data->EntryNameInsert(editable, new_text, new_text_length, position); }
-
 
         GtkWidget *m_window;
         GtkWidget *m_entryNew;

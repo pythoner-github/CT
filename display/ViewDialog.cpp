@@ -1,11 +1,11 @@
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "ViewDialog.h"
-#include "KeyValueOpr.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "display/ViewDialog.h"
+#include "keyboard/KeyValueOpr.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include "ViewMain.h"
-#include "KeyDef.h"
+#include "keyboard/KeyDef.h"
 
 ViewDialog* ViewDialog::m_ptrInstance = NULL;
 
@@ -314,7 +314,6 @@ void ViewDialog::SetProgressBar(double fraction)
     sprintf(text_buf, "%d%%", (int)(fraction*100));
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(m_progress_bar), text_buf);
 }
-
 
 ViewHintDialog* ViewHintDialog::m_ptrInstance = NULL;
 

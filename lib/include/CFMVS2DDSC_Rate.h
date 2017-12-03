@@ -10,9 +10,9 @@
 #ifndef CFMVS2DDSC_Rate_H
 #define CFMVS2DDSC_Rate_H
 
-#include "CFMDSC_Rate.h"
+#include <CFMDSC_Rate.h>
 
-class CCFMVS2DDSC_Rate : public CCFMDSC_Rate  
+class CCFMVS2DDSC_Rate : public CCFMDSC_Rate
 {
 public:
 	static CCFMVS2DDSC_Rate *Create(const DSCCONTROLATTRIBUTES &attrs, const UPDATEFRAME pUpdateFrame);

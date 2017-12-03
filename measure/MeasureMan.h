@@ -6,9 +6,9 @@
 #include <string>
 #include <vector>
 #include "Def.h"
-#include "MeaResult.h"
-#include "MeasureDraw.h"
-#include "UpdateMeasure.h"
+#include "calcPeople/MeaResult.h"
+#include "measure/MeasureDraw.h"
+#include "measure/UpdateMeasure.h"
 
 using std::deque;
 using std::string;

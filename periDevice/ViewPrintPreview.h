@@ -2,7 +2,7 @@
 #ifndef _VIEW_PRINT_PREVIEW_H_
 #define _VIEW_PRINT_PREVIEW_H_
 
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <string>
 	//GtkWidget *GetMainWindow(void);
 class ViewPrintPreview : public FakeXEvent
@@ -51,8 +51,6 @@ private:
     #define IMG_SCALE_WIDTH		(440)//(IMG_W*IMAGE_SCALE)
     //#define IMG_SCALE_HEIGHT	(IMG_H*IMAGE_SCALE)
 
-
-
     GdkGC *pagegc;
     GdkPixmap *pagepixmap;
     GtkWidget *drawingarea;
@@ -92,7 +90,6 @@ private:
     void Item_To_Get();
     void Draw_To_Report(struct print_re_item Item, int lenOfline, int numOfimage);
     int SaveReport_To_Print(const char *path);
-
 
     // signal connect
     static gboolean HandleDeleteEvent(GtkWidget *widget, GdkEvent *event, ViewPrintPreview *data)

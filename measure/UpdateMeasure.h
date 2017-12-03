@@ -4,8 +4,8 @@
 
 #include <string>
 #include <deque>
-#include "MeasureDef.h"
-#include "IMT.h"
+#include "calcPeople/MeasureDef.h"
+#include <IMT.h>
 #include "Def.h"
 
 using std::string;

@@ -1,10 +1,9 @@
 #include <stdlib.h>
 #include <string.h>
-#include "FpgaGeneral.h"
-#include "UsbControl.h"
-#include "PcieControl.h"
-#include "CalcTime.h"
-
+#include "imageControl/FpgaGeneral.h"
+#include "imageControl/UsbControl.h"
+#include "imageControl/PcieControl.h"
+#include "accessories/osrfx2_src/CalcTime.h"
 
 ///> /////////////////////////////////[private variable]////////////////////////////
 CFpgaGeneral* CFpgaGeneral::m_ptrInstance = NULL;
@@ -176,13 +175,10 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //SpiControlSetting(0xff,0x17, 0xffff);
     SpiControlSetting(0xff,0x17, 0x0000);
 
-
-
     //vca register3 set VCA_SDATA[39-32]  USE FOR CW MODE, SET AS O
     //0X18----0X0000
    // SpiControlSetting(0xff,0x18, 0x00ff);
     SpiControlSetting(0xff,0x18, 0x0000);
-
 
     //POWER DOWN MODE SET
     //0X0F----0X0000   16'B0000_0***_****_****
@@ -194,13 +190,9 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //BIT7-0: CHANNEL 8-1 SELECT, 1=SELECT, THEN THE CHANNEL IN POWERDOWN MODE, 0=DON'T SELECT
     SpiControlSetting(0xff,0x0f, 0x0000);
 
-
-
     //lvds current drive   0x11----0x0000
 	SpiControlSetting(0xff,0x11, 0x0000);		//from new g30
     //SpiControlSetting(0xff,0x11, 0x0600);
-
-
 
     //enable internal termination  0x12----0x0000
     SpiControlSetting(0xff,0x12, 0x0000);	//from new g30
@@ -210,19 +202,15 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
    // SpiControlSetting(0xff,0x14, 0x00ff);
     SpiControlSetting(0xff,0x14, 0x0000);
 
-
-
     //test mode register  BITS_CUSTOM1[9:0]    16'B1100_1000_1111
     //0X26----16'B00_1000_1111_0000_00
     SpiControlSetting(0xff,0x26, 0x23c0);
     //SpiControlSetting(0xff,0x26, 0x5540);
 
-
     //test mode register BITS_CUSTOM2[9:0]   16'B1100_1000_1111
     //0X27----16'B00_1000_1111_0000_00
     SpiControlSetting(0xff,0x27,0x23c0);
     //SpiControlSetting(0xff,0x27,0xAA80);
-
 
     //test mode1    SET 16'B0000_0000_0000_1111
     //0x25----16'b0000_0000_0***_****
@@ -233,13 +221,11 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
 	//SpiControlSetting(0xff,0x25, 0x001f);
 	//SpiControlSetting(0xff,0x25, 0x0029);
 
-
     //TEST MODE2    SET 16'B0000_0000_0000_0000
     //0X45----16'B0000_0000_0000_00**
     //BIT1-0:00=TEST MODE OFF, 01= PAT_DESKEW,test data = 12'b0101_0101_0101,
     //10=PAT_SYNC,test data = 12'b1111_1100_0000
     //SpiControlSetting(0xff,0x45, 0x0000);
-
 
     //program gain channel 1
     //0x2a----16'b****_****_****_****;
@@ -257,9 +243,6 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
 	//SpiControlSetting(0xff,0x2a,0x8888);	//from new g30
    // SpiControlSetting(0xff,0x2a,0xcccc);
    //SpiControlSetting(0xff,0x2a,0x6666);
-
-
-
 
     //program gain channel 2
     //0x2b----16'b****_****_****_****
@@ -429,7 +412,6 @@ void  CFpgaGeneral::AD9273_TestChNo(U32 ChipNo, U32 ChNoInChip)
 
 	//EzUsb::GetInstance()->BulkOut(2, 1, AdcCtrlAddr, 0);
 	EzUsb::GetInstance()->BulkOut(dataType, paraLen, fpgaAddr, (unsigned char *)buf);
-
 
     //EzUsb::GetInstance()->BulkOut(1, 1, TESTLVDSCHADDR, 0);
     //EzUsb::GetInstance()->BulkOut(1, 1, fpgaAddr, NULL);

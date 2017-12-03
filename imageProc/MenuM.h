@@ -3,7 +3,7 @@
 #define MENU_M_SUB_H
 
 #include "Def.h"
-#include "CusSpin.h"
+#include "display/CusSpin.h"
 
 class MenuM
 {
@@ -61,7 +61,6 @@ private:
     void BtnFormat5Clicked(GtkButton *button);
     void ForeachWidget(GtkWidget *widget);
     void WriteFormatM(int format);
-
 
 //signal connect
     static void HandleChkPolarity(GtkButton *button, MenuM *data) { data->ChkPolarity(button); }

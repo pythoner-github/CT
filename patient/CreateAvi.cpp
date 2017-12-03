@@ -1,4 +1,4 @@
-#include "CreateAvi.h"
+#include "patient/CreateAvi.h"
 
 #define DefaultXPelsPerMeter 3780
 #define DefaultYPelsPerMeter 3780

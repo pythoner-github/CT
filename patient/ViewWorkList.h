@@ -2,11 +2,11 @@
 #define _VIEW_WORKLIST_H_
 
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <vector>
-#include "DCMDef.h"
-#include "../include/AbsCalendarOpr.h"
-#include "PatientInfo.h"
+#include "periDevice/DCMDef.h"
+#include "AbsCalendarOpr.h"
+#include "patient/PatientInfo.h"
 
 class PatDetail:public FakeXEvent
 {
@@ -120,7 +120,6 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
         GtkWidget* create_worklist_treeview();
         GtkTreeModel* create_worklist_model();
 
-
         void InitScheduledDate();
 
         void LoadPatientInfo();
@@ -148,7 +147,6 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
 
         void StartCalendarPress(GtkWidget *widget, GdkEventButton *event);
         void EndCalendarPress(GtkWidget *widget, GdkEventButton *event);
-
 
        // KeyEvent(unsigned char keyValue);
         //signal
@@ -194,7 +192,6 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
             if(data)
                 data->CloseWindow(window);
         }
-
 
         static void HandleStartCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewWorkList *data) { data->StartCalendarPress(widget, event); }
 

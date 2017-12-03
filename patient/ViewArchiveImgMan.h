@@ -3,9 +3,9 @@
 
 #include <vector>
 #include <string>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include "Def.h"
-#include "VideoMan.h"
+#include "patient/VideoMan.h"
 
 using std::vector;
 using std::string;
@@ -139,7 +139,6 @@ class ViewArchiveImgMan: public FakeXEvent
 		bool m_statusReplay;
         int   m_reportNum;
         char m_archivePath[256];
-
 
 		void InitParameter(vector<string> examID, const char *selected);
 		GtkWidget* CreateReportArea(GtkWidget *fixed);

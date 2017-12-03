@@ -44,7 +44,6 @@ class PatientInfo
             string address;
             string comment;
 
-
         };
 #else
 		struct Patient

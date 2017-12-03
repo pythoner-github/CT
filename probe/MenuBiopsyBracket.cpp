@@ -1,12 +1,11 @@
 #include <gtk/gtk.h>
-#include "MenuBiopsyBracket.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "MenuArea.h"
-#include "BiopsyMan.h"
-#include "MenuBiopsy.h"
-#include "HintArea.h"
-
+#include "probe/MenuBiopsyBracket.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "display/MenuArea.h"
+#include "probe/BiopsyMan.h"
+#include "probe/MenuBiopsy.h"
+#include "display/HintArea.h"
 
 MenuBiopsyBracket g_menuBiopsyBracket;
 
@@ -98,7 +97,6 @@ void MenuBiopsyBracket::UpdateMenuBiopsyBracket(void)
 	}
 	m_vecMenuItem.clear();
 
-
 	vector<string> vecBracket=BiopsyMan::GetInstance()->GetBioBracketTypesOfCurProbe();
 
 	int size2=vecBracket.size();
@@ -115,5 +113,3 @@ void MenuBiopsyBracket::UpdateMenuBiopsyBracket(void)
 
 	}
 }
-
-

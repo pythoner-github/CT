@@ -9,10 +9,10 @@
  * @author: zhanglei
  */
 
-#include "KnobLoadSnap.h"
-#include "KnobMenu.h"
+#include "patient/KnobLoadSnap.h"
+#include "display/KnobMenu.h"
 #include "Def.h"
-#include "MenuReview.h"
+#include "imageProc/MenuReview.h"
 
 #if (defined (EMP_322) || defined(EMP_313))
 KnobMenu::KnobItem KnobLoadSnapMenu[6] = {

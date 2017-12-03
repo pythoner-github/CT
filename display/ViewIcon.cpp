@@ -1,10 +1,10 @@
 #include <gtk/gtk.h>
 
 #include "Def.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "ViewIcon.h"
-#include "Battery.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "display/ViewIcon.h"
+#include "periDevice/Battery.h"
 
 namespace {
 const char* ScanIconPath[5] = {
@@ -256,7 +256,6 @@ void ViewIcon::UpdateCharge()
     Charge(battery.GetCapacity());
 }
 
-
 gboolean CallBackUpdateCharge(gpointer data)
 {
     ViewIcon *tmp;
@@ -270,4 +269,3 @@ void ViewIcon::InitCharge()
     UpdateCharge();
     g_timeout_add( 6000, CallBackUpdateCharge, this );
 }
-

@@ -1,13 +1,13 @@
 #ifndef MODE_STATUS_H
 #define MODE_STATUS_H
 
-#include "ScanMode.h"
-#include "FreezeMode.h"
-#include "Format2D.h"
-#include "FormatM.h"
-#include "FormatCfm.h"
-#include "ImgPw.h"
-#include "ImgProc2D.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/FreezeMode.h"
+#include "imageProc/Format2D.h"
+#include "imageProc/FormatM.h"
+#include "imageProc/FormatCfm.h"
+#include "imageControl/ImgPw.h"
+#include "imageProc/ImgProc2D.h"
 
 /*
  * @brief manage system mode status

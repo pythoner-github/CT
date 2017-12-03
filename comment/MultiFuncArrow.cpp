@@ -1,4 +1,4 @@
-	/**
+/**
  * @brief MultiFuncArrow.cpp: implementation for the MultiFuncArrow class.
  *
  * MultiFuncArrow handle all events of arrow operation, include
@@ -11,16 +11,15 @@
  * @date: 2009-9-6
  */
 
-#include "../keyboard/MultiFuncValue.h"
-#include "../keyboard/KeyValueOpr.h"
-#include "MultiFuncArrow.h"
+#include "keyboard/MultiFuncValue.h"
+#include "keyboard/KeyValueOpr.h"
+#include "comment/MultiFuncArrow.h"
 #include "ViewMain.h"
-#include "../display/ImageArea.h"
-#include "../keyboard/KeyDef.h"
-#include "MultiFuncArrow.h"
-#include "KnobNone.h"
-#include "Arrow.h"
-
+#include "display/ImageArea.h"
+#include "keyboard/KeyDef.h"
+#include "comment/MultiFuncArrow.h"
+#include "display/KnobNone.h"
+#include "comment/Arrow.h"
 
 MultiFuncArrow * MultiFuncArrow::m_pThis = NULL;
 
@@ -66,7 +65,6 @@ const char * arrowColorName[6] =
 	_("Yellow"),
 	_("Blue"),
 };
-
 
 MultiFuncArrow::MultiFuncArrow()
 :m_arrow(NULL), m_pressMode(CLICK), m_arrowOpr(ADD), m_knobItemBku(NULL)
@@ -209,7 +207,6 @@ void MultiFuncArrow::Mouse(int offsetX, int offsetY)
 {
 	if(m_arrow == NULL)
         return;
-
 
 	m_pos = GetPoint(offsetX, offsetY);
 	m_arrow->SetArrowPos(m_pos);

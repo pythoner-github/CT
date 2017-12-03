@@ -51,7 +51,6 @@ unsigned char Probe35C50LEMP[128] = //35C50L convex
     'E',		'M',		'P',		0x5a,
 };
 
-
 unsigned char Probe65C10L[128] = //65C10L //TV
 {
     // black-white
@@ -135,7 +134,6 @@ unsigned char Probe75L40JEMP[128] = //75L40J
     0,		0,		0,		0,		0,		0,		0,		0,		0,		'F',
     'E',		'M',		'P',		0x5a,
 };
-
 
 unsigned char Probe70L60J[128] = //70L60J
 {

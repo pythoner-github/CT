@@ -1,30 +1,29 @@
-
-#include "DscMan.h"
-#include "BDSC.h"
-#include "BBDSC.h"
-#include "B4DSC.h"
-#include "MDSC.h"
-#include "PWDSC.h"
-#include "CFMDSC.h"
-#include "CFMBBDSC.h"
-#include "CFMB4DSC.h"
-#include "PWCFMDSC.h"
-#include "CFMVS2DDSC.h"
-#include "CMMDSC.h"
-#include "CFMDSC_Rate.h"
-#include "CFMBBDSC_Rate.h"
-#include "CFMB4DSC_Rate.h"
-#include "CFMVS2DDSC_Rate.h"
-#include "PWCFMDSC_Rate.h"
-#include "CFMDSC_R.h"
-#include "CFMBBDSC_R.h"
-#include "CFMB4DSC_R.h"
-#include "CFMVS2DDSC_R.h"
-#include "PWCFMDSC_R.h"
-#include "EFOVDSC.h"
-#include "Img2D.h"
-#include "Zoom.h"
-#include "ImgCfm.h"
+#include "imageProc/DscMan.h"
+#include <BDSC.h>
+#include <BBDSC.h>
+#include <B4DSC.h>
+#include <MDSC.h>
+#include <PWDSC.h>
+#include <CFMDSC.h>
+#include <CFMBBDSC.h>
+#include <CFMB4DSC.h>
+#include <PWCFMDSC.h>
+#include <CFMVS2DDSC.h>
+#include <CMMDSC.h>
+#include <CFMDSC_Rate.h>
+#include <CFMBBDSC_Rate.h>
+#include <CFMB4DSC_Rate.h>
+#include <CFMVS2DDSC_Rate.h>
+#include <PWCFMDSC_Rate.h>
+#include <CFMDSC_R.h>
+#include <CFMBBDSC_R.h>
+#include <CFMB4DSC_R.h>
+#include <CFMVS2DDSC_R.h>
+#include <PWCFMDSC_R.h>
+#include <EFOVDSC.h>
+#include "imageControl/Img2D.h"
+#include "imageProc/Zoom.h"
+#include "imageControl/ImgCfm.h"
 
 DscMan* DscMan::m_ptrInstance = NULL;
 

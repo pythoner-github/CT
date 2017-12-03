@@ -2,18 +2,18 @@
 #define MULTI_FUNC_VALUE
 
 #include "AbsMultiFunc.h"
-#include "NoteArea.h"
-#include "MeasureDraw.h"
-#include "ImgProc2D.h"
-#include "Zoom.h"
-#include "MeasureFactory.h"
-#include "HintArea.h"
-#include "../imageProc/PartFuncMan.h"
-#include "../include/Def.h"
-#include "../imageControl/Knob2D.h"
-#include "../imageProc/GlobalClassMan.h"
-#include "LightDef.h"
-#include "../imageProc/ModeStatus.h"
+#include "comment/NoteArea.h"
+#include "measure/MeasureDraw.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/Zoom.h"
+#include "measure/MeasureFactory.h"
+#include "display/HintArea.h"
+#include "imageProc/PartFuncMan.h"
+#include "Def.h"
+#include "imageControl/Knob2D.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/LightDef.h"
+#include "imageProc/ModeStatus.h"
 /*
  * @brief focus
  */
@@ -31,7 +31,6 @@ class MultiFuncFocus: public AbsMultiFunc
 #endif
 			g_ptrKeyFunc = ChgFocusNum;
         }
-
 
         ~MultiFuncFocus()
 
@@ -76,7 +75,6 @@ class MultiFuncDepth: public AbsMultiFunc
         void Value(EKnobOper opr);
         void Undo();
 };
-
 
 /*
  * @brief local zoom
@@ -190,7 +188,6 @@ class MultiFuncPIPZoom: public AbsMultiFunc
 		void KeyUp();
 		void KeyDown();
 };
-
 
 /*
  * @brief measure

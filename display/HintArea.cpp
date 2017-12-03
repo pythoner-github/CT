@@ -1,10 +1,10 @@
 #include <gtk/gtk.h>
-#include "HintArea.h"
-#include "gui_func.h"
-#include "gui_global.h"
+#include "display/HintArea.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
 #include "Def.h"
-#include "MenuProjectMode.h"
-#include "ViewSuperuser.h"
+#include "projectMode/MenuProjectMode.h"
+#include "sysMan/ViewSuperuser.h"
 
 HintArea* HintArea::m_ptrInstance = NULL;
 

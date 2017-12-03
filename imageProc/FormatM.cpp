@@ -9,14 +9,14 @@
  * @author: zhanglei
  */
 
-#include "FormatM.h"
-#include "MDSC.h"
-#include "GlobalClassMan.h"
-#include "KeyFunc.h"
-#include "KeyFunc.h"
-#include "ImgProcM.h"
-#include "Zoom.h"
-#include "SysOptions.h"
+#include "imageProc/FormatM.h"
+#include <MDSC.h>
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/KeyFunc.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/Zoom.h"
+#include "sysMan/SysOptions.h"
 
 FormatM* FormatM::m_ptrInstance = NULL;
 
@@ -47,7 +47,6 @@ FormatM::~FormatM()
 	if (m_ptrInstance != NULL)
 		delete m_ptrInstance;
 }
-
 
 void FormatM::ChangeFormat(enum EFormatM format)
 {

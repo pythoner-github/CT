@@ -84,7 +84,6 @@ class AbsUpdatePw
 		virtual void EnterPwPdiFromPdi() = 0;
 		virtual void UpdatePwPdiMode() = 0;
 
-
         //cw
         virtual void UpdateCwMenu() = 0;
         virtual void UpdateCwCfmMenu(void) = 0;

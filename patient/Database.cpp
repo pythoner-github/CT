@@ -1,14 +1,14 @@
-#include "Database.h"
+#include "patient/Database.h"
 #include "Def.h"
 #include <unistd.h>
 #include <sstream>
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
-#include "../display/gui_func.h"
-#include "gui_global.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "ViewSystem.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/ViewSystem.h"
 
 using std::ostringstream;
 using std::string;
@@ -57,7 +57,6 @@ bool Database::CreateTable(void)
                                     PRIMARY KEY (ID)\
                                     )";
 #else
-
 
 	const char *sql_pat_info = "CREATE TABLE patient_info(\
                ID VARCHAR(50) NOT NULL,\
@@ -352,7 +351,6 @@ bool Database::ArchivePat(PatientInfo::Info &info, string &errorMsg)
     return TRUE;
 }
 
-
 // Sqlite3 basic invocation sequence:
 // 1, sqlite3_prepare  编译sql语句
 // 2, sqlite3_bind_*   使用sql参数时，用于将sql参数绑定到sql语句
@@ -593,7 +591,6 @@ void Database::GetPatInfo(const char *patID, PatientInfo::Patient &pat_info)
         ++col;
 #endif
 
-
 	if(strcmp(sqlite3_column_name(stmt, col), "Sex") == 0)
 	    pat_info.sex = sqlite3_column_int(stmt, col);
         ++col;
@@ -782,7 +779,6 @@ bool Database::NewPatSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>& 
             tmp.name.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 #endif
-
 
 	if (strcmp(sqlite3_column_name(stmt, col), "Sex") == 0) {
 	    int sex = sqlite3_column_int(stmt, col);
@@ -1503,8 +1499,6 @@ bool Database::CommonSearch(string examID, NewPatSearchResult &result)
             GenAgeStr(age, ageUnit, temp.age);
             result.push_back(temp);
         }
-
-
 
     if (strcmp(sqlite3_column_name(stmt, 2), "Sex") == 0) {
             int sex = sqlite3_column_int(stmt, 2);

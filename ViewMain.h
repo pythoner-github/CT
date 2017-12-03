@@ -2,8 +2,8 @@
 #ifndef VIEWMAIN_H
 #define VIEWMAIN_H
 
-#include "KeyValueOpr.h"
-#include "KnobEvent.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KnobEvent.h"
 
 #define TOP_AREA_X 180 //ModLayout 180 PreLayout 220
 #define TOP_AREA_Y 0
@@ -45,7 +45,7 @@ class ViewMain:public CKnobEvent
 {
 public:
     ~ViewMain();
-    
+
     static ViewMain* GetInstance();
 
     void Create(void);
@@ -107,6 +107,5 @@ private:
     static gboolean HandleSuperAuthen(gpointer data) { return m_ptrInstance->IsSuperAuthenValid(); }
 
 };
-
 
 #endif

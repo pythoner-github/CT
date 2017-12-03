@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "MeaResult.h"
-#include "MeaCalcFun.h"
-#include "SysMeasurementSetting.h"
-#include "MenuCalcNew.h"
-#include "PatientInfo.h"
-#include "CalcSetting.h"
-#include "ViewReport.h"
+#include "calcPeople/MeaResult.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "patient/PatientInfo.h"
+#include "sysMan/CalcSetting.h"
+#include "calcPeople/ViewReport.h"
 
 MeaResult* MeaResult::m_ptrInstance;
 
@@ -225,7 +225,6 @@ void MeaResult::InitResultInfo(void)
 	SecResultInfo[ANOB_M].ptrCalcResult = (CalcResult)(&CalcResultAnOB);
 #endif
 }
-
 
 //value[]:传入的结果值，现在最多有两个
 //item:测量项在MeasureFactoryAbdo的枚举号
@@ -672,7 +671,6 @@ int MeaResult::CalcGetLastValue(double *value, const int calcItem, const int sec
 		}
   	}
 
-
     //hlx
 #ifdef VET
 	else if (section == ANOB_M)
@@ -745,7 +743,6 @@ int MeaResult::CalcGetValue(double *value, const int calcItem, const int section
 	else//平均值
 		return(CalcGetMeanValue(value, calcItem, section, obFetal));
 }
-
 
 int MeaResult::CalcGetAgwLastValue(double value[], const int fetalOrder)
 {
@@ -1858,7 +1855,6 @@ void MeaResult::UserInit(void)
 		}
 	}
 
-
 #if 0
 	for (j=0; j<MEA_TIMES_MULTI; j++)
 	{
@@ -2142,8 +2138,6 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
             return(-1);
             break;
 
-
-
 //hlx
 #ifdef VET
 		case TD_M:
@@ -2222,7 +2216,6 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
 			}
             return(-1);
             break;
-
 
         default:
             return(-1);

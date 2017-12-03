@@ -1,7 +1,6 @@
 #ifndef _MENU_SYSTEM_H_
 #define _MENU_SYSTEM_H_
 
-
 #define WIDTH_SYSTEM_MENU  220
 #define HEIGHT_SYSTEM_MENU  635
 

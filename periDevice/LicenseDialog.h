@@ -9,7 +9,7 @@
 #ifndef LICENSEDIALOG_H
 #define LICENSEDIALOG_H
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 
 class CLicenseDialog : FakeXEvent
 {

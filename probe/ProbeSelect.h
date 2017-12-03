@@ -2,9 +2,9 @@
 #define PROBE_SELECT_H
 
 #include <vector>
-#include "ExamItem.h"
-#include "ProbeSocket.h"
-#include "ProbeMan.h"
+#include "probe/ExamItem.h"
+#include "probe/ProbeSocket.h"
+#include "probe/ProbeMan.h"
 
 using std::vector;
 

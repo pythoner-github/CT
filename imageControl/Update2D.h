@@ -2,11 +2,11 @@
 #ifndef UPDATE_2D_H
 #define UPDATE_2D_H
 
-#include "../include/AbsUpdate2D.h"
+#include "AbsUpdate2D.h"
 #include "Def.h"
-#include "ImageAreaPara.h"
-#include "../display/ImageAreaDraw.h"
-#include "MenuArea.h"
+#include "display/ImageAreaPara.h"
+#include "display/ImageAreaDraw.h"
+#include "display/MenuArea.h"
 #include <vector>
 
 using std::vector;

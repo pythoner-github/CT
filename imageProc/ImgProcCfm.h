@@ -1,9 +1,9 @@
 #ifndef IMG_PROC_CFM_H
 #define IMG_PROC_CFM_H
 
-#include "DSCTypes.h"
+#include <DSCTypes.h>
 #include "AbsUpdateCfm.h"
-#include "ExamItem.h"
+#include "probe/ExamItem.h"
 
 class ImgProcCfm
 {

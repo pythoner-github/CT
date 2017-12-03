@@ -1,19 +1,19 @@
 /**************************************************
  * 版权所有：深圳市恩普电子技术有限公司(C) 2012
- * 文件名：IMT.h  
+ * 文件名：IMT.h
  * 实现功能：Intima Media Thickness
  * 作者：ZCT
  * 版本：V1.1
  * 日期：2012.4.2
  * ************************************************/
-#ifndef _IMH_H 
+#ifndef _IMH_H
 #define _IMH_H
 
 typedef unsigned char IMT_BYTE;
 typedef unsigned int IMT_UINT;
 
 typedef struct tagIMTPara
-{ 
+{
     float imt_max;	           // IMT MAX
     float imt_min;		       // IMT MIN
     float imt_std;		       // IMT 标准差
@@ -23,7 +23,7 @@ typedef struct tagIMTPara
 } SIMTPARA;
 
 class CIMT
-{       
+{
     private:
         static CIMT *m_ptrInstance;
         bool m_status; //  CalcTrack 函数返回状态标记,true:success  false:fail
@@ -35,11 +35,11 @@ class CIMT
     private:
         CIMT();
 
-        // 初始化 
-        void Initialization(void);    
+        // 初始化
+        void Initialization(void);
 
         //  预处理
-        void Preprocess(IMT_BYTE *roi); 
+        void Preprocess(IMT_BYTE *roi);
 
         //
         void Mask(IMT_BYTE *mask, IMT_BYTE *img, IMT_UINT w, IMT_UINT h, float *mu, IMT_UINT k);
@@ -54,7 +54,7 @@ class CIMT
         // find max value
         IMT_UINT Max(IMT_BYTE *pdata, IMT_UINT len);
 
-        // get histogram 
+        // get histogram
         void GetHstgrm(IMT_BYTE *img, IMT_UINT *hstgrm, IMT_UINT len);
 
         // K-Means 分离器
@@ -71,14 +71,14 @@ class CIMT
 
     public:
         // 获得该类的实例
-        static CIMT * GetInstance();       
+        static CIMT * GetInstance();
 
         // 析构函数
-        ~CIMT();       
+        ~CIMT();
 
         // 描记线计算
         void CalcTrack(
-                IMT_UINT *intima,       // 内膜描迹曲线首地址 
+                IMT_UINT *intima,       // 内膜描迹曲线首地址
                 IMT_UINT *adventitia,   // 外膜描迹曲线首地址
                 const IMT_BYTE *roi,    // 感兴趣区域首地址
                 IMT_UINT h,             // 感兴趣区域高度

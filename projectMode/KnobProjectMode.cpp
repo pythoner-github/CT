@@ -1,11 +1,11 @@
 #include <gtk/gtk.h>
 #include <string.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "GlobalClassMan.h"
-#include "KnobProjectMode.h"
-#include "KnobMenu.h"
-#include "ProjectCalc2D.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "imageProc/GlobalClassMan.h"
+#include "projectMode/KnobProjectMode.h"
+#include "display/KnobMenu.h"
+#include "projectMode/ProjectCalc2D.h"
 #ifdef EMP_PROJECT
 
 #if 1
@@ -59,13 +59,6 @@ EKnobReturn D2ChgProbeAngle(EKnobOper oper)
 	return ProjectCalc2D::GetInstance()->ChangeProbeAngle(oper);
 }
 
-
-
-
-
-
-
-
 #if 0
 EKnobReturn D2ChgBPWSimult(EKnobOper oper)
 {
@@ -108,8 +101,6 @@ KnobProjectMode::KnobItem KnobProjectMode::KnobProjectMenu[KNOB_MENU_SIZE] =  //
     //{"", "", FALSE, ERROR, NULL, NULL},
     {"", "", FALSE, ERROR, NULL, NULL},
 };
-
-
 
 void KnobProjectMode::SetPrint(int seq, bool value)
 {

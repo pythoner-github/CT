@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
-#include "MenuEFOV.h"
-#include "Menu2D.h"
-#include "../display/gui_global.h"
-#include "../display/gui_func.h"
+#include "imageProc/MenuEFOV.h"
+#include "imageProc/Menu2D.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 
 MenuEFOV g_menuEFOV;
 

@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include "Def.h"
-#include "IniFile.h"
-#include "ProbeSocket.h"
+#include "base/IniFile.h"
+#include "probe/ProbeSocket.h"
 //#include "../imageProc/ScanMode.h"
 
 using std::string;

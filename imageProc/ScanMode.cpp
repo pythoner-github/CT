@@ -9,31 +9,30 @@
  * @author: zhanglei
  */
 
-
-#include "ScanMode.h"
-#include "FpgaCtrl2D.h"
+#include "imageProc/ScanMode.h"
+#include "imageControl/FpgaCtrl2D.h"
 #include "Def.h"
-#include "GlobalClassMan.h"
-#include "DscMan.h"
-#include "LightDef.h"
-#include "KeyFunc.h"
-#include "ImgProcM.h"
-#include "ImgProc2D.h"
-#include "ImgProcPw.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/DscMan.h"
+#include "keyboard/LightDef.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcPw.h"
 #include "measure/DrawHistogram.h"
-#include "ViewIcon.h"
-#include "Zoom.h"
-#include "UIS4DReceiveInterface.h"
-#include "D4FuncMan.h"
+#include "display/ViewIcon.h"
+#include "imageProc/Zoom.h"
+#include <UIS4DReceiveInterface.h>
+#include "imageControl/D4FuncMan.h"
 #include "display/ViewDialog.h"
 #include "sysMan/ViewSystem.h"
 #include "ViewMain.h"
 #include "sysMan/SysOptions.h"
-#include "LightDef.h"
+#include "keyboard/LightDef.h"
 #include "keyboard/KeyValueOpr.h"
 #include "imageControl/UsbControl.h"
-#include "MenuCalcNew.h"
-#include "MenuMeasure.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "measure/MenuMeasure.h"
 extern bool g_init;
 extern int s_fdcom;
 ScanMode* ScanMode::m_ptrInstance = NULL;
@@ -482,7 +481,6 @@ void ScanMode::EnterPdi()
 		FreezeMode::GetInstance()->PressUnFreeze();
 }
 
-
 /*
  * @brief enter scan mode pw+cfm from cfm mode
  */
@@ -900,10 +898,8 @@ void ScanMode::UpdateCw()
     if (DrawHistogram::GetInstance()->GetOnOff())
         DrawHistogram::GetInstance()->SetOnOff(0);
 
-
 	///> change tis
 	ChangeTis();
-
 
 	// unfreeze
 	ModeStatus s;
@@ -1038,8 +1034,6 @@ void ScanMode::UpdateCwCfmFromInit()
 
 	///> change tis
 	ChangeTis();
-
-
 
 	// update
 	m_ptrUpdatePw->UpdatePwCfmMode();
@@ -1190,7 +1184,6 @@ int ScanMode::SwitchCwPdi()
         SetScanMode(CW);
 
         m_ptrImgPw->EnterCw();
-
 
         //ImgPw::GetInstance()->OnCwImgCtrl(TRUE);
 

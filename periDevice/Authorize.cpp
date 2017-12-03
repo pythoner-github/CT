@@ -4,13 +4,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "hasp_api.h"
-#include "Authorize.h"
-#include "gui_func.h"
-#include "./sysMan/SysGeneralSetting.h"
-#include "LicenseDialog.h"
-#include "gui_global.h"
-#include "./sysMan/ViewSystem.h"
+#include <hasp_api.h>
+#include "periDevice/Authorize.h"
+#include "display/gui_func.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "periDevice/LicenseDialog.h"
+#include "display/gui_global.h"
+#include "sysMan/ViewSystem.h"
 //using namespace std;
 /*
 unsigned char vendor_code[] =

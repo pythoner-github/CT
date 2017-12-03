@@ -1,7 +1,7 @@
 #ifndef _BIOPSYSETTING_H_
 #define _BIOPSYSETTING_H_
 
-#include "IniFile.h"
+#include "base/IniFile.h"
 using namespace std;
 
 class BiopsySetting

@@ -9,13 +9,13 @@
  * @author: zhanglei
  */
 
-#include "GlobalClassMan.h"
-#include "Calc2DConvex.h"
-#include "Calc2DLinear.h"
-#include "Calc2DTV.h"
-#include "Calc2DTinyConvex.h"
-#include "Calc2DTinyConvexHigh.h"
-#include "Calc2DPhase.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageControl/Calc2DConvex.h"
+#include "imageControl/Calc2DLinear.h"
+#include "imageControl/Calc2DTV.h"
+#include "imageControl/Calc2DTinyConvex.h"
+#include "imageControl/Calc2DTinyConvexHigh.h"
+#include "imageControl/Calc2DPhase.h"
 
 GlobalClassMan* GlobalClassMan::m_ptrInstance = NULL;
 
@@ -117,4 +117,3 @@ Calc2D* GlobalClassMan::GetCalc2D(string model)
 
 	return m_ptrCalc2D;
 }
-

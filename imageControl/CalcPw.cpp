@@ -9,12 +9,12 @@
  * @author: zhanglei
  */
 #include <math.h>
-#include "CalcPw.h"
-#include "BandPassFilterPw.h"
-#include "ParaDef.h"
-#include "Calc2D.h"
-#include "ImgPw.h"
-#include "UpdatePw.h"
+#include "imageControl/CalcPw.h"
+#include "imageControl/BandPassFilterPw.h"
+#include <ParaDef.h>
+#include "imageControl/Calc2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/UpdatePw.h"
 #include "ViewMain.h"
 FpgaPw CalcPw::m_fpga;
 FpgaCtrl2D CalcPw::m_fpga2D;
@@ -142,7 +142,6 @@ void CalcPw::CalcSoundVolume(int data)
 	m_fpga.SendSoundVolume(data);
 }
 
-
 void CalcPw::CalcSoundFilter(int prf)
 {
 #if (defined(EMP_355) || defined(EMP_340))
@@ -173,7 +172,6 @@ void CalcPw::CalcSoundFilter(int prf)
 	m_fpga.SendSoundFilter((unsigned short*)SOUND_FILTER[prf], 16);
 #endif
 }
-
 
 void  CalcPw::CalcColorGray(int index)
 {
@@ -219,10 +217,6 @@ int CalcPw::CalcMaxPeriodForHprf(int prf)
 	return prf;
 }
 
-
-
-
-
 void CalcPw::CalcSoundInterpolation(int prf, int spectrumSpeed)
 {
 	//double numIntp =GetMaxPeriod(prfIndex);// 24000 / PW_PRF[prfIndex];
@@ -240,8 +234,6 @@ void CalcPw::CalcSoundInterpolation(int prf, int spectrumSpeed)
 		numIntp_c = 3;
     else
 		numIntp_c = numIntp;
-
-
 
 #if (defined(EMP_355) || defined(EMP_340))
 	CalcSoundFilter(prf);
@@ -458,7 +450,6 @@ void CalcPw::CalcHDotSample(int depth, double soundSpeed)
 	m_fpga.SendPwSample(sample);
 }
 
-
 void CalcPw::CalcHDotSampleForHprf(int depth, int prf)
 {
 	const int DOTS = IMG_H * Calc2D::INIT_SCALE;
@@ -470,7 +461,6 @@ void CalcPw::CalcHDotSampleForHprf(int depth, int prf)
 	///> send samplePw
 	m_fpga.SendPwSample(sample);
 }
-
 
 int CalcPw::GetPulseCycleNum()
 {

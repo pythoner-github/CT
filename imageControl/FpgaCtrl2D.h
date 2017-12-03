@@ -1,7 +1,7 @@
 #ifndef __FPGACTRL2D_H__
 #define __FPGACTRL2D_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 //#include "AbsUltraInterface.h"
 
 class AbsUltraInterface;
@@ -84,7 +84,6 @@ class FpgaCtrl2D
 	*/
 	int SendScanrange(INT32U scanBegin, INT32U scanEnd);
 
-
 	/**
 	* @param delay: pointer to delay of reveive focus
 	* @param size: number of delay
@@ -97,7 +96,6 @@ class FpgaCtrl2D
 	int SendReceiveDelayBnSpaceCompound1(INT16 *bn, INT32U size);
 	int SendReceiveDelayBnSpaceCompound2(INT16 *bn, INT32U size);
 
-
 	/**
 	* @param delay: pointer to delay of reveive focus of the fourth beam
 	* @param size: number of delay
@@ -105,7 +103,6 @@ class FpgaCtrl2D
 	*/
 	int SendReceiveDelayColorAn(INT16 *an, INT32U size);
 	int SendReceiveDelayColorBn(INT16 *bn, INT32U size);
-
 
 	/**
 	* @param aperture: pinter to aperture data of reveive focus
@@ -310,7 +307,6 @@ class FpgaCtrl2D
     int SendSpaceCompound2WrOffset(INT16 offset);
     int SendSpaceCompound2StartK(INT16 start);
 
-
 	//only for test
 	int SendPulseWidthBak(INT32U width);
 	int SendColorPulseWidthBak(INT32U width);
@@ -505,7 +501,5 @@ class FpgaCtrl2D
     int TgcSequence(INT32U clear, INT16U *tgc, INT32U size);
 #endif
 };
-
-
 
 #endif

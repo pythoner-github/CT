@@ -9,19 +9,19 @@
  * @author: zhanglei
  */
 
-#include "ImgCfm.h"
-#include "GlobalClassMan.h"
-#include "GlobalClassMan.h"
-#include "HintArea.h"
-#include "MultiFuncMode.h"
-#include "Zoom.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/HintArea.h"
+#include "keyboard/MultiFuncMode.h"
+#include "imageProc/Zoom.h"
 
 ImgCfm* ImgCfm::m_ptrInstance = NULL;
 FpgaCfm ImgCfm::m_fpga;
 const int ImgCfm::CFM_PRF[MAX_PRF_INDEX] = {350, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000};
 const short ImgCfm::WALL_FILTER[WALL_FILTER_SIZE] =
 {
-#include "../res/filter/Cfm/MITCoef.h"
+#include "res/filter/Cfm/MITCoef.h"
 };
 
 const int ImgCfm::WALL_FILTER_SELECT_IDNEX[MAX_PKTSIZE_INDEX][8] =
@@ -93,7 +93,6 @@ const int ImgCfm::FLOW_OPT_PDI[MAX_FLOW_OPT][5] =
 	{8000, 0, 0, 16357+15, 0}
 };
 
-
 const float ImgCfm::CFM_FOC_RATIO[MAX_CFM_FOC_RATIO] = {0.25, 0.5, 0.75};
 
 const int ImgCfm::COLOR_MAP_CFM[MAX_COLOR_MAP_CFM] =
@@ -111,7 +110,6 @@ const int ImgCfm::COLOR_MAP_PDIDIR[MAX_COLOR_MAP_PDIDIR] =
 	COLORMAP_CFM_ASIA0, COLORMAP_CFM_ASIA1, COLORMAP_CFM_ASIA2, COLORMAP_CFM_ASIA3, COLORMAP_CFM_ASIA4, COLORMAP_CFM_ASIA5
 };
 const float ImgCfm::CFM_FOCUS[3] = {20.0, 80.0, 150.0}; //mm
-
 
 ImgCfm* ImgCfm::GetInstance()
 {
@@ -179,7 +177,6 @@ ImgCfm::ImgCfm()
     m_boxDotBak[1] = m_boxDotBefore[1];
     m_focIndex = 0;
     m_frameRemove = 0;
-
 
 	int i;
 	for (i = 0; i < 8; i ++)
@@ -397,7 +394,6 @@ void ImgCfm::ResetBox(bool draw)
 	int boxLineRange[2];
 	GetBoxLineRange(boxLineRange[0], boxLineRange[1]);
     int lines = boxLineRange[1] - boxLineRange[0] + 1;
-
 
 	m_boxLine[0] = lines * 3 / 8 + boxLineRange[0];
 	m_boxLine[1] = lines * 5 / 8 + boxLineRange[0];
@@ -654,7 +650,6 @@ EKnobReturn ImgCfm::ChangeGainCfm(EKnobOper oper)
 	GainCfm(m_gainCfm);
 	return (ret);
 }
-
 
 EKnobReturn ImgCfm::ChangeScale(EKnobOper oper)
 {
@@ -1427,7 +1422,6 @@ void ImgCfm::SetColorMode(EColorMode mode)
 	ColorMap();
 }
 
-
 //private
 void ImgCfm::InitProbeCalc()
 {
@@ -2080,7 +2074,6 @@ void ImgCfm::VelRange(int prfIndex, int baselineIndex)
 	double speed = SOUND_SPEED * 1000;
 	double maxVel =  m_ptrCalc->CalcMaxVel(CFM_PRF[prfIndex], colorFreq, speed);
 
-
 	max = maxVel * (MAX_BASELINE_INDEX - baselineIndex) / MAX_BASELINE_INDEX;
 	min = maxVel * (-MAX_BASELINE_INDEX - baselineIndex) / MAX_BASELINE_INDEX;
 
@@ -2396,7 +2389,6 @@ bool ImgCfm::ClusterSizeNormal(int prf, int depthEndDot)
         return FALSE;
     }
 
-
     EKnobReturn ret = OK;
     if (m_PRFIndex == 0)
         ret = MIN;
@@ -2666,7 +2658,6 @@ void ImgCfm::SetVariance(int cfmGain, int flowOptIndex)
 
 	m_ptrUpdate->VarianceGate(m_varianceGate, OK);
 }
-
 
 void ImgCfm::BoxDotCorrect(int dotBegin, int dotEnd)
 {

@@ -1,7 +1,7 @@
 #ifndef CALC_2D_CONVEX_H
 #define CALC_2D_CONVEX_H
 
-#include "Calc2D.h"
+#include "imageControl/Calc2D.h"
 
 class Calc2DConvex: public Calc2D
 {

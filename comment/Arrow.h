@@ -34,13 +34,11 @@ public:
 	void SetArrowColor(COLOR color);
     bool ArrowListEmpty(void);
 
-
 	POINT GetArrowPos();
 	DIRECTION GetArrowDir();
 	SHAPE GetArrowShape();
 	SIZE GetArrowSize();
 	COLOR GetArrowColor();
-
 
 	virtual bool Add();
 	virtual bool Delete();

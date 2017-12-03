@@ -8,15 +8,15 @@
 #include <string.h>
 #include <gtk/gtk.h>
 
-#include "Printdefaults.h"
-#include "Printtab.h"
-#include "Printmain.h"
-#include "Printfunctions.h"
-#include "Printhpgl2.h"
-#include "Printimage.h"
-#include "Printoutput.h"
-#include "Printppd.h"
-#include "Printtext.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printtab.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
+#include "periDevice/Printhpgl2.h"
+#include "periDevice/Printimage.h"
+#include "periDevice/Printoutput.h"
+#include "periDevice/Printppd.h"
+#include "periDevice/Printtext.h"
 
 GtkWidget *Printtab::prefsFrame = NULL;
 GtkWidget *Printtab::gtklpViewable = NULL;

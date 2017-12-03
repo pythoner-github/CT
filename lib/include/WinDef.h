@@ -10,7 +10,6 @@
 #ifndef WINSTYLE_H_INCLUDED
 #define WINSTYLE_H_INCLUDED
 
-
 #ifndef BYTE
 #define BYTE        unsigned char
 #endif
@@ -39,10 +38,9 @@
 #define BOOL        int
 #endif
 
-#ifndef INT 
+#ifndef INT
 #define INT         int
 #endif
-
 
 #ifndef	FALSE
 #define FALSE		0
@@ -52,7 +50,5 @@
 #endif
 
 typedef void *HANDLE;
-
-
 
 #endif // WINSTYLE_H_INCLUDED

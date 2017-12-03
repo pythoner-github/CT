@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 //#define ZERO 0.000001
 
 #define NOT_SAVE	0
@@ -41,7 +40,6 @@
 #define CALC_RESULT_CLASSES 2	//计算结果的种类为2种：最后值和平均值
 
 #define USER_TABLE_START	31	//自定义产科表的起始天数
-
 
 typedef struct{
 	int item;
@@ -163,7 +161,6 @@ typedef struct{
  * (以后把20000修改成MEA_END+1,但会挪动本文件很多枚举定义的位置)
  * */
 
-
 #ifdef VET
 #define MULTI_START (MEA_START + 20000)
 #define BASIC_MULTI_START MULTI_START
@@ -242,7 +239,6 @@ typedef struct{
 //添加TD科别 的宏
 //hlx
 //#ifdef VET
-
 
 #define TD_CALC_START ORTHO_CALC_END
 //hlx

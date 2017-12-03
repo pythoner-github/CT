@@ -1,16 +1,16 @@
 #include <dirent.h>
 
-#include "gui_func.h"
-#include "gui_global.h"
-#include "FileMan.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "FakeXEvent.h"
-#include "PeripheralMan.h"
-#include "ViewDialog.h"
-#include "ViewArchive.h"
-#include "ViewArchiveImgMan.h"
-#include "ViewUdiskDataSelect.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/FileMan.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/PeripheralMan.h"
+#include "display/ViewDialog.h"
+#include "patient/ViewArchive.h"
+#include "patient/ViewArchiveImgMan.h"
+#include "patient/ViewUdiskDataSelect.h"
 
 ViewUdiskDataSelect* ViewUdiskDataSelect::m_ptrInstance = NULL;
 

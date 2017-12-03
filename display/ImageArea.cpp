@@ -1,23 +1,23 @@
-#include "ImageArea.h"
+#include "display/ImageArea.h"
 #include "ViewMain.h"
 #include <math.h>
-#include "../imageProc/Replay.h"
-#include "../imageProc/MenuReview.h"
-#include "ImageAreaPara.h"
-#include "MeasureFactory.h"
-#include "DrawHistogram.h"
-#include "ImageAreaDraw.h"
-#include "../imageProc/ImgProcPw.h"
-#include "../imageProc/ImgProc2D.h"
+#include "imageProc/Replay.h"
+#include "imageProc/MenuReview.h"
+#include "display/ImageAreaPara.h"
+#include "measure/MeasureFactory.h"
+#include "measure/DrawHistogram.h"
+#include "display/ImageAreaDraw.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/ImgProc2D.h"
 #include <pango-1.0/pango/pangoft2.h>
-#include "../lib/include/ImageMix.h"
-#include "../lib/include/DSCTypes.h"
-#include "../base/CalcTime.h"
-#include "../measure/CDrawIMT.h"
-#include "../sysMan/SysMeasurementSetting.h"
-#include "../keyboard/KeyDef.h"
-#include "SysGeneralSetting.h"
-#include "ViewSystem.h"
+#include <ImageMix.h>
+#include <DSCTypes.h>
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "measure/CDrawIMT.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "keyboard/KeyDef.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/ViewSystem.h"
 namespace {
 	//	const int MeasureResult_H = 17;	// 测量结果每行高度(像素)
 	const int kHistogramWidth = 256+2;
@@ -719,7 +719,6 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 						0, 0,
 						IMG_AREA_W, IMG_AREA_H,
 						GDK_RGB_DITHER_NORMAL, 0, 0);
-
 
 				gdk_draw_pixbuf(widget->window,
 						widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
@@ -1951,7 +1950,6 @@ void ImageArea::DrawProbeMark(int x, int y, guint direction, guint directionMax,
 	//printf("1-4t: (%d, %d),(%d, %d),(%d, %d),(%d, %d)\n", t1_x, t1_y, t2_x, t2_y, t3_x, t3_y, t4_x, t4_y);
 	//printf("5-8t: (%d, %d),(%d, %d),(%d, %d),(%d, %d)\n", t5_x, t5_y, t6_x, t6_y, t7_x, t7_y, t8_x, t8_y);
 
-
 	// draw probe mark
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t1_x, t1_y, t2_x, t2_y);
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t3_x, t3_y, t4_x, t4_y);
@@ -1965,7 +1963,6 @@ void ImageArea::DrawProbeMark(int x, int y, guint direction, guint directionMax,
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t7_x, t7_y, t8_x, t8_y);
 	gdk_draw_line(m_pixmapBDMK[index], gc, t5_x, t5_y, t7_x, t7_y);
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t6_x, t6_y, t8_x, t8_y);
-
 
 	g_object_unref(gc);
 	UpdateImgArea();
@@ -2060,7 +2057,6 @@ void ImageArea::DrawMeaCursor(GdkFunction mode, int type, int size, const GdkCol
 	UpdateImgArea();
 }
 
-
 GdkGC* ImageArea::NewMeasureGC(GdkColor *color, GdkFunction mode)
 {
 	GdkGC *gc = gdk_gc_new(m_pixmapArea);
@@ -2150,7 +2146,6 @@ void ImageArea::DrawMeasureResult(const char *result, int pos, int lines, int cu
     if (update)
         UpdateImgArea();
 }
-
 
 void ImageArea::DrawStringFps(const char *str, int x, int y, const GdkColor* const color)
 {
@@ -2439,7 +2434,6 @@ void ImageArea::DrawString(const char *str, int x, int y, const GdkColor* const 
 	g_object_unref(PFM);
 	g_object_unref(context);
 }
-
 
 void ImageArea::HideBodyMark(void)
 {
@@ -2748,7 +2742,6 @@ void ImageArea::DrawArrowHollow(int x, int y, guint direction, guint directionMa
 	UpdateImgArea();
 }
 
-
 // @brief draw arrow with direction, size, color
 // @para x,y the center coordinate
 // @para direction(enum DIRECTION) value:0~23
@@ -2866,7 +2859,6 @@ void ImageArea::DrawTransducerResult(int x, int y, int width, int height, int Tr
     imgAttr.area = ImageArea::PARA;
     imgAttr.mode.gdkMode = GDK_XOR;
 
-
     int heightdiv=height/5;
 
     int i;
@@ -2931,7 +2923,6 @@ void ImageArea::DrawBiopsyLine(GdkFunction mode, const GdkColor* const color, in
         {
             x = x1 + (int)((float)dist_x * (float)count / (float)length);
             y = y1 + (int)((float)dist_y * (float)count / (float)length);
-
 
             gdk_draw_point(m_pixmapPwTrace, gc, x,   y);
             gdk_draw_point(m_pixmapPwTrace, gc, x+1, y);

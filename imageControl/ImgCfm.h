@@ -1,17 +1,17 @@
 #ifndef IMG_CFM_H
 #define IMG_CFM_H
 
-#include "CalcCfm.h"
+#include "imageControl/CalcCfm.h"
 #include "AbsUpdateCfm.h"
 #include "AbsUpdate2D.h"
 #include "AbsUpdatePw.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "FpgaCfm.h"
-#include "ProbeMan.h"
-#include "ExamItem.h"
-#include "DscMan.h"
-#include <base/CalcTime.h>
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/FpgaCfm.h"
+#include "probe/ProbeMan.h"
+#include "probe/ExamItem.h"
+#include "imageProc/DscMan.h"
+#include "accessories/osrfx2_src/CalcTime.h"
 
 class ImgCfm
 {

@@ -9,17 +9,17 @@
 #include <gtk/gtk.h>
 
 #include "Def.h"
-#include "gui_global.h"
-#include "ImgMan.h"
-#include "IniFile.h"
-#include "CreateJpeg.h"
-#include "CreateBitmap.h"
-#include "CreateEmp.h"
-#include "HintArea.h"
-#include "SysOptions.h"
-#include "ImageArea.h"
-#include "DCMMan.h"
-#include "ViewArchive.h"
+#include "display/gui_global.h"
+#include "patient/ImgMan.h"
+#include "base/IniFile.h"
+#include "patient/CreateJpeg.h"
+#include "patient/CreateBitmap.h"
+#include "patient/CreateEmp.h"
+#include "display/HintArea.h"
+#include "sysMan/SysOptions.h"
+#include "display/ImageArea.h"
+#include "periDevice/DCMMan.h"
+#include "patient/ViewArchive.h"
 #include "ViewMain.h"
 
 ///> /////////////////////////////////[private variable]////////////////////////////

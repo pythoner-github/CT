@@ -2,16 +2,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "Def.h"
-#include "ScreenSaver.h"
-#include "FreezeMode.h"
-#include "SysGeneralSetting.h"
-#include "../imageProc/ModeStatus.h"
+#include "sysMan/ScreenSaver.h"
+#include "imageProc/FreezeMode.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "imageProc/ModeStatus.h"
 #include <X11/Xft/Xft.h>
-#include "ViewSystem.h"
-#include "MenuArea.h"
-#include "ViewSuperuser.h"
-#include "D4FuncMan.h"
-
+#include "sysMan/ViewSystem.h"
+#include "display/MenuArea.h"
+#include "sysMan/ViewSuperuser.h"
+#include "imageControl/D4FuncMan.h"
 
 ScreenSaver* ScreenSaver::m_ptrInstance = NULL;
 
@@ -343,7 +342,6 @@ void ScreenSaver::BlackScreen2()
     m_state = TRUE;
 }
 
-
 void ScreenSaver::EnterScreenSaver2()
 {
 #ifdef EMP3D
@@ -370,7 +368,6 @@ void ScreenSaver::EnterScreenSaver2()
 		BlackScreen2();
 	}
 }
-
 
 void ScreenSaver::BlackScreen3()
 {
@@ -404,7 +401,6 @@ void ScreenSaver::BlackScreen3()
     XSync(m_dpy, False);
     XFreePixmap(m_dpy, pmap);
 
-
 	XGCValues gcvalue;
 	Colormap colormap;
     XColor white;
@@ -434,7 +430,6 @@ void ScreenSaver::BlackScreen3()
 
     m_state = TRUE;
 }
-
 
 void ScreenSaver::EnterScreenSaver3()
 {

@@ -22,7 +22,7 @@
 #define AVUTIL_INTFLOAT_H
 
 #include <stdint.h>
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 union av_intfloat32 {
     uint32_t i;

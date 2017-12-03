@@ -2,10 +2,10 @@
 #ifndef MENU_MEASURE_H
 #define MENU_MEASURE_H
 
-#include "MenuTree.h"
-#include "ExamItem.h"
-#include "ScanMode.h"
-#include "MeasureDef.h"
+#include "display/MenuTree.h"
+#include "probe/ExamItem.h"
+#include "imageProc/ScanMode.h"
+#include "calcPeople/MeasureDef.h"
 class MenuMeasure {
 public:
     MenuMeasure(void);
@@ -23,7 +23,6 @@ public:
     void SetCompleteMeasureFlag(int etype);
     void CompleteCurrentMeasure();
     string GetExamItem(void) { return m_examItem; }
-
 
 private:
     void UpdateCurrentExamItemMeasureItems(string item);

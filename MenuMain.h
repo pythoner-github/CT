@@ -5,7 +5,7 @@
 #define WIDTH_MAIN_MENU 220
 #define HEIGHT_MAIN_MENU 635
 
-#include "MenuArea.h"
+#include "display/MenuArea.h"
 
 class MenuMain
 {

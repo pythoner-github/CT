@@ -3,19 +3,19 @@
 #include <pthread.h>
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "SysLog.h"
+#include "sysMan/SysLog.h"
 #include "Init.h"
-#include "IoCtrl.h"
-#include "FpgaReceive.h"
-#include "ExamItem.h"
-#include "ProbeMan.h"
-#include "PeripheralMan.h"
-#include "UpgradeMan.h"
-#include "gui_func.h"
-#include "UIS4DReceiveInterface.h"
-#include "FpgaGeneral.h"
-#include "ViewSystem.h"
-#include "ManRegister.h"
+#include "periDevice/IoCtrl.h"
+#include "imageProc/FpgaReceive.h"
+#include "probe/ExamItem.h"
+#include "probe/ProbeMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "sysMan/UpgradeMan.h"
+#include "display/gui_func.h"
+#include <UIS4DReceiveInterface.h>
+#include "imageControl/FpgaGeneral.h"
+#include "sysMan/ViewSystem.h"
+#include "periDevice/ManRegister.h"
 
 using namespace std;
 
@@ -37,10 +37,9 @@ void* ThreadDsc(void* argv)
 
 	FpgaReceive fr;
 	fr.UsbServiceRoutine(argv);
-	
+
 	return NULL;
 }
-
 
 /*
  * When recevied SIGSEGV signal, auto run gdb
@@ -64,7 +63,7 @@ void dump(int signo)
 
 	exit(0);
 }
-#include "Printmain.h"
+#include "periDevice/Printmain.h"
 void IngPipe(int signo)
 {
     int id = getpid();
@@ -85,13 +84,13 @@ int main(int argc, char*argv[])
 #endif
     //signal(SIGSEGV, &dump);
     signal(SIGSEGV, SIG_IGN);
-    // in order to due the GetPrinter cause broken pipe, process be killed 
-    //signal(SIGPIPE, SIG_IGN);   
-    signal(SIGPIPE, &IngPipe);   
+    // in order to due the GetPrinter cause broken pipe, process be killed
+    //signal(SIGPIPE, SIG_IGN);
+    signal(SIGPIPE, &IngPipe);
 
     Init init;
 	init.WriteLogHead();
-	
+
 	///> system init
 	SysLog* sysLog = SysLog::Instance();
 	(*sysLog) << "main: Sytem init!" << endl;
@@ -114,7 +113,7 @@ int main(int argc, char*argv[])
 	///> init gui, and create main view
 	(*sysLog) << "main: Run gui, create main view!" << endl;
 	init.CreatMainWindow();
-	
+
 	init.ParaInit();
 
 	///> probe init
@@ -140,9 +139,9 @@ int main(int argc, char*argv[])
     /****************** LWF ************************/
 
 	gdk_threads_enter();
-	gtk_main();	
+	gtk_main();
 	gdk_threads_leave();
-	
+
 	///> exit main, and do something clear
 	(*sysLog) << "main: Exit main, and do something clear!" << endl;
 
@@ -150,4 +149,3 @@ int main(int argc, char*argv[])
 
 	init.ExitSystem();
 }
-

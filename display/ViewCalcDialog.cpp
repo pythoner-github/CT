@@ -1,7 +1,7 @@
-#include "ViewCalcDialog.h"
-#include "KeyValueOpr.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "display/ViewCalcDialog.h"
+#include "keyboard/KeyValueOpr.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include "ViewMain.h"
 
 ViewCalcDialog* ViewCalcDialog::m_ptrInstance = NULL;

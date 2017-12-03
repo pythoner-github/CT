@@ -2,7 +2,7 @@
 #define _VIEWPRINTADD_H_
 
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <string>
 
 class ViewPrinterAdd : public FakeXEvent

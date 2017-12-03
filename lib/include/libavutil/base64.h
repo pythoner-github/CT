@@ -29,7 +29,6 @@
  * @{
  */
 
-
 /**
  * Decode a base64-encoded string.
  *

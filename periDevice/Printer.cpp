@@ -5,11 +5,11 @@
 #include <errno.h>
 #include <zlib.h>
 
-#include "Printer.h"
-#include "gui_global.h"
-#include "../display/gui_func.h"
-#include "PeripheralMan.h"
-#include "ViewSystem.h"
+#include "periDevice/Printer.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "periDevice/PeripheralMan.h"
+#include "sysMan/ViewSystem.h"
 
 using std::string;
 using std::vector;
@@ -590,7 +590,6 @@ bool Printer::GetUsbPrinterUri(string &uri)
              * Display the device...
              */
 
-
             string str_uri = device_uri;
             string str_device_id = device_id;
             if (string::npos != str_uri.find("usb://") // uri=usb://...
@@ -892,4 +891,3 @@ void Printer::LoadFirmware(const string uri)
         _system_(command);
     }
 }
-

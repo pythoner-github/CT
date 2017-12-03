@@ -1,12 +1,11 @@
-
-#include "UpdateCfm.h"
-#include "KnobCfm.h"
-#include "MenuCFM.h"
-#include "KeyFunc.h"
-#include "../display/ImageAreaPara.h"
-#include "../display/ImageAreaDraw.h"
-#include "../display/KnobMenu.h"
-#include "MenuBiopsy.h"//2016.09.18--hy
+#include "imageControl/UpdateCfm.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/MenuCFM.h"
+#include "keyboard/KeyFunc.h"
+#include "display/ImageAreaPara.h"
+#include "display/ImageAreaDraw.h"
+#include "display/KnobMenu.h"
+#include "probe/MenuBiopsy.h"//2016.09.18--hy
 #include "ViewMain.h"
 const char * Toggle_Cfm[2] =
 {
@@ -342,7 +341,6 @@ void UpdateCfm::Artifact(int index, EKnobReturn status)
 	sprintf(m_str, "%d", index);
 	g_menuCFM.UpdateArtifact(m_str, status);
 }
-
 
 ///////////////////////////////  test  //////////////////////////////////////
 void UpdateCfm::TissueGate(int index, EKnobReturn status)

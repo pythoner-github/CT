@@ -1,15 +1,15 @@
-#include "MeasureFactory.h"
-#include "Measure2D.h"
-#include "MeasureM.h"
-#include "MeasureD.h"
-#include "DrawHistogram.h"
-#include "MeaCalcFun.h"
+#include "measure/MeasureFactory.h"
+#include "measure/Measure2D.h"
+#include "measure/MeasureM.h"
+#include "measure/MeasureD.h"
+#include "measure/DrawHistogram.h"
+#include "calcPeople/MeaCalcFun.h"
 //#include "ModeStatus.h"
-#include "SysMeasurementSetting.h"
-#include "ImgProcPw.h"
-#include "../display/HintArea.h"
-#include "../keyboard/KeyFunc.h"
-#include "../imageProc/ImgProc2D.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "imageProc/ImgProcPw.h"
+#include "display/HintArea.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProc2D.h"
 
 AbsMeasure* g_ptrAbsMeasure = NULL;
 
@@ -115,7 +115,6 @@ FreezeMode::EFreezeMode MeasureFactory::JudgeFreeze(void)
 
 	return(getStatus.GetFreezeMode());
 }
-
 
 AbsMeasure* MeasureFactory::Create(EMeasureFactory type)
 {
@@ -562,4 +561,3 @@ AbsMeasure* MeasureFactory::Create(EMeasureFactory type)
 
 	return g_ptrAbsMeasure;
 }
-

@@ -9,7 +9,7 @@
 
 #ifndef EFOVDSC_H
 #define EFOVDSC_H
-#include "DSC.h"
+#include <DSC.h>
 
 class CEFOVDSC:public CDSC
 {
@@ -18,8 +18,8 @@ public:
 	virtual void Destroy(void);
 	virtual bool GetUSBDatas(const unsigned char *pDatas);
 	virtual void Update(void);
-	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart, 
-		unsigned int sampEnd, float zoomScale);	
+	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart,
+		unsigned int sampEnd, float zoomScale);
 	virtual void SetEFOVStatus(EFOVSTATUS status);
 	virtual void RotateEFOVImage(int level);
 	virtual void GetEFOVSpeed(int &speed_flag, int &speed_maxflag, float &speed);

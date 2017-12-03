@@ -9,9 +9,9 @@
  * @author: zhanglei
  */
 
-#include "FormatCfm.h"
-#include "Format2D.h"
-#include "GlobalClassMan.h"
+#include "imageProc/FormatCfm.h"
+#include "imageProc/Format2D.h"
+#include "imageProc/GlobalClassMan.h"
 
 FormatCfm* FormatCfm::m_ptrInstance = NULL;
 
@@ -74,7 +74,6 @@ void FormatCfm::ChangeFormat(enum EFormatCfm format)
 	m_ptrUpdate->ChangeFormatCfm(m_format);
 }
 
-
 //在2B冻结下，切换区域，当当前不等于冻结前最后区域时解冻后要切换重绘zjx
 bool FormatCfm::SwitchBBForFreeze(int lastRealB)
 {
@@ -88,8 +87,6 @@ bool FormatCfm::SwitchBBForFreeze(int lastRealB)
 
     return FALSE;
 }
-
-
 
 /*
  * @brief switch current image in BB format, 2D current image of BB will be changed tof
@@ -141,7 +138,6 @@ int FormatCfm::SwitchB4ForFreeze(int curB, int lastRealB)
 
     return FALSE;
 }
-
 
 int FormatCfm::SwitchB4()
 {

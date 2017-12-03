@@ -1,20 +1,20 @@
 #ifndef SCAN_MODE_H
 #define SCAN_MODE_H
 
-#include "FpgaCtrl2D.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "ImgCfm.h"
-#include "Format2D.h"
-#include "FormatM.h"
-#include "FormatPw.h"
-#include "FormatCfm.h"
+#include "imageControl/FpgaCtrl2D.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/Format2D.h"
+#include "imageProc/FormatM.h"
+#include "imageProc/FormatPw.h"
+#include "imageProc/FormatCfm.h"
 #include "AbsUpdate2D.h"
 #include "AbsUpdatePw.h"
 #include "AbsUpdateCfm.h"
-#include "MultiFuncFactory.h"
-#include "Replay.h"
-#include "UIS4DReceiveInterface.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "imageProc/Replay.h"
+#include <UIS4DReceiveInterface.h>
 
 class ScanMode
 {
@@ -39,7 +39,6 @@ public:
         double scalePwTime;
         int baselineCalc;
     };
-
 
     ~ScanMode();
     static ScanMode* GetInstance();

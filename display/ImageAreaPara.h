@@ -2,7 +2,7 @@
 #define IMAGE_AREA_PARA_H
 
 #include <string>
-#include "ImageArea.h"
+#include "display/ImageArea.h"
 
 using std::string;
 

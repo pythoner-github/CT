@@ -10,13 +10,12 @@
  */
 
 #include <glib.h>
-#include "PowerMan.h"
-#include "../include/Def.h"
-#include "../periDevice/IoCtrl.h"
-#include "../imageProc/GlobalClassMan.h"
+#include "periDevice/PowerMan.h"
+#include "Def.h"
+#include "periDevice/IoCtrl.h"
+#include "imageProc/GlobalClassMan.h"
 
 PowerMan* PowerMan::m_ptrInstance = NULL;
-
 
 PowerMan::PowerMan()
 {

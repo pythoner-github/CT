@@ -1,9 +1,9 @@
 #ifndef __PROJECT_CALC2D_H__
 #define __PROJECT_CALC2D_H__
 #ifdef EMP_PROJECT
-#include "Calc2D.h"
-#include "DSCTypes.h"
-#include "DSC.h"
+#include "imageControl/Calc2D.h"
+#include <DSCTypes.h>
+#include <DSC.h>
 
 class ProjectCalc2D
 {

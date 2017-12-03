@@ -9,17 +9,17 @@
  * @author: zhanglei
  */
 
-#include "ProbeMan.h"
+#include "probe/ProbeMan.h"
 #include "Def.h"
-#include "ProbeList.h"
-#include "ProbeList-360.h"
-#include "ProbeList-322.h"
-#include "ProbeList-430.h"
-#include "ProbeList-440.h"
-#include "ProbeList-355.h"
-#include "CalcTime.h"
-#include "FpgaGeneral.h"
-#include "IniFile.h"
+#include "probe/ProbeList.h"
+#include "probe/ProbeList-360.h"
+#include "probe/ProbeList-322.h"
+#include "probe/ProbeList-430.h"
+#include "probe/ProbeList-440.h"
+#include "probe/ProbeList-355.h"
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "imageControl/FpgaGeneral.h"
+#include "base/IniFile.h"
 
 ProbeMan* ProbeMan::m_ptrInstance = NULL;
 #if (defined(EMP_360)||defined(EMP_440))
@@ -586,7 +586,6 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe65C10J;
     //buf = Probe65C20G;
     //buf = Probe90L40J;
-
 
     // EMP-340
     buf = Probe35C50K;

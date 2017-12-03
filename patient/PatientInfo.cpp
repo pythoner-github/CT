@@ -11,17 +11,17 @@
 
 #include <glib/gstdio.h>
 #include <stdlib.h>
-#include "PatientInfo.h"
+#include "patient/PatientInfo.h"
 #include "Def.h"
-#include "TopArea.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "Database.h"
-#include "ViewReport.h"
-#include "MeasureMan.h"
+#include "display/TopArea.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "patient/Database.h"
+#include "calcPeople/ViewReport.h"
+#include "measure/MeasureMan.h"
 #include "bodymark/BodyMark.h"
-#include "FileMan.h"
-#include "../sysMan/SysGeneralSetting.h"
+#include "patient/FileMan.h"
+#include "sysMan/SysGeneralSetting.h"
 
 PatientInfo g_patientInfo;
 
@@ -370,4 +370,3 @@ void PatientInfo::ClearPatientInfo()
 {
     InitPatient();
 }
-

@@ -21,7 +21,7 @@
 #ifndef AVUTIL_BPRINT_H
 #define AVUTIL_BPRINT_H
 
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 /**
  * Define a structure with extra padding to a fixed size

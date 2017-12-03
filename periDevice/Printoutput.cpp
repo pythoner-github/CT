@@ -7,9 +7,9 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <gtk/gtk.h>
-#include "Printoutput.h"
-#include "Printmain.h"
-#include "Printfunctions.h"
+#include "periDevice/Printoutput.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
 
 //GtkObject *Printoutput::brightAdj  =  NULL;
 //GtkObject *Printoutput::gammaAdj = NULL;
@@ -117,7 +117,6 @@ void Printoutput::WantMirrorCheck(GtkWidget *widget)
 		mirroroutput = 1;
 	}
 }
-
 
 void Printoutput::SheetUsageFrame(GtkWidget *container)
 {

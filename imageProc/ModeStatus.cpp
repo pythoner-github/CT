@@ -1,5 +1,4 @@
-
-#include "ModeStatus.h"
+#include "imageProc/ModeStatus.h"
 ///> judge
 
 bool ModeStatus::IsD2Mode()
@@ -191,7 +190,6 @@ bool ModeStatus::IsPDICompareMode()
 	else
 		return FALSE;
 }
-
 
 bool ModeStatus::IsSimultMode()
 {

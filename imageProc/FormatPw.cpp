@@ -9,14 +9,14 @@
  * @author: zhanglei
  */
 
-#include "FormatPw.h"
-#include "Replay.h"
-#include "GlobalClassMan.h"
-#include "KeyFunc.h"
-#include "FreezeMode.h"
-#include "GlobalClassMan.h"
-#include "Zoom.h"
-#include "SysOptions.h"
+#include "imageProc/FormatPw.h"
+#include "imageProc/Replay.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/FreezeMode.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/Zoom.h"
+#include "sysMan/SysOptions.h"
 
 FormatPw* FormatPw::m_ptrInstance = NULL;
 
@@ -130,7 +130,6 @@ void FormatPw::ChangeFormat(enum EFormatPw format)
 	}
 #endif
 }
-
 
 FormatPw::EFormatPw FormatPw::GetFormat()
 {

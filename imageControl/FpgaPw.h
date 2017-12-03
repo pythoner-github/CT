@@ -1,7 +1,7 @@
 #ifndef __FPGAPW_H__
 #define __FPGAPW_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 #include "AbsUltraInterface.h"
 
 class FpgaPw
@@ -97,6 +97,5 @@ class FpgaPw
 	int SendPwCombined(INT16U clearAddr, INT16U pwData);
 	int SendCwCombined(INT16U clearAddr, INT16U cwData);
 };
-
 
 #endif

@@ -30,6 +30,4 @@ class SysLog:public std::ofstream
 		#define FILENAME "./res/log/sys.log"
 };
 
-
-
 #endif

@@ -3,10 +3,10 @@
 
 #include "Def.h"
 #include "AbsMeasure.h"
-#include "UpdateMeasure.h"
-#include "MeasureCalc.h"
-#include "MeasureDraw.h"
-#include "MeasureMan.h"
+#include "measure/UpdateMeasure.h"
+#include "measure/MeasureCalc.h"
+#include "measure/MeasureDraw.h"
+#include "measure/MeasureMan.h"
 //轨迹法手动描迹
 class DMeasureManualTrack: public AbsMeasure
 {
@@ -127,7 +127,6 @@ class DMeasureManualAuto: public AbsMeasure
     void SemiAutoCalc();//半自动
 };
 
-
 class DMeasureIntegralTrack: public AbsMeasure
 {
     public:
@@ -163,9 +162,6 @@ class DMeasureIntegralTrack: public AbsMeasure
 	const unsigned char MOUSE_INTERVAL;
 	unsigned char m_mouse_count;
 };
-
-
-
 
 /*
  * @brief measure velocity in doppler mode
@@ -421,7 +417,6 @@ class DMeasureAccel :public AbsMeasure
 		const SingleItemInfo *m_itemInfo;
 };
 
-
 /*
  * @brief measure P1/2t in doppler mode
  */
@@ -455,7 +450,6 @@ class DMeasureP12t :public AbsMeasure
 
     void Result(int saveR, UpdateMeasure::ResultAttr& attr);
 };
-
 
 /*
  * @brief measure PI(pulse index) in doppler mode

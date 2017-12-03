@@ -1,15 +1,15 @@
-#include "FpgaReceive.h"
-#include "Format2D.h"
-#include "BDSC.h"
-#include "Img2D.h"
-#include "DscMan.h"
-#include "ImgPw.h"
+#include "imageProc/FpgaReceive.h"
+#include "imageProc/Format2D.h"
+#include <BDSC.h>
+#include "imageControl/Img2D.h"
+#include "imageProc/DscMan.h"
+#include "imageControl/ImgPw.h"
 //for test
-#include "CalcTime.h"
-#include "ModeStatus.h"
-#include "../imageControl/D4FuncMan.h"
-#include "../keyboard/MultiFuncMode.h"
-#include "QuickAdjustmentPw.h"
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "imageProc/ModeStatus.h"
+#include "imageControl/D4FuncMan.h"
+#include "keyboard/MultiFuncMode.h"
+#include "imageControl/QuickAdjustmentPw.h"
 
 #ifdef EMP_460 //G40
 	PcieControl* FpgaReceive::m_ptrUsb = PcieControl::GetInstance();

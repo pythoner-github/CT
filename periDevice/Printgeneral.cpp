@@ -11,9 +11,9 @@
 #include <ctype.h>
 #include <gtk/gtk.h>
 #include <cups/ppd.h>
-#include "Printgeneral.h"
-#include "Printmain.h"
-#include "Printfunctions.h"
+#include "periDevice/Printgeneral.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
 
 GtkWidget *Printgeneral::generalTab = NULL;
 GtkWidget *Printgeneral::printerFrame = NULL;

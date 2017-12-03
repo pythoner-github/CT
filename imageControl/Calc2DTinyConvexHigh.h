@@ -1,7 +1,7 @@
 #ifndef CALC_2D_TINY_CONVEX_HIGH_H
 #define CALC_2D_TINY_CONVEX_HIGH_H
 
-#include "Calc2DTV.h"
+#include "imageControl/Calc2DTV.h"
 
 class Calc2DTinyConvexHigh: public Calc2DTV
 {

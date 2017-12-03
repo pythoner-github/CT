@@ -9,18 +9,16 @@
  * date: 2012-7-10
  */
 
-
 #include <stdlib.h>
-#include <time.h>
+#include <libavutil/time.h>
 #include <stdio.h>
-#include "CDrawIMT.h"
-#include "lib/include/IMT.h"
+#include "measure/CDrawIMT.h"
+#include <IMT.h>
 #include "display/HintArea.h"
 #include "imageProc/ModeStatus.h"
 #include "imageProc/FreezeMode.h"
 
  using namespace std;
-
 
 CIMT *m_ptrImt = CIMT::GetInstance();
 
@@ -272,7 +270,6 @@ void CDrawIMT::ClearInAdventIMT(void)
     }
 }
 
-
 /**
  * function description: get up and down status
  * param  : null
@@ -319,4 +316,3 @@ void CDrawIMT::SetInAdventIMTMem(void)
     pAdventitia = new unsigned int [roi_w*roi_h];
     memset(pAdventitia, 0, roi_w*roi_h*sizeof(unsigned int));
 }
-

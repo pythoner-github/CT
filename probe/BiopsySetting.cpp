@@ -1,5 +1,5 @@
-#include "BiopsySetting.h"
-#include "../include/Def.h"
+#include "probe/BiopsySetting.h"
+#include "Def.h"
 
 BiopsySetting::BiopsySetting()
 {
@@ -98,4 +98,3 @@ void BiopsySetting::SetBiopsyAngleValueOfAngleType(const string bioBracketTypeAn
 {
 	m_ptrIni->WriteDouble(bioBracketTypeAngle.c_str(),"BiopsyAngle",value);
 }
-

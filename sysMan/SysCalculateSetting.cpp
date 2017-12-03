@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string>
-#include "../include/Def.h"
-#include "MeaCalcFun.h"
-#include "SysCalculateSetting.h"
+#include "Def.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "sysMan/SysCalculateSetting.h"
 
 OBSetting g_obSetting;
 
@@ -121,7 +121,6 @@ const int GetGWMethod(const int item)
     case OB_FTA:
 		method = FTA_START - 1;
 	break;
-
 
     default:
 	break;

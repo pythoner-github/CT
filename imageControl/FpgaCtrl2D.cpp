@@ -9,9 +9,9 @@
 * @author:QiuJiuming
 */
 
-#include "PcieControl.h"
-#include "FpgaCtrl2D.h"
-#include "UsbControl.h"
+#include "imageControl/PcieControl.h"
+#include "imageControl/FpgaCtrl2D.h"
+#include "imageControl/UsbControl.h"
 #include <iostream>
 
 using namespace std;
@@ -560,7 +560,6 @@ int FpgaCtrl2D::SendReceiveDelayColorBn(INT16 *bn, INT32U size)
     return ReceiveDelayBn(bn, size, clear);
 }
 
-
 /**
 * @param aperture: pinter to aperture data of reveive focus
 * @param size: number of aperture
@@ -689,7 +688,6 @@ int FpgaCtrl2D::SendSample48m(INT32U sample)
 	PRINTF("fpga send sample black-white addr = %d, data = %d\n", addr, data);
 	return SendSampleCombined(addr, data);
 }
-
 
 /**
 * @brief 60m 64点arperture BW
@@ -1219,7 +1217,6 @@ int FpgaCtrl2D::SendCFMPulseNum(INT32U num)
 
 	return (SUCCESS);
 }
-
 
 /**
 * @brief send line density status
@@ -1818,7 +1815,6 @@ int FpgaCtrl2D::SendPulseWidthBak(INT32U width)
 		return (ERR_OP);
 	}
 
-
 	addr = PROBE_EMIT1;
 	temp = width & (0xff << 0);
 	fpga.m_probeEmit1 = (fpga.m_probeEmit1 & (~(0xff << 0))) | (temp << 0);
@@ -1864,7 +1860,6 @@ int FpgaCtrl2D::SendColorPulseWidthBak(INT32U width)
 	{
 		return (ERR_OP);
 	}
-
 
 	addr = PROBE_EMIT1;
 	temp = width & (0xff << 0);
@@ -2154,7 +2149,6 @@ int FpgaCtrl2D::SendExtendImagingSample(INT16U* value, INT32U size)
 	return (SUCCESS);
 
 }
-
 
 int FpgaCtrl2D::TgcCombine(INT32 clearAddr, INT8U tgc[], INT32U size)
 {
@@ -2789,7 +2783,6 @@ int FpgaCtrl2D::VideoStandard(INT16U para)
 	return (SUCCESS);
 }
 
-
 /**
  *  @para 0: master 1: host
  */
@@ -3052,7 +3045,6 @@ int FpgaCtrl2D::SendFreqCompoundTgc2(INT16U *tgc, INT32U size)
     clear = 3;
     return(TgcSequence(clear, tgc, size));
 }
-
 
 ///>private 2016.05.20
 int FpgaCtrl2D::EmissionPulseNum(INT32U clear, INT32U pulseNum)

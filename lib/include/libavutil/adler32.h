@@ -22,7 +22,7 @@
 #define AVUTIL_ADLER32_H
 
 #include <stdint.h>
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 /**
  * @ingroup lavu_crypto

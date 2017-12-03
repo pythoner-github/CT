@@ -10,24 +10,24 @@
  */
 
 #include "Def.h"
-#include "LightDef.h"
-#include "FreezeMode.h"
-#include "IoCtrl.h"
-#include "GlobalClassMan.h"
-#include "KeyFunc.h"
-#include "ViewIcon.h"
-#include "Img2D.h"
-#include "../display/MenuArea.h"
-#include "Menu2D.h"
-#include "MenuM.h"
-#include "MenuCFM.h"
-#include "MenuPW.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "../display/TopArea.h"
-#include "../probe/ProbeSelect.h"
+#include "keyboard/LightDef.h"
+#include "imageProc/FreezeMode.h"
+#include "periDevice/IoCtrl.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/KeyFunc.h"
+#include "display/ViewIcon.h"
+#include "imageControl/Img2D.h"
+#include "display/MenuArea.h"
+#include "imageProc/Menu2D.h"
+#include "imageProc/MenuM.h"
+#include "imageProc/MenuCFM.h"
+#include "imageProc/MenuPW.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "display/TopArea.h"
+#include "probe/ProbeSelect.h"
 #include "ViewMain.h"
-#include "../patient/PatientInfo.h"
-#include "ViewSystem.h"
+#include "patient/PatientInfo.h"
+#include "sysMan/ViewSystem.h"
 
 FreezeMode* FreezeMode::m_ptrInstance = NULL;
 
@@ -299,7 +299,6 @@ void FreezeMode::UpdateHospitalandpart(int date_format, const char *hospital_nam
 #endif
     }
 }
-
 
 void FreezeMode::FreezeEFOV()
 {

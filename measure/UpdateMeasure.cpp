@@ -1,4 +1,3 @@
-
 /*
  * 2009, 深圳恩普电子技术有限公司
  *
@@ -11,15 +10,15 @@
  */
 
 #include <string>
-#include "UpdateMeasure.h"
-#include "gui_func.h"
+#include "measure/UpdateMeasure.h"
+#include "display/gui_func.h"
 #include "Def.h"
-#include "ImageArea.h"
-#include "SysGeneralSetting.h"
-#include "Img2D.h"
-#include "../sysMan/SysMeasurementSetting.h"
-#include "MeasureMan.h"
-#include "MeasureFactory.h"
+#include "display/ImageArea.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "imageControl/Img2D.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "measure/MeasureMan.h"
+#include "measure/MeasureFactory.h"
 
 deque<UpdateMeasure::Result> UpdateMeasure::m_dequeResult;
 
@@ -432,7 +431,6 @@ display:
 	}
 	return; //for test
 }
-
 
 void UpdateMeasure::GenDisplayMulti(const MultiItemInfo *info, double dataMea[], ResultAttr& attr, bool inMeasure, int unit_coeffi[])
 {
@@ -935,7 +933,6 @@ void UpdateMeasure::D2AngustyDist(double dist1, double dist2, double angusty, Re
 	    return;
 	}
 
-
     if((int)angusty == INVALID_VAL)
     {
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s %s", _("dist1"),dist1*coeffi, unit.c_str(),  _("dist2"), dist2*coeffi, unit.c_str(), _("angusty"), _(" Invalid"));
@@ -1162,7 +1159,6 @@ void UpdateMeasure::MVel(double vel, ResultAttr& attr, bool inMeasure)
     double coeffi = 1.0;
     MeasureMan::GetInstance()->GetMeasureUnit( coeffi, unit, CMS);
 
-
 	sprintf(buf, "%s= %3.2f%s", _("vel"), vel*coeffi, unit.c_str());
 	string result = buf;
 	if (inMeasure == true)
@@ -1211,7 +1207,6 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 
 	return;
 }
-
 
 ///< D
 // void UpdateMeasure::DVel(double vel, bool inMeasure)
@@ -1274,7 +1269,6 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 	return; //for test
 // }
 
-
 // void UpdateMeasure::DRI(char *name, double ps, double ed, double ri, bool inMeasure)
 // {
 // 	char buf_tmp[50];
@@ -1317,7 +1311,6 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 	}
 // 	return; //for test
 // }
-
 
 void UpdateMeasure::DManual(double ps, double ed, double sd, double ri, double m_tamax, double m_pi, int m_hr, ResultAttr& attr, bool inMeasure)
 {

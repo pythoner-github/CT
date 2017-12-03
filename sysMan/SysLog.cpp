@@ -14,16 +14,15 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <time.h>
+#include <libavutil/time.h>
 #include <string>
-#include "SysLog.h"
+#include "sysMan/SysLog.h"
 
 using std::cout;
 using std::endl;
 using std::stringstream;
 using std::ofstream;
 using std::string;
-
 
 ///> init static variable
 class SysLog* SysLog::m_ptrInstance = NULL;

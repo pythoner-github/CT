@@ -12,8 +12,6 @@ typedef struct NameList{
 }namelist, *nmlst;
 //extern nmlst Head;
 
-
-
 typedef struct node
 {
     int active_user_id;

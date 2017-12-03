@@ -1,11 +1,10 @@
 #ifndef FORMAT_M_H
 #define FORMAT_M_H
 
-#include "Img2D.h"
-#include "Replay.h"
-#include "DSCTypes.h"
-#include "DscMan.h"
-
+#include "imageControl/Img2D.h"
+#include "imageProc/Replay.h"
+#include <DSCTypes.h>
+#include "imageProc/DscMan.h"
 
 /*
  * @brief change M display format or switch current image in all format except M_TOTAL

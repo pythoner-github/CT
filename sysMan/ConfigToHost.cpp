@@ -1,20 +1,20 @@
 #include <dirent.h>
 
-#include "gui_func.h"
-#include "gui_global.h"
-#include "FileMan.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "FakeXEvent.h"
-#include "PeripheralMan.h"
-#include "ViewDialog.h"
-#include "ViewArchive.h"
-#include "ViewArchiveImgMan.h"
-#include "ViewSystem.h"
-#include "ConfigToHost.h"
-#include "UserSelect.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/FileMan.h"
 #include "keyboard/KeyValueOpr.h"
-#include "MenuCalcNew.h"
+#include "keyboard/KeyDef.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/PeripheralMan.h"
+#include "display/ViewDialog.h"
+#include "patient/ViewArchive.h"
+#include "patient/ViewArchiveImgMan.h"
+#include "sysMan/ViewSystem.h"
+#include "sysMan/ConfigToHost.h"
+#include "sysMan/UserSelect.h"
+#include "keyboard/KeyValueOpr.h"
+#include "calcPeople/MenuCalcNew.h"
 #include "keyboard/KeyBoard.h"
 
 extern int s_fdcom;
@@ -67,7 +67,6 @@ void ConfigToHost::CreateCalcImportWindow(GtkWindow *parent)
     gtk_widget_show (label_calc_notice);
     gtk_fixed_put (GTK_FIXED (fixed), label_calc_notice, 20, 5);
     gtk_widget_set_size_request (label_calc_notice, 300, 30);
-
 
     swRoot = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (swRoot);
@@ -242,8 +241,6 @@ void ConfigToHost::DestroyWindow(void)
         g_list_free(m_listBranch);
         m_listBranch = NULL;
     }
-
-
 
     if(GTK_IS_WIDGET(m_window)) {
         g_keyInterface.Pop();
@@ -768,7 +765,6 @@ void ConfigToHost::SetProgressBar(double fraction)
     gtk_widget_show(m_progress_bar);
 }
 
-
 void ConfigToHost::ExportRightInfoNotice(char *result)
 {
     gtk_label_set_text(GTK_LABEL(label_calc_notice1), (_(result)));
@@ -825,7 +821,6 @@ void ConfigToHost::BtnCalcImportOKClicked(GtkButton *button)
         LoadSelectedCalcData();
     }
 }
-
 
 void ConfigToHost::BtnCancelClicked(GtkButton *button)
 {
@@ -1005,7 +1000,6 @@ void ConfigToHost::UpdateCalcRootModel(void)
     closedir(dir);
 }
 
-
 void ConfigToHost::UpdateRootModel(void)
 {
     DIR *dir;
@@ -1132,7 +1126,6 @@ void ConfigToHost::RootCalcSelectionChanged(GtkTreeSelection *selection)
     }
 }
 
-
 void ConfigToHost::RootSelectionChanged(GtkTreeSelection *selection)
 {
     GtkTreeIter iter;
@@ -1196,7 +1189,6 @@ gboolean ConfigToHost::GetAllCalcSelectPath(void)
     else
         return FALSE;
 }
-
 
 gboolean ConfigToHost::GetAllSelectPath(void)
 {

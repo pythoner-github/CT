@@ -3,15 +3,14 @@
 
 #include <string>
 #include <vector>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include "AbsCalendarOpr.h"
-#include "FileMan.h"
-#include "MeaResult.h"
-#include "DCMDef.h"
+#include "patient/FileMan.h"
+#include "calcPeople/MeaResult.h"
+#include "periDevice/DCMDef.h"
 
 using std::string;
 using std::vector;
-
 
 //ADD BY JHUANG BEGIN
 typedef struct CalcNode
@@ -197,7 +196,6 @@ enum{
     GtkWidget *m_treeview_left, *m_treeview_right, *m_treeview_ob; //add by huangj
     GtkWidget *m_window, *m_notebook, *m_fixed, *m_frameImage, *m_frameEdit, *m_swEdit;
 
-
 #ifdef VET
 		GtkWidget *m_entryAnimalName;
 		GtkWidget *m_entryOwnerName;
@@ -209,11 +207,7 @@ enum{
 	GtkWidget *m_viewportTD;
 	GtkWidget *m_viewportAnOB;
 
-
-
     GtkWidget *m_btnTransfer;
-
-
 
 #if not defined(EMP_322)
 #if not defined(EMP_313)
@@ -274,7 +268,6 @@ enum{
 
 		gint AddResultToTree( GtkWidget *treeview, ResultTable result, bool side, gint rows);
 		gint AddResultToObTree(GtkWidget *treeview, ResultObTable result, int fetal, int row);
-
 
         DCMSRELEMENT GetSRElement();
         string GetExamDoctor();
@@ -337,7 +330,6 @@ enum{
 //hlx
 		GtkWidget* CreateNotePageAnOB(void);
 #endif
-
 
 		GtkWidget* CreateSW2NB(GtkWidget *notebook, gint num, const char *title);
 

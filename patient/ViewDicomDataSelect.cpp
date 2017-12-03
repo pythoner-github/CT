@@ -1,27 +1,26 @@
 #include <dirent.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ViewDicomDataSelect.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "FileMan.h"
-#include "DCMMan.h"
-#include "ViewQueryRetrieve.h"
-#include "ViewDialog.h"
-#include "PatientInfo.h"
-#include "ViewReport.h"
-#include "gui_global.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/ViewDicomDataSelect.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "patient/FileMan.h"
+#include "periDevice/DCMMan.h"
+#include "patient/ViewQueryRetrieve.h"
+#include "display/ViewDialog.h"
+#include "patient/PatientInfo.h"
+#include "calcPeople/ViewReport.h"
+#include "display/gui_global.h"
 #include <glib.h>
 #include <glib/gstdio.h>
-#include "gui_func.h"
-#include "PeripheralMan.h"
-#include "ImgMan.h"
-#include "Database.h"
-#include "VideoMan.h"
-#include "SysOptions.h"
-#include "ViewPrintPreview.h"
-#include "Replay.h"
-
+#include "display/gui_func.h"
+#include "periDevice/PeripheralMan.h"
+#include "patient/ImgMan.h"
+#include "patient/Database.h"
+#include "patient/VideoMan.h"
+#include "sysMan/SysOptions.h"
+#include "periDevice/ViewPrintPreview.h"
+#include "imageProc/Replay.h"
 
 ViewDicomDataSelect* ViewDicomDataSelect::m_ptrInstance = NULL;
 
@@ -534,8 +533,6 @@ unsigned int ViewDicomDataSelect::GetDCMStudyElement(DCMSTUDYELEMENT element)
     strcpy(weightT,element.stPatientWeight.c_str());
     DotToCommaLocaleNumeric(weightT, sizeof(weightT));
 
-
-
     if(sizeT!= 0)
         info.e.height =(int)(atof(sizeT)*100);
     else
@@ -591,7 +588,6 @@ unsigned int ViewDicomDataSelect::GetDCMStudyElement(DCMSTUDYELEMENT element)
 	ViewQueryRetrieve::ChangePersonNameFormatForShow(element.stStudyDoctor, info.e.examDoctor);
     info.e.comment = element.stStudyDescription;
     info.e.reportDoctor = "";
-
 
     //ob
     info.ob.LMPDate.year = 0;
@@ -768,7 +764,6 @@ string ViewDicomDataSelect::GetDCMImageElement(DCMIMAGEELEMENT element,unsigned 
         m_ptrInstance->m_info.e.examType = "Mammary Glands";
     else
         m_ptrInstance->m_info.e.examType = "Abdomen";
-
 
     string imgFileName = (string)fileName;
     free(fileName);

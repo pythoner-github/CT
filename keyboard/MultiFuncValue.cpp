@@ -8,17 +8,17 @@
  * date: 2010-9-27
  * @author: zhanglei
  */
-#include "MultiFuncValue.h"
-#include "MultiFuncMode.h"
-#include "ModeStatus.h"
-#include "Img2D.h"
-#include "MultiFuncArrow.h"
-#include "KeyValueOpr.h"
-#include "KeyFunc.h"
-#include "ImgProc2D.h"
-#include "ImgProcM.h"
-#include "Zoom.h"
-#include "MenuBiopsy.h"
+#include "keyboard/MultiFuncValue.h"
+#include "keyboard/MultiFuncMode.h"
+#include "imageProc/ModeStatus.h"
+#include "imageControl/Img2D.h"
+#include "comment/MultiFuncArrow.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/Zoom.h"
+#include "probe/MenuBiopsy.h"
 #include "ViewMain.h"
 
 ///> private
@@ -71,7 +71,6 @@ void MultiFuncDepth::Value(EKnobOper opr)
     ModeStatus s;
     int flag = 0;
     ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
-
 
     if (s.IsColorMode())
         flag = 1;

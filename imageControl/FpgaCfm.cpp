@@ -1,6 +1,6 @@
-#include "PcieControl.h"
-#include "FpgaCfm.h"
-#include "UsbControl.h"
+#include "imageControl/PcieControl.h"
+#include "imageControl/FpgaCfm.h"
+#include "imageControl/UsbControl.h"
 
 struct FpgaCfm::FpgaAddrVariableCfm FpgaCfm::fpgaCfm;
 
@@ -9,7 +9,6 @@ struct FpgaCfm::FpgaAddrVariableCfm FpgaCfm::fpgaCfm;
 #else
     AbsUltraInterface* FpgaCfm::m_ptrInterface = EzUsb::GetInstance();
 #endif
-
 
 int FpgaCfm::SendVariable(INT16U data)
 {
@@ -571,5 +570,3 @@ int FpgaCfm::DynamicFilter(INT16U *filter, INT32U size, INT32U offset)
 
 	return (SUCCESS);
 }
-
-

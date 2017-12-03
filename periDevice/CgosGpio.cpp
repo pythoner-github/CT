@@ -1,13 +1,11 @@
-
 #include <stdio.h>
-#include "CgosGpio.h"
+#include "periDevice/CgosGpio.h"
 
 #undef TEXT
 
 #ifndef TEXT
 #define TEXT(s) s
 #endif
-
 
 void report(char *s)
 {
@@ -67,7 +65,6 @@ int CgosGpioI2C::I2CWrite(unsigned char addr, int len, unsigned char buf[])
     }
 
 }
-
 
 int CgosGpioI2C::I2CRead(unsigned char addr, unsigned char reg,int len, unsigned char buf[])
 {

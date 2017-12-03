@@ -5,10 +5,10 @@
 #include <vector>
 #include <list>
 #include <string>
-#include "Image.h"
-#include "IniFile.h"
-#include "FileMan.h"
-#include "DCMMan.h"
+#include "imageProc/Image.h"
+#include "base/IniFile.h"
+#include "patient/FileMan.h"
+#include "periDevice/DCMMan.h"
 
 using std::deque;
 using std::vector;
@@ -79,7 +79,6 @@ class VideoMan: public FileMan
 
         bool SaveVideoToCineForRetrieve(const char*absPath);
 		bool SaveVideoToAVIForRetrieve(const char* absPath);
-
 
 		void WriteConfigPara(VideoItem *ptrItem, string section, IniFile* ptrIni);
 		void ReadConfigPara(VideoItem *ptrItem, string section, IniFile* ptrIni);

@@ -4,11 +4,11 @@
 #include <errno.h>
 
 #include "Def.h"
-#include "gui_global.h"
-#include "CdBurn.h"
-#include "ViewDialog.h"
-#include "ViewCD.h"
-#include "PeripheralMan.h"
+#include "display/gui_global.h"
+#include "periDevice/CdBurn.h"
+#include "display/ViewDialog.h"
+#include "periDevice/ViewCD.h"
+#include "periDevice/PeripheralMan.h"
 
 #define ISOPATH "/tmp/09001.iso"
 

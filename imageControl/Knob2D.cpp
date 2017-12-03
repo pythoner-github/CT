@@ -9,15 +9,15 @@
  * @author: zhanglei
  */
 
-#include "Knob2D.h"
-#include "Img2D.h"
-#include "KnobMenu.h"
-#include "gui_global.h"
-#include "GlobalClassMan.h"
-#include "HintArea.h"
-#include "KeyFunc.h"
-#include "../imageProc/Zoom.h"
-#include "MenuBiopsy.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/Img2D.h"
+#include "display/KnobMenu.h"
+#include "display/gui_global.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/HintArea.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/Zoom.h"
+#include "probe/MenuBiopsy.h"
 
 #if defined(K24C)
 KnobMenu::KnobItem Knob2DMenu[15] = {
@@ -672,7 +672,6 @@ EKnobReturn D2ChgFreqCompound(EKnobOper oper)
         return ERROR;
     }
 
-
     ParepareForCompound();
     return Img2D::GetInstance()->ChangeCompoundFreq(oper);
 }
@@ -736,7 +735,6 @@ EKnobReturn D2PressDepth(EKnobOper oper)
 
     // clear biopsy line
     g_menuBiopsy.ClearBiopsyLine();
-
 
 #if 0
   if (mode == ScanMode::D2 )
@@ -829,7 +827,6 @@ EKnobReturn D2ChgTpView(EKnobOper oper)
             return ERROR;
         }
 
-
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(oper);
     }
@@ -857,7 +854,6 @@ EKnobReturn D2PressChgTpView()
             HintArea::GetInstance()->UpdateHint(_("[TP-View]: Invalid when EFVI , compound or localzoom is open."), 2);
             return ERROR;
         }
-
 
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(ROTATE);
@@ -896,7 +892,6 @@ EKnobReturn D2ChgEFVI(EKnobOper oper)
 		return ERROR;
 	}
 }
-
 
 EKnobReturn D2PressChgEFVI()
 {

@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <time.h>
+#include <libavutil/time.h>
 #include "Def.h"
-#include "gui_func.h"
-#include "MeaResult.h"
-#include "MeaCalcFun.h"
+#include "display/gui_func.h"
+#include "calcPeople/MeaResult.h"
+#include "calcPeople/MeaCalcFun.h"
 #include <stdio.h>
-#include "SysGeneralSetting.h"
-#include "SysCalculateSetting.h"
-#include "PatientInfo.h"
-#include "MenuCalcNew.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/SysCalculateSetting.h"
+#include "patient/PatientInfo.h"
+#include "calcPeople/MenuCalcNew.h"
 
 #define GW_TABLE_HEAD_LEN	3//产科表表头长度
 
@@ -672,7 +672,6 @@ int MeaCalcFun::CalcGetValue(const double currValue, double value[][MEA_MULTI], 
 #define CHECK3PAR(data1, data2, data3) (((int)data1!=INVALID_VAL) && ((int)data2!=INVALID_VAL) && ((int)data3!=INVALID_VAL))
 #define CHECK4PAR(data1, data2, data3, data4) (((int)data1!=INVALID_VAL) && ((int)data2!=INVALID_VAL) && ((int)data3!=INVALID_VAL) && ((int)data4!=INVALID_VAL))
 
-
 #define GENERAL_PISA_F(diam) (CHECK1PAR(diam) ? (2*PI * diam * diam ) : (double)INVALID_VAL)
 #define GENERAL_AREA_F(diam) (CHECK1PAR(diam) ? (PI * diam * diam / 4.0) : (double)INVALID_VAL)
 #define GENERAL_VOL_F(l, w, h) (CHECK3PAR(l, w, h) ? (1.0/6.0 * PI * l * w * h) : (double)INVALID_VAL)	//适用于腹部，妇科，产科的体积计算
@@ -702,7 +701,6 @@ int MeaCalcFun::CalcGetValue(const double currValue, double value[][MEA_MULTI], 
 #define ADULT_PEP_ET_RATIO_F(pep, et) ((CHECK2PAR(pep, et)&&(et > ZERO)) ? (pep / et) : (double)INVALID_VAL)//*************//
 #define ADULT_TIE_INDEX_F(ivrt, ivct, lvet) ((CHECK3PAR(ivrt, ivct, lvet)&&(lvet > ZERO)) ?  (ivrt + ivct) / lvet : (double)INVALID_VAL)//*************//
 #define ADULT_MVA_P12T_F(mv_p12t) ((CHECK1PAR(mv_p12t)&&(fabs(mv_p12t) > ZERO)) ? (220.0 / (mv_p12t * 1000.0)) : (double)INVALID_VAL)//*************//
-
 
 #define OB_AFI_F(luq, llq, ruq, rlq) (CHECK4PAR(luq, llq, ruq, rlq) ? (luq + llq + ruq + rlq) : (double)INVALID_VAL)
 #define OB_MEAN_SAC_F(sac1, sac2, sac3) (CHECK3PAR(sac1, sac2, sac3) ? ((sac1 + sac2 + sac3) / 3) : (double)INVALID_VAL)
@@ -1076,7 +1074,6 @@ double MeaCalcFun::CalcFormula(CalcInfoTmp *calcInfo, double value[][MEA_MULTI])
 		case ADULT_AI_PISA:
 			return(GENERAL_PISA_F(value[0][0]));
 			break;
-
 
 		case ADULT_MV_PISA:
 			return(GENERAL_PISA_F(value[0][0]));
@@ -1822,7 +1819,6 @@ void MeaCalcFun::CalcAGW(void)
 	m_ptrMeaResult->CalcSetAgwValue(avgGw);
 }
 
-
 #if 1
 int MeaCalcFun::CalcGWMan(CalcInfoTmp *calcInfo, double data[], int item, int save, int *position, const int parPosi)
 {
@@ -1833,7 +1829,6 @@ int MeaCalcFun::CalcGWMan(CalcInfoTmp *calcInfo, double data[], int item, int sa
 	double calcResult[CALC_RESULT_CLASSES];
 //	CalcInfoTmp HLevelInfo;
 	int i;
-
 
 	m_ptrMeaResult = MeaResult::GetInstance();
 
@@ -2056,7 +2051,6 @@ int MeaCalcFun::EDCBCalc(CalcInfoTmp *calcInfo, float data[], int item, int save
 	year = (ct->tm_year + 1900) % 100;
 	mon = ct->tm_mon + 1;
 	date = ct->tm_mday;
-
 
 	if( daypast < 280 )
 	{
@@ -2310,7 +2304,6 @@ int MeaCalcFun::EDCBCalc(CalcInfoTmp *calcInfo, double data[], int item, int sav
 		return MEA_FAIL;
 	}
 
-
 	time_t now;
 	struct tm* ct;
 
@@ -2320,7 +2313,6 @@ int MeaCalcFun::EDCBCalc(CalcInfoTmp *calcInfo, double data[], int item, int sav
 	year = (ct->tm_year + 1900);// % 100;
     mon = ct->tm_mon + 1;
 	date = ct->tm_mday;
-
 
 	if( daypast < gpLen )
 	{

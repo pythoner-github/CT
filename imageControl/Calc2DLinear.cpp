@@ -9,12 +9,12 @@
  * @author: zhanglei
  */
 
-#include "Calc2DLinear.h"
+#include "imageControl/Calc2DLinear.h"
 #include "Def.h"
-#include "ProbeSocket.h"
-#include "ProbeMan.h"
-#include "Img2D.h"
-#include "TopArea.h"
+#include "probe/ProbeSocket.h"
+#include "probe/ProbeMan.h"
+#include "imageControl/Img2D.h"
+#include "display/TopArea.h"
 
 ///> static varible init
 
@@ -314,7 +314,6 @@ float Calc2DLinear::Get2DTis(int scanAngleIndex, float focPos, int freqReceive, 
   //PRINTF("enter the Calc2DLine ,m_sacnAngleIndex = %d ,m_focPos = %.1f,m_freq.revice = %d ,powerdata = %d,depthInde = %d\n"
             //,scanAngleIndex, focPos ,freqReceive, power, depthIndex);
 
-
 	float ti = TIS_2D_BASIC[focIndex] * TIS_2D_POWER[powerIndex] * TIS_2D_FREQ[freqIndex] * TIS_2D_DEPTH[depthIndex];
 	//PRINTF("enter the calc2Dline ,2D TIS = %f\n", ti);
 
@@ -368,7 +367,6 @@ void Calc2DLinear::CalcFilterBandPass(int order)
 
 #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
 	float fc_bandpass_filter1[5], fc_bandpass_filter2[5];
-
 
         if(m_calcPara->harmonic)
         {

@@ -15,15 +15,15 @@
 /** @brief A struct type.
 * This structure defines the coordinates of the upper-left and lower-right corners of a rectangle.
 */
-typedef struct tagRECT 
-{ 
+typedef struct tagRECT
+{
   unsigned int left;				//!< Specifies the x-coordinate of the upper-left corner of the rectangle.
   unsigned int top;					//!< Specifies the y-coordinate of the upper-left corner of the rectangle.
   unsigned int right;				//!< Specifies the x-coordinate of the lower-right corner of the rectangle.
   unsigned int bottom;				//!< Specifies the y-coordinate of the lower-right corner of the rectangle.
-} RECT, *PRECT; 
+} RECT, *PRECT;
 
-/** @brief A struct type. 
+/** @brief A struct type.
 * The TRACE structure defines the attributes of trace.
 */
 typedef struct tagTRACE
@@ -38,13 +38,13 @@ typedef struct tagTRACE
 	unsigned char noiseThreshold;	//!< Specifies the noise threshold.
 	unsigned char gain;				//!< Specifies the pw gain.
 	unsigned char dynRange;			//!< Specifies the pw dynamic range.
-	unsigned char reserve1;			//!< not define 
-	unsigned char reserve2;			//!< not define 
+	unsigned char reserve1;			//!< not define
+	unsigned char reserve2;			//!< not define
 	float interval;					//!< Specifies the interval between two adjacent pw lines, in second.
 } TRACE, *PTRACE;
 
 #if 0
-/** @brief A struct type. 
+/** @brief A struct type.
 * The POINT structure defines the x- and y- coordinates of a point.
 */
 typedef struct tagPOINT
@@ -58,8 +58,8 @@ typedef struct tagPOINT
 /** @brief A struct type.
 * The RGBTRIPLE structure describes a color consisting of relative intensities of red, green, and blue.
 */
-typedef struct tagRGBTRIPLE 
-{ 
+typedef struct tagRGBTRIPLE
+{
   unsigned char rgbtRed;			//!< Specifies the intensity of red in the color.
   unsigned char rgbtGreen;			//!< Specifies the intensity of green in the color.
   unsigned char rgbtBlue;			//!< Specifies the intensity of blue in the color.
@@ -92,7 +92,7 @@ typedef struct tagIP2DAttributes
 * This structure defines the attributes of image process in CFM.*/
 typedef struct tagIPCFMAttributes
 {
-	unsigned char ipaThreshold;		//!< 0~255, it must be 255 or 0 when chroma is enabled. 
+	unsigned char ipaThreshold;		//!< 0~255, it must be 255 or 0 when chroma is enabled.
 	unsigned char ipaFrameAver;		//!< value: 64,56,48,40,32,28,24,16
 	bool ipaHideBackground;			//!< false:OFF, true:ON.
 	unsigned char ipaSmooth;		//!< Smooth, value:0~7
@@ -127,7 +127,7 @@ typedef struct tagDSCControlAttributes
 {
 	unsigned int dcaProbeWidth;			//!< probe width
 	unsigned int dcaCurMaxScanLines;	//!< 256/128/192/96, relate to probe arraynum.
-	unsigned int dcaCurScanStart;		//!< 0~255	
+	unsigned int dcaCurScanStart;		//!< 0~255
 	unsigned int dcaCurScanEnd;			//!< 0~255 End>Start
 	unsigned int dcaSamplePoints;		//!< 1~480
 	float dcaScale;						//!< display depth/samppoints
@@ -138,11 +138,11 @@ typedef struct tagDSCControlAttributes
 	unsigned char dcaB4Flag;			//!< 0,1,2,3
 	bool dcaBBFlag;						//!< false:left dsc;  true:right dsc;
 	unsigned char dcaReserved6;			//!< not define
-	RGBTRIPLE dcaPalette[256];			//!< the palette of grayscale bitmap, it lies on gamma, Gray Transform, 
+	RGBTRIPLE dcaPalette[256];			//!< the palette of grayscale bitmap, it lies on gamma, Gray Transform,
 										//!< Gray Rejection and chroma, dcaPalette[0] must be (0,0,0).
 	IP2DATTRIBUTES dca2DIPAttrs;		//!< 2D image process attributs
 
-	unsigned int dcaCFMScanLStart;		//!< 0~255, it must be divided by 2 when two beam, by 4 when four beam. 	
+	unsigned int dcaCFMScanLStart;		//!< 0~255, it must be divided by 2 when two beam, by 4 when four beam.
 	unsigned int dcaCFMScanLEnd;		//!< 0~255, End>Start, it must be divided by 2 when two beam, by 4 when four beam.
 	unsigned int dcaCFMSampPtStart;		//!< 0~479
 	unsigned int dcaCFMSampPtEnd;		//!< 0~479 End>Start
@@ -157,7 +157,7 @@ typedef struct tagDSCControlAttributes
 	unsigned int dcaPWStartPosAxisY;	//!< start pos of Spectrum in y-axis, in UD format, range:0~(IHEIGHT/2).
 	unsigned int dcaPWSpeed;			//!< the number of lines each refresh, <=IWIDTH/2 and >0
 	unsigned char dcaPWFlag;			//!< real-time state, 0:B and PW, 1:only B, 2:only PW
-	unsigned char dcaPWDisplayFormat;	//!< 0:full PW, 1:UBDPW1/1, 2:UBDPW1/2, 3:UBDPW2/1, 4:LBRPW1/1.	
+	unsigned char dcaPWDisplayFormat;	//!< 0:full PW, 1:UBDPW1/1, 2:UBDPW1/2, 3:UBDPW2/1, 4:LBRPW1/1.
 	unsigned char dcaReserved1;			//!< not define
 	unsigned char dcaReserved2;			//!< not define
 	IPPWATTRIBUTES dcaPWIPAttrs;		//!< PW image process attributs
@@ -169,7 +169,6 @@ typedef struct tagDSCControlAttributes
 	unsigned char dcaReserved5;			//!< not define
 	IPMATTRIBUTES dcaMIPAttrs;			//!< M image Process attributs
 } DSCCONTROLATTRIBUTES, *PDSCCOTROLATTRIBUTES;
- 
 
 /** @brief A function pointer type.
 * It update the image area of window, it define in window class, and transfer in DSC class.
@@ -178,7 +177,7 @@ typedef struct tagDSCControlAttributes
 * @param nWidth the width of image.
 * @param nHeight the Height of image.
 */
-typedef void (*UPDATEFRAME) (void *pBits, int nWidth, int nHeight); 
+typedef void (*UPDATEFRAME) (void *pBits, int nWidth, int nHeight);
 
 const int IWIDTH = IMG_W; //628;				//!< constant, the width of image.
 const int IHEIGHT = IMG_H; //440;			//!< constant, the height of image.
@@ -209,4 +208,3 @@ struct EFOVRECT
 };
 
 #endif	//DSCTYPES_H
-

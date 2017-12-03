@@ -1,23 +1,23 @@
-#include "gui_func.h"
-#include "KeyDef.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyDef.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <gdk/gdkkeysyms.h>
 #include "ViewMain.h"
-#include "time.h"
+#include <libavutil/time.h>
 #include <glib.h>
 #include <iostream>
 #include <math.h>
-#include "gui_global.h"
-#include "ImageArea.h"
+#include "display/gui_global.h"
+#include "display/ImageArea.h"
 #include "display/MenuArea.h"
-#include "../sysMan/SysGeneralSetting.h"
+#include "sysMan/SysGeneralSetting.h"
 #include <sstream>
 #include <string>
-#include "ManRegister.h"
-#include "ViewSystem.h"
-#include "SysNoteSetting.h"
-#include "DCMRegister.h"
+#include "periDevice/ManRegister.h"
+#include "sysMan/ViewSystem.h"
+#include "sysMan/SysNoteSetting.h"
+#include "periDevice/DCMRegister.h"
 
 using std::string;
 using std::cout;
@@ -35,7 +35,6 @@ GdkColor* g_lightGray;
 GdkColor* g_yellow;
 GdkColor* g_lightBlue;
 GdkColor* g_skyBlue;
-
 
 GdkColor* new_color(guint16 red, guint16 green, guint16 blue)
 {
@@ -368,7 +367,6 @@ void GetSexString(int iSex, string &sSex)
 			sSex = " "; break;
 	}
 }
-
 
 #ifdef VET
 void GetAnimalSpeciesString(int index, string &species)
@@ -736,7 +734,6 @@ void fakeXMotionEventImage(int &x0, int &y0, int offsetX, int offsetY)
         default:	adjust =30;		break;
     }
 
-
     //Mouse x direction Move
     if (((x0+offsetX) > x_start) && (x0+offsetX) < (x_start + IMAGE_W))
         x0 += offsetX;
@@ -871,7 +868,6 @@ gboolean FakeNumKey(unsigned char key)
     }
     return FALSE;
 }
-
 
 #if defined(EMP_355) || defined(EMP_322)
 gboolean FakeAlphabet(unsigned char key)
@@ -1198,7 +1194,6 @@ gboolean FakeAlphabet(unsigned char key)
                 doKeyEvent(52, 0); doKeyEvent(50, 0); return TRUE;
         }
 
-
     }
     return FALSE;
 }
@@ -1578,12 +1573,10 @@ gboolean FakeAlphabet(unsigned char key)
                 doKeyEvent(52, 0); doKeyEvent(50, 0); return TRUE;
         }
 
-
     }
     return FALSE;
 }
 #endif
-
 
 gboolean FakeMouseButton(unsigned char key)
 {
@@ -1741,7 +1734,6 @@ gboolean FakePunctuation(unsigned char key)
     else if(DE == language)
     {
 
-
  switch (key) {
             case 0x21:			// !
                 doKeyEvent(50, 1); doKeyEvent(10, 1);
@@ -1879,12 +1871,9 @@ gboolean FakePunctuation(unsigned char key)
 #endif
         }
 
-
-
     }
     else if(RU == language)
     {
-
 
  switch (key) {
             case 0x21:			// !
@@ -2025,7 +2014,6 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(117, 1); doKeyEvent(117, 0); return TRUE;
 #endif
         }
-
 
     }
     else
@@ -2168,7 +2156,6 @@ gboolean FakePunctuation(unsigned char key)
     }
     return FALSE;
 }
-
 
 void FakeEscKey(void)
 {

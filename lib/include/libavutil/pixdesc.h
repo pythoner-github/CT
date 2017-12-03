@@ -23,7 +23,7 @@
 #define AVUTIL_PIXDESC_H
 
 #include <inttypes.h>
-#include "pixfmt.h"
+#include <libavutil/pixfmt.h>
 
 typedef struct AVComponentDescriptor{
     uint16_t plane        :2;            ///< which of the 4 planes contains the component

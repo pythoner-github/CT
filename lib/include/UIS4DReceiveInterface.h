@@ -1,21 +1,21 @@
 /**************************************************
  * 版权所有:深圳市恩普电子技术有限公司 (C) 2012
- * 文件名：UIS4DReceiveInterface.h  
+ * 文件名：UIS4DReceiveInterface.h
  * 实现功能：定义与软件的通信接口函数
  * 作者：ZCT
  * 版本：v2.0
  * 日期：2012.2.16
  * ************************************************/
-#ifndef _UIS4D_RECEIVEINTERFACE_H 
+#ifndef _UIS4D_RECEIVEINTERFACE_H
 #define _UIS4D_RECEIVEINTERFACE_H
 #include <iostream>
-#include <string.h> 
+#include <string.h>
 #include <gtk/gtk.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-using namespace std; 
+using namespace std;
 
 #define SHMKEY0 0x5006
 #define SHMKEY1 0x5007
@@ -23,12 +23,12 @@ using namespace std;
 #define SEMKEY1 0x8007
 #define SCREENSAVER 0xff
 
-#define QUIT_NUM 100  
+#define QUIT_NUM 100
 #define FILE_PATH "/tmp/data.ini"
 
 typedef struct tagUIS4DPara
-{ 
-    char type;           // 探头类型   C:凸帧  L：线阵 v:容积探头 
+{
+    char type;           // 探头类型   C:凸帧  L：线阵 v:容积探头
     int lines;           // 原始数据的扫描线数
     int pr;              // 凸阵半径（mm）
     int pw;              // 线阵有效的物理宽度（mm)
@@ -98,7 +98,7 @@ class CUIS4DReceiveInterface
         // 获得共享内存ID
         int GetSHMID(
                 int index                      // ID索引 0:0号共享内存  1：1号共享内存
-                );                
+                );
 
         // 获得共享内存数据
         unsigned char *GetSHMData(
@@ -107,18 +107,18 @@ class CUIS4DReceiveInterface
 
         // P操作
         int SemaphoreP(
-                int sem_id                     // 0: 0号信号量  1：1号信号量 
-                );   
+                int sem_id                     // 0: 0号信号量  1：1号信号量
+                );
 
         // V操作
         int SemaphoreV(
-                int sem_id                     // 0: 0号信号量  1：1号信号量 
-                );   
+                int sem_id                     // 0: 0号信号量  1：1号信号量
+                );
 
         // 获得信号量ID
         int GetSEMID(
-                int index                     // 0: 0号信号量  1：1号信号量       
-                );  
+                int index                     // 0: 0号信号量  1：1号信号量
+                );
 
         // 父进程中的API接口
         // 写共享内存
@@ -129,7 +129,6 @@ class CUIS4DReceiveInterface
                 unsigned char reverse_flag,   // 探头翻转标记
                 unsigned char *g_pshm_data0   // 共享内存首地址
                 );
-
 
         // 保存配置文件信息
         void SaveConfigInfo(SUIS4DPARA para);

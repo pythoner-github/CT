@@ -1,10 +1,10 @@
 #ifndef MEA_FACTORY_MAIN_SINGLE_H
 #define MEA_FACTORY_MAIN_SINGLE_H
 
-#include "MeasureDef.h"
+#include "calcPeople/MeasureDef.h"
 #include "AbsMeasure.h"
-#include "Measure2D.h"
-#include "MeasureFactory.h"
+#include "measure/Measure2D.h"
+#include "measure/MeasureFactory.h"
 
 class MeaFactoryMainSingle
 {

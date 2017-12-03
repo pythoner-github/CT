@@ -1,10 +1,10 @@
 #ifndef MEASURE_FACTORY_H
 #define MEASURE_FACTORY_H
 
-#include "MeasureDef.h"
+#include "calcPeople/MeasureDef.h"
 #include "AbsMeasure.h"
-#include "Measure2D.h"
-#include "ModeStatus.h"
+#include "measure/Measure2D.h"
+#include "imageProc/ModeStatus.h"
 
 extern AbsMeasure* g_ptrAbsMeasure;
 
@@ -29,7 +29,6 @@ class MeasureFactory
 		//EMeasureFactory m_type;
 		int m_type;
 };
-
 
 //软件包测量中只测量距离而没有计算的通用函数
 //extern void DistanceTitle(Results results);

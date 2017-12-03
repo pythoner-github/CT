@@ -1,7 +1,7 @@
-#include "QuickAdjustmentPw.h"
-#include "ImgPw.h"
-#include "GlobalClassMan.h"
-#include "HintArea.h"
+#include "imageControl/QuickAdjustmentPw.h"
+#include "imageControl/ImgPw.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/HintArea.h"
 
 // Pw
 bool QuickAdjustmentPw::m_onQAPw = false;
@@ -50,7 +50,6 @@ QuickAdjustmentPw::~QuickAdjustmentPw()
         m_pPwBuf = NULL;
     }
 }
-
 
 void QuickAdjustmentPw::QuickAdjustmentPwOn()
 {
@@ -264,7 +263,6 @@ float QuickAdjustmentPw::MeanMaxMinCal(float *pSrc, int size, int flag)
 	}
 	return val;
 }
-
 
 void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width)
 {

@@ -1,4 +1,4 @@
-#include "UsbControl.h"
+#include "imageControl/UsbControl.h"
 #include <errno.h>
 
 EzUsb* EzUsb::m_ptrInstance = NULL;

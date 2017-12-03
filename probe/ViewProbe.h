@@ -3,8 +3,8 @@
 #define VIEWPROBE_H
 
 #include <gtk/gtk.h>
-#include "ProbeSelect.h"
-#include "FakeXEvent.h"
+#include "probe/ProbeSelect.h"
+#include "display/FakeXEvent.h"
 
 class ViewProbe : public FakeXEvent
 {
@@ -74,7 +74,6 @@ private:
     void TreeViewFocusOut(GtkWidget *widget, GdkEventFocus *event);
     void ProbeUserChanged(GtkWidget *widget);
     void TreeViewBtnClicked(GtkWidget *widget, GdkEventButton *event);
-
 
     // signal connect
     static gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, ViewProbe *data) { return data->WindowDeleteEvent(widget, event); }

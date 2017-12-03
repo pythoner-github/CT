@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <gtk/gtk.h>
-#include "MenuBDMK.h"
+#include "bodymark/MenuBDMK.h"
 #include "Def.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "BodyMark.h"
-#include "MultiFuncBodyMark.h"
-#include "ExamItem.h"
-#include "ProbeSelect.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "bodymark/BodyMark.h"
+#include "bodymark/MultiFuncBodyMark.h"
+#include "probe/ExamItem.h"
+#include "probe/ProbeSelect.h"
 
 #ifdef VET
 	#define BDMK_PATH "res/bdmk_vet"
@@ -327,7 +327,6 @@ void MenuBDMK::ChangeBDMKStudy(guchar study)
 	HideAllButton();
 
 	//read filename
-
 
 #ifdef VET
 

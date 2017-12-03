@@ -1,7 +1,6 @@
 #ifndef MENU_NOTE_H
 #define MENU_NOTE_H
 
-
 class MenuNote
 {
 	public:

@@ -1,8 +1,8 @@
 #ifndef ABS_CALC_PW_H
 #define ABS_CALC_PW_H
 
-#include "FpgaPw.h"
-#include "FpgaCtrl2D.h"
+#include "imageControl/FpgaPw.h"
+#include "imageControl/FpgaCtrl2D.h"
 #include "AbsUpdate2D.h"
 #include <vector>
 using namespace std;

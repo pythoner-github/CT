@@ -1,12 +1,11 @@
 #include <string.h>
 #include <stdio.h>
-#include <time.h>
+#include <libavutil/time.h>
 
-#include "KeyValueOpr.h"
-#include "ViewCalendar.h"
-#include "ViewArchive.h"
-#include "gui_global.h"
-
+#include "keyboard/KeyValueOpr.h"
+#include "display/ViewCalendar.h"
+#include "patient/ViewArchive.h"
+#include "display/gui_global.h"
 
 ViewCalendar* ViewCalendar::m_ptrInstance = NULL;
 

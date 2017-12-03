@@ -10,20 +10,20 @@
 #include <gtk/gtk.h>
 
 #include "Def.h"
-#include "gui_global.h"
-#include "Replay.h"
-#include "VideoMan.h"
-#include "../base/IniFile.h"
-#include "CreateAvi.h"
-#include "CreateEmp.h"
-#include "HintArea.h"
-#include "SysOptions.h"
-#include "ImageArea.h"
-#include "ViewArchive.h"
-#include "DCMMan.h"
-#include "Img2D.h"
+#include "display/gui_global.h"
+#include "imageProc/Replay.h"
+#include "patient/VideoMan.h"
+#include "base/IniFile.h"
+#include "patient/CreateAvi.h"
+#include "patient/CreateEmp.h"
+#include "display/HintArea.h"
+#include "sysMan/SysOptions.h"
+#include "display/ImageArea.h"
+#include "patient/ViewArchive.h"
+#include "periDevice/DCMMan.h"
+#include "imageControl/Img2D.h"
 #include "ViewMain.h"
-#include "AviEncDecH264.h"
+#include "patient/AviEncDecH264.h"
 ///> /////////////////////////////////[private variable]////////////////////////////
 VideoMan* VideoMan::m_ptrInstance = NULL;
 struct VideoMan::VideoItem* VideoMan::m_ptrVideoItem = NULL;
@@ -406,7 +406,6 @@ char VideoMan::LoadVideo(const char* filepath, vector<string> *vec)
 	return 0;
 }
 
-
 /*
  * @brief read video info(absolute path, the first frame data, format, frames, frame_rate, width, height, ) by the specify directory by user id ,and return the image para
  *  (ATTN: If success return, you must to free the memory of the item->data pointer)
@@ -687,7 +686,6 @@ bool VideoMan::SaveVideoToAVI(const char* absPath)
 		return false;
 	}
 
-
 #if 0
 	unsigned char* data[m_ptrVideoItem->deq->size()];
 	int i, j;
@@ -707,7 +705,6 @@ bool VideoMan::SaveVideoToAVI(const char* absPath)
 	//CreateAvi(data, file, m_ptrVideoItem->width, m_ptrVideoItem->height, m_ptrVideoItem->frames, m_ptrVideoItem->frame_rate);
 	CreateAviEncode(data, file, m_ptrVideoItem->width, m_ptrVideoItem->height, m_ptrVideoItem->frames, m_ptrVideoItem->frame_rate);
 
-
     fclose(file);
 	return true;
 }
@@ -721,7 +718,6 @@ bool VideoMan::SaveVideoToAVIForRetrieve(const char* absPath)
 		PRINTF("(SaveVideoToAVI) Fail to open file, the error is %s!\n", strerror(errno));
 		return false;
 	}
-
 
     unsigned char* data[m_ptrVideoItem->frames];
 	int i, j;
@@ -888,4 +884,3 @@ void VideoMan::SaveReplay(uint8_t *buf, int width, int height)
     Image image((unsigned int*)buf, para);
     Replay::GetInstance()->AddOneCineImg(image);
 }
-

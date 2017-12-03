@@ -1,7 +1,7 @@
 #ifndef __SYSGENERALSETTING_H__
 #define __SYSGENERALSETTING_H__
 
-#include "IniFile.h"
+#include "base/IniFile.h"
 
 class SysGeneralSetting
 {
@@ -56,6 +56,5 @@ public:
 private:
     IniFile *ptrIni;
 };
-
 
 #endif

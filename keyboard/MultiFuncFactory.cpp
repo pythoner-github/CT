@@ -1,10 +1,9 @@
-
-#include "MultiFuncFactory.h"
-#include "MultiFuncMode.h"
-#include "MultiFuncValue.h"
-#include "MultiFuncBodyMark.h"
-#include  "ViewMain.h"
-#include  "MultiFuncArrow.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "keyboard/MultiFuncMode.h"
+#include "keyboard/MultiFuncValue.h"
+#include "bodymark/MultiFuncBodyMark.h"
+#include "ViewMain.h"
+#include "comment/MultiFuncArrow.h"
 
 MultiFuncFactory* MultiFuncFactory::m_ptrInstance = NULL;
 AbsMultiFunc* MultiFuncFactory::m_ptrMulti = NULL;
@@ -332,4 +331,3 @@ void MultiFuncUndo()
 	}
 	MultiFuncFactory::GetInstance()->Create(type);
 }
-

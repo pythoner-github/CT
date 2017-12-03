@@ -1,7 +1,7 @@
 #ifndef __SYSNOTESETTING_H__
 #define __SYSNOTESETTING_H__
 
-#include "../base/IniFile.h"
+#include "base/IniFile.h"
 
 class SysNoteSetting
 {
@@ -33,4 +33,3 @@ private:
 };
 
 #endif
-

@@ -1,8 +1,8 @@
 #include <string>
-#include "SysPrinterSetting.h"
-#include "../base/IniFile.h"
-#include "../include/Def.h"
-#include "ViewPrintSetting.h"
+#include "sysMan/SysPrinterSetting.h"
+#include "base/IniFile.h"
+#include "Def.h"
+#include "periDevice/ViewPrintSetting.h"
 
 SysPrinterSetting::SysPrinterSetting()
 {

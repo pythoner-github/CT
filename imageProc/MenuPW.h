@@ -6,7 +6,7 @@
 #define HEIGHT_PW_MENU  635
 
 #include "Def.h"
-#include "CusSpin.h"
+#include "display/CusSpin.h"
 
 class MenuPW
 {

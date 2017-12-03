@@ -2,17 +2,17 @@
 #include <goocanvas.h>
 #include <gdk/gdkkeysyms.h>
 #include "Def.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "NoteArea.h"
-#include "MenuNote.h"
-#include "KeyValueOpr.h"
-#include "KeyFunc.h"
-#include "KeyDef.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "comment/NoteArea.h"
+#include "comment/MenuNote.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyFunc.h"
+#include "keyboard/KeyDef.h"
 #include "ViewMain.h"
-#include "SysNoteSetting.h"
-#include "ImageArea.h"
-#include "KnobNone.h"
+#include "sysMan/SysNoteSetting.h"
+#include "display/ImageArea.h"
+#include "display/KnobNone.h"
 
 extern KeyValueOpr keyInterface;
 NoteArea* NoteArea::m_ptrInstance = NULL;
@@ -425,8 +425,6 @@ void NoteArea::Undo(void)
         {
             DeleteTextItem(m_itemSel);
             m_itemSel = NULL;
-
-
 
             GdkCursor* cursor = CustomCursor();
 
@@ -917,8 +915,6 @@ void NoteArea::StartEdit(gdouble x, gdouble y)
 	pango_layout_get_pixel_size(layout, NULL, &h);
 	g_object_unref(layout);
 	PRINTF("text height = %d\n", h);
-
-
 
     if(m_sizeFont ==0)
     {

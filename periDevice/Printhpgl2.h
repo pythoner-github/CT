@@ -9,7 +9,7 @@
 #define PRINTHPGL2_H_
 
 #include <gtk/gtk.h>
-#include "Printlib.h"
+#include "periDevice/Printlib.h"
 
 class Printhpgl2 : public Printlib
 {

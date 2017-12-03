@@ -2,11 +2,11 @@
 #define DSC_MAN_H
 
 #include <pthread.h>
-#include "DSCTypes.h"
-#include "ImageArea.h"
-#include "DSC.h"
-#include "FpgaReceive.h"
-#include "Receive.h"
+#include <DSCTypes.h>
+#include "display/ImageArea.h"
+#include <DSC.h>
+#include "imageProc/FpgaReceive.h"
+#include <Receive.h>
 
 class DscMan
 {
@@ -58,7 +58,6 @@ class DscMan
 
 		void InitDscPara();
 };
-
 
 ///> func
 inline UPDATEFRAME DscMan::GetFrameUpdateFunFreeze()

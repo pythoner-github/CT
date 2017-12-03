@@ -34,10 +34,10 @@
 #include <string.h>
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "gui_global.h"
-#include "MultiFuncFactory.h"
+#include "display/gui_global.h"
+#include "keyboard/MultiFuncFactory.h"
 #include <vector>
-#include "gui_func.h"
+#include "display/gui_func.h"
 #include "keyboard/KeyDef.h"
 // freetype2 support
 #include <ft2build.h>

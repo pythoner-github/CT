@@ -56,7 +56,6 @@ EKnobReturn D2ChgSpaceCompound(EKnobOper oper);
 EKnobReturn D2ChgFreqCompound(EKnobOper oper);
 #endif
 
-
 EKnobReturn D2PressChgScanAngle(void);
 EKnobReturn D2ChgScanAngle(EKnobOper oper);
 

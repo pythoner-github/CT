@@ -1,7 +1,7 @@
 #ifndef __SYSOPTIONS_H__
 #define __SYSOPTIONS_H__
 
-#include "../base/IniFile.h"
+#include "base/IniFile.h"
 
 class SysOptions
 {

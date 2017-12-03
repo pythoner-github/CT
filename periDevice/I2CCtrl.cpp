@@ -6,7 +6,7 @@
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include "Def.h"
-#include "I2CCtrl.h"
+#include "periDevice/I2CCtrl.h"
 
 I2CInterface::I2CInterface()
 {

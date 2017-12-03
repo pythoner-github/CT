@@ -1,13 +1,13 @@
 #include <gtk/gtk.h>
-#include <time.h>
+#include <libavutil/time.h>
 
 #include "Def.h"
-#include "TopArea.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "ProbeMan.h"
-#include "ExamItem.h"
+#include "display/TopArea.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "probe/ProbeMan.h"
+#include "probe/ExamItem.h"
 using std::string;
 
 TopArea* TopArea::m_ptrInstance = NULL;

@@ -10,9 +10,9 @@
 #ifndef PWCFMDSC_H
 #define PWCFMDSC_H
 
-#include "PWDSC.h"
+#include <PWDSC.h>
 
-class CPWCFMDSC : public CPWDSC  
+class CPWCFMDSC : public CPWDSC
 {
 public:
 	static CPWCFMDSC *Create(const DSCCONTROLATTRIBUTES &attrs, const UPDATEFRAME pUpdateFrame);
@@ -22,4 +22,3 @@ public:
 };
 
 #endif //PWCFMDSC_H
-

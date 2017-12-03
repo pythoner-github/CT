@@ -11,7 +11,7 @@
  * @date: 2015-11-10
  */
 
-#include "ManRegister.h"
+#include "periDevice/ManRegister.h"
 #include <stdio.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
@@ -27,8 +27,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "ViewSystem.h"
-
+#include "sysMan/ViewSystem.h"
 
 #define MAXSIZE_MAC 6
 #define MAXSIZE_SD 20
@@ -129,7 +128,6 @@ CManRegister::~CManRegister()
         delete m_ptrInstance;
     m_ptrInstance = NULL;
 }
-
 
 /*
  * @biref: 获取选配功能加密之后的序列号,并保存到license文件中

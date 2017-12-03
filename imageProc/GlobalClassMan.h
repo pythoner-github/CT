@@ -2,14 +2,14 @@
 #define GLOBAL_CLASS_MAN_H
 
 #include <string>
-#include "Update2D.h"
-#include "UpdatePw.h"
-#include "UpdateCfm.h"
-#include "UpdateMix.h"
-#include "Calc2D.h"
-#include "CalcPw.h"
-#include "CalcCfm.h"
-#include "KeyValueOpr.h"
+#include "imageControl/Update2D.h"
+#include "imageControl/UpdatePw.h"
+#include "imageControl/UpdateCfm.h"
+#include "imageProc/UpdateMix.h"
+#include "imageControl/Calc2D.h"
+#include "imageControl/CalcPw.h"
+#include "imageControl/CalcCfm.h"
+#include "keyboard/KeyValueOpr.h"
 
 using std::string;
 

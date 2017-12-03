@@ -1,10 +1,10 @@
 #include <gtk/gtk.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ViewPatSearch.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "ViewNewPat.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/ViewPatSearch.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "patient/ViewNewPat.h"
 
 using std::vector;
 
@@ -127,8 +127,6 @@ void ViewPatSearch::CreateWindow(GtkWindow *parent, const vector<Database::NewPa
 #else
     GtkListStore *store = gtk_list_store_new(N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
 #endif
-
-
 
     GtkTreeIter treeIter;
     vector<Database::NewPatSearchResult>::const_iterator iter;

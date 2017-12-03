@@ -5,9 +5,9 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <iostream>
-#include "MonitorControl.h"
-#include "I2CCtrl.h"
-#include "CgosGpio.h"
+#include "periDevice/MonitorControl.h"
+#include "periDevice/I2CCtrl.h"
+#include "periDevice/CgosGpio.h"
 
 using namespace std;
 

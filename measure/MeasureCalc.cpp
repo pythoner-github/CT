@@ -12,14 +12,14 @@
 #include <iostream>
 #include <math.h>
 #include <stdlib.h>
-#include "MeasureDef.h"
-#include "MeasureCalc.h"
-#include "../imageControl/Img2D.h"
-#include "ImgPw.h"
-#include "SysMeasurementSetting.h"
-#include "UpdateMeasure.h"
-#include "MeasureDraw.h"
-#include "../display/ImageAreaDraw.h"
+#include "calcPeople/MeasureDef.h"
+#include "measure/MeasureCalc.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "measure/UpdateMeasure.h"
+#include "measure/MeasureDraw.h"
+#include "display/ImageAreaDraw.h"
 
 using namespace std;
 
@@ -173,7 +173,6 @@ double MeasureCalc::D2CalcEllipse(POINT long_axis_start, POINT long_axis_end, PO
 	return result;
 }
 
-
 double MeasureCalc::D2CalcAreaRec(POINT p1, POINT p2)
 {
 	double area;
@@ -200,7 +199,6 @@ double MeasureCalc::CalcVol(POINT long_axis_start, POINT long_axis_end, POINT sh
     return vol;
 }
 
-
 double MeasureCalc::D2CalcEllipse2(POINT long_axis_start, POINT long_axis_end, POINT short_axis_start, POINT z_start, POINT z_end)
 {
 	double vol;
@@ -214,7 +212,6 @@ double MeasureCalc::D2CalcEllipse2(POINT long_axis_start, POINT long_axis_end, P
 	la_start_tmpy = (double)long_axis_start.y;
 	la_end_tmpy = (double)long_axis_end.y;
 	sa_start_tmpy = (double)short_axis_start.y;
-
 
 	double scale = GetScale2D(long_axis_start);
 	pox = (la_start_tmpx + la_end_tmpy) / 2.0;
@@ -343,7 +340,6 @@ double MeasureCalc::MCalcDepthDist(POINT p1, POINT p2)
 	return result;
 }
 
-
 double MeasureCalc::MCalcLvTei(double dist)//M模式Teicholz方法计算左心室容积
 {
 	double vol;
@@ -422,7 +418,6 @@ double MeasureCalc::MCalcHR(double time)
 	else
 		result = (double)INVALID_VAL;
 
-
 	return result;
 }
 
@@ -463,7 +458,6 @@ double MeasureCalc::DCalcRI(double ps, double ed)
 		ri = (ps - ed) / ps;
 	else
 		ri = (double)INVALID_VAL;
-
 
 	return ri;
 }

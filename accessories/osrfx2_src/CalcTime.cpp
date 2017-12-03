@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "CalcTime.h"
+#include "accessories/osrfx2_src/CalcTime.h"
 
 /*
  * @brief begin statistic time
@@ -9,7 +9,7 @@ CalcTime::CalcTime()
 {
 	m_start.tv_sec = 0;
 	m_start.tv_usec = 0;
-	
+
 	m_end.tv_sec = 0;
 	m_end.tv_usec = 0;
 }
@@ -31,8 +31,7 @@ float CalcTime::End()
 	float timeUse;
 	timeUse = (m_end.tv_sec - m_start.tv_sec)*1000000 + (m_end.tv_usec - m_start.tv_usec);
 //	printf("Time use: %fus\n", timeUse);
-	
+
 	m_start = m_end;
 	return timeUse;
 }
-

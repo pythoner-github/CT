@@ -9,33 +9,33 @@
  * @author: zhanglei
  */
 
-#include "ProbeSelect.h"
-#include "ModeStatus.h"
-#include "Knob2D.h"
-#include "KnobM.h"
-#include "KnobPw.h"
-#include "KnobCfm.h"
-#include "ImgProc2D.h"
-#include "ImgProcM.h"
-#include "ImgProcPw.h"
-#include "ImgProcCfm.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "ImgCfm.h"
-#include "GlobalClassMan.h"
-#include "Update2D.h"
-#include "BiopsyLine.h"
+#include "probe/ProbeSelect.h"
+#include "imageProc/ModeStatus.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/ImgProcCfm.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageControl/Update2D.h"
+#include "probe/BiopsyLine.h"
 #include "keyboard/KeyFunc.h"
 #include "keyboard/LightDef.h"
 #include "keyboard/KeyValueOpr.h"
-#include "../imageProc/ScanMode.h"
-#include "../patient/PatientInfo.h"
-#include "../display/TopArea.h"
-#include "ViewProbe.h"
-#include "MenuCalcNew.h"
-#include "MenuMeasure.h"
+#include "imageProc/ScanMode.h"
+#include "patient/PatientInfo.h"
+#include "display/TopArea.h"
+#include "probe/ViewProbe.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "measure/MenuMeasure.h"
 #ifdef EMP_PROJECT
-#include "ProjectCalc2D.h"
+#include "projectMode/ProjectCalc2D.h"
 #endif
 /*
  * @brief select probe and exam item
@@ -114,7 +114,6 @@ void ProbeSelect::UserItemOfProbeInit(int indexSocket, ExamItem::EItem indexItem
     // exit local zoom if in it
     KeyLocalZoom klz;
     klz.ExitLocalZoom();
-
 
 	// get real probe and item parameter
     m_ptrProbe->SetProbeSocket(indexSocket);
@@ -197,7 +196,6 @@ void ProbeSelect::UserItemOfProbeInit(int indexSocket, ExamItem::EItem indexItem
     ptrImg2D->SetCalc2D( GlobalClassMan::GetInstance()->GetCalc2D(curPara.model) );
     ptrImg2D->InitProbe2D(&curPara, &paraItem);
     ImgProc2D::GetInstance()->Init(&(paraItem.d2));
-
 
     // init M
     ptrImg2D->InitProbeM(&curPara, &paraItem);
@@ -305,7 +303,6 @@ void ProbeSelect::ProbeInit(int indexSocket, ExamItem::EItem indexItem)
   //  m_ptrUpdate->ExamItem(indexItem);
 	ExamItem::ParaItem paraItem;
 	m_ptrUpdate->ExamItem(indexItem);
-
 
 //	ExamItem::ParaItem paraItem;
 	m_e.SetItemOfProbe(curPara.model, (ExamItem::EItem)indexItem);

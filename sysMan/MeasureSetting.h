@@ -20,10 +20,10 @@
 #define __MEASURE_SETTING_H__
 
 #include <gtk/gtk.h>
-#include "MeasureDef.h"
-#include "FakeXEvent.h"
+#include "calcPeople/MeasureDef.h"
+#include "display/FakeXEvent.h"
 #include <vector>
-#include "ExamItem.h"
+#include "probe/ExamItem.h"
 
 class MeasureSetting
 {
@@ -53,7 +53,6 @@ class MeasureSetting
         int GetCalcMaxEtype();
         const gchar* GetExamName(void);
         string ItemMenuTransEnglish(int item_num);
-
 
     private:
         GtkWidget *fixed_calc;
@@ -114,7 +113,6 @@ class MeasureSetting
                 data->ButtonSelectAllCalcClicked(button);
         }
 
-
         static void HandleButtonBackOneClicked(GtkButton *button, MeasureSetting *data)
         {
             if (data)
@@ -137,7 +135,6 @@ class MeasureSetting
             if (data)
                 data->ButtonUpClicked(button);
         }
-
 
         static void HandleButtonDefaultClicked(GtkButton *button, MeasureSetting *data)
         {

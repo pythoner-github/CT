@@ -1,21 +1,21 @@
 #include <stdlib.h>
-#include "Update2D.h"
-#include "gui_global.h"
-#include "Knob2D.h"
-#include "KnobM.h"
-#include "KnobPw.h"
-#include "KnobCfm.h"
-#include "Menu2D.h"
-#include "MenuM.h"
-#include "MenuBiopsy.h"
-#include "CusSpin.h"
-#include "TopArea.h"
-#include "GlobalClassMan.h"
-#include "KeyFunc.h"
-#include "Zoom.h"
-#include "../patient/PatientInfo.h"
-#include "../display/ImageArea.h"
-#include "KnobEFOV.h"
+#include "imageControl/Update2D.h"
+#include "display/gui_global.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/Menu2D.h"
+#include "imageProc/MenuM.h"
+#include "probe/MenuBiopsy.h"
+#include "display/CusSpin.h"
+#include "display/TopArea.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/Zoom.h"
+#include "patient/PatientInfo.h"
+#include "display/ImageArea.h"
+#include "imageControl/KnobEFOV.h"
 #include "ViewMain.h"
 const char * Toggle[2] =
 {
@@ -82,7 +82,6 @@ void Update2D::ExamItemByProbe(const char *type)
 	g_patientInfo.SetExamType(examtype);
 }
 #endif
-
 
 //update user defined item
 void Update2D::UserDefineExamItem(const char *useritem)
@@ -553,7 +552,6 @@ void Update2D::ClearEFOVZoomMiniatureBox(void)
 	m_ptrImgDraw->ClearEFOVZoomMiniatureBox();
 }
 
-
 void Update2D::EFOVZoomBox(int start_x, int start_y, int end_x, int end_y)
 {
 	m_ptrImgDraw->DrawEFOVZoomBox(start_x, start_y, end_x, end_y);
@@ -631,7 +629,6 @@ void Update2D::UpdateMImg(void)
      //para area
     m_ptrImgPara->ReDrawTransducer();
 #endif
-
 
 }
 

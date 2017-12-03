@@ -1,14 +1,14 @@
 #include <gtk/gtk.h>
-#include "MenuM.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ImgProc2D.h"
-#include "ImgProcM.h"
-#include "FormatM.h"
-#include "ScanMode.h"
-#include "HintArea.h"
-#include "SysOptions.h"
-#include "ManRegister.h"
+#include "imageProc/MenuM.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/FormatM.h"
+#include "imageProc/ScanMode.h"
+#include "display/HintArea.h"
+#include "sysMan/SysOptions.h"
+#include "periDevice/ManRegister.h"
 
 MenuM g_menuM;
 

@@ -2,9 +2,9 @@
 #define IMG_PROC_PW_H
 
 #include "Def.h"
-#include "DSCTypes.h"
+#include <DSCTypes.h>
 #include "AbsUpdatePw.h"
-#include "ExamItem.h"
+#include "probe/ExamItem.h"
 
 class ImgProcPw
 {

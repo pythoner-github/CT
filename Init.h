@@ -2,21 +2,21 @@
 #define INIT_H
 
 #include <gtk/gtk.h>
-#include "DSCTypes.h"
-#include "FpgaCtrl2D.h"
-#include "KeyValueOpr.h"
+#include <DSCTypes.h>
+#include "imageControl/FpgaCtrl2D.h"
+#include "keyboard/KeyValueOpr.h"
 
-#include "Update2D.h"
-#include "UpdatePw.h"
-#include "UpdateCfm.h"
+#include "imageControl/Update2D.h"
+#include "imageControl/UpdatePw.h"
+#include "imageControl/UpdateCfm.h"
 
-#include "CalcPw.h"
-#include "CalcCfm.h"
+#include "imageControl/CalcPw.h"
+#include "imageControl/CalcCfm.h"
 
 class Init
 {
 	public:
-		Init(); 
+		Init();
 		~Init() {}
 
 		void SystemInit(int argc, char *argv[]);
@@ -32,4 +32,3 @@ class Init
 		static gboolean UpdateTopArea(gpointer data);
 };
 #endif
-

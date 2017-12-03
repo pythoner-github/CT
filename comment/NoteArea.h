@@ -1,8 +1,8 @@
 #ifndef NOTEAREA_H_
 #define NOTEAREA_H_
 
-#include "goocanvas.h"
-#include "FakeXEvent.h"
+#include <goocanvas.h>
+#include "display/FakeXEvent.h"
 #include "Def.h"
 
 #include <string>

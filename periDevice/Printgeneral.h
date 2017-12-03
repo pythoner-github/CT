@@ -9,7 +9,7 @@
 #define PRINTGENERAL_H_
 
 #include <gtk/gtk.h>
-#include "Printlib.h"
+#include "periDevice/Printlib.h"
 
 class Printgeneral : public Printlib
 {
@@ -42,7 +42,6 @@ private:
 	static GtkWidget *MediaSourceFrame;
 	static GSList *DuplexButtons;
 	static GtkWidget *printerFrameLocationText;
-
 
 	void NumOfCopiesChanged(GtkWidget *widget);
 	void PrinterMedia(GtkWidget *container);

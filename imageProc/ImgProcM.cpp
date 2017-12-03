@@ -1,8 +1,8 @@
 #include "Def.h"
-#include "ImgProcM.h"
-#include "DscMan.h"
-#include "GlobalClassMan.h"
-#include "gui_func.h"
+#include "imageProc/ImgProcM.h"
+#include "imageProc/DscMan.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/gui_func.h"
 
 ImgProcM* ImgProcM::m_ptrInstance = NULL;
 
@@ -279,5 +279,3 @@ void ImgProcM::SetTimeMark(bool on)
 {
 	m_ptrUpdate->TimeMarkM(on);
 }
-
-

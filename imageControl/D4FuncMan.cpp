@@ -1,22 +1,22 @@
 #include <sys/wait.h>
-#include "D4FuncMan.h"
-#include "../probe/ProbeMan.h"
-#include "UIS4DReceiveInterface.h"
-#include "../display/TopArea.h"
-#include "../imageControl/Img2D.h"
-#include "../imageProc/DscMan.h"
-#include "../display/gui_func.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "../patient/PatientInfo.h"
-#include "FreezeMode.h"
-#include "DSCTypes.h"
-#include "../display/ImageAreaPara.h"
-#include "../imageProc/ScanMode.h"
-#include "../imageProc/ImgProc2D.h"
+#include "imageControl/D4FuncMan.h"
+#include "probe/ProbeMan.h"
+#include <UIS4DReceiveInterface.h>
+#include "display/TopArea.h"
+#include "imageControl/Img2D.h"
+#include "imageProc/DscMan.h"
+#include "display/gui_func.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "patient/PatientInfo.h"
+#include "imageProc/FreezeMode.h"
+#include <DSCTypes.h>
+#include "display/ImageAreaPara.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/ImgProc2D.h"
 #include "display/ImageAreaPara.h"
 #include "keyboard/KeyValueOpr.h"
-#include "LightDef.h"
-#include "ModeStatus.h"
+#include "keyboard/LightDef.h"
+#include "imageProc/ModeStatus.h"
 #include "ViewMain.h"
 
 extern int g_tgcSlider[8];
@@ -124,7 +124,6 @@ void D4FuncMan::Exit4D()
     Img2D::GetInstance()->SetLineDensity(1);
     Img2D::GetInstance()->SetMBP(1);
 
-
 #ifndef EMP_322
 	g_keyInterface.CtrlLight(FALSE, LIGHT_CW);
 #endif
@@ -198,7 +197,6 @@ void D4FuncMan::Exit4D()
     }
 #endif
 }
-
 
 void D4FuncMan::GetProbeInfo()
 {

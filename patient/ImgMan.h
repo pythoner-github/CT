@@ -4,10 +4,10 @@
 #include <vector>
 #include <list>
 #include <string>
-#include "IniFile.h"
-#include "FileMan.h"
-#include "ScanMode.h"
-#include "DCMMan.h"
+#include "base/IniFile.h"
+#include "patient/FileMan.h"
+#include "imageProc/ScanMode.h"
+#include "periDevice/DCMMan.h"
 
 using std::vector;
 using std::list;

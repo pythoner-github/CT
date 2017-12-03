@@ -4,7 +4,6 @@
 
 #include "Def.h"
 
-
 void KnobNoneCreate();
 
 extern void KnobUndo();

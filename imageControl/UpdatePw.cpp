@@ -1,12 +1,11 @@
-
-#include "UpdatePw.h"
-#include "KnobPw.h"
-#include "Knob2D.h"
-#include "KnobCfm.h"
-#include "MenuPW.h"
-#include "ViewIcon.h"
+#include "imageControl/UpdatePw.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/MenuPW.h"
+#include "display/ViewIcon.h"
 #include "ViewMain.h"
-#include "../imageProc/ModeStatus.h"
+#include "imageProc/ModeStatus.h"
 
 const char * SpeedLevel[3] =
 {
@@ -200,7 +199,6 @@ void UpdatePw::PRFMax(int data, EKnobReturn status)
 	SyncKnobPw(PW_SCALE, m_str, status);
 }
 
-
 void UpdatePw::PRFRange(int data, EKnobReturn status)
 {
 	// knob
@@ -314,7 +312,6 @@ void UpdatePw::SoundVolume(int index, EKnobReturn status)
 {
 	m_ptrImgPara->UpdateVolume(index);
 }
-
 
 void UpdatePw::Simult(bool on, EKnobReturn status)
 {

@@ -18,7 +18,6 @@
 #define TOP_AREA_P3 570
 #define TOP_AREA_P4 650
 
-
 class TopArea
 {
 public:

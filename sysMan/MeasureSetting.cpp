@@ -17,24 +17,24 @@
  */
 
 #include <dirent.h>
-#include "MeasureSetting.h"
+#include "sysMan/MeasureSetting.h"
 #include "Def.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "MeasureDef.h"
-#include "MeaCalcFun.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "calcPeople/MeasureDef.h"
+#include "calcPeople/MeaCalcFun.h"
 #include "ViewMain.h"
-#include "ViewDialog.h"
-#include "KeyFunc.h"
-#include "FileMan.h"
-#include "PeripheralMan.h"
-#include "MenuMeasure.h"
-#include "ConfigToHost.h"
-#include "UserSelect.h"
-#include "TopArea.h"
-#include "CalcSetting.h"
+#include "display/ViewDialog.h"
+#include "keyboard/KeyFunc.h"
+#include "patient/FileMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "measure/MenuMeasure.h"
+#include "sysMan/ConfigToHost.h"
+#include "sysMan/UserSelect.h"
+#include "display/TopArea.h"
+#include "sysMan/CalcSetting.h"
 using std::vector;
 #ifdef EMP_322
 extern const char *examType_calc[];
@@ -65,7 +65,6 @@ GtkWidget* MeasureSetting::GetWindow(void)
 {
     return m_win_parent;
 }
-
 
 void MeasureSetting::CreateDefineItem_calc(vector<string>& vecExamItem_calc)
 {
@@ -129,8 +128,6 @@ void MeasureSetting::CreateItemListForMeasure(vector<string>& vecItemCalc)
         vecItemCalc.push_back(item_name.c_str());
     }
 }
-
-
 
 int MeasureSetting::ItemNameTransEtype(char *select_name)
 {
@@ -272,7 +269,6 @@ next:
     return GTK_TREE_MODEL(store);
 }
 
-
 GtkTreeModel* MeasureSetting::create_item_calc_model2()
 {
 
@@ -333,7 +329,6 @@ next:
 
     return GTK_TREE_MODEL(store);
 }
-
 
 void MeasureSetting::CreateItemListForDeleteMeasureed(char *select_name, string probe_exam,vector<int>& vecItemCalc1)
 {
@@ -402,7 +397,6 @@ void MeasureSetting::add_columns_calc1(GtkTreeView *treeview)
     gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
 }
 
-
 void MeasureSetting::ExamCalcChanged(GtkComboBox *widget)
 {
     ChangeModel2();
@@ -450,7 +444,6 @@ void MeasureSetting::MeasureSequenceChanged(GtkComboBox *widget)
     ptrIni->SyncConfigFile();
 }
 
-
 void MeasureSetting::ChangeModel2(void)
 {
     GtkTreeModel *model1 = create_item_calc_model1();
@@ -460,7 +453,6 @@ void MeasureSetting::ChangeModel2(void)
     gtk_tree_view_set_model(GTK_TREE_VIEW(m_treeview_item_calc), model);
 
 }
-
 
 void MeasureSetting::ChangeModel(void)
 {
@@ -523,7 +515,6 @@ void MeasureSetting::ChangeModelAndLight(const char *name)
     gtk_tree_path_free (path_scroll);
 }
 
-
 GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
 {
     m_win_parent = parent;
@@ -581,7 +572,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed_calc), label_department_calc, 10, 35);
     gtk_widget_set_size_request (label_department_calc, 150, 30);
 
-
     scrolledwindow_item_calc = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_calc);
     gtk_fixed_put (GTK_FIXED (fixed_calc), scrolledwindow_item_calc, 15, 80);
@@ -590,7 +580,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
 
      GtkTreeModel *model = create_item_calc_model2();
       m_treeview_item_calc = gtk_tree_view_new_with_model(model);
-
 
     add_columns_calc(GTK_TREE_VIEW(m_treeview_item_calc));
 
@@ -602,7 +591,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_calc));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
     gtk_widget_show (m_treeview_item_calc);
-
 
      GtkWidget *label_sequence_calc = gtk_label_new (_("Measure Sequence:"));
     gtk_misc_set_alignment (GTK_MISC(label_sequence_calc), 0, 0.5);
@@ -632,14 +620,12 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_sequence_calc), sequence);
     g_signal_connect(m_combobox_sequence_calc, "changed", G_CALLBACK(HandleMeasureSequenceChanged), this);
 
-
     GtkWidget *label_department_calc_select = gtk_label_new (_("Selected Items:"));
     gtk_misc_set_alignment (GTK_MISC(label_department_calc_select), 0, 0.5);
     gtk_label_set_use_markup (GTK_LABEL (label_department_calc_select), TRUE);
     gtk_widget_show (label_department_calc_select);
     gtk_fixed_put (GTK_FIXED (fixed_calc), label_department_calc_select, 400, 40);
     gtk_widget_set_size_request (label_department_calc_select, 150, 30);
-
 
     scrolledwindow_item_calc1 = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_calc1);
@@ -660,7 +646,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
     gtk_widget_show (m_treeview_item_calc1);
 
-
     m_button_select_one = gtk_button_new_with_mnemonic (">");
     gtk_widget_show (m_button_select_one);
     gtk_fixed_put (GTK_FIXED (fixed_calc), m_button_select_one, 290, 170);
@@ -672,7 +657,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed_calc), m_button_select_all, 290, 220);
     gtk_widget_set_size_request (m_button_select_all, 80, 30);
     g_signal_connect(m_button_select_all, "clicked", G_CALLBACK(HandleButtonSelectAllCalcClicked), this);
-
 
     m_button_calc_delete = gtk_button_new_with_mnemonic ("<");
     gtk_widget_show (m_button_calc_delete);
@@ -686,7 +670,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_widget_set_size_request (m_button_calc_delete_all, 80, 30);
     g_signal_connect(m_button_calc_delete_all, "clicked", G_CALLBACK(HandleButtonBackAllClicked), this);
 
-
     m_button_calc_up = gtk_button_new_with_mnemonic (_("Up"));
     gtk_widget_show (m_button_calc_up);
     gtk_fixed_put (GTK_FIXED (fixed_calc), m_button_calc_up, 680, 220);
@@ -698,7 +681,6 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed_calc), m_button_calc_down, 680, 270);
     gtk_widget_set_size_request (m_button_calc_down, 80, 30);
     g_signal_connect(m_button_calc_down, "clicked", G_CALLBACK(HandleButtonDownClicked), this);
-
 
     m_button_calc_default = gtk_button_new_with_mnemonic (_("Default Factory"));
     gtk_widget_show (m_button_calc_default);
@@ -753,7 +735,6 @@ GtkTreeIter MeasureSetting::InsertUniqueCalc(GtkTreeModel *model, const char *st
     }
     return tmp_iter;
 }
-
 
 void MeasureSetting::ButtonSelectOneCalcClicked(GtkButton *button)
 {
@@ -862,7 +843,6 @@ void MeasureSetting::ButtonSelectOneCalcClicked(GtkButton *button)
           g_menuMeasure.ChangeExamItem(exam_type);
 }
 
-
 void MeasureSetting::ButtonSelectAllCalcClicked(GtkButton *button)
 {
     gchar* exam_type_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_exam_calc));
@@ -917,7 +897,6 @@ void MeasureSetting::ButtonSelectAllCalcClicked(GtkButton *button)
     {
         sprintf(path12, "%s%s%s%s", CFG_RES_PATH, MEASURE_ITEM_FILE, username.c_str(), ".ini");
     }
-
 
     IniFile new_ini(path12);
     IniFile *new_ptrIni= &new_ini;
@@ -1039,7 +1018,6 @@ void MeasureSetting::ButtonBackOneClicked(GtkButton *button)
 		g_menuMeasure.ChangeExamItem(exam_type);
 }
 
-
 void MeasureSetting::ButtonBackAllClicked(GtkButton *button)
 {
 
@@ -1083,7 +1061,6 @@ void MeasureSetting::ButtonBackAllClicked(GtkButton *button)
 		g_menuMeasure.ChangeExamItem(exam_type);
 }
 
-
 void MeasureSetting::ButtonDownClicked(GtkButton *button)
 {
     GtkTreeModel *model;
@@ -1111,7 +1088,6 @@ void MeasureSetting::ButtonDownClicked(GtkButton *button)
 
     int item_length(0);
     item_length = vecDelete_Calc.size();
-
 
     int path_total = item_length-1;
     if(path_num != path_total)
@@ -1191,7 +1167,6 @@ void MeasureSetting::ButtonUpClicked(GtkButton *button)
     if(path_num == 0)
         return;
 
-
     gchar* exam_type_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_exam_calc));
     char exam_type[256];
     ExamItem exam;
@@ -1203,7 +1178,6 @@ void MeasureSetting::ButtonUpClicked(GtkButton *button)
 
     int item_length(0);
     item_length = vecDelete_Calc.size();
-
 
     char path11[256];
     sprintf(path11, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -1382,5 +1356,3 @@ int MeasureSetting::GetMeasureSequence(const char *exam_type)
     return  ptrIni->ReadInt(exam_type, "Sequence");
 
 }
-
-

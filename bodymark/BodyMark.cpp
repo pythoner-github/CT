@@ -1,7 +1,7 @@
-#include "BodyMark.h"
-#include "SysNoteSetting.h"
-#include "ImageArea.h"
-#include "ModeStatus.h"
+#include "bodymark/BodyMark.h"
+#include "sysMan/SysNoteSetting.h"
+#include "display/ImageArea.h"
+#include "imageProc/ModeStatus.h"
 
 const double BodyMark::BODYMARK_SCALE[3] = {0.8, 1.2, BDMK_MAX_SCALE};
 const double BodyMark::PROBEMARK_SCALE[3] = {0.8, 1.0, BDMK_PROBE_MAX_SCALE};

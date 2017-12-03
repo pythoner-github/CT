@@ -1,16 +1,16 @@
-#include "KnobEFOV.h"
-#include "gui_global.h"
-#include "KnobMenu.h"
-#include "ImgProc2D.h"
-#include "../imageProc/Replay.h"
-#include "../sysMan/SysOptions.h"
-#include "../display/HintArea.h"
-#include "../display/ViewDialog.h"
-#include "../display/MenuArea.h"
-#include "../patient/VideoMan.h"
+#include "imageControl/KnobEFOV.h"
+#include "display/gui_global.h"
+#include "display/KnobMenu.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/Replay.h"
+#include "sysMan/SysOptions.h"
+#include "display/HintArea.h"
+#include "display/ViewDialog.h"
+#include "display/MenuArea.h"
+#include "patient/VideoMan.h"
 #include "ViewMain.h"
 #include <stdlib.h>
-#include "../imageProc/KnobReplay.h"
+#include "imageProc/KnobReplay.h"
 
 extern const char * EFOVROISizeName[3];
 #if defined (EMP_322) || defined(EMP_313)
@@ -188,7 +188,6 @@ EKnobReturn KnobEFOVRotate(EKnobOper oper)
     EKnobReturn ret = ImgProc2D::GetInstance()->ChangeEFOVRotate(oper);
     return ret;
 }
-
 
 EKnobReturn KnobEFOVReviewPressForG30(EKnobOper oper)
 {

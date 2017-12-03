@@ -9,10 +9,10 @@
 #ifndef __MENUCALC_NEW_H__
 #define __MENUCALC_NEW_H__
 
-#include "MenuTree.h"
-#include "ExamItem.h"
-#include "ScanMode.h"
-#include "MeasureDef.h"
+#include "display/MenuTree.h"
+#include "probe/ExamItem.h"
+#include "imageProc/ScanMode.h"
+#include "calcPeople/MeasureDef.h"
 
 extern SingleItemInfo userDef_new[100];
 

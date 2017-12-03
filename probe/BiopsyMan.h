@@ -1,8 +1,8 @@
 #ifndef _BIOPSYMAN_H_
 #define _BIOPSYMAN_H_
 
-#include "BiopsySetting.h"
-#include "DefaultBiopsySetting.h"
+#include "probe/BiopsySetting.h"
+#include "probe/DefaultBiopsySetting.h"
 using namespace std;
 
 class BiopsyMan

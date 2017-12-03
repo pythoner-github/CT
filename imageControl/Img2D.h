@@ -1,15 +1,15 @@
 #ifndef IMAGING2D_H
 #define IMAGING2D_H
 
-#include "ProbeMan.h"
-#include "ExamItem.h"
-#include "Calc2D.h"
+#include "probe/ProbeMan.h"
+#include "probe/ExamItem.h"
+#include "imageControl/Calc2D.h"
 #include "AbsUpdate2D.h"
 #include "Def.h"
-#include "DSCTypes.h"
-#include "DSC.h"
-#include <base/CalcTime.h>
-#include "ManRegister.h"
+#include <DSCTypes.h>
+#include <DSC.h>
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "periDevice/ManRegister.h"
 
 /*
  * @brief class Img2D control the imging of 2D and M mode
@@ -55,7 +55,6 @@ class Img2D
         CalcTime m_ctDepth;
         int m_tDepth;
         int m_stepDepth;
-
 
         char m_str[20];
 		///> general member
@@ -112,7 +111,6 @@ class Img2D
         void SetSteer(int& index);
         EKnobReturn ChangeTpView(EKnobOper oper);
         EKnobReturn ChangeEFVI(EKnobOper oper);
-
 
 		///>operation of M mode
 		void ResetMLine();
@@ -206,8 +204,6 @@ class Img2D
         int GetCompoundSpaceIndex(void) { return m_spaceCompoundIndexBak; }
         bool GetCompoundFreqCtrl(void) { return m_freqCompoundCtrlBak; } //m_freqCompoundCtrl; }
 
-
-
         ///>
         void UpdateAutoOptimize(bool on);
         void ModeCwCtrl(bool on);
@@ -274,7 +270,6 @@ class Img2D
 		///> static const-M
         static const int MAX_M_SPEED = 8;
         static const int MAX_HARMONIC_FREQ = 50;
-
 
          ///> extended imaging
         static const int MAX_TP_VIEW = 2;
@@ -350,7 +345,6 @@ class Img2D
         int m_tpViewIndex; ///< used in linear probe
         bool m_efviCtrl; ///< used in convex probe
 
-
         // measure when zoom
         bool m_zoomMeasureCtrl; ///<是否进入局部放大的测量状态
         double m_zoomScale; ///<局部放大的倍率
@@ -389,7 +383,6 @@ class Img2D
         static float m_fc4;
         static float m_fc5;
         static int m_freqEmit;
-
 
 		///> fun
 		void InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);
@@ -444,6 +437,5 @@ class Img2D
         void DefaultDynamicDemodFd(int probeindex, int thi);
         void DefaultIndexBandPassFilterBaseFreq(int probeindex, int freqindex);
 };
-
 
 #endif

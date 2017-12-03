@@ -2,7 +2,7 @@
 #define _DATABASE_H_
 
 #include <sqlite3.h>
-#include "PatientInfo.h"
+#include "patient/PatientInfo.h"
 #include <vector>
 
 #define PATIENT_DB "./res/patient.db"

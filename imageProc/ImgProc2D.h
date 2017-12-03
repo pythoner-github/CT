@@ -2,9 +2,9 @@
 #define __IMGPROC2D_H__
 
 #include <string>
-#include "DSCTypes.h"
-#include "DSC.h"
-#include "ExamItem.h"
+#include <DSCTypes.h>
+#include <DSC.h>
+#include "probe/ExamItem.h"
 #include "AbsUpdate2D.h"
 
 using std::string;

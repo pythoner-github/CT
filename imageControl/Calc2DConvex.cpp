@@ -10,11 +10,11 @@
  * @author: zhanglei
  */
 
-#include "Calc2DConvex.h"
+#include "imageControl/Calc2DConvex.h"
 #include "Def.h"
-#include "ProbeSocket.h"
-#include "Img2D.h"
-#include "TopArea.h"
+#include "probe/ProbeSocket.h"
+#include "imageControl/Img2D.h"
+#include "display/TopArea.h"
 
 float Calc2DConvex::TIS_CFM_BASIC[2][11][11]=
 {
@@ -345,7 +345,6 @@ void Calc2DConvex::CalcDynamicFilter(int order)
                 PRINTF("-Convex--%d---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
             }
         }
-
 
     DynamicFilter_test(fc_dynamic_filter, depth, order);
 

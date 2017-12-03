@@ -9,13 +9,13 @@
  * @author: zhanglei
  */
 #include <stdlib.h>
-#include "MeasureDraw.h"
+#include "measure/MeasureDraw.h"
 #include "ViewMain.h"
-#include "../sysMan/SysMeasurementSetting.h"
+#include "sysMan/SysMeasurementSetting.h"
 #include <stdlib.h>
 #include <math.h>
-#include "../display/ImageAreaDraw.h"
-#include "SysGeneralSetting.h"
+#include "display/ImageAreaDraw.h"
+#include "sysMan/SysGeneralSetting.h"
 
 POINT MeasureDraw::m_cursor;
 int MeasureDraw::m_cursorType = 0;
@@ -74,7 +74,6 @@ void MeasureDraw::DrawCursor(POINT p, bool isCur, EDrawMode mode, bool restrict)
 	tmp.y = p.y;
 	SetCursor(tmp);
 }
-
 
 void MeasureDraw::ChangeCursorType(void)
 {
@@ -228,7 +227,6 @@ void MeasureDraw::DrawINTEGRALTraceLine(POINT p1, POINT p2, bool isCur, EDrawMod
     if (p1.y > boundDown) p1.y = (boundDown-2);
     if (p2.y < boundUp) p2.y = (boundUp);
     if (p2.y > boundDown) p2.y = (boundDown-2);
-
 
     DrawBaseLine(p1, p2, isCur, mode);
 }
@@ -493,7 +491,6 @@ void MeasureDraw::DrawDotBeeline(POINT point1, POINT point2, bool isCur, EDrawMo
 	}
 }
 
-
 /*
  * @brief draw horizontal line
  */
@@ -722,7 +719,6 @@ POINT MeasureDraw::DrawInitialVLine(bool isCur)
 
 	return m_cursor;
 }
-
 
 POINT MeasureDraw::DrawInitialCrossLine(bool isCur)
 {
@@ -1139,7 +1135,6 @@ void MeasureDraw::DrawOrderNumberForErase(POINT p, int orderNumber, int confirmC
 	else if (mode == COPY)
 		m_ptrImgArea->DrawString(str, p.x, p.y, color, false);
 }
-
 
 void MeasureDraw::ChangeOrderNumber()
 {

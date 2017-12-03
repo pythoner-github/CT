@@ -5,10 +5,10 @@
 #include <vector>
 #include <gtk/gtk.h>
 #include <deque>
-#include "FakeXEvent.h"
-#include "DCMDef.h"
-#include "PatientInfo.h"
-#include "Image.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/DCMDef.h"
+#include "patient/PatientInfo.h"
+#include "imageProc/Image.h"
 
 using std::string;
 using std::vector;

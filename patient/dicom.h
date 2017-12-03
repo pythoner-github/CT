@@ -1,5 +1,5 @@
 //DICOM INTERFACE DEVELOPED BY FUYONG
-#include<memory.h>
+#include <memory.h>
 #ifndef _DICOM_H
 #define	_DICOM_H
 
@@ -175,7 +175,6 @@
 #define DICOM_ERROR_STR_CANNOTOPENFILE				"Cannot open file"
 #define DICOM_ERROR_STR_CANNOTDECODEFILE           "Cannot decode file"
 
-
 #define	DICOM_ERROR_STR_DIMSE_NOAFFECSOPCLASUID		"DIMSE No Affected SOP Class UID"
 #define	DICOM_ERROR_STR_DIMSE_NOAFFECSOPINSTUID		"DIMSE No Affected SOP Instance UID"
 #define	DICOM_ERROR_STR_DIMSE_NOMOVEDSTINATION		"DIMSE No Move Destination"
@@ -236,11 +235,9 @@
 #define DICOM_ERROR_STR_RELEASE_WRITE_ERROR												"Release write error"
 #define DICOM_ERROR_STR_ABORT_WRITE_ERROR												"Abort write error"
 
-
 #define DICOM_ERROR_STR_JPGERROR															"JPG Error"
 
 #define DICOM_ERROR_END -9999
-
 
 //END ERROR DEFINED
 
@@ -249,7 +246,6 @@
 /***************************************************************************/
 #define	DCM_UID_NULL								-1
 #define	DCM_UID_UNKNOWN								-1
-
 
 #define	DCM_UID_1_2_840_10008_1_2				0	 /*Implicit VR Little Endian: Default Transfer Syntax for DICOM	Transfer Syntax	Part 5*/
 #define	DCM_UID_1_2_840_10008_1_2_1				2	 /*Explicit VR Little Endian	Transfer Syntax	Part 5*/
@@ -641,8 +637,6 @@
 
 #define	DCM_TS_STRG_JPEG_LOSSY_SPECTRAL_SELECTION		"1.2.840.10008.1.2.4.53" /* JPEG process 6 & 8				*/
 #define	DCM_TS_STRG_JPEG_LOSSY_FULL_PROGRESSION		"1.2.840.10008.1.2.4.55" /* JPEG process 10 & 12				*/
-
-
 
 /***************************************************************************/
 /* Transfer Syntaxes																			*/
@@ -1179,7 +1173,6 @@ BOOL DICOM_DECL_SPEC DCMClearSCPInfo(DCMScpInfo * pScpInfo, char* szErrorMsg);
 //BOOL DICOM_DECL_SPEC DCMSockReset (DCMObjPtr sock, char* szErrorMsg);
 //BOOL DICOM_DECL_SPEC DCMSockClose (DCMObjPtr sock, char* szErrorMsg);
 
-
 /***************************************************************************/
 /*
 *      DLL Import/Export
@@ -1279,7 +1272,6 @@ BOOL DICOM_DECL_SPEC DCMElemListGetCineInfo (DCMObjPtr elemList, DCMCineInfo * p
 BOOL DICOM_DECL_SPEC DCMElemListModalityLUTApplyToPixel (DCMObjPtr elemList, char* szErrorMsg, int nApplyRescIntercept = LUT_APPLY_RESCINTERCEPT_SLOPNOTEQUALONE);
 BOOL DICOM_DECL_SPEC DCMElemListGetOverlayInfo (DCMObjPtr elemList, DCMOverlayInfo * pDCMOverlayInfo, int nOverlayIndex, char* szErrorMsg);
 BOOL DICOM_DECL_SPEC DCMElemListOverlayEmbedToData (DCMObjPtr elemList, char* szErrorMsg);
-
 
 /***************************************************************************/
 /*

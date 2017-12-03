@@ -2,7 +2,7 @@
 #define __KNOB_PROJECTMODE_H__
 #ifdef EMP_PROJECT
 #include "Def.h"
-#include "HintArea.h"
+#include "display/HintArea.h"
 
 class KnobProjectMode
 {

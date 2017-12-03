@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "Battery.h"
-#include "I2CCtrl.h"
-#include "CgosGpio.h"
+#include "periDevice/Battery.h"
+#include "periDevice/I2CCtrl.h"
+#include "periDevice/CgosGpio.h"
 #include "Def.h"
 unsigned char Battery::ADDR=0x0b;
 unsigned char Battery::GET_CHARGE=0x0d;

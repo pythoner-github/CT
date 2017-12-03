@@ -1,7 +1,7 @@
-#include <gui_global.h>
-#include "MenuTree.h"
-#include "MeasureMan.h"
-#include "ViewSystem.h"
+#include "display/gui_global.h"
+#include "display/MenuTree.h"
+#include "measure/MeasureMan.h"
+#include "sysMan/ViewSystem.h"
 TreeMenu::TreeMenu(void) : m_showTooltip(true)
 {
     m_treeView = 0;
@@ -80,7 +80,6 @@ GtkWidget* TreeMenu::Create(GUIMenu *pItem, GUIMenu *pUserDefine)
     gtk_widget_add_events(GTK_WIDGET(m_treeView), (gtk_widget_get_events(GTK_WIDGET(m_treeView)) | GDK_BUTTON_RELEASE_MASK));
 
    g_signal_connect_after(m_treeView, "button_release_event", G_CALLBACK(HandleExamTypeBtnClicked), this);
-
 
     g_signal_connect(m_treeView, "row-expanded", G_CALLBACK(HandleTreeViewExpanded), this);
     g_signal_connect(m_treeView, "row-collapsed", G_CALLBACK(HandleTreeViewCollapse), this);
@@ -180,7 +179,6 @@ gboolean TreeMenu::BtnExamTypeClicked(GtkWidget *widget, GdkEventButton *event)
     return FALSE;
 }
 
-
 void TreeMenu::TreeViewExpanded(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path)
 {
 }
@@ -223,7 +221,6 @@ void TreeMenu::SelectIter(GtkWidget *treeView, int parent, int child, bool selec
         }
         gtk_tree_path_free(path);
     }
-
 
 }
 
@@ -274,7 +271,6 @@ void TreeMenu::TreeSelectionChanged(GtkTreeSelection *selection)
     if (gtk_tree_selection_get_selected(selection, &model, &iter) != TRUE)
         return ;
 
-
     // GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
     // GtkTreeView* treeview = gtk_tree_selection_get_tree_view (selection);
 
@@ -304,7 +300,6 @@ void TreeMenu::TreeSelectionChanged(GtkTreeSelection *selection)
         break;
     }
 }
-
 
 // GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem)
 // {
@@ -354,7 +349,6 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine)
             G_TYPE_INT, // toggle value
             G_TYPE_POINTER); /* Union */
 
-
     while (pItem->name || pItem->etype >= 0) {
         GUIMenu *pchild = pItem->child;
         const char *name;
@@ -379,7 +373,6 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine)
         pItem++;
         if (!pchild)
             continue;
-
 
         while (pchild->etype >= 0) {
             const char *child_name;
@@ -425,7 +418,6 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine)
         pUserDefine++;
         if (!pUserDefinechild)
             continue;
-
 
         while (pUserDefinechild->etype >= 0) {
             const char *userDefine_child_name;
@@ -553,7 +545,6 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem)
 
         if (!pchild)
             continue;
-
 
         while (pchild->etype >= 0) {
             const char *child_name;
@@ -1114,7 +1105,6 @@ bool TreeMenu::IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeI
 {
 	bool isSet = true;
 
-
     GtkTreeIter iterChild;
 	RendererType type;
     int etype = BASIC_MEA_END;
@@ -1133,7 +1123,6 @@ bool TreeMenu::IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeI
                     isSet = true;
                     break;
                 }
-
 
             }
             else

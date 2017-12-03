@@ -1,17 +1,17 @@
 #include <gtk/gtk.h>
 #include <sstream>
 #include <iostream>
-#include "gui_global.h"
-#include "gui_func.h"
-#include "ViewTemplet.h"
-#include "KeyDef.h"
-#include "KeyValueOpr.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "calcPeople/ViewTemplet.h"
+#include "keyboard/KeyDef.h"
+#include "keyboard/KeyValueOpr.h"
 #include "ViewMain.h"
-#include "../display/ViewDialog.h"
-#include "ViewReport.h"
+#include "display/ViewDialog.h"
+#include "calcPeople/ViewReport.h"
 #include <errno.h>
-#include "SysGeneralSetting.h"
-#include "ViewSystem.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/ViewSystem.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -323,7 +323,6 @@ gboolean ViewTemplet::BtnTempletClicked(GtkWidget *widget, GdkEventButton *event
 
             GtkTreeSelection *selection;
             selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-
 
             if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
             {
@@ -840,7 +839,6 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
 
     gtk_tree_path_free (parent_path);
 }
-
 
 void ViewTemplet::CopyClicked(GtkButton *button)
 {

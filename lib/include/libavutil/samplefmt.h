@@ -21,8 +21,8 @@
 
 #include <stdint.h>
 
-#include "avutil.h"
-#include "attributes.h"
+#include <libavutil/avutil.h>
+#include <libavutil/attributes.h>
 
 /**
  * Audio Sample Formats

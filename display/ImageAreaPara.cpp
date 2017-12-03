@@ -9,8 +9,8 @@
  * @author: yangneng
  */
 #include "display/ImageArea.h"
-#include "ImageAreaPara.h"
-#include "CalcTime.h"
+#include "display/ImageAreaPara.h"
+#include "accessories/osrfx2_src/CalcTime.h"
 #include "imageProc/ModeStatus.h"
 #include <stdlib.h>
 #include "keyboard/KeyDef.h"
@@ -692,4 +692,3 @@ void ImageAreaPara::FillRectangle(int x, int y, int w, int h)
 {
     m_ptrImg->DrawRectangle(m_attr, g_black, x, y, w, h, true, false);
 }
-

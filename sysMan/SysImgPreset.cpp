@@ -1,6 +1,6 @@
-#include "SysImgPreset.h"
-#include "ViewSystem.h"
-#include "ExamItem.h"
+#include "sysMan/SysImgPreset.h"
+#include "sysMan/ViewSystem.h"
+#include "probe/ExamItem.h"
 
 void ExecSetting(ExamItem::EItem itemIndex)
 {

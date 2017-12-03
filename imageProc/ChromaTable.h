@@ -1,7 +1,7 @@
 #ifndef CHROMA_TABLE_H
 #define CHROMA_TABLE_H
 
-#include "DSCTypes.h"
+#include <DSCTypes.h>
 
 RGBTRIPLE CHROMA_TABLE0_NO[]= //256
 {

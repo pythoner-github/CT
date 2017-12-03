@@ -4,37 +4,37 @@
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-#include<fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 // #include <errno.h>
-#include "gui_func.h"
-#include "gui_global.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "ViewPrintPreview.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "periDevice/ViewPrintPreview.h"
 #include "ViewMain.h"
-#include "ViewDialog.h"
-#include "../sysMan/SysGeneralSetting.h"
-#include "Usblp.h"
-#include "PeripheralMan.h"
+#include "display/ViewDialog.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "periDevice/Usblp.h"
+#include "periDevice/PeripheralMan.h"
 
-#include "Printer.h"
+#include "periDevice/Printer.h"
 
-#include "ViewPrintSetting.h"
-#include "../sysMan/SysPrinterSetting.h"
-#include "../calcPeople/ViewReport.h"
-#include "PatientInfo.h"
-#include "TopArea.h"
-#include "Usblp.h"
-#include "ImgMan.h"
-#include "ViewReport.h"
-#include "ViewSystem.h"
-#include "ViewDicomDataSelect.h"
-#include "ViewQueryRetrieve.h"
+#include "periDevice/ViewPrintSetting.h"
+#include "sysMan/SysPrinterSetting.h"
+#include "calcPeople/ViewReport.h"
+#include "patient/PatientInfo.h"
+#include "display/TopArea.h"
+#include "periDevice/Usblp.h"
+#include "patient/ImgMan.h"
+#include "calcPeople/ViewReport.h"
+#include "sysMan/ViewSystem.h"
+#include "patient/ViewDicomDataSelect.h"
+#include "patient/ViewQueryRetrieve.h"
 
-#include "Printmain.h"
-#include "Printfunctions.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
 
 #if (1)  //use NEW Print MODE
 #define MODE_PRINT_NEW (1)
@@ -77,7 +77,6 @@ void GetMeaResult(gchar *title, gchar *value)
       strcat(title,"l width");
       strcat(value, "1.5ms");
 }
-
 
 ViewPrintPreview::ViewPrintPreview(void)
 {
@@ -257,7 +256,6 @@ void ViewPrintPreview::KeyEvent(unsigned char keyValue)
     }
 }
 
-
 void ViewPrintPreview::CreateWindow()
 {
     GtkWidget *fixed_window;
@@ -341,7 +339,6 @@ void ViewPrintPreview::CreateWindow()
 
     return;
 }
-
 
 void ViewPrintPreview::AutoRadioToggled(GtkToggleButton *togglebutton)
 {
@@ -522,7 +519,6 @@ void ViewPrintPreview::CreateWindow(const char* path, GtkWidget *parent)
     gtk_widget_show_all(m_window);
 }
 
-
 GtkWidget* ViewPrintPreview::CreateReportWindow(GtkWidget *fix, int viewmode)
 {
     GtkWidget* scrolledwin = gtk_scrolled_window_new (NULL, NULL);
@@ -693,7 +689,7 @@ void ViewPrintPreview::BtnExitClicked(GtkButton *button)
     gtk_widget_destroy(m_window);
 }
 
-#include "Printfunctions.h"
+#include "periDevice/Printfunctions.h"
 void ViewPrintPreview::BtnPrintClicked(GtkButton *button)
 {
 	if(MODE_PRINT_NEW) //new print some error 20130424, jhuang
@@ -742,7 +738,6 @@ GtkWidget *GetMainWindow(void)
 {
 	return ViewPrintPreview::GetInstance()->GetMainWindow();
 }
-
 
 //lhm
 void ViewPrintPreview::BtnPrintWinClicked(GtkButton *button)
@@ -905,7 +900,6 @@ void ViewPrintPreview::Item_To_Get()
 	GdkPixbuf *buf[2];
 	int i, j;
 	for (i=0; i<2; i++) item.image_data[i] = NULL;
-
 
 	for (i=0; i<imageNums; i++)//现在最多能传入2幅图片
 	{
@@ -2144,7 +2138,6 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
     sprintf(ulTemp, "%s%s",section, ReportItem.section);
     AddTextToPageByPixmap(x, y, ulTemp, m_baseFont);
 
-
     //check num
     x = 660+10+10;
     y = 195;
@@ -2210,7 +2203,6 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
             xy = y;
             page_num = false;
         }
-
 
     }
 

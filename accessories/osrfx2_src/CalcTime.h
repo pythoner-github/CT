@@ -1,7 +1,7 @@
 #ifndef CALC_TIME_H
 #define CALC_TIME_H
 
-#include <sys/time.h>
+#include <libavutil/time.h>
 
 class CalcTime
 {

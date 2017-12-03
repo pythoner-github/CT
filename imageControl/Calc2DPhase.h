@@ -1,7 +1,7 @@
 #ifndef CALC_2D_PHASE_H
 #define CALC_2D_PHASE_H
 
-#include "Calc2DConvex.h"
+#include "imageControl/Calc2DConvex.h"
 
 class Calc2DPhase: public Calc2DConvex
 {

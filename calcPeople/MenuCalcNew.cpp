@@ -6,14 +6,14 @@
 * @date: 2014-11-28
 */
 
-#include "MenuCalcNew.h"
-#include "MeaFactoryMainSingle.h"
-#include "CalcSetting.h"
-#include "SysCalculateSetting.h"
-#include "MeaCalcFun.h"
-#include "MenuProjectMode.h"
-#include "MenuArea.h"
-#include "ViewSuperuser.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "calcPeople/MeaFactoryMainSingle.h"
+#include "sysMan/CalcSetting.h"
+#include "sysMan/SysCalculateSetting.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "projectMode/MenuProjectMode.h"
+#include "display/MenuArea.h"
+#include "sysMan/ViewSuperuser.h"
 
 static void MeasureFunc(int type)
 {
@@ -1287,7 +1287,6 @@ void MenuCalcNew::UpdateEfwItem(int efw)
         }
         m_vecAllCalcItem.push_back(g_calcAllDefaultItem[count]);
     }
-
 
     ChangeAllCalcItems();
 }

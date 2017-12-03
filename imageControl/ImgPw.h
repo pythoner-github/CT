@@ -1,12 +1,12 @@
 #ifndef IMG_PW_H
 #define IMG_PW_H
 
-#include "CalcPw.h"
+#include "imageControl/CalcPw.h"
 #include "Def.h"
 #include "AbsUpdatePw.h"
-#include "Img2D.h"
-#include "ProbeMan.h"
-#include "ExamItem.h"
+#include "imageControl/Img2D.h"
+#include "probe/ProbeMan.h"
+#include "probe/ExamItem.h"
 
 class ImgPw
 {
@@ -102,7 +102,6 @@ class ImgPw
         int GetRealPRF(); // unit: hz
         void CalcPwInfoDot(int posDot, int svLen, int &dotBegin, int &dotEnd, int &dotSvLen);
         int GetSteerAngle(int &currentAngle);
-
 
 		// for test
 		EKnobReturn ChangeSoundFilter(EKnobOper oper);

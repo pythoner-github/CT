@@ -19,9 +19,9 @@
 #ifndef AVUTIL_PARSEUTILS_H
 #define AVUTIL_PARSEUTILS_H
 
-#include <time.h>
+#include <libavutil/time.h>
 
-#include "rational.h"
+#include <libavutil/rational.h>
 
 /**
  * @file

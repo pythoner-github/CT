@@ -6,7 +6,7 @@
 #include <gtk/gtk.h>
 #include "Def.h"
 #include <vector>
-#include "KeyBoard.h"
+#include "keyboard/KeyBoard.h"
 #include "AbsKeyboardEvent.h"
 
 using std::vector;

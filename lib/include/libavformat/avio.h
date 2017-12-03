@@ -28,12 +28,11 @@
 
 #include <stdint.h>
 
-#include "libavutil/common.h"
-#include "libavutil/dict.h"
-#include "libavutil/log.h"
+#include <libavutil/common.h>
+#include <libavutil/dict.h>
+#include <libavutil/log.h>
 
-#include "libavformat/version.h"
-
+#include <libavcodec/version.h>
 
 #define AVIO_SEEKABLE_NORMAL 0x0001 /**< Seeking works like for a local file */
 
@@ -315,7 +314,6 @@ int avio_get_str(AVIOContext *pb, int maxlen, char *buf, int buflen);
  */
 int avio_get_str16le(AVIOContext *pb, int maxlen, char *buf, int buflen);
 int avio_get_str16be(AVIOContext *pb, int maxlen, char *buf, int buflen);
-
 
 /**
  * @name URL open modes

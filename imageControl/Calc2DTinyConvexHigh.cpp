@@ -9,10 +9,10 @@
  * @author: zhanglei
  */
 
-#include "Calc2DTinyConvexHigh.h"
+#include "imageControl/Calc2DTinyConvexHigh.h"
 #include "Def.h"
-#include "Img2D.h"
-#include "TopArea.h"
+#include "imageControl/Img2D.h"
+#include "display/TopArea.h"
 
 const int Calc2DTinyConvexHigh::EMIT_CH_NUM[20] =	{20,24, 28, 36, 46, 56, 64,	64, 64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
 

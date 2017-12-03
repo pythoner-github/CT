@@ -26,7 +26,7 @@
 #ifndef AVUTIL_EVAL_H
 #define AVUTIL_EVAL_H
 
-#include "avutil.h"
+#include <libavutil/avutil.h>
 
 typedef struct AVExpr AVExpr;
 

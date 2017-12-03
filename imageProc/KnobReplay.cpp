@@ -10,21 +10,20 @@
  */
 
 #include <deque>
-#include "KnobReplay.h"
-#include "KnobMenu.h"
-#include "FreezeMode.h"
-#include "Replay.h"
+#include "imageProc/KnobReplay.h"
+#include "display/KnobMenu.h"
+#include "imageProc/FreezeMode.h"
+#include "imageProc/Replay.h"
 #include "Def.h"
-#include "gui_global.h"
-#include "VideoMan.h"
-#include "PeripheralMan.h"
-#include "SysOptions.h"
-#include "HintArea.h"
-#include "ViewDialog.h"
+#include "display/gui_global.h"
+#include "patient/VideoMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "sysMan/SysOptions.h"
+#include "display/HintArea.h"
+#include "display/ViewDialog.h"
 #include "ViewMain.h"
-#include "ModeStatus.h"
-#include "ViewSuperuser.h"
-
+#include "imageProc/ModeStatus.h"
+#include "sysMan/ViewSuperuser.h"
 
 using std::deque;
 #if (defined (EMP_322) || defined(EMP_313))

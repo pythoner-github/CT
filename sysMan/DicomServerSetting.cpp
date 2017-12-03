@@ -1,11 +1,11 @@
-#include "DicomServerSetting.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "sysMan/DicomServerSetting.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include <gtk/gtk.h>
 #include <stdlib.h>
-#include "DCMMan.h"
-#include "ViewDialog.h"
-#include "ViewSystem.h"
+#include "periDevice/DCMMan.h"
+#include "display/ViewDialog.h"
+#include "sysMan/ViewSystem.h"
 
 DicomServerSetting* DicomServerSetting::m_ptrInstance = NULL;
 

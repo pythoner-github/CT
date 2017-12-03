@@ -26,5 +26,4 @@ EKnobReturn MPressChgMBP(void);
 
 EKnobReturn MPressChgSoundPower(void);
 
-
 #endif

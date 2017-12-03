@@ -2,7 +2,7 @@
 #define IMAGE_H_
 
 #include "Def.h"
-#include "../display/ImageArea.h"
+#include "display/ImageArea.h"
 
 class Image
 {

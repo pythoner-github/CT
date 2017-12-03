@@ -1,25 +1,25 @@
-#include "ViewQueryRetrieve.h"
+#include "patient/ViewQueryRetrieve.h"
 #include <glib.h>
 #include <glib/gstdio.h>
-#include <time.h>
-#include "gui_global.h"
-#include "gui_func.h"
-#include "KeyValueOpr.h"
+#include <libavutil/time.h>
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyValueOpr.h"
 #include "ViewMain.h"
-#include "DCMMan.h"
-#include "ViewDialog.h"
-#include "ImgMan.h"
-#include "Database.h"
-#include "ViewPrintPreview.h"
-#include "VideoMan.h"
-#include "SysOptions.h"
-#include "Replay.h"
-#include "SysGeneralSetting.h"
-#include "ViewCalendar.h"
-#include "KeyDef.h"
-#include "ViewReport.h"
-#include "Replay.h"
-#include "ViewSystem.h"
+#include "periDevice/DCMMan.h"
+#include "display/ViewDialog.h"
+#include "patient/ImgMan.h"
+#include "patient/Database.h"
+#include "periDevice/ViewPrintPreview.h"
+#include "patient/VideoMan.h"
+#include "sysMan/SysOptions.h"
+#include "imageProc/Replay.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "display/ViewCalendar.h"
+#include "keyboard/KeyDef.h"
+#include "calcPeople/ViewReport.h"
+#include "imageProc/Replay.h"
+#include "sysMan/ViewSystem.h"
 using std::vector;
 ViewQueryRetrieve* ViewQueryRetrieve::m_ptrInstance = NULL;
 PatientInfo ViewQueryRetrieve::m_patientInfo;
@@ -297,7 +297,6 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
     gtk_widget_set_size_request (button_quit, 85, 35);
     g_signal_connect(button_quit, "clicked", G_CALLBACK(HandleButtonQuitClicked), this);
 
-
     gtk_widget_set_sensitive(m_button_retrieve,false);
     gtk_widget_show_all(window_query_retrieve);
 
@@ -433,7 +432,6 @@ GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Weight"), renderer, "text", COL_WEIGHT_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
-
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Accession Number"), renderer, "text", COL_ACCESSION_NUMBER_D, NULL);
@@ -1008,7 +1006,6 @@ void ViewQueryRetrieve::GetDCMSRElement(DCMSRELEMENT element)
 #endif
 }
 
-
 void ViewQueryRetrieve::SetProgressPos(int nPos)
 {
     gdouble frac;
@@ -1061,7 +1058,6 @@ void ViewQueryRetrieve::ChkSelectAllToggled(GtkToggleButton *togglebutton)
         }
     }
 }
-
 
 void ViewQueryRetrieve::ButtonRetrieveClicked(GtkButton *button)
 {

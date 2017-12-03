@@ -11,7 +11,7 @@
 #ifndef DCM_MAN_H
 #define DCM_MAN_H
 
-#include "DCMDef.h"
+#include "periDevice/DCMDef.h"
 #include <string>
 #include <vector>
 using namespace std;

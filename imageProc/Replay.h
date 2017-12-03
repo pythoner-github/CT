@@ -3,11 +3,11 @@
 
 #include <deque>
 #include <gtk/gtk.h>
-#include "Image.h"
+#include "imageProc/Image.h"
 #include "AbsUpdateMix.h"
 #include "AbsUpdate2D.h"
 #include "Def.h"
-#include "DscMan.h"
+#include "imageProc/DscMan.h"
 
 using std::deque;
 

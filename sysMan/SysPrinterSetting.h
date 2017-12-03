@@ -1,7 +1,7 @@
 #ifndef _SYSPRINTERSETTING_H_
 #define _SYSPRINTERSETTING_H_
 
-#include "IniFile.h"
+#include "base/IniFile.h"
 
 class SysPrinterSetting
 {
@@ -31,6 +31,5 @@ public:
 private:
     IniFile *ptrIni;
 };
-
 
 #endif /* _SYSPRINTERSETTING_H_ */

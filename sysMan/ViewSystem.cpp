@@ -1,68 +1,68 @@
-#include "DCMMan.h"
+#include "periDevice/DCMMan.h"
 #include <string.h>
-#include <time.h>
+#include <libavutil/time.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <vector>
-#include "Update2D.h"
-#include "ExamItem.h"
-#include "Def.h"
-#include "MenuArea.h"
-#include "UpgradeMan.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ViewSystem.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "PeripheralMan.h"
-#include "ViewMain.h"
-#include "ViewDialog.h"
-#include "NetworkMan.h"
-#include "KnobMenu.h"
-#include "TopArea.h"
-#include "ScreenSaver.h"
-#include "PatientInfo.h"
-#include "SysGeneralSetting.h"
-#include "SysOptions.h"
-#include "SysNoteSetting.h"
-#include "SysDicomSetting.h"
-#include "SysMeasurementSetting.h"
-#include "SysCalculateSetting.h"
-#include "SysUserDefinedKey.h"
-#include "ImgMan.h"
-#include "VideoMan.h"
-#include "../calcPeople/MeaCalcFun.h"
-#include "ImgPw.h"
-#include "ImgCfm.h"
-#include "ImgProc2D.h"
-#include "ImgProcPw.h"
-#include "ImgProcCfm.h"
-#include "UserDefineKey.h"
-#include "../keyboard/KeyValueOpr.h"
-#include "../periDevice/ViewPrinterAdd.h"
-#include "../probe/ProbeSelect.h"
-
-#include "../periDevice/Printer.h"
-#include "MeasureMan.h"
-#include "CalcSetting.h"
-#include "MeasureSetting.h"
-#include "FileMan.h"
-#include "UserSelect.h"
-#include "ViewUdiskDataSelect.h"
-#include "ConfigToUSB.h"
-#include "ConfigToHost.h"
-
-#include "DicomLocalSetting.h"
-#include "DicomServerSetting.h"
-#include "DicomServiceSetting.h"
-#include "DCMRegister.h"
+#include "imageControl/Update2D.h"
 #include "probe/ExamItem.h"
-#include "EmpAuthorization.h"
-#include "MenuCalcNew.h"
-#include "MenuMeasure.h"
+#include "Def.h"
+#include "display/MenuArea.h"
+#include "sysMan/UpgradeMan.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "sysMan/ViewSystem.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "periDevice/PeripheralMan.h"
+#include "ViewMain.h"
+#include "display/ViewDialog.h"
+#include "periDevice/NetworkMan.h"
+#include "display/KnobMenu.h"
+#include "display/TopArea.h"
+#include "sysMan/ScreenSaver.h"
+#include "patient/PatientInfo.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/SysOptions.h"
+#include "sysMan/SysNoteSetting.h"
+#include "sysMan/SysDicomSetting.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "sysMan/SysCalculateSetting.h"
+#include "sysMan/SysUserDefinedKey.h"
+#include "patient/ImgMan.h"
+#include "patient/VideoMan.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/ImgProcCfm.h"
+#include "sysMan/UserDefineKey.h"
+#include "keyboard/KeyValueOpr.h"
+#include "periDevice/ViewPrinterAdd.h"
+#include "probe/ProbeSelect.h"
+
+#include "periDevice/Printer.h"
+#include "measure/MeasureMan.h"
+#include "sysMan/CalcSetting.h"
+#include "sysMan/MeasureSetting.h"
+#include "patient/FileMan.h"
+#include "sysMan/UserSelect.h"
+#include "patient/ViewUdiskDataSelect.h"
+#include "sysMan/ConfigToUSB.h"
+#include "sysMan/ConfigToHost.h"
+
+#include "sysMan/DicomLocalSetting.h"
+#include "sysMan/DicomServerSetting.h"
+#include "sysMan/DicomServiceSetting.h"
+#include "periDevice/DCMRegister.h"
+#include "probe/ExamItem.h"
+#include <EmpAuthorization.h>
+#include "calcPeople/MenuCalcNew.h"
+#include "measure/MenuMeasure.h"
 #include "Init.h"
 #include <errno.h>
-#include "ViewNewPat.h"
+#include "patient/ViewNewPat.h"
 using std::vector;
 using std::string;
 
@@ -247,8 +247,8 @@ GtkWidget* ViewSystem::GetWindow(void)
 }
 
 #if 1 //add by jhuang
-#include "MeasureDef.h"
-#include "ViewReport.h"
+#include "calcPeople/MeasureDef.h"
+#include "calcPeople/ViewReport.h"
 #ifdef VET
 const char *sectionstr[][LANG_MAX] =
 {//{ ENGLISH, CHINESE, RU, PL,ES, FR DE }
@@ -1123,7 +1123,6 @@ void ViewSystem::ChkBtnClicked(GtkButton *button)
     }
 }
 
-
 GtkWidget* ViewSystem::AddFrameByTitle(char *title, int section, int startid, int endid, int *h)
 {
     GtkWidget* checkbutton;
@@ -1609,7 +1608,6 @@ GtkWidget *ViewSystem::CreatWindowAnOB(void)
     frame = AddFrameByTitle(title, ANOB_M, ANOB_EQUINE_GSD, ANOB_MEA_END, &high);
     gtk_fixed_put (GTK_FIXED (fixed), frame, x, y);
     y += high + 20;
-
 
     scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_set_size_request (scrolledwindow, SHOW_WINDOW_WIDTH, 430);
@@ -2148,8 +2146,6 @@ void ViewSystem::ChangeCommentExamBoxDelete(int probe_type)
         }
     }
 }
-
-
 
 GtkTreeIter ViewSystem::InsertUnique(GtkTreeModel *model, GtkTreeIter *iter, const char *str)
 {
@@ -3153,10 +3149,8 @@ void ViewSystem::CreateWindow(void)
 
     GtkWidget *label_kbcal;
 
-
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
     int w = DEFALT_SCREEN_WIDTH;
-
 
     m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
    // gtk_widget_set_size_request (m_window,840, 640);
@@ -3434,7 +3428,6 @@ void ViewSystem::DestroyWindow(void)
         m_window = NULL;
     }
 
-
     ///>注册了新功能，关机重启
     if(m_powerOffFlag)
         g_timeout_add(500, PowerOff, this);
@@ -3470,7 +3463,6 @@ GtkWidget* ViewSystem::create_note_general(void)
     GtkWidget *button_adjust_time;
     //GtkWidget *frame_print;
 
-
     GtkWidget *button_default;
 
     fixed_general = gtk_fixed_new ();
@@ -3504,7 +3496,6 @@ GtkWidget* ViewSystem::create_note_general(void)
     gtk_widget_set_size_request (m_combobox_language, 100, 30);
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_language), "English");
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_language), "中文");
-
 
 #ifdef EMP_355
 	label_vga=gtk_label_new(_("<b>VGA Source:</b>"));
@@ -4323,7 +4314,6 @@ GtkWidget* ViewSystem::create_note_options(void)
     GSList *radiobtn_display_format_group_bm = NULL;
     GSList *radiobtn_display_format_group_bpw = NULL;
 
-
     //GtkWidget *combobox_img_format;
     //GtkWidget *combobox_img_medium;
     //GtkWidget *combobox_img_file;
@@ -4348,7 +4338,6 @@ GtkWidget* ViewSystem::create_note_options(void)
     GtkWidget *fixed_display_format;
     GtkWidget *label_mode_bm;
     GtkWidget *label_mode_bpw;
-
 
     fixed_options = gtk_fixed_new ();
     gtk_widget_show (fixed_options);
@@ -5644,7 +5633,6 @@ GtkWidget* ViewSystem::create_note_image(void)
     g_signal_connect(m_button_delete_item, "clicked", G_CALLBACK(HandleDeleteItemClicked), this);
 #endif
 
-
 #if 0
     button_edit_dept = gtk_button_new_with_mnemonic (_("Edit"));
     gtk_widget_show (button_edit_dept);
@@ -6503,7 +6491,6 @@ GtkWidget* ViewSystem::create_note_image(void)
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_time_resolution), buf);
     }
 
-
     // cfm mode
     frame_cfm_mode = gtk_frame_new (NULL);
     gtk_widget_show (frame_cfm_mode);
@@ -6964,7 +6951,6 @@ void ViewSystem::TransEnglish(char *strname, char str[256],char *str_indexname,c
     string thyroid=_("Thyroid");
     string carotid=_("Carotid");
 
-
         if (strcmp(strname, smallpart.c_str())==0)
         {
             strcpy(str, "Small Part");
@@ -7063,7 +7049,6 @@ void ViewSystem::CellRendererRename(GtkCellRendererText *renderer, gchar *path_s
 {
     char *old_text;
 
-
     GtkTreeIter iter;
     GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_exam_type));
     GtkTreePath *path = gtk_tree_path_new_from_string(path_str);
@@ -7133,7 +7118,6 @@ void ViewSystem::CellRendererRename(GtkCellRendererText *renderer, gchar *path_s
         int itemIndex;
         int probeIndex;
         probeIndex = GetProbeType();
-
 
         if ((probeIndex >= 0))
         {
@@ -7244,7 +7228,6 @@ void ViewSystem::AddCheckPart(char *checkpart)
             examItem.WriteNewItemToMeasureFile(probeIndex, checkpart, str);
         }
         //change exam box in comment and calc
-
 
         char path1[256];
         sprintf(path1, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -7366,7 +7349,6 @@ void ViewSystem::AddItemClicked(GtkButton *button)
     gtk_tree_store_append(GTK_TREE_STORE(model), &iter_new, &iter);
     gtk_tree_store_set(GTK_TREE_STORE(model), &iter_new, 0, new_string, -1);
     GtkTreePath *new_path = gtk_tree_model_get_path(model, &iter_new);
-
 
     //刷新treeview
     int probeIndex;
@@ -7653,7 +7635,6 @@ void ViewSystem::ExamCommentChanged(GtkComboBox *widget)
     g_signal_connect(m_cellrenderer_comment_text, "editing_started", G_CALLBACK(on_entry_user_item_insert), this);
     g_signal_connect(m_cellrenderer_comment_text, "edited", G_CALLBACK(HandleCellRendererRenameSelectComment), this);
 
-
 }
 void ViewSystem::DepartmentCommentChanged(GtkComboBox *widget)
 {
@@ -7671,7 +7652,6 @@ GtkTreeModel* ViewSystem::create_item_comment_model1()
 {
     int index1 = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_probe_comment));
     gchar* exam_type_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_exam_comment));
-
 
     PRINTF("index1=%d, exam_type_name=%s\n", index1, exam_type_name);
     if(!exam_type_name)
@@ -7721,8 +7701,6 @@ next:
 
     return GTK_TREE_MODEL(store);
 }
-
-
 
 GtkTreeModel* ViewSystem::create_item_comment_model(int index)
 {
@@ -7816,7 +7794,6 @@ void ViewSystem::Add_Columns_Comment(GtkTreeView *treeView)
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeView), column_text);
 }
 
-
 GtkWidget* ViewSystem::CreateCommentTreeView()
 {
 
@@ -7892,7 +7869,6 @@ int ViewSystem::DepartmentIndex()
     */ IniFile ini(path1);
      IniFile *ptrIni= &ini;
 
-
      string department_string = ptrIni->ReadString(probe_exam.c_str(), "Department");
      const char *department = department_string.c_str();
      //printf("department=%s\n", department);
@@ -7939,7 +7915,6 @@ int ViewSystem::DepartmentIndex()
         return 0;
 #endif
 }
-
 
 void ViewSystem::DepartmentName(char department[256], int index)
 {
@@ -8129,7 +8104,6 @@ void ViewSystem::CreateItemList_Note(char *department,vector<ExamPara>& vecItemC
     }
 }
 
-
 void ViewSystem::CreateItemList_Comment(char *department,vector<ExamPara>& vecItemComment, int number)
 {
     char path[256];
@@ -8261,7 +8235,6 @@ void ViewSystem::ProbeTypeChanged(GtkComboBox *widget)
         }
     }
 }
-
 
 void ViewSystem::ShowList(const char *name)
 {
@@ -8586,7 +8559,6 @@ void ViewSystem::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, Gtk
 	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
  }
 
-
 gboolean ViewSystem::BtnExamDepartmentClicked(GtkWidget *widget, GdkEventButton *event)
 {
     if (event->button == 3)
@@ -8602,7 +8574,6 @@ gboolean ViewSystem::BtnExamDepartmentClicked(GtkWidget *widget, GdkEventButton 
 
             GtkTreeSelection *selection;
             selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-
 
             if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
             {
@@ -9244,7 +9215,6 @@ GtkWidget* ViewSystem::create_note_calc_measure(void)
     return fixed_calc_measure;
 }
 
-
 GtkWidget* ViewSystem::create_note_dicom(void)
 {
     GtkWidget *fixed_dicom;
@@ -9336,7 +9306,6 @@ void ViewSystem::VgaChanged(GtkComboBox *box)
 	delete fpga;
 }
 
-
 void ViewSystem::LanguageChanged(GtkComboBox *box)
 {
   int indexLang = gtk_combo_box_get_active(box);
@@ -9389,10 +9358,6 @@ void ViewSystem::save_dicom_setting(void)
 #endif
 }
 #endif
-
-
-
-
 
 GtkWidget* ViewSystem::create_note_comment(void)
 {
@@ -9467,7 +9432,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_fixed_put (GTK_FIXED (fixed_comment), label_exam_comment, 200+200-100+30-5-17, 10+10+5);
     gtk_widget_set_size_request (label_exam_comment, 100+17, 30);
 
-
     m_combobox_exam_comment = gtk_combo_box_new_text ();
     gtk_widget_show (m_combobox_exam_comment);
     gtk_fixed_put (GTK_FIXED (fixed_comment), m_combobox_exam_comment, 300+210-100-30+40-5, 10+10+5);
@@ -9479,7 +9443,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     create_exam_comment_model(itemIndex);
     //gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_exam_comment), 0);//-1);
     g_signal_connect(m_combobox_exam_comment, "changed", G_CALLBACK(HandleExamCommentChanged), this);
-
 
     int department_index = DepartmentIndex();
     GtkWidget *label_department_comment = gtk_label_new (_("Select Lexicon:"));
@@ -9524,7 +9487,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_widget_set_size_request (section_frame, 600+200, 488-244+30+20+30-10);
     gtk_frame_set_shadow_type (GTK_FRAME (section_frame), GTK_SHADOW_IN);
 
-
     scrolledwindow_item_comment = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_comment);
     gtk_fixed_put (GTK_FIXED (fixed_comment), scrolledwindow_item_comment, 50+40, 10+20+50-5+40-5);
@@ -9549,8 +9511,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
 
     gtk_widget_show (m_treeview_item_comment);
 
-
-
     scrolledwindow_item_comment1 = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_comment1);
     gtk_fixed_put (GTK_FIXED (fixed_comment), scrolledwindow_item_comment1, 50+40+220+40+80+40, 10+20+50-5+40-5);//-3-2);
@@ -9569,12 +9529,10 @@ GtkWidget* ViewSystem::create_note_comment(void)
     select1 = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_comment1));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
-
     g_object_set(m_cellrenderer_comment_text1, "editable", TRUE, NULL);
     g_signal_connect(m_cellrenderer_comment_text1, "editing_started", G_CALLBACK(on_entry_user_item_insert), this);
     g_signal_connect(m_cellrenderer_comment_text1, "edited", G_CALLBACK(HandleCellRendererRenameComment), this);
     gtk_widget_show (m_treeview_item_comment1);
-
 
    m_button_select_one = gtk_button_new_with_mnemonic (_(">"));
     gtk_widget_show (m_button_select_one);
@@ -9588,7 +9546,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_widget_set_size_request (m_button_select_all, 80+30, 30);
     g_signal_connect(m_button_select_all, "clicked", G_CALLBACK(HandleButtonSelectAllCommentClicked), this);
 
-
     m_button_comment_add = gtk_button_new_with_mnemonic (_("Add"));
     gtk_widget_show (m_button_comment_add);
     gtk_fixed_put (GTK_FIXED (fixed_comment), m_button_comment_add, 350-15, 251);//130-50+40+200+220+112+50+10, 70+58+58+58+5);//130);
@@ -9600,7 +9557,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_fixed_put (GTK_FIXED (fixed_comment), m_button_comment_delete_select, 350-15, 308);//260+110+40-25-20, 158-63+38+38+38+20+20);//130-50+40+200+220+112+50+10, 70+58+58+58+5);//130);
     gtk_widget_set_size_request (m_button_comment_delete_select, 80+30, 30);
     g_signal_connect(m_button_comment_delete_select, "clicked", G_CALLBACK(HandleButtonDeleteSelectClicked), this);
-
 
     m_button_comment_up = gtk_button_new_with_mnemonic (_("Up"));
     gtk_widget_show (m_button_comment_up);
@@ -9614,7 +9570,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_widget_set_size_request (m_button_comment_down, 80+30, 30);
     g_signal_connect(m_button_comment_down, "clicked", G_CALLBACK(HandleButtonDownClicked), this);
 
-
        m_button_comment_delete = gtk_button_new_with_mnemonic (_("Delete"));
     gtk_widget_show (m_button_comment_delete);
     gtk_fixed_put (GTK_FIXED (fixed_comment), m_button_comment_delete, 730-15, 251);//260+110+40-25-20, 158-63+38+38+38+20+20);//180);
@@ -9626,7 +9581,6 @@ GtkWidget* ViewSystem::create_note_comment(void)
     gtk_fixed_put (GTK_FIXED (fixed_comment), m_button_comment_delete_all,  730-15, 308);//260+110+40-25-20, 158-63+38+38+38+38+20+20);//230);
     gtk_widget_set_size_request (m_button_comment_delete_all, 80+30, 30);
     g_signal_connect(m_button_comment_delete_all, "clicked", G_CALLBACK(HandleButtonDeleteAllClicked), this);
-
 
     frame_comment_font = gtk_frame_new (NULL);
     gtk_widget_show (frame_comment_font);
@@ -9765,7 +9719,6 @@ void ViewSystem::ButtonSelectOneCommentClicked(GtkButton *button)
     gtk_tree_model_get(model, &iter, 0, &select_name, -1);
 
     int index1 = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_probe_comment));
-
 
     gchar* exam_type_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_exam_comment));
 
@@ -9911,7 +9864,6 @@ void ViewSystem::ButtonSelectAllCommentClicked(GtkButton *button)
     IniFile ini(path);
     IniFile *ptrIni = &ini;
 
-
   /*  char path[256];
     sprintf(path, "%s%s", CFG_RES_PATH, COMMENT_FILE);
     IniFile ini(path);
@@ -9945,7 +9897,6 @@ void ViewSystem::ButtonSelectAllCommentClicked(GtkButton *button)
         sprintf(NoteNumber, "Note%d", i);
         string Note_name;
         Note_name = new_ptrIni->ReadString(department_name, NoteNumber);
-
 
         if(!vecSelect_Comment.empty())
         {
@@ -9990,7 +9941,6 @@ void ViewSystem::ButtonSelectAllCommentClicked(GtkButton *button)
     GtkTreeModel *new_model1 = create_item_comment_model1();
     gtk_tree_view_set_model(GTK_TREE_VIEW(m_treeview_item_comment1), new_model1);
 
-
 }
 
 void ViewSystem::ButtonDownClicked(GtkButton *button)
@@ -10024,7 +9974,6 @@ int path_num = atoi(path_string);
     int item_length(0);
     item_length = vecDelete_Comment.size();
 
-
     int path_total = item_length-1;
     if(path_num != path_total)
     {
@@ -10045,7 +9994,6 @@ int path_num = atoi(path_string);
         }
         IniFile ini(path1);
         IniFile *ptrIni_comment = &ini;
-
 
         /* char path1[256];
         sprintf(path1, "%s%s", CFG_RES_PATH, COMMENT_FILE);
@@ -10107,7 +10055,6 @@ void ViewSystem::ButtonUpClicked(GtkButton *button)
     if(path_num == 0)
         return;
 
-
     int index1 = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_probe_comment));
 
     gchar* exam_type_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_exam_comment));
@@ -10122,7 +10069,6 @@ void ViewSystem::ButtonUpClicked(GtkButton *button)
 
      int item_length(0);
      item_length = vecDelete_Comment.size();
-
 
  char path11[256];
         sprintf(path11, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -10464,7 +10410,6 @@ void ViewSystem::ButtonDeleteClicked(GtkButton *button)
 
     const char* ptrSection = probe_exam.c_str();
 
-
      vector<ExamPara> vecDelete_Comment;
     vecDelete_Comment.clear();
     CreateItemList_Delete_Comment1(select_name, probe_exam, vecDelete_Comment);
@@ -10530,7 +10475,6 @@ void ViewSystem::ButtonDeleteSelectClicked(GtkButton *button)
     int note_item_length(0);
     note_item_length = vecItemNote.size();
 
-
     if(!vecItemNote.empty())
     {
         for(int i=0; i<note_item_length; i++)
@@ -10555,7 +10499,6 @@ void ViewSystem::ButtonDeleteSelectClicked(GtkButton *button)
             }
         }
     }
-
 
      char path1[256];
     sprintf(path1, "%s%s", CFG_RES_PATH, NOTE_FILE);
@@ -10644,7 +10587,6 @@ void ViewSystem::ButtonAddClicked(GtkButton *button)
                     return;
                 }
 
-
             }
         }
     }
@@ -10729,7 +10671,6 @@ void ViewSystem::ButtonAddClicked(GtkButton *button)
     }
 }
 
-
 void ViewSystem::ButtonDeleteAllClicked(GtkButton *button)
 {
     int index1 = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_probe_comment));
@@ -10762,7 +10703,6 @@ void ViewSystem::ButtonDeleteAllClicked(GtkButton *button)
         }
         IniFile ini(path1);
         IniFile *ptrIni = &ini;
-
 
         const char* ptrSection = probe_exam.c_str();
         string department_copy;
@@ -10821,7 +10761,6 @@ void ViewSystem::CellRendererRenameSelectComment(GtkCellRendererText *m_cellrend
 
     int note_item_length(0);
     note_item_length = vecItemNote.size();
-
 
     if(!vecItemNote.empty())
     {
@@ -10905,7 +10844,6 @@ void ViewSystem::CellRendererRenameSelectComment(GtkCellRendererText *m_cellrend
 
 }
 
-
 void ViewSystem::CellRendererRenameComment(GtkCellRendererText *m_cellrenderer_comment_text1, gchar *path_str, gchar *new_text)
 {
     char *old_text;
@@ -10971,7 +10909,6 @@ void ViewSystem::CellRendererRenameComment(GtkCellRendererText *m_cellrenderer_c
 
     }
     gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, new_text, -1);
-
 
        char path11[256];
     sprintf(path11, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -11143,7 +11080,6 @@ GtkWidget* ViewSystem::create_note_measure(void)
     GtkWidget *label_unit_slope;
     GtkWidget *label_unit_accel;
     GtkWidget *label_unit_efw;
-
 
     //GtkWidget *hseparator_1;
     GtkWidget *button_measure_default;
@@ -11506,7 +11442,6 @@ GtkWidget* ViewSystem::create_note_measure(void)
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_heart_beat_cycle ), "7");
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_heart_beat_cycle ), "8");
 
-
     frame_unit_line = gtk_frame_new(NULL);
     gtk_widget_show(frame_unit_line);
     gtk_fixed_put(GTK_FIXED (fixed_measure), frame_unit_line, 50, 10);
@@ -11630,7 +11565,6 @@ GtkWidget* ViewSystem::create_note_measure(void)
     gtk_frame_set_label_widget (GTK_FRAME (frame_unit_line), label_unit);
     gtk_label_set_use_markup (GTK_LABEL (label_unit), TRUE);
 
-
     return fixed_measure;
 }
 
@@ -11715,7 +11649,6 @@ void ViewSystem::init_measure_setting(SysMeasurementSetting* sysMeasure)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_hr), sysMeasure->GetAutoCalcHR());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmax), sysMeasure->GetAutoCalcPGmax());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmean), sysMeasure->GetAutoCalcPGmean());
-
 
 	int unitDist = sysMeasure->GetUnitDist();
 	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_dist), unitDist);
@@ -11825,7 +11758,6 @@ void ViewSystem::save_measure_setting(void)
     sysMeasure.SetAutoCalcPGmax(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmax)));
     sysMeasure.SetAutoCalcPGmean(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmean)));
 
-
     int unitDist = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_dist));
 	sysMeasure.SetUnitDist(unitDist);
 
@@ -11868,7 +11800,6 @@ void ViewSystem::GetImageNoteSelection(int &probeIndex, int &itemIndex, char* &i
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_exam_type));
 
-
     if (gtk_tree_selection_get_selected(selection, &model, &iter) != TRUE)
     {
         itemIndex = -1;
@@ -11909,7 +11840,6 @@ GtkWidget* ViewSystem::create_note_key_config(void)
     GtkWidget *fixed_key_p1;
     GtkWidget *fixed_key_p2;
     GtkWidget *fixed_key_p3;
-
 
     fixed_key_config = gtk_fixed_new ();
     gtk_widget_show (fixed_key_config);
@@ -12159,7 +12089,6 @@ GtkWidget *ViewSystem::create_note_calc(void)
     // gtk_widget_set_size_request (m_combobox_adult_2d_lv_mass, 100, 30);
     // gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_adult_2d_lv_mass), _("Cubed"));
     // gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_adult_2d_lv_mass), _("A/L"));
-
 
     // label_adult_m_edv = gtk_label_new (_("<b>M</b> [EDV ESV] :"));
     // gtk_widget_show (label_adult_m_edv);
@@ -12517,7 +12446,6 @@ GtkWidget *ViewSystem::create_note_calc(void)
     g_signal_connect ((gpointer) button_ob_custom, "clicked",
             G_CALLBACK (on_button_ob_custom_clicked),
             this);
-
 
     label_bsa = gtk_label_new (_("<b>BSA :</b>"));
     gtk_widget_show (label_bsa);
@@ -13146,8 +13074,6 @@ void  ViewSystem::create_exam_comment_model(vector<int> index)
 
     g_signal_connect(m_combobox_exam_comment, "changed", G_CALLBACK(HandleExamCommentChanged), this);
 
-
-
     int department_index = DepartmentIndex();
     m_combobox_department_comment = gtk_combo_box_new_text ();
     gtk_widget_show (m_combobox_department_comment);
@@ -13169,7 +13095,6 @@ void  ViewSystem::create_exam_comment_model(vector<int> index)
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_department_comment), _("Orthopedic"));
    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_department_comment), department_index);
     g_signal_connect(m_combobox_department_comment, "changed", G_CALLBACK(HandleDepartmentCommentChanged), this);
-
 
  scrolledwindow_item_comment = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_comment);
@@ -13195,7 +13120,6 @@ void  ViewSystem::create_exam_comment_model(vector<int> index)
 
     gtk_widget_show (m_treeview_item_comment);
 
-
  //select note item
   scrolledwindow_item_comment1 = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow_item_comment1);
@@ -13214,7 +13138,6 @@ void  ViewSystem::create_exam_comment_model(vector<int> index)
     GtkTreeSelection *select1;
     select1 = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_comment1));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
-
 
     g_object_set(m_cellrenderer_comment_text1, "editable", TRUE, NULL);
     g_signal_connect(m_cellrenderer_comment_text1, "editing_started", G_CALLBACK(on_entry_user_item_insert), this);
@@ -13353,7 +13276,6 @@ GtkTreeModel* ViewSystem::create_exam_item_model(vector<int> index)
                 m_str_index = NULL;
             }
 
-
         }
 #endif
 next:
@@ -13399,7 +13321,6 @@ void ViewSystem::add_columns_comment1(GtkTreeView *treeview)
     column = gtk_tree_view_get_column (GTK_TREE_VIEW (treeview), col_offset - 1);
     gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
 }
-
 
 void ViewSystem::add_exam_item_column(GtkTreeView *treeview)
 {
@@ -13570,7 +13491,6 @@ void ViewSystem::UpdateExamName(int probe_index)
     }*/
     ExamItem::EItem index = ProbeSelect::GetItemIndex();
     TopArea::GetInstance()->UpdateCheckPart(_(ExamItemArray[index].name.c_str()));
-
 
 }
 #endif
@@ -13743,8 +13663,6 @@ void ViewSystem::EntryIPInsert(GtkEditable *editable, gchar *new_text, gint new_
 //     PRINTF("%d\n", position);
 // }
 
-
-
 #ifdef VET
 void ViewSystem:: BtnEditCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text)
 {
@@ -13811,7 +13729,6 @@ void ViewSystem::BtnImageReturnClicked(GtkButton *button)
 }
 
 #endif
-
 
 void ViewSystem::EntryDigitInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position)
 {
@@ -14175,7 +14092,6 @@ void ViewSystem::BtnDeleteUserClicked(GtkButton *button)
         sprintf(path_comment_user, "%s%s%s%s", CFG_RES_PATH, COMMENT_PATH, name, ".ini");
         remove(path_comment_user);
 
-
         // append text to combo_box
         ClearComboBox(GTK_COMBO_BOX(m_comboboxentry_user_select));
         UserSelect::GetInstance()->read_default_username(m_comboboxentry_user_select);
@@ -14425,7 +14341,6 @@ void ViewSystem::TreeFuncChanged(GtkTreeSelection *selection)
     gtk_tree_path_free (path);
     free(value);
 }
-
 
 /********************** CustomOB ********************/
 
@@ -14681,7 +14596,6 @@ void ViewCustomOB::KeyEvent(unsigned char keyValue)
             break;
     }
 }
-
 
 void ViewCustomOB::BtnOBCustomClearClicked(GtkButton *button)
 {
@@ -15030,7 +14944,6 @@ void ViewCustomOB::EntryFracDigitInsert(GtkEditable *editable, gchar *new_text, 
         g_signal_stop_emission_by_name((gpointer)editable, "insert_text");
     return;
 }
-
 
 void ViewSystem::EntryNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position)
 {

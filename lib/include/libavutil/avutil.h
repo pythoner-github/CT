@@ -107,7 +107,6 @@
  * @}
  */
 
-
 /**
  * @defgroup preproc_misc Preprocessor String Macros
  *
@@ -271,14 +270,14 @@ char av_get_picture_type_char(enum AVPictureType pict_type);
  * @}
  */
 
-#include "common.h"
-#include "error.h"
-#include "version.h"
-#include "mathematics.h"
-#include "rational.h"
-#include "intfloat_readwrite.h"
-#include "log.h"
-#include "pixfmt.h"
+#include <libavutil/common.h>
+#include <libavutil/error.h>
+#include <libavcodec/version.h>
+#include <libavutil/mathematics.h>
+#include <libavutil/rational.h>
+#include <libavutil/intfloat_readwrite.h>
+#include <libavutil/log.h>
+#include <libavutil/pixfmt.h>
 
 /**
  * Return x default pointer in case p is NULL.

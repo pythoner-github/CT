@@ -1,11 +1,11 @@
 #include <gtk/gtk.h>
 #include "MenuMain.h"
-#include "NoteArea.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "MenuArea.h"
-#include "MultiFuncFactory.h"
-#include "FreezeMode.h"
+#include "comment/NoteArea.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "display/MenuArea.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "imageProc/FreezeMode.h"
 
 MenuMain g_menuMain;
 
@@ -27,7 +27,7 @@ void MenuMain::Show(void)
 
 GtkWidget * MenuMain::Create(void)
 {
-    m_tableMain = gtk_table_new(20, 1, TRUE); 
+    m_tableMain = gtk_table_new(20, 1, TRUE);
 
     GtkWidget *btn_2d;
     m_label2d = create_label("", 0, 0, g_white, NULL);
@@ -80,7 +80,7 @@ GtkWidget * MenuMain::Create(void)
     btn_body_mark = create_button(m_labelBDMK, 0, 0, g_deep);
     gtk_table_attach_defaults(GTK_TABLE(m_tableMain), btn_body_mark, 0, 1, 9, 10);
     g_signal_connect(G_OBJECT(btn_body_mark), "clicked", G_CALLBACK(HandleBDMKClicked), this);
-    
+
     GtkWidget *btn_measure;
     m_labelMeasure = create_label("", 0, 0, g_white, NULL);
     btn_measure = create_button(m_labelMeasure, 0, 0, g_deep);
@@ -189,7 +189,7 @@ void MenuMain::BtnReviewClicked(GtkButton *button)
 		PRINTF("Please frozen first!\n");
 		return;
 	}
-	
+
     Hide();
     ptrMenuArea->ShowReviewMenu();
 }

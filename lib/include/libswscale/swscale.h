@@ -29,10 +29,10 @@
 
 #include <stdint.h>
 
-#include "libavutil/avutil.h"
-#include "libavutil/log.h"
-#include "libavutil/pixfmt.h"
-#include "version.h"
+#include <libavutil/avutil.h>
+#include <libavutil/log.h>
+#include <libavutil/pixfmt.h>
+#include <libavcodec/version.h>
 
 /**
  * Return the LIBSWSCALE_VERSION_INT constant.

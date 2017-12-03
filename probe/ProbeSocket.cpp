@@ -8,9 +8,8 @@
  * @author: zhanglei
  */
 
-#include "ProbeSocket.h"
+#include "probe/ProbeSocket.h"
 #include "Def.h"
-
 
 // global var
 #if defined(EMP_360)
@@ -1523,7 +1522,6 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
 #endif
 #endif
 
-
 IoCtrl ProbeSocket::m_io;
 
 ///> public
@@ -1943,9 +1941,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     break;
             }
 
-
 #endif
-
 
 #else
             switch((EPROBELIST340)index)
@@ -1983,7 +1979,6 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     strFlag="EMP";
                     break;
             }
-
 
 #endif
 

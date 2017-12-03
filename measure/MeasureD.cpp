@@ -9,12 +9,12 @@
  * @author: zhanglei
  */
 
-#include "MeasureD.h"
+#include "measure/MeasureD.h"
 #include <vector>
 #include <stdio.h>
 #include <math.h>
-#include "../display/HintArea.h"
-#include "ImageAreaDraw.h"
+#include "display/HintArea.h"
+#include "display/ImageAreaDraw.h"
 
 using std::vector;
 extern bool g_calcPwStatus;
@@ -1457,8 +1457,6 @@ void DMeasureManualAuto::Esc()
     m_update.ClearMeasure();
 }
 
-
-
 ///integral calacute
 DMeasureIntegralTrack::DMeasureIntegralTrack(const SingleItemInfo *ptrSingleItemInfo):MOUSE_INTERVAL(2)
 {
@@ -1569,8 +1567,6 @@ void DMeasureIntegralTrack::PressLeft(POINT p)
             break;
     }
 }
-
-
 
 void DMeasureIntegralTrack::PressRight(POINT p)
 {
@@ -1696,7 +1692,6 @@ void DMeasureIntegralTrack::MouseMove(POINT p)
 
                     m_isDraw = FALSE;
 
-
                 }
             }
             else
@@ -1779,9 +1774,6 @@ void DMeasureIntegralTrack::Esc()
     }
     m_track.clear();
 }
-
-
-
 
 //========================================= [Vel] ====================================//
 DMeasureVel::DMeasureVel(const SingleItemInfo *ptrSingleItemInfo)
@@ -2766,7 +2758,6 @@ void DMeasureHR::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-
 	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
@@ -2966,7 +2957,6 @@ void DMeasureHR::Esc()
 	//清除正在测量的结果
     m_update.ClearMeasure();
 }
-
 
 //========================================= [Accel] ====================================//
 DMeasureAccel::DMeasureAccel(const SingleItemInfo *ptrSingleItemInfo)
@@ -3211,7 +3201,6 @@ void DMeasureP12t::PressLeft(POINT p)
 	attr.cursorType = m_draw.GetOrderNumber();
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
-
 
 	switch(m_step)
 	{
@@ -3705,7 +3694,6 @@ void DMeasurePI::Value(EKnobOper opr)
     m_isDraw = TRUE;
 }
 
-
 void DMeasurePI::Esc()
 {
     if (m_step==0) {
@@ -3725,7 +3713,6 @@ void DMeasurePI::Esc()
     m_vec.clear();
     m_trackTemp.clear();
 }
-
 
 //#include <iostream>
 //using namespace std;

@@ -1,17 +1,17 @@
 #include <glib/gstdio.h>
 #include <glib.h>
 #include <gtk/gtk.h>
-#include "ViewDicomSupervise.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "../keyboard/KeyDef.h"
-#include "../keyboard/MultiFuncFactory.h"
-#include "KeyValueOpr.h"
+#include "sysMan/ViewDicomSupervise.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyDef.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "keyboard/KeyValueOpr.h"
 #include "ViewMain.h"
-#include "SysDicomSetting.h"
-#include "ViewDialog.h"
-#include "DCMRegister.h"
-#include "PeripheralMan.h"
+#include "sysMan/SysDicomSetting.h"
+#include "display/ViewDialog.h"
+#include "periDevice/DCMRegister.h"
+#include "periDevice/PeripheralMan.h"
 
 //std::string ViewDicomSupervise::noticeInfo = _("Note: According to the license file,the manufacturer will generate\na unique register key for every machine. You can register DICOM\nfunction by inputting this register key. If register is successful,\nyou can use the DICOM function.");
 //std::string ViewDicomSupervise::noticeInfo1=_("Please insert Udisk,and click button 'Export License File'. You will\nfind this file named 'license' in Udisk. Please send this file to\nmanufacturer.");

@@ -1,23 +1,22 @@
-#include "DicomSendPrinter.h"
+#include "patient/DicomSendPrinter.h"
 
-#include "SysGeneralSetting.h"
-#include "KeyValueOpr.h"
-#include "ImgMan.h"
-#include "Database.h"
-#include "ViewDialog.h"
-#include "ViewArchive.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "keyboard/KeyValueOpr.h"
+#include "patient/ImgMan.h"
+#include "patient/Database.h"
+#include "display/ViewDialog.h"
+#include "patient/ViewArchive.h"
 #include "ViewMain.h"
 
 //#include "cxtypes.h"
-#include "cxcore.h"
-#include "DicomPrint.h"
-#include "ViewSystem.h"
-#include "DicomServiceSetting.h"
+#include <opencv/cxcore.h>
+#include "sysMan/DicomPrint.h"
+#include "sysMan/ViewSystem.h"
+#include "sysMan/DicomServiceSetting.h"
 
 #define SCALE_WIDTH  1
 
 #define SCALE_HEIGHT 1
-
 
 #define AREA_WIDTH 844
 #define AREA_HEIGHT 660
@@ -79,7 +78,6 @@ void DicomSendPrinter::InitParameter(vector<string> examID)
 void DicomSendPrinter::getPositionSize(areaImgInfo_t positionsize,FilmSize filmsize,ORIENTATION orientation)
 {
     float size;
-
 
     size = 	(float)positionsize.width/(float)positionsize.height;
 
@@ -149,8 +147,6 @@ void DicomSendPrinter::BtnExitClicked()
         g_keyInterface.Pop();
         m_window = NULL;
 	}
-
-
 
 }
 
@@ -919,7 +915,6 @@ void DicomSendPrinter::DestroyImgData()
         SetRectangleColor(m_index,g_green);
         gtk_widget_queue_draw(m_drawArea);
     }
-
 
     size = m_drawImgInfo.size();
     for(i = 0;i < size;i++)

@@ -1,13 +1,13 @@
-#include "gui_func.h"
-#include "gui_global.h"
-#include "ViewPrinterAdd.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "Printer.h"
-#include "../sysMan/ViewSystem.h"
-#include "ViewPPDSelect.h"
-#include "../display/ViewDialog.h"
-#include "../periDevice/PeripheralMan.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "periDevice/ViewPrinterAdd.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "periDevice/Printer.h"
+#include "sysMan/ViewSystem.h"
+#include "periDevice/ViewPPDSelect.h"
+#include "display/ViewDialog.h"
+#include "periDevice/PeripheralMan.h"
 
 using std::string;
 

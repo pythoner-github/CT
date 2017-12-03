@@ -10,7 +10,7 @@
  */
 
 #include <string.h>
-#include "Image.h"
+#include "imageProc/Image.h"
 #include "Def.h"
 
 Image::Image(unsigned int* ptrImgSrc, AutoTracePara para)

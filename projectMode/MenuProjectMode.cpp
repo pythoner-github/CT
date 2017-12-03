@@ -1,15 +1,14 @@
-
-#include "gui_global.h"
-#include "gui_func.h"
-#include "MenuArea.h"
-#include "TopArea.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "display/MenuArea.h"
+#include "display/TopArea.h"
 #include "ViewMain.h"
-#include "MenuProjectMode.h"
-#include "MultiFuncFactory.h"
-#include "KeyDef.h"
-#include "ViewDialog.h"
-#include "ProjectCalc2D.h"
-#include "ViewSuperuser.h"
+#include "projectMode/MenuProjectMode.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "keyboard/KeyDef.h"
+#include "display/ViewDialog.h"
+#include "projectMode/ProjectCalc2D.h"
+#include "sysMan/ViewSuperuser.h"
 #ifdef EMP_PROJECT
 using std::vector;
 using std::string;
@@ -84,7 +83,6 @@ GtkWidget* MenuProjectMode::Create(void)
     gtk_widget_set_size_request (scrolledwindow, MENU_AREA_W-2 , 100+150+30);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_SHADOW_OUT);
-
 
     m_messageTextView = gtk_text_view_new ();
     gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (m_messageTextView), GTK_WRAP_WORD_CHAR);
@@ -211,7 +209,6 @@ void MenuProjectMode::UpdateLabel(const char *mode)
         m_curentPage = m_maxPage;
     }
 
-
 	for(int i = 0; i < MODECOUNT; ++i)
 	{
 	    int j = i + m_curentPage*MODECOUNT;
@@ -245,7 +242,6 @@ void MenuProjectMode::UpdateLabel(const char *mode)
 
 }
 
-
 void MenuProjectMode::CreateDeleteWindow(void)
 {
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
@@ -261,7 +257,6 @@ void MenuProjectMode::CreateDeleteWindow(void)
 
 	GtkWidget *fixed = gtk_fixed_new ();
 	gtk_container_add (GTK_CONTAINER (m_windowDelete), fixed);
-
 
     GtkWidget *btnSelect = gtk_button_new_with_mnemonic (_("Select All"));
     gtk_fixed_put (GTK_FIXED (fixed), btnSelect, 50, 420);

@@ -2,7 +2,7 @@
 #define FREEZE_MODE_H
 
 #include "AbsUpdateMix.h"
-#include "Replay.h"
+#include "imageProc/Replay.h"
 #include "Def.h"
 
 class FreezeMode
@@ -16,7 +16,6 @@ class FreezeMode
 
 		void PressFreeze();
 		void PressUnFreeze();
-
 
 		EKnobReturn ChangeAutoReplay();
 		void EnterAutoReplayView();

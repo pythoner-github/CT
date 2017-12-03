@@ -2,11 +2,11 @@
 #define _DICOM_SERVICE_SETTING_H_
 
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 #include <string.h>
 #include <stdio.h>
 #include <vector>
-#include "DCMMan.h"
+#include "periDevice/DCMMan.h"
 
 using std::vector;
 class DicomServiceSetting
@@ -87,13 +87,11 @@ class DicomServiceSetting
         GtkWidget* Create_note_storage_commitment(void);
         GtkWidget* Create_note_query_retrieve(void);
 
-
         void init_storage_setting();
         void init_worklist_setting();
         void init_mpps_setting();
         void init_storage_commitment_setting();
         void init_query_retrieve_setting();
-
 
         void GetGroupDevice(void);
 
@@ -175,7 +173,6 @@ class DicomServiceSetting
         static void HandleSendVideoToggled(GtkToggleButton *togglebutton, DicomServiceSetting *data) { data->ChkBtnSendVideoToggled(togglebutton); }
         static void HandleComboVideoFrames(GtkComboBox *combobox, DicomServiceSetting *data)
         { data->BtnComboboxVideoFrames(combobox); }
-
 
         static void HandleButtonWorkListAddClicked(GtkButton *button, DicomServiceSetting *data)
         {

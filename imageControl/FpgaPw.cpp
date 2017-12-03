@@ -1,7 +1,7 @@
-#include "PcieControl.h"
-#include "FpgaPw.h"
+#include "imageControl/PcieControl.h"
+#include "imageControl/FpgaPw.h"
 #include "Def.h"
-#include "UsbControl.h"
+#include "imageControl/UsbControl.h"
 
 struct FpgaPw::FpgaAddrVariablePw FpgaPw::fpgaPw;
 #ifdef EMP_460
@@ -39,7 +39,6 @@ int FpgaPw::SendGainCw(INT16 data)
     return (SUCCESS);
 
 }
-
 
 /**
 * @brief dyn
@@ -401,7 +400,6 @@ int FpgaPw::SendSoundIntpNum(INT32U value)
 	return (SUCCESS);
 }
 
-
 /**
 * @brief sound status
 * @data range:0:sound off, 1:sound on  initial value: 0
@@ -416,7 +414,6 @@ int FpgaPw::SendSoundStatus(INT16 data)
 
 	return (SUCCESS);
 }
-
 
 /**
 * @brief HPRF emit num.
@@ -451,7 +448,6 @@ int FpgaPw::SendPwSample(INT32 sample)
 	{
 		return (ERR_OP);
 	}
-
 
 	addr = FPGA_DATA;
 	data = sample;
@@ -633,6 +629,3 @@ int FpgaPw::SendCwCombined(INT16U clearAddr, INT16U cwData)
 
 	return (SUCCESS);
 }
-
-
-

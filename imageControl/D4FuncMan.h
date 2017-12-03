@@ -1,10 +1,10 @@
 #include <sys/types.h>
 #include <errno.h>
 //#include "../probe/ProbeSocket.h"
-#include "UIS4DReceiveInterface.h"
-#include "../base/IniFile.h"
+#include <UIS4DReceiveInterface.h>
+#include "base/IniFile.h"
 
-#include "DSC.h"
+#include <DSC.h>
 class D4FuncMan
 {
     public:
@@ -52,4 +52,3 @@ class D4FuncMan
         ///> extern member
         static D4FuncMan* m_ptrInstance;
 };
-

@@ -1,7 +1,7 @@
 #ifndef __SYSMEASUREMENTSETTING_H__
 #define __SYSMEASUREMENTSETTING_H__
 
-#include "../base/IniFile.h"
+#include "base/IniFile.h"
 
 struct TraceItem{
 	unsigned char psSet;
@@ -74,9 +74,6 @@ public:
     // @param reportResult 0-last 1-average
     void SetReportResult(int reportResult);
 
-
-
-
     void SetAutoCalcPS(bool ps);
     void SetAutoCalcED(bool ed);
     void SetAutoCalcRI(bool ri);
@@ -106,6 +103,4 @@ private:
     IniFile *ptrIni;
 };
 
-
 #endif
-

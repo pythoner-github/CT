@@ -1,5 +1,5 @@
-#include "ImageArea.h"
-#include "DrawHistogram.h"
+#include "display/ImageArea.h"
+#include "measure/DrawHistogram.h"
 
 #define HISTOGRAM_START_X (IMAGE_W-256)
 #define HISTOGRAM_START_Y (IMAGE_H-5)
@@ -161,7 +161,6 @@ void DrawHistogram::HistogramDraw(unsigned char *image_p)
 		}
 	}
 
-
 	for (i=0; i<256; i++)
 		m_sum[i]=0;
 
@@ -198,8 +197,6 @@ void DrawHistogram::HistogramDraw(unsigned char *image_p)
 		base = 150.0 / (float)max;
 	else
 		base = 150.0;
-
-
 
 	for (i=0; i<256; i++)
 	{

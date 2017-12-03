@@ -10,7 +10,7 @@
  *author:	sunxubin   hehao
  *
  ***************************************/
-#include "KeyValueOpr.h"
+#include "keyboard/KeyValueOpr.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/times.h>
-#include <sys/time.h>
+#include <libavutil/time.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 #include <errno.h>
 #include <termios.h>
-#include  <syslog.h>
+#include <syslog.h>
 
 extern bool g_authorizationOn;
 extern GIOChannel *keyboard_channel;
@@ -56,7 +56,6 @@ static char * GetPtty(const pportinfo_t pportinfo)
     PRINTF("ptty=%s\n", ptty);
     return ptty;
 }
-
 
 static int convbaud(unsigned int baudrate)
 {

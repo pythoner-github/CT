@@ -13,9 +13,9 @@
 #include <cups/ppd.h>
 #include <cups/http.h>
 
-#include "FakeXEvent.h"
-#include "Printdefaults.h"
-#include "Printlib.h"
+#include "display/FakeXEvent.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printlib.h"
 
 class Printmain : public Printlib
 {

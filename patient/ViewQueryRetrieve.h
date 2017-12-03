@@ -3,13 +3,13 @@
 
 #include <deque>
 #include <gtk/gtk.h>
-#include "FakeXEvent.h"
-#include "../include/AbsCalendarOpr.h"
+#include "display/FakeXEvent.h"
+#include "AbsCalendarOpr.h"
 #include <vector>
-#include "DCMDef.h"
-#include "ImageArea.h"
-#include "Image.h"
-#include "PatientInfo.h"
+#include "periDevice/DCMDef.h"
+#include "display/ImageArea.h"
+#include "imageProc/Image.h"
+#include "patient/PatientInfo.h"
 
 using std::deque;
 class ViewQueryRetrieve:public FakeXEvent,public AbsCalendarOpr
@@ -89,7 +89,6 @@ class ViewQueryRetrieve:public FakeXEvent,public AbsCalendarOpr
         string m_srIndication;
         int m_count_success;
         int m_count_failed;
-
 
         PatientInfo::Info m_info;
         vector<DCMQRQUERYRES> QueryRes;

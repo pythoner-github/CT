@@ -9,9 +9,9 @@
  * @author: zhanglei
  */
 
-#include "UpdateBodyMark.h"
-#include  "ImageArea.h"
-#include  "ViewMain.h"
+#include "bodymark/UpdateBodyMark.h"
+#include "display/ImageArea.h"
+#include "ViewMain.h"
 
 void CUpdateBodyMark::DrawBodyMark(POINT pos, GdkPixbuf* pixbuf, double scale, int colorIndex, guint index)
 {
@@ -38,4 +38,3 @@ void CUpdateBodyMark::ClearBodyMark(guint index)
 {
 	ImageArea::GetInstance()->ClearBodyMark(index);
 }
-

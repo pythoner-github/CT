@@ -2,7 +2,7 @@
 #define BODYMARK_H
 
 #include <gtk/gtk.h>
-#include "UpdateBodyMark.h"
+#include "bodymark/UpdateBodyMark.h"
 #include "Def.h"
 
 class BodyMark

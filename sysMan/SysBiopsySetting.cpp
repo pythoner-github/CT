@@ -1,6 +1,6 @@
-#include "SysBiopsySetting.h"
-#include "../base/IniFile.h"
-#include "../include/Def.h"
+#include "sysMan/SysBiopsySetting.h"
+#include "base/IniFile.h"
+#include "Def.h"
 
 SysBiopsySetting::SysBiopsySetting()
 {

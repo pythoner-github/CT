@@ -6,7 +6,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
+#include <libavutil/time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -19,11 +19,11 @@
 #include <cups/http.h>
 #include <cups/language.h>
 #include <X11/Xlib.h>
-#include "Printlib.h"
-#include "Printdefaults.h"
-#include "KeyDef.h"
-#include "KeyValueOpr.h"
-#include "ViewDialog.h"
+#include "periDevice/Printlib.h"
+#include "periDevice/Printdefaults.h"
+#include "keyboard/KeyDef.h"
+#include "keyboard/KeyValueOpr.h"
+#include "display/ViewDialog.h"
 
 #define GTKPRINTERACCEPTDIR "accept"
 #define GTKPRINTERDENYDIR "deny"

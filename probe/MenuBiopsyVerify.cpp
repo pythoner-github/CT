@@ -1,12 +1,12 @@
 #include <gtk/gtk.h>
-#include "MenuBiopsyVerify.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "MenuArea.h"
-#include "BiopsyMan.h"
-#include "BiopsyLine.h"
-#include "MenuBiopsy.h"
-#include "HintArea.h"
+#include "probe/MenuBiopsyVerify.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "display/MenuArea.h"
+#include "probe/BiopsyMan.h"
+#include "probe/BiopsyLine.h"
+#include "probe/MenuBiopsy.h"
+#include "display/HintArea.h"
 
 MenuBiopsyVerify g_menuBiopsyVerify;
 
@@ -71,7 +71,6 @@ GtkWidget * MenuBiopsyVerify::Create(void)
     gtk_menu_bar_append(GTK_MENU_BAR(menuBar0),m_menuItemEnhance);
     g_signal_connect(G_OBJECT(m_menuItemEnhance),"button-release-event",G_CALLBACK(HandleMenuItemEnhanceButtonRelease),this);
     gtk_widget_show(m_menuItemEnhance);
-
 
     gtk_box_pack_start(GTK_BOX(m_vboxBioVerify),menuBar0,false,false,0);
 	gtk_menu_bar_set_pack_direction(GTK_MENU_BAR(menuBar0),GTK_PACK_DIRECTION_TTB);

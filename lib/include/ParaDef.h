@@ -7,7 +7,7 @@
  * License:
  **************************************************************/
 
-#include "WinDef.h"
+#include <WinDef.h>
 
 #ifndef	PARADEF_H_INCLUDE
 #define	PARADEF_H_INCLUDE
@@ -40,17 +40,14 @@
 #define SIXCOLOR				0xF0008	// 6色
 #define EFOVCOLOR				0xF0009 // EFOV speed color
 
-
 #define COLOR_MAX				255		// 颜色最大值
 #define COLOR_MIN				0		// 颜色最小值
 #define COLOR_NUM				4		// 颜色种类。4--含透明色
 #define COLOR_GRADE				256		// 颜色表级数
 #define VARIANCE_GRADE			7		// 方差级数
 
-
 #define PI					3.1415926	// 圆周率
 #define eps					0.000000001	// 精度
-
 
 typedef struct tagRGBQUAD
 {
@@ -59,6 +56,5 @@ typedef struct tagRGBQUAD
 	BYTE rgbRed;		// 红色的亮度(值范围为0-255)
 	BYTE rgbReserved;	// 保留，必须为0
 } RGBQUAD;
-
 
 #endif 	// #ifndef PARADEF_H_INCLUDE

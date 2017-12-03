@@ -1,16 +1,16 @@
 #include <gtk/gtk.h>
-#include "MenuCFM.h"
-#include "Menu2D.h"
-#include "gui_func.h"
-#include "gui_global.h"
+#include "imageProc/MenuCFM.h"
+#include "imageProc/Menu2D.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
 #include "Def.h"
-#include "ImgProcCfm.h"
-#include "ImgCfm.h"
-#include "ScanMode.h"
-#include "FreezeMode.h"
-#include "ModeStatus.h"
-#include "../display/ImageAreaDraw.h"
-#include "../keyboard/MultiFuncFactory.h"
+#include "imageProc/ImgProcCfm.h"
+#include "imageControl/ImgCfm.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/FreezeMode.h"
+#include "imageProc/ModeStatus.h"
+#include "display/ImageAreaDraw.h"
+#include "keyboard/MultiFuncFactory.h"
 
 MenuCFM g_menuCFM;
 
@@ -345,4 +345,3 @@ void MenuCFM::ChgArtifact(EKnobOper oper)
 {
 	ImgProcCfm::GetInstance()->ChangeArtifact(oper);
 }
-

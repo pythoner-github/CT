@@ -4,13 +4,12 @@
 
 #include <string>
 #include <vector>
-#include <ImgMan.h>
-#include <VideoMan.h>
-#include <ImageArea.h>
-#include <TopArea.h>
-#include <MenuArea.h>
-#include <ViewSuperuser.h>
-
+#include "patient/ImgMan.h"
+#include "patient/VideoMan.h"
+#include "display/ImageArea.h"
+#include "display/TopArea.h"
+#include "display/MenuArea.h"
+#include "sysMan/ViewSuperuser.h"
 
 using std::string;
 using std::vector;

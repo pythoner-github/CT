@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 //#include "AbsKeyboardEvent.h"
-#include "FakeXEvent.h"
+#include "display/FakeXEvent.h"
 
 using std::string;
 using std::vector;
@@ -98,6 +98,5 @@ class ViewCD:public FakeXEvent
 	//	static gboolean HandleCallbackMakeIso(GIOChannel *source, GIOCondition condition, ViewCD *data)
 	//	{ return data->MakeIsoCallback(source, condition); }
 };
-
 
 #endif

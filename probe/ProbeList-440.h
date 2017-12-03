@@ -6,7 +6,6 @@
 #ifdef EMP_440
 enum EProbeList440 {P35CV, P65VMC, P75LVS, PT65C15D}; // P35C20H, P28P16, P90L25K, P10L25J, P35D50D}; //80 阵元
 
-
 unsigned char Probe35CV[PROBE_INFO_SIZE] = //3.5CV
 {
     // black-white

@@ -17,8 +17,8 @@
 #include <cups/cups.h>
 #include <cups/ppd.h>
 
-#include "Printdefaults.h"
-#include "FakeXEvent.h"
+#include "periDevice/Printdefaults.h"
+#include "display/FakeXEvent.h"
 
 #define MAX_PRT 5
 
@@ -119,6 +119,5 @@ private:
 
 	void Gtklp_fatal_end(char *text);
 };
-
 
 #endif /* PRINTLIB_H_ */

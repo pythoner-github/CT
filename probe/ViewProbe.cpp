@@ -1,24 +1,24 @@
 #include <gtk/gtk.h>
 #include <string.h>
-#include "ViewProbe.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "probe/ViewProbe.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include <stdlib.h>
-#include "ModeStatus.h"
-#include "FreezeMode.h"
-#include "KeyValueOpr.h"
-#include "KeyDef.h"
-#include "HintArea.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/FreezeMode.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/KeyDef.h"
+#include "display/HintArea.h"
 #include "ViewMain.h"
-#include "ScanMode.h"
-#include "../imageProc/GlobalClassMan.h"
-#include "../keyboard/LightDef.h"
-#include "ViewSystem.h"
-#include "UserSelect.h"
-#include "TopArea.h"
-#include "ImgProcPw.h"
-#include "MenuPW.h"
-#include "BiopsyMan.h"
+#include "imageProc/ScanMode.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/LightDef.h"
+#include "sysMan/ViewSystem.h"
+#include "sysMan/UserSelect.h"
+#include "display/TopArea.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/MenuPW.h"
+#include "probe/BiopsyMan.h"
 
 using std::vector;
 
@@ -215,8 +215,6 @@ bool ViewProbe::Create(int socket)
     return TRUE;
 }
 
-
-
 void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EItem>* itemList, int maxSocket)
 {
     GtkWidget *image_button_cancel;
@@ -334,8 +332,6 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
 
     return ;
 }
-
-
 
 gboolean ViewProbe::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
 {
@@ -494,7 +490,6 @@ GtkWidget* ViewProbe::CreateProbe(const char *probe_name, const char probeType,
             sprintf(image_path, "%s/%s", CFG_RES_PATH, "res/probe/35C50K.png");
             break;
     }
-
 
     GtkWidget *image_probe = create_pixmap(image_path);
     gtk_container_add (GTK_CONTAINER (frame_image), image_probe);

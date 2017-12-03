@@ -17,12 +17,12 @@
 #include <dirent.h>
 #include <locale.h>
 #include <libgen.h>
-#include <gui_func.h>
-#include "Printmain.h"
-#include "Printfunctions.h"
-#include "KeyValueOpr.h"
-#include "ViewReport.h"
-#include "ViewDialog.h"
+#include "display/gui_func.h"
+#include "periDevice/Printmain.h"
+#include "periDevice/Printfunctions.h"
+#include "keyboard/KeyValueOpr.h"
+#include "calcPeople/ViewReport.h"
+#include "display/ViewDialog.h"
 
 Printmain* Printmain::m_ptrInstance = NULL;
 Printmain* Printmain::GetInstance()

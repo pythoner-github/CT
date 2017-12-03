@@ -1,10 +1,10 @@
 #ifndef FORMAT_CFM_H
 #define FORMAT_CFM_H
 
-#include "Format2D.h"
-#include "FpgaReceive.h"
+#include "imageProc/Format2D.h"
+#include "imageProc/FpgaReceive.h"
 #include "AbsUpdateCfm.h"
-#include "ImgCfm.h"
+#include "imageControl/ImgCfm.h"
 
 /*
  * @brief change 2d display format or switch current image in BB/4B format

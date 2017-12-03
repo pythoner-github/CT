@@ -9,7 +9,7 @@
  *date:		2009-5-19
  *author:	sunxubin
  ***********************************/
-#include "KeyValueOpr.h"
+#include "keyboard/KeyValueOpr.h"
 #include <iostream>
 #include <vector>
 #include <stdlib.h>
@@ -19,9 +19,9 @@
 #include <syslog.h>
 #include <pthread.h>
 #include <gtk/gtk.h>
-#include "ScreenSaver.h"
-#include "KeyDef.h"
-#include "Img2D.h"
+#include "sysMan/ScreenSaver.h"
+#include "keyboard/KeyDef.h"
+#include "imageControl/Img2D.h"
 
 using namespace std;
 

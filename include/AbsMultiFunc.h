@@ -3,7 +3,6 @@
 
 #include "Def.h"
 
-
 class AbsMultiFunc
 {
 	public:

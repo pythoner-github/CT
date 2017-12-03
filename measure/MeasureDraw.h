@@ -4,11 +4,11 @@
 
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "../display/ImageArea.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "ModeStatus.h"
-#include "../sysMan/SysMeasurementSetting.h"
+#include "display/ImageArea.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "imageProc/ModeStatus.h"
+#include "sysMan/SysMeasurementSetting.h"
 
 class MeasureDraw
 {

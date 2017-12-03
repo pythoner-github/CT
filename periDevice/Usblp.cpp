@@ -14,14 +14,14 @@
 #include <sys/stat.h>
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "PatientInfo.h"
-#include "SysGeneralSetting.h"
-#include "Usblp.h"
-#include "ViewReport.h"
-#include "ImgMan.h"
-#include "ImageArea.h"
-#include "TopArea.h"
-#include "ViewSystem.h"
+#include "patient/PatientInfo.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "periDevice/Usblp.h"
+#include "calcPeople/ViewReport.h"
+#include "patient/ImgMan.h"
+#include "display/ImageArea.h"
+#include "display/TopArea.h"
+#include "sysMan/ViewSystem.h"
 #include <pango-1.0/pango/pangoft2.h>
 #include FT_FREETYPE_H
 
@@ -333,7 +333,6 @@ void strings_link(unsigned char *string1, unsigned char *string2, unsigned char 
 	int i;
 	int len1, len2;
 
-
 	len1 = strlen((char *)string1);
 	for (i=0; i<len1; i++){
 		*(string + i) = *(string1 + i);
@@ -519,7 +518,6 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
     }
 #endif
 
-
 	offset_y1 = head_y + 90;
 	offset_y2 = offset_y1 + 40;
 	offset_y3 = offset_y2 + 35;
@@ -560,8 +558,6 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x2, offset_y2+microOffset, fontSize);
 #endif
 
-
-
 	string_buffer = strcat( sex[language], (char *)Item.sex );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x1, offset_y3+microOffset, fontSize);
 #ifdef VET
@@ -571,7 +567,6 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 	string_buffer = strcat( age[language], (char *)Item.age );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x3, offset_y3+microOffset, fontSize);
 #endif
-
 
 	string_buffer = strcat( section[language], (char *)Item.section );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x4, offset_y3+microOffset, fontSize);
@@ -702,7 +697,6 @@ int print_report( int size_x, int size_y, gint8 language)
 #endif
 	else
 	    strcpy(sex, _("Other"));
-
 
 //	itoa(report_info.p.age, tmp, 14);
 //	strcpy(age, tmp);
@@ -852,6 +846,3 @@ int print_report( int size_x, int size_y, gint8 language)
 #endif
 	return(0);
 }
-
-
-

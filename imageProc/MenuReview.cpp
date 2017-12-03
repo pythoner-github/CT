@@ -5,35 +5,35 @@
 #include <dirent.h>
 #include <errno.h>
 
-#include "MenuReview.h"
-#include "ImgMan.h"
-#include "ImageArea.h"
-#include "TopArea.h"
+#include "imageProc/MenuReview.h"
+#include "patient/ImgMan.h"
+#include "display/ImageArea.h"
+#include "display/TopArea.h"
 #include "ViewMain.h"
 #include "Def.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "PatientInfo.h"
-#include "CreateAvi.h"
-#include "Replay.h"
-#include "FreezeMode.h"
-#include "KnobNone.h"
-#include "KnobLoadSnap.h"
-#include "KnobReplay.h"
-#include "MeasureMan.h"
-#include "MeasureFactory.h"
-#include "HintArea.h"
-#include "ViewDialog.h"
-#include "PeripheralMan.h"
-#include "KeyFunc.h"
-#include "UpdateBodyMark.h"
-#include "ScanMode.h"
-#include "Arrow.h"
-#include "DCMMan.h"
-#include "SysOptions.h"
-#include "ImgMan.h"
-#include "VideoMan.h"
-#include "AviEncDecH264.h"
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "patient/PatientInfo.h"
+#include "patient/CreateAvi.h"
+#include "imageProc/Replay.h"
+#include "imageProc/FreezeMode.h"
+#include "display/KnobNone.h"
+#include "patient/KnobLoadSnap.h"
+#include "imageProc/KnobReplay.h"
+#include "measure/MeasureMan.h"
+#include "measure/MeasureFactory.h"
+#include "display/HintArea.h"
+#include "display/ViewDialog.h"
+#include "periDevice/PeripheralMan.h"
+#include "keyboard/KeyFunc.h"
+#include "bodymark/UpdateBodyMark.h"
+#include "imageProc/ScanMode.h"
+#include "comment/Arrow.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/SysOptions.h"
+#include "patient/ImgMan.h"
+#include "patient/VideoMan.h"
+#include "patient/AviEncDecH264.h"
 //#define SNAP_W	100
 //#define SNAP_H	80
 
@@ -82,7 +82,6 @@ MenuReview::MenuReview(void)
     SysOptions so;
 	m_imageFormat = so.GetImageFormat();
 	m_videoFormat = so.GetCineFormat();
-
 
 	m_fixed = NULL;
 	m_labelPage = NULL;
@@ -385,7 +384,6 @@ void MenuReview::LoadSnapToReview(void)
     PRINTF("%s: load snap file %s\n", __FUNCTION__, m_vecName[m_idShowed].c_str());
     LoadSnapToScreen(m_vecName[m_idShowed].c_str());
 }
-
 
 void MenuReview::SetPatientID(unsigned int id)
 {
@@ -1133,7 +1131,6 @@ void MenuReview::PreviewNextOrPrevious(GtkButton *button)
 
 }
 
-
 EKnobReturn MenuReview::SlidePlay(EKnobOper oper)
 {
 	EKnobReturn ret = OK;
@@ -1212,7 +1209,6 @@ EKnobReturn MenuReview::SlidePlay(EKnobOper oper)
 	return ret;
 }
 
-
 EKnobReturn MenuReview::SlidePlayDemo(void)
 {
     if (m_vecName.size() < 1)
@@ -1230,7 +1226,6 @@ EKnobReturn MenuReview::SlidePlayDemo(void)
     gtk_widget_hide(m_btnRight);
 	return MAX;
 }
-
 
 EKnobReturn MenuReview::SlideSpeed(EKnobOper oper)
 {
@@ -1428,8 +1423,6 @@ void MenuReview::UpdatePreview()
 		gtk_widget_show(m_vbox[j]);
 	}
 }
-
-
 
 /*
  * @brief load all image filename to vector by patient's id

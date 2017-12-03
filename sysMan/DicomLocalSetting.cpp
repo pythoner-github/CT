@@ -1,14 +1,14 @@
-#include "DicomLocalSetting.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "sysMan/DicomLocalSetting.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <stdlib.h>
-#include "DCMMan.h"
-#include "SysDicomSetting.h"
-#include "ViewDialog.h"
-#include "NetworkMan.h"
-#include "ViewSystem.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/SysDicomSetting.h"
+#include "display/ViewDialog.h"
+#include "periDevice/NetworkMan.h"
+#include "sysMan/ViewSystem.h"
 
 DicomLocalSetting* DicomLocalSetting::m_ptrInstance = NULL;
 

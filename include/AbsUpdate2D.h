@@ -84,7 +84,6 @@ class AbsUpdate2D
 	 */
 	virtual void LineDensity(const char* density, EKnobReturn status) = 0;
 
-
 	/*
 	 * @brief update view when sound power if changed
 	 *
@@ -251,7 +250,6 @@ class AbsUpdate2D
     virtual void TpView(int index, EKnobReturn status) = 0;
 
     virtual void EFVI(bool on, EKnobReturn status) = 0;
-
 
 	// M
 	virtual void TimeMarkM(bool on) = 0;

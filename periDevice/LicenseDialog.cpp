@@ -1,11 +1,11 @@
-#include "LicenseDialog.h"
-#include "gui_global.h"
-#include "Authorize.h"
-#include "gui_func.h"
-#include "KeyValueOpr.h"
+#include "periDevice/LicenseDialog.h"
+#include "display/gui_global.h"
+#include "periDevice/Authorize.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyValueOpr.h"
 #include "ViewMain.h"
-#include "KeyDef.h"
-#include "./sysMan/SysGeneralSetting.h"
+#include "keyboard/KeyDef.h"
+#include "sysMan/SysGeneralSetting.h"
 CLicenseDialog *CLicenseDialog::m_ptrInstance = NULL;
 const char *g_warnInfo[3] =
 {

@@ -7,9 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
-#include "Printimage.h"
-#include "Printdefaults.h"
-#include "Printfunctions.h"
+#include "periDevice/Printimage.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printfunctions.h"
 
 GtkObject *Printimage::imageHUEAdj = NULL;
 GtkObject *Printimage::imageSatAdj = NULL;

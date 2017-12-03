@@ -85,7 +85,6 @@
 #define KEY_AUTOBALANCE     0xF1
 #define KEY_AUTO 0xD6
 
-
 #elif defined(EMP_322)
 #define KEY_F6 0xE6
 #define KEY_4D 0XD0

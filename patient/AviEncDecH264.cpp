@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/Def.h"
+#include "Def.h"
 
 //#define _GNU_SOURCE
 #include <getopt.h>
@@ -25,8 +25,8 @@ extern "C"
 #include <libavcodec/avcodec.h>
 #include <libavutil/imgutils.h>
 }
-#include "bs.h"
-#include "AviEncDecH264.h"
+#include "patient/bs.h"
+#include "patient/AviEncDecH264.h"
 #define DATA_MAX 3000000
 
 //#include "Replay.h"
@@ -436,7 +436,6 @@ void h264_parser_parse( h264_t *h, nal_t *nal, int *pb_nal_start )
     h->i_nal_type = nal->i_type;
     h->i_ref_idc = nal->i_ref_idc;
 }
-
 
 static int  ParseNAL( nal_t *nal, avi_t *a, h264_t *h, int *pb_slice )
 {
@@ -862,10 +861,6 @@ int CreateAviEncode( unsigned char* inputdata[], FILE * outputfile,
 /////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
 static int open_codec_context(int* stream_idx, AVFormatContext *fmt_ctx, enum AVMediaType type )
 {
     int ret;
@@ -1080,19 +1075,3 @@ end:
         return true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

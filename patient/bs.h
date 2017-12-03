@@ -26,7 +26,6 @@
 #else
 #define _BS_H
 
-
 typedef struct bs_s bs_t;
 struct bs_s
 {
@@ -124,7 +123,6 @@ static void bs_skip( bs_t *s, int i_count )
     }
 }
 
-
 static int bs_read_ue( bs_t *s )
 {
     int i = 0;
@@ -173,7 +171,6 @@ static int bs_read_te( bs_t *s, int x )
     }
     return 0;
 }
-
 
 static void bs_write( bs_t *s, int i_count, uint32_t i_bits )
 {
@@ -365,4 +362,3 @@ static int bs_size_te( int x, int val )
 }
 #endif
 #endif
-

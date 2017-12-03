@@ -1,9 +1,9 @@
 #include <gtk/gtk.h>
 #include <string.h>
-#include "gui_func.h"
-#include "KnobMenu.h"
-#include "gui_global.h"
-#include "GlobalClassMan.h"
+#include "display/gui_func.h"
+#include "display/KnobMenu.h"
+#include "display/gui_global.h"
+#include "imageProc/GlobalClassMan.h"
 #include "ViewMain.h"
 KnobMenu* KnobMenu::m_ptrInstance = NULL;
 
@@ -131,7 +131,6 @@ GtkWidget * KnobMenu::Create(void)
 #elif defined (EMP_313)
    GtkWidget *m_tableKnob = gtk_table_new(1, 20, TRUE);
 
-
    m_labelLeft = create_label("≪", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelLeft, GTK_STATE_PRELIGHT, g_lightGray);
    gtk_widget_modify_fg(m_labelLeft, GTK_STATE_ACTIVE, g_lightGray);
@@ -218,7 +217,6 @@ GtkWidget * KnobMenu::Create(void)
    gtk_widget_modify_bg(btn_right, GTK_STATE_ACTIVE, g_deep);
    gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
 
-
     gtk_widget_set_usize(m_tableKnob, WIDTH_KNOB_MENU, HEIGHT_KNOB_MENU);
 #else
 
@@ -232,7 +230,6 @@ GtkWidget * KnobMenu::Create(void)
     gtk_widget_modify_bg(btn_left, GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(btn_left, GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);
-
 
     m_labelKnob[0] = create_label("knob1", 0, 0, g_lightGray, NULL);
     gtk_label_set_justify(GTK_LABEL(m_labelKnob[0]), GTK_JUSTIFY_CENTER);
@@ -625,7 +622,6 @@ void KnobMenu::Update(void)
 
     Refresh();
 }
-
 
 /*
  * @brief set new knob value, replace the old value

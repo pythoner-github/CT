@@ -3,8 +3,7 @@
 #define MENU_2D_SUB_H
 
 #include "Def.h"
-#include "CusSpin.h"
-
+#include "display/CusSpin.h"
 
 class Menu2D
 {

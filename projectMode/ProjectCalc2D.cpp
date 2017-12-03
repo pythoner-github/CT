@@ -1,10 +1,10 @@
-#include "ProjectCalc2D.h"
-#include "KnobProjectMode.h"
-#include "Img2D.h"
-#include "TopArea.h"
-#include "ExamItem.h"
-#include "ScanMode.h"
-#include "ProbeSocket.h"
+#include "projectMode/ProjectCalc2D.h"
+#include "projectMode/KnobProjectMode.h"
+#include "imageControl/Img2D.h"
+#include "display/TopArea.h"
+#include "probe/ExamItem.h"
+#include "imageProc/ScanMode.h"
+#include "probe/ProbeSocket.h"
 #ifdef EMP_PROJECT
 ProjectCalc2D* ProjectCalc2D::m_ptrInstance = NULL;
 FpgaCtrl2D ProjectCalc2D::m_fpga;
@@ -206,7 +206,6 @@ void ProjectCalc2D::InitKnobPara(void)
     m_ptrCalc->CalcEmitDelay();
 }
 
-
 void ProjectCalc2D::RefreshKnobPara(void)
 {
     ///> demod section
@@ -252,7 +251,6 @@ void ProjectCalc2D::RefreshKnobPara(void)
     else
         ret = OK;
     UpdateBandPassW(fc, ret);
-
 
     m_ptrCalc->CalcFilter();
 }
@@ -301,7 +299,6 @@ EKnobReturn ProjectCalc2D::ChangeDemodSection(EKnobOper oper)
 		return ERROR;
 	}
 
-
 	m_projectCalcPara.filterSecIndex = index;
 	m_ptrCalc->CalcFilter();
 
@@ -318,7 +315,6 @@ EKnobReturn ProjectCalc2D::ChangeDemodSection(EKnobOper oper)
 	sprintf(value, "%d", index);
 //	if(KnobProjectMode::GetInstance()->GetPrint(0))
 		//dayin
-
 
 //	KnobProjectMode::GetInstance()->SetValue(0, value, ret);
 //	ShowCurPageParaValue(0);
@@ -394,7 +390,6 @@ EKnobReturn ProjectCalc2D::ChangeBandPassFc(EKnobOper oper)
 	{
 		return ERROR;
 	}
-
 
 	if(m_projectCalcPara.filterSecIndex > 0)
 	    m_projectCalcPara.bandPassW[m_projectCalcPara.filterSecIndex-1] = index;
@@ -580,7 +575,6 @@ EKnobReturn ProjectCalc2D::Change2DPulse(EKnobOper oper)
 		return ERROR;
     }
 
-
     m_projectCalcPara.d2Pluse = index;
     m_fpga.Send2DPulseNum(index);
 
@@ -632,7 +626,6 @@ EKnobReturn ProjectCalc2D::ChangePwPulse(EKnobOper oper)
 		return ERROR;
     }
 
-
     m_projectCalcPara.pwPluse = index;
     m_fpga.SendPWPulseNum(index);
 
@@ -682,7 +675,6 @@ EKnobReturn ProjectCalc2D::ChangeCfmPulse(EKnobOper oper)
 	{
 		return ERROR;
     }
-
 
     m_projectCalcPara.cfmPluse = index;
     m_fpga.SendCFMPulseNum(index);
@@ -790,7 +782,6 @@ EKnobReturn ProjectCalc2D::ChangeProbeAngle(EKnobOper oper)
 		return ERROR;
     }
 
-
     m_projectCalcPara.probeAngle = index;
 
 //  m_pKps.ProbeRAndAngle();
@@ -811,8 +802,6 @@ EKnobReturn ProjectCalc2D::ChangeProbeAngle(EKnobOper oper)
     KnobProjectMode::GetInstance()->SetValue(8, value, ret);
     return (ret);
 }
-
-
 
 #if 0
 EKnobReturn ProjectCalc2D::ChangeBandPassWindowFunc(EKnobOper oper)
@@ -857,7 +846,6 @@ EKnobReturn ProjectCalc2D::ChangeBandPassWindowFunc(EKnobOper oper)
 	{
 		return ERROR;
 	}
-
 
 	m_projectCalcPara.windowFuncBPIndex = index;
 	m_ptrCalc->CalcFilter();
@@ -920,7 +908,6 @@ EKnobReturn ProjectCalc2D::ChangeLowPassWindowFunc(EKnobOper oper)
 	{
 		return ERROR;
 	}
-
 
 	m_projectCalcPara.windowFuncLPIndex = index;
 	m_ptrCalc->CalcFilter();
@@ -1199,7 +1186,6 @@ void ProjectCalc2D::ShowCurPageParaValue(int row)
             break;
     }
 }
-
 
 ///> update knob area
 

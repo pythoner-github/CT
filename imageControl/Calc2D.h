@@ -2,10 +2,9 @@
 #define ABS_CALC2D_H
 
 #include "AbsUpdate2D.h"
-#include "FpgaCtrl2D.h"
-#include "FpgaPw.h"
-#include "ProbeSocket.h"
-
+#include "imageControl/FpgaCtrl2D.h"
+#include "imageControl/FpgaPw.h"
+#include "probe/ProbeSocket.h"
 
 class Calc2D
 {
@@ -217,7 +216,6 @@ class Calc2D
         float m_fcBPFilter_3;
         float m_fcBPFilter_4;
         float m_fcBPFilter_5;
-
 
         ///> internal
 		int m_pulseCycle;

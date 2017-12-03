@@ -1,14 +1,14 @@
 #include <math.h>
-#include "ImgProc2D.h"
-#include "ImgProcCfm.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ImgProcCfm.h"
 #include "Def.h"
-#include "DscMan.h"
-#include "GlobalClassMan.h"
-#include "ChromaTable.h"
-#include "KeyFunc.h"
-#include "KnobMenu.h"
-#include "KnobEFOV.h"
-#include "LightDef.h"
+#include "imageProc/DscMan.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/ChromaTable.h"
+#include "keyboard/KeyFunc.h"
+#include "display/KnobMenu.h"
+#include "imageControl/KnobEFOV.h"
+#include "keyboard/LightDef.h"
 #define eps 0.000000001
 ImgProc2D* ImgProc2D::m_ptrInstance = NULL;
 
@@ -282,7 +282,6 @@ enum EKnobReturn ImgProc2D::ChangeSmooth(enum EKnobOper oper)
 	SetSmooth(m_Smooth, ret);
 	return ret;
 }
-
 
 /*
  * @brief change gray transform
@@ -885,7 +884,6 @@ void ImgProc2D::SetSmooth(int data, EKnobReturn ret)
 	m_ptrUpdate->Smooth(data, ret);
 }
 
-
 /*
  * @brief calculate the curve value
  * @para BaseValue[in], select point's value
@@ -1042,7 +1040,6 @@ void ImgProc2D::SetColorTable(RGBTRIPLE table[], int size)
     //view
 	m_ptrUpdate->BWColorTable(table, size);
 }
-
 
 void ImgProc2D::InitColorTable()
 {

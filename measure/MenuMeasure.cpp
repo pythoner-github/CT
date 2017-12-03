@@ -1,18 +1,17 @@
 #include <gtk/gtk.h>
-#include "gui_global.h"
-#include "gui_func.h"
-#include "MenuMeasure.h"
-#include "MenuTree.h"
-#include "MeasureFactory.h"
-#include "DrawHistogram.h"
-#include "MeasureSetting.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "measure/MenuMeasure.h"
+#include "display/MenuTree.h"
+#include "measure/MeasureFactory.h"
+#include "measure/DrawHistogram.h"
+#include "sysMan/MeasureSetting.h"
 
 static void MeasureBasic(int type)
 {
     if(type >= BASIC_MEA_START && type <=BASIC_MEA_END)
         MeasureFactory::GetInstance()->Create((EMeasureFactory)type);
 }
-
 
 static void ExpandChildMenu(int type)
 {
@@ -122,7 +121,6 @@ void MenuMeasure::ChangeAllMeasureItems()
 	UpdateCurrentScanModeMeasureItems(m_scanMode);
 	m_treeMenu.ChangeModel(m_treeView, m_vecCurScanModeMeasureItem);
 }
-
 
 void MenuMeasure::UpdateAllMeasureItems()
 {
@@ -326,5 +324,3 @@ void MenuMeasure::CompleteCurrentMeasure()
 	if (parentEtype != -1)
 		SetCompleteMeasureFlag(parentEtype);
 }
-
-

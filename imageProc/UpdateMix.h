@@ -2,7 +2,7 @@
 #define UPDATE_MIX_H
 
 #include "AbsUpdateMix.h"
-#include "MenuArea.h"
+#include "display/MenuArea.h"
 
 class UpdateMix: public AbsUpdateMix
 {

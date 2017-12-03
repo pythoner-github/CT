@@ -9,19 +9,19 @@
  * @author: zhanglei
  */
 
-#include "Replay.h"
+#include "imageProc/Replay.h"
 #include "Def.h"
-#include "GlobalClassMan.h"
-#include "KnobReplay.h"
-#include "KnobNone.h"
-#include "ImageArea.h"
-#include "TopArea.h"
-#include "HintArea.h"
-#include "CalcTime.h"
-#include "KnobEFOV.h"
-#include "Update2D.h"
-#include "ImgMan.h"
-#include "MenuReview.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/KnobReplay.h"
+#include "display/KnobNone.h"
+#include "display/ImageArea.h"
+#include "display/TopArea.h"
+#include "display/HintArea.h"
+#include "accessories/osrfx2_src/CalcTime.h"
+#include "imageControl/KnobEFOV.h"
+#include "imageControl/Update2D.h"
+#include "patient/ImgMan.h"
+#include "imageProc/MenuReview.h"
 
 // calc back
 gboolean ViewCallBack(gpointer data)
@@ -97,7 +97,6 @@ Replay::Replay()
 	m_efovAutoReviewFlag = FALSE;
 	m_tagTimerEFOV = 0;
 }
-
 
 Replay::~Replay()
 {
@@ -704,8 +703,6 @@ unsigned int* Replay::GetSelectNextImgForIMT()
         return NULL;
     return m_deq[m_areaIndex][m_imgIndex[m_areaIndex]-1].GetImg();
 }
-
-
 
 /*
  * @brief get the last image for IMT measure whenever unfreeze

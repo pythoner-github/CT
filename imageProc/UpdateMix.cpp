@@ -1,12 +1,11 @@
-
-#include "UpdateMix.h"
-#include "MenuArea.h"
-#include "ImageAreaDraw.h"
-#include "ModeStatus.h"
-#include "KnobReplay.h"
-#include "KnobNone.h"
-#include "KeyValueOpr.h"
-#include "LightDef.h"
+#include "imageProc/UpdateMix.h"
+#include "display/MenuArea.h"
+#include "display/ImageAreaDraw.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/KnobReplay.h"
+#include "display/KnobNone.h"
+#include "keyboard/KeyValueOpr.h"
+#include "keyboard/LightDef.h"
 
 const char * Toggle_Mix[2] =
 {
@@ -18,7 +17,6 @@ const char * Toggle_Mix[2] =
     "ON"
 #endif
 };
-
 
 UpdateMix::UpdateMix()
 {

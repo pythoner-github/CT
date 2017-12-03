@@ -1,15 +1,15 @@
-#include "gtk/gtk.h"
-#include "gui_func.h"
-#include "gui_global.h"
-#include "BiopsyLine.h"
-#include "MenuBiopsy.h"
-#include "ProbeSocket.h"
-#include "ProbeMan.h"
-#include "../sysMan/SysBiopsySetting.h"
-#include "../display/HintArea.h"
-#include "../display/gui_global.h"
-#include "SysNoteSetting.h"
-#include "BiopsyMan.h"
+#include <gtk/gtk.h>
+#include "display/gui_func.h"
+#include "display/gui_global.h"
+#include "probe/BiopsyLine.h"
+#include "probe/MenuBiopsy.h"
+#include "probe/ProbeSocket.h"
+#include "probe/ProbeMan.h"
+#include "sysMan/SysBiopsySetting.h"
+#include "display/HintArea.h"
+#include "display/gui_global.h"
+#include "sysMan/SysNoteSetting.h"
+#include "probe/BiopsyMan.h"
 
 BiopsyLine* BiopsyLine::m_ptrInstance = NULL;
 

@@ -4,9 +4,9 @@
 
 #include "Def.h"
 #include "AbsUpdatePw.h"
-#include "ImageAreaPara.h"
-#include "ImageAreaDraw.h"
-#include "MenuArea.h"
+#include "display/ImageAreaPara.h"
+#include "display/ImageAreaDraw.h"
+#include "display/MenuArea.h"
 #include <vector>
 
 using std::vector;

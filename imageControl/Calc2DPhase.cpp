@@ -10,14 +10,13 @@
  * @author: zhanglei
  */
 
-#include "Calc2DPhase.h"
+#include "imageControl/Calc2DPhase.h"
 #include "Def.h"
-#include "ModeStatus.h"
-#include "ScanMode.h"
-#include "ProbeSocket.h"
-#include "Img2D.h"
-#include "TopArea.h"
-
+#include "imageProc/ModeStatus.h"
+#include "imageProc/ScanMode.h"
+#include "probe/ProbeSocket.h"
+#include "imageControl/Img2D.h"
+#include "display/TopArea.h"
 
 const int Calc2DPhase::EMIT_CH_NUM_P[20] =	{8,10, 12, 14, 18, 32, 64,	64, 64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
 
@@ -141,7 +140,6 @@ void Calc2DPhase::CalcFilterBandPass(int order)
     float fd[5];
     bool harmonic = m_calcPara->harmonic;
     float fd_harmonic[5];
-
 
     if(m_calcPara->harmonic)
     {
@@ -413,7 +411,6 @@ void Calc2DPhase::CalcDynamicDemod(int order)
                 fd[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);
                 fd_harmonic[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);
 
-
                 PRINTF("----- project test --Phase--%d----demod freq basic = %.2f, THI= %.2f\n", i, fd[i], fd_harmonic[i]);
             }
         }
@@ -457,4 +454,3 @@ void Calc2DPhase::CalcDynamicDemod(int order)
                 DynamicDemodFreqCompound(fd, depth, TRUE, order);
         }
 }
-

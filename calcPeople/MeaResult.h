@@ -1,7 +1,7 @@
 #ifndef __MEA_RESULT_H_
 #define __MEA_RESULT_H_
 
-#include "MeasureDef.h"
+#include "calcPeople/MeasureDef.h"
 
 typedef const double (*SecSingleResult)[][MEA_TIMES];
 typedef const ResultMulti (*SecMultiResult)[];
@@ -53,7 +53,6 @@ class MeaResult{
 	//获取当前是用平均值，最后值，或所有值，并返回这个值
 	int GetValue(const int item, double value[MEA_MULTI], double allValue[MEA_MULTI][MEA_TIMES], const int sysValue, int obFetal=FETAL_BY_SET);
 
-
 /**************************计算***************************************/
 	int CalcSetValue(const double value[], const int calcItem, int section);
 	void CalcSetAgwValue(const double value[][CALC_RESULT_CLASSES]);
@@ -66,7 +65,6 @@ class MeaResult{
 	void CalcSetSPSA(double spsa);//存储SPSA的值
 	void CalcSetPSAD(double psad);//存储PSAD的值
 	void CalcGetSPSA(double &spsa, double &psad);//获得SPSA和PSAD的值
-
 
 #if 0
 	int CalcGetTDValue(float *value);
@@ -155,9 +153,6 @@ class MeaResult{
 	double CalcResultTCD[TCD_CALC_END - TCD_CALC_START][CALC_RESULT_CLASSES];
 	double CalcResultOrtho[ORTHO_CALC_END - ORTHO_CALC_START][CALC_RESULT_CLASSES];
 
-
-
-
 #ifdef VET
 
 //添加 动物超 肌腱科
@@ -169,8 +164,6 @@ class MeaResult{
 	double CalcResultAnOBAgw[2][CALC_RESULT_CLASSES];
 #endif
     void InitResultInfo(void);
-
-
 
 	void InitSign(double singleResult[MEA_TIMES], int position);
 

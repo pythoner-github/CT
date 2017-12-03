@@ -9,12 +9,11 @@
  * @author: zhanglei
  */
 
-#include "Calc2DTV.h"
+#include "imageControl/Calc2DTV.h"
 #include "Def.h"
-#include "ProbeSocket.h"
-#include "TopArea.h"
-#include "Img2D.h"
-
+#include "probe/ProbeSocket.h"
+#include "display/TopArea.h"
+#include "imageControl/Img2D.h"
 
 ///> static varible init
 const int Calc2DTV::EMIT_CH_NUM[20] =	{20,24, 28, 36, 46, 56, 64,	64, 64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
@@ -100,7 +99,6 @@ Calc2DTV::~Calc2DTV()
 
 }
 
-
 /*
  * @brief calc tgc curve of convex
  */
@@ -144,7 +142,6 @@ void Calc2DTV::CalcFocPos()
 
 	CalcEmitDelay();
 }
-
 
 void Calc2DTV::CalcEmitDelay()
 {
@@ -312,7 +309,6 @@ void Calc2DTV::CalcDynamicFilter(int order)
 	depth[2] = 80;
 	depth[3] = 100;
     depth[4] = 120;
-
 
     float fc_dynamic_filter[5];
     if(m_calcPara->harmonic)

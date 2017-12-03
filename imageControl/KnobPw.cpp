@@ -9,18 +9,18 @@
  * @author: zhanglei
  */
 
-#include "KnobPw.h"
-#include "ImgPw.h"
-#include "Img2D.h"
-#include "KnobMenu.h"
-#include "gui_global.h"
-#include "Knob2D.h"
-#include "HintArea.h"
-#include "ModeStatus.h"
-#include "KeyFunc.h"
-#include "ScanMode.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/Img2D.h"
+#include "display/KnobMenu.h"
+#include "display/gui_global.h"
+#include "imageControl/Knob2D.h"
+#include "display/HintArea.h"
+#include "imageProc/ModeStatus.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ScanMode.h"
 #include "ViewMain.h"
-#include "../imageProc/GlobalClassMan.h"
+#include "imageProc/GlobalClassMan.h"
 #if (defined(EMP_460) || defined(EMP_355))
 KnobMenu::KnobItem KnobPwMenu[15] = {
 	{_("SV Length"), "", MIN, PwChgSVLength, NULL},
@@ -221,7 +221,6 @@ EKnobReturn PwChgSteer(EKnobOper oper)
 	}
 	return ret;
 }
-
 
 EKnobReturn PwChgWallFilter(EKnobOper oper)
 {

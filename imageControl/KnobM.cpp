@@ -9,14 +9,14 @@
  * @author: zhanglei
  */
 
-#include "KnobM.h"
-#include "Img2D.h"
-#include "KnobMenu.h"
-#include "gui_global.h"
-#include "../imageProc/ImgProc2D.h"
-#include "../imageProc/ModeStatus.h"
-#include "../display/HintArea.h"
-#include "KeyFunc.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/Img2D.h"
+#include "display/KnobMenu.h"
+#include "display/gui_global.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/ModeStatus.h"
+#include "display/HintArea.h"
+#include "keyboard/KeyFunc.h"
 
 #if defined (EMP_322) || defined(EMP_313)
 KnobMenu::KnobItem KnobMMenu[6] = {
@@ -110,7 +110,6 @@ EKnobReturn MPressChgStatusTHI(void)
 
     return ret;
 }
-
 
 //emp5800 按键切换，改变M模式下的速度（0 --- 7）
 EKnobReturn MPressChgSpeed(void)

@@ -1,7 +1,7 @@
 #ifndef CALC_2D_TINY_CONVEX_H
 #define CALC_2D_TINY_CONVEX_H
 
-#include "Calc2DConvex.h"
+#include "imageControl/Calc2DConvex.h"
 
 class Calc2DTinyConvex: public Calc2DConvex
 {

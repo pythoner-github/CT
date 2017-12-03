@@ -1,5 +1,5 @@
-#include "IoCtrl.h"
-#include "UsbControl.h"
+#include "periDevice/IoCtrl.h"
+#include "imageControl/UsbControl.h"
 
 static const int DATA_ADDR_COM = 58;
 static const int SOCKET_ADDR_COM = 59;
@@ -87,7 +87,6 @@ int IoCtrl::SetInterface(INT8U addr)
         PRINTF("write to fpga error\n");
         return (ERR_OP);
     }
-
 
 	return (SUCCESS);
 }

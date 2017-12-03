@@ -7,11 +7,11 @@
 * @date: 2009-9-28
 */
 
-#include "NetworkMan.h"
+#include "periDevice/NetworkMan.h"
 #include "Def.h"
 #include <stdlib.h>
 #include <assert.h>
-#include "ViewSystem.h"
+#include "sysMan/ViewSystem.h"
 
 bool CNetworkMan::SetLocalIP(string strIP, string strGateway, string strSubnetMask)
 {

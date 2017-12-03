@@ -1,7 +1,7 @@
-#include  "Zoom.h"
-#include  "GlobalClassMan.h"
-#include  "HintArea.h"
-#include "ImgProc2D.h"
+#include "imageProc/Zoom.h"
+#include "imageProc/GlobalClassMan.h"
+#include "display/HintArea.h"
+#include "imageProc/ImgProc2D.h"
 
 Zoom* Zoom::m_ptrInstance = NULL;
 const double Zoom::GLOBAL_SCALE[MAX_GLOBAL_SCALE] = {1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0};

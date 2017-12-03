@@ -27,10 +27,10 @@
  * AVOptions
  */
 
-#include "rational.h"
-#include "avutil.h"
-#include "dict.h"
-#include "log.h"
+#include <libavutil/rational.h>
+#include <libavutil/avutil.h>
+#include <libavutil/dict.h>
+#include <libavutil/log.h>
 
 /**
  * @defgroup avoptions AVOptions

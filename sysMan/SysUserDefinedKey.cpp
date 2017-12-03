@@ -1,5 +1,5 @@
-#include "../include/Def.h"
-#include "SysUserDefinedKey.h"
+#include "Def.h"
+#include "sysMan/SysUserDefinedKey.h"
 
 SysUserDefinedKey::SysUserDefinedKey()
 {

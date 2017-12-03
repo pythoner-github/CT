@@ -4,16 +4,16 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "KeyValueOpr.h"
-#include "ViewCD.h"
-#include "ViewDialog.h"
-#include "ViewArchive.h"
-#include "gui_global.h"
-#include "KeyDef.h"
-#include "ImgMan.h"
-#include "VideoMan.h"
-#include "PeripheralMan.h"
-#include "CdBurn.h"
+#include "keyboard/KeyValueOpr.h"
+#include "periDevice/ViewCD.h"
+#include "display/ViewDialog.h"
+#include "patient/ViewArchive.h"
+#include "display/gui_global.h"
+#include "keyboard/KeyDef.h"
+#include "patient/ImgMan.h"
+#include "patient/VideoMan.h"
+#include "periDevice/PeripheralMan.h"
+#include "periDevice/CdBurn.h"
 
 #define LIST_PATH "/tmp/pathlist"
 #define TMPDIR "/tmp/tmp_mkisofs"
@@ -220,7 +220,6 @@ void ViewCD::CreateWindow(GtkWidget *parent, vector<string> vec, bool is_cd)
     gtk_fixed_put (GTK_FIXED (fixed), btnAddAll, 280, 235);
     gtk_widget_set_size_request (btnAddAll, 80, 60);
     g_signal_connect(G_OBJECT(btnAddAll), "clicked", G_CALLBACK(HandleBtnAddAllClicked), this);
-
 
     btnDelAll = gtk_button_new_with_mnemonic ("<<");
     gtk_fixed_put (GTK_FIXED (fixed), btnDelAll, 280, 325);
@@ -754,7 +753,6 @@ void ViewCD::BtnDelAllClicked(GtkButton *button)
     GtkTreeStore *store = GTK_TREE_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeTo)));
     gtk_tree_store_clear(store);
 
-
     UpdateSize(m_iscd);
 }
 
@@ -1247,7 +1245,6 @@ void ViewCD::BtnBackupClicked(GtkButton *button)
 
     CdBurn::GetInstance()->StartBurn(LIST_PATH);
 }
-
 
 void ViewCD::BtnExportClicked(GtkButton *button)
 {

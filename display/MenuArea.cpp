@@ -1,31 +1,31 @@
 #include <gtk/gtk.h>
-#include "gui_global.h"
-#include "gui_func.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include "ViewMain.h"
-#include "MenuArea.h"
+#include "display/MenuArea.h"
 #include "MenuMain.h"
-#include "../imageProc/Menu2D.h"
-#include "../imageProc/MenuM.h"
-#include "../imageProc/MenuPW.h"
-#include "../imageProc/MenuCFM.h"
-#include "../imageProc/MenuEFOV.h"
-#include "../measure/MenuMeasure.h"
-#include "../bodymark/MenuBDMK.h"
-#include "../imageProc/MenuReview.h"
-#include "../calcPeople/MenuCalcNew.h"
-#include "../comment/MenuNote.h"
-#include "../probe/MenuBiopsy.h"
-#include "../probe/MenuBiopsyBracket.h" //2016.07.26
-#include "../probe/MenuBiopsyVerify.h" //2016.07.26
-#include "../sysMan/MenuSystem.h"
-#include "Knob2D.h"
-#include "KnobM.h"
-#include "KnobPw.h"
-#include "KnobCfm.h"
-#include "ModeStatus.h"
-#include "KeyFunc.h"
-#include "LightDef.h"
-#include "MenuProjectMode.h"
+#include "imageProc/Menu2D.h"
+#include "imageProc/MenuM.h"
+#include "imageProc/MenuPW.h"
+#include "imageProc/MenuCFM.h"
+#include "imageProc/MenuEFOV.h"
+#include "measure/MenuMeasure.h"
+#include "bodymark/MenuBDMK.h"
+#include "imageProc/MenuReview.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "comment/MenuNote.h"
+#include "probe/MenuBiopsy.h"
+#include "probe/MenuBiopsyBracket.h" //2016.07.26
+#include "probe/MenuBiopsyVerify.h" //2016.07.26
+#include "sysMan/MenuSystem.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobM.h"
+#include "imageControl/KnobPw.h"
+#include "imageControl/KnobCfm.h"
+#include "imageProc/ModeStatus.h"
+#include "keyboard/KeyFunc.h"
+#include "keyboard/LightDef.h"
+#include "projectMode/MenuProjectMode.h"
 
 MenuArea* MenuArea::m_ptrInstance = NULL;
 
@@ -880,7 +880,6 @@ void MenuArea::ShowEFOVReview(void)
     g_menuEFOV.ShowReview();
 }
 
-
 void MenuArea::HideAllOtherMenu(void)
 {
     if(m_menuType != D2)
@@ -961,7 +960,6 @@ void MenuArea::NotebookChanged(GtkNotebook *notebook, GtkNotebookPage *page, gui
             break;
     }
 }
-
 
 // extern func
 void MenuShowUndo()

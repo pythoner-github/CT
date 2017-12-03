@@ -9,13 +9,13 @@
  * @author: zhanglei
  */
 
-#include "Format2D.h"
+#include "imageProc/Format2D.h"
 #include "Def.h"
-#include "ModeStatus.h"
-#include "GlobalClassMan.h"
-#include "KeyFunc.h"
-#include "ImgProc2D.h"
-#include "../keyboard/KeyFunc.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/GlobalClassMan.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ImgProc2D.h"
+#include "keyboard/KeyFunc.h"
 
 Format2D* Format2D::m_ptrInstance = NULL;
 
@@ -122,7 +122,6 @@ int Format2D::ChangeFormat(enum EFormat2D format)
 
 	return m_curB;
 }
-
 
 /*
  * @brief switch current image in BB format
@@ -264,7 +263,6 @@ int Format2D::SwitchBB(void)
 
     return TRUE;
 }
-
 
 //在4B冻结下，当当前区域不等于冻结前最后区域时，解冻后进行区域切换zjx
 int Format2D::SwitchB4ForFreeze(int lastRealB)

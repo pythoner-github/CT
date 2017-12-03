@@ -5,11 +5,11 @@
 #include <string>
 #include "Def.h"
 #include "AbsMeasure.h"
-#include "UpdateMeasure.h"
-#include "MeasureCalc.h"
-#include "MeasureDraw.h"
-#include "MeasureMan.h"
-#include "ModeStatus.h"
+#include "measure/UpdateMeasure.h"
+#include "measure/MeasureCalc.h"
+#include "measure/MeasureDraw.h"
+#include "measure/MeasureMan.h"
+#include "imageProc/ModeStatus.h"
 
 using std::string;
 
@@ -117,7 +117,6 @@ class D2MeasureLengthTrack: public AbsMeasure
 	int m_item;
 	const SingleItemInfo *m_itemInfo;
 
-
 	const unsigned char MOUSE_INTERVAL;
 	unsigned char m_mouse_count;
 };
@@ -146,7 +145,6 @@ class D2MeasureLengthDot: public AbsMeasure
 
     int m_item;
 	const SingleItemInfo *m_itemInfo;
-
 
 	int m_step; ///< current status(step)
 	bool m_isDraw;
@@ -282,7 +280,6 @@ class D2MeasureAL: public AbsMeasure
 	unsigned char m_mouse_count;
 };
 
-
 class D2MeasureAreaDot: public AbsMeasure
 {
     public:
@@ -308,7 +305,6 @@ class D2MeasureAreaDot: public AbsMeasure
 
     int m_item;
 	const SingleItemInfo *m_itemInfo;
-
 
 	int m_step; ///< current status(step)
 	bool m_isDraw;
@@ -746,7 +742,6 @@ class D2MeasureRatioDistPeri: public AbsMeasure
     int m_item;
 	const SingleItemInfo *m_itemInfo;
 
-
 	int m_step; ///< current status(step)
 	bool m_isDraw;
 	POINT m_p1;
@@ -827,7 +822,6 @@ class D2MeasureRatioArea: public AbsMeasure
     int m_item;
 	const SingleItemInfo *m_itemInfo;
 
-
 	int m_step; ///< current status(step)
 	bool m_isDraw;
 	POINT m_tempP;
@@ -846,7 +840,6 @@ class D2MeasureRatioArea: public AbsMeasure
 	double m_ratio;
 	int m_method;
 };
-
 
 class D2MeasureRatioAngle: public AbsMeasure
 {
@@ -957,7 +950,6 @@ class D2MeasureProfile: public AbsMeasure
 
 POINT CycleVertex( POINT p1, POINT p2 );
 
-
 class D2MeasureIMT: public AbsMeasure
 {
         public:
@@ -975,7 +967,6 @@ class D2MeasureIMT: public AbsMeasure
 	MeasureDraw m_draw;
 	UpdateMeasure m_update;
 	MeasureMan* m_ptrMan;
-
 
     int m_step; ///< current status(step)
     bool m_isDraw;

@@ -9,22 +9,22 @@
  * @author: zhanglei
  */
 
-#include "UserDefineKey.h"
-#include "gui_global.h"
+#include "sysMan/UserDefineKey.h"
+#include "display/gui_global.h"
 #include "Def.h"
-#include "Img2D.h"
-#include "ImgPw.h"
-#include "KnobReplay.h"
-#include "Knob2D.h"
-#include "ModeStatus.h"
-#include "HintArea.h"
-#include "Menu2D.h"
-#include "SysUserDefinedKey.h"
-#include "PrintScreen.h"
-#include "../imageControl/Knob2D.h"
-#include "../sysMan/ViewSystem.h"
-#include "../display/MenuArea.h"
-#include "../keyboard/KeyFunc.h" //2016.09.07
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
+#include "imageProc/KnobReplay.h"
+#include "imageControl/Knob2D.h"
+#include "imageProc/ModeStatus.h"
+#include "display/HintArea.h"
+#include "imageProc/Menu2D.h"
+#include "sysMan/SysUserDefinedKey.h"
+#include "periDevice/PrintScreen.h"
+#include "imageControl/Knob2D.h"
+#include "sysMan/ViewSystem.h"
+#include "display/MenuArea.h"
+#include "keyboard/KeyFunc.h" //2016.09.07
 
 #if defined(EMP_322)
 const string UserDefineKey::KeyFunctionList[MAX_KEY] = {

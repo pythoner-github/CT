@@ -2,9 +2,9 @@
 #define KEY_FUNC_H
 
 #include "AbsCommand.h"
-#include "ExamItem.h"
-#include "ProbeSocket.h"
-#include "MenuArea.h"
+#include "probe/ExamItem.h"
+#include "probe/ProbeSocket.h"
+#include "display/MenuArea.h"
 
 class KeySwitchIM: public AbsCommand
 {

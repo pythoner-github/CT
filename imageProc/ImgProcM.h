@@ -1,12 +1,12 @@
 #ifndef __IMGPROCM_H__
 #define __IMGPROCM_H__
 
-#include "DSCTypes.h"
-#include "DSC.h"
+#include <DSCTypes.h>
+#include <DSC.h>
 #include "AbsUpdate2D.h"
-#include "ExamItem.h"
-#include "../display/ImageAreaDraw.h"
-#include "../display/ImageAreaPara.h"
+#include "probe/ExamItem.h"
+#include "display/ImageAreaDraw.h"
+#include "display/ImageAreaPara.h"
 
 /**
 * @brief processing M image (just for the image which processed with DSC )

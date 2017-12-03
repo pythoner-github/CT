@@ -9,16 +9,16 @@
  * @author: zhanglei
  */
 
-#include "CalcCfm.h"
-#include "FpgaCtrl2D.h"
-#include "ProbeMan.h"
-#include "ProbeSocket.h"
-#include "Calc2D.h"
+#include "imageControl/CalcCfm.h"
+#include "imageControl/FpgaCtrl2D.h"
+#include "probe/ProbeMan.h"
+#include "probe/ProbeSocket.h"
+#include "imageControl/Calc2D.h"
 
 //filter parament
 const unsigned char CalcCfm::m_filterLowPass[30720] = //480*32*2
 {
-	#include "../res/filter/Convex/dync_lp_12M_0M_025_480seg.h"
+#include "res/filter/Convex/dync_lp_12M_0M_025_480seg.h"
 };
 
 CalcCfm::CalcCfm()
@@ -54,7 +54,6 @@ void CalcCfm::CalcGain(int gain)
 {
 	///> send color gain to imaging system
 }
-
 
 void CalcCfm::CalcTurbo(int level)
 {
@@ -127,7 +126,6 @@ void CalcCfm::CalcColorGrayCfmVar(int colorCode, int baseline, int turbo, bool i
 	unsigned char tempColorFpga[COLOR_DEPTH*COLOR_LENGTH]; //BGR 4*256
 	int tempColorTurbo[COLOR_DEPTH][COLOR_LENGTH][VARIANCE_GRADE]; //BGR 4*256*7
 	int i, j;
-
 
 	// calc for send to fpga
 	for (i = 0; i < COLOR_LENGTH; i ++)
@@ -359,7 +357,6 @@ void CalcCfm::CalcGainGate(int gate)
 	m_fpga.SendGainGate(gate);
 }
 
-
 // private
 void CalcCfm::Demod()
 {
@@ -470,8 +467,6 @@ void CalcCfm::DemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmoni
             freqDemod = freq[3] - (temp-freqDepth[3])*(freq[3]-freq[4])/(freqDepth[4]-freqDepth[3]);
         else
             freqDemod = freq[4];
-
-
 
         sinStep[i] = 1024*4*freqDemod/SAMPLE_FREQ+0.5;
     }

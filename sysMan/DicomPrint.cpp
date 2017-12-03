@@ -1,16 +1,15 @@
-#include "DicomPrint.h"
+#include "sysMan/DicomPrint.h"
 #include <string.h>
 
 #include <stdio.h>
 
 #include <glib/gi18n.h>
 
-
 #include <stdlib.h>
-#include "SysGeneralSetting.h"
-#include "../include/Def.h"
-#include "ViewDialog.h"
-#include "ViewSystem.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "Def.h"
+#include "display/ViewDialog.h"
+#include "sysMan/ViewSystem.h"
 #define DISTANCE 230
 #define WIDTH   270+80
 #define HEIGHT   45
@@ -525,8 +524,6 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x4");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x5");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x6");
 
-
-
 //==================Orientation=======================
 	strncpy(widgetInfo.labelTitle,_("<b>Orientation :</b>"),50);
 	widgetInfo.label_width = 118.0/1.25*SCALE_WIDTH;
@@ -543,7 +540,6 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x6");
 
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Portrait");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Landscape");
-
 
 //==================Magnification=======================
 	strncpy(widgetInfo.labelTitle,_("<b>Magnification :</b>"),50);
@@ -611,7 +607,6 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Paper");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Clear Film");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Blue Film");
 
-
 //==================Film Size=======================
 	strncpy(widgetInfo.labelTitle,_("<b>Film Size :</b>"),50);
 	widgetInfo.label_width = 118.0/1.25*SCALE_WIDTH;
@@ -634,7 +629,6 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"24CMx24CM");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"24CMx30CM");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"A4");
 
-
 //==================Destination=======================
 strncpy(widgetInfo.labelTitle,_("<b>Destination :</b>"),50);
 	widgetInfo.label_width = 118.0/1.25*SCALE_WIDTH;
@@ -650,8 +644,6 @@ strncpy(widgetInfo.labelTitle,_("<b>Destination :</b>"),50);
     m_comboBoxDestination = m_combobox_device;
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Magazine");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Processor");
-
-
 
 //==================Prioritys=======================
 strncpy(widgetInfo.labelTitle,_("<b>Prioritys :</b>"),50);
@@ -719,8 +711,6 @@ frame_service_list = gtk_frame_new (NULL);
     gtk_widget_show (fixed_service_list);
     gtk_container_add (GTK_CONTAINER (frame_service_list), fixed_service_list );
 
-
-
 GtkWidget *scrollWin = gtk_scrolled_window_new(NULL, NULL);
     gtk_widget_show (scrollWin);
     gtk_fixed_put (GTK_FIXED (fixed_service_list), scrollWin, 0, 0);
@@ -745,7 +735,6 @@ GtkWidget *scrollWin = gtk_scrolled_window_new(NULL, NULL);
 	buttonInfo.parent = fixed_service_list;
 	createButton(buttonInfo);
 	m_delete_button = m_button_print_add;
-
 
 g_signal_connect(m_button_print_add, "clicked", G_CALLBACK(HandleButtonPrintDeleteClicked), this);
 //==================Default=======================
@@ -789,13 +778,11 @@ void DicomPrint::GetSingleServiceAttribute(string device, string serviceName,str
     else
         sprintf(tmp_isDefault,"%s"," ");
 
-
     PRINTF("---------GetSingleServiceAttribute:%s %d\n",device.c_str(),tmp->m_page_num);
     GtkTreeModel *model;
     GtkTreeIter iter;
     gboolean exist = FALSE;
     char *tmp_device1;
-
 
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(DicomPrint::GetInstance()->m_treeview_print));
     exist = gtk_tree_model_get_iter_first(model, &iter);
@@ -962,8 +949,6 @@ void DicomPrint::StateMachine(PropertyState currentState)
                 UnlockPrintProperty();
                 gtk_button_set_label(GTK_BUTTON(m_button_add),_("Save"));
                 gtk_button_set_label(GTK_BUTTON(m_button_clear),_("Cancel"));
-
-
 
                 setListFreeze(TRUE);
             }

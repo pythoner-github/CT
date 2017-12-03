@@ -1,9 +1,8 @@
 #ifndef __MEACALCFUN_H_
 #define __MEACALCFUN_H_
 
-#include "MeaResult.h"
-#include "gui_global.h"
-
+#include "calcPeople/MeaResult.h"
+#include "display/gui_global.h"
 
 /***************************计算函数**********************************/
 class MeaCalcFun{
@@ -54,7 +53,6 @@ public:
 
    		static void CalcEDCB(unsigned int start_year, unsigned int start_month, unsigned int start_day, int dop, char* retval);
 };
-
 
 enum EOBGwMethod{
 	GW_START, CER_START, CER_GOLDSTEIN = CER_START, CER_USER,
@@ -157,7 +155,6 @@ const SingleItemInfo BasicInfo[] = {
 };
 #endif
 
-
 /******************************Abdo Measure**************************************/
 const CalcResultInfo AbdoGBVol = {ABD_GB_VOL, {ABD_GALLBLAD_L, ABD_GALLBLAD_W, ABD_GALLBLAD_H, NO_PAR, NO_PAR}, "GB Vol", CM3, MeaCalcFun::SectionCalc, NULL};
 const CalcResultInfo AbdoSpleenVol = {ABD_CALC_SPLEEN_VOL, {ABD_SPLEEN_L, ABD_SPLEEN_W, ABD_SPLEEN_H, NO_PAR, NO_PAR}, "Spleen Vol", CM3, MeaCalcFun::SectionCalc, NULL};
@@ -239,7 +236,6 @@ const MultiItemInfo AbdoMultiInfo[] = {
 	{ABD_IMV, ABD_IMV_MULTI, PSED, "IMV", PsEdInfo, NULL },
 	{ABD_SMV, ABD_SMV_MULTI, PSED, "SMV", PsEdInfo, NULL },
 };
-
 
 /******************************Adult Measure**************************************/
 const CalcResultInfo AdultCI2DCubed = {ADULT_CI_2DCUBED, {ADULT_CO_2DCUBED, NO_PAR, NO_PAR, NO_PAR, NO_PAR}, "CI(Cubed)", LMINM2, MeaCalcFun::SectionCalc, NULL};
@@ -390,7 +386,6 @@ const CalcInfoArray AdultAIRadiusCalc = {&AdultAIPISA, NULL};
 const CalcInfoArray AdultMVRadiusCalc = {&AdultMVPISA, NULL};
 const CalcInfoArray AdultMRRadiusCalc = {&AdultMRPISA, NULL};
 const CalcInfoArray AdultTVRadiusCalc = {&AdultTVPISA, NULL};
-
 
 const CalcInfoArray AdultTVPeakECalc = {&AdultTVEA, NULL};
 const CalcInfoArray AdultTVPeakACalc = {&AdultTVEA, NULL};
@@ -1149,7 +1144,6 @@ const SingleItemInfo GYNInfo[] = {
 	{GYN_FIBROID9, DIST_DOT, N_("Fibroid9"), CM, NULL},
 	{GYN_FIBROID10, DIST_DOT, N_("Fibroid10"), CM, NULL},
 };
-
 
 /******************************UR Measure**************************************/
 const CalcResultInfo  URBladderVol = {UR_CALC_BLADDER_VOL, {UR_BLADDER_L, UR_BLADDER_W, UR_BLADDER_H, NO_PAR, NO_PAR}, "Bladder Vol", CM3, MeaCalcFun::SectionCalc, NULL};
@@ -2633,7 +2627,6 @@ const SingleItemInfo TDInfo[] = {
 	{TD_LES11_AREA1, AREA_TRACK, N_("Lesion11 Area 1"), CM2, NULL},
 	{TD_LES11_AREA2, AREA_TRACK, N_("Lesion11 Area 2"), CM2, NULL},
 	{TD_LES11_AREA3, AREA_TRACK, N_("Lesion11 Area 3"), CM2, NULL},
-
 
 };
 const MultiItemInfo TDMultiInfo[] = {

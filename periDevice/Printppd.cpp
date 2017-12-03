@@ -7,9 +7,9 @@
 #include <string.h>
 #include <gtk/gtk.h>
 #include <cups/ppd.h>
-#include "Printppd.h"
-#include "Printdefaults.h"
-#include "Printfunctions.h"
+#include "periDevice/Printppd.h"
+#include "periDevice/Printdefaults.h"
+#include "periDevice/Printfunctions.h"
 
 GtkWidget *Printppd::ppdTab = NULL;
 GtkWidget *Printppd::ppdFrame = NULL;
@@ -120,7 +120,6 @@ void Printppd::PPD_Multi_changed(GtkWidget  *widget, int  data)
 	else
 		DisablePPDOption(ppd_entry_count);//data
 }
-
 
 void Printppd::AddPPDGroup(ppd_group_t *group)
 {

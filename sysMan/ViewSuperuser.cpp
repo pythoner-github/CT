@@ -1,24 +1,24 @@
 #include <gtk/gtk.h>
 
-#include "ViewSuperuser.h"
+#include "sysMan/ViewSuperuser.h"
 #include "ViewMain.h"
-#include "gui_func.h"
-#include "../keyboard/KeyDef.h"
-#include "../probe/ProbeMan.h"
-#include "../keyboard/MultiFuncFactory.h"
-#include "../imageControl/Img2D.h"
-#include "ModeStatus.h"
-#include "KeyFunc.h"
-#include "ScreenSaver.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyDef.h"
+#include "probe/ProbeMan.h"
+#include "keyboard/MultiFuncFactory.h"
+#include "imageControl/Img2D.h"
+#include "imageProc/ModeStatus.h"
+#include "keyboard/KeyFunc.h"
+#include "sysMan/ScreenSaver.h"
 #include <iostream>
-#include "SysGeneralSetting.h"
+#include "sysMan/SysGeneralSetting.h"
 #include "display/ImageAreaPara.h"
-#include "KnobProjectMode.h"
-#include "MenuArea.h"
-#include "TopArea.h"
-#include "MonitorControl.h"
+#include "projectMode/KnobProjectMode.h"
+#include "display/MenuArea.h"
+#include "display/TopArea.h"
+#include "periDevice/MonitorControl.h"
 #ifdef EMP_PROJECT
-#include "ProjectCalc2D.h"
+#include "projectMode/ProjectCalc2D.h"
 #endif
 using namespace std;
 
@@ -184,7 +184,6 @@ void ViewSuperuser::CreateWindow(void)
     gtk_widget_show (m_notebook);
     gtk_fixed_put (GTK_FIXED (fixed), m_notebook, 20, 10);
     gtk_widget_set_size_request (m_notebook, NOTEBOOK_W, NOTEBOOK_H);
-
 
     GtkWidget* tableHint = gtk_table_new(1, 1, FALSE);
     gtk_table_set_row_spacing(GTK_TABLE(tableHint), 0, 10);
@@ -535,7 +534,6 @@ void ViewSuperuser::KeyEvent(unsigned char keyValue)
         default:
             FakeXEvent::KeyEvent(keyValue);
             break;
-
 
 #if 0
 
@@ -957,7 +955,6 @@ void ViewSuperuser::BtnEditClicked(GtkButton *button)
     				     TRUE);
     gtk_tree_path_free (path);
 }
-
 
 /**
  *@brief: probe alias the same as probe model

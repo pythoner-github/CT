@@ -1,19 +1,18 @@
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "gui_global.h"
-#include "gui_func.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
 #include "display/TopArea.h"
-#include "MenuArea.h"
-#include "MenuNote.h"
-#include "NoteArea.h"
-#include "ExamItem.h"
-#include "ProbeSelect.h"
-#include "ViewSystem.h"
-#include "MenuProjectMode.h"
-#include "ViewSuperuser.h"
+#include "display/MenuArea.h"
+#include "comment/MenuNote.h"
+#include "comment/NoteArea.h"
+#include "probe/ExamItem.h"
+#include "probe/ProbeSelect.h"
+#include "sysMan/ViewSystem.h"
+#include "projectMode/MenuProjectMode.h"
+#include "sysMan/ViewSuperuser.h"
 
 MenuNote g_menuNote;
-
 
 MenuNote::MenuNote(void)
 {
@@ -33,7 +32,6 @@ void MenuNote::Show(void)
 {
 UpdateLabel();
  gtk_widget_show_all(m_table);
-
 
  //根据不同的探头部位设置不同科别
 	int index = 0;
@@ -63,7 +61,6 @@ UpdateLabel();
     }
     IniFile new_ini(path2);
     IniFile *ptrIni= &new_ini;
-
 
    /* char path1[256];
     sprintf(path1, "%s%s", CFG_RES_PATH, COMMENT_FILE);
@@ -166,7 +163,6 @@ UpdateLabel();
 
    HideMenu();
    ShowMenu(index, department);
-
 
 }
 void MenuNote::ShowMenu(int index, char *department)
@@ -329,7 +325,6 @@ void MenuNote::ShowMenu(int index, char *department)
 
 #endif
 
-
 }
 
 void MenuNote::UpdateScaleModel(void)
@@ -374,7 +369,6 @@ void MenuNote::UpdateScaleModel(void)
 #endif
 }
 
-
 void MenuNote::UpdateLabel(void)
 {
     UpdateScaleModel();
@@ -390,7 +384,6 @@ GtkWidget* MenuNote::Create(void)
     m_modelDept = CreateDeptModel();
     m_comboDept = create_combobox(0, 0, "text", m_modelDept);
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_comboDept, 1, 5, 0, 1);
-
 
     g_signal_connect(m_comboDept, "changed", G_CALLBACK(HandleComboDeptChanged), this);
 
@@ -453,7 +446,6 @@ GtkWidget* MenuNote::create_item_list(int index , char *department)
     return m_treeView_comment;
 }
 
-
 GtkWidget * MenuNote::create_current_item()
 {
 
@@ -478,7 +470,6 @@ GtkWidget * MenuNote::create_current_item()
     m_treeview_item_current_comment=create_item_list(0, department);
     //gtk_widget_modify_base(m_treeview_item_current_comment, GTK_STATE_NORMAL, g_deep);
 
-
 	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (m_treeview_item_current_comment), FALSE);
 	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW(m_treeview_item_current_comment), TRUE);
 	gtk_tree_view_set_enable_search (GTK_TREE_VIEW(m_treeview_item_current_comment), FALSE);
@@ -487,10 +478,7 @@ GtkWidget * MenuNote::create_current_item()
 	gtk_widget_modify_text (m_treeview_item_current_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_current_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_current_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
-
-
 
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_current_comment), m_treeview_item_current_comment);
 
@@ -517,12 +505,9 @@ GtkWidget * MenuNote::create_abdo_item()
 	gtk_widget_modify_text (m_treeview_item_abdo_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_abdo_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_abdo_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_abdo_comment), m_treeview_item_abdo_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_abdo_comment));
@@ -530,7 +515,6 @@ GtkWidget * MenuNote::create_abdo_item()
 
     return  scrolledwindow_item_abdo_comment;
 }
-
 
 GtkWidget * MenuNote::create_uro_item()
 {
@@ -547,12 +531,9 @@ GtkWidget * MenuNote::create_uro_item()
 	gtk_widget_modify_text (m_treeview_item_uro_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_uro_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_uro_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_uro_comment), m_treeview_item_uro_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_uro_comment));
@@ -560,7 +541,6 @@ GtkWidget * MenuNote::create_uro_item()
 
     return  scrolledwindow_item_uro_comment;
 }
-
 
 GtkWidget * MenuNote::create_car_item()
 {
@@ -578,12 +558,9 @@ GtkWidget * MenuNote::create_car_item()
 	gtk_widget_modify_text (m_treeview_item_car_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_car_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_car_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_car_comment), m_treeview_item_car_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_car_comment));
@@ -607,12 +584,9 @@ GtkWidget * MenuNote::create_ob_item()
 	gtk_widget_modify_text (m_treeview_item_ob_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_ob_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_ob_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_ob_comment), m_treeview_item_ob_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_ob_comment));
@@ -636,19 +610,15 @@ GtkWidget * MenuNote::create_gyn_item()
 	gtk_widget_modify_text (m_treeview_item_gyn_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_gyn_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_gyn_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_gyn_comment), m_treeview_item_gyn_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_gyn_comment));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_gyn_comment;
-
 
 }
 GtkWidget * MenuNote::create_sp_item()
@@ -669,9 +639,7 @@ GtkWidget * MenuNote::create_sp_item()
 	gtk_widget_modify_text (m_treeview_item_sp_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_sp_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_sp_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
-
 
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_sp_comment), m_treeview_item_sp_comment);
 
@@ -680,7 +648,6 @@ GtkWidget * MenuNote::create_sp_item()
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_sp_comment;
-
 
 }
 
@@ -700,19 +667,15 @@ GtkWidget * MenuNote::create_ortho_item()
 	gtk_widget_modify_text (m_treeview_item_ortho_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_ortho_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_ortho_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_ortho_comment), m_treeview_item_ortho_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_ortho_comment));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_ortho_comment;
-
 
 }
 
@@ -735,18 +698,15 @@ GtkWidget * MenuNote::create_vs_item()
 	gtk_widget_modify_text (m_treeview_item_vs_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_vs_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_vs_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_vs_comment), m_treeview_item_vs_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_vs_comment));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_vs_comment;
-
 
 }
 GtkWidget * MenuNote::create_ortho_item()
@@ -767,19 +727,15 @@ GtkWidget * MenuNote::create_ortho_item()
 	gtk_widget_modify_text (m_treeview_item_ortho_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_ortho_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_ortho_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_ortho_comment), m_treeview_item_ortho_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_ortho_comment));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_ortho_comment;
-
 
 }
 #endif
@@ -799,19 +755,15 @@ GtkWidget * MenuNote::create_tendon_item()
 	gtk_widget_modify_text (m_treeview_item_tendon_comment, GTK_STATE_INSENSITIVE, g_white);
 	gtk_widget_modify_text (m_treeview_item_tendon_comment, GTK_STATE_ACTIVE, g_white);
 
-
 	g_signal_connect (G_OBJECT (m_treeview_item_tendon_comment), "button-press-event", G_CALLBACK (HandleTreeBtnPress), NULL);
 
-
     gtk_container_add (GTK_CONTAINER (scrolledwindow_item_tendon_comment), m_treeview_item_tendon_comment);
-
 
     GtkTreeSelection *select;
     select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_item_tendon_comment));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_BROWSE);
 
     return  scrolledwindow_item_tendon_comment;
-
 
 }
 #endif
@@ -827,7 +779,6 @@ void MenuNote::add_columns_comment(GtkTreeView *treeview)
 	gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
 
 }
-
 
 GtkTreeModel* MenuNote::CreateDeptModel(void)
 {
@@ -984,7 +935,6 @@ GtkTreeModel* MenuNote::create_item_note_model(int index, char *department)
     vector<ExamPara>::iterator iterItem;
     for (iterItem = vecItemComment.begin(); iterItem != vecItemComment.end(); iterItem++) {
 
-
         gtk_tree_store_append(store, &iter, NULL);
         if(index == 0)
         {
@@ -1000,7 +950,6 @@ GtkTreeModel* MenuNote::create_item_note_model(int index, char *department)
                     INDEX_COLUMN, iterItem->index,
                     -1);
         }
-
 
     }
 
@@ -1038,7 +987,6 @@ void MenuNote::DepartmentName(char department[256], int index)
     {
         strcpy(department, "Orthopedic");
     }
-
 
 #else
 #ifdef VET
@@ -1171,10 +1119,8 @@ void MenuNote::Focus(void)
 #endif
 }
 
-
 void MenuNote::TreeBtnPress(GtkWidget *widget, GdkEventButton *event)
 {
-
 
 	GtkTreeView *tree = GTK_TREE_VIEW(widget);
 	if (event->window == gtk_tree_view_get_bin_window (tree) && event->type == GDK_BUTTON_PRESS && event->button == 1)

@@ -1,10 +1,10 @@
 #ifndef ZOOM_H
 #define ZOOM_H
 
-#include "DSCTypes.h"
-#include "DSC.h"
+#include <DSCTypes.h>
+#include <DSC.h>
 #include "AbsUpdate2D.h"
-#include  "DscMan.h"
+#include "imageProc/DscMan.h"
 
 class Zoom
 {

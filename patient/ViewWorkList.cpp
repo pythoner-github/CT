@@ -1,28 +1,28 @@
-#include "ViewWorkList.h"
-#include "gui_global.h"
-#include "gui_func.h"
-#include "KeyValueOpr.h"
+#include "patient/ViewWorkList.h"
+#include "display/gui_global.h"
+#include "display/gui_func.h"
+#include "keyboard/KeyValueOpr.h"
 #include "ViewMain.h"
-#include "DCMMan.h"
-#include "SysGeneralSetting.h"
-#include "SysDicomSetting.h"
-#include "ViewCalendar.h"
-#include "ViewNewPat.h"
-#include <time.h>
-#include "KeyFunc.h"
-#include "PatientInfo.h"
-#include "ViewDialog.h"
-#include "Database.h"
-#include "TopArea.h"
-#include "MenuCalcNew.h"
+#include "periDevice/DCMMan.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "sysMan/SysDicomSetting.h"
+#include "display/ViewCalendar.h"
+#include "patient/ViewNewPat.h"
+#include <libavutil/time.h>
+#include "keyboard/KeyFunc.h"
+#include "patient/PatientInfo.h"
+#include "display/ViewDialog.h"
+#include "patient/Database.h"
+#include "display/TopArea.h"
+#include "calcPeople/MenuCalcNew.h"
 #include "ViewMain.h"
-#include "ViewReport.h"
-#include "HintArea.h"
-#include "KeyDef.h"
-#include "ViewSystem.h"
-#include "UpgradeMan.h"
-#include "DCMMan.h"
-#include "TopArea.h"
+#include "calcPeople/ViewReport.h"
+#include "display/HintArea.h"
+#include "keyboard/KeyDef.h"
+#include "sysMan/ViewSystem.h"
+#include "sysMan/UpgradeMan.h"
+#include "periDevice/DCMMan.h"
+#include "display/TopArea.h"
 
 using std::vector;
 
@@ -32,7 +32,6 @@ ViewWorkList::ViewWorkList()
 {
     SysGeneralSetting sys;
     m_dateFormat = sys.GetDateFormat();
-
 
     m_timeout = 0;
     selectedIndex = 0;
@@ -88,7 +87,6 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     GtkWidget *eventbox_start_calendar;
     GtkWidget *img_end_calendar;
     GtkWidget *eventbox_end_calendar;
-
 
     window_worklist = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_widget_set_size_request (window_worklist, 840, 640);
@@ -415,7 +413,6 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
-
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Exam Description"), renderer, "text", COL_EXAM_DESCRIPTION, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -727,7 +724,6 @@ void ViewWorkList::ButtonNewExamClicked(GtkButton *button)
         selectedIndex = path_num;
        // printf("----%s %s %s %s\n",m_query[path_num].wlPatientID.c_str(),m_query[path_num].wlPatientName.c_str(),m_query[path_num].wlPatientBirthDate.c_str(),m_query[path_num].wlPatientSex.c_str());
 
-
         if (g_patientInfo.GetExist()) {
             // end exam
             //KeyStartExam kee;
@@ -884,7 +880,6 @@ void ViewWorkList::GetSelectedPatInfo()
 
     ChangePersonNameFormatForShow(m_query[selectedIndex].wlStudyDoctor, info.e.examDoctor);
     info.e.comment = m_query[selectedIndex].wlStudyDescription;
-
 
     int examYear, examMonth, examDay;
     int examHour, examMin, examSec;
@@ -1832,7 +1827,6 @@ void PatDetail::InsertPatDetail(const char *ID,const char *name,string birthDate
     int pos = 0;
 #endif
     int date_pos = 0;
-
 
     gtk_entry_set_text(GTK_ENTRY(m_entry_ID),ID);
     gtk_entry_set_text(GTK_ENTRY(m_entry_name),name);

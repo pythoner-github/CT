@@ -1,13 +1,12 @@
-
 #include <iostream>
-#include "MeasureMan.h"
-#include "MeaCalcFun.h"
-#include "MeasureFactory.h"
-#include "../sysMan/SysMeasurementSetting.h"
-#include "MenuArea.h"
-#include "MenuCalcNew.h"
-#include "ImageAreaDraw.h"
-#include "MenuMeasure.h"
+#include "measure/MeasureMan.h"
+#include "calcPeople/MeaCalcFun.h"
+#include "measure/MeasureFactory.h"
+#include "sysMan/SysMeasurementSetting.h"
+#include "display/MenuArea.h"
+#include "calcPeople/MenuCalcNew.h"
+#include "display/ImageAreaDraw.h"
+#include "measure/MenuMeasure.h"
 
 using namespace std;
 
@@ -123,7 +122,6 @@ void MeasureMan::AddNew(EMeaType measureType, int cursorType ,vector<POINT> vec,
 	m_draw.DrawOrderNumber(vec[vec.size()-1], info.orderNumber);
 	m_draw.ChangeOrderNumber();
 }
-
 
 using namespace std;
 
@@ -691,7 +689,6 @@ void MeasureMan::EraseTrack(MeasureInfo info)
 	if(info.meaType == AREA_TRACK)
 		m_draw.DrawTraceLine(info.vecPoint[0], info.vecPoint[vec_size - 1], FALSE);
 }
-
 
 void MeasureMan::EraseSimpson(MeasureInfo info)
 {
@@ -1642,7 +1639,6 @@ void MeasureMan::ClearAllValue(void)
     m_ptrMeaResult->ClearAllValue();
 }
 
-
 void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
 {
     SysMeasurementSetting sysMeasure;
@@ -1879,12 +1875,10 @@ void MeasureMan::EraseMeasureOrderNumber(MeasureInfo info)
 			m_draw.DrawOrderNumberForErase(info.vecPoint[5], info.orderNumber, info.confirmColor);
 			break;
 
-
 		case VOL_ELLIPSE2:
 			m_draw.DrawOrderNumberForErase(info.vecPoint[4], info.orderNumber, info.confirmColor);
 			m_draw.DrawOrderNumberForErase(info.vecPoint[2], info.orderNumber, info.confirmColor);
 			break;
-
 
 		case RATIO_DIST_DOT:
 		case EF:
@@ -1935,4 +1929,3 @@ void MeasureMan::ClearAllMeasureOrderNumber()
 		}
 	}
 }
-

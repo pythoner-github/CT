@@ -8,21 +8,21 @@
  * date: 2009-5-9
  * @author: zhanglei
  */
-#include "SysGeneralSetting.h"
-#include "Img2D.h"
-#include "ImgPw.h"
+#include "sysMan/SysGeneralSetting.h"
+#include "imageControl/Img2D.h"
+#include "imageControl/ImgPw.h"
 #include "Def.h"
-#include "ModeStatus.h"
-#include "GlobalClassMan.h"
-#include "BDSC.h"
-#include "HintArea.h"
-#include "../imageProc/Zoom.h"
-#include "../imageProc/DscMan.h"
-#include "unistd.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/GlobalClassMan.h"
+#include <BDSC.h>
+#include "display/HintArea.h"
+#include "imageProc/Zoom.h"
+#include "imageProc/DscMan.h"
+#include <unistd.h>
 #include "ViewMain.h"
-#include "IoCtrl.h"
+#include "periDevice/IoCtrl.h"
 #include <stdio.h>
-#include "ViewSuperuser.h"
+#include "sysMan/ViewSuperuser.h"
 ///> /////////////////////////////////[static const]////////////////////////////
 
 ///> focus
@@ -472,7 +472,6 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
     else
         DefaultIndexBandPassFilterBaseFreq(m_curProbeIndex, m_freqIndex);
 
-
     // tsi
     m_tsiIndex = ptrParaItem->d2.TSI;
     m_calcPara.soundSpeedTsi = TSI_SPEED[m_tsiIndex];
@@ -483,7 +482,6 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
 	else
 		ret = OK;
 	m_ptrUpdate->Tsi(TSI_DISPLAY[m_tsiIndex].c_str(), ret);
-
 
     if(ModeStatus::IsD2Mode())
     {
@@ -537,7 +535,6 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
 	else
 		ret = OK;
 	m_ptrUpdate->Steer(STEER_ANGLE[m_steerIndex], ret);
-
 
     // Tp-view
     m_tpViewIndex = 0;
@@ -1212,7 +1209,6 @@ bool Img2D::SetFocSum(int sum)
     return TRUE;
 }
 
-
 EKnobReturn Img2D::ChangeFocPos(EKnobOper oper)
 {
     int indexB, indexE;
@@ -1616,7 +1612,6 @@ void Img2D::RecoverLineDensity()
 
 	LineDensity(m_lineDensityIndex, ret, false);
 }
-
 
 EKnobReturn Img2D::ChangeEdgeEnhance(EKnobOper oper)
 {
@@ -2033,7 +2028,6 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
 
         m_freqEmit = m_freq.emit;
 
-
         IoCtrl io;
         io.Freeze();
 #ifdef EMP_340
@@ -2049,13 +2043,11 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
 
         m_ptrCalc->CalcFilter();
 
-
         // compound
         if (m_freqCompoundCtrl)
         {
             PRINTF("index = %d, pre = %d, next = %d\n", m_freqIndex, m_freqIndexPre, m_freqIndex);
             int index = m_freqIndex;
-
 
             m_calcPara.freq.emit = m_vecFreqRange[m_freqIndexPre].emit;
             m_calcPara.freq.receive = m_vecFreqRange[m_freqIndexPre].receive;
@@ -2152,12 +2144,10 @@ EKnobReturn Img2D::ChangeD2HarmonicFreq(EKnobOper oper)
     else
         ret = OK;
 
-
     m_freq.emit = m_thiFreq[index];//m_data;
     m_freq.receive = m_thiFreq[index];//m_data;
 
     m_freqEmit = m_freq.emit;
-
 
     IoCtrl io;
     io.Freeze();
@@ -2184,7 +2174,6 @@ EKnobReturn Img2D::ChangeD2HarmonicFreq(EKnobOper oper)
     m_fc3 = float(ProbeSocket::DYNAMIC_FILTER_FC[m_curProbeIndex][m_harmonicFreqIndex][2] / 10.0);
     m_fc4 = float(ProbeSocket::DYNAMIC_FILTER_FC[m_curProbeIndex][m_harmonicFreqIndex][3] / 10.0);
     m_fc5 = float(ProbeSocket::DYNAMIC_FILTER_FC[m_curProbeIndex][m_harmonicFreqIndex][4] / 10.0);
-
 
     DefaultFreqBandPassFilter(m_curProbeIndex, m_harmonicFreqIndex);
     DefaultFreqDynamicFilter(m_curProbeIndex, m_harmonicFreqIndex);
@@ -2274,7 +2263,6 @@ void Img2D::SetMBP(int mbpIndex, bool update)
 	m_ptrUpdate->MBP(MBP[m_mbpIndex], OK);
 }
 
-
 void Img2D::RecoverMBP()
 {
 	m_mbpIndex = m_mbpIndexBak;
@@ -2285,7 +2273,6 @@ void Img2D::RecoverMBP()
 	//drap
 	//m_ptrUpdate->MBP(MBP[m_mbpIndex], OK);
 }
-
 
 /*
  * @brief if mbp is multi, set line density to high
@@ -2362,7 +2349,6 @@ EKnobReturn Img2D::ChangeTSI(EKnobOper oper)
 	return ret;
 }
 
-
 EKnobReturn Img2D::ChangeAGC(EKnobOper oper)
 {
 	int index = m_agcIndex;
@@ -2419,7 +2405,6 @@ EKnobReturn Img2D::ChangeSteer(EKnobOper oper)
 {
     if (IsCompoundSpaceOn())
         SetCompoundSpace(0);
-
 
         int index = m_steerIndex;
 
@@ -2718,7 +2703,6 @@ EKnobReturn Img2D::ChangeGainM(EKnobOper oper)
 	else
 		ret = OK;
 
-
 	return (ret);
 }
 
@@ -2729,14 +2713,12 @@ void Img2D::ReSendGainM(void)
 	m_ptrCalc->CalcTgcDigital(m_gainM*MAX_GAIN_M/100, 1, MAX_GAIN_M);
 }
 
-
 void Img2D::ReSendGain2D(void)
 {
     ///> calc tgc
 	m_ptrCalc->CalcTgc(m_gain2D*MAX_GAIN_2D/100, m_tgc, m_ptrUpdate, 0);
 	m_ptrCalc->CalcTgcDigital(m_gain2D*MAX_GAIN_2D/100, 0, MAX_GAIN_2D);
 }
-
 
 /*
  * @brief change M line acording to oper
@@ -2989,7 +2971,6 @@ EKnobReturn Img2D::SetCompoundSpace(int index, bool draw)
     return ret;
 }
 
-
 EKnobReturn Img2D::RecoverCompoundSpace()
 {
 	m_spaceCompoundIndex = m_spaceCompoundIndexBakBak;
@@ -3036,7 +3017,6 @@ EKnobReturn Img2D::SetCompoundFreq(bool on, bool draw)
 
     return ret;
 }
-
 
 EKnobReturn Img2D::RecoverCompoundFreq()
 {
@@ -3153,7 +3133,6 @@ void Img2D::GetDisplayScanRange(int scanRange[2])
     if ((tempRange[0] % mbp) != 0)
         scanRange[0] = (tempRange[0] / mbp + 1) * mbp;
 }
-
 
 /*
  * @brief get current scale of 2D image
@@ -3872,7 +3851,6 @@ void Img2D::ChangeHTIForProject(int harmonic_index)
     else
         ret = OK;
 
-
     m_freq.emit = m_thiFreq[harmonic_index];//m_data;
     m_freq.receive = m_thiFreq[harmonic_index];//m_data;
     m_freqEmit = m_freq.emit;
@@ -4115,7 +4093,6 @@ void Img2D::SetScale2D(double scale)
 		PRINTF("ptrDsc is not NULL\n");
 		m_ptrDsc->UpdateScale();
 	}
-
 
     /**解决切换探头刻度尺没有切换的问题**/
      int RealcurB = Format2D::GetInstance()->GetLastRealB();
@@ -5053,7 +5030,6 @@ void Img2D::UpdateDsc(void)
     }
 }
 
-
 //test for changing channel num cw
 void Img2D::SendChannelCW(int num)
 {
@@ -5227,7 +5203,6 @@ void Img2D::ChangeFreqBPFilter_test(EKnobOper oper, int segment)
                 break;
         }
     }
-
 
      switch(segment)
     {
@@ -5482,7 +5457,6 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
         num = 1;
     }
     m_ptrCalc->ChangeBPFilter(num);
-
 
 #elif EMP_360
     if(probeindex == 0)

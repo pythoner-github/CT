@@ -1,7 +1,7 @@
 #ifndef __PCIECONTROL_H__
 #define __PCIECONTROL_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 #include "AbsUltraInterface.h"
 
 /**

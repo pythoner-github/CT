@@ -1,8 +1,7 @@
-
-#include "ImgProcCfm.h"
-#include "ImgProc2D.h"
-#include "DscMan.h"
-#include "GlobalClassMan.h"
+#include "imageProc/ImgProcCfm.h"
+#include "imageProc/ImgProc2D.h"
+#include "imageProc/DscMan.h"
+#include "imageProc/GlobalClassMan.h"
 #include "display/HintArea.h"
 #include "display/TopArea.h"
 

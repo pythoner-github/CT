@@ -30,7 +30,7 @@
 
 #include <stdint.h>
 #include <limits.h>
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 /**
  * @addtogroup lavu_math

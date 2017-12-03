@@ -9,12 +9,11 @@
 #include <errno.h>
 #include <sys/vfs.h>
 #include "Def.h"
-#include "ViewIcon.h"
-#include "ViewCD.h"
-#include "PeripheralMan.h"
-#include "Printer.h"
-#include "ViewSystem.h"
-
+#include "display/ViewIcon.h"
+#include "periDevice/ViewCD.h"
+#include "periDevice/PeripheralMan.h"
+#include "periDevice/Printer.h"
+#include "sysMan/ViewSystem.h"
 
 PeripheralMan* PeripheralMan::m_ptrInstance = NULL;
 

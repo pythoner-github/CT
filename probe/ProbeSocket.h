@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "IoCtrl.h"
+#include "periDevice/IoCtrl.h"
 //#include "UIS4DReceiveInterface.h"
 
 using std::string;
@@ -121,7 +121,5 @@ class ProbeSocket
         void GetFreq2D(char *model, unsigned char probeType, vector<FreqPair> &freqPair);
         void GetHarmonicFreq(char* model, unsigned char probeType);
 };
-
-
 
 #endif

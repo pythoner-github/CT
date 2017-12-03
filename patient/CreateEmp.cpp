@@ -1,4 +1,4 @@
-#include "CreateEmp.h"
+#include "patient/CreateEmp.h"
 #include <errno.h>
 
 bool CreateImageEmp(unsigned char* input, FILE* output, unsigned int width, unsigned int height)

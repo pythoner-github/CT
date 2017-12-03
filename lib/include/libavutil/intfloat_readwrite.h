@@ -22,7 +22,7 @@
 #define AVUTIL_INTFLOAT_READWRITE_H
 
 #include <stdint.h>
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 /* IEEE 80 bits extended float */
 typedef struct AVExtFloat  {

@@ -11,7 +11,7 @@
 #include <gtk/gtk.h>
 
 #include "Def.h"
-#include "FileMan.h"
+#include "patient/FileMan.h"
 
 /*
  * @brief check the free space in path
@@ -368,7 +368,7 @@ int FileMan::CopyFile(const char *source, const char *dest, bool del)
 }
 
 #if 0
-#include "ViewDialog.h"
+#include "display/ViewDialog.h"
 static int cond;
 static double frac;
 gboolean UpdateProgressBar(gpointer data)
@@ -423,7 +423,6 @@ int FileMan::CopyFileProgress(const char *source, const char *dest)
 	return 0;
 }
 #endif
-
 
 #if 0
 /*

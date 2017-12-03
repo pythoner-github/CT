@@ -13,7 +13,7 @@
 
 #include <gtk/gtk.h>
 #include "Def.h"
-#include  "MenuArea.h"
+#include "display/MenuArea.h"
 
 class CUpdateBodyMark
 {
@@ -28,6 +28,5 @@ public:
 private:
 	static MenuArea::EMenuType m_menuType;
 };
-
 
 #endif //UPDATE_BODYMARK_H

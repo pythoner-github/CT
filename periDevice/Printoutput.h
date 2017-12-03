@@ -11,7 +11,7 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
-#include "Printlib.h"
+#include "periDevice/Printlib.h"
 
 class Printoutput : public Printlib
 {

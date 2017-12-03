@@ -21,7 +21,7 @@
 #ifndef AVUTIL_CPU_H
 #define AVUTIL_CPU_H
 
-#include "attributes.h"
+#include <libavutil/attributes.h>
 
 #define AV_CPU_FLAG_FORCE    0x80000000 /* force usage of selected flags (OR) */
 

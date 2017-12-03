@@ -1,4 +1,4 @@
-#include "PcieControl.h"
+#include "imageControl/PcieControl.h"
 #include <errno.h>
 
 PcieControl* PcieControl::m_ptrInstance = NULL;
@@ -208,4 +208,3 @@ int PcieControl::BulkOut(unsigned char dataType, unsigned int dataLen, unsigned 
 
 	return (SUCCESS);
 }
-

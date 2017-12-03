@@ -1,5 +1,5 @@
-#include "DefaultBiopsySetting.h"
-#include "../include/Def.h"
+#include "probe/DefaultBiopsySetting.h"
+#include "Def.h"
 
 DefaultBiopsySetting::DefaultBiopsySetting()
 {

@@ -7,7 +7,7 @@
 
 #include <gtk/gtk.h>
 #include "Def.h"
-#include "ManRegister.h"
+#include "periDevice/ManRegister.h"
 
 class KnobMenu
 {
@@ -49,7 +49,6 @@ public:
     void Knob4_Press(void);
     void Knob5_Press(void);
     void Knob6_Press(void);
-
 
 private:
     KnobMenu();
@@ -102,6 +101,5 @@ private:
 // 	{ data->KnobPress_5(widget, event); return FALSE; }
 
 };
-
 
 #endif

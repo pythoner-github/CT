@@ -1,8 +1,8 @@
 #include <iostream>
 #include <sstream>
-#include "BiopsyMan.h"
-#include "ProbeSocket.h"
-#include "ProbeMan.h"
+#include "probe/BiopsyMan.h"
+#include "probe/ProbeSocket.h"
+#include "probe/ProbeMan.h"
 
 BiopsyMan* BiopsyMan::m_ptrInstance = NULL;
 

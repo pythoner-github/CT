@@ -1,8 +1,7 @@
-
-#include "ImgProcPw.h"
-#include "DscMan.h"
-#include "GlobalClassMan.h"
-#include "MenuPW.h"
+#include "imageProc/ImgProcPw.h"
+#include "imageProc/DscMan.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/MenuPW.h"
 
 extern MenuPW g_menuPW;
 ImgProcPw* ImgProcPw::m_ptrInstance = NULL;

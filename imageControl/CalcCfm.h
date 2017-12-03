@@ -1,8 +1,8 @@
 #ifndef CALC_CFM_H
 #define CALC_CFM_H
 
-#include "FpgaCfm.h"
-#include "Colormap.h"
+#include "imageControl/FpgaCfm.h"
+#include <Colormap.h>
 #include <opencv/cxcore.hpp>
 using namespace cv;
 

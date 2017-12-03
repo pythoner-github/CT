@@ -1,18 +1,17 @@
-
-#include "KnobCfm.h"
-#include "ImgCfm.h"
-#include "ImgPw.h"
-#include "Img2D.h"
-#include "KnobMenu.h"
-#include "gui_global.h"
-#include "Knob2D.h"
-#include "KnobPw.h"
-#include "KeyFunc.h"
-#include "ScanMode.h"
-#include "HintArea.h"
-#include "ModeStatus.h"
-#include "GlobalClassMan.h"
-#include "Zoom.h"
+#include "imageControl/KnobCfm.h"
+#include "imageControl/ImgCfm.h"
+#include "imageControl/ImgPw.h"
+#include "imageControl/Img2D.h"
+#include "display/KnobMenu.h"
+#include "display/gui_global.h"
+#include "imageControl/Knob2D.h"
+#include "imageControl/KnobPw.h"
+#include "keyboard/KeyFunc.h"
+#include "imageProc/ScanMode.h"
+#include "display/HintArea.h"
+#include "imageProc/ModeStatus.h"
+#include "imageProc/GlobalClassMan.h"
+#include "imageProc/Zoom.h"
 
 KnobMenu::KnobItem KnobCfmMenu[15] = {
 	{N_("Scale"), "", MIN, CfmChgScale, NULL},
@@ -179,7 +178,6 @@ EKnobReturn CfmChgColorFoc(EKnobOper oper)
 {
     return ImgCfm::GetInstance()->ChangeColorFocus(oper);
 }
-
 
 //////////////////////   test    /////////////////////////
 EKnobReturn CfmChgTissue(EKnobOper oper)

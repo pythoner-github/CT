@@ -4,7 +4,7 @@
 
 #include "AbsUpdateCfm.h"
 #include "Def.h"
-#include "MenuArea.h"
+#include "display/MenuArea.h"
 
 class ImageAreaDraw;
 class ImageAreaPara;

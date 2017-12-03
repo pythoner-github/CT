@@ -1,7 +1,7 @@
 #ifndef __USBCONTROL_H__
 #define __USBCONTROL_H__
 
-#include "DefHal.h"
+#include "imageControl/DefHal.h"
 #include "AbsUltraInterface.h"
 
 /**
