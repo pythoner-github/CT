@@ -20,7 +20,7 @@
 #include "AbsMultiFunc.h"
 #include "comment/Arrow.h"
 #include "display/KnobMenu.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 
 class MultiFuncArrow: public CAbsUpdateArrow, public CKnobEvent, public AbsMultiFunc
 {

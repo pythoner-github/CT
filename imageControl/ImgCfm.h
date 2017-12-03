@@ -11,7 +11,7 @@
 #include "probe/ProbeMan.h"
 #include "probe/ExamItem.h"
 #include "imageProc/DscMan.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 
 class ImgCfm
 {

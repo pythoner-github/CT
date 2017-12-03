@@ -34,8 +34,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <libavutil/attributes.h>
-#include <libavutil/avconfig.h>
+#include "attributes.h"
+#include "libavutil/avconfig.h"
 
 #if AV_HAVE_BIGENDIAN
 #   define AV_NE(be, le) (be)
@@ -98,12 +98,12 @@ static av_always_inline av_const int av_log2_16bit_c(unsigned int v)
 }
 
 #ifdef HAVE_AV_CONFIG_H
-#include <config.h>
-#include <intmath.h>
+#   include "config.h"
+#   include "intmath.h"
 #endif
 
 /* Pull in unguarded fallback defines at the end of this file. */
-#include <libavutil/common.h>
+#include "common.h"
 
 /**
  * Clip a signed integer value into the amin-amax range.
@@ -371,10 +371,12 @@ static av_always_inline av_const int av_popcount64_c(uint64_t x)
         }\
     }\
 
-#include <libavutil/mem.h>
+
+
+#include "mem.h"
 
 #ifdef HAVE_AV_CONFIG_H
-#include <internal.h>
+#    include "internal.h"
 #endif /* HAVE_AV_CONFIG_H */
 
 #endif /* AVUTIL_COMMON_H */

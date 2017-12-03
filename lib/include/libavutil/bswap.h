@@ -27,23 +27,23 @@
 #define AVUTIL_BSWAP_H
 
 #include <stdint.h>
-#include <libavutil/avconfig.h>
-#include <libavutil/attributes.h>
+#include "libavutil/avconfig.h"
+#include "attributes.h"
 
 #ifdef HAVE_AV_CONFIG_H
 
-#include <config.h>
+#include "config.h"
 
 #if   ARCH_ARM
-#include <libavutil/bswap.h>
+#   include "arm/bswap.h"
 #elif ARCH_AVR32
-#include <libavutil/bswap.h>
+#   include "avr32/bswap.h"
 #elif ARCH_BFIN
-#include <libavutil/bswap.h>
+#   include "bfin/bswap.h"
 #elif ARCH_SH4
-#include <libavutil/bswap.h>
+#   include "sh4/bswap.h"
 #elif ARCH_X86
-#include <libavutil/bswap.h>
+#   include "x86/bswap.h"
 #endif
 
 #endif /* HAVE_AV_CONFIG_H */

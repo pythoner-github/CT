@@ -9,7 +9,7 @@
 
 #ifndef BDSC_H
 #define BDSC_H
-#include <DSC.h>
+#include "DSC.h"
 
 class CBDSC:public CDSC
 {
@@ -21,9 +21,9 @@ public:
 
 	virtual void SetGlobalZoomState(POINT zoomPoint, float zoomScale);
 	virtual RECT SetPIPZoomState(POINT PIPPoint, float zoomScale);
-	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart,
-		unsigned int sampEnd, float zoomScale);
-    virtual void UpdateTpViewStatus(void);
+	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart, 
+		unsigned int sampEnd, float zoomScale);	
+    virtual void UpdateTpViewStatus(void);    
 };
 
 #endif //BDSC_H

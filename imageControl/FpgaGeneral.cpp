@@ -3,7 +3,7 @@
 #include "imageControl/FpgaGeneral.h"
 #include "imageControl/UsbControl.h"
 #include "imageControl/PcieControl.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 
 ///> /////////////////////////////////[private variable]////////////////////////////
 CFpgaGeneral* CFpgaGeneral::m_ptrInstance = NULL;

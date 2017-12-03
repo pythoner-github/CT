@@ -5,7 +5,7 @@
 #include "imageProc/DscMan.h"
 #include "imageControl/ImgPw.h"
 //for test
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "imageProc/ModeStatus.h"
 #include "imageControl/D4FuncMan.h"
 #include "keyboard/MultiFuncMode.h"

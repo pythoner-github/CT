@@ -23,7 +23,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-#include <libavutil/attributes.h>
+#include "attributes.h"
 
 typedef uint32_t AVCRC;
 

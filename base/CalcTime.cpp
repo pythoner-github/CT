@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "CalcTime.h"
 #include "Def.h"
 
 /*

@@ -29,7 +29,7 @@
 
 #include <X11/extensions/XvMC.h>
 
-#include <libavcodec/avcodec.h>
+#include "avcodec.h"
 
 /**
  * @defgroup lavc_codec_hwaccel_xvmc XvMC

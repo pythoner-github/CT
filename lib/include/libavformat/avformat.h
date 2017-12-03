@@ -192,20 +192,21 @@
  *
  */
 
-#include <libavutil/time.h>
+#include <time.h>
 #include <stdio.h>  /* FILE */
-#include <libavcodec/avcodec.h>
-#include <libavutil/dict.h>
-#include <libavutil/log.h>
+#include "libavcodec/avcodec.h"
+#include "libavutil/dict.h"
+#include "libavutil/log.h"
 
-#include <libavformat/avio.h>
-#include <libavcodec/version.h>
+#include "avio.h"
+#include "libavformat/version.h"
 
 #if FF_API_AV_GETTIME
-#include <libavutil/time.h>
+#include "libavutil/time.h"
 #endif
 
 struct AVFormatContext;
+
 
 /**
  * @defgroup metadata_api Public Metadata API
@@ -282,6 +283,7 @@ struct AVFormatContext;
 
 /* packet functions */
 
+
 /**
  * Allocate and read the payload of a packet and initialize its
  * fields with default values.
@@ -291,6 +293,7 @@ struct AVFormatContext;
  * @return >0 (read size) if OK, AVERROR_xxx otherwise
  */
 int av_get_packet(AVIOContext *s, AVPacket *pkt, int size);
+
 
 /**
  * Read data and append it to the current content of the AVPacket.
@@ -394,6 +397,7 @@ typedef struct AVOutputFormat {
      * choice first". The arrays are all terminated by AV_CODEC_ID_NONE.
      */
     const struct AVCodecTag * const *codec_tag;
+
 
     const AVClass *priv_class; ///< AVClass for the private context
 
@@ -868,6 +872,7 @@ typedef struct AVChapter {
     AVDictionary *metadata;
 } AVChapter;
 
+
 /**
  * The duration of a video can be estimated through various ways, and this enum can be used
  * to know how the duration was estimated.
@@ -1190,6 +1195,7 @@ typedef struct AVPacketList {
     struct AVPacketList *next;
 } AVPacketList;
 
+
 /**
  * @defgroup lavf_core Core functions
  * @ingroup libavf
@@ -1300,6 +1306,7 @@ AVProgram *av_new_program(AVFormatContext *s, int id);
 /**
  * @}
  */
+
 
 #if FF_API_PKT_DUMP
 attribute_deprecated void av_pkt_dump(FILE *f, AVPacket *pkt, int dump_payload);
@@ -1782,9 +1789,11 @@ enum AVCodecID av_guess_codec(AVOutputFormat *fmt, const char *short_name,
 int av_get_output_timestamp(struct AVFormatContext *s, int stream,
                             int64_t *dts, int64_t *wall);
 
+
 /**
  * @}
  */
+
 
 /**
  * @defgroup lavf_misc Utility functions
@@ -1829,6 +1838,7 @@ void av_hex_dump_log(void *avcl, int level, uint8_t *buf, int size);
  * @param st AVStream that the packet belongs to
  */
 void av_pkt_dump2(FILE *f, AVPacket *pkt, int dump_payload, AVStream *st);
+
 
 /**
  * Send a nice dump of a packet to the log.
@@ -1883,6 +1893,7 @@ int av_index_search_timestamp(AVStream *st, int64_t timestamp, int flags);
 int av_add_index_entry(AVStream *st, int64_t pos, int64_t timestamp,
                        int size, int distance, int flags);
 
+
 /**
  * Split a URL string into components.
  *
@@ -1908,6 +1919,7 @@ void av_url_split(char *proto,         int proto_size,
                   int *port_ptr,
                   char *path,          int path_size,
                   const char *url);
+
 
 void av_dump_format(AVFormatContext *ic,
                     int index,
@@ -2032,6 +2044,7 @@ int avformat_match_stream_specifier(AVFormatContext *s, AVStream *st,
                                     const char *spec);
 
 void avformat_queue_attached_pictures(AVFormatContext *s);
+
 
 /**
  * @}

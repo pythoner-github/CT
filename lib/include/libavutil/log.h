@@ -22,8 +22,8 @@
 #define AVUTIL_LOG_H
 
 #include <stdarg.h>
-#include <libavutil/avutil.h>
-#include <libavutil/attributes.h>
+#include "avutil.h"
+#include "attributes.h"
 
 typedef enum {
     AV_CLASS_CATEGORY_NA = 0,

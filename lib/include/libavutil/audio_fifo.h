@@ -27,9 +27,9 @@
 #ifndef AVUTIL_AUDIO_FIFO_H
 #define AVUTIL_AUDIO_FIFO_H
 
-#include <libavutil/avutil.h>
-#include <libavutil/fifo.h>
-#include <libavutil/samplefmt.h>
+#include "avutil.h"
+#include "fifo.h"
+#include "samplefmt.h"
 
 /**
  * @addtogroup lavu_audio

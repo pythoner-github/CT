@@ -24,7 +24,7 @@
 #ifndef AVUTIL_TIMESTAMP_H
 #define AVUTIL_TIMESTAMP_H
 
-#include <libavutil/common.h>
+#include "common.h"
 
 #define AV_TS_MAX_STRING_SIZE 32
 

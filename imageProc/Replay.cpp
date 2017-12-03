@@ -17,7 +17,7 @@
 #include "display/ImageArea.h"
 #include "display/TopArea.h"
 #include "display/HintArea.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "imageControl/KnobEFOV.h"
 #include "imageControl/Update2D.h"
 #include "patient/ImgMan.h"

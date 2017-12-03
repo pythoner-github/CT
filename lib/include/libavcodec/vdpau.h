@@ -30,6 +30,7 @@
  * Public libavcodec VDPAU header.
  */
 
+
 /**
  * @defgroup lavc_codec_hwaccel_vdpau VDPAU Decoder and Renderer
  * @ingroup lavc_codec_hwaccel
@@ -48,7 +49,7 @@
  * @{
  */
 
-#include <libavcodec/vdpau.h>
+#include <vdpau/vdpau.h>
 #include <vdpau/vdpau_x11.h>
 
 /** @brief The videoSurface is used for rendering. */

@@ -10,7 +10,7 @@
  */
 #include "display/ImageArea.h"
 #include "display/ImageAreaPara.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "imageProc/ModeStatus.h"
 #include <stdlib.h>
 #include "keyboard/KeyDef.h"

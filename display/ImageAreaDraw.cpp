@@ -36,7 +36,7 @@
 #include "measure/MeasureCalc.h"
 #include "measure/MeasureDraw.h"
 #include "measure/UpdateMeasure.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "imageProc/Zoom.h"
 #include "sysMan/SysGeneralSetting.h"
 #include "imageProc/MenuPW.h"

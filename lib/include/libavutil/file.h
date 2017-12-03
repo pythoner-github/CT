@@ -21,7 +21,7 @@
 
 #include <stdint.h>
 
-#include <libavutil/avutil.h>
+#include "avutil.h"
 
 /**
  * @file

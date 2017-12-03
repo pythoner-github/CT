@@ -20,9 +20,9 @@
 #define AVUTIL_INTREADWRITE_H
 
 #include <stdint.h>
-#include <libavutil/avconfig.h>
-#include <libavutil/attributes.h>
-#include <libavutil/bswap.h>
+#include "libavutil/avconfig.h"
+#include "attributes.h"
+#include "bswap.h"
 
 typedef union {
     uint64_t u64;
@@ -54,20 +54,20 @@ typedef union {
 
 #ifdef HAVE_AV_CONFIG_H
 
-#include <config.h>
+#include "config.h"
 
 #if   ARCH_ARM
-#include <libavutil/intreadwrite.h>
+#   include "arm/intreadwrite.h"
 #elif ARCH_AVR32
-#include <libavutil/intreadwrite.h>
+#   include "avr32/intreadwrite.h"
 #elif ARCH_MIPS
-#include <libavutil/intreadwrite.h>
+#   include "mips/intreadwrite.h"
 #elif ARCH_PPC
-#include <libavutil/intreadwrite.h>
+#   include "ppc/intreadwrite.h"
 #elif ARCH_TOMI
-#include <libavutil/intreadwrite.h>
+#   include "tomi/intreadwrite.h"
 #elif ARCH_X86
-#include <libavutil/intreadwrite.h>
+#   include "x86/intreadwrite.h"
 #endif
 
 #endif /* HAVE_AV_CONFIG_H */

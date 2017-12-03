@@ -10,9 +10,9 @@
 #ifndef CFMBBDSC_Rate_H
 #define CFMBBDSC_Rate_H
 
-#include <CFMDSC_Rate.h>
+#include "CFMDSC_Rate.h"
 
-class CCFMBBDSC_Rate : public CCFMDSC_Rate
+class CCFMBBDSC_Rate : public CCFMDSC_Rate  
 {
 public:
 	static CCFMBBDSC_Rate *Create(const DSCCONTROLATTRIBUTES &attrs, const UPDATEFRAME pUpdateFrame);

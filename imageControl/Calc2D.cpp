@@ -15,7 +15,7 @@
 #include "Def.h"
 #include "imageControl/FpgaCtrl2D.h"
 #include "imageProc/ModeStatus.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "probe/ProbeMan.h"
 #include "display/HintArea.h"
 #include "sysMan/ViewSuperuser.h"

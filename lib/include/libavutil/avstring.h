@@ -22,7 +22,7 @@
 #define AVUTIL_AVSTRING_H
 
 #include <stddef.h>
-#include <libavutil/attributes.h>
+#include "attributes.h"
 
 /**
  * @addtogroup lavu_string

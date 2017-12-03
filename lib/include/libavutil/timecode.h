@@ -28,7 +28,7 @@
 #define AVUTIL_TIMECODE_H
 
 #include <stdint.h>
-#include <libavutil/rational.h>
+#include "rational.h"
 
 #define AV_TIMECODE_STR_SIZE 16
 

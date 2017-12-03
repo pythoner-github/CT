@@ -25,8 +25,8 @@
 #define AVUTIL_FIFO_H
 
 #include <stdint.h>
-#include <libavutil/avutil.h>
-#include <libavutil/attributes.h>
+#include "avutil.h"
+#include "attributes.h"
 
 typedef struct AVFifoBuffer {
     uint8_t *buffer;

@@ -10,9 +10,9 @@
 #ifndef CFMB4DSC_H
 #define CFMB4DSC_H
 
-#include <CFMDSC.h>
+#include "CFMDSC.h"
 
-class CCFMB4DSC : public CCFMDSC
+class CCFMB4DSC : public CCFMDSC  
 {
 public:
 	static CCFMB4DSC *Create(const DSCCONTROLATTRIBUTES &attrs, const UPDATEFRAME pUpdateFrame);

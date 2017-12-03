@@ -27,16 +27,16 @@
  */
 
 #include <errno.h>
-#include <libavutil/samplefmt.h>
-#include <libavutil/avutil.h>
-#include <libavutil/cpu.h>
-#include <libavutil/dict.h>
-#include <libavutil/log.h>
-#include <libavutil/pixfmt.h>
-#include <libavutil/rational.h>
-#include <libavutil/audioconvert.h>
+#include "libavutil/samplefmt.h"
+#include "libavutil/avutil.h"
+#include "libavutil/cpu.h"
+#include "libavutil/dict.h"
+#include "libavutil/log.h"
+#include "libavutil/pixfmt.h"
+#include "libavutil/rational.h"
+#include "libavutil/audioconvert.h"
 
-#include <libavcodec/version.h>
+#include "libavcodec/version.h"
 /**
  * @defgroup libavc Encoding/Decoding Library
  * @{
@@ -76,6 +76,7 @@
  * allocating core structures, etc.
  * @{
  */
+
 
 /**
  * Identify the syntax and semantics of the bitstream.
@@ -466,7 +467,7 @@ enum AVCodecID {
     AV_CODEC_ID_FFMETADATA = 0x21000,   ///< Dummy codec for streams containing only metadata information.
 
 #if FF_API_CODEC_ID
-#include <libavcodec/old_codec_ids.h>
+#include "old_codec_ids.h"
 #endif
 };
 
@@ -535,6 +536,7 @@ typedef struct AVCodecDescriptor {
  * Used to avoid some checks during header writing.
  */
 #define FF_MIN_BUFFER_SIZE 16384
+
 
 /**
  * @ingroup lavc_encoding
@@ -1617,6 +1619,7 @@ typedef struct AVCodecContext {
      */
     int delay;
 
+
     /* video only */
     /**
      * picture width / height.
@@ -2382,6 +2385,7 @@ typedef struct AVCodecContext {
      */
     int (*reget_buffer)(struct AVCodecContext *c, AVFrame *pic);
 
+
     /* - encoding parameters */
     float qcompress;  ///< amount of qscale change between easy & hard scenes (0.0-1.0)
     float qblur;      ///< amount of qscale smoothing over time (0.0-1.0)
@@ -2717,6 +2721,7 @@ typedef struct AVCodecContext {
 #define AV_EF_CAREFUL    (1<<16)
 #define AV_EF_COMPLIANT  (1<<17)
 #define AV_EF_AGGRESSIVE (1<<18)
+
 
     /**
      * opaque 64bit number (generally a PTS) that will be reordered and
@@ -3403,6 +3408,7 @@ void avcodec_register(AVCodec *codec);
  */
 void avcodec_register_all(void);
 
+
 #if FF_API_ALLOC_CONTEXT
 /**
  * Allocate an AVCodecContext and set its fields to default values.  The
@@ -3725,6 +3731,7 @@ uint8_t* av_packet_get_side_data(AVPacket *pkt, enum AVPacketSideDataType type,
 int av_packet_merge_side_data(AVPacket *pkt);
 
 int av_packet_split_side_data(AVPacket *pkt);
+
 
 /**
  * @}
@@ -4306,6 +4313,7 @@ int avcodec_encode_video2(AVCodecContext *avctx, AVPacket *avpkt,
 int avcodec_encode_subtitle(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                             const AVSubtitle *sub);
 
+
 /**
  * @}
  */
@@ -4354,6 +4362,7 @@ int audio_resample(ReSampleContext *s, short *output, short *input, int nb_sampl
  */
 void audio_resample_close(ReSampleContext *s);
 
+
 /**
  * Initialize an audio resampler.
  * Note, if either rate is not an integer then simply scale both rates up so they are.
@@ -4375,6 +4384,7 @@ struct AVResampleContext *av_resample_init(int out_rate, int in_rate, int filter
  * @return the number of samples written in dst or -1 if an error occurred
  */
 int av_resample(struct AVResampleContext *c, short *dst, short *src, int *consumed, int src_size, int dst_size, int update_ctx);
+
 
 /**
  * Compensate samplerate/timestamp drift. The compensation is done by changing
@@ -4625,6 +4635,7 @@ enum PixelFormat avcodec_find_best_pix_fmt2(enum PixelFormat dst_pix_fmt1, enum 
                                             enum PixelFormat src_pix_fmt, int has_alpha, int *loss_ptr);
 #endif
 
+
 enum PixelFormat avcodec_default_get_format(struct AVCodecContext *s, const enum PixelFormat * fmt);
 
 /**
@@ -4720,12 +4731,14 @@ int av_get_exact_bits_per_sample(enum AVCodecID codec_id);
  */
 int av_get_audio_frame_duration(AVCodecContext *avctx, int frame_bytes);
 
+
 typedef struct AVBitStreamFilterContext {
     void *priv_data;
     struct AVBitStreamFilter *filter;
     AVCodecParserContext *parser;
     struct AVBitStreamFilterContext *next;
 } AVBitStreamFilterContext;
+
 
 typedef struct AVBitStreamFilter {
     const char *name;
@@ -4830,6 +4843,7 @@ void av_register_hwaccel(AVHWAccel *hwaccel);
  * after hwaccel, or NULL if hwaccel is the last one.
  */
 AVHWAccel *av_hwaccel_next(AVHWAccel *hwaccel);
+
 
 /**
  * Lock operation used by lockmgr

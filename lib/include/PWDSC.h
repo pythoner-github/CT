@@ -10,16 +10,16 @@
 #ifndef PWDSC_H
 #define PWDSC_H
 
-#include <DSC.h>
+#include "DSC.h"
 
-class CPWDSC : public CDSC
+class CPWDSC : public CDSC  
 {
 public:
 	static CPWDSC *Create(const DSCCONTROLATTRIBUTES &attrs, const UPDATEFRAME pUpdateFrame);
 	virtual void Destroy(void);
 	virtual bool GetUSBDatas(const unsigned char *pDatas);
-	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart,
-		unsigned int sampEnd, float zoomScale);
+	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart, 
+		unsigned int sampEnd, float zoomScale);	
 	virtual void UpdatePWDisplayFormat(void);
 	virtual void ClearPWLine(void);
 	virtual int GetPWHeight(void);
@@ -30,3 +30,4 @@ public:
 };
 
 #endif //PWDSC_H
+

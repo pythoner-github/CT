@@ -240,6 +240,7 @@ typedef struct {
   unsigned long dwType;
   } CGOSWDINFO;
 
+
 //***************************************************************************
 
 //
@@ -503,3 +504,4 @@ cgosret_bool CgosIOGetNameW(HCGOS hCgos, unsigned long dwUnit, wchar_t *pszName,
 #endif
 
 #endif // _CGOS_H_
+

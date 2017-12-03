@@ -18,13 +18,15 @@
 #ifndef	COLORMAP_H_INCLUDE
 #define	COLORMAP_H_INCLUDE
 
-#include <WinDef.h>
-#include <ParaDef.h>
+#include "WinDef.h"
+#include "ParaDef.h"
 //#include "pseudo-colormap.h"
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 
 // 产生 PDI 颜色表
 // return:
@@ -42,9 +44,10 @@ DLL_API BOOL MakePDIColormap(
 DLL_API BOOL MakeCFMColormap(
 							 int table[COLOR_NUM][COLOR_GRADE], // output: CFM 颜色表
 							 int base_line,						// input: 基线［0，255］
-							 int type,							// input:
+							 int type,							// input: 
 							 bool reverse = false				// input: 颜色翻转。false：不翻转
 							);
+
 
 // 产生 CFM 颜色表：含方差信息
 // return:
@@ -55,6 +58,7 @@ DLL_API BOOL MakeCFMVarColormap(
 								int base_line,										// input: 基线［0，255］
 								int type											// input: 类型
 							   );
+
 
 // 产生伪彩颜色表（含灰度）
 // return：

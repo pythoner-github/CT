@@ -21,7 +21,7 @@
 #ifndef AVUTIL_VERSION_H
 #define AVUTIL_VERSION_H
 
-#include <libavutil/avutil.h>
+#include "avutil.h"
 
 /**
  * @file
@@ -87,3 +87,4 @@
  */
 
 #endif /* AVUTIL_VERSION_H */
+

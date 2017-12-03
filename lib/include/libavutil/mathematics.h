@@ -23,9 +23,9 @@
 
 #include <stdint.h>
 #include <math.h>
-#include <libavutil/attributes.h>
-#include <libavutil/rational.h>
-#include <libavutil/intfloat.h>
+#include "attributes.h"
+#include "rational.h"
+#include "intfloat.h"
 
 #ifndef M_E
 #define M_E            2.7182818284590452354   /* e */
@@ -62,6 +62,7 @@
  * @addtogroup lavu_math
  * @{
  */
+
 
 enum AVRounding {
     AV_ROUND_ZERO     = 0, ///< Round toward zero.

@@ -17,7 +17,7 @@
 #include "probe/ProbeList-430.h"
 #include "probe/ProbeList-440.h"
 #include "probe/ProbeList-355.h"
-#include "accessories/osrfx2_src/CalcTime.h"
+#include "base/CalcTime.h"
 #include "imageControl/FpgaGeneral.h"
 #include "base/IniFile.h"
 

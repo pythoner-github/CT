@@ -21,6 +21,7 @@
 #ifndef IMAGE_MIX_H_INCLUDED
 #define IMAGE_MIX_H_INCLUDED
 
+
 #ifdef __cplusplus
 extern "C"{
 #endif
@@ -62,14 +63,14 @@ DLL_API void ImageMixC4R(unsigned char* pImageDst, 			 		// output mixed image d
 
 // four and three channels(input:32bits and 24 bits  output:32bits)
 DLL_API void ImageMixC4C3R(unsigned char* pImageDst, 				// output mixed image data  32bits
-					  const unsigned char* pImageSrc0, 				// input image data         32bits
+					  const unsigned char* pImageSrc0, 				// input image data         32bits         
 					  const unsigned char* pImageSrc1, 				// input image data         24bits
 					  const int widthDst, const int heightDst, 		// destination image width and height
 					  const int widthSrc0, const int heightSrc0,	// source0 image width and height
 					  const int widthSrc1, const int heightSrc1, 	// source1 image width and height
 					  const int roiWidthSrc, const int roiHeightSrc,// roi of source image width and height
 					  unsigned char colorKey[4], 					// key color for mask
-                      int order[4]                                  // Src1中彩色的位置相对于Src0的位置
+                      int order[4]                                  // Src1中彩色的位置相对于Src0的位置  
 					 );
 
 // three and four channels(input:24bits and 32 bits  output:24bits)
@@ -97,4 +98,6 @@ DLL_API void ImageMix(unsigned char* pImageDst, 			 		// output mixed image data
 }
 #endif
 
+
 #endif // IMAGE_MIX_H_INCLUDE
+

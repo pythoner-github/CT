@@ -27,8 +27,8 @@
  * @{
  */
 
-#include <libavutil/avutil.h>
-#include <libavutil/pixdesc.h>
+#include "avutil.h"
+#include "pixdesc.h"
 
 /**
  * Compute the max pixel step for each plane of an image with a
@@ -192,5 +192,6 @@ int ff_set_systematic_pal2(uint32_t pal[256], enum PixelFormat pix_fmt);
 /**
  * @}
  */
+
 
 #endif /* AVUTIL_IMGUTILS_H */
