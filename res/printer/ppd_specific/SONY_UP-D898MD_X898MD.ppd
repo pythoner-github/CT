@@ -1,0 +1,606 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+*FileVersion: "1.0.0"
+*PCFileName: "SOUX898MD.ppd"
+*Manufacturer: "SONY"
+*Product: "(UP-D898MD_X898MD)"
+*PSVersion: "(3011.106) 0"
+*ModelName: "Sony UP-D898MD_X898MD"
+*ShortNickName: "Sony UP-D898MD_X898MD"
+*NickName: "Sony UP-D898MD_X898MD"
+*LanguageLevel: "3"
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*Troughput: "1"
+*TTRasterizer: Type42
+*cupsLanguages: "en"
+
+
+*%----- for cups settings. ------
+*cupsVersion: 1.3
+*cupsManualCopies: False
+*cupsModelNumber: 1
+*cupsFilter: "application/vnd.cups-raster 0 rastertosony"
+*%----------------------
+
+
+*%============================
+*%=== for Paper Settings... ===
+
+*%----- PageSize -----
+*OpenUI *PageSize: PickOne
+*OrderDependency: 30 AnySetup *PageSize
+*DefaultPageSize: 960x1280
+*PageSize 960x1280: ""
+*PageSize 1280x1280: ""
+*PageSize 1920x1280: ""
+*PageSize 3840x1280: ""
+*PageSize 4096x1280: ""
+*CloseUI: *PageSize
+
+*%----- PageRegion -----
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 40 AnySetup *PageRegion
+*DefaultPageRegion: 960x1280
+*PageRegion 960x1280: ""
+*PageRegion 1280x1280: ""
+*PageRegion 1920x1280: ""
+*PageRegion 3840x1280: ""
+*PageRegion 4096x1280: ""
+*CloseUI: *PageRegion
+
+*%----- PaperDimension -----
+*DefaultPaperDimension: 960x1280
+*PaperDimension 960x1280: "311.92 229.69"
+*PaperDimension 1280x1280: "311.92 300.59"
+*PaperDimension 1920x1280: "311.92 442.37"
+*PaperDimension 3840x1280: "311.92 867.71"
+*PaperDimension 4096x1280: "311.92 924.43"
+
+*%----- ImageableArea -----
+*DefaultImageableArea: 960x1280
+*ImageableArea 960x1280: "14.17 8.50 297.75 221.19"
+*ImageableArea 1280x1280: "14.17 8.50 297.75 292.09"
+*ImageableArea 1920x1280: "14.17 8.50 297.75 433.87"
+*ImageableArea 3840x1280: "14.17 8.50 297.75 859.21"
+*ImageableArea 4096x1280: "14.17 8.50 297.75 915.93"
+
+
+*%----- CustomPageSize -----
+*%none support.
+*%============================
+
+
+
+*%============================
+*%----- Resolution -----
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 325x325dpi
+*Resolution 325x325dpi/325 x 325dpi: "<</HWResolution[325 325]/cupsCompression 8>>setpagedevice"
+*CloseUI: *Resolution
+
+
+*%----- ColorModel -----
+*OpenUI *ColorModel/Color Model: PickOne
+*OrderDependency: 20 AnySetup *ColorModel
+*DefaultColorModel: Gray
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 0/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
+*CloseUI: *ColorModel
+
+
+*%+++++++++++++++++++++
+*OpenGroup: SODensityAdjustGroup/Density Adjust
+
+*%----- Gamma Curve -----
+*OpenUI *SOGammaCurve/Gamma: PickOne
+*OrderDependency: 100 AnySetup *SOGammaCurve
+*DefaultSOGammaCurve: TONE2
+*SOGammaCurve TONE1/TONE1: ""
+*SOGammaCurve TONE2/TONE2: ""
+*SOGammaCurve TONE3/TONE3: ""
+*SOGammaCurve TONE4/TONE4: ""
+*CloseUI: *SOGammaCurve
+
+*%----- Gamma -----
+*OpenUI *SOLightnessGamma/Tone: PickOne
+*OrderDependency: 110 AnySetup *SOLightnessGamma
+*DefaultSOLightnessGamma: 0
+*SOLightnessGamma 32: ""
+*SOLightnessGamma 31: ""
+*SOLightnessGamma 30: ""
+*SOLightnessGamma 29: ""
+*SOLightnessGamma 28: ""
+*SOLightnessGamma 27: ""
+*SOLightnessGamma 26: ""
+*SOLightnessGamma 25: ""
+*SOLightnessGamma 24: ""
+*SOLightnessGamma 23: ""
+*SOLightnessGamma 22: ""
+*SOLightnessGamma 21: ""
+*SOLightnessGamma 20: ""
+*SOLightnessGamma 19: ""
+*SOLightnessGamma 18: ""
+*SOLightnessGamma 17: ""
+*SOLightnessGamma 16: ""
+*SOLightnessGamma 15: ""
+*SOLightnessGamma 14: ""
+*SOLightnessGamma 13: ""
+*SOLightnessGamma 12: ""
+*SOLightnessGamma 11: ""
+*SOLightnessGamma 10: ""
+*SOLightnessGamma 9: ""
+*SOLightnessGamma 8: ""
+*SOLightnessGamma 7: ""
+*SOLightnessGamma 6: ""
+*SOLightnessGamma 5: ""
+*SOLightnessGamma 4: ""
+*SOLightnessGamma 3: ""
+*SOLightnessGamma 2: ""
+*SOLightnessGamma 1: ""
+*SOLightnessGamma 0: ""
+*SOLightnessGamma -1: ""
+*SOLightnessGamma -2: ""
+*SOLightnessGamma -3: ""
+*SOLightnessGamma -4: ""
+*SOLightnessGamma -5: ""
+*SOLightnessGamma -6: ""
+*SOLightnessGamma -7: ""
+*SOLightnessGamma -8: ""
+*SOLightnessGamma -9: ""
+*SOLightnessGamma -10: ""
+*SOLightnessGamma -11: ""
+*SOLightnessGamma -12: ""
+*SOLightnessGamma -13: ""
+*SOLightnessGamma -14: ""
+*SOLightnessGamma -15: ""
+*SOLightnessGamma -16: ""
+*SOLightnessGamma -17: ""
+*SOLightnessGamma -18: ""
+*SOLightnessGamma -19: ""
+*SOLightnessGamma -20: ""
+*SOLightnessGamma -21: ""
+*SOLightnessGamma -22: ""
+*SOLightnessGamma -23: ""
+*SOLightnessGamma -24: ""
+*SOLightnessGamma -25: ""
+*SOLightnessGamma -26: ""
+*SOLightnessGamma -27: ""
+*SOLightnessGamma -28: ""
+*SOLightnessGamma -29: ""
+*SOLightnessGamma -30: ""
+*SOLightnessGamma -31: ""
+*SOLightnessGamma -32: ""
+*CloseUI: *SOLightnessGamma
+
+*%----- Dark -----
+*OpenUI *SOLightnessDark/Dark: PickOne
+*OrderDependency: 120 AnySetup *SOLightnessDark
+*DefaultSOLightnessDark: 0
+*SOLightnessDark 64: ""
+*SOLightnessDark 63: ""
+*SOLightnessDark 62: ""
+*SOLightnessDark 61: ""
+*SOLightnessDark 60: ""
+*SOLightnessDark 59: ""
+*SOLightnessDark 58: ""
+*SOLightnessDark 57: ""
+*SOLightnessDark 56: ""
+*SOLightnessDark 55: ""
+*SOLightnessDark 54: ""
+*SOLightnessDark 53: ""
+*SOLightnessDark 52: ""
+*SOLightnessDark 51: ""
+*SOLightnessDark 50: ""
+*SOLightnessDark 49: ""
+*SOLightnessDark 48: ""
+*SOLightnessDark 47: ""
+*SOLightnessDark 46: ""
+*SOLightnessDark 45: ""
+*SOLightnessDark 44: ""
+*SOLightnessDark 43: ""
+*SOLightnessDark 42: ""
+*SOLightnessDark 41: ""
+*SOLightnessDark 40: ""
+*SOLightnessDark 39: ""
+*SOLightnessDark 38: ""
+*SOLightnessDark 37: ""
+*SOLightnessDark 36: ""
+*SOLightnessDark 35: ""
+*SOLightnessDark 34: ""
+*SOLightnessDark 33: ""
+*SOLightnessDark 32: ""
+*SOLightnessDark 31: ""
+*SOLightnessDark 30: ""
+*SOLightnessDark 29: ""
+*SOLightnessDark 28: ""
+*SOLightnessDark 27: ""
+*SOLightnessDark 26: ""
+*SOLightnessDark 25: ""
+*SOLightnessDark 24: ""
+*SOLightnessDark 23: ""
+*SOLightnessDark 22: ""
+*SOLightnessDark 21: ""
+*SOLightnessDark 20: ""
+*SOLightnessDark 19: ""
+*SOLightnessDark 18: ""
+*SOLightnessDark 17: ""
+*SOLightnessDark 16: ""
+*SOLightnessDark 15: ""
+*SOLightnessDark 14: ""
+*SOLightnessDark 13: ""
+*SOLightnessDark 12: ""
+*SOLightnessDark 11: ""
+*SOLightnessDark 10: ""
+*SOLightnessDark 9: ""
+*SOLightnessDark 8: ""
+*SOLightnessDark 7: ""
+*SOLightnessDark 6: ""
+*SOLightnessDark 5: ""
+*SOLightnessDark 4: ""
+*SOLightnessDark 3: ""
+*SOLightnessDark 2: ""
+*SOLightnessDark 1: ""
+*SOLightnessDark 0: ""
+*SOLightnessDark -1: ""
+*SOLightnessDark -2: ""
+*SOLightnessDark -3: ""
+*SOLightnessDark -4: ""
+*SOLightnessDark -5: ""
+*SOLightnessDark -6: ""
+*SOLightnessDark -7: ""
+*SOLightnessDark -8: ""
+*SOLightnessDark -9: ""
+*SOLightnessDark -10: ""
+*SOLightnessDark -11: ""
+*SOLightnessDark -12: ""
+*SOLightnessDark -13: ""
+*SOLightnessDark -14: ""
+*SOLightnessDark -15: ""
+*SOLightnessDark -16: ""
+*SOLightnessDark -17: ""
+*SOLightnessDark -18: ""
+*SOLightnessDark -19: ""
+*SOLightnessDark -20: ""
+*SOLightnessDark -21: ""
+*SOLightnessDark -22: ""
+*SOLightnessDark -23: ""
+*SOLightnessDark -24: ""
+*SOLightnessDark -25: ""
+*SOLightnessDark -26: ""
+*SOLightnessDark -27: ""
+*SOLightnessDark -28: ""
+*SOLightnessDark -29: ""
+*SOLightnessDark -30: ""
+*SOLightnessDark -31: ""
+*SOLightnessDark -32: ""
+*SOLightnessDark -33: ""
+*SOLightnessDark -34: ""
+*SOLightnessDark -35: ""
+*SOLightnessDark -36: ""
+*SOLightnessDark -37: ""
+*SOLightnessDark -38: ""
+*SOLightnessDark -39: ""
+*SOLightnessDark -40: ""
+*SOLightnessDark -41: ""
+*SOLightnessDark -42: ""
+*SOLightnessDark -43: ""
+*SOLightnessDark -44: ""
+*SOLightnessDark -45: ""
+*SOLightnessDark -46: ""
+*SOLightnessDark -47: ""
+*SOLightnessDark -48: ""
+*SOLightnessDark -49: ""
+*SOLightnessDark -50: ""
+*SOLightnessDark -51: ""
+*SOLightnessDark -52: ""
+*SOLightnessDark -53: ""
+*SOLightnessDark -54: ""
+*SOLightnessDark -55: ""
+*SOLightnessDark -56: ""
+*SOLightnessDark -57: ""
+*SOLightnessDark -58: ""
+*SOLightnessDark -59: ""
+*SOLightnessDark -60: ""
+*SOLightnessDark -61: ""
+*SOLightnessDark -62: ""
+*SOLightnessDark -63: ""
+*SOLightnessDark -64: ""
+*CloseUI: *SOLightnessDark
+
+*%----- Light -----
+*OpenUI *SOLightnessLight/Light: PickOne
+*OrderDependency: 130 AnySetup *SOLightnessLight
+*DefaultSOLightnessLight: 0
+*SOLightnessLight 64: ""
+*SOLightnessLight 63: ""
+*SOLightnessLight 62: ""
+*SOLightnessLight 61: ""
+*SOLightnessLight 60: ""
+*SOLightnessLight 59: ""
+*SOLightnessLight 58: ""
+*SOLightnessLight 57: ""
+*SOLightnessLight 56: ""
+*SOLightnessLight 55: ""
+*SOLightnessLight 54: ""
+*SOLightnessLight 53: ""
+*SOLightnessLight 52: ""
+*SOLightnessLight 51: ""
+*SOLightnessLight 50: ""
+*SOLightnessLight 49: ""
+*SOLightnessLight 48: ""
+*SOLightnessLight 47: ""
+*SOLightnessLight 46: ""
+*SOLightnessLight 45: ""
+*SOLightnessLight 44: ""
+*SOLightnessLight 43: ""
+*SOLightnessLight 42: ""
+*SOLightnessLight 41: ""
+*SOLightnessLight 40: ""
+*SOLightnessLight 39: ""
+*SOLightnessLight 38: ""
+*SOLightnessLight 37: ""
+*SOLightnessLight 36: ""
+*SOLightnessLight 35: ""
+*SOLightnessLight 34: ""
+*SOLightnessLight 33: ""
+*SOLightnessLight 32: ""
+*SOLightnessLight 31: ""
+*SOLightnessLight 30: ""
+*SOLightnessLight 29: ""
+*SOLightnessLight 28: ""
+*SOLightnessLight 27: ""
+*SOLightnessLight 26: ""
+*SOLightnessLight 25: ""
+*SOLightnessLight 24: ""
+*SOLightnessLight 23: ""
+*SOLightnessLight 22: ""
+*SOLightnessLight 21: ""
+*SOLightnessLight 20: ""
+*SOLightnessLight 19: ""
+*SOLightnessLight 18: ""
+*SOLightnessLight 17: ""
+*SOLightnessLight 16: ""
+*SOLightnessLight 15: ""
+*SOLightnessLight 14: ""
+*SOLightnessLight 13: ""
+*SOLightnessLight 12: ""
+*SOLightnessLight 11: ""
+*SOLightnessLight 10: ""
+*SOLightnessLight 9: ""
+*SOLightnessLight 8: ""
+*SOLightnessLight 7: ""
+*SOLightnessLight 6: ""
+*SOLightnessLight 5: ""
+*SOLightnessLight 4: ""
+*SOLightnessLight 3: ""
+*SOLightnessLight 2: ""
+*SOLightnessLight 1: ""
+*SOLightnessLight 0: ""
+*SOLightnessLight -1: ""
+*SOLightnessLight -2: ""
+*SOLightnessLight -3: ""
+*SOLightnessLight -4: ""
+*SOLightnessLight -5: ""
+*SOLightnessLight -6: ""
+*SOLightnessLight -7: ""
+*SOLightnessLight -8: ""
+*SOLightnessLight -9: ""
+*SOLightnessLight -10: ""
+*SOLightnessLight -11: ""
+*SOLightnessLight -12: ""
+*SOLightnessLight -13: ""
+*SOLightnessLight -14: ""
+*SOLightnessLight -15: ""
+*SOLightnessLight -16: ""
+*SOLightnessLight -17: ""
+*SOLightnessLight -18: ""
+*SOLightnessLight -19: ""
+*SOLightnessLight -20: ""
+*SOLightnessLight -21: ""
+*SOLightnessLight -22: ""
+*SOLightnessLight -23: ""
+*SOLightnessLight -24: ""
+*SOLightnessLight -25: ""
+*SOLightnessLight -26: ""
+*SOLightnessLight -27: ""
+*SOLightnessLight -28: ""
+*SOLightnessLight -29: ""
+*SOLightnessLight -30: ""
+*SOLightnessLight -31: ""
+*SOLightnessLight -32: ""
+*SOLightnessLight -33: ""
+*SOLightnessLight -34: ""
+*SOLightnessLight -35: ""
+*SOLightnessLight -36: ""
+*SOLightnessLight -37: ""
+*SOLightnessLight -38: ""
+*SOLightnessLight -39: ""
+*SOLightnessLight -40: ""
+*SOLightnessLight -41: ""
+*SOLightnessLight -42: ""
+*SOLightnessLight -43: ""
+*SOLightnessLight -44: ""
+*SOLightnessLight -45: ""
+*SOLightnessLight -46: ""
+*SOLightnessLight -47: ""
+*SOLightnessLight -48: ""
+*SOLightnessLight -49: ""
+*SOLightnessLight -50: ""
+*SOLightnessLight -51: ""
+*SOLightnessLight -52: ""
+*SOLightnessLight -53: ""
+*SOLightnessLight -54: ""
+*SOLightnessLight -55: ""
+*SOLightnessLight -56: ""
+*SOLightnessLight -57: ""
+*SOLightnessLight -58: ""
+*SOLightnessLight -59: ""
+*SOLightnessLight -60: ""
+*SOLightnessLight -61: ""
+*SOLightnessLight -62: ""
+*SOLightnessLight -63: ""
+*SOLightnessLight -64: ""
+*CloseUI: *SOLightnessLight
+
+*%----- Sharpness -----
+*OpenUI *SOLightnessSharp/Sharpness: PickOne
+*OrderDependency: 140 AnySetup *SOLightnessSharp
+*DefaultSOLightnessSharp: 0
+*SOLightnessSharp 14: ""
+*SOLightnessSharp 13: ""
+*SOLightnessSharp 12: ""
+*SOLightnessSharp 11: ""
+*SOLightnessSharp 10: ""
+*SOLightnessSharp 9: ""
+*SOLightnessSharp 8: ""
+*SOLightnessSharp 7: ""
+*SOLightnessSharp 6: ""
+*SOLightnessSharp 5: ""
+*SOLightnessSharp 4: ""
+*SOLightnessSharp 3: ""
+*SOLightnessSharp 2: ""
+*SOLightnessSharp 1: ""
+*SOLightnessSharp 0: ""
+*CloseUI: *SOLightnessSharp
+
+*CloseGroup: SODensityAdjustGroup
+*%+++++++++++++++++++++
+
+
+*%+++++++++++++++++++++
+*OpenGroup: SOSettingsGroup/Enabling the printer's settings
+
+*%----- Copies -----
+*OpenUI *SOSettingsCopies/Copies: PickOne
+*OrderDependency: 200 AnySetup *SOSettingsCopies
+*DefaultSOSettingsCopies: Enable
+*SOSettingsCopies Enable/Enable: ""
+*SOSettingsCopies Disable/Disable: ""
+*CloseUI: *SOSettingsCopies
+
+*%----- Gamma -----
+*OpenUI *SOSettingsGamma/Gamma: PickOne
+*OrderDependency: 220 AnySetup *SOSettingsGamma
+*DefaultSOSettingsGamma: Enable
+*SOSettingsGamma Enable/Enable: ""
+*SOSettingsGamma Disable/Disable: ""
+*CloseUI: *SOSettingsGamma
+
+*%----- Tone -----
+*OpenUI *SOSettingsTone/Tone: PickOne
+*OrderDependency: 230 AnySetup *SOSettingsTone
+*DefaultSOSettingsTone: Enable
+*SOSettingsTone Enable/Enable: ""
+*SOSettingsTone Disable/Disable: ""
+*CloseUI: *SOSettingsTone
+
+*%----- Sharpness -----
+*OpenUI *SOSettingsSharp/Sharpness: PickOne
+*OrderDependency: 240 AnySetup *SOSettingsSharp
+*DefaultSOSettingsSharp: Enable
+*SOSettingsSharp Enable/Enable: ""
+*SOSettingsSharp Disable/Disable: ""
+*CloseUI: *SOSettingsSharp
+
+*CloseGroup: SOSettingsGroup
+*%+++++++++++++++++++++
+
+
+*%======================
+*%used init data.
+
+*%----- Paper support param.. -----
+*SOSupportPaper_960x1280: "6,0,0,0,0,1280,960,1,1"
+*SOSupportPaper_1280x1280: "6,0,0,0,0,1280,1280,1,1"
+*SOSupportPaper_1920x1280: "6,0,0,0,0,1280,1920,1,1"
+*SOSupportPaper_3840x1280: "6,0,0,0,0,1280,3840,1,1"
+*SOSupportPaper_4096x1280: "6,0,0,0,0,1280,4096,1,1"
+
+*%----- Timeout support param.. -----
+*SOErrorSleepTime: "1"
+*SOFatalErrorTimeOut: "10"
+
+*%----- LogMessage support param.. -----
+*SOLogMsgEnable: "1"
+*SOLogMsgMaxSize: "500"
+*SOLogMsgTypeError: "1"
+
+*%======================
+*% filter messages.
+
+*SOErrorStatus_001: "com.sony.status.S001-warning"
+*SOErrorStatus_002: "com.sony.status.S002-error"
+*SOErrorStatus_003: "com.sony.status.S003-error"
+*SOErrorStatus_004: "com.sony.status.S004-warning"
+*SOErrorStatus_005: "com.sony.status.S005-warning"
+*SOErrorStatus_006: "com.sony.status.S006-warning"
+*SOErrorStatus_007: "com.sony.status.S007-warning"
+*SOErrorStatus_008: "com.sony.status.S008-warning"
+*SOErrorStatus_009: "com.sony.status.S009-warning"
+*SOErrorStatus_010: "com.sony.status.S010-warning"
+*SOErrorStatus_011: "com.sony.status.S011-warning"
+*SOErrorStatus_012: "com.sony.status.S012-warning"
+*SOErrorStatus_013: "com.sony.status.S013-warning"
+*SOErrorStatus_014: "com.sony.status.S014-warning"
+*SOErrorStatus_015: "com.sony.status.S015-warning"
+*SOErrorStatus_016: "com.sony.status.S016-warning"
+*SOErrorStatus_017: "com.sony.status.S017-error"
+*SOErrorStatus_018: "com.sony.status.S018-error"
+*SOErrorStatus_019: "com.sony.status.S019-warning"
+*SOErrorStatus_020: "com.sony.status.S020-error"
+*SOErrorStatus_024: "com.sony.status.S024-warning"
+*SOErrorStatus_025: "com.sony.status.S025-warning"
+*SOErrorStatus_026: "com.sony.status.S026-warning"
+
+*cupsIPPReason com.sony.status.E001/Paper Jam.: ""
+*cupsIPPReason com.sony.status.S001-warning/Please remove the jammed paper.: ""
+*cupsIPPReason com.sony.status.E002/Paper jam. Printing is aborted.: ""
+*cupsIPPReason com.sony.status.S002-error/Please remove the jammed paper and print again.: ""
+*cupsIPPReason com.sony.status.E003/Mechanical error. Printing has been aborted.: ""
+*cupsIPPReason com.sony.status.S003-error/Please turn off the printer, then turn it back on and print again.: ""
+*cupsIPPReason com.sony.status.E004/Paper end or paper feed error.: ""
+*cupsIPPReason com.sony.status.S004-warning/Please load a new ink ribbon and paper.: ""
+*cupsIPPReason com.sony.status.E005/Paper end or paper feed error.: ""
+*cupsIPPReason com.sony.status.S005-warning/Please load a new ink ribbon and paper.: ""
+*cupsIPPReason com.sony.status.E006/Printer is busy.: ""
+*cupsIPPReason com.sony.status.S006-warning/Please Wait.: ""
+*cupsIPPReason com.sony.status.E007/Door is open.: ""
+*cupsIPPReason com.sony.status.S007-warning/Please close the door.: ""
+*cupsIPPReason com.sony.status.E008/Too many printouts are deposited at the paper exit area.: ""
+*cupsIPPReason com.sony.status.S008-warning/Please remove them.: ""
+*cupsIPPReason com.sony.status.E009/Too many paper scraps are deposited at the scrapbox.: ""
+*cupsIPPReason com.sony.status.S009-warning/Please remove them.: ""
+*cupsIPPReason com.sony.status.E010/No thermal paper.: ""
+*cupsIPPReason com.sony.status.S010-warning/Please set the thermal paper.: ""
+*cupsIPPReason com.sony.status.E011/No thermal paper.: ""
+*cupsIPPReason com.sony.status.S011-warning/Please set the thermal paper.: ""
+*cupsIPPReason com.sony.status.E012/No ink ribbon.: ""
+*cupsIPPReason com.sony.status.S012-warning/Please load an ink ribbon.: ""
+*cupsIPPReason com.sony.status.E013/Ribbon end.: ""
+*cupsIPPReason com.sony.status.S013-warning/Please load a new ink ribbon and paper.: ""
+*cupsIPPReason com.sony.status.E014/Ink ribbon error.: ""
+*cupsIPPReason com.sony.status.S014-warning/Make sure the ink ribbon is set correctly.: ""
+*cupsIPPReason com.sony.status.E015/Paper and ink ribbon do not match.: ""
+*cupsIPPReason com.sony.status.S015-warning/Make sure compatible paper and ink ribbon are loaded.: ""
+*cupsIPPReason com.sony.status.E016/Now regulating the head temperature of the printer.: ""
+*cupsIPPReason com.sony.status.S016-warning/Please wait.: ""
+*cupsIPPReason com.sony.status.E017/Printer is not ready.: ""
+*cupsIPPReason com.sony.status.S017-error: "text:Make%20sure%20the%20printer%20is%20plugged%20in%20to%20a%20power%20source%20and%20the%20printer%20cable%20is%20correctly%20connected."
+*cupsIPPReason com.sony.status.E018/Incorrect paper size setting.: ""
+*cupsIPPReason com.sony.status.S018-error: "text:Please%20check%20the%20printer%20driver%20properties%20and%20set%20the%20correct%20paper%20size,%20then%20print%20again."
+*cupsIPPReason com.sony.status.E019/Incorrect paper.: ""
+*cupsIPPReason com.sony.status.S019-warning/Make sure the correct paper is set.: ""
+*cupsIPPReason com.sony.status.E020/Error source unknown. Printing is aborted.: ""
+*cupsIPPReason com.sony.status.S020-error/Restart your PC as well as the printer and print again.: ""
+*cupsIPPReason com.sony.status.E024/Incorrect paper type.: ""
+*cupsIPPReason com.sony.status.S024-warning/Please set the correct paper type.: ""
+*cupsIPPReason com.sony.status.E025/Now printing the video image.: ""
+*cupsIPPReason com.sony.status.S025-warning/Please wait.: ""
+*cupsIPPReason com.sony.status.E026/Now Feeding.: ""
+*cupsIPPReason com.sony.status.S026-warning/Please wait.: ""
+*%======================
+
+*% ===== End =====

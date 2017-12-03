@@ -1,0 +1,343 @@
+*PPD-Adobe: "4.3"
+*% PPD file for HP Officejet k60 with CUPS.
+*% Created by the CUPS PPD Compiler v1.2.3.
+*% (c) 2008 Copyright Hewlett-Packard Development Company, LP
+*FormatVersion: "4.3"
+*FileVersion: "hpcups 3.11.5"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "hp-officejet_k60.ppd"
+*Product: "(HP Officejet k60 All-in-one Printer)"
+*Manufacturer: "HP"
+*ModelName: "HP Officejet k60"
+*ShortNickName: "HP Officejet k60"
+*NickName: "HP Officejet k60, hpcups 3.11.5"
+*PSVersion: "(3010.000) 705"
+*PSVersion: "(3010.000) 707"
+*PSVersion: "(3010.000) 815"
+*PSVersion: "(3010.000) 853"
+*LanguageLevel: "3"
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*FileSystem: False
+*Throughput: "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*% Driver-defined attributes...
+*RequiresPageRegion All: True
+*cupsEvenDuplex: True
+*cupsBackSide: "Rotated"
+*cupsFlipDuplex: True
+*hpPrinterLanguage: "pcl3gui"
+*hpPrinterPlatform: "dj970"
+*HPMechOffset: "70"
+*cupsModelName: "DESKJET 930"
+*1284DeviceID: "MFG:HP;MDL:officejet k60;DES:officejet k60;"
+*cupsVersion: 1.3
+*cupsModelNumber: 0
+*cupsManualCopies: True
+*cupsFilter: "application/vnd.cups-raster 0 hpcups"
+*UIConstraints: *Duplex *OptionDuplex False
+*UIConstraints: *OptionDuplex False *Duplex
+*UIConstraints: *MediaType Glossy *OutputMode DraftGray
+*UIConstraints: *OutputMode DraftGray *MediaType Glossy
+*UIConstraints: *MediaType Plain *OutputMode Photo
+*UIConstraints: *OutputMode Photo *MediaType Plain
+*UIConstraints: *PageSize Letter *Duplex
+*UIConstraints: *Duplex *PageSize Letter
+*UIConstraints: *PageSize A4 *Duplex
+*UIConstraints: *Duplex *PageSize A4
+*UIConstraints: *PageSize Legal *Duplex
+*UIConstraints: *Duplex *PageSize Legal
+*UIConstraints: *PageSize Photo4x6 *Duplex
+*UIConstraints: *Duplex *PageSize Photo4x6
+*UIConstraints: *PageSize Photo5x7 *Duplex
+*UIConstraints: *Duplex *PageSize Photo5x7
+*UIConstraints: *PageSize A5 *Duplex
+*UIConstraints: *Duplex *PageSize A5
+*UIConstraints: *PageSize A6 *Duplex
+*UIConstraints: *Duplex *PageSize A6
+*UIConstraints: *PageSize B5 *Duplex
+*UIConstraints: *Duplex *PageSize B5
+*UIConstraints: *PageSize Oufuku *Duplex
+*UIConstraints: *Duplex *PageSize Oufuku
+*UIConstraints: *PageSize Hagaki *Duplex
+*UIConstraints: *Duplex *PageSize Hagaki
+*UIConstraints: *PageSize Executive *Duplex
+*UIConstraints: *Duplex *PageSize Executive
+*UIConstraints: *PageSize FLSA *Duplex
+*UIConstraints: *Duplex *PageSize FLSA
+*UIConstraints: *PageSize ExecutiveJIS *Duplex
+*UIConstraints: *Duplex *PageSize ExecutiveJIS
+*UIConstraints: *PageSize 16k *Duplex
+*UIConstraints: *Duplex *PageSize 16k
+*UIConstraints: *PageSize Card3x5 *Duplex
+*UIConstraints: *Duplex *PageSize Card3x5
+*UIConstraints: *PageSize Card5x8 *Duplex
+*UIConstraints: *Duplex *PageSize Card5x8
+*UIConstraints: *PageSize Env10 *Duplex
+*UIConstraints: *Duplex *PageSize Env10
+*UIConstraints: *PageSize EnvA2 *Duplex
+*UIConstraints: *Duplex *PageSize EnvA2
+*UIConstraints: *PageSize EnvC6 *Duplex
+*UIConstraints: *Duplex *PageSize EnvC6
+*UIConstraints: *PageSize EnvDL *Duplex
+*UIConstraints: *Duplex *PageSize EnvDL
+*UIConstraints: *PageSize EnvC5 *Duplex
+*UIConstraints: *Duplex *PageSize EnvC5
+*UIConstraints: *PageSize EnvB5 *Duplex
+*UIConstraints: *Duplex *PageSize EnvB5
+*UIConstraints: *PageSize EnvChou3 *Duplex
+*UIConstraints: *Duplex *PageSize EnvChou3
+*UIConstraints: *PageSize EnvChou4 *Duplex
+*UIConstraints: *Duplex *PageSize EnvChou4
+*UIConstraints: *PageSize EnvMonarch *Duplex
+*UIConstraints: *Duplex *PageSize EnvMonarch
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize Card3x5/Index Card 3x5in: "<</cupsInteger0 78/PageSize [216 360]/ImagingBBox null>>setpagedevice"
+*PageSize Hagaki/Hagaki 100x148mm: "<</cupsInteger0 71/PageSize[284 420]/ImagingBBox null>>setpagedevice"
+*PageSize Hagaki.Duplex/Hagaki AutoDuplex 100x148mm: "<</cupsInteger0 71/PageSize[284 411]/ImagingBBox null>>setpagedevice"
+*PageSize Photo4x6/Photo 4x6in: "<</cupsInteger0 74/PageSize[288 432]/ImagingBBox null>>setpagedevice"
+*PageSize A6/A6 105x148mm: "<</cupsInteger0 73/PageSize[297.36 419.76]/ImagingBBox null>>setpagedevice"
+*PageSize A6.Duplex/A6 AutoDuplex 105x148mm: "<</cupsInteger0 73/PageSize[297 411]/ImagingBBox null>>setpagedevice"
+*PageSize Photo5x7/Photo 5x7in: "<</cupsInteger0 122/PageSize[360 504]/ImagingBBox null>>setpagedevice"
+*PageSize Card5x8/Index Card 5x8in: "<</cupsInteger0 75/PageSize[360 576]/ImagingBBox null>>setpagedevice"
+*PageSize Card5x8.Duplex/Index Card AutoDuplex 5x8in: "<</cupsInteger0 75/PageSize[360 567]/ImagingBBox null>>setpagedevice"
+*PageSize Oufuku/Oufuku-Hagaki 148x200mm: "<</cupsInteger0 72/PageSize[567 420]/ImagingBBox null>>setpagedevice"
+*PageSize Oufuku.Duplex/Oufuku-Hagaki AutoDuplex 148x200mm: "<</cupsInteger0 72/PageSize[567 411]/ImagingBBox null>>setpagedevice"
+*PageSize A5/A5 148x210mm: "<</cupsInteger0 25/PageSize[419.76 595.44]/ImagingBBox null>>setpagedevice"
+*PageSize A5.Duplex/A5 AutoDuplex 148x210mm: "<</cupsInteger0 25/PageSize[420 586]/ImagingBBox null>>setpagedevice"
+*PageSize B5/B5 176x250mm: "<</cupsInteger0 65/PageSize[498.96 708.48]/ImagingBBox null>>setpagedevice"
+*PageSize B5.Duplex/B5 AutoDuplex 176x250mm: "<</cupsInteger0 65/PageSize[499 699]/ImagingBBox null>>setpagedevice"
+*PageSize JB5/JB5 182x257mm: "<</cupsInteger0 45/PageSize[516.24 728.64]/ImagingBBox null>>setpagedevice"
+*PageSize JB5.Duplex/JB5 AutoDuplex 182x257mm: "<</cupsInteger0 45/PageSize[516 720]/ImagingBBox null>>setpagedevice"
+*PageSize Executive/Executive 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 756]/ImagingBBox null>>setpagedevice"
+*PageSize Executive.Duplex/Executive AutoDuplex 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 747]/ImagingBBox null>>setpagedevice"
+*PageSize 16k/16k 7.75x10.75in: "<</cupsInteger0 101/PageSize[558 774]/ImagingBBox null>>setpagedevice"
+*PageSize Letter/Letter 8.5x11in: "<</cupsInteger0 2/PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize Letter.Duplex/Letter AutoDuplex 8.5x11in: "<</cupsInteger0 2/PageSize[612 783]/ImagingBBox null>>setpagedevice"
+*PageSize A4/A4 210x297mm: "<</cupsInteger0 26/PageSize[595.44 841.68]/ImagingBBox null>>setpagedevice"
+*PageSize A4.Duplex/A4 AutoDuplex 210x297mm: "<</cupsInteger0 26/PageSize[595 833]/ImagingBBox null>>setpagedevice"
+*PageSize ExecutiveJIS/Executive (JIS) 8.5x12.986in: "<</cupsInteger0 101/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageSize FLSA/American Foolscap 8.5x13in: "<</cupsInteger0 101/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageSize Legal/Legal 8.5x14in: "<</cupsInteger0 3/PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageSize Legal.Duplex/Legal AutoDuplex 8.5x14in: "<</cupsInteger0 3/PageSize[612 999]/ImagingBBox null>>setpagedevice"
+*PageSize EnvA2/A2 Envelope 4.37x5.75in: "<</cupsInteger0 109/PageSize[314.64 414]/ImagingBBox null>>setpagedevice"
+*PageSize EnvC6/C6 Envelope 114x162mm: "<</cupsInteger0 92/PageSize[323.28 459.36]/ImagingBBox null>>setpagedevice"
+*PageSize EnvChou4/#4 Japanese Envelope 90x205mm: "<</cupsInteger0 111/PageSize[254.88 581.04]/ImagingBBox null>>setpagedevice"
+*PageSize EnvMonarch/Monarch Envelope 3.875x7.5in: "<</cupsInteger0 80/PageSize[279 540]/ImagingBBox null>>setpagedevice"
+*PageSize EnvDL/DL Envelope 110x220mm: "<</cupsInteger0 90/PageSize[311.76 623.52]/ImagingBBox null>>setpagedevice"
+*PageSize Env10/#10 Envelope 4.12x9.5in: "<</cupsInteger0 81/PageSize[297 684]/ImagingBBox null>>setpagedevice"
+*PageSize EnvChou3/#3 Japanese Envelope 120x235mm: "<</cupsInteger0 110/PageSize[339.84 666]/ImagingBBox null>>setpagedevice"
+*PageSize EnvC5/C5 Envelope 162x229mm: "<</cupsInteger0 91/PageSize[459 649]/ImagingBBox null>>setpagedevice"
+*PageSize EnvB5/B5 Envelope 176x250mm: "<</cupsInteger0 100/PageSize[499 709]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion Card3x5/Index Card 3x5in: "<</cupsInteger0 78/PageSize[216 360]/ImagingBBox null>>setpagedevice"
+*PageRegion Hagaki/Hagaki 100x148mm: "<</cupsInteger0 71/PageSize[284 420]/ImagingBBox null>>setpagedevice"
+*PageRegion Hagaki.Duplex/Hagaki AutoDuplex 100x148mm: "<</cupsInteger0 71/PageSize[284 411]/ImagingBBox null>>setpagedevice"
+*PageRegion Photo4x6/Photo 4x6in: "<</cupsInteger0 74/PageSize[288 432]/ImagingBBox null>>setpagedevice"
+*PageRegion A6/A6 105x148mm: "<</cupsInteger0 73/PageSize[297.36 419.76]/ImagingBBox null>>setpagedevice"
+*PageRegion A6.Duplex/A6 AutoDuplex 105x148mm: "<</cupsInteger0 73/PageSize[297 411]/ImagingBBox null>>setpagedevice"
+*PageRegion Photo5x7/Photo 5x7in: "<</cupsInteger0 122/PageSize[360 504]/ImagingBBox null>>setpagedevice"
+*PageRegion Card5x8/Index Card 5x8in: "<</cupsInteger0 75/PageSize[360 576]/ImagingBBox null>>setpagedevice"
+*PageRegion Card5x8.Duplex/Index Card AutoDuplex 5x8in: "<</cupsInteger0 75/PageSize[360 567]/ImagingBBox null>>setpagedevice"
+*PageRegion Oufuku/Oufuku-Hagaki 148x200mm: "<</cupsInteger0 72/PageSize[567 420]/ImagingBBox null>>setpagedevice"
+*PageRegion Oufuku.Duplex/Oufuku-Hagaki AutoDuplex 148x200mm: "<</cupsInteger0 72/PageSize[567 411]/ImagingBBox null>>setpagedevice"
+*PageRegion A5/A5 148x210mm: "<</cupsInteger0 25/PageSize[419.76 595.44]/ImagingBBox null>>setpagedevice"
+*PageRegion A5.Duplex/A5 AutoDuplex 148x210mm: "<</cupsInteger0 25/PageSize[420 586]/ImagingBBox null>>setpagedevice"
+*PageRegion B5/B5 176x250mm: "<</cupsInteger0 65/PageSize[498.96 708.48]/ImagingBBox null>>setpagedevice"
+*PageRegion B5.Duplex/B5 AutoDuplex 176x250mm: "<</cupsInteger0 65/PageSize[499 699]/ImagingBBox null>>setpagedevice"
+*PageRegion JB5/JB5 182x257mm: "<</cupsInteger0 45/PageSize [516.24 728.64]/ImagingBBox null>>setpagedevice"
+*PageRegion JB5.Duplex/JB5 AutoDuplex 182x257mm: "<</cupsInteger0 45/PageSize [516 720]/ImagingBBox null>>setpagedevice"
+*PageRegion Executive/Executive 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 756]/ImagingBBox null>>setpagedevice"
+*PageRegion Executive.Duplex/Executive AutoDuplex 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 747]/ImagingBBox null>>setpagedevice"
+*PageRegion 16k/16k 7.75x10.75in: "<</cupsInteger0 101/PageSize[558 774]/ImagingBBox null>>setpagedevice"
+*PageRegion Letter/Letter 8.5x11in: "<</cupsInteger0 2/PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion Letter.Duplex/Letter AutoDuplex 8.5x11in: "<</cupsInteger0 2/PageSize[612 783]/ImagingBBox null>>setpagedevice"
+*PageRegion A4/A4 210x297mm: "<</cupsInteger0 26/PageSize[595.44 841.68]/ImagingBBox null>>setpagedevice"
+*PageRegion A4.Duplex/A4 AutoDuplex 210x297mm: "<</cupsInteger0 26/PageSize[595 833]/ImagingBBox null>>setpagedevice"
+*PageRegion ExecutiveJIS/Executive (JIS) 8.5x12.986in: "<</cupsInteger0 101/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageRegion FLSA/American Foolscap 8.5x13in: "<</cupsInteger0 101/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal/Legal 8.5x14in: "<</cupsInteger0 3/PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal.Duplex/Legal AutoDuplex 8.5x14in: "<</cupsInteger0 3/PageSize[612 999]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvA2/A2 Envelope 4.37x5.75in: "<</cupsInteger0 109/PageSize[314.64 414]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvC6/C6 Envelope 114x162mm: "<</cupsInteger0 92/PageSize[323.28 459.36]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvChou4/#4 Japanese Envelope 90x205mm: "<</cupsInteger0 111/PageSize[254.88 581.04]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvMonarch/Monarch Envelope 3.875x7.5in: "<</cupsInteger0 80/PageSize[279 540]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvDL/DL Envelope 110x220mm: "<</cupsInteger0 90/PageSize[311.76 623.52]/ImagingBBox null>>setpagedevice"
+*PageRegion Env10/#10 Envelope 4.12x9.5in: "<</cupsInteger0 81/PageSize[297 684]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvChou3/#3 Japanese Envelope 120x235mm: "<</cupsInteger0 110/PageSize[339.84 666]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvC5/C5 Envelope 162x229mm: "<</cupsInteger0 91/PageSize[459 649]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvB5/B5 Envelope 176x250mm: "<</cupsInteger0 100/PageSize[499 709]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: Letter
+*ImageableArea Card3x5/Index Card 3x5in: "18.00 36.00 198.00 351.00"
+*ImageableArea Hagaki/Hagaki 100x148mm: "9.00 36.00 275.00 411.00"
+*ImageableArea Hagaki.Duplex/Hagaki AutoDuplex 100x148mm: "9.00 27.00 275.00 375.00"
+*ImageableArea Photo4x6/Photo 4x6in: "9.00 36.00 279.00 423.00"
+*ImageableArea A6/A6 105x148mm: "9.00 36.00 288.36 410.76"
+*ImageableArea A6.Duplex/A6 AutoDuplex 105x148mm: "9.00 36.00 288.00 375.00"
+*ImageableArea Photo5x7/Photo 5x7in: "9.00 36.00 351.00 495.00"
+*ImageableArea Card5x8/Index Card 5x8in: "18.00 36.00 342.00 567.00"
+*ImageableArea Card5x8.Duplex/Index Card AutoDuplex 5x8in: "9.00 27.00 351.00 531.00"
+*ImageableArea Oufuku/Oufuku-Hagaki 148x200mm: "18.00 36.00 549.00 411.00"
+*ImageableArea Oufuku.Duplex/Oufuku-Hagaki AutoDuplex 148x200mm: "9.00 27.00 558.00 375.00"
+*ImageableArea A5/A5 148x210mm: "9.00 36.00 410.76 586.44"
+*ImageableArea A5.Duplex/A5 AutoDuplex 148x210mm: "18.00 27.00 402.00 550.00"
+*ImageableArea B5/B5 176x250mm: "18.00 36.00 480.96 699.48"
+*ImageableArea B5.Duplex/B5 AutoDuplex 176x250mm: "18.00 27.00 481.00 663.00"
+*ImageableArea JB5/JB5 182x257mm: "18.00 36.00 498.24 719.64"
+*ImageableArea JB5.Duplex/JB5 AutoDuplex 182x257mm: "18.00 27.00 498.00 684.00"
+*ImageableArea Executive/Executive 7.25x10.5in: "18.00 36.00 504.00 747.00"
+*ImageableArea Executive.Duplex/Executive AutoDuplex 7.25x10.5in: "18.00 27.00 504.00 711.00"
+*ImageableArea 16k/16k 7.75x10.75in: "18.00 36.00 540.00 765.00"
+*ImageableArea Letter/Letter 8.5x11in: "18.00 36.00 594.00 783.00"
+*ImageableArea Letter.Duplex/Letter AutoDuplex 8.5x11in: "18.00 27.00 594.00 747.00"
+*ImageableArea A4/A4 210x297mm: "9.72 36.00 585.72 832.68"
+*ImageableArea A4.Duplex/A4 AutoDuplex 210x297mm: "9.72 27.00 585.28 797.00"
+*ImageableArea ExecutiveJIS/Executive (JIS) 8.5x12.986in: "18.00 36.00 594.00 927.00"
+*ImageableArea FLSA/American Foolscap 8.5x13in: "18.00 36.00 594.00 927.00"
+*ImageableArea Legal/Legal 8.5x14in: "18.00 36.00 594.00 999.00"
+*ImageableArea Legal.Duplex/Legal AutoDuplex 8.5x14in: "18.00 27.00 594.00 963.00"
+*ImageableArea EnvA2/A2 Envelope 4.37x5.75in: "9.00 42.00 305.64 405.00"
+*ImageableArea EnvC6/C6 Envelope 114x162mm: "18.00 36.00 305.28 450.36"
+*ImageableArea EnvChou4/#4 Japanese Envelope 90x205mm: "9.00 41.00 245.88 572.04"
+*ImageableArea EnvMonarch/Monarch Envelope 3.875x7.5in: "18.00 36.00 261.00 531.00"
+*ImageableArea EnvDL/DL Envelope 110x220mm: "18.00 36.00 293.76 614.52"
+*ImageableArea Env10/#10 Envelope 4.12x9.5in: "18.00 36.00 279.00 675.00"
+*ImageableArea EnvChou3/#3 Japanese Envelope 120x235mm: "9.00 41.00 330.84 657.00"
+*ImageableArea EnvC5/C5 Envelope 162x229mm: "18.00 36.00 441.00 640.00"
+*ImageableArea EnvB5/B5 Envelope 176x250mm: "18.00 36.00 481.00 700.00"
+*DefaultPaperDimension: Letter
+*PaperDimension Card3x5/Index Card 3x5in: "216.00 360.00"
+*PaperDimension Hagaki/Hagaki 100x148mm: "284.00 420.00"
+*PaperDimension Hagaki.Duplex/Hagaki AutoDuplex 100x148mm: "284.00 411.00"
+*PaperDimension Photo4x6/Photo 4x6in: "288.00 432.00"
+*PaperDimension A6/A6 105x148mm: "297.36 419.76"
+*PaperDimension A6.Duplex/A6 AutoDuplex 105x148mm: "297.00 411.00"
+*PaperDimension Photo5x7/Photo 5x7in: "360.00 504.00"
+*PaperDimension Card5x8/Index Card 5x8in: "360.00 576.00"
+*PaperDimension Card5x8.Duplex/Index Card AutoDuplex 5x8in: "360.00 567.00"
+*PaperDimension Oufuku/Oufuku-Hagaki 148x200mm: "567.00 420.00"
+*PaperDimension Oufuku.Duplex/Oufuku-Hagaki AutoDuplex 148x200mm: "567.00 411.00"
+*PaperDimension A5/A5 148x210mm: "419.76 595.44"
+*PaperDimension A5.Duplex/A5 AutoDuplex 148x210mm: "420.00 586.00"
+*PaperDimension B5/B5 176x250mm: "498.96 708.48"
+*PaperDimension B5.Duplex/B5 AutoDuplex 176x250mm: "499.00 699.00"
+*PaperDimension JB5/JB5 182x257mm: "516.24 728.64"
+*PaperDimension JB5.Duplex/JB5 AutoDuplex 182x257mm: "516.00 720.00"
+*PaperDimension Executive/Executive 7.25x10.5in: "522.00 756.00"
+*PaperDimension Executive.Duplex/Executive AutoDuplex 7.25x10.5in: "522.00 747.00"
+*PaperDimension 16k/16k 7.75x10.75in: "558.00 774.00"
+*PaperDimension Letter/Letter 8.5x11in: "612.00 792.00"
+*PaperDimension Letter.Duplex/Letter AutoDuplex 8.5x11in: "612.00 783.00"
+*PaperDimension A4/A4 210x297mm: "595.44 841.68"
+*PaperDimension A4.Duplex/A4 AutoDuplex 210x297mm: "595.00 833.00"
+*PaperDimension ExecutiveJIS/Executive (JIS) 8.5x12.986in: "612.00 936.00"
+*PaperDimension FLSA/American Foolscap 8.5x13in: "612.00 936.00"
+*PaperDimension Legal/Legal 8.5x14in: "612.00 1008.00"
+*PaperDimension Legal.Duplex/Legal AutoDuplex 8.5x14in: "612.00 999.00"
+*PaperDimension EnvA2/A2 Envelope 4.37x5.75in: "314.64 414.00"
+*PaperDimension EnvC6/C6 Envelope 114x162mm: "323.28 459.36"
+*PaperDimension EnvChou4/#4 Japanese Envelope 90x205mm: "254.88 581.04"
+*PaperDimension EnvMonarch/Monarch Envelope 3.875x7.5in: "279.00 540.00"
+*PaperDimension EnvDL/DL Envelope 110x220mm: "311.76 623.52"
+*PaperDimension Env10/#10 Envelope 4.12x9.5in: "297.00 684.00"
+*PaperDimension EnvChou3/#3 Japanese Envelope 120x235mm: "339.84 666.00"
+*PaperDimension EnvC5/C5 Envelope 162x229mm: "459.00 649.00"
+*PaperDimension EnvB5/B5 Envelope 176x250mm: "499.00 709.00"
+*MaxMediaWidth: "612.00"
+*MaxMediaHeight: "1008.00"
+*HWMargins: 18.00 36.00 18.00 36.00
+*CustomPageSize True: "pop pop pop <</PageSize[5 -2 roll]/ImagingBBox null>>setpagedevice"
+*ParamCustomPageSize Width: 1 points 72.00 612.00
+*ParamCustomPageSize Height: 2 points 288.00 1008.00
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 0
+*RequiresPageRegion All: True
+*OpenUI *Duplex/Double-Sided Printing: PickOne
+*OrderDependency: 10.0 AnySetup *Duplex
+*DefaultDuplex: None
+*Duplex DuplexNoTumble/Long Edge (Standard): "<</Duplex true/Tumble false>>setpagedevice"
+*Duplex DuplexTumble/Short Edge (Flip): "<</Duplex true/Tumble true>>setpagedevice"
+*Duplex None/Off: "<</Duplex false/Tumble false>>setpagedevice"
+*CloseUI: *Duplex
+*OpenUI *InputSlot/Media Source: PickOne
+*OrderDependency: 10.0 AnySetup *InputSlot
+*DefaultInputSlot: Auto
+*InputSlot Auto/Auto-Select: "<</MediaPosition 7>>setpagedevice"
+*InputSlot PhotoTray/Photo Tray: "<</MediaPosition 6>>setpagedevice"
+*InputSlot Upper/Upper Tray: "<</MediaPosition 1>>setpagedevice"
+*InputSlot Lower/Lower Tray: "<</MediaPosition 4>>setpagedevice"
+*InputSlot Envelope/Envelope Feeder: "<</MediaPosition 3>>setpagedevice"
+*InputSlot LargeCapacity/Large Capacity Tray: "<</MediaPosition 5>>setpagedevice"
+*InputSlot Manual/Manual Feeder: "<</MediaPosition 2>>setpagedevice"
+*InputSlot MPTray/Multi Purpose Tray: "<</MediaPosition 1>>setpagedevice"
+*CloseUI: *InputSlot
+*OpenUI *MediaType/Media Type: PickOne
+*OrderDependency: 10.0 AnySetup *MediaType
+*DefaultMediaType: Plain
+*MediaType Plain/Plain Paper: "<</MediaType(Plain)/cupsMediaType 0>>setpagedevice"
+*MediaType Glossy/Photo Paper: "<</MediaType(Glossy)/cupsMediaType 3>>setpagedevice"
+*CloseUI: *MediaType
+*OpenUI *OutputMode/Print Quality: PickOne
+*OrderDependency: 10.0 AnySetup *OutputMode
+*DefaultOutputMode: NormalRGB
+*OutputMode NormalRGB/Normal Color: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 0/OutputType(0)/cupsString0(PlainNormalColor)/HWResolution[300 300]>>setpagedevice"
+*OutputMode NormalGray/Normal Grayscale: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 2/OutputType(0)/cupsString0(PlainNormalGrayK)/HWResolution[600 600]>>setpagedevice"
+*OutputMode DraftRGB/Draft Color: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 0/OutputType(-1)/cupsString0(PlainDraftColor)/HWResolution[300 300]>>setpagedevice"
+*OutputMode DraftGray/Draft Grayscale: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 2/OutputType(-1)/cupsString0(PlainDraftGrayK)/HWResolution[300 300]>>setpagedevice"
+*OutputMode BestRGB/Best Color: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 0/OutputType(1)/cupsString0(PlainBestColor)/HWResolution[600 600]>>setpagedevice"
+*OutputMode Photo/High-Resolution Photo: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsRowStep 0/OutputType(2)/cupsString0(PhotoMaxDpiColor)/HWResolution[1200 1200]>>setpagedevice"
+*CloseUI: *OutputMode
+*OpenGroup: InstallableOptions/Installable Options
+*OpenUI *OptionDuplex/Duplexer Installed: Boolean
+*OrderDependency: 10.0 AnySetup *OptionDuplex
+*DefaultOptionDuplex: False
+*OptionDuplex False/Not Installed: ""
+*OptionDuplex True/Installed: ""
+*CloseUI: *OptionDuplex
+*CloseGroup: InstallableOptions
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(1.05)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(1.05)" Standard ROM
+*Font AvantGarde-Demi: Standard "(1.05)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(1.05)" Standard ROM
+*Font Bookman-Demi: Standard "(1.05)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(1.05)" Standard ROM
+*Font Bookman-Light: Standard "(1.05)" Standard ROM
+*Font Bookman-LightItalic: Standard "(1.05)" Standard ROM
+*Font Courier: Standard "(1.05)" Standard ROM
+*Font Courier-Bold: Standard "(1.05)" Standard ROM
+*Font Courier-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Courier-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica: Standard "(1.05)" Standard ROM
+*Font Helvetica-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Oblique: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(1.05)" Standard ROM
+*Font Palatino-Bold: Standard "(1.05)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Palatino-Italic: Standard "(1.05)" Standard ROM
+*Font Palatino-Roman: Standard "(1.05)" Standard ROM
+*Font Symbol: Special "(001.005)" Special ROM
+*Font Times-Bold: Standard "(1.05)" Standard ROM
+*Font Times-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Times-Italic: Standard "(1.05)" Standard ROM
+*Font Times-Roman: Standard "(1.05)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(1.05)" Standard ROM
+*Font ZapfDingbats: Special "(001.005)" Special ROM
+*% End of hp-officejet_k60.ppd, 22734 bytes.

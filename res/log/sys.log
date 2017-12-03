@@ -1,0 +1,9 @@
+***** Log Name: Project(09001) 
+***** Log Time: 2017-8-25 2:4:42
+
+software work in trolley mode.
+software is config to chinese language of emperor.
+main: Sytem init!
+main: Run gui, create main view!
+main: Probe init!
+main: Start up DSC thread!

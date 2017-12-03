@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo insmod ./accessories/firmware/osrfx2.ko
+#sudo fxload -t fx2 -D $1  -I ./accessories/firmware/gpiflongxfr.hex
+sudo fxload -t fx2 -D /dev/cy7c68013  -I ./accessories/firmware/gpiflongxfr.hex

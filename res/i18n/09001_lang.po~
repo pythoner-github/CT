@@ -1,0 +1,11395 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-13 21:53-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "LOW"
+msgstr "低"
+
+msgid "MID"
+msgstr "中"
+
+msgid "HIGH"
+msgstr "高"
+
+msgid "Power OFF?"
+msgstr "关机?"
+
+msgid "Are you sure you want to close the program and shut down the computer?"
+msgstr "您确定要关闭程序并关闭计算机?"
+
+msgid "Scan Angle"
+msgstr "扫描角度"
+
+msgid "Freq"
+msgstr "频率"
+
+msgid "Freq."
+msgstr "频率"
+
+msgid "Dynamic Range"
+msgstr "动态范围"
+
+msgid "Line Density"
+msgstr "线密度"
+
+msgid "THI"
+msgstr "谐波"
+
+msgid "TSI"
+msgstr "组织特征成像"
+
+msgid "AGC"
+msgstr "自动增益"
+
+msgid "MBP"
+msgstr "多波束"
+
+msgid "Pwr"
+msgstr "声功率"
+
+msgid "Sound Power"
+msgstr "声功率"
+
+msgid "Edge"
+msgstr "边缘增强"
+
+msgid "Steer"
+msgstr "偏转"
+
+msgid "Scale"
+msgstr "量程"
+
+msgid "Baseline"
+msgstr "基线"
+
+msgid "Wall Filter"
+msgstr "壁滤波"
+
+msgid "Sensitive"
+msgstr "灵敏度"
+
+msgid "Doppler Freq."
+msgstr "多普勒频率"
+
+msgid "CFM Map"
+msgstr "CFM 图谱"
+
+msgid "Simult"
+msgstr "同步"
+
+msgid "Turbo"
+msgstr "湍流"
+
+msgid "SV Length"
+msgstr "取样容积宽度"
+
+msgid "Angle"
+msgstr "角度"
+
+msgid "PW Map"
+msgstr "PW 图谱"
+
+msgid "HPRF"
+msgstr "高脉冲重复频率"
+
+msgid "Replay"
+msgstr "回放"
+
+msgid "Trim Left"
+msgstr "帧开始"
+
+msgid "Trim Right"
+msgstr "帧结束"
+
+msgid "Save Cine"
+msgstr "保存录像"
+
+msgid "Rotate"
+msgstr "旋转"
+
+msgid ""
+"Rotate\n"
+"0"
+msgstr "旋转0"
+
+msgid ""
+"Rotate\n"
+"90"
+msgstr "旋转90"
+
+msgid ""
+"Rotate\n"
+"180"
+msgstr "旋转180"
+
+msgid ""
+"Rotate\n"
+"270"
+msgstr "旋转270"
+
+msgid "Frame aver."
+msgstr "帧相关"
+
+msgid "Line aver."
+msgstr "线相关"
+
+msgid "Smooth"
+msgstr "平滑"
+
+msgid "Gamma"
+msgstr "伽玛校正"
+
+msgid "Chroma"
+msgstr "伪彩"
+
+msgid "Polarity"
+msgstr "极性翻转"
+
+msgid "Noise Reject"
+msgstr "噪声抑制"
+
+msgid "Noise Reject."
+msgstr "噪声抑制"
+
+msgid "Gray Trans."
+msgstr "灰阶变换"
+
+msgid "Gray Rejection"
+msgstr "灰阶抑制"
+
+msgid "Global Zoom"
+msgstr "全局放大"
+
+msgid "Picture In Picture"
+msgstr "画中画"
+
+msgid "ePure"
+msgstr "ePure"
+
+msgid "ePure:"
+msgstr "ePure"
+
+msgid "Main Menu"
+msgstr "主菜单"
+
+msgid "Sub Menu"
+msgstr "子菜单"
+
+msgid "2D Mode"
+msgstr "2D模式"
+
+msgid "M Mode"
+msgstr "M模式"
+
+msgid "PW Mode"
+msgstr "PW模式"
+
+msgid "CW Mode"
+msgstr "CW模式"
+
+msgid "CFM/PDI Mode"
+msgstr "CFM/PDI模式"
+
+msgid "Color Mode"
+msgstr "彩色模式"
+
+msgid "PW Color Mode"
+msgstr "PW彩色模式"
+
+msgid "Color PW Mode"
+msgstr "彩色PW模式"
+
+msgid "Note Menu"
+msgstr "注释菜单"
+
+msgid "System Setting"
+msgstr "系统设置"
+
+msgid ""
+"System Setting\n"
+"\n"
+"Biopsy Setting"
+msgstr ""
+"系统设置\n"
+"\n"
+"穿刺线设置"
+
+msgid "Measure Menu"
+msgstr "测量菜单"
+
+msgid "BodyMark Menu"
+msgstr "体标菜单"
+
+msgid "Review Menu"
+msgstr "回放菜单"
+
+msgid "Calculate Menu"
+msgstr "计算菜单"
+
+msgid "ABD"
+msgstr "腹部"
+
+msgid "OB"
+msgstr "产科"
+
+msgid "GYN"
+msgstr "妇科"
+
+msgid "UR"
+msgstr "泌尿科"
+
+msgid "CAR"
+msgstr "心脏科"
+
+msgid "VES"
+msgstr "血管"
+
+msgid "ORT"
+msgstr "矫形外科"
+
+msgid "EXTRA"
+msgstr "其他"
+
+msgid "Abdominal"
+msgstr "腹部"
+
+msgid "Urology"
+msgstr "泌尿科"
+
+msgid "Adult Echo"
+msgstr "成人心脏"
+
+msgid "Obstetrics"
+msgstr "产科"
+
+msgid "Obstetrics-Dog"
+msgstr "产科-狗"
+
+msgid "Obstetrics-Cat"
+msgstr "产科-猫"
+
+msgid "Obstetrics-Sheep"
+msgstr "产科-羊"
+
+msgid "Obstetrics-Swine"
+msgstr "产科-猪"
+
+msgid "Obstetrics-Bovine"
+msgstr "产科-牛"
+
+msgid "Obstetrics-Equine"
+msgstr "产科-马"
+
+msgid "SP"
+msgstr "小器官"
+
+msgid "Vascular"
+msgstr "血管"
+
+msgid "Fetal Cardio"
+msgstr "胎儿心脏"
+
+msgid "TCD"
+msgstr "经颅多普勒"
+
+msgid "General"
+msgstr "常规"
+
+msgid "Heart Rate"
+msgstr "心率"
+
+msgid "Thyroid"
+msgstr "甲状腺"
+
+msgid "Eye Ball"
+msgstr "眼球"
+
+msgid "Carotid"
+msgstr "颈动脉"
+
+msgid "LE Art"
+msgstr "下肢"
+
+msgid "UE Art"
+msgstr "上肢"
+
+msgid "Threshold"
+msgstr "阈值"
+
+msgid "Persist"
+msgstr "彩色余辉"
+
+msgid "artifact"
+msgstr "彩色伪差去除"
+
+msgid "Color Hide"
+msgstr "彩色隐藏"
+
+msgid "Background Hide"
+msgstr "背景隐藏"
+
+msgid ""
+"Background\n"
+"Hide"
+msgstr "背景隐藏"
+
+msgid "B/C"
+msgstr "B/C同宽"
+
+msgid "2D+2D/Color"
+msgstr "2D+2D/彩色比较模式"
+
+msgid "Direction PDI"
+msgstr "方向能量图"
+
+msgid "Scale Unit"
+msgstr "标尺单位"
+
+msgid "cm/s"
+msgstr "cm/s"
+
+msgid "kHz"
+msgstr "KHz"
+
+msgid "2D Post-process"
+msgstr "2D 后处理"
+
+msgid "M Post-process"
+msgstr "M 后处理"
+
+msgid "PW Post-process"
+msgstr "PW 后处理"
+
+msgid "CW Post-process"
+msgstr "CW 后处理"
+
+msgid "CFM Post-process"
+msgstr "CFM 后处理"
+
+msgid "PDI Post-process"
+msgstr "PDI 后处理"
+
+msgid "Note"
+msgstr "注释"
+
+msgid "Arrow"
+msgstr "箭头"
+
+msgid "Body Mark"
+msgstr "体标"
+
+msgid "Measure"
+msgstr "测量"
+
+msgid "Review"
+msgstr "回放"
+
+msgid "Calculate"
+msgstr "计算"
+
+msgid "Custom Calc"
+msgstr "自定义计算"
+
+msgid "Enhance M"
+msgstr "增强M型"
+
+msgid "Time Mark"
+msgstr "时间刻度"
+
+msgid "Display Format"
+msgstr "显示格式"
+
+msgid "Dist-2Point"
+msgstr "距离-2点法"
+
+msgid "Dist-2Line"
+msgstr "距离-2线法"
+
+msgid "Distance"
+msgstr "距离"
+
+msgid "Area"
+msgstr "面积"
+
+msgid "Depth"
+msgstr "深度"
+
+msgid "Time"
+msgstr "时间"
+
+msgid "Slope"
+msgstr "斜率"
+
+msgid "Velocity"
+msgstr "速度"
+
+msgid "Slope(M)"
+msgstr "斜率(M)"
+
+msgid "Velocity(D)"
+msgstr "速度(D)"
+
+msgid "Velocity(M)"
+msgstr "速度(M)"
+
+msgid "Auto Trace"
+msgstr "自动描迹"
+
+msgid "Auto Trace(D)"
+msgstr "自动描迹(D)"
+
+msgid "Trace(D)"
+msgstr "描迹(D)"
+
+msgid "Manual Trace"
+msgstr "手动描迹"
+
+msgid "RI(D)"
+msgstr "阻力指数(D)"
+
+msgid "PS / ED(D)"
+msgstr "PS／ED比值(D)"
+
+msgid "RI"
+msgstr "阻力指数"
+
+msgid "PS / ED"
+msgstr "PS／ED比值"
+
+msgid "Accelerate"
+msgstr "加速度"
+
+msgid "PI"
+msgstr "博动指数"
+
+msgid "PI(D)"
+msgstr "博动指数(D)"
+
+msgid "HR"
+msgstr "心率"
+
+msgid "HR(M)"
+msgstr "心率(M)"
+
+msgid "PG Max"
+msgstr "最大压力阶差"
+
+msgid "PG Max(D)"
+msgstr "最大压力阶差(D)"
+
+msgid "PG Mean"
+msgstr "平均压力阶差"
+
+msgid "Distance Angusty"
+msgstr "距离狭窄比"
+
+msgid "Distance Ratio"
+msgstr "距离比率"
+
+msgid "Area Angusty"
+msgstr "面积狭窄比"
+
+msgid "Area Ratio"
+msgstr "面积比率"
+
+msgid "Dist Peri Ratio"
+msgstr "距离周长比"
+
+msgid "Volume Ratio"
+msgstr "体积比率"
+
+msgid "Angle Ratio"
+msgstr "角度比率"
+
+msgid "EF"
+msgstr "射血分数"
+
+msgid "EF(M)"
+msgstr "射血分数(M)"
+
+msgid "Profile"
+msgstr "断面图"
+
+msgid "Histogram"
+msgstr "直方图"
+
+msgid "Time Resolution"
+msgstr "时间分辨率"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Mean"
+msgstr "平均"
+
+msgid "Scatter"
+msgstr "最大散射值"
+
+msgid "above"
+msgstr "上方"
+
+msgid "below"
+msgstr "下方"
+
+msgid "both"
+msgstr "两侧"
+
+msgid "high"
+msgstr "高"
+
+msgid "medium"
+msgstr "中"
+
+msgid "low"
+msgstr "低"
+
+msgid "HIGH-Q illustrate"
+msgstr "自动测量"
+
+msgid "adjust"
+msgstr "修改"
+
+msgid "Fast Angle"
+msgstr "快速角度调节"
+
+msgid "Trace-Type"
+msgstr "描迹类型"
+
+msgid "Trace-Direction"
+msgstr "描迹方向"
+
+msgid "Trace-Threshold"
+msgstr "描迹阈值"
+
+msgid "Trace-Smooth"
+msgstr "描迹平滑"
+
+msgid "Trace Threshold"
+msgstr "描迹阈值"
+
+msgid "Trace Smooth"
+msgstr "描迹平滑"
+
+msgid "Show Cine"
+msgstr "显示录像"
+
+msgid "Show Snap"
+msgstr "显示图像"
+
+msgid "Send"
+msgstr "发送"
+
+msgid "Select All"
+msgstr "全选"
+
+msgid "Deselect"
+msgstr "取消选择"
+
+msgid "No Image to play."
+msgstr "无图像进行播放"
+
+msgid "GenArrow"
+msgstr "常规箭头"
+
+msgid "Hand"
+msgstr "手型"
+
+msgid "SolidArrow"
+msgstr "实心箭头"
+
+msgid "Shape"
+msgstr "形状"
+
+#, c-format
+msgid "Sun."
+msgstr "星期日"
+
+#, c-format
+msgid "Mon."
+msgstr "星期一"
+
+#, c-format
+msgid "Tues."
+msgstr "星期二"
+
+#, c-format
+msgid "Wed."
+msgstr "星期三"
+
+#, c-format
+msgid "Thur."
+msgstr "星期四"
+
+#, c-format
+msgid "Fri."
+msgstr "星期五"
+
+#, c-format
+msgid "Sat."
+msgstr "星期六"
+
+msgid "OFF"
+msgstr "关"
+
+msgid "ON"
+msgstr "开"
+
+msgid "ON: 0"
+msgstr "开: 0"
+
+msgid "ON: 1"
+msgstr "开: 1"
+
+msgid "ON: 2"
+msgstr "开: 2"
+
+msgid "OFF: 0"
+msgstr "关: 0"
+
+msgid "OFF: 1"
+msgstr "关: 1"
+
+msgid "OFF: 2"
+msgstr "关: 2"
+
+msgid "Routine"
+msgstr "常规"
+
+msgid "Muscle"
+msgstr "肌肉"
+
+msgid "Liquid"
+msgstr "液性"
+
+msgid "Fat"
+msgstr "脂肪"
+
+msgid "Upgrading, please wait..."
+msgstr "升级中,请稍候..."
+
+msgid "Sure to upgrade?"
+msgstr "确认升级?"
+
+msgid "Upgrade success!"
+msgstr "升级成功!"
+
+msgid "Upgrade failed: USB device not found!"
+msgstr "升级失败: USB设备不存在!"
+
+msgid "Upgrade failed: Cannot mount USB device!"
+msgstr "升级失败: 无法挂载USB设备!"
+
+msgid "Upgrade failed: Cannot copy upgrade file!"
+msgstr "升级失败: 无法拷贝升级文件!"
+
+msgid "Upgrade failed: Upgrade file not found!"
+msgstr "升级失败: 升级文件不存在!"
+
+msgid "Upgrade failed: Dest directory not found!"
+msgstr "升级失败: 目标目录不存在!"
+
+msgid "Upgrade failed!"
+msgstr "升级失败!"
+
+msgid "<b>Disk Info</b>"
+msgstr "<b>磁盘信息</b>"
+
+msgid "Local Disk"
+msgstr "本机磁盘"
+
+msgid "USB Storage"
+msgstr "USB存储设备"
+
+msgid "CD/DVD"
+msgstr "CD/DVD"
+
+msgid "Free Space:"
+msgstr "剩余可用空间:"
+
+msgid "Total Space:"
+msgstr "总空间:"
+
+msgid "Date Start:"
+msgstr "起始日期:"
+
+msgid "Date End:"
+msgstr "结束日期:"
+
+msgid "Clear"
+msgstr "清空"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "<b>Search</b>"
+msgstr "<b>搜索</b>"
+
+msgid "<b>Quick Search</b>"
+msgstr "<b>快速搜索</b>"
+
+msgid "Select Method:"
+msgstr "选择方法:"
+
+msgid "Details"
+msgstr "详细资料"
+
+msgid "Show All"
+msgstr "全部"
+
+msgid "Show Today"
+msgstr "今天"
+
+msgid "Show Latest Three Days"
+msgstr "最近三天"
+
+msgid "Show Latest Week"
+msgstr "最近一周"
+
+msgid "Show Latest Month"
+msgstr "最近一个月"
+
+msgid "Export Data"
+msgstr "导出数据"
+
+msgid "Exit"
+msgstr "退出"
+
+msgid "Exam Date"
+msgstr "检查日期"
+
+msgid "Doctor"
+msgstr "医生"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Burn"
+msgstr "刻录"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Burn CD/DVD"
+msgstr "刻录光盘"
+
+msgid "Export to CD/DVD"
+msgstr "导出到光盘"
+
+msgid "Export to USB"
+msgstr "导出到USB"
+
+msgid "Available:"
+msgstr "可用:"
+
+msgid "Estimated:"
+msgstr "预计使用:"
+
+msgid "Remain:"
+msgstr "剩余:"
+
+msgid "Erase"
+msgstr "擦除"
+
+msgid "Ready!"
+msgstr "就绪!"
+
+msgid "Getting the media info, Please wait..."
+msgstr "正在获取光盘信息，请稍候..."
+
+msgid "Getting the USB info, Please wait..."
+msgstr "正在获取U盘信息，请稍候..."
+
+msgid "Please insert disc!"
+msgstr "请放入光盘!"
+
+msgid "Please insert one USB!"
+msgstr "请插入U盘!"
+
+msgid "Beyond the available capacity of the disc!"
+msgstr "超出了光盘可用容量!"
+
+msgid "Beyond the available capacity of the USB!"
+msgstr "超出了U盘可用容量!"
+
+msgid ""
+"No any files selected!\n"
+"Please select files to backup first."
+msgstr ""
+"未选择任何文件!\n"
+"请先选择需要备份的文件."
+
+msgid ""
+"No any files selected!\n"
+"Please select files to export first."
+msgstr ""
+"未选择任何文件!\n"
+"请先选择需要导出的文件."
+
+msgid "Failed to prepare data!"
+msgstr "准备刻录数据失败!"
+
+msgid "No enough space!"
+msgstr "空间不足!"
+
+msgid ""
+"Failed to get media information!\n"
+"Please check the media correct."
+msgstr ""
+"获取光盘信息失败!\n"
+"请检查光盘是否正确."
+
+msgid "Ready to burn, please wait..."
+msgstr "准备刻录, 请等待..."
+
+msgid "Making ISO image, please wait..."
+msgstr "正在制作镜像, 请稍候..."
+
+msgid "Failed to make ISO image!"
+msgstr "制作ISO镜像失败!"
+
+msgid "Burning, please wait..."
+msgstr "正在烧录光盘, 请稍候..."
+
+msgid "Failed to burn!"
+msgstr "烧录光盘失败!"
+
+msgid "The media type is not supported!"
+msgstr "光盘类型不支持!"
+
+msgid "Finished!"
+msgstr "烧录完成!"
+
+msgid "/"
+msgstr "/"
+
+msgid "Patient ID:"
+msgstr "患者ID:"
+
+msgid "Gender:"
+msgstr "性别:"
+
+#, c-format
+msgid "Male"
+msgstr "男"
+
+#, c-format
+msgid "Female"
+msgstr "女"
+
+#, c-format
+msgid "Other"
+msgstr "其他"
+
+msgid "Y"
+msgstr "岁"
+
+msgid "M"
+msgstr "月"
+
+msgid "D"
+msgstr "天"
+
+msgid " Y"
+msgstr "年"
+
+msgid " M"
+msgstr "月"
+
+msgid " D"
+msgstr "日"
+
+msgid "First Name:"
+msgstr "名:"
+
+msgid "Age:"
+msgstr "年龄:"
+
+msgid "Last Name:"
+msgstr "姓:"
+
+msgid "General Information"
+msgstr "常规信息"
+
+msgid "Patient Information"
+msgstr "患者信息"
+
+msgid "CARD"
+msgstr "心脏科"
+
+msgid "URO"
+msgstr "泌尿科"
+
+msgid "Comment:"
+msgstr "备注:"
+
+msgid "Accession #:"
+msgstr "存取号:"
+
+msgid "Diagnostician:"
+msgstr "诊断医生:"
+
+msgid "Physician:"
+msgstr "主治医生:"
+
+msgid "Pause Exam"
+msgstr "候诊"
+
+msgid "End Exam"
+msgstr "结束检查"
+
+msgid "End Exam?"
+msgstr "结束检查?"
+
+msgid "Hide BodyMark"
+msgstr "隐藏体标"
+
+msgid "Hide"
+msgstr "隐藏"
+
+msgid "BodyMark Size"
+msgstr "体标大小"
+
+msgid "ProbeMark Color"
+msgstr "探头标记颜色"
+
+msgid "Arrow Shape"
+msgstr "箭头形状"
+
+msgid "Arrow Size"
+msgstr "箭头大小"
+
+msgid "Arrow Color"
+msgstr "箭头颜色"
+
+msgid "Small"
+msgstr "小"
+
+msgid "Mid"
+msgstr "中"
+
+msgid "Big"
+msgstr "大"
+
+msgid "White"
+msgstr "白"
+
+msgid "Gray"
+msgstr "灰"
+
+msgid "Red"
+msgstr "红"
+
+msgid "Green"
+msgstr "绿"
+
+msgid "Yellow"
+msgstr "黄"
+
+msgid "Blue"
+msgstr "蓝"
+
+msgid "[BodyMark]: Invalid when bodymark is off."
+msgstr "[体标]: 体标关闭时无法操作."
+
+msgid "[Calc]: Calculation selected is invalid in current mode."
+msgstr "[计算]: 所选计算项在当前模式下无效."
+
+msgid "Cardio"
+msgstr "心脏科"
+
+msgid "Small Part"
+msgstr "小器官"
+
+msgid "Orthopedics"
+msgstr "矫形外科"
+
+msgid "<b>Descriptor:</b>"
+msgstr "<b>超声所见:</b>"
+
+msgid "<b>Comments:</b>"
+msgstr "<b>诊断意见:</b>"
+
+msgid "Insert"
+msgstr "插入"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Paste"
+msgstr "粘贴"
+
+msgid "Edit Templet"
+msgstr "编辑模板"
+
+msgid "Transfer"
+msgstr "调用"
+
+msgid "Save Templet"
+msgstr "保存模板"
+
+# msgid "Default Factory"
+# msgstr "恢复出厂值"
+msgid "Return"
+msgstr "返回"
+
+msgid "Database error!"
+msgstr "数据库错误!"
+
+msgid "New Item"
+msgstr "新增结点"
+
+msgid "Please select the father node before insert!"
+msgstr "请先选择待插入结点的父结点!"
+
+msgid "Please rename the New Item!"
+msgstr "请重命名新增结点!"
+
+msgid "Insert failure! Already the leaf node!"
+msgstr "插入失败! 已经到达末结点!"
+
+msgid "Please select one node to be save!"
+msgstr "请先选择待保存的结点!"
+
+msgid "Delete failure! Can not delete the root!"
+msgstr "删除失败! 无法删除根结点!"
+
+msgid "Please select one node to be copy!"
+msgstr "请先选择待复制的结点!"
+
+msgid "Copy failure! Can not copy the root!"
+msgstr "复制失败! 无法复制根结点!"
+
+msgid "Please select one node to be paste!"
+msgstr "请先选择待粘贴的结点!"
+
+msgid "Can not paste it!"
+msgstr "所选结点无法进行粘贴!"
+
+msgid "Can not paste it in the same parent!"
+msgstr "无法在同一个父节点下粘贴!"
+
+msgid "Save failure! Please select leaf node!"
+msgstr "保存失败! 请选择末节点!"
+
+msgid "The indication is too long!"
+msgstr "超声所见超出字数范围限制!"
+
+msgid "The comments are too long!"
+msgstr "诊断意见超出字数范围限制!"
+
+msgid "Default Factory will remove all the users modified data!"
+msgstr "恢复出厂设置将删除所有用户修改的数据!"
+
+msgid "Node name can not be null!"
+msgstr "结点名称不能为空!"
+
+msgid "Can not rename the root!"
+msgstr "无法重命名根结点!"
+
+msgid "Rename failed! The node has been exist!"
+msgstr "重命名失败! 该结点已存在!"
+
+msgid "Recovery failed!"
+msgstr "恢复失败!"
+
+msgid "Recovery succeed! Restart request!"
+msgstr "恢复成功! 重启后生效!"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Color"
+msgstr "颜色"
+
+msgid "Simple Arrow"
+msgstr "普通箭头"
+
+msgid "Hollow Arrow"
+msgstr "空心箭头"
+
+msgid "Low"
+msgstr "低"
+
+msgid "High"
+msgstr "高"
+
+msgid "Report"
+msgstr "报告"
+
+msgid ""
+"Add\n"
+"Image"
+msgstr "添加图像"
+
+msgid ""
+"Edit\n"
+"Report"
+msgstr "编辑报告"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "Hospital:"
+msgstr "医院:"
+
+msgid "Name:"
+msgstr "姓名:"
+
+msgid "Exam ID:"
+msgstr "超声号:"
+
+msgid "Exam Type:"
+msgstr "检查项目:"
+
+msgid "Exam Date:"
+msgstr "检查日期:"
+
+msgid "Select Image(Maximum of 2)"
+msgstr "选择图像(最多两幅)"
+
+msgid "OK"
+msgstr "确认"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Edit Report"
+msgstr "编辑报告"
+
+msgid "Transfer templet"
+msgstr "调用模板"
+
+msgid "<i><b>Growth Curve</b></i>"
+msgstr "<i><b>生长曲线</b></i>"
+
+msgid "<i><b>Fetal Biophysical Profile</b></i>"
+msgstr "<i><b>胎儿生理评分</b></i>"
+
+msgid "Single Explain:    2-point:Normal  1-point:Slight Abnormal  0-point:Obvious Abnormal"
+msgstr "单项评分说明:    2分: 正常  1分: 轻度异常  0分: 明显异常"
+
+msgid "No measured"
+msgstr "未测量"
+
+msgid "<i><b>General</b></i>"
+msgstr "<i><b>常规</b></i>"
+
+msgid "<i><b>Arterial</b></i>"
+msgstr "<i><b>动脉</b></i>"
+
+msgid "<i><b>Venous</b></i>"
+msgstr "<i><b>静脉</b></i>"
+
+msgid "<i><b>Bladder</b></i>"
+msgstr "<i><b>膀胱</b></i>"
+
+msgid "<i><b>Prostate</b></i>"
+msgstr "<i><b>前列腺</b></i>"
+
+msgid "<i><b>Left Renal</b></i>"
+msgstr "<i><b>左肾</b></i>"
+
+msgid "<i><b>Right Renal</b></i>"
+msgstr "<i><b>右肾</b></i>"
+
+msgid "<i><b>Dimensions(2D)</b></i>"
+msgstr "<i><b>尺寸(2D)</b></i>"
+
+msgid "<i><b>Vessels(2D)</b></i>"
+msgstr "<i><b>脉管(2D)</b></i>"
+
+msgid "<i><b>EF &amp; Volume(2D)</b></i>"
+msgstr "<i><b>射血分数 &amp; 体积(2D)</b></i>"
+
+msgid "<i><b>Valves(2D)</b></i>"
+msgstr "<i><b>瓣膜(2D)</b></i>"
+
+msgid "<i><b>Dimensions(M)</b></i>"
+msgstr "<i><b>尺寸(M)</b></i>"
+
+msgid "<i><b>Aortic Valve(M)</b></i>"
+msgstr "<i><b>主动脉瓣(M)</b></i>"
+
+msgid "<i><b>Mitral Valve(M)</b></i>"
+msgstr "<i><b>二尖瓣(M)</b></i>"
+
+msgid "<i><b>Tricuspid Valve(M)</b></i>"
+msgstr "<i><b>三尖瓣(M)</b></i>"
+
+msgid "<i><b>Pulmonic Valve(M)</b></i>"
+msgstr "<i><b>肺瓣膜(M)</b></i>"
+
+msgid "<i><b>Aortic Valve(D)</b></i>"
+msgstr "<i><b>主动脉瓣(D)</b></i>"
+
+msgid "<i><b>Mitral Valve(D)</b></i>"
+msgstr "<i><b>二尖瓣(D)</b></i>"
+
+msgid "<i><b>Tricuspid Valve(D)</b></i>"
+msgstr "<i><b>三尖瓣(D)</b></i>"
+
+msgid "<i><b>Pulmonic Valve(D)</b></i>"
+msgstr "<i><b>肺瓣膜(D)</b></i>"
+
+msgid "Advanced"
+msgstr "晚孕"
+
+msgid "(Fetus 1)"
+msgstr "(胎儿1)"
+
+msgid "AFI"
+msgstr "羊水指数"
+
+msgid "Early"
+msgstr "早孕"
+
+msgid "Fetal Heart"
+msgstr "胎儿心脏"
+
+msgid "EFW"
+msgstr "胎重"
+
+msgid "(Fetus 2)"
+msgstr "(胎儿2)"
+
+msgid "<i><b>Fertility</b></i>"
+msgstr "<i><b>生育力</b></i>"
+
+msgid "Fertility"
+msgstr "生育力"
+
+msgid "<i><b>Fibroid</b></i>"
+msgstr "<i><b>子宫肌瘤</b></i>"
+
+msgid "Fibroid"
+msgstr "子宫肌瘤"
+
+msgid "<i><b>Breast</b></i>"
+msgstr "<i><b>乳房</b></i>"
+
+msgid "<i><b>Testicle</b></i>"
+msgstr "<i><b>睾丸</b></i>"
+
+msgid "<i><b>Thyroid</b></i>"
+msgstr "<i><b>甲状腺</b></i>"
+
+msgid "<i><b>Eyeball</b></i>"
+msgstr "<i><b>眼球</b></i>"
+
+msgid "<i><b>Carotid</b></i>"
+msgstr "<i><b>颈部血管</b></i>"
+
+msgid "<i><b>LE Art</b></i>"
+msgstr "<i><b>下肢血管</b></i>"
+
+msgid "<i><b>UE Art</b></i>"
+msgstr "<i><b>上肢血管</b></i>"
+
+msgid "<i><b>Dimen(2D)</b></i>"
+msgstr "<i><b>尺寸(2D)</b></i>"
+
+msgid "<i><b>Dimen(M)</b></i>"
+msgstr "<i><b>尺寸(M)</b></i>"
+
+msgid "<i><b>Vessels(M)</b></i>"
+msgstr "<i><b>脉管(M)</b></i>"
+
+msgid "<i><b>AV &amp; MV(M)</b></i>"
+msgstr "<i><b>主动脉瓣 &amp; 二尖瓣(M)</b></i>"
+
+msgid "<i><b>PV &amp; TV(M)</b></i>"
+msgstr "<i><b>肺动脉瓣 &amp; 三尖瓣(M)</b></i>"
+
+msgid "<i><b>Utero &amp; Placenta(D)</b></i>"
+msgstr "<i><b>子宫 &amp; 胎盘(M)</b></i>"
+
+msgid "<i><b>Vessels(D)</b></i>"
+msgstr "<i><b>脉管(D)</b></i>"
+
+msgid "<i><b>AV &amp; MV(D)</b></i>"
+msgstr "<i><b>主动脉瓣 &amp; 二尖瓣(D)</b></i>"
+
+msgid "<i><b>PV &amp; TV(D)</b></i>"
+msgstr "<i><b>肺动脉瓣 &amp; 三尖瓣(D)</b></i>"
+
+msgid "<i><b>Peripheral Vasc(D)</b></i>"
+msgstr "<i><b>外周血管(D)</b></i>"
+
+msgid "Sex:"
+msgstr "性别:"
+
+msgid "ID:"
+msgstr "ID:"
+
+msgid "Double-click to confirm"
+msgstr "双击确认"
+
+msgid "Information"
+msgstr "提示"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Cancelling..."
+msgstr "正在取消..."
+
+msgid "[Harmonic]: Invalid when frequency larger than 2.5MHz."
+msgstr "[组织谐波]: 频率大于2.5MHz时无效."
+
+msgid "[Color Invert]: Invalid in turbo and PDI mode."
+msgstr "[彩色反转]: 湍流或PDI模式下操作无效."
+
+msgid "[Scale]: Can not be changed when HPRF is on."
+msgstr "[量程]: 高脉冲重复频率打开时无法调节."
+
+msgid "[HPRF]: Can not be on when simult is on."
+msgstr "[高脉冲重复频率]: 同步打开时无法打开."
+
+msgid "[Scan Angle]: Invalid for linear probe."
+msgstr "[扫描角度]: 线阵探头无效."
+
+msgid "[Harmonic]: Only valid for low frequency convex probe."
+msgstr "[组织谐波]: 只对低频凸阵探头有效."
+
+msgid "[Steer]: Only valid for linear probe."
+msgstr "[偏转]: 只对线阵探头有效."
+
+msgid "Sensitivity"
+msgstr "灵敏度"
+
+msgid "Color Map"
+msgstr "彩阶"
+
+msgid "Variance"
+msgstr "散射度"
+
+msgid "Flow Opt."
+msgstr "血流优化"
+
+msgid "Color Invert"
+msgstr "彩色反转"
+
+msgid "Color Focus"
+msgstr "彩色焦点"
+
+msgid "Color Line Density"
+msgstr "彩色线密度"
+
+msgid "Tissue"
+msgstr "组织门限"
+
+msgid "Noise"
+msgstr "噪声门限"
+
+msgid "Rate"
+msgstr "速率门限"
+
+msgid "variance"
+msgstr "方差门限"
+
+msgid "Gain Gate"
+msgstr "增益门限"
+
+msgid "Operation is invalid in current mode."
+msgstr "操作在当前模式下无效."
+
+msgid "[Simult]: Can not be on when HPRF is on."
+msgstr "[同步]: 高脉冲重复频率打开时无法打开."
+
+msgid "M Speed"
+msgstr "M速度"
+
+msgid "Spectrum Speed"
+msgstr "频谱速度"
+
+msgid "Noise Threshold"
+msgstr "噪声阈值"
+
+msgid "Sound"
+msgstr "声音"
+
+msgid "Invalid when HPRF is on."
+msgstr "打开高脉冲重复频率时无效."
+
+msgid "Operation is invalid."
+msgstr "操作无效."
+
+msgid "[Simult]: Operation is invalid in current mode."
+msgstr "[同步]: 当前模式下操作无效."
+
+msgid "[DynamicRange]: Operation is invalid."
+msgstr "[动态范围]: 操作无效."
+
+msgid "[Threshold]: Invalid when chroma is on."
+msgstr "[阈值]: 伪彩打开时无效."
+
+msgid "Reset Trim"
+msgstr "复位回放区间"
+
+msgid "Press"
+msgstr "按下"
+
+msgid "Error: No USB device Plug-in!"
+msgstr "错误: 未插入USB设备!"
+
+msgid "Error: Failed to mount USB device!"
+msgstr "错误: 未插入USB设备!"
+
+msgid "Saving..."
+msgstr "正在保存..."
+
+msgid "Please input the file name(without suffix)"
+msgstr "请输入文件名(不带后缀)"
+
+msgid "[Global Zoom]: Invalid when image is rotated."
+msgstr "[全局放大]: 图像旋转时无效."
+
+msgid "[Global Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[全局放大]: 仅在实时2D B模式下有效."
+
+msgid "[Global Zoom]: Only valid in B mode and UnFreeze status."
+msgstr "[全局放大]: 仅在实时B模式下有效."
+
+msgid "[PIP]: Only valid in B mode and UnFreeze status."
+msgstr "[画中画]: 仅在实时 B模式下有效."
+
+msgid "[PIP]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[画中画]: 仅在实时2D B模式下有效."
+
+msgid "[Rotate]: Invalid when IMTMeasure is open."
+msgstr "[旋转]: 打开IMT测量时无效."
+
+msgid "[Rotate]: Only valid in B mode."
+msgstr "[旋转]: 仅在B模式下有效."
+
+msgid "[Rotate]: Only valid in 2D B mode."
+msgstr "[旋转]: 仅在2D B模式下有效."
+
+msgid "Persistence"
+msgstr "彩色余辉"
+
+msgid "Color Reject"
+msgstr "低速血流抑制"
+
+msgid "Artifact"
+msgstr "伪差去除"
+
+msgid "Anatomic M"
+msgstr "解剖M型"
+
+msgid "[Format]: Format change is invalid in current mode."
+msgstr "[格式]: 当前模式下操作无效."
+
+msgid "[Format]: Format change is invalid in freeze mode."
+msgstr "[格式]: 冻结状态下操作无效."
+
+msgid "Auto Calculate"
+msgstr "自动计算"
+
+msgid "[Format]: Format change is disable in current mode."
+msgstr "[格式]: 当前模式下操作无效."
+
+msgid "Export to USB storage"
+msgstr "导出到USB存储设备"
+
+msgid "Loading..."
+msgstr "读取中..."
+
+msgid "No USB storage found!"
+msgstr "未发现USB存储设备!"
+
+msgid "Failed to mount USB storage!"
+msgstr "挂载USB存储设备失败!"
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"导出到USB存储设备失败!\n"
+"错误: 创建目录失败."
+
+msgid "Exporting"
+msgstr "正在导出"
+
+msgid "Please wait..."
+msgstr "请稍候..."
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"导出到USB存储设备失败!\n"
+"错误: 设备空间不足."
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"导出到USB存储设备失败!\n"
+"错误: 操作被取消."
+
+#, c-format
+msgid "Failed to export to USB storage!"
+msgstr "导出到USB存储设备失败!"
+
+msgid ""
+"Success to export to USB storage.\n"
+"Path: "
+msgstr ""
+"导出到USB存储设备成功.\n"
+"路径为:"
+
+msgid "Please select the wanted image/cine from the list to be exported!"
+msgstr "请先在列表中选中你需要导出的图片或录像!"
+
+msgid "[Replay]: No image can be replayed."
+msgstr "[回放]: 无图像可以回放."
+
+msgid "[Global Zoom]: Please zoom image first."
+msgstr "[全局放大]: 请先放大图像."
+
+msgid "[Measure]: Measure is disable in current image."
+msgstr "[测量]: 当前图片不允许测量."
+
+msgid "[Calc]: Calc is disable in current image."
+msgstr "[计算]: 当前图片不允许计算."
+
+msgid "[Local Zoom]: Invalid when image is rotated."
+msgstr "[局部放大]: 图像旋转时无效."
+
+msgid "[Focus]: Invalid when simult is on."
+msgstr "[焦点]: 同步打开时无效."
+
+msgid "[End Exam]: All details of patient has been archived."
+msgstr "[结束检查]: 病人相关资料都已归档."
+
+msgid "[End Exam]: All details of animal has been archived."
+msgstr "[结束检查]: 动物相关资料都已归档."
+
+msgid "[Focus]: Mouse to move focus, <Value> to change focus sum."
+msgstr "[焦点]: 鼠标移动焦点，<Value>调节焦点数目."
+
+msgid "[Depth]: <Value> to change scale."
+msgstr "[深度]: <Value>调节倍率."
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size, <Update> to zoom."
+msgstr "[局部放大]: 鼠标移动选框, <Set>调节选框大小, <Update>放大."
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size and to zoom."
+msgstr "[局部放大]: 鼠标移动选框, <Set>调节选框大小和放大."
+
+msgid "[Global Zoom]: <Value> to change scale, Mouse to scroll."
+msgstr "[全局放大]: <Value>调节倍率, 鼠标卷动."
+
+msgid "[PIP]: <Value> to change scale, Mouse to Move Magnifier."
+msgstr "[画中画]: <Value>调节倍率, 鼠标移动放大镜."
+
+msgid "[Gray Transform]: Mouse to move dot, <Set> to select dot, <Update> to select curve."
+msgstr "[灰阶变换]: 鼠标移动调节点，<Set>选择调节点，<Update>选择曲线"
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Update> to reset."
+msgstr "[灰阶变换]: 鼠标移动调节点, <Value>选择调节点, <Update>重置."
+
+msgid "[Gray Reject]: Mouse to move position."
+msgstr "[灰阶抑制]: 鼠标移动位置."
+
+msgid "[Length-Point]: <Update> to set shape point."
+msgstr "[长度-描点法]: <Update>设置形状点."
+
+msgid "[Area-Point]: <Update> to set shape point."
+msgstr "[面积-描点法]: <Update>设置形状点."
+
+msgid "[Trace]: <Update> to set shape point."
+msgstr "[描迹]: <Update>设置形状点."
+
+msgid "[Measure]: Measurement selected is invalid in current mode."
+msgstr "[测量]: 所选测量项当前模式下无效."
+
+msgid "[Measure]: Measurement selected is only valid in freezing mode."
+msgstr "[测量]: 所选测量项只在冻结模式下有效."
+
+msgid "Biopsy"
+msgstr "穿刺"
+
+msgid "No Patient ID."
+msgstr "无病人ID."
+
+msgid "Fail to save. The file name is already existed, please input another file name!"
+msgstr "保存失败. 该文件名已存在, 请输入其他文件名!"
+
+msgid "Fail to save. No enough space!"
+msgstr "保存失败. 空间不足!"
+
+msgid "Success to save image. Filename is "
+msgstr "保存图像成功. 文件名为 "
+
+msgid "Next Snap"
+msgstr "下一幅图像"
+
+msgid "Previous Snap"
+msgstr "上一幅图像"
+
+msgid "Slide Play"
+msgstr "幻灯片播放"
+
+msgid "Slide Speed"
+msgstr "幻灯片速度"
+
+msgid "Success to save cine. Filename is "
+msgstr "保存录像成功. 文件名为 "
+
+msgid "All"
+msgstr "所有"
+
+#, c-format
+msgid "Failed to load data from USB storage!"
+msgstr "从USB存储设备加载数据失败!"
+
+msgid "Please wait, loading data from USB storage..."
+msgstr "请稍等，正在从USB存储设备加载数据..."
+
+msgid "No Record is selected!"
+msgstr "没有记录被选中!"
+
+msgid ""
+"Warnning: The patient data will be permanently deleted!\n"
+"Sure to delete?"
+msgstr ""
+"警告: 患者数据将被永久删除!\n"
+"确认继续删除?"
+
+msgid "Sending..."
+msgstr "发送中..."
+
+msgid "Name"
+msgstr "姓名"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Gender"
+msgstr "性别"
+
+msgid "Date of Birth"
+msgstr "出生日期"
+
+msgid "Age"
+msgstr "年龄"
+
+msgid "Exam Type"
+msgstr "检查项目"
+
+msgid "Exam ID"
+msgstr "超声号"
+
+msgid "Please select the list you want to export the data!"
+msgstr "请从列表中选择需要导出的数据！"
+
+msgid "Sending finished!"
+msgstr "发送完成!"
+
+msgid "Success:"
+msgstr "成功:"
+
+msgid "Fail:"
+msgstr "失败:"
+
+msgid "Please select the wanted data from the list  to be exported!"
+msgstr "请先在列表中选中你需要导出的数据!"
+
+msgid "Image manage"
+msgstr "图像管理"
+
+msgid "<b>Patient</b>"
+msgstr "<b>病人</b>"
+
+msgid "<b>Type</b>"
+msgstr "<b>类型</b>"
+
+msgid "Image"
+msgstr "图像"
+
+msgid "Cine"
+msgstr "录像"
+
+msgid "Info."
+msgstr "病人信息"
+
+msgid "Slide Show"
+msgstr "幻灯片演示"
+
+msgid "Name:  "
+msgstr "姓名:  "
+
+msgid "Exam ID:  "
+msgstr "超声号:  "
+
+msgid "Patient ID:  "
+msgstr "病人ID:  "
+
+msgid "Age:  "
+msgstr "年龄:  "
+
+msgid "Gender:  "
+msgstr "性别:  "
+
+msgid "Date of Birth:  "
+msgstr "出生日期:  "
+
+msgid "Exam Date:  "
+msgstr "检查日期: "
+
+msgid "Exam Time:  "
+msgstr "检查时间:  "
+
+msgid "Exam Type:  "
+msgstr "检查项目:  "
+
+msgid "Physician:  "
+msgstr "主治医生:  "
+
+msgid "Diagnostician:  "
+msgstr "诊断医生:  "
+
+msgid "Comment:  "
+msgstr "备注:  "
+
+msgid "<b>General Information</b>"
+msgstr "<b>常规信息</b>"
+
+msgid "Weight:"
+msgstr "体重:"
+
+msgid "Stature:"
+msgstr "身高:"
+
+msgid "BSA:  "
+msgstr "体表面积:  "
+
+msgid "Gravida:"
+msgstr "怀孕次数:"
+
+msgid "Ectopic:"
+msgstr "异常怀孕次数:"
+
+msgid "Gestations:"
+msgstr "胎数:"
+
+msgid "Para:"
+msgstr "分娩次数:"
+
+msgid "Aborta:"
+msgstr "流产次数:"
+
+msgid "Ovulatory Data:"
+msgstr "排卵日期:"
+
+msgid "LMP:"
+msgstr "末次月经:"
+
+msgid "HR:"
+msgstr "心率:"
+
+msgid "BP(High/Low):"
+msgstr "血压(高/低):"
+
+msgid "PSA:"
+msgstr "特异性抗原:"
+
+msgid "Telephone:"
+msgstr "电话:"
+
+msgid "Address:"
+msgstr "地址:"
+
+msgid "Auto Generated ID"
+msgstr "自动生成ID"
+
+msgid "New Patient"
+msgstr "新病人"
+
+msgid "New Exam"
+msgstr "新检查"
+
+msgid "BSA:"
+msgstr "体表面积:"
+
+msgid "GA:"
+msgstr "孕龄:"
+
+msgid "GA(LMP)"
+msgstr "孕龄(LMP)"
+
+msgid "EDD:"
+msgstr "预产期:"
+
+msgid "LMP"
+msgstr "末次月经"
+
+msgid "Ovul. Date"
+msgstr "排卵日期"
+
+msgid "No result found!"
+msgstr "未找到!"
+
+msgid "Search Info"
+msgstr "查找信息"
+
+msgid "ExamDate"
+msgstr "检查日期"
+
+msgid "ExamID"
+msgstr "检查号"
+
+msgid "ExamType"
+msgstr "检查类型"
+
+msgid "Data Selection"
+msgstr "选择数据"
+
+msgid "Delete the lasted loaded file."
+msgstr "删除上次加载的文件."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"从USB存储设备加载数据失败!\n"
+"错误: 创建目录失败."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"从USB存储设备加载数据失败!\n"
+"错误: 设备空间不足."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"导出到USB存储设备失败!\n"
+"错误: 操作被取消."
+
+#, c-format
+msgid "Success to load data from USB storage."
+msgstr "从USB存储设备加载数据成功."
+
+msgid "idle"
+msgstr "空闲"
+
+msgid "printing"
+msgstr "打印中"
+
+msgid "disable"
+msgstr "不能用"
+
+msgid "PPD File Selection"
+msgstr "选择PPD文件"
+
+msgid "Open"
+msgstr "打开"
+
+msgid "File Name"
+msgstr "文件名"
+
+msgid "Modified Time"
+msgstr "修改时间"
+
+msgid "Add Printer"
+msgstr "添加打印机"
+
+msgid "Printer URI:"
+msgstr "打印机URI:"
+
+msgid "URI not found!"
+msgstr "URI未找到!"
+
+msgid "Printer Name:"
+msgstr "打印机名称:"
+
+msgid "Specifies a PPD file:"
+msgstr "指定PPD文件:"
+
+msgid "(PostScript Printer Description file)"
+msgstr "(PostScript打印机描述文件)"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "Add Printer Error: URI not found!"
+msgstr "添加打印机错误: URI未找到!"
+
+msgid "Add Printer Error: Please enter printer name!"
+msgstr "添加打印机错误: 请输入打印机名称!"
+
+msgid "Add Printer Error: Please select a PPD file!"
+msgstr "添加打印机错误: 请选择PPD文件!"
+
+msgid "No printer found."
+msgstr "未发现打印机."
+
+msgid "No printer found or specified."
+msgstr "未发现/指定打印机."
+
+msgid "Failed to print!"
+msgstr "打印失败!"
+
+msgid "Print Preview"
+msgstr "打印预览"
+
+msgid ""
+"Print\n"
+"Preview"
+msgstr ""
+"打印\n"
+"预览"
+
+msgid "Setting"
+msgstr "设置"
+
+msgid "Media Size:"
+msgstr "纸张大小:"
+
+msgid "Print Copies:"
+msgstr "打印份数:"
+
+msgid "Gamma:"
+msgstr "伽马:"
+
+msgid "Brightness:"
+msgstr "明亮度:"
+
+msgid "<b>Printer Setting</b>"
+msgstr "<b>打印机设置</b>"
+
+msgid ""
+"Default\n"
+"Factory"
+msgstr "恢复出厂值"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "<b>General Setting :</b>"
+msgstr "<b>一般设置：</b>"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Dot Size"
+msgstr "线型"
+
+msgid "<b>Biopsy Verify :</b>"
+msgstr "<b>穿刺线校准：</b>"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Save successfully"
+msgstr "保存成功"
+
+msgid "Default Factory"
+msgstr "恢复出厂设置"
+
+msgid "Large"
+msgstr "大"
+
+msgid "Middle"
+msgstr "中"
+
+msgid "Abdo-adult"
+msgstr "成人腹部"
+
+msgid "Abdo-liver"
+msgstr "成人肝胆脾"
+
+msgid "Abdo-kid"
+msgstr "小儿腹部"
+
+msgid "Car-adult"
+msgstr "成人心脏"
+
+msgid "Car-kid"
+msgstr "小儿心脏"
+
+msgid "Glands"
+msgstr "乳腺"
+
+msgid "Small-part"
+msgstr "小器官"
+
+msgid "Early-preg."
+msgstr "早孕"
+
+msgid "Later-preg."
+msgstr "中晚孕"
+
+msgid "Car-fetus"
+msgstr "胎儿心脏"
+
+msgid "Kidney"
+msgstr "肾"
+
+msgid "Jugular"
+msgstr "颈静脉"
+
+msgid "Peri-artery"
+msgstr "外周动脉"
+
+msgid "Peri-vein"
+msgstr "外周静脉"
+
+msgid "Hip-joint"
+msgstr "髋关节"
+
+msgid "Meniscus"
+msgstr "半月板"
+
+msgid "Joint-cavity"
+msgstr "关节腔"
+
+msgid "Spine"
+msgstr "脊柱"
+
+msgid "User defined 1"
+msgstr "用户自定义1"
+
+msgid "User defined 2"
+msgstr "用户自定义2"
+
+msgid "User defined 3"
+msgstr "用户自定义3"
+
+msgid "User defined 4"
+msgstr "用户自定义4"
+
+msgid "[Probe Select]: No Probe was found."
+msgstr "[探头选择]: 未发现探头."
+
+msgid "[Probe Select]: Reading Probe Para..."
+msgstr "[探头选择]: 读取探头参数..."
+
+msgid "Probe Select"
+msgstr "探头选择"
+
+#, c-format
+msgid "No Probe"
+msgstr "无探头"
+
+msgid "General System Setting"
+msgstr "常规系统设置"
+
+msgid "Biopsy Setting"
+msgstr "穿刺线设置"
+
+msgid "No biopsy bracket was found!"
+msgstr "没有找到穿刺架!"
+
+msgid "There is no biopsy bracket."
+msgstr "无穿刺架!"
+
+msgid "No biopsy bracket found!"
+msgstr "未发现穿刺架!"
+
+msgid "Press any key to resume!"
+msgstr "按任意键恢复!"
+
+msgid ""
+"Upgrade failed: The system has not been restarted  after last upgrade.\n"
+"Please restart the system and try again!"
+msgstr ""
+"升级失败: 最近一次系统后未重启系统.\n"
+"请先重启系统后再试!"
+
+msgid "NULL"
+msgstr "未定义"
+
+msgid "Save Video"
+msgstr "保存录像"
+
+msgid "Print Screen"
+msgstr "打印屏幕"
+
+msgid "PIP"
+msgstr "画中画"
+
+msgid "Spectrum Sound"
+msgstr "频谱声音 开/关"
+
+msgid "Abdomen"
+msgstr "成人腹部"
+
+msgid "Adult Abdomen"
+msgstr "成人腹部"
+
+msgid "Adult Liver"
+msgstr "成人肝胆脾"
+
+msgid "Kid Abdomen"
+msgstr "小儿腹部"
+
+msgid "Cardiac"
+msgstr "心脏科"
+
+msgid "Adult Cardio"
+msgstr "成人心脏"
+
+msgid "Kid Cardio"
+msgstr "小儿心脏"
+
+msgid "Mammary Glands"
+msgstr "乳腺"
+
+msgid "EyeBall"
+msgstr "眼球"
+
+msgid "SmallPart"
+msgstr "浅表器官"
+
+msgid "Gyn"
+msgstr "妇科"
+
+msgid "Early Pregnancy"
+msgstr "早孕"
+
+msgid "Middle-late Pregnancy"
+msgstr "中晚孕"
+
+msgid "Fetus Cardio"
+msgstr "胎儿心脏"
+
+msgid "Bladder"
+msgstr "膀胱"
+
+msgid "Kidney Ureter"
+msgstr "双肾输尿管"
+
+msgid "Bladder Prostate"
+msgstr "膀胱前列腺"
+
+msgid "Periphery Artery"
+msgstr "外周动脉"
+
+msgid "Periphery Vein"
+msgstr "外周静脉"
+
+msgid "Orthopedic"
+msgstr "矫形外科"
+
+msgid "Hip Joint"
+msgstr "髋关节"
+
+msgid "Joint Cavity"
+msgstr "关节腔"
+
+msgid "User Defined"
+msgstr "自定义"
+
+msgid "User-defined 1"
+msgstr "自定义一"
+
+msgid "User-defined 2"
+msgstr "自定义二"
+
+msgid "User-defined 3"
+msgstr "自定义三"
+
+msgid "User-defined 4"
+msgstr "自定义四"
+
+msgid "System Setup"
+msgstr "系统设置"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Image Preset"
+msgstr "图像参数预设"
+
+msgid "Measure Setting"
+msgstr "测量设置"
+
+msgid "Calculate Preset"
+msgstr "计算设置"
+
+msgid "Comment Setting"
+msgstr "注释设置"
+
+msgid "DICOM"
+msgstr "DICOM"
+
+msgid "P1-P2"
+msgstr "自定义按键"
+
+msgid "Value-Gain"
+msgstr "自定义按键"
+
+msgid "System Info"
+msgstr "系统信息"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Save & Exit"
+msgstr "保存退出"
+
+msgid "<b>Hospital Name:</b>"
+msgstr "<b>医院名称:</b>"
+
+msgid "<b>Language:</b>"
+msgstr "<b>语言:</b>"
+
+msgid "<b>Date Format:</b>"
+msgstr "<b>日期格式:</b>"
+
+msgid "Y/M/D"
+msgstr "年/月/日"
+
+msgid "M/D/Y"
+msgstr "月/日/年"
+
+msgid "D/M/Y"
+msgstr "日/月/年"
+
+msgid "<b>Screen saver:</b>"
+msgstr "<b>屏幕保护:</b>"
+
+msgid "none"
+msgstr "无"
+
+msgid "5 Min."
+msgstr "5分"
+
+msgid "10 Min."
+msgstr "10分"
+
+msgid "20 Min."
+msgstr "20分"
+
+msgid "30 Min."
+msgstr "30分"
+
+msgid "45 Min."
+msgstr "45分"
+
+msgid "60 Min."
+msgstr "60分"
+
+msgid "<b>Video Standard:</b>"
+msgstr "<b>视频制式:</b>"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "<b>TV Connector:</b>"
+msgstr "<b>视频连接类型:</b>"
+
+msgid "S-Video"
+msgstr "S端子"
+
+msgid "Composite"
+msgstr "复合端子"
+
+msgid " (Restart to complete changes)"
+msgstr "(重启后生效)"
+
+msgid "Time Setting:"
+msgstr "时间设置:"
+
+msgid "HH:MM:SS"
+msgstr "时:分:秒"
+
+msgid "<b>Date and Time</b>"
+msgstr "<b>时间和日期</b>"
+
+msgid "Adjust Time&Date"
+msgstr "调整时间及日期"
+
+msgid "Common"
+msgstr "通用"
+
+msgid "Specific"
+msgstr "指定"
+
+msgid "<b>Printer</b>"
+msgstr "<b>打印机</b>"
+
+msgid "<b>TI</b>"
+msgstr "<b>TI</b>"
+
+msgid "TIC"
+msgstr "TIC"
+
+msgid "TIB"
+msgstr "TIB"
+
+msgid "TIS"
+msgstr "TIS"
+
+msgid "<b>Center Line</b>"
+msgstr "<b>中心线</b>"
+
+msgid "<b>Keyboard Sound</b>"
+msgstr "<b>键盘声音</b>"
+
+msgid "<b>Image Options</b>"
+msgstr "<b>图像选项</b>"
+
+msgid "BMP"
+msgstr "BMP"
+
+msgid "JPEG"
+msgstr "JPEG"
+
+msgid "EMP"
+msgstr "EMP"
+
+msgid "Hard disk"
+msgstr "硬盘"
+
+msgid "U disk"
+msgstr "U盘"
+
+msgid "Manual"
+msgstr "手动"
+
+msgid "Auto"
+msgstr "自动"
+
+msgid "<b>File name:</b>"
+msgstr "<b>文件名:</b>"
+
+msgid "<b>Storage medium:</b>"
+msgstr "<b>存储介质</b>"
+
+msgid "<b>Storage format: </b>"
+msgstr "<b>存储格式:</b>"
+
+msgid "<b>Video Options</b>"
+msgstr "<b>录像选项</b>"
+
+msgid "AVI"
+msgstr "AVI"
+
+msgid "CINE"
+msgstr "CINE"
+
+msgid "<b>Probe Type: </b>"
+msgstr "<b>探头类型: </b>"
+
+msgid "Get Current"
+msgstr "获取当前值"
+
+msgid "<b>Common</b>"
+msgstr "<b>通用</b>"
+
+msgid "MBP :"
+msgstr "MBP :"
+
+msgid "AO / Power :"
+msgstr "声功率:"
+
+msgid "<b>2D and M mode</b>"
+msgstr "<b>2D/M 模式</b>"
+
+msgid "2D Gain:"
+msgstr "增益:"
+
+msgid "Freq. :"
+msgstr "频率:"
+
+msgid "Focus sum:"
+msgstr "焦点数目:"
+
+msgid "FocusNum:"
+msgstr "焦点数目:"
+
+msgid "Focus Pos. Index:"
+msgstr "焦点位置:"
+
+msgid "Scan Range:"
+msgstr "扫描范围:"
+
+msgid "Dynamic Range:"
+msgstr "动态范围:"
+
+msgid "Line Density:"
+msgstr "扫描密度:"
+
+msgid "Depth Scale:"
+msgstr "深度:"
+
+msgid "Steer:"
+msgstr "偏转扫描:"
+
+msgid "AGC:"
+msgstr "自动增益:"
+
+msgid "Edge enh. :"
+msgstr "边缘增强:"
+
+msgid "Chroma:"
+msgstr "伪彩:"
+
+msgid "L / R:"
+msgstr "左右翻转:"
+
+msgid "U / D:"
+msgstr "上下翻转:"
+
+msgid "Polarity:"
+msgstr "极性反转:"
+
+msgid "Rotation:"
+msgstr "旋转角度:"
+
+msgid "Frame aver. :"
+msgstr "帧相关:"
+
+msgid "Line aver. :"
+msgstr "线相关:"
+
+msgid "Smooth:"
+msgstr "平滑:"
+
+msgid "Reject:"
+msgstr "噪声抑制:"
+
+msgid "THI:"
+msgstr "谐波:"
+
+msgid "TSI:"
+msgstr "组织特征成像:"
+
+msgid "M Gain:"
+msgstr "M增益:"
+
+msgid "<b>PW mode</b>"
+msgstr "<b>PW模式</b>"
+
+msgid "PW Gain:"
+msgstr "PW增益:"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Scale PRF:"
+msgstr "量程PRF:"
+
+msgid "Wall Filter:"
+msgstr "壁滤波:"
+
+msgid "Angle:"
+msgstr "校正角度:"
+
+msgid "Spectrum Invert:"
+msgstr "频谱翻转:"
+
+msgid "Spectrum Invert"
+msgstr "频谱翻转"
+
+msgid ""
+"Spectrum\n"
+"Invert"
+msgstr "频谱翻转"
+
+msgid "Color Invert:"
+msgstr "彩色反转:"
+
+msgid "Time Resolution:"
+msgstr "时间分辨率:"
+
+msgid "<b>CFM mode</b>"
+msgstr "<b>CFM模式:</b>"
+
+msgid "Color Gain:"
+msgstr "彩色增益:"
+
+msgid "Sensitivity:"
+msgstr "彩色灵敏度:"
+
+msgid "Variance:"
+msgstr "散射度:"
+
+msgid "Persistence:"
+msgstr "彩色余辉:"
+
+msgid "Color Reject:"
+msgstr "低速血流抑制:"
+
+msgid "<b>IP Address:</b>"
+msgstr "<b>IP地址:</b>"
+
+msgid "<b>Netmask :</b>"
+msgstr "<b>子网掩码:</b>"
+
+msgid "<b>Gateway :</b>"
+msgstr "<b>网关:</b>"
+
+msgid "<b>Network Setting</b>"
+msgstr "<b>网络设置</b>"
+
+msgid "<b>DICOM Server :</b>"
+msgstr "<b>DICOM服务器:</b>"
+
+msgid "<b>Port :</b>"
+msgstr "<b>端口:</b>"
+
+msgid "<b>AE Title :</b>"
+msgstr "<b>实体标题:</b>"
+
+msgid "<b>Host</b>"
+msgstr "<b>主机</b>"
+
+msgid "<b>Ultrasound Equipment</b>"
+msgstr "<b>超声设备</b>"
+
+msgid "Connection Test"
+msgstr "连接测试"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "<b>Font Size</b>"
+msgstr "<b>字体大小</b>"
+
+msgid "<b>Bodymark Size</b>"
+msgstr "<b>体标大小</b>"
+
+msgid "Font Color: "
+msgstr "字体颜色:"
+
+msgid "Probe Mark Color: "
+msgstr "探头标记颜色:"
+
+msgid "<b>Measure Line</b>"
+msgstr "<b>测量线显示</b>"
+
+msgid "<b>Cursor Size</b>"
+msgstr "<b>测量光标大小</b>"
+
+msgid "Current Line:"
+msgstr "当前测量线:"
+
+msgid "Confirmed Line:"
+msgstr "已确认测量线:"
+
+msgid "<b>Line Color</b>"
+msgstr "<b>测量线颜色</b>"
+
+msgid "Point"
+msgstr "描点"
+
+msgid "Track"
+msgstr "描迹"
+
+msgid "<b>Trace Method</b>"
+msgstr "<b>描迹方法</b>"
+
+msgid "Last"
+msgstr "最后值"
+
+msgid "Average"
+msgstr "平均值"
+
+msgid "<b>Report Result Method</b>"
+msgstr "<b>报告结果计算方法</b>"
+
+msgid "<b>Auto Spectrum Calculation Result</b>"
+msgstr "<b>自动频谱计算结果</b>"
+
+msgid "Function:"
+msgstr "功能："
+
+msgid "<b>Key</b>"
+msgstr "<b>按键</b>"
+
+msgid "<b>Function</b>"
+msgstr "<b>功能</b>"
+
+msgid "hadlock"
+msgstr ""
+
+msgid "robinson"
+msgstr ""
+
+msgid "hansmenn"
+msgstr ""
+
+msgid "lasser"
+msgstr ""
+
+msgid "tokyo"
+msgstr ""
+
+msgid "custom"
+msgstr ""
+
+msgid "merz"
+msgstr ""
+
+msgid "jeanty"
+msgstr ""
+
+msgid "rempen"
+msgstr ""
+
+msgid "hellman"
+msgstr ""
+
+msgid "goldstein"
+msgstr ""
+
+msgid "<b>HL :</b>"
+msgstr "肱骨长度 :"
+
+msgid "<b>BPD :</b>"
+msgstr "双顶径 :"
+
+msgid "<b>CRL :</b>"
+msgstr "顶臀径 :"
+
+msgid "<b>GS :</b>"
+msgstr "妊娠囊径 :"
+
+msgid "<b>CER :</b>"
+msgstr "小脑径 :"
+
+msgid "<b>FL :</b>"
+msgstr "股骨长 :"
+
+msgid "<b>AC :</b>"
+msgstr "腹围 :"
+
+msgid "<b>APAD :</b>"
+msgstr "腹部前后径 :"
+
+msgid "<b>HC :</b>"
+msgstr "头围 :"
+
+msgid "<b>THD :</b>"
+msgstr "胸直径 :"
+
+msgid "<b>TAD :</b>"
+msgstr "腹部横径 :"
+
+msgid "<b>OFD :</b>"
+msgstr "枕额径 :"
+
+msgid "korean"
+msgstr ""
+
+msgid "<b>EFW :</b>"
+msgstr "胎重 :"
+
+msgid "hadlock1"
+msgstr ""
+
+msgid "hadlock2"
+msgstr ""
+
+msgid "hadlock3"
+msgstr ""
+
+msgid "hadlock4"
+msgstr ""
+
+msgid "shepard"
+msgstr ""
+
+msgid "<b>OB Calc Method</b>"
+msgstr "<b>产科计算方法</b>"
+
+msgid "OB Custom"
+msgstr "产科自定义"
+
+msgid "<b>BSA :</b>"
+msgstr "体表面积:"
+
+msgid "Oriental"
+msgstr "东方"
+
+msgid "Occidental"
+msgstr "西方"
+
+msgid "<b>Model</b>"
+msgstr "<b>型号</b>"
+
+msgid "<b>Software and FPGA Version</b>"
+msgstr "<b>软件和FPGA版本</b>"
+
+msgid "Upgrade"
+msgstr "升级"
+
+msgid "Equipment Model"
+msgstr "设备型号"
+
+msgid "Software version"
+msgstr "软件版本"
+
+msgid "FPGA version"
+msgstr "FPGA版本"
+
+msgid "Brand"
+msgstr "品牌"
+
+msgid "Model"
+msgstr "型号"
+
+msgid "Printer"
+msgstr "打印机"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Message"
+msgstr "状态信息"
+
+msgid "Function"
+msgstr "功能"
+
+msgid "Deptment"
+msgstr "科别"
+
+#, c-format
+msgid "Connection test successfully!"
+msgstr "连接测试成功!"
+
+#, c-format
+msgid "Connection test fails!"
+msgstr "连接测试失败!"
+
+#, c-format
+msgid "Fail to set the local network!"
+msgstr "设置本地网络失败!"
+
+msgid "Please set the relevant information of network,host and equipment!"
+msgstr "请设置网络/主机/超声设备相关信息!"
+
+msgid "Configuring Network and Testing..."
+msgstr "正在配置网络和测试..."
+
+msgid "GW:31~300days"
+msgstr "胎龄:31~300天"
+
+msgid "Value:0.0~500.0mm (Click to enter a value)"
+msgstr "值:0.0~500.0mm(点击输入数值)"
+
+msgid "Not realize now!"
+msgstr "该功能未开放!"
+
+msgid "[Depth]: Not valid in current mode."
+msgstr "[深度]: 当前模式下无效."
+
+msgid "[Local Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[局部放大]: 仅在实时2D B模式下有效."
+
+msgid "[Local Zoom]: Only valid in B mode and UnFreeze status."
+msgstr "[局部放大]: 仅在实时B模式下有效."
+
+msgid "Invalid in current mode."
+msgstr "当前模式下无效."
+
+msgid "FHR ≤ 1 times"
+msgstr "胎动时, FHR增速, ≤1次"
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, 1~4 times"
+msgstr "胎动时, FHR增速≥15次/分钟,持续时间≥15s, 1~4次"
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, ≥ 5 times"
+msgstr "胎动时, FHR增速≥15次/分钟,持续时间≥15s, ≥5次"
+
+msgid "No FM"
+msgstr "无胎动"
+
+msgid "1~2 times FM"
+msgstr "胎动1~2次"
+
+msgid "FM ≥ 3 times"
+msgstr "胎动≥3次"
+
+msgid "No FBM or time ≤ 30s"
+msgstr "无FBM, 或持续时间≤30s"
+
+msgid "FBM ≥ 1 times,time 30-60s"
+msgstr "FBM≥1次, 持续时间30~60s"
+
+msgid "FBM ≥ 1 times,time ≥ 60s"
+msgstr "FBM≥1次, 持续时间≥60s"
+
+msgid "Limbs stretch, no bend, fingers loose"
+msgstr "肢体伸展, 无屈曲, 手张开"
+
+msgid "Limbs or spine stretch-bend ≥ 1 times"
+msgstr "≥1次, 肢体或脊柱的伸曲运动"
+
+msgid "Limbs and spine stretch-bend ≥ 1 times"
+msgstr "≥1次, 肢体和脊柱的伸曲运动"
+
+msgid "Placental grade is 3"
+msgstr "胎盘为III级"
+
+msgid "Placental on posterior wall, no grade"
+msgstr "后壁胎盘,难以评定胎盘分级"
+
+msgid "Placental grade ≤ 2"
+msgstr "胎盘≤II级"
+
+msgid "AF > 2cm"
+msgstr "羊水最大深度>2cm"
+
+msgid "1cm < AF < 2cm"
+msgstr "羊水最大深度1~2cm"
+
+msgid "AF < 1cm"
+msgstr "羊水最大深度<1cm"
+
+msgid "Normal, chronic asphyxia risk low"
+msgstr "正常胎儿, 慢性窒息危险性低"
+
+msgid "Chronic asphyxia risk suspicious"
+msgstr "胎儿慢性窒息可疑"
+
+msgid "Chronic asphyxia risk high"
+msgstr "胎儿慢性窒息高度可疑"
+
+msgid "Formula: Vintzileos"
+msgstr "公式: Vintzileos"
+
+msgid "FHR:"
+msgstr "反应性胎心率加速:"
+
+msgid "FM:"
+msgstr "胎动:"
+
+msgid "FBM:"
+msgstr "胎儿呼吸活动:"
+
+msgid "FT:"
+msgstr "胎儿肌张力:"
+
+msgid "PL:"
+msgstr "胎盘分级:"
+
+msgid "AF:"
+msgstr "羊水量:"
+
+msgid "Total:"
+msgstr "总计:"
+
+msgid "Patient ID exist, load data?"
+msgstr "病人ID号已存在，是否导入其数据？"
+
+msgid "<b>Measure Sequence</b>"
+msgstr "<b>测量顺序</b>"
+
+msgid "Repeat"
+msgstr "重复"
+
+msgid "None"
+msgstr "无"
+
+msgid "【Chroma】"
+msgstr "【伪彩】"
+
+msgid "TV Out"
+msgstr "视频输出"
+
+msgid "Full Screen"
+msgstr "全屏输出"
+
+msgid "Hide Menu Area"
+msgstr "隐藏菜单区"
+
+msgid "Image Area Only"
+msgstr "仅图像区"
+
+msgid "<b>TV Out Format</b>"
+msgstr "<b>视频输出格式</b>"
+
+msgid "SendTo DICOM"
+msgstr "发送到DICOM"
+
+msgid ""
+"Browse\n"
+"Udisk Image"
+msgstr "浏览U盘图像"
+
+msgid "GW:"
+msgstr "孕周:"
+
+msgid "EDCB:"
+msgstr "预产期:"
+
+msgid "EDCB(AUA)"
+msgstr "预产期(AUA)"
+
+msgid "EDCB(LMP)"
+msgstr "预产期(LMP)"
+
+msgid "Speed"
+msgstr "速度"
+
+msgid "Replay/Speed"
+msgstr "回放/速度"
+
+msgid "Replay Speed"
+msgstr "回放速度"
+
+msgid "Please turn off auto calc!"
+msgstr "请关闭自动计算!"
+
+msgid "eView Mode"
+msgstr "eView模式"
+
+msgid "BodyMark"
+msgstr "体标"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Prepare Status"
+msgstr ""
+"eView\n"
+"\n"
+"准备状态"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Capture Status"
+msgstr ""
+"eView\n"
+"\n"
+"捕获状态"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"View Status"
+msgstr ""
+"eView\n"
+"\n"
+"查看状态"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Review Status"
+msgstr ""
+"eView\n"
+"\n"
+"回放状态"
+
+msgid "Focus"
+msgstr "焦点"
+
+msgid "4B"
+msgstr ""
+
+msgid "Zoom"
+msgstr "局部放大"
+
+msgid "[eView]: Only valid in B/BB mode, unfreeze status, linear probe."
+msgstr "[eView]：仅在B/BB模式，非冻结状态，线阵探头下有效."
+
+msgid "[eView]: Only valid in 2D mode, unfreeze status, linear probe."
+msgstr "[eView]：仅在2D模式，非冻结状态，线阵探头下有效."
+
+msgid "Success to save eView cine. Filename is "
+msgstr "保存eView录像成功. 文件名为 "
+
+msgid " <b>Press</b>"
+msgstr " <b>按</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"Capture Status\"</b>"
+msgstr " <b>按钮进入 \"捕获状态\"</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"View Status\"</b>"
+msgstr " <b>按钮进入 \"查看状态\"</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"Prepare Status\"</b>"
+msgstr " <b>按钮进入 \"准备状态\"</b>"
+
+msgid "Speed: "
+msgstr "速度: "
+
+msgid "eView cine is oversized. Intercept the cine automatically?"
+msgstr "eView录像大小超出限制。是否自动截取？"
+
+msgid "ROI Size"
+msgstr "感兴趣框大小"
+
+msgid "Space Compound"
+msgstr "空间复合成像"
+
+msgid "Freq. Compound"
+msgstr "频率复合成像"
+
+msgid "Freq Compound"
+msgstr "频率复合成像"
+
+msgid "Invalid when compound imaging is on."
+msgstr "复合成像打开时无效."
+
+#, c-format
+msgid "%s"
+msgstr ""
+
+msgid "[Compound]: Only valid in 2D and M mode, linear probe, harmonic off."
+msgstr "[复合成像]：仅在2D和M模式，线阵探头，谐波关闭下有效."
+
+msgid "[Compound]: Only valid in 2D and M mode, harmonic off."
+msgstr "[复合成像]：仅在2D和M模式，谐波关闭下有效."
+
+msgid "[Focus]: Mouse to move focus."
+msgstr "[焦点]: 鼠标移动焦点."
+
+msgid "[Replay]: No image can be saved."
+msgstr "[回放]: 无图像可以存储."
+
+msgid "Please Set the remote host attribute in system setting"
+msgstr "请在系统设置中设置远程计算机的属性"
+
+msgid "[Scan Angle]: Invalid when Zoom is on."
+msgstr "[扫描角度]: 局部放大打开时无效."
+
+msgid "[Local Zoom]: Only valid in 2D B mode and not replay status."
+msgstr "[局部放大]: 仅在2D B模式，非回放状态下有效."
+
+msgid "[Local Zoom]: Only valid in B mode and not replay status."
+msgstr "[局部放大]: 仅在B模式，非回放状态下有效."
+
+msgid "[Local Zoom]: Exit."
+msgstr "[局部放大]: 退出."
+
+msgid "[Freq.]: <Value> change freq. size"
+msgstr "[频率调节]: <Value> 调节频率大小"
+
+msgid "[Chroma  Reject]: <Value> change chroma "
+msgstr "[伪彩调节]: <Value>调节伪彩"
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"No Probe was found."
+msgstr ""
+"进入3D/4D模式失败!\n"
+"未发现探头."
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+".The process cannot be created."
+msgstr ""
+"进入3D/4D模式失败!\n"
+"无法创建线程."
+
+msgid "[Freq]: Invalid when simult is on."
+msgstr "[频率]:同步打开时无效."
+
+msgid "change the angle."
+msgstr "调节角度."
+
+msgid "The time input is not correct!"
+msgstr "输入时间错误!"
+
+msgid "TP-View"
+msgstr "梯形成像"
+
+msgid "EFVI"
+msgstr "扩展成像"
+
+msgid "[ScanAngle]: Invalid for linear probe."
+msgstr "[扫描角度]: 线性探头无效."
+
+msgid "[ScanAngle]: Invalid when Zoom is on."
+msgstr "[扫描角度]: 局部放大打开无效."
+
+msgid "[TP-View]: Invalid when EFVI , compound or localzoom is open."
+msgstr "[梯形成像]: 扩展成像,复合成像和局部放大打开无效."
+
+msgid "[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."
+msgstr "[梯形成像]: 仅在线阵探头B模式下的非冻结状态下有效."
+
+msgid "[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."
+msgstr "[扩展成像]: 仅在凸阵探头B模式下的非冻结状态下有效"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Steer Left"
+msgstr "左偏"
+
+msgid "Steer Right"
+msgstr "右偏"
+
+msgid "[Local Zoom]: Invalid when Tp-View or EFVI is on."
+msgstr "[局部放大]:梯形成像或扩展成像打开无效."
+
+msgid "There are not enough images for IMT measure."
+msgstr "IMT 测量没有足够的图像."
+
+msgid "Invalid when Tp-view and EFVI is open."
+msgstr "梯形成像和扩展成像打开时无效."
+
+msgid "Tp-View"
+msgstr "梯形成像"
+
+msgid "Measurement is invalid in current mode."
+msgstr "测量在当前模式下无效."
+
+msgid "[Local Zoom]: Invalid when Tp-View is on."
+msgstr "[局部放大]: 打开梯形成像时无效."
+
+msgid "[Depth]: <Value> to change depth size."
+msgstr "[深度]: <Value> 调节深度大小."
+
+msgid "Direction:"
+msgstr "方向："
+
+msgid "PageSize:"
+msgstr "纸张大小:"
+
+msgid "SonyGamma:"
+msgstr "索尼伽马:"
+
+msgid "Hollo Arrow"
+msgstr "空心箭头"
+
+msgid "[Compound]: Invalid when Tp-view or EFVI is open."
+msgstr "[复合成像]: 梯形成像或者扩展成像打开时无效."
+
+msgid "please selected frame numbers are more than one."
+msgstr "请选择帧数大于1."
+
+msgid "[Local Zoom]: Invalid when in status read picture."
+msgstr "[局部放大]： 读图片时无效."
+
+msgid "[Local Zoom]: Invalid when TP-view, biopsy line or centerline is on."
+msgstr "[局部放大]: 梯形成像,穿刺线和中心线打开时无效."
+
+msgid "Please enter patient ID again!"
+msgstr "请重新输入病人ID!"
+
+msgid "[Local Zoom]: Invalid when Tp-view, biopsy line or centerline is on."
+msgstr "[局部放大]: 梯形成像，穿刺线，中心线打开时无效"
+
+msgid "Invalid when image is rotated!"
+msgstr "图像旋转时无效!"
+
+msgid "[EFVI]: Invalid when Tp-view or compound is open."
+msgstr "[扩展成像]: 梯形成像,复合成像打开时无效."
+
+msgid "[EFVI]: Invalid when Tp-view , compound or biopsy line is open."
+msgstr "[扩展成像]: 梯形成像,复合成像和穿刺线打开时无效."
+
+msgid "[Local Zoom]: Invalid when image is steered."
+msgstr "[局部放大]: 图像偏转时无效."
+
+msgid "[Steer]: Invalid when localzoom is open!."
+msgstr "[偏转]:打开局部放大时无效!"
+
+msgid "Value"
+msgstr "值"
+
+msgid "Gain"
+msgstr "增益"
+
+msgid "<b>User Select: </b>"
+msgstr "<b>用户选择: </b>"
+
+#, c-format
+msgid "Failed to send data to USB storage!"
+msgstr "发送数据到USB存储设备失败!"
+
+msgid "Import From USB"
+msgstr "从USB导入"
+
+msgid "Export To USB"
+msgstr "导出到USB"
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"加载数据到USB存储设备失败!\n"
+"错误: 设备空间不足."
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"加载数据到USB存储设备失败!\n"
+"错误: 操作被取消."
+
+#, c-format
+msgid ""
+"Failed send load data to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"导出到USB存储设备失败!\n"
+"错误: 操作被取消."
+
+msgid "Check Date:"
+msgstr "诊断日期："
+
+msgid "Section:"
+msgstr "科别："
+
+msgid "Check Num:"
+msgstr "检查号："
+
+msgid "insert image:"
+msgstr "插入图像:"
+
+msgid "REPORT OF ULTRASOUND"
+msgstr "超声医学影像报告单"
+
+msgid "Hospital: "
+msgstr "医院名称:"
+
+msgid "Check Date: "
+msgstr "诊断日期:"
+
+msgid "ID: "
+msgstr "ID: "
+
+msgid "Check Num: "
+msgstr "检查号:"
+
+msgid "Name: "
+msgstr "姓名:"
+
+msgid "Sex: "
+msgstr "性别: "
+
+msgid "Age: "
+msgstr "年龄: "
+
+msgid "Section: "
+msgstr "科别: "
+
+msgid "Descriptor: "
+msgstr "超声所见:"
+
+msgid "Comment: "
+msgstr "诊断意见: "
+
+msgid "Check Doctor: "
+msgstr "检查医生: "
+
+msgid "Report Doctor: "
+msgstr "报告医生: "
+
+#, c-format
+msgid "Success to export to USB storage."
+msgstr "导出到USB存储设备成功."
+
+msgid "Please wait, sending data to USB storage..."
+msgstr "请稍等，正在传输数据到USB存储设备..."
+
+msgid "System Default"
+msgstr "系统默认"
+
+msgid "<b>Current User: </b>"
+msgstr "      当前用户："
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"加载数据到USB存储设备失败!\n"
+"错误：创建目录失败."
+
+msgid "<i><b>Average</b></i>"
+msgstr "<i><b>平均值</b></i>"
+
+msgid "[Compound]: Only valid in 2D and M mode, no phase probe, harmonic off."
+msgstr "[复合成像]: 仅在2D和M模式，非相控阵探头，谐波关闭下有效."
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"The process cannot be created."
+msgstr ""
+"进入3D/4D模式失败!\n"
+"进程创建失败."
+
+msgid "Middle Name:"
+msgstr "中间名字:"
+
+msgid "<b>MODE</b>"
+msgstr "<b>模式</b>"
+
+msgid "<b>Display Format</b>"
+msgstr "<b>显示格式</b>"
+
+msgid "<b>IP Address:     </b>"
+msgstr "<b>IP 地址:     </b>"
+
+msgid ""
+"Not inserted Ukey, please insert Ukey and click button 'OK' to try again.\n"
+"Click button 'Close' to power off."
+msgstr ""
+"未插入加密狗，请插入加密狗并点击'确定'按钮进行重试.\n"
+"点击'关闭'按钮关机。"
+
+msgid "The Ukey has expired, please power off and update license file for Ukey."
+msgstr "加密狗过期，请关机并为加密狗更新授权文件."
+
+msgid "Not authorize, please contact vendor."
+msgstr "未授权，请联系厂商."
+
+msgid "default"
+msgstr "系统默认"
+
+msgid "templet"
+msgstr "模板"
+
+msgid "<b>Please Input New Name:</b>"
+msgstr "<b>请输入新的名字:</b>"
+
+msgid "<b>Please Select New Name:</b>"
+msgstr "<b>请选择新的名字:</b>"
+
+msgid "Report Setting"
+msgstr "报告预设"
+
+msgid "Date of Birth:"
+msgstr "出生日期:"
+
+msgid "New Templet"
+msgstr "新模板"
+
+msgid "Please rename!"
+msgstr "请重新输入名字!"
+
+msgid "Please select a node!"
+msgstr "请选择一个节点!"
+
+msgid "Custom Report"
+msgstr "自定义报告"
+
+msgid "BirthDate"
+msgstr "生日"
+
+msgid "<i><b>User</b></i>"
+msgstr "用户自定义"
+
+msgid "Exam Date: "
+msgstr "检查日期: "
+
+msgid "Exam ID: "
+msgstr "超声号: "
+
+msgid "Diagnostician: "
+msgstr "诊断医生: "
+
+msgid "Physician: "
+msgstr "主治医生: "
+
+msgid "Please Input Name!"
+msgstr "请输入名字!"
+
+msgid "Please Custom Type and Method!"
+msgstr "请定义类型和方法!"
+
+msgid "Name has been Existed, please Input Name Again!"
+msgstr "名字已经存在，请重新输入!"
+
+msgid "Show Comments"
+msgstr "显示诊断意见"
+
+msgid "Show Descriptor"
+msgstr "显示超声所见"
+
+msgid "Others"
+msgstr "其他"
+
+msgid "New Template"
+msgstr "新模板"
+
+msgid "GrayTrans:"
+msgstr "灰阶变换:"
+
+msgid "Bad NULL dests pointer"
+msgstr ""
+
+msgid "Error saving user-settings!"
+msgstr "错误保存到用户设置中"
+
+msgid "Too many printers!"
+msgstr "过多打印机存在"
+
+msgid "Unable to add instance!"
+msgstr ""
+
+msgid "Options saved!"
+msgstr "选项保存"
+
+msgid ""
+"Unable to print, \n"
+"unknown file format!"
+msgstr "不能打印，不知道文件格式"
+
+msgid "JobID"
+msgstr "任务ID"
+
+msgid "Unable to print!"
+msgstr "不能打印"
+
+msgid "(stdin)"
+msgstr ""
+
+msgid "Conflicts"
+msgstr "冲突"
+
+msgid "Media Selections"
+msgstr "选择媒介"
+
+msgid "Media Size"
+msgstr "纸张大小"
+
+msgid "Media Type"
+msgstr "纸张类型"
+
+msgid "Media Source"
+msgstr "纸张来源"
+
+msgid "Number of Copies"
+msgstr "打印份数"
+
+msgid "Collate Copies"
+msgstr "逐份打印"
+
+msgid "Printing in Black"
+msgstr "黑白打印"
+
+msgid "Fit on Page"
+msgstr "缩放至纸张的大小"
+
+msgid "Pen Width"
+msgstr "笔墨的宽度"
+
+msgid "micrometers"
+msgstr "微米"
+
+msgid "HP-GL/2"
+msgstr ""
+
+msgid "Sheet relativ"
+msgstr "依纸张大小"
+
+msgid "Image relativ"
+msgstr "依图像大小"
+
+msgid "PPI"
+msgstr ""
+
+msgid "Scaling"
+msgstr "比例"
+
+msgid "Color HUE rotation"
+msgstr "色彩旋转"
+
+msgid "Color saturation"
+msgstr "颜色饱和度"
+
+msgid "Fehlerteufel"
+msgstr ""
+
+msgid "Warning!"
+msgstr "警告"
+
+msgid "You have installed too many printers or templates !"
+msgstr "创建太多打印机或模板"
+
+msgid "The given printer does not exist!"
+msgstr "指定的打印机不存在"
+
+msgid "PRINTER SETTING"
+msgstr "打印设置"
+
+msgid "Sheet Usage"
+msgstr "纸张方向"
+
+msgid "Orientation(horizontal/vertical)"
+msgstr "中心（纵向/横向）"
+
+msgid "Mirror Output"
+msgstr "镜像输出"
+
+msgid "Brightness"
+msgstr "明亮度"
+
+msgid "Gamma Correction"
+msgstr "伽马校正"
+
+msgid "Gray Map"
+msgstr "灰阶映射"
+
+msgid "Image Enhance"
+msgstr "图像优化"
+
+msgid "Output"
+msgstr "输出"
+
+msgid "PPD"
+msgstr ""
+
+msgid "Look"
+msgstr ""
+
+msgid "Show Output"
+msgstr "显示输出"
+
+msgid "Show Text"
+msgstr "显示文本"
+
+msgid "Show Image"
+msgstr "显示图像"
+
+msgid "Show HP-GL/2"
+msgstr "显示HP-GL/2"
+
+msgid "Show PPD"
+msgstr "显示PPD文件"
+
+msgid "Remember last printer"
+msgstr "记住最后使用的打印机"
+
+msgid "Remember last Tab"
+msgstr "记住最后使用的标签"
+
+msgid "Save all preferences on exit"
+msgstr "退出时存储所有的属性设置"
+
+msgid "Save number of copies on exit"
+msgstr "退出时保存打印份数"
+
+msgid "Sizes and Spacings"
+msgstr "大小和空白"
+
+msgid "Chars per Inch"
+msgstr "字/英寸"
+
+msgid "Lines per Inch"
+msgstr "行/英寸"
+
+msgid "Columns per Page"
+msgstr "行数/页"
+
+msgid "Margins"
+msgstr "边界"
+
+msgid "Top"
+msgstr "最上端"
+
+msgid "Bottom"
+msgstr "最下端"
+
+msgid "Left"
+msgstr "左边"
+
+msgid "Right"
+msgstr "右边"
+
+msgid "Text formatting"
+msgstr "文字格式"
+
+msgid "Use Pretty Print"
+msgstr "使用Pretty打印"
+
+msgid "Wrap text"
+msgstr "文字换行"
+
+msgid "Text"
+msgstr "文字"
+
+msgid "Gender: "
+msgstr "性别: "
+
+msgid ">"
+msgstr ""
+
+msgid "<<"
+msgstr ""
+
+msgid "<"
+msgstr ""
+
+msgid ">>"
+msgstr ""
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid " "
+msgstr ""
+
+msgid "Length"
+msgstr "长度"
+
+msgid "Peri"
+msgstr "周长"
+
+msgid "Volume"
+msgstr "体积"
+
+msgid "Ratio"
+msgstr "比率"
+
+msgid "Vel"
+msgstr "速度"
+
+msgid "Vel(M)"
+msgstr "速度(M)"
+
+msgid "Measure_track"
+msgstr "轨迹法测量"
+
+msgid "ACCEL"
+msgstr "加速度"
+
+msgid "PGMEAN"
+msgstr "平均压力阶差"
+
+msgid "DIST_DOT"
+msgstr "两点法"
+
+msgid "DIST_LINE"
+msgstr "两线法"
+
+msgid "LENGTH_TRACK"
+msgstr "轨迹法"
+
+msgid "LENGTH_DOT"
+msgstr "描点法"
+
+msgid "PERI_TRACK"
+msgstr "轨迹法"
+
+msgid "PERI_ELLIPSE"
+msgstr "椭圆法"
+
+msgid "AREA_TRACK"
+msgstr "轨迹法"
+
+msgid "AREA_DOT"
+msgstr "亮点法"
+
+msgid "AREA_REC"
+msgstr "矩形法"
+
+msgid "AREA_ELLIPSE"
+msgstr "椭圆法"
+
+msgid "VOL_3AXIS"
+msgstr "三轴"
+
+msgid "VOL_ELLIPSE1"
+msgstr "椭圆法1"
+
+msgid "VOL_ELLIPSE2"
+msgstr "椭圆法2"
+
+msgid "ANGLE_3DOT"
+msgstr "三点法"
+
+msgid "ANGLE_2LINE"
+msgstr "两线法"
+
+msgid "ANGUSTY_DIST_DOT"
+msgstr "距离狭窄比"
+
+msgid "RATIO_DIST_DOT"
+msgstr "距离比率"
+
+msgid "ANGUSTY_AREA"
+msgstr "面积狭窄比"
+
+msgid "RATIO_AREA"
+msgstr "面积比率"
+
+msgid "RATIO_D_P"
+msgstr "距离周长比"
+
+msgid "RATIO_VOL"
+msgstr "体积比率"
+
+msgid "RATIO_ANGLE"
+msgstr "角度比率"
+
+msgid "DEPTH_DIST"
+msgstr "距离法"
+
+msgid "DEPTH_DIST_M"
+msgstr "M模式距离法"
+
+msgid "PROFILE"
+msgstr "断面图"
+
+msgid "HISTOGRAM"
+msgstr "直方图"
+
+msgid "TIME_M"
+msgstr "M模式时间"
+
+msgid "TIME_D"
+msgstr "D模式时间"
+
+msgid "Time(D)"
+msgstr "时间(D)"
+
+msgid "SLOPE"
+msgstr "斜率"
+
+msgid "VEL_M"
+msgstr "M模式速度"
+
+msgid "VEL_D"
+msgstr "D模式速度"
+
+msgid "HR_M"
+msgstr "M模式心率"
+
+msgid "MEASURE_TRACK"
+msgstr "描迹法测量"
+
+msgid "CalcSetting"
+msgstr "计算预设"
+
+msgid "Type:"
+msgstr "测量类型:"
+
+msgid "Method:"
+msgstr "测量方法:"
+
+msgid "Exam Type: "
+msgstr "检查项目: "
+
+msgid "item:"
+msgstr "测量名称:"
+
+msgid "<b>Indication:</b>"
+msgstr "超声可见:"
+
+msgid "Comments: "
+msgstr "诊断意见: "
+
+msgid "OB "
+msgstr "产科预设"
+
+msgid "Comment"
+msgstr "注释预设"
+
+msgid "Item:"
+msgstr "测量名称:"
+
+msgid "Recovery succeeded!"
+msgstr "恢复成功!"
+
+msgid "SpaceCompound:"
+msgstr "空间复合:"
+
+msgid "FreqCompound:"
+msgstr "频率复合:"
+
+msgid "Only Userdefined items can be deleted!"
+msgstr "只有自定义测量项可被删除"
+
+msgid "Item has existed. Please select item again!"
+msgstr "测量名称已经存在，请重新选择！"
+
+msgid "Item has existed. Please input item again!"
+msgstr "测量名称已经存在，请重新输入！"
+
+msgid "PrintConfig"
+msgstr "打印配置"
+
+msgid "Please select again!"
+msgstr "请再次选择"
+
+msgid "System Default is protected!"
+msgstr "系统默认是受保护的"
+
+msgid "User configuration being in use!"
+msgstr "用户配置正在使用中"
+
+msgid "Template name has existed or the input format is incorrect.Please input again!"
+msgstr "模板名已存在或输入格式不对. 请重新输入！"
+
+msgid "Selected exam type has existed!"
+msgstr "选择的科别已存在！"
+
+msgid "<b>Please Select Exam Type:</b>"
+msgstr "<b>请选择科别:</b>"
+
+msgid "Blank template can't apply!"
+msgstr "空模板不能应用！"
+
+msgid "<b>P1</b>"
+msgstr "P1"
+
+msgid "<b>P2</b>"
+msgstr "P2"
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Set> to select curve."
+msgstr "[灰阶变换]: 鼠标移动调节点, <Value>选择调节点, <Set>选择曲线."
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Update> to select curve."
+msgstr "[灰阶变换]: 鼠标移动调节点, <Value>选择调节点, <Update>选择曲线."
+
+msgid "B/M"
+msgstr ""
+
+msgid "B/PW"
+msgstr ""
+
+msgid "TOTAL"
+msgstr ""
+
+msgid "UD_11"
+msgstr ""
+
+msgid "UD_21"
+msgstr ""
+
+msgid "UD_12"
+msgstr ""
+
+msgid "<b>M: </b>"
+msgstr ""
+
+msgid "<b>PW: </b>"
+msgstr ""
+
+msgid "LR_11"
+msgstr ""
+
+msgid "Please Set the default storage service in system setting"
+msgstr "请预设下设置默认的影像发送服务"
+
+msgid "WorkList"
+msgstr "工作列表"
+
+msgid "<b>Query</b>"
+msgstr "查询:"
+
+msgid "<b>ID :</b>"
+msgstr "病人ID:"
+
+msgid "<b>Name :</b>"
+msgstr "病人姓名:"
+
+msgid "<b>Accession Number :</b>"
+msgstr "Accession Number:"
+
+msgid "<b>Requested Procedure ID :</b>"
+msgstr "Requested Procedure ID:"
+
+msgid "<b>Scheduled Date :</b>"
+msgstr "预约日期:"
+
+msgid "<b>To :</b>"
+msgstr "到："
+
+msgid "Query"
+msgstr "查询"
+
+msgid "<b>0 record is found</b>"
+msgstr "0条记录被找到"
+
+msgid "Start Exam"
+msgstr "开始检查"
+
+msgid "Detail"
+msgstr "细节"
+
+msgid "Quit"
+msgstr "退出"
+
+msgid "Scheduled Date"
+msgstr "预约日期"
+
+msgid "patient ID"
+msgstr "病人ID"
+
+msgid "Accession Number"
+msgstr "Accession Number"
+
+msgid "Birth Date"
+msgstr "出生日期"
+
+msgid "Exam Description"
+msgstr "检查描述"
+
+msgid "No device is selected!"
+msgstr "没有设备被选中"
+
+msgid "Patient Detail"
+msgstr "病人详细信息"
+
+msgid "<b>Detail</b>"
+msgstr "细节"
+
+msgid "<b>Patient ID :</b>"
+msgstr "病人ID："
+
+msgid "<b>Patient Name :</b>"
+msgstr "病人姓名："
+
+msgid "<b>Birth Date:</b>"
+msgstr "出生日期："
+
+msgid "<b>Age:</b>"
+msgstr "年龄："
+
+msgid "<b>Gender :</b>"
+msgstr "性别："
+
+msgid "<b>Diagnostician :</b>"
+msgstr "诊断医生："
+
+msgid "<b>Stature :</b>"
+msgstr "身高："
+
+msgid "<b>Weight :</b>"
+msgstr "体重："
+
+msgid "<b>Address :</b>"
+msgstr "地址："
+
+msgid " Comment "
+msgstr "备注："
+
+msgid "<b>NetWork Quality</b>"
+msgstr "<b>网络属性</b>"
+
+msgid "Please set the relevant information of network!"
+msgstr "请设置网络的相关信息！"
+
+#, c-format
+msgid "Sucess to set the local network!"
+msgstr "本地网络设置成功！"
+
+msgid "<b>Equipment</b>"
+msgstr "<b>设备</b>"
+
+msgid "<b>Device :</b>"
+msgstr "<b>设备：</b>"
+
+msgid "<b>IP Address :</b>"
+msgstr "<b>IP地址：</b>"
+
+msgid "Ping"
+msgstr "Ping"
+
+msgid "<b>Device List</b>"
+msgstr "<b>设备列表</b>"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "IP Address"
+msgstr "IP地址"
+
+msgid "Ping..."
+msgstr "Ping..."
+
+msgid "Success to ping ip"
+msgstr "成功ping IP "
+
+msgid "Failed to ping ip"
+msgstr "失败Ping IP"
+
+msgid "Add failed,device or IP has been existed\n"
+msgstr "添加失败，设备或者IP已经存在\n"
+
+msgid "Storage"
+msgstr "影像发送"
+
+msgid "<b>Equipment Quality</b>"
+msgstr "<b>设备属性</b>"
+
+msgid "<b>Service List</b>"
+msgstr "<b>服务列表</b>"
+
+msgid "Connect Test"
+msgstr "连接测试"
+
+msgid "Service Name"
+msgstr "服务名称"
+
+msgid "AE Title"
+msgstr "实体标题"
+
+msgid "Port"
+msgstr "端口"
+
+msgid "<b>Color :</b>"
+msgstr "颜色："
+
+msgid "<b>Format :</b>"
+msgstr "格式："
+
+msgid "<b>Orientation :</b>"
+msgstr "方向："
+
+msgid "<b>Magnification :</b>"
+msgstr "放大类型："
+
+msgid "<b>Min Denisty :</b>"
+msgstr "最小密度："
+
+msgid "<b>Max Denisty :</b>"
+msgstr "最大密度："
+
+msgid "<b>Medium Type :</b>"
+msgstr "介质类型："
+
+msgid "<b>Film Size :</b>"
+msgstr "胶片大小："
+
+msgid "<b>Prioritys :</b>"
+msgstr "优先级："
+
+msgid "<b>Copies :</b>"
+msgstr "<b>打印份数：</b>"
+
+msgid "Add failed,device has been existed\n"
+msgstr "添加失败，设备已经存在\n"
+
+msgid "Local"
+msgstr "本地"
+
+msgid "Server"
+msgstr "服务器"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "MPPS"
+msgstr "采集状态"
+
+msgid "Storage Commitment"
+msgstr "存储确认"
+
+msgid "StorageCommitment"
+msgstr "存储确认"
+
+msgid "Query/Retrieve"
+msgstr "查询/获取"
+
+msgid "QueryRetrieve"
+msgstr "查询获取"
+
+msgid " Query/Retrieve"
+msgstr "查询/获取"
+
+msgid "<b>Device Quality</b>"
+msgstr "<b>设备属性</b>"
+
+msgid "Department"
+msgstr "科别"
+
+msgid "<b>(xxx.xxx.x.xx)</b>"
+msgstr ""
+
+msgid "<b>(xxx.xxx.xxx.x)</b>"
+msgstr ""
+
+msgid "<b>(xxx.xxx.x.x)</b>"
+msgstr ""
+
+msgid "<b>(xxx.xxx.x.xxx)</b>"
+msgstr ""
+
+msgid "<b>(xxx.xxx.xxx.xxx)</b>"
+msgstr ""
+
+msgid "Device or IP is empty, please input!"
+msgstr "设备或IP为空，请重新输入！"
+
+msgid "Year"
+msgstr "岁"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Day"
+msgstr "天"
+
+msgid "Patient ID :"
+msgstr "病人ID："
+
+msgid "Patient Name :"
+msgstr "病人姓名："
+
+msgid "Accession Number :"
+msgstr ""
+
+msgid "Requested Procedure ID :"
+msgstr ""
+
+msgid "Scheduled Date :"
+msgstr "预约日期："
+
+msgid "To :"
+msgstr "到"
+
+msgid "0 record is found"
+msgstr "0 条记录被找到"
+
+msgid "No patient is selected!"
+msgstr "没有病人被选择"
+
+msgid "Birth Date:"
+msgstr "出生日期："
+
+msgid "Gender :"
+msgstr "性别："
+
+msgid "Diagnostician :"
+msgstr "诊断医生："
+
+msgid "Stature :"
+msgstr "身高："
+
+msgid "Weight :"
+msgstr "体重："
+
+msgid "Address :"
+msgstr "地址："
+
+msgid "Local information must be not empty!"
+msgstr "本地信息不能为空！"
+
+msgid "Device ,AE or Port is empty, please input!"
+msgstr "设备、AE标题或者端口为空，请输入！"
+
+msgid "Connect..."
+msgstr "连接中..."
+
+msgid "record is found"
+msgstr "条记录被找到"
+
+msgid "Auto Query"
+msgstr "自动查询"
+
+msgid "Please Set the default worklist service in system setting"
+msgstr "请在系统预设下设置默认worklist服务"
+
+msgid "Test Link is failed"
+msgstr "测试连接失败"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Worklist"
+msgstr "工作列表"
+
+msgid "<b>NetWork Property</b>"
+msgstr "<b>网络属性</b>"
+
+msgid "<b>Device</b>"
+msgstr "<b>设备</b>"
+
+msgid "<b>Device Property</b>"
+msgstr "<b>设备属性</b>"
+
+msgid "Import Data"
+msgstr "导入数据"
+
+msgid "Browse Udisk Image"
+msgstr "浏览U盘图片"
+
+msgid "Please Set the default query/retrieve service in system setting"
+msgstr "请在系统设置中设置默认的查询/获取服务"
+
+msgid "Backup Status"
+msgstr "备份状态"
+
+msgid "Export Setting"
+msgstr "导出设置"
+
+msgid "Please select export data type"
+msgstr "请选择导出数据的类型"
+
+msgid "Emp data"
+msgstr "Emp 数据"
+
+msgid "Ok"
+msgstr ""
+
+msgid "Import Exam"
+msgstr "导入检查"
+
+msgid "<b>DICOMDIR List</b>"
+msgstr "DICOMDIR列表"
+
+msgid "<b>DICOMDIR Quality</b>"
+msgstr "DICOMDIR属性"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Quality"
+msgstr "属性"
+
+msgid "Please Set the default MPPS service in system setting"
+msgstr "请在系统预设中设置默认的MPPS服务"
+
+msgid "<b>ID:</b>"
+msgstr ""
+
+msgid "<b>Name:</b>"
+msgstr "姓名"
+
+msgid "<b>Accession Number:</b>"
+msgstr ""
+
+msgid "<b>Gender:</b>"
+msgstr "性别"
+
+msgid "male"
+msgstr "男"
+
+msgid "female"
+msgstr "女"
+
+msgid "<b>Exam Date :</b>"
+msgstr "检查日期"
+
+msgid "<b>Patient List(Source)</b>"
+msgstr "病人列表（源）"
+
+msgid "Retrieve"
+msgstr "获取"
+
+msgid "<b>Patient List(Destination)</b>"
+msgstr "病人列表（目的）"
+
+msgid "Weight"
+msgstr "体重"
+
+msgid "Exam Time"
+msgstr "检查时间"
+
+msgid "Exam Doctor"
+msgstr "检查医生"
+
+msgid "No default server!"
+msgstr "无默认服务器！"
+
+msgid "Server connection is failed!"
+msgstr "服务器连接失败！"
+
+msgid "No record or device is selected!"
+msgstr "没有选择记录或设备！"
+
+msgid "No record or server existed!"
+msgstr "没有记录或服务器存在！"
+
+msgid "Destination server is valid!"
+msgstr "目的服务器是有效的！"
+
+msgid "Retrieve unsuccessfully!"
+msgstr "获取失败！"
+
+msgid "Not support study root!"
+msgstr "不支持study root！"
+
+msgid "Study has existed!"
+msgstr "检查已经存在！"
+
+msgid "Import DICOM File"
+msgstr "导入DICOM文件"
+
+msgid "Data Format:"
+msgstr "数据格式："
+
+msgid "DICOM data"
+msgstr "DICOM数据"
+
+msgid "<b>DICOMDIR Property</b>"
+msgstr "DICOMDIR属性"
+
+msgid "JPEG/BMP/EMP/AVI/CINE"
+msgstr ""
+
+msgid "Browse DICOMDIR"
+msgstr "浏览DICOMDIR"
+
+msgid "<b>Property Description</b>"
+msgstr "属性描述"
+
+msgid "Property"
+msgstr "属性名称"
+
+msgid "No record is selected!"
+msgstr "没有记录被选中!"
+
+msgid "Export data successfully!"
+msgstr "导出数据成功！"
+
+msgid "Study Info has existed!"
+msgstr "检查信息已经存在！"
+
+msgid "Invalid storage device!"
+msgstr "无效的存储设备！"
+
+msgid "Export data failure!"
+msgstr "导出数据失败！"
+
+msgid "Import data successfully!"
+msgstr "导入数据成功！"
+
+msgid "DICOMDIR is not existed!"
+msgstr "DICOMDIR 不存在！"
+
+msgid "File has lost in DICOMDIR !"
+msgstr "DICOMDIR中的文件丢失！"
+
+msgid "Import data failure!"
+msgstr "导入数据失败！"
+
+msgid "Description"
+msgstr "检查描述"
+
+msgid "Instance UID"
+msgstr ""
+
+msgid "type"
+msgstr "类型"
+
+msgid "filePath"
+msgstr "文件路径"
+
+msgid "Enable Structured Reporting"
+msgstr "允许发送报告"
+
+msgid "Allow Multiframe"
+msgstr "允许发送录像"
+
+msgid "Max Framerate:"
+msgstr "最大帧数："
+
+msgid "Patient Name"
+msgstr "病人姓名"
+
+msgid "Patient ID"
+msgstr "病人ID"
+
+msgid "CW"
+msgstr ""
+
+msgid "PW"
+msgstr ""
+
+msgid "<b>PW/CW: </b>"
+msgstr ""
+
+msgid "Only valid when probe is phase."
+msgstr "仅在相控阵探头下有效。"
+
+msgid "Exporting finished!"
+msgstr "导出完成！"
+
+msgid "Retrieve finished!"
+msgstr "获取完成！"
+
+msgid "Destination server is invalid!"
+msgstr "目的服务器是无效的！"
+
+msgid "Send MPPS after exam end and storage"
+msgstr "检查结束和影像发送完成后发送采集状态！"
+
+# "注意：厂家将通过许可文件，为每台机器生成\n"
+# "一个唯一的注册码，通过输入匹配的注册码\n"
+# "对DICOM功能进行注册，一旦注册成功，\n"
+# "您将可以使用DICOM功能。"
+# "请先插入U盘，然后点击“导出许可文件”,您将\n"
+# "在U盘中找到名为licensed的许可文件\n"
+# "请将该许可文件发送给厂家。"
+msgid "DICOM Register"
+msgstr "DICOM 注册"
+
+msgid "Export License File"
+msgstr "导出许可文件"
+
+msgid "Register Key:"
+msgstr "注册码："
+
+msgid "Register"
+msgstr "注册"
+
+msgid "Export file successfully!"
+msgstr "导出文件成功！"
+
+msgid "Export file failedly!"
+msgstr "导出文件失败！"
+
+msgid "Register successfully!"
+msgstr "注册成功！"
+
+msgid "Register failedly!"
+msgstr "注册失败！"
+
+#, c-format
+msgid ""
+"Note: According to the license file,the manufacturer will generate\n"
+"a unique register key for every machine,you can register DICOM\n"
+"function by inputting thist register key.If register is successful,\n"
+"you can use the DICOM function.\n"
+"\n"
+"Please Insert Udisk,and Click button Export 'License' File , you will\n"
+"find this name file license in Udisk,please send this file to\n"
+"manufacturer."
+msgstr ""
+"注意：厂家将通过许可文件，为每台机器生成一个唯一的注册码，通过输入匹配\n"
+"的注册码对DICOM功能进行注册，一旦注册成功，您将可以使用DICOM功能。\n"
+"\n"
+"请先插入U盘，然后点击“导出许可文件”,您将在U盘中找到名为'license'的许可\n"
+"文件请将该许可文件发送给厂家。"
+
+msgid "Send storage commitment after storage"
+msgstr "影像发送成功后发送存储确认标志"
+
+msgid "Send MPPS after start exam and exam end"
+msgstr "开始检查和结束检查后发送采集状态"
+
+msgid "<b>Service Name :</b>"
+msgstr "服务名："
+
+msgid "No USB storage is found!"
+msgstr "USB 设备没找到！"
+
+msgid "Stature"
+msgstr "身高"
+
+msgid "Delete the lastet loaded file."
+msgstr "删除最新导入的文件."
+
+msgid "The exam record  has exsited, please select other record again!"
+msgstr "检查记录已经存在，请选择其他记录！"
+
+msgid "'localhost' has been used, please input again!"
+msgstr "'localhost'已经存在，请重新输入！"
+
+msgid "Send MPPS after start exam and end exam"
+msgstr "开始检查和结束检查后发送MPPS"
+
+msgid "Attach Structured Report"
+msgstr "允许发送报告"
+
+msgid "Max number of frames:"
+msgstr "最大帧数："
+
+msgid "Retrieve failedly!"
+msgstr "获取失败！"
+
+msgid "Import data unsuccessfully!"
+msgstr "导入数据失败！"
+
+msgid "Query unsuccessfully!"
+msgstr "查询失败！"
+
+msgid "[Arrow]: <Value> to change arrow direction."
+msgstr "[箭头]: <Value> 改变箭头方向."
+
+msgid "[Focus]: Mouse to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[焦点]: 鼠标移动焦点位置. 局放、复合成像、梯型或者扩展成像开启时，只有一个焦点."
+
+msgid "[Focus]: Knob to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[焦点]: 旋转移动焦点位置. 局放、复合成像、梯型或者扩展成像开启时，只有一个焦点."
+
+msgid " Worklist"
+msgstr "工作列表"
+
+msgid "INTEGRAL_TRACK"
+msgstr "积分轨迹法"
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate\n"
+"a unique register key for every machine,you can register DICOM\n"
+"function by inputting thist register key.If register is successful,\n"
+"you can use the DICOM function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will\n"
+"find this file named 'license' in Udisk. Please send this file to\n"
+"manufacturer."
+msgstr ""
+"注意：厂家将通过许可文件，为每台机器生成一个唯一的注册码，通过输入匹配\n"
+"的注册码对DICOM功能进行注册，一旦注册成功，您将可以使用DICOM功能。\n"
+"\n"
+"请先插入U盘，然后点击“导出许可文件”,您将在U盘中找到名为'license'的许可\n"
+"文件请将该许可文件发送给厂家。"
+
+msgid "Succeed to export file!"
+msgstr "导出文件成功！"
+
+msgid "Fail to export file!"
+msgstr "导出文件失败！"
+
+msgid "Succeed to register!"
+msgstr "注册成功！"
+
+msgid "Fail to register!"
+msgstr "注册失败！"
+
+msgid "Please Set the default Worklist server in system setting"
+msgstr "请在系统预设中设置默认的工作列表服务器"
+
+msgid "Please Set the default MPPS server in system setting"
+msgstr "请在系统预设中设置默认的MPPS服务器"
+
+msgid "Please Set the default Storage Commitment server in system setting"
+msgstr "请在系统预设中设置默认的存储/确认服务器"
+
+msgid "Operation is invaild."
+msgstr "操作无效。"
+
+msgid "Fail to insert! 'New Item' has existed in the probe type. please rename it before inserting!"
+msgstr "插入失败！“新增部位”已经存在此探头下，请查找并重命名!"
+
+msgid "Please select a department before inserting!"
+msgstr "在插入之前，请选择科别！"
+
+msgid "Fail to insert! Please select a department before inserting!"
+msgstr "插入失败！在插入之前，请选择科别！"
+
+msgid "Fail to delete! Can not delete the department!"
+msgstr "删除失败！不能删除科别！"
+
+msgid "Fail to delete! Can not delete the defaulted exam item!"
+msgstr "删除失败！不能删除默认检查部位！"
+
+msgid "The new item name can not be empty!"
+msgstr "检查部位不能为空！"
+
+msgid "Fail to rename! The item name has existed!"
+msgstr "重命名失败！检查部位已经存在！"
+
+msgid "The defined items have reached the maximum!"
+msgstr "自定义检查部位已达到最大数！"
+
+msgid "Please select one item to be delete!"
+msgstr "在删除之前，请选择一个检查部位！"
+
+msgid "Please select one item to be save!"
+msgstr "在保存之前，请选择一个检查部位！"
+
+msgid "Fail to delete! The item is under using!"
+msgstr "删除失败！不能删除正在使用中的检查部位！"
+
+msgid "Ultrasonic"
+msgstr "B超"
+
+msgid "View Mode"
+msgstr "显示模式"
+
+msgid "Auto Size"
+msgstr "自适应大小"
+
+msgid "Orignial Size"
+msgstr "原图大小"
+
+msgid "<b>Destination :</b>"
+msgstr "<b>目的服务器 :</b>"
+
+msgid "Animal"
+msgstr "动物"
+
+msgid "Part"
+msgstr "器官"
+
+msgid "Tendon"
+msgstr "肌腱"
+
+msgid "Animal Information"
+msgstr "动物信息"
+
+msgid "Animal Name:"
+msgstr "动物名称:"
+
+msgid "Owner:"
+msgstr "所有者:"
+
+msgid "Species:"
+msgstr "物种:"
+
+msgid "Slight"
+msgstr ""
+
+msgid "Moderate"
+msgstr ""
+
+msgid "Severe"
+msgstr ""
+
+msgid "Undefine"
+msgstr ""
+
+msgid "<i><b>Lesion 1</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 2</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 3</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 4</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 5</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 6</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 7</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 8</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 9</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 10</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 11</b></i>"
+msgstr ""
+
+msgid "<i><b>Dog</b></i>"
+msgstr "<i><b>狗</b></i>"
+
+msgid "<i><b>Cat</b></i>"
+msgstr "<i><b>猫</b></i>"
+
+msgid "<i><b>Sheep</b></i>"
+msgstr "<i><b>羊</b></i>"
+
+msgid "<i><b>Swine</b></i>"
+msgstr "<i><b>猪</b></i>"
+
+msgid "<i><b>Bovine</b></i>"
+msgstr "<i><b>牛</b></i>"
+
+msgid "<i><b>Equine</b></i>"
+msgstr "<i><b>马</b></i>"
+
+msgid "Dog"
+msgstr "狗"
+
+msgid "Cat"
+msgstr "猫"
+
+msgid "Sheep"
+msgstr "羊"
+
+msgid "Swine"
+msgstr "猪"
+
+msgid "Bovine"
+msgstr "牛"
+
+msgid "Equine"
+msgstr "马"
+
+msgid "Animal:"
+msgstr "动物:"
+
+msgid "No Animal ID."
+msgstr "没有ID"
+
+msgid "Animal Name"
+msgstr "动物名称"
+
+msgid "Owner"
+msgstr "所有者"
+
+msgid "Species"
+msgstr "物种"
+
+msgid "<b>Animal</b>"
+msgstr "<b>动物</b>"
+
+msgid "Animal Name:  "
+msgstr "动物名称： "
+
+msgid "Species: "
+msgstr "物种： "
+
+msgid "ID:  "
+msgstr ""
+
+msgid "Owner:  "
+msgstr "所有者： "
+
+msgid "Owner Telephone:"
+msgstr "电话： "
+
+msgid "Owner Address:"
+msgstr "地址： "
+
+msgid "Bir."
+msgstr "生日"
+
+msgid "New Animal"
+msgstr "新动物"
+
+msgid "Animal ID exist, load data?"
+msgstr "动物的ID存在，需要加载数据？"
+
+msgid "ID :"
+msgstr ""
+
+msgid "Animal Name :"
+msgstr "动物名称 :"
+
+msgid "No animal is selected!"
+msgstr "没有动物被选择!"
+
+msgid "Animal Detail"
+msgstr "动物细节"
+
+msgid "User1"
+msgstr "用户1"
+
+msgid "User2"
+msgstr "用户2"
+
+msgid "User3"
+msgstr "用户3"
+
+msgid "User4"
+msgstr "用户4"
+
+msgid "User5"
+msgstr "用户5"
+
+msgid "User6"
+msgstr "用户6"
+
+msgid "User7"
+msgstr "用户7"
+
+msgid "User8"
+msgstr "用户8"
+
+msgid "User9"
+msgstr "用户9"
+
+msgid "User10"
+msgstr "用户10"
+
+msgid " Dog "
+msgstr " 狗 "
+
+msgid " Cat "
+msgstr " 猫 "
+
+msgid " Sheep "
+msgstr " 羊 "
+
+msgid " Swine "
+msgstr " 猪 "
+
+msgid " Bovine "
+msgstr " 牛 "
+
+msgid " Equine "
+msgstr " 马 "
+
+msgid "<i><b>Tendon Le1</b></i>"
+msgstr "<i><b>肌腱病灶1</b></i>"
+
+msgid "<i><b>Tendon Le2</b></i>"
+msgstr "<i><b>肌腱病灶2</b></i>"
+
+msgid "<i><b>Tendon Le3</b></i>"
+msgstr "<i><b>肌腱病灶3</b></i>"
+
+msgid "<i><b>Tendon Le4</b></i>"
+msgstr "<i><b>肌腱病灶4</b></i>"
+
+msgid "<i><b>Tendon Le5</b></i>"
+msgstr "<i><b>肌腱病灶5</b></i>"
+
+msgid "<i><b>Tendon Le6</b></i>"
+msgstr "<i><b>肌腱病灶6</b></i>"
+
+msgid "<i><b>Tendon Le7</b></i>"
+msgstr "<i><b>肌腱病灶7</b></i>"
+
+msgid "<i><b>Tendon Le8</b></i>"
+msgstr "<i><b>肌腱病灶8</b></i>"
+
+msgid "<i><b>Tendon Le9</b></i>"
+msgstr "<i><b>肌腱病灶9</b></i>"
+
+msgid "<i><b>Tendon Le10</b></i>"
+msgstr "<i><b>肌腱病灶10</b></i>"
+
+msgid "<i><b>Tendon Le11</b></i>"
+msgstr "<i><b>肌腱病灶11</b></i>"
+
+msgid "<b>Value</b>"
+msgstr ""
+
+msgid "<b>Gain</b>"
+msgstr ""
+
+msgid "User"
+msgstr "用户"
+
+msgid "The item name has existed!"
+msgstr "此部位已经存在！"
+
+msgid "Fail to default factory! Define user or New item is under using!"
+msgstr "恢复出厂失败！自定义用户或新增检查部位正在使用中！"
+
+msgid "THI OFF"
+msgstr "谐波关闭"
+
+msgid "THI ON"
+msgstr "谐波打开"
+
+msgid "Check Part:"
+msgstr "检查部位:"
+
+msgid "New"
+msgstr "新建"
+
+msgid "FH:"
+msgstr "频率:"
+
+msgid ""
+"Clicking OK will override the previous data, whether\n"
+" to continue the operation."
+msgstr "点击确定将会覆盖之前的数据，是否继续操作。"
+
+msgid "Scan Line"
+msgstr "扫描线"
+
+msgid "[Scan Line]: Only valid when probe type is phase."
+msgstr "[扫描线]: 仅在相控阵探头下有效."
+
+msgid "Probe Type: "
+msgstr "探头类型："
+
+msgid "Selete Item:"
+msgstr "可选选项"
+
+msgid "All Delete"
+msgstr "全部删除"
+
+msgid "Up"
+msgstr "上移"
+
+msgid "Down"
+msgstr "下移"
+
+msgid "Liver"
+msgstr "肝脏"
+
+msgid "Lt Lobe"
+msgstr "肝左叶"
+
+msgid "Rt Lobe"
+msgstr "肝右叶"
+
+msgid "Caudate"
+msgstr "尾状叶"
+
+msgid "Lig.teres"
+msgstr "肝圆韧带"
+
+msgid "Lig.venosum"
+msgstr "静脉韧带"
+
+msgid "Rt Hepatic V"
+msgstr "肝右静脉"
+
+msgid "Mid Hepatic V"
+msgstr "肝中静脉"
+
+msgid "Lt Hepatic V"
+msgstr "肝左静脉"
+
+msgid "Portal V"
+msgstr "门静脉"
+
+msgid "IVC"
+msgstr "下腔静脉"
+
+msgid "Aorta"
+msgstr "腹主动脉"
+
+msgid "SMA"
+msgstr "肠系膜上动脉"
+
+msgid "SMV"
+msgstr "肠系膜上静脉"
+
+msgid "GB"
+msgstr "胆囊"
+
+msgid "Bile Duct"
+msgstr "胆管"
+
+msgid "CHD"
+msgstr "肝总管"
+
+msgid "CBD"
+msgstr "胆总管"
+
+msgid "Spleen"
+msgstr "脾脏"
+
+msgid "GB Vol"
+msgstr "胆囊体积"
+
+msgid "Spleen Vol"
+msgstr "脾脏体积"
+
+msgid "Pancreas Vol"
+msgstr "胰脏体积"
+
+msgid "Gallbladder L"
+msgstr "胆囊长度"
+
+msgid "Gallbladder W"
+msgstr "胆囊宽度"
+
+msgid "Gallbladder H"
+msgstr "胆囊高度"
+
+msgid "CBD Diam"
+msgstr "胆总管内径"
+
+msgid "GB Wall"
+msgstr "胆囊壁"
+
+msgid "Liver L"
+msgstr "肝长度"
+
+msgid "Spleen L"
+msgstr "脾长度"
+
+msgid "Spleen W"
+msgstr "脾宽度"
+
+msgid "Spleen H"
+msgstr "脾高度"
+
+msgid "Pancreas L"
+msgstr "胰脏长度"
+
+msgid "Pancreas W"
+msgstr "胰脏宽度"
+
+msgid "Pancreas H"
+msgstr "胰脏高度"
+
+msgid "Ao Dist Diam"
+msgstr "主动脉远端直径"
+
+msgid "Ao Mid Diam"
+msgstr "主动脉中端直径"
+
+msgid "Ao Prox Diam"
+msgstr "主动脉近端直径"
+
+msgid "Dist Ao"
+msgstr "主动脉"
+
+msgid "Celiac A"
+msgstr "腹腔动脉"
+
+msgid "Com Hep A"
+msgstr "肝总动脉"
+
+msgid "L Hep A"
+msgstr "肝左动脉"
+
+msgid "R Hep A"
+msgstr "肝右动脉"
+
+msgid "GDA"
+msgstr "胃十二指肠动脉"
+
+msgid "IMA"
+msgstr "肠系膜下动脉"
+
+msgid "Splenic A"
+msgstr "脾动脉"
+
+msgid "Prox IVC"
+msgstr "下腔静脉近端"
+
+msgid "Dist IVC"
+msgstr "下腔静脉远端"
+
+msgid "L Hep V"
+msgstr "肝左静脉"
+
+msgid "M Hep V"
+msgstr "中肝静脉"
+
+msgid "R Hep V"
+msgstr "肝右静脉"
+
+msgid "L Port V"
+msgstr "门静脉左支"
+
+msgid "M Port V"
+msgstr "主门静脉"
+
+msgid "R Port V"
+msgstr "门静脉右支"
+
+msgid "Splenic V"
+msgstr "脾静脉"
+
+msgid "IMV"
+msgstr "肠系膜下静脉"
+
+msgid "SI(Cubed)"
+msgstr "每搏量指数(立体法)"
+
+msgid "SI(Teich)"
+msgstr "每搏量指数(Teichholz法)"
+
+msgid "SI(A2C)"
+msgstr "每搏量指数(A2C)"
+
+msgid "SI(A4C)"
+msgstr "每搏量指数(A4C)"
+
+msgid "SI(A/L)"
+msgstr "每搏量指数(A/L)"
+
+msgid "CO(Cubed)"
+msgstr "心排量(立体法)"
+
+msgid "CO(Teich)"
+msgstr "心排量(Teichholz法)"
+
+msgid "CO(A2C)"
+msgstr "心排量(A2C)"
+
+msgid "CO(A4C)"
+msgstr "心排量(A4C)"
+
+msgid "CO(A/L)"
+msgstr "心排量(A/L)"
+
+msgid "EF(Cubed)"
+msgstr "射血分数(立体法)"
+
+msgid "EF(A2C)"
+msgstr "射血分数(A2C)"
+
+msgid "EF(A4C)"
+msgstr "射血分数(A4C)"
+
+msgid "EF(AL)"
+msgstr "射血分数(AL)"
+
+msgid "SV(Cubed)"
+msgstr "每搏量(立体法)"
+
+msgid "SV(Teich)"
+msgstr "每搏量(Teichholz法)"
+
+msgid "SV(A2C)"
+msgstr "每搏量(A2C)"
+
+msgid "SV(A4C)"
+msgstr "每搏量(A4C)"
+
+msgid "SV(AL)"
+msgstr "每搏量(AL)"
+
+msgid "MV E/A"
+msgstr "二尖瓣E/A"
+
+msgid "FS"
+msgstr "短轴收缩率"
+
+msgid "IVS%"
+msgstr "室间隔缩短率%"
+
+msgid "IVS/LVPW"
+msgstr "室间隔厚度/左室后壁厚度"
+
+msgid "LA/Ao"
+msgstr "左心房内径/主动脉内径"
+
+msgid "LVOT Area"
+msgstr "左心室流出道面积"
+
+msgid "RVOT Area"
+msgstr "右心室流出道面积"
+
+msgid "LV PEP/ET"
+msgstr "LV射血前期/射血时间"
+
+msgid "RV PEP/ET"
+msgstr "RV射血前期/射血时间"
+
+msgid "Tei Index"
+msgstr "Tei指数"
+
+msgid "A2Cd"
+msgstr "心尖二腔舒张末左室长轴面积"
+
+msgid "A2Cs"
+msgstr "心尖二腔收缩末左室长轴面积"
+
+msgid "A4Cd"
+msgstr "心尖四腔舒张末左室长轴面积"
+
+msgid "A4Cs"
+msgstr "心尖四腔收缩末左室长轴面积"
+
+msgid "LVd(A/L)"
+msgstr "舒张末期左室容积(面积长度法)"
+
+msgid "LVs(A/L)"
+msgstr "收缩末期左室容积(面积长度法)"
+
+msgid "MV D-E Exc"
+msgstr "二尖瓣DE段闭合"
+
+msgid "TV D-E Exc"
+msgstr "三尖瓣DE段闭合"
+
+msgid "AV Vmax"
+msgstr "主动脉最大速度"
+
+msgid "LVOT Vmax"
+msgstr "左室流出道最大速度"
+
+msgid "HR-AV"
+msgstr "心率-主动脉瓣"
+
+msgid "HR-MV"
+msgstr "心率-二尖瓣"
+
+msgid "MV P1/2t"
+msgstr "二尖瓣压力半降时间"
+
+msgid "MV Peak E"
+msgstr "二尖瓣A峰值速度"
+
+msgid "MV Peak A"
+msgstr "二尖瓣E峰值速度"
+
+msgid "HR-TV"
+msgstr "心率-三尖瓣"
+
+msgid "HR-PV"
+msgstr "心率－肺动脉"
+
+msgid "Pulm Dias Vel"
+msgstr "肺动脉舒张期流速"
+
+msgid "Pulm Sys Vel"
+msgstr "肺动脉收缩期流速"
+
+msgid "RVOT Vmax"
+msgstr "右室流出道最大速度"
+
+msgid "LVLd Apical"
+msgstr "舒张末期左室长径"
+
+msgid "LVIDs"
+msgstr "左室收缩末期内径"
+
+msgid "LVPWs"
+msgstr "左室后壁收缩期厚度"
+
+msgid "LVOT Diam"
+msgstr "左室流出道内径"
+
+msgid "LVPWd"
+msgstr "左室后壁舒张期厚度"
+
+msgid "LVAd SAx Endo"
+msgstr "舒张末乳头肌尖端水平的左心室内膜面积"
+
+msgid "LVAd SAx Epi"
+msgstr "舒张末乳头肌尖端水平的左心室外膜面积"
+
+msgid "RVIDd"
+msgstr "右室舒张末期内径"
+
+msgid "RVAWd"
+msgstr "右室前壁舒张期厚度"
+
+msgid "RVOT Diam"
+msgstr "右心室流出道内径"
+
+msgid "IVSd"
+msgstr "室间隔舒张期厚度"
+
+msgid "IVSs"
+msgstr "室间隔收缩期厚度"
+
+msgid "LA Dimen"
+msgstr "左房内径"
+
+msgid "AoR Diam"
+msgstr "主动脉根部内径"
+
+msgid "Ao Isthmus Diam"
+msgstr "主动脉峡部内径"
+
+msgid "Asc Ao Diam"
+msgstr "升主动脉内径"
+
+msgid "Desc Ao Diam"
+msgstr "降主动脉内径"
+
+msgid "MPA Diam"
+msgstr "主肺动脉内径"
+
+msgid "LPA Diam"
+msgstr "左肺动脉内径"
+
+msgid "RPA Diam"
+msgstr "右肺动脉内径"
+
+msgid "AV Area"
+msgstr "主动脉瓣面积"
+
+msgid "MV Diam"
+msgstr "二尖瓣内径"
+
+msgid "MV Radius"
+msgstr "二尖瓣半径"
+
+msgid "MV Area(Planim)"
+msgstr "二尖瓣瓣口面积"
+
+msgid "MR Radius"
+msgstr "二尖瓣返流半径"
+
+msgid "TV Diam"
+msgstr "三尖瓣内径"
+
+msgid "TV Radius"
+msgstr "三尖瓣半径"
+
+msgid "HR-LV"
+msgstr "心率-左室"
+
+msgid "LV ET"
+msgstr "左室射血时间"
+
+msgid "LV PEP"
+msgstr "左室射血前期"
+
+msgid "AV Cusp Sep"
+msgstr "主动脉瓣尖端开放"
+
+msgid "MV D-E Slope"
+msgstr "二尖瓣DE斜率"
+
+msgid "MV E-F Sep"
+msgstr "二尖瓣EF段开放"
+
+msgid "MV E-F Slope"
+msgstr "二尖瓣EF斜率"
+
+msgid "MV A-C Interval"
+msgstr "二尖瓣AC间期"
+
+msgid "TV D-E Slope"
+msgstr "三尖瓣DE斜率"
+
+msgid "TV E-F Slope"
+msgstr "三尖瓣EF斜率"
+
+msgid "TV A-C Interval"
+msgstr "三尖瓣AC间期"
+
+msgid "Late Dias Slope"
+msgstr "舒张晚期斜率"
+
+msgid "A Wave Amp"
+msgstr "A波振幅"
+
+msgid "B-C Slope"
+msgstr "BC段斜率"
+
+msgid "RV ET"
+msgstr "右室射血时间"
+
+msgid "RV PEP"
+msgstr "右室射血前期"
+
+msgid "AV Accel Time"
+msgstr "主动脉加速时间"
+
+msgid "AV Decel Time"
+msgstr "主动脉减速时间"
+
+msgid "LVOT Accel Time"
+msgstr "左室流出道加速时间"
+
+msgid "MV Peak E Vel"
+msgstr "二尖瓣E峰速度"
+
+msgid "MV Peak A Vel"
+msgstr "二尖瓣A峰速度"
+
+msgid "MV Decel Time"
+msgstr "二尖瓣减速时间"
+
+msgid "MV Decel Slope"
+msgstr "二尖瓣减速斜率"
+
+msgid "IVCT"
+msgstr "等容收缩期"
+
+msgid "MV Accel Time"
+msgstr "二尖瓣加速时间"
+
+msgid "MV Vmax"
+msgstr "二尖瓣最大速度"
+
+msgid "TV Vmax"
+msgstr "三尖瓣最大速度"
+
+msgid "TR Vmax"
+msgstr "三尖瓣返流最大速度"
+
+msgid "TV Accel Time"
+msgstr "三尖瓣加速时间"
+
+msgid "TV Peak E Vel"
+msgstr "三尖瓣E峰速度"
+
+msgid "TV Peak A Vel"
+msgstr "三尖瓣A峰速度"
+
+msgid "PV Accel Time"
+msgstr "肺动脉瓣加速时间"
+
+msgid "mean Sac"
+msgstr "平均孕囊直径"
+
+msgid "HrtC/ThrC"
+msgstr "心脏周长/胸周长"
+
+msgid "LA/RA"
+msgstr "左心房/右心房"
+
+msgid "LV/RV"
+msgstr "左心室/右心室"
+
+msgid "Prostate Vol"
+msgstr "前列腺体积"
+
+msgid "L KID Vol"
+msgstr "左肾体积"
+
+msgid "R KID Vol"
+msgstr "右肾体积"
+
+msgid "L Dist Ren A"
+msgstr "左肾动脉远端"
+
+msgid "L Main Ren A"
+msgstr "左主肾动脉"
+
+msgid "L Ren V"
+msgstr "左肾静脉"
+
+msgid "R Dist Ren A"
+msgstr "右肾动脉远端"
+
+msgid "R Main Ren A"
+msgstr "右主肾动脉"
+
+msgid "R Ren V"
+msgstr "右肾静脉"
+
+msgid "Prostate H"
+msgstr "前列腺高度"
+
+msgid "Prostate L"
+msgstr "前列腺长度"
+
+msgid "Prostate W"
+msgstr "前列腺宽度"
+
+msgid "L Kid H"
+msgstr "左肾高度"
+
+msgid "L Kid L"
+msgstr "左肾长度"
+
+msgid "L Kid W"
+msgstr "左肾宽度"
+
+msgid "L Ureter AP"
+msgstr "左输尿管前后径"
+
+msgid "L Ureter Tr"
+msgstr "左输尿管横径"
+
+msgid "R Kid H"
+msgstr "右肾高度"
+
+msgid "R Kid L"
+msgstr "右肾长度"
+
+msgid "R Kid W"
+msgstr "右肾宽度"
+
+msgid "R Ureter AP"
+msgstr "右输尿管前后径"
+
+msgid "R Ureter Tr"
+msgstr "右输尿管横径"
+
+msgid "L Lesion1 Vol"
+msgstr "左病灶1体积"
+
+msgid "L Lesion2 Vol"
+msgstr "左病灶2体积"
+
+msgid "L Lesion3 Vol"
+msgstr "左病灶3体积"
+
+msgid "L Lesion4 Vol"
+msgstr "左病灶4体积"
+
+msgid "L Lesion5 Vol"
+msgstr "左病灶5体积"
+
+msgid "R Lesion1 Vol"
+msgstr "右病灶1体积"
+
+msgid "R Lesion2 Vol"
+msgstr "右病灶2体积"
+
+msgid "R Lesion3 Vol"
+msgstr "右病灶3体积"
+
+msgid "R Lesion4 Vol"
+msgstr "右病灶4体积"
+
+msgid "R Lesion5 Vol"
+msgstr "右病灶5体积"
+
+msgid "L Tes Vol"
+msgstr "左睾丸体积"
+
+msgid "R Tes Vol"
+msgstr "右睾丸体积"
+
+msgid "Lesion1 Vol"
+msgstr "病灶1体积"
+
+msgid "Lesion2 Vol"
+msgstr "病灶2体积"
+
+msgid "Lesion3 Vol"
+msgstr "病灶3体积"
+
+msgid "Lesion4 Vol"
+msgstr "病灶4体积"
+
+msgid "Lesion5 Vol"
+msgstr "病灶5体积"
+
+msgid "L Testis A"
+msgstr "左睾丸动脉"
+
+msgid "R Testis A"
+msgstr "右睾丸动脉"
+
+msgid "Supa L Lobe"
+msgstr "左叶上动脉"
+
+msgid "Infa L Lobe"
+msgstr "左叶下动脉"
+
+msgid "Supa R Lobe"
+msgstr "右叶上动脉"
+
+msgid "Infa R Lobe"
+msgstr "右叶下动脉"
+
+msgid "L Galact Thick"
+msgstr "左乳腺厚度"
+
+msgid "R Galact Thick"
+msgstr "右乳腺厚度"
+
+msgid "L Lesion1 L"
+msgstr "左病灶1长"
+
+msgid "L Lesion1 W"
+msgstr "左病灶1宽"
+
+msgid "L Lesion1 H"
+msgstr "左病灶1高"
+
+msgid "L Lesion2 L"
+msgstr "左病灶2长"
+
+msgid "L Lesion2 W"
+msgstr "左病灶2宽"
+
+msgid "L Lesion2 H"
+msgstr "左病灶2高"
+
+msgid "L Lesion3 L"
+msgstr "左病灶3长"
+
+msgid "L Lesion3 W"
+msgstr "左病灶3宽"
+
+msgid "L Lesion3 H"
+msgstr "左病灶3高"
+
+msgid "L Lesion4 L"
+msgstr "左病灶4长"
+
+msgid "L Lesion4 W"
+msgstr "左病灶4宽"
+
+msgid "L Lesion4 H"
+msgstr "左病灶4高"
+
+msgid "L Lesion5 L"
+msgstr "左病灶5长"
+
+msgid "L Lesion5 W"
+msgstr "左病灶5宽"
+
+msgid "L Lesion5 H"
+msgstr "左病灶5高"
+
+msgid "R Lesion1 L"
+msgstr "右病灶1长"
+
+msgid "R Lesion1 W"
+msgstr "右病灶1宽"
+
+msgid "R Lesion1 H"
+msgstr "右病灶1高"
+
+msgid "R Lesion2 L"
+msgstr "右病灶2长"
+
+msgid "R Lesion2 W"
+msgstr "右病灶2宽"
+
+msgid "R Lesion2 H"
+msgstr "右病灶2高"
+
+msgid "R Lesion3 L"
+msgstr "右病灶3长"
+
+msgid "R Lesion3 W"
+msgstr "右病灶3宽"
+
+msgid "R Lesion3 H"
+msgstr "右病灶3高"
+
+msgid "R Lesion4 L"
+msgstr "右病灶4长"
+
+msgid "R Lesion4 W"
+msgstr "右病灶4宽"
+
+msgid "R Lesion4 H"
+msgstr "右病灶4高"
+
+msgid "R Lesion5 L"
+msgstr "右病灶5长"
+
+msgid "R Lesion5 W"
+msgstr "右病灶5宽"
+
+msgid "R Lesion5 H"
+msgstr "右病灶5高"
+
+msgid "L Testis L"
+msgstr "左睾丸长"
+
+msgid "L Testis W"
+msgstr "左睾丸宽"
+
+msgid "L Testis H"
+msgstr "左睾丸高"
+
+msgid "L Testis Artery"
+msgstr "左睾丸动脉"
+
+msgid "R Testis L"
+msgstr "右睾丸长"
+
+msgid "R Testis W"
+msgstr "右睾丸宽"
+
+msgid "R Testis H"
+msgstr "右睾丸高"
+
+msgid "R Testis Artery"
+msgstr "右睾丸动脉"
+
+msgid "Isthmus AP"
+msgstr "峡部前后径"
+
+msgid "Long L Lobe"
+msgstr "左叶长径"
+
+msgid "AP L Lobe"
+msgstr "左叶前后径"
+
+msgid "Tr L Lobe"
+msgstr "左叶横径"
+
+msgid "Long R Lobe"
+msgstr "右叶长径"
+
+msgid "AP R Lobe"
+msgstr "右叶前后径"
+
+msgid "Tr R Lobe"
+msgstr "右叶横径"
+
+msgid "Lesion1 L"
+msgstr "病灶1长"
+
+msgid "Lesion1 W"
+msgstr "病灶1宽"
+
+msgid "Lesion1 H"
+msgstr "病灶1高"
+
+msgid "Lesion2 L"
+msgstr "病灶2长"
+
+msgid "Lesion2 W"
+msgstr "病灶2宽"
+
+msgid "Lesion2 H"
+msgstr "病灶2高"
+
+msgid "Lesion3 L"
+msgstr "病灶3长"
+
+msgid "Lesion3 W"
+msgstr "病灶3宽"
+
+msgid "Lesion3 H"
+msgstr "病灶3高"
+
+msgid "Lesion4 L"
+msgstr "病灶4长"
+
+msgid "Lesion4 W"
+msgstr "病灶4宽"
+
+msgid "Lesion4 H"
+msgstr "病灶4高"
+
+msgid "Lesion5 L"
+msgstr "病灶5长"
+
+msgid "Lesion5 W"
+msgstr "病灶5宽"
+
+msgid "Lesion5 H"
+msgstr "病灶5高"
+
+msgid "L Eye OA"
+msgstr "左眼球眼轴"
+
+msgid "L Eye Lens"
+msgstr "左眼球晶体"
+
+msgid "L Eye AC"
+msgstr "左眼球前房"
+
+msgid "L Eye ON"
+msgstr "左眼球视神经"
+
+msgid "R Eye OA"
+msgstr "右眼球眼轴"
+
+msgid "R Eye Lens"
+msgstr "右眼球晶体"
+
+msgid "R Eye AC"
+msgstr "右眼球前房"
+
+msgid "R Eye ON"
+msgstr "右眼球视神经"
+
+msgid "LV Mass"
+msgstr "左室心肌重量"
+
+msgid "LV ETc"
+msgstr "心率校正的左室射血时间"
+
+msgid "LV PEPc"
+msgstr "心率校正的左室射血前期"
+
+msgid "mean VCF"
+msgstr "平均周边缩短率"
+
+msgid "IVS Width"
+msgstr "室间隔厚度"
+
+msgid "RV Wall Width"
+msgstr "右心室壁厚度"
+
+msgid "LV Wall Width"
+msgstr "左心室壁厚度"
+
+msgid "Thorax Circ"
+msgstr "胸周长"
+
+msgid "Ao Arch Diam"
+msgstr "主动脉弓直径"
+
+msgid "Duct Art Diam"
+msgstr "动脉导管直径"
+
+msgid "SVC Diam"
+msgstr "上腔静脉直径"
+
+msgid "IVC Diam"
+msgstr "下腔静脉直径"
+
+msgid "Ao Annul Circ"
+msgstr "主动脉瓣环周长"
+
+msgid "MV Annul Circ"
+msgstr "二尖瓣瓣环周径"
+
+msgid "PV Annul Diam"
+msgstr "肺动脉瓣环直径"
+
+msgid "LA Wall Diam"
+msgstr "左心房壁直径"
+
+msgid "RA Wall Diam"
+msgstr "右心房壁直径"
+
+msgid "Placenta"
+msgstr "胎盘"
+
+msgid "Umbilical V"
+msgstr "脐静脉"
+
+msgid "Foramen Ovale"
+msgstr "卵圆孔"
+
+msgid "Duct Art"
+msgstr "动脉导管"
+
+msgid "L Coronary A"
+msgstr "左侧冠状动脉"
+
+msgid "R Coronary A"
+msgstr "右侧冠状动脉"
+
+msgid "AoR"
+msgstr "主动脉根部"
+
+msgid "Asc Ao"
+msgstr "升主动脉"
+
+msgid "Ao Isthmus"
+msgstr "主动脉峡部内径"
+
+msgid "MPA"
+msgstr "主肺动脉"
+
+msgid "LPA"
+msgstr "左肺动脉"
+
+msgid "RPA"
+msgstr "右肺动脉"
+
+msgid "Pulm V"
+msgstr "肺静脉"
+
+msgid "AV Acc Time"
+msgstr "主动脉瓣加速时间 "
+
+msgid "MV Acc Time"
+msgstr "二尖瓣加速时间 "
+
+msgid "MV Dec Time"
+msgstr "二尖瓣减速时间 "
+
+msgid "PV Acc Time"
+msgstr "肺动脉瓣加速时间 "
+
+msgid "TV Acc Time"
+msgstr "三尖瓣加速时间 "
+
+msgid "TV Dec Time"
+msgstr "三尖瓣减速时间 "
+
+msgid "L Renal A"
+msgstr "左肾动脉"
+
+msgid "R Renal A"
+msgstr "右肾动脉"
+
+msgid "Hepatic A"
+msgstr "肝动脉"
+
+msgid "Hepatic V"
+msgstr "肝静脉"
+
+msgid "L ICA"
+msgstr "左侧颈内动脉"
+
+msgid "R ICA"
+msgstr "右侧颈内动脉"
+
+msgid "Pancreas"
+msgstr "胰腺"
+
+msgid "Pancreas Body"
+msgstr "胰体"
+
+msgid "Pancreas Head"
+msgstr "胰头"
+
+msgid "Pancreas Tail"
+msgstr "胰尾"
+
+msgid "Pancreas Duct"
+msgstr "胰管"
+
+msgid "Lt Kidney"
+msgstr "左肾"
+
+msgid "Rt Kidney"
+msgstr "右肾"
+
+msgid "Adrenal"
+msgstr "肾上腺"
+
+msgid "Stomach"
+msgstr "胃"
+
+msgid "Esophagus"
+msgstr "食管"
+
+msgid "Bowel"
+msgstr "肠管"
+
+msgid "Duodenum"
+msgstr "十二指肠"
+
+msgid "Colon"
+msgstr "结肠"
+
+msgid "Appendix"
+msgstr "阑尾"
+
+msgid "Free Fluid"
+msgstr "积液"
+
+msgid "RT"
+msgstr "右"
+
+msgid "LT"
+msgstr "左"
+
+msgid "Sag"
+msgstr "纵切"
+
+msgid "XS"
+msgstr "横切"
+
+msgid "Prox"
+msgstr "近端"
+
+msgid "Distal"
+msgstr "远端"
+
+msgid "Near"
+msgstr "近"
+
+msgid "Far"
+msgstr "远"
+
+msgid "Upper"
+msgstr "上"
+
+msgid "Lower"
+msgstr "下"
+
+msgid "Medial"
+msgstr "内侧"
+
+msgid "Lateral"
+msgstr "外侧"
+
+msgid "Superior"
+msgstr "上端"
+
+msgid "Inferior"
+msgstr "下端"
+
+msgid "Anterior"
+msgstr "前面"
+
+msgid "Posterior"
+msgstr "后面"
+
+msgid "Long"
+msgstr "纵向"
+
+msgid "Trans"
+msgstr "横向"
+
+msgid "Lateral Decubitus"
+msgstr "侧卧位"
+
+msgid "Supine"
+msgstr "仰卧位"
+
+msgid "Diaphragm"
+msgstr "膈"
+
+msgid "Ureter"
+msgstr "输尿管"
+
+msgid "Crus"
+msgstr "膈脚"
+
+msgid "Head"
+msgstr "头"
+
+msgid "Body"
+msgstr "体"
+
+msgid "Tail"
+msgstr "尾"
+
+msgid "Compressed"
+msgstr "按压"
+
+msgid "Non Compressed"
+msgstr "非按压"
+
+msgid "Valsalva"
+msgstr "乏氏试验"
+
+msgid "Mass "
+msgstr "肿块"
+
+msgid "Ca++"
+msgstr "钙化"
+
+msgid "Cyst"
+msgstr "囊肿"
+
+msgid "Stone"
+msgstr "结石"
+
+msgid "Shadow"
+msgstr "声影"
+
+msgid "Polyp"
+msgstr "息肉"
+
+msgid "Celiac axis"
+msgstr "腹腔干"
+
+msgid "Stomach Antrum"
+msgstr "胃窦"
+
+msgid "Iliac A"
+msgstr "髂动脉"
+
+msgid "Iliac V"
+msgstr "髂静脉"
+
+msgid "Pleural Fluid"
+msgstr "胸腔积液"
+
+msgid "Chest Wall"
+msgstr "胸壁"
+
+msgid "Diastole"
+msgstr "舒张期"
+
+msgid "Systole"
+msgstr "收缩期"
+
+msgid "LV"
+msgstr "左心室"
+
+msgid "RV"
+msgstr "右心室"
+
+msgid "LA"
+msgstr "左心房"
+
+msgid "RA"
+msgstr "右心房"
+
+msgid "Ao"
+msgstr "主动脉"
+
+msgid "PA"
+msgstr "肺动脉"
+
+msgid "PV"
+msgstr "肺静脉"
+
+msgid "SVC"
+msgstr "上腔静脉"
+
+msgid "R Corenary A"
+msgstr "右侧冠状动脉"
+
+msgid "L ICA/CCA"
+msgstr "左颈内动脉/颈总动脉"
+
+msgid "R ICA/CCA"
+msgstr "右颈内动脉/颈总动脉"
+
+msgid "L CCA"
+msgstr "左颈总动脉"
+
+msgid "R CCA"
+msgstr "右颈总动脉"
+
+msgid "L Dist CCA"
+msgstr "左颈总动脉距离"
+
+msgid "R Dist CCA"
+msgstr "右颈总动脉距离"
+
+msgid "L Mid CCA"
+msgstr "左颈总动脉中端"
+
+msgid "R Mid CCA"
+msgstr "右颈总动脉中端"
+
+msgid "L Prox CCA"
+msgstr "左颈总动脉近端"
+
+msgid "R Prox CCA"
+msgstr "右颈总动脉近端"
+
+msgid "L Dist ICA"
+msgstr "左颈内动脉远端"
+
+msgid "R Dist ICA"
+msgstr "右颈内动脉远端"
+
+msgid "L Mid ICA"
+msgstr "左颈内动脉中端"
+
+msgid "R Mid ICA"
+msgstr "右颈内动脉中端"
+
+msgid "L Prox ICA"
+msgstr "左颈内动脉近端"
+
+msgid "R Prox ICA"
+msgstr "右颈内动脉近端"
+
+msgid "L Dist LSV"
+msgstr "左上腔静脉远端"
+
+msgid "R Dist LSV"
+msgstr "右上腔静脉远端"
+
+msgid "L Mid LSV"
+msgstr "左上腔静脉中端"
+
+msgid "R Mid LSV"
+msgstr "右上腔静脉中端"
+
+msgid "L Prox LSV"
+msgstr "左上腔静脉近端"
+
+msgid "R Prox LSV"
+msgstr "右上腔静脉近端"
+
+msgid "L Dist Ceph V"
+msgstr "左头静脉远端"
+
+msgid "R Dist Ceph V"
+msgstr "右头静脉远端"
+
+msgid "L Mid Ceph V"
+msgstr "左头静脉中端"
+
+msgid "R Mid Ceph V"
+msgstr "右头静脉中端"
+
+msgid "L Prox Ceph V"
+msgstr "左头静脉近端"
+
+msgid "R Prox Ceph V"
+msgstr "右头静脉近端"
+
+msgid "L Prox ECA"
+msgstr "左颈外动脉近端"
+
+msgid "R Prox ECA"
+msgstr "右颈外动脉近端"
+
+msgid "L Brachioceph A"
+msgstr "左头臂动脉"
+
+msgid "R Brachioceph A"
+msgstr "右头臂动脉"
+
+msgid "L Brachioceph V"
+msgstr "左头臂静脉"
+
+msgid "R Brachioceph V"
+msgstr "右头臂静脉"
+
+msgid "L Bulb"
+msgstr "左颈动脉球部"
+
+msgid "R Bulb"
+msgstr "右颈动脉球部"
+
+msgid "L Vertebral A"
+msgstr "左椎动脉"
+
+msgid "R Vertebral A"
+msgstr "右椎动脉"
+
+msgid "L IJV"
+msgstr "左颈内静脉"
+
+msgid "R IJV"
+msgstr "右颈内静脉"
+
+msgid "L Mid SCL A"
+msgstr "左锁骨下动脉中端"
+
+msgid "R Mid SCL A"
+msgstr "右锁骨下动脉中端"
+
+msgid "L Prox SCL A"
+msgstr "左锁骨下动脉近端"
+
+msgid "R Prox SCL A"
+msgstr "右锁骨下动脉近端"
+
+msgid "L Mid SCL V"
+msgstr "左锁骨下静脉中端"
+
+msgid "R Mid SCL V"
+msgstr "右锁骨下静脉中端"
+
+msgid "L Prox SCL V"
+msgstr "左锁骨下静脉近端"
+
+msgid "R Prox SCL V"
+msgstr "右锁骨下静脉近端"
+
+msgid "L CFA"
+msgstr "左侧股动脉"
+
+msgid "R CFA"
+msgstr "右侧股动脉"
+
+msgid "L CFV"
+msgstr "左侧股静脉"
+
+msgid "R CFV"
+msgstr "右侧股静脉"
+
+msgid "L Com Iliac A"
+msgstr "左侧髂总动脉"
+
+msgid "R Com Iliac A"
+msgstr "右侧髂总动脉"
+
+msgid "L Com Iliac V"
+msgstr "左侧髂总静脉"
+
+msgid "R Com Iliac V"
+msgstr "右侧髂总静脉"
+
+msgid "L Dist ATA"
+msgstr "左侧胫前动脉远端"
+
+msgid "R Dist ATA"
+msgstr "右侧胫前动脉远端"
+
+msgid "L Mid ATA"
+msgstr "左侧胫前动脉中端"
+
+msgid "R Mid ATA"
+msgstr "右侧胫前动脉中端"
+
+msgid "L Prox ATA"
+msgstr "左侧胫前动脉近端"
+
+msgid "R Prox ATA"
+msgstr "右侧胫前动脉近端"
+
+msgid "L Dist ATV"
+msgstr "左侧胫前静脉远端"
+
+msgid "R Dist ATV"
+msgstr "右侧胫前静脉远端"
+
+msgid "L Mid ATV"
+msgstr "左侧胫前静脉中端"
+
+msgid "R Mid ATV"
+msgstr "右侧胫前静脉中端"
+
+msgid "L Prox ATV"
+msgstr "左侧胫前静脉近端"
+
+msgid "R Prox ATV"
+msgstr "右侧胫前静脉近端"
+
+msgid "L Dist Pero A"
+msgstr "左侧腓动脉远端"
+
+msgid "R Dist Pero A"
+msgstr "右侧腓动脉远端"
+
+msgid "L Mid Pero A"
+msgstr "左侧腓动脉中端"
+
+msgid "R Mid Pero A"
+msgstr "右侧腓动脉中端"
+
+msgid "L Prox Pero A"
+msgstr "左侧腓动脉近端"
+
+msgid "R Prox Pero A"
+msgstr "右侧腓动脉近端"
+
+msgid "L Dist Pero V"
+msgstr "左侧腓静脉远端"
+
+msgid "R Dist Pero V"
+msgstr "右侧腓静脉远端"
+
+msgid "L Mid Pero V"
+msgstr "左侧腓静脉中端"
+
+msgid "R Mid Pero V"
+msgstr "右侧腓静脉中端"
+
+msgid "L Prox Pero V"
+msgstr "左侧腓静脉近端"
+
+msgid "R Prox Pero V"
+msgstr "右侧腓静脉近端"
+
+msgid "L Dist Pop A"
+msgstr "左侧腘动脉远端"
+
+msgid "R Dist Pop A"
+msgstr "右侧腘动脉远端"
+
+msgid "L Mid Pop A"
+msgstr "左侧腘动脉中端"
+
+msgid "R Mid Pop A"
+msgstr "右侧腘动脉中端"
+
+msgid "L Prox Pop A"
+msgstr "左侧腘动脉近端"
+
+msgid "R Prox Pop A"
+msgstr "右侧腘动脉近端"
+
+msgid "L Dist Pop V"
+msgstr "左侧腘静脉远端"
+
+msgid "R Dist Pop V"
+msgstr "右侧腘静脉远端"
+
+msgid "L Mid Pop V"
+msgstr "左侧腘静脉中端"
+
+msgid "R Mid Pop V"
+msgstr "右侧腘静脉中端"
+
+msgid "L Prox Pop V"
+msgstr "左侧腘静脉近端"
+
+msgid "R Prox Pop V"
+msgstr "右侧腘静脉近端"
+
+msgid "L Dist PTA"
+msgstr "左侧胫后动脉远端"
+
+msgid "R Dist PTA"
+msgstr "右侧胫后动脉远端"
+
+msgid "L Mid PTA"
+msgstr "左侧胫后动脉中端"
+
+msgid "R Mid PTA"
+msgstr "右侧胫后动脉中端"
+
+msgid "L Prox PTA"
+msgstr "左侧胫后动脉近端"
+
+msgid "R Prox PTA"
+msgstr "右侧胫后动脉近端"
+
+msgid "L Dist PTV"
+msgstr "左侧胫后静脉远端"
+
+msgid "R Dist PTV"
+msgstr "右侧胫后静脉远端"
+
+msgid "L Mid PTV"
+msgstr "左侧胫后静脉中端"
+
+msgid "R Mid PTV"
+msgstr "右侧胫后静脉中端"
+
+msgid "L Prox PTV"
+msgstr "左侧胫后静脉近端"
+
+msgid "R Prox PTV"
+msgstr "右侧胫后静脉近端"
+
+msgid "L Dist SFA"
+msgstr "左侧股浅动脉远端"
+
+msgid "R Dist SFA"
+msgstr "右侧股浅动脉远端"
+
+msgid "L Mid SFA"
+msgstr "左侧股浅动脉中端 "
+
+msgid "R Mid SFA"
+msgstr "右侧股浅动脉中端 "
+
+msgid "L Prox SFA"
+msgstr "左侧股浅动脉近端"
+
+msgid "R Prox SFA"
+msgstr "右侧股浅动脉近端"
+
+msgid "L Dist SFV"
+msgstr "左侧股浅静脉远端"
+
+msgid "R Dist SFV"
+msgstr "右侧股浅静脉远端"
+
+msgid "L Mid SFV"
+msgstr "左侧股浅静脉中端"
+
+msgid "R Mid SFV"
+msgstr "右侧股浅静脉中端"
+
+msgid "L Prox SFV"
+msgstr "左侧股浅静脉近端"
+
+msgid "R Prox SFV"
+msgstr "右侧股浅静脉近端"
+
+msgid "L Dor Pedis"
+msgstr "左侧足背动脉"
+
+msgid "R Dor Pedis"
+msgstr "右侧足背动脉"
+
+msgid "L Ext Iliac A"
+msgstr "左侧髂外动脉"
+
+msgid "R Ext Iliac A"
+msgstr "右侧髂外动脉"
+
+msgid "L Ext Iliac V"
+msgstr "左侧髂外静脉"
+
+msgid "R Ext Iliac V"
+msgstr "右侧髂外静脉"
+
+msgid "L Int Iliac A"
+msgstr "左侧髂内动脉"
+
+msgid "R Int Iliac A"
+msgstr "右侧髂内动脉"
+
+msgid "L Int Iliac V"
+msgstr "左侧髂内静脉"
+
+msgid "R Int Iliac V"
+msgstr "右侧髂内静脉"
+
+msgid "L Lat Sural V"
+msgstr "左侧腓静脉"
+
+msgid "R Lat Sural V"
+msgstr "右侧腓静脉"
+
+msgid "L Prox PFA"
+msgstr "左侧股深动脉"
+
+msgid "R Prox PFA"
+msgstr "右侧股深动脉"
+
+msgid "L SFJ"
+msgstr "左侧股阴交关节"
+
+msgid "R SFJ"
+msgstr "右侧股阴交关节"
+
+msgid "L Antecube"
+msgstr "左肘"
+
+msgid "R Antecube"
+msgstr "右肘"
+
+msgid "L Ax A"
+msgstr "左腋动脉"
+
+msgid "R Ax A"
+msgstr "右腋动脉"
+
+msgid "L Ax V"
+msgstr "左腋静脉"
+
+msgid "R Ax V"
+msgstr "右腋静脉"
+
+msgid "L Dist Basilic V"
+msgstr "左贵要静脉远端"
+
+msgid "R Dist Basilic V"
+msgstr "右贵要静脉远端"
+
+msgid "L Mid Basilic V"
+msgstr "左贵要静脉中端"
+
+msgid "R Mid Basilic V"
+msgstr "右贵要静脉中端"
+
+msgid "L Prox Basilic V"
+msgstr "左贵要静脉近端"
+
+msgid "R Prox Basilic V"
+msgstr "右贵要静脉近端"
+
+msgid "L Dist Brach A"
+msgstr "左臂动脉近端"
+
+msgid "R Dist Brach A"
+msgstr "右臂动脉近端"
+
+msgid "L Prox Brach A"
+msgstr "左臂动脉远端"
+
+msgid "R Prox Brach A"
+msgstr "右臂动脉远端"
+
+msgid "L Dist Brach V"
+msgstr "左臂静脉远端"
+
+msgid "R Dist Brach V"
+msgstr "右臂静脉远端"
+
+msgid "L Prox Brach V"
+msgstr "左臂静脉近端"
+
+msgid "R Prox Brach V"
+msgstr "右臂静脉近端"
+
+msgid "L Dist Rad A"
+msgstr "左桡动脉远端"
+
+msgid "R Dist Rad A"
+msgstr "右桡动脉远端"
+
+msgid "L Mid Rad A"
+msgstr "左桡动脉中端"
+
+msgid "R Mid Rad A"
+msgstr "右桡动脉中端"
+
+msgid "L Prox Rad A"
+msgstr "左桡动脉近端"
+
+msgid "R Prox Rad A"
+msgstr "右桡动脉近端"
+
+msgid "L Dist Rad V"
+msgstr "左桡静脉远端"
+
+msgid "R Dist Rad V"
+msgstr "右桡静脉远端"
+
+msgid "L Mid Rad V"
+msgstr "左桡静脉中端"
+
+msgid "R Mid Rad V"
+msgstr "右桡静脉中端"
+
+msgid "L Prox Rad V"
+msgstr "左桡静脉近端"
+
+msgid "R Prox Rad V"
+msgstr "右桡静脉近端"
+
+msgid "L Dist Ulnar A"
+msgstr "左侧尺动脉远端"
+
+msgid "R Dist Ulnar A"
+msgstr "右侧尺动脉远端"
+
+msgid "L Mid Ulnar A"
+msgstr "左侧尺动脉中端"
+
+msgid "R Mid Ulnar A"
+msgstr "右侧尺动脉中端"
+
+msgid "L Prox Ulnar A"
+msgstr "左侧尺动脉近端"
+
+msgid "R Prox Ulnar A"
+msgstr "右侧尺动脉近端"
+
+msgid "L Dist Ulnar V"
+msgstr "左侧尺静脉远端"
+
+msgid "R Dist Ulnar V"
+msgstr "右侧尺静脉远端"
+
+msgid "L Mid Ulnar V"
+msgstr "左侧尺静脉中端"
+
+msgid "R Mid Ulnar V"
+msgstr "右侧尺静脉中端"
+
+msgid "L Prox Ulnar V"
+msgstr "左侧尺静脉近端"
+
+msgid "R Prox Ulnar V"
+msgstr "右侧尺静脉近端"
+
+msgid "L ACA"
+msgstr "左侧大脑前动脉"
+
+msgid "R ACA"
+msgstr "右侧大脑前动脉"
+
+msgid "L PCA"
+msgstr "左侧大脑后动脉"
+
+msgid "R PCA"
+msgstr "右侧大脑后动脉"
+
+msgid "Basilar A"
+msgstr "基底动脉"
+
+msgid "L Hip"
+msgstr "左侧髋部髋关节"
+
+msgid "R Hip"
+msgstr "右侧髋部髋关节"
+
+msgid "Volume-3 Dist."
+msgstr "体积 三轴法"
+
+msgid "Volume-Ellipse 1 Dist."
+msgstr "体积 椭圆距离法"
+
+msgid "Volume-1 Dist."
+msgstr "体积 距离法"
+
+msgid "Angle-3 Point"
+msgstr "角度 三点法"
+
+msgid "Length-Point"
+msgstr "长度 描点法"
+
+msgid "Area-Point"
+msgstr "面积 描点法"
+
+msgid "Trace"
+msgstr "手动描迹"
+
+msgid "IMT-Above"
+msgstr "内膜前膜"
+
+msgid "IMT-Below"
+msgstr "后壁内中膜"
+
+msgid "EF(Teich)"
+msgstr "射血分数(Teichholz法)"
+
+msgid "IMT"
+msgstr "内膜描迹"
+
+msgid "Diameter"
+msgstr "直径"
+
+msgid "Vol"
+msgstr "体积"
+
+msgid "Vmax"
+msgstr "最大速度"
+
+msgid "PG max"
+msgstr "最大压力阶差"
+
+msgid "PG max(D)"
+msgstr "最大压力阶差(D)"
+
+msgid "PS"
+msgstr "收缩期峰值流速"
+
+msgid "ED"
+msgstr "舒张末期流速"
+
+msgid "S/D"
+msgstr "S/D比值"
+
+msgid "LVLd"
+msgstr "左心室舒张末期长径"
+
+msgid "EDV"
+msgstr "舒张末期容量"
+
+msgid "ESV"
+msgstr "收缩末期容量"
+
+msgid "Dist"
+msgstr "距离"
+
+msgid "Dist(M)"
+msgstr "距离(M)"
+
+msgid "P1/2t"
+msgstr "压力降半时间"
+
+msgid "α"
+msgstr "α角"
+
+msgid "β"
+msgstr "β角"
+
+msgid "Accel"
+msgstr "加速度"
+
+msgid "Accel(D)"
+msgstr "加速度(D)"
+
+msgid "PG mean"
+msgstr "平均压力阶差"
+
+msgid "PG mean(D)"
+msgstr "平均压力阶差(D)"
+
+msgid "Angusty"
+msgstr "狭窄比"
+
+msgid "CI(Cubed)"
+msgstr "左室排量指数(立体法)"
+
+msgid "CI(Teich)"
+msgstr "左室排量指数(Teichholz法)"
+
+msgid "CI(A2C)"
+msgstr "左室排量指数(A2C)"
+
+msgid "CI(A4C)"
+msgstr "左室排量指数(A4C)"
+
+msgid "CI(A/L)"
+msgstr "左室排量指数(A/L)"
+
+msgid "EDV(Cubed)"
+msgstr "舒张末期容量(立体法)"
+
+msgid "EDV(Teich)"
+msgstr "舒张末期容量(Teichholz法)"
+
+msgid "ESV(Cubed)"
+msgstr "收缩末期容积(立体法)"
+
+msgid "ESV(Teich)"
+msgstr "收缩末期容积(Teichholz法)"
+
+msgid "MVA"
+msgstr "二尖瓣口面积"
+
+msgid "AVA"
+msgstr "主动脉瓣口面积"
+
+msgid "Pulm S/D"
+msgstr "肺收缩速度/舒张速度"
+
+msgid "PVA"
+msgstr "肺瓣膜瓣口面积"
+
+msgid "LVMWI"
+msgstr "左室心肌重量指数"
+
+msgid "LVMW"
+msgstr "左室心肌重量"
+
+msgid "TV Area"
+msgstr "三尖瓣面积"
+
+msgid "TV E/A"
+msgstr "三尖瓣E/A"
+
+msgid "LVPW%"
+msgstr "左室后壁厚度%"
+
+msgid "AI P1/2t"
+msgstr "主动脉瓣关闭不全压力半降时间"
+
+msgid "AI Vmax"
+msgstr "主动脉关闭不全最大速度"
+
+msgid "AI End Dias V"
+msgstr "主动脉瓣关闭不全舒张末期速度"
+
+msgid "TV Peak E"
+msgstr "三尖瓣E峰值速度"
+
+msgid "TV Peak A"
+msgstr "三尖瓣A峰值速度"
+
+msgid "PV Vmax"
+msgstr "肺动脉瓣最大速度"
+
+msgid "PI End Dias Vel"
+msgstr "肺动脉关闭不全舒末流速"
+
+msgid "LVIDd"
+msgstr "左室舒张末期内径"
+
+msgid "AI Radius"
+msgstr "主动脉瓣关闭不全半径"
+
+msgid "AI Accel Time"
+msgstr "主动脉关闭不全加速时间"
+
+msgid "AI Dec Slope"
+msgstr "主动脉关闭不全减速斜率 "
+
+msgid "AI End Dias Vel"
+msgstr "主动脉关闭不全舒末流速"
+
+msgid "IVRT"
+msgstr "等容舒张期"
+
+msgid "MR Vmax"
+msgstr "二尖瓣返流最大速度"
+
+msgid "Ao/PA"
+msgstr "主动脉根部直径/主肺动脉直径"
+
+msgid "CI"
+msgstr "左室排量指数"
+
+msgid "Bladder Vol"
+msgstr "膀胱体积"
+
+msgid "MV EPSS"
+msgstr "二尖瓣E点与室间隔距离"
+
+msgid "NT"
+msgstr "颈项透明层厚度"
+
+msgid "Ear"
+msgstr "耳朵"
+
+msgid "mean VCFc"
+msgstr "校正的平均周边缩短率"
+
+msgid "RVPEPc"
+msgstr "心率校正的右室射血前期"
+
+msgid "LVOT Acc Time"
+msgstr "左室流出道加速时间 "
+
+msgid "AI Acc Time"
+msgstr "主动脉瓣关闭不全加速时间 "
+
+msgid "RVOT Acc Time"
+msgstr "右室流出道加速时间 "
+
+msgid "L Dist GSV Calf"
+msgstr "左侧小腿大隐静脉远端"
+
+msgid "R Dist GSV Calf"
+msgstr "右侧小腿大隐静脉远端"
+
+msgid "L Mid GSV Calf"
+msgstr "左侧小腿大隐静脉中端"
+
+msgid "R Mid GSV Calf"
+msgstr "右侧小腿大隐静脉中端"
+
+msgid "L Prox GSV Calf"
+msgstr "左侧小腿大隐静脉近端"
+
+msgid "R Prox GSV Calf"
+msgstr "右侧小腿大隐静脉近端"
+
+msgid "L Dist GSV Thigh"
+msgstr "左侧大腿大隐静脉远端"
+
+msgid "R Dist GSV Thigh"
+msgstr "右侧大腿大隐静脉远端"
+
+msgid "L Mid GSV Thigh"
+msgstr "左侧大腿大隐静脉中端"
+
+msgid "R Mid GSV Thigh"
+msgstr "右侧大腿大隐静脉中端"
+
+msgid "L Prox GSV Thigh"
+msgstr "左侧大腿大隐静脉近端"
+
+msgid "R Prox GSV Thigh"
+msgstr "右侧大腿大隐静脉近端"
+
+msgid "Angle1"
+msgstr ""
+
+msgid "Angle2"
+msgstr ""
+
+msgid "dist1"
+msgstr "距离1"
+
+msgid "area1"
+msgstr "面积1"
+
+msgid "area2"
+msgstr "面积2"
+
+msgid "ratio"
+msgstr "比例"
+
+msgid "area"
+msgstr "面积"
+
+msgid "peri"
+msgstr "周长"
+
+msgid "dist"
+msgstr "距离"
+
+msgid "length"
+msgstr "长度"
+
+msgid "vol"
+msgstr "体积"
+
+msgid "radius"
+msgstr "半径"
+
+msgid "dist2"
+msgstr "距离2"
+
+msgid "angle"
+msgstr "角度"
+
+msgid "angusty"
+msgstr "狭窄比"
+
+msgid "vol1"
+msgstr "体积1"
+
+msgid "vol2"
+msgstr "体积2"
+
+msgid "angle1"
+msgstr "角度1"
+
+msgid "angle2"
+msgstr "角度2"
+
+msgid "LVODs"
+msgstr "收缩期左室流出道短轴径"
+
+msgid "vel"
+msgstr "速度"
+
+msgid "slope"
+msgstr "斜率"
+
+msgid "IMT-Above MAX "
+msgstr "前壁内中膜厚度最大值"
+
+msgid "IMT-Above MIN "
+msgstr "前壁内中膜厚度最小值"
+
+msgid "IMT-Above STD "
+msgstr "前壁内中膜厚度标准值"
+
+msgid "IMT-Above MEAN "
+msgstr "前壁内中膜厚度平均值"
+
+msgid "IMT-Above QUALITY "
+msgstr "前壁内中膜质量"
+
+msgid "IMT-Above LENGTH "
+msgstr "前壁内中膜长度"
+
+msgid "IMT-Below MAX "
+msgstr "后壁内中膜厚度最大值"
+
+msgid "IMT-Below MIN "
+msgstr "后壁内中膜厚度最小值"
+
+msgid "IMT-Below STD "
+msgstr "后壁内中膜厚度标准值"
+
+msgid "IMT-Below MEAN "
+msgstr "后壁内中膜厚度平均值"
+
+msgid "IMT-Below QUALITY "
+msgstr "后壁内中膜质量"
+
+msgid "IMT-Below LENGTH "
+msgstr "后壁内中膜长度"
+
+msgid "IMT MAX "
+msgstr "内中膜厚度最大值"
+
+msgid "IMT MIN "
+msgstr "内中膜厚度最小值"
+
+msgid "IMT STD "
+msgstr "内中膜厚度标准值"
+
+msgid "IMT MEAN "
+msgstr "内中膜厚度平均值"
+
+msgid "IMT QUALITY "
+msgstr "内中膜质量"
+
+msgid "IMT LENGTH "
+msgstr "内中膜长度"
+
+msgid "Arterial"
+msgstr "动脉"
+
+msgid "Venous"
+msgstr "静脉"
+
+msgid "Dimensions"
+msgstr "尺寸"
+
+msgid "Vessels"
+msgstr "脉管"
+
+msgid "EF & Volume"
+msgstr "射血分数 & 体积"
+
+msgid "Valves"
+msgstr "瓣膜"
+
+msgid "Aortic Valve"
+msgstr "主动脉瓣"
+
+msgid "Mitral Valve"
+msgstr "二尖瓣"
+
+msgid "LVOT"
+msgstr "左室流出道"
+
+msgid "RVOT"
+msgstr "右室流出道"
+
+msgid "IAS"
+msgstr "房间隔"
+
+msgid "IVS"
+msgstr "室间隔"
+
+msgid "MV"
+msgstr "二尖瓣"
+
+msgid "AV"
+msgstr "主动脉瓣"
+
+msgid "TV"
+msgstr "三尖瓣"
+
+msgid "Tricuspid Valve"
+msgstr "三尖瓣"
+
+msgid "Pulmonic Valve"
+msgstr "肺瓣膜"
+
+msgid "AV and MV"
+msgstr "主动脉瓣和二尖瓣"
+
+msgid "PV and TV"
+msgstr "肺瓣膜和三尖瓣"
+
+msgid "Utero/Placental"
+msgstr "子宫/胎盘"
+
+msgid "AV & MV"
+msgstr "主动脉瓣 & 二尖瓣"
+
+msgid "PV & TV"
+msgstr "肺瓣膜 & 三尖瓣"
+
+msgid "Peripheral Vasc"
+msgstr "外周血管"
+
+msgid "Advanced OB"
+msgstr "产科晚孕"
+
+msgid "Early OB"
+msgstr "产科早孕"
+
+msgid "Prostate"
+msgstr "前列腺"
+
+msgid "Renal Left"
+msgstr "左肾"
+
+msgid "Renal Right"
+msgstr "右肾"
+
+msgid "user"
+msgstr "用户自定义"
+
+msgid "PAV"
+msgstr "非静脉瓣"
+
+msgid "Ant Mitral Leaflet"
+msgstr "二尖瓣前叶"
+
+msgid "Post Mitral Leaflet"
+msgstr "二尖瓣后叶"
+
+msgid "LVPW"
+msgstr "左室后壁"
+
+msgid "RVAW"
+msgstr "右室前壁"
+
+msgid "Endocardium"
+msgstr "心内膜"
+
+msgid "Epicardium"
+msgstr "心外膜"
+
+msgid "Chordae"
+msgstr "腱索"
+
+msgid "Papillary"
+msgstr "乳头肌"
+
+msgid "Coronary Sinus"
+msgstr "冠状窦"
+
+msgid "Coronary A"
+msgstr "冠状动脉"
+
+msgid "Ao Asc"
+msgstr "升主动脉"
+
+msgid "Ao Arch"
+msgstr "主动脉弓"
+
+msgid "Desc Ao"
+msgstr "降主动脉"
+
+msgid "L MCA"
+msgstr "左侧大脑中动脉"
+
+msgid "R MCA"
+msgstr "右侧大脑中动脉"
+
+msgid "L Uterine A"
+msgstr "左侧子宫动脉"
+
+msgid "R Uterine A"
+msgstr "右侧子宫动脉"
+
+msgid "Ao Desc"
+msgstr "降主动脉"
+
+msgid "Thoracic Aorta"
+msgstr "胸主动脉"
+
+msgid "Thoracic Ao"
+msgstr "胸主动脉"
+
+msgid "Umbilical A"
+msgstr "脐动脉"
+
+msgid "CER"
+msgstr "小脑径"
+
+msgid "Cist Magna"
+msgstr "小脑延髓池"
+
+msgid "OOD"
+msgstr "眼眶外距"
+
+msgid "Tibia"
+msgstr "胫骨"
+
+msgid "TTD"
+msgstr "躯干横径"
+
+msgid "IOD"
+msgstr "眼眶内距"
+
+msgid "Radius"
+msgstr "桡骨"
+
+msgid "Ulna"
+msgstr "尺骨"
+
+msgid "Fibula"
+msgstr "腓骨"
+
+msgid "Nuch Fold"
+msgstr "颈褶"
+
+msgid "AFI-LUQ"
+msgstr "AFI左上腹部"
+
+msgid "AFI-LLQ"
+msgstr "AFI左下腹部"
+
+msgid "AFI-RUQ"
+msgstr "AFI右上腹部"
+
+msgid "AFI-RLQ"
+msgstr "AFI右下腹部"
+
+msgid "CRL"
+msgstr "顶臀径"
+
+msgid "Cerv Length"
+msgstr "子宫颈长"
+
+msgid "Sac Diam"
+msgstr "囊直径"
+
+msgid "Sac Diam1"
+msgstr "囊直径1"
+
+msgid "Sac Diam2"
+msgstr "囊直径2"
+
+msgid "Sac Diam3"
+msgstr "囊直径3"
+
+msgid "Sac"
+msgstr "囊直径"
+
+msgid "Sac:"
+msgstr "囊直径:"
+
+msgid "Diam1"
+msgstr "囊直径1"
+
+msgid "Diam2"
+msgstr "囊直径2"
+
+msgid "Diam3"
+msgstr "囊直径3"
+
+msgid "Sac mean Diam"
+msgstr "平均孕囊直径"
+
+msgid "mean Diam"
+msgstr "平均孕囊直径"
+
+msgid "PSLA"
+msgstr "胸骨旁长轴切面"
+
+msgid "PSAX"
+msgstr "胸骨旁短轴切面"
+
+msgid "A4CH"
+msgstr "心尖四腔心切面"
+
+msgid "A2CH"
+msgstr "心尖两腔心切面"
+
+msgid "Apical Long"
+msgstr "心尖长轴切面"
+
+msgid "Subcostal"
+msgstr "肋骨下切面"
+
+msgid "SSN"
+msgstr "肋骨上切面"
+
+msgid "Apex"
+msgstr "心尖"
+
+msgid "Base"
+msgstr "心底"
+
+msgid "ASD"
+msgstr "房间隔缺损"
+
+msgid "VAS"
+msgstr "室间隔缺损"
+
+msgid "PDA"
+msgstr "动脉导管未闭"
+
+msgid "TAPVC"
+msgstr "肺静脉异位引流赘生物"
+
+msgid "Vegetation"
+msgstr "赘生物"
+
+msgid "NCC"
+msgstr "无冠瓣"
+
+msgid "RCC"
+msgstr "右冠瓣"
+
+msgid "LCC"
+msgstr "左冠瓣"
+
+msgid "Trileaflet"
+msgstr "三瓣叶"
+
+msgid "Bicuspid"
+msgstr "二瓣叶"
+
+msgid "Fat Pad"
+msgstr "脂肪垫"
+
+msgid "Prosthetic Value"
+msgstr "人工瓣膜"
+
+msgid "Annulus"
+msgstr "人工瓣环"
+
+msgid "Effusion"
+msgstr "分流"
+
+msgid "Regurgitation"
+msgstr "反流"
+
+msgid "Pericardial Effusion"
+msgstr "心包积液"
+
+msgid "Pericardium"
+msgstr "心包"
+
+msgid "Myocardium"
+msgstr "心肌"
+
+msgid "Artery"
+msgstr "动脉"
+
+msgid "Vein"
+msgstr "静脉"
+
+msgid "Cervix"
+msgstr "宫颈"
+
+msgid "Endometrium"
+msgstr "子宫内膜"
+
+msgid "Vagina"
+msgstr "阴道"
+
+msgid "Adnexa"
+msgstr "附件"
+
+msgid "Ovary"
+msgstr "卵巢"
+
+msgid "Rt Ovary"
+msgstr "右卵巢"
+
+msgid "Lt Ovary"
+msgstr "左卵巢"
+
+msgid "Follicular Cyst"
+msgstr "卵泡"
+
+msgid "Cul-De-Sac"
+msgstr "直肠子宫陷凹"
+
+msgid "Uterine A"
+msgstr "子宫动脉"
+
+msgid "IUD"
+msgstr "节育环"
+
+msgid "Ovarian A"
+msgstr "卵巢动脉"
+
+msgid "Ovarian V"
+msgstr "卵巢静脉"
+
+msgid "Sigmoid"
+msgstr "乙状结肠"
+
+msgid "Rectum"
+msgstr "直肠"
+
+msgid "Falloian Tube"
+msgstr "输卵管"
+
+msgid "Fundus"
+msgstr "宫底"
+
+msgid "Cyst1"
+msgstr "卵泡1"
+
+msgid "Cyst2"
+msgstr "卵泡2"
+
+msgid "Cyst3"
+msgstr "卵泡3"
+
+msgid "Cyst4"
+msgstr "卵泡4"
+
+msgid "Cyst5"
+msgstr "卵泡5"
+
+msgid "Cyst6"
+msgstr "卵泡6"
+
+msgid "Cyst7"
+msgstr "卵泡7"
+
+msgid "Cyst8"
+msgstr "卵泡8"
+
+msgid "Cyst9"
+msgstr "卵泡9"
+
+msgid "Cyst10"
+msgstr "卵泡10"
+
+msgid "Cyst11"
+msgstr "卵泡11"
+
+msgid "Cyst12"
+msgstr "卵泡12"
+
+msgid "Cyst13"
+msgstr "卵泡13"
+
+msgid "Cyst14"
+msgstr "卵泡14"
+
+msgid "Anterior Wall"
+msgstr "前壁"
+
+msgid "Posterior Wall"
+msgstr "后壁"
+
+msgid "Anteposition"
+msgstr "前位"
+
+msgid "Retroposition"
+msgstr "后位"
+
+msgid "Gs"
+msgstr "妊娠囊"
+
+msgid "Yolk Sac"
+msgstr "卵黄囊"
+
+msgid "L Ov Height"
+msgstr "左卵巢高度"
+
+msgid "L Ov Length"
+msgstr "左卵巢长度"
+
+msgid "L Ov Width"
+msgstr "左卵巢宽度"
+
+msgid "R Ov Height"
+msgstr "右卵巢高度"
+
+msgid "R Ov Length"
+msgstr "右卵巢长度"
+
+msgid "R Ov Width"
+msgstr "右卵巢宽度"
+
+msgid "RA Dimension"
+msgstr "右房径"
+
+msgid "RA Length"
+msgstr "右心房长度"
+
+msgid "RA Width"
+msgstr "右心房宽度"
+
+msgid "RV Dimension"
+msgstr "右室径"
+
+msgid "RV Length"
+msgstr "右心室长度"
+
+msgid "RV Width"
+msgstr "右心室宽度"
+
+msgid "IVS(2D)"
+msgstr "室间隔厚度"
+
+msgid "LA Dimension"
+msgstr "左房内径"
+
+msgid "LA Length"
+msgstr "左心房长"
+
+msgid "LA Width"
+msgstr "左心房宽"
+
+msgid "LV Dimension"
+msgstr "左心室尺寸"
+
+msgid "LV Length"
+msgstr "左心室长"
+
+msgid "LV Width"
+msgstr "左心室宽"
+
+msgid "Heart Area"
+msgstr "心脏面积"
+
+msgid "Heart Circ"
+msgstr "心脏周长"
+
+msgid "ThrC"
+msgstr "胸周长"
+
+msgid "Ao Annul Diam"
+msgstr "主动脉末端直径"
+
+msgid "Asc Ao Diam(2D)"
+msgstr "升主动脉内径(2D)"
+
+msgid "Desc Ao Diam(2D)"
+msgstr "降主动脉内径(2D)"
+
+msgid "Duct Art Diam(2D)"
+msgstr "动脉导管内径(2D)"
+
+msgid "Duct Ven"
+msgstr "静脉导管"
+
+msgid "MV Annul Diam"
+msgstr "二尖瓣环内径"
+
+msgid "TV Annul Diam"
+msgstr "三尖瓣环内径"
+
+msgid "MPA Diam(2D)"
+msgstr "主肺动脉内径(2D)"
+
+msgid "GS"
+msgstr "妊娠囊径"
+
+msgid "BPD"
+msgstr "双顶径"
+
+msgid "AC"
+msgstr "腹围"
+
+msgid "HC"
+msgstr "头围"
+
+msgid "HL"
+msgstr "肱骨长度"
+
+msgid "FL"
+msgstr "股骨长"
+
+msgid "TAD"
+msgstr "腹部横径"
+
+msgid "APAD"
+msgstr "腹部前后径"
+
+msgid "THD"
+msgstr "胸直径"
+
+msgid "OFD"
+msgstr "枕额径"
+
+msgid "FTA"
+msgstr "躯干横截面积"
+
+msgid "Orbit1"
+msgstr "眶距1"
+
+msgid "Orbit2"
+msgstr "眶距2"
+
+msgid "Post Fossa"
+msgstr "后颅窝"
+
+msgid "Mandible"
+msgstr "下颌骨"
+
+msgid "Nasal"
+msgstr "鼻"
+
+msgid "Fetus"
+msgstr "胎儿"
+
+msgid "3V Cord"
+msgstr "脐带"
+
+msgid "Amnion"
+msgstr "羊膜"
+
+msgid "Amnionic Fluid"
+msgstr "羊水"
+
+msgid "Nos"
+msgstr "鼻"
+
+msgid "Clavicle"
+msgstr "锁骨"
+
+msgid "M Phalanx 5"
+msgstr "指骨"
+
+msgid "L Foot L"
+msgstr "左足横径"
+
+msgid "L Foot A"
+msgstr "左足角度"
+
+msgid "R Foot L"
+msgstr "右足长"
+
+msgid "R Foot A"
+msgstr "右足角度"
+
+msgid "Bladder AP"
+msgstr "膀胱前后径"
+
+msgid "Bladder L"
+msgstr "膀胱长径"
+
+msgid "Bladder Tr"
+msgstr "膀胱横径"
+
+msgid "L Renal AP"
+msgstr "左肾前后径"
+
+msgid "L Renal L"
+msgstr "左肾纵径"
+
+msgid "L Renal Tr"
+msgstr "左肾横径"
+
+msgid "L Renal Pelvis"
+msgstr "左肾盂"
+
+msgid "R Renal AP"
+msgstr "右肾前后径"
+
+msgid "R Renal L"
+msgstr "右肾纵径"
+
+msgid "R Renal Tr"
+msgstr "右肾横径"
+
+msgid "R Renal Pelvis"
+msgstr "右肾盂"
+
+msgid "Adr Gland AP"
+msgstr "肾上腺前后径"
+
+msgid "Adr Gland L"
+msgstr "肾上腺纵径"
+
+msgid "Adr Gland Tr"
+msgstr "肾上腺横径"
+
+msgid "Ureter AP"
+msgstr "输尿管前后径"
+
+msgid "Ureter Tr"
+msgstr "输尿管横径"
+
+msgid "L Lung Diam"
+msgstr "左肺直径"
+
+msgid "R Lung Diam"
+msgstr "右肺直径"
+
+msgid "Pelvis AP"
+msgstr "盆骨前后径"
+
+msgid "Pelvis L"
+msgstr "盆骨纵径"
+
+msgid "Pelvis Tr"
+msgstr "盆骨横径"
+
+msgid "Scapul"
+msgstr "肩胛骨直径"
+
+msgid "PV Bladder Vol"
+msgstr "排尿后膀胱体积"
+
+msgid "L Ov Vol"
+msgstr "左卵巢体积"
+
+msgid "R Ov Vol"
+msgstr "右卵巢体积"
+
+msgid "Uterus Vol"
+msgstr "子宫体积"
+
+msgid "L Foll1 Vol"
+msgstr "左卵泡1体积"
+
+msgid "L Foll2 Vol"
+msgstr "左卵泡2体积"
+
+msgid "L Foll3 Vol"
+msgstr "左卵泡3体积"
+
+msgid "L Foll4 Vol"
+msgstr "左卵泡4体积"
+
+msgid "L Foll5 Vol"
+msgstr "左卵泡5体积"
+
+msgid "L Foll6 Vol"
+msgstr "左卵泡6体积"
+
+msgid "L Foll7 Vol"
+msgstr "左卵泡7体积"
+
+msgid "L Foll8 Vol"
+msgstr "左卵泡8体积"
+
+msgid "L Foll9 Vol"
+msgstr "左卵泡9体积"
+
+msgid "L Foll10 Vol"
+msgstr "左卵泡10体积"
+
+msgid "R Foll1 Vol"
+msgstr "右卵泡1体积"
+
+msgid "R Foll2 Vol"
+msgstr "右卵泡2体积"
+
+msgid "R Foll3 Vol"
+msgstr "右卵泡3体积"
+
+msgid "R Foll4 Vol"
+msgstr "右卵泡4体积"
+
+msgid "R Foll5 Vol"
+msgstr "右卵泡5体积"
+
+msgid "R Foll6 Vol"
+msgstr "右卵泡6体积"
+
+msgid "R Foll7 Vol"
+msgstr "右卵泡7体积"
+
+msgid "R Foll8 Vol"
+msgstr "右卵泡8体积"
+
+msgid "R Foll9 Vol"
+msgstr "右卵泡9体积"
+
+msgid "R Foll10 Vol"
+msgstr "右卵泡10体积"
+
+msgid "Bladder H"
+msgstr "膀胱高度"
+
+msgid "Bladder W"
+msgstr "膀胱宽度"
+
+msgid "PV Bladder H"
+msgstr "排尿后膀胱高度"
+
+msgid "PV Bladder L"
+msgstr "排尿后膀胱长度"
+
+msgid "PV Bladder W"
+msgstr "排尿后膀胱宽度"
+
+msgid "L Ovarian A"
+msgstr "左侧卵巢动脉"
+
+msgid "R Ovarian A"
+msgstr "右侧卵巢动脉"
+
+msgid "Endo Thick"
+msgstr "子宫内膜厚度"
+
+msgid "Uterus Height"
+msgstr "子宫高度"
+
+msgid "Uterus Length"
+msgstr "子宫长度"
+
+msgid "Uterus Width"
+msgstr "子宫宽度"
+
+msgid "L Uterine A Diam"
+msgstr "左侧子宫动脉直径"
+
+msgid "R Uterine A Diam"
+msgstr "右侧子宫动脉直径"
+
+msgid "FHR"
+msgstr "胎心率"
+
+msgid "HR(D)"
+msgstr "心率(D)"
+
+msgid "L Foll1"
+msgstr "左卵泡1"
+
+msgid "L Foll2"
+msgstr "左卵泡2"
+
+msgid "L Foll3"
+msgstr "左卵泡3"
+
+msgid "L Foll4"
+msgstr "左卵泡4"
+
+msgid "L Foll5"
+msgstr "左卵泡5"
+
+msgid "L Foll6"
+msgstr "左卵泡6"
+
+msgid "L Foll7"
+msgstr "左卵泡7"
+
+msgid "L Foll8"
+msgstr "左卵泡8"
+
+msgid "L Foll9"
+msgstr "左卵泡9"
+
+msgid "L Foll10"
+msgstr "左卵泡10"
+
+msgid "R Foll1"
+msgstr "右卵泡1"
+
+msgid "R Foll2"
+msgstr "右卵泡2"
+
+msgid "R Foll3"
+msgstr "右卵泡3"
+
+msgid "R Foll4"
+msgstr "右卵泡4"
+
+msgid "R Foll5"
+msgstr "右卵泡5"
+
+msgid "R Foll6"
+msgstr "右卵泡6"
+
+msgid "R Foll7"
+msgstr "右卵泡7"
+
+msgid "R Foll8"
+msgstr "右卵泡8"
+
+msgid "R Foll9"
+msgstr "右卵泡9"
+
+msgid "R Foll10"
+msgstr "右卵泡10"
+
+msgid "Fibroid1"
+msgstr "子宫肌瘤1"
+
+msgid "Fibroid2"
+msgstr "子宫肌瘤2"
+
+msgid "Fibroid3"
+msgstr "子宫肌瘤3"
+
+msgid "Fibroid4"
+msgstr "子宫肌瘤4"
+
+msgid "Fibroid5"
+msgstr "子宫肌瘤5"
+
+msgid "Fibroid6"
+msgstr "子宫肌瘤6"
+
+msgid "Fibroid7"
+msgstr "子宫肌瘤7"
+
+msgid "Fibroid8"
+msgstr "子宫肌瘤8"
+
+msgid "Fibroid9"
+msgstr "子宫肌瘤9"
+
+msgid "Fibroid10"
+msgstr "子宫肌瘤10"
+
+msgid "LVAd"
+msgstr "舒张末左室长轴面积"
+
+msgid "LVAs"
+msgstr "收缩末左室长轴面积"
+
+msgid "LVLs"
+msgstr "收缩末左室长径"
+
+msgid "SD"
+msgstr "标准差"
+
+msgid "EDCB"
+msgstr "预产期"
+
+msgid "GW"
+msgstr "孕周"
+
+msgid "HC/AC"
+msgstr "头围/腹围"
+
+msgid "FL/BPD"
+msgstr "股骨长/双顶径"
+
+msgid "FL/AC"
+msgstr "股骨长度/腹围"
+
+msgid "BPDa"
+msgstr ""
+
+msgid "L OV A"
+msgstr "左侧卵巢动脉"
+
+msgid "R OV A"
+msgstr "右侧卵巢动脉"
+
+msgid "L Ut A"
+msgstr "左侧子宫动脉"
+
+msgid "R Ut A"
+msgstr "右侧子宫动脉"
+
+msgid "MV A Dur"
+msgstr "二尖瓣A峰时间"
+
+msgid "LVPEPc"
+msgstr "心率校正的左室射血前期"
+
+msgid "TAMAX"
+msgstr "平均速度"
+
+msgid "PGmax"
+msgstr "最大压力阶差"
+
+msgid "PGmean"
+msgstr "平均压力阶差"
+
+msgid "Breast"
+msgstr "乳房"
+
+msgid "Eye"
+msgstr "眼球"
+
+#, c-format
+msgid " Invalid  "
+msgstr " 无效值 "
+
+#, c-format
+msgid " Invalid"
+msgstr "无效值"
+
+msgid "Lips"
+msgstr "唇"
+
+msgid "Heart"
+msgstr "胎心"
+
+msgid "C-Spine"
+msgstr "颈椎"
+
+msgid "T-Spine"
+msgstr "胸椎"
+
+msgid "L-Spine"
+msgstr "腰椎"
+
+msgid "S-Spine"
+msgstr "尾椎"
+
+msgid "Neck"
+msgstr "颈部"
+
+msgid "Upper Extremity"
+msgstr "上肢"
+
+msgid "Lower Extremity"
+msgstr "下肢"
+
+msgid "Rt Hand"
+msgstr "右手"
+
+msgid "Lt Hand"
+msgstr "左手"
+
+msgid "Fingers"
+msgstr "手指"
+
+msgid "Foot"
+msgstr "足"
+
+msgid "Rt Foot"
+msgstr "右足"
+
+msgid "Lt Foot"
+msgstr "左足"
+
+msgid "Umb A"
+msgstr "脐动脉"
+
+msgid "Umb"
+msgstr "脐静脉"
+
+msgid "Uterine V"
+msgstr "子宫静脉"
+
+msgid "Cord Insert"
+msgstr "脐带入口"
+
+msgid "Heart 4CH"
+msgstr "四腔心"
+
+msgid "Ductus Arterious"
+msgstr "动脉导管"
+
+msgid "FOV"
+msgstr "卵圆孔"
+
+msgid "Face"
+msgstr "面部"
+
+msgid "Lips-Nose"
+msgstr "鼻唇"
+
+msgid "Uterus"
+msgstr "子宫"
+
+msgid "Fallopian Tube"
+msgstr "输卵管"
+
+msgid "Mass"
+msgstr "肿块"
+
+msgid "Corpus Luteum"
+msgstr "黄体"
+
+msgid "Lateral Ventricle"
+msgstr "侧脑室"
+
+msgid "Cisterna Magna"
+msgstr "后颅窝池"
+
+msgid "Choroid Plexus"
+msgstr "脉络丝"
+
+msgid "Amniotic Fluid"
+msgstr "羊水"
+
+msgid "Embryonic Bud"
+msgstr "胚芽"
+
+msgid "Skull"
+msgstr "颅骨"
+
+msgid "Brain Middle"
+msgstr "脑中线"
+
+msgid "Thalamus"
+msgstr "丘脑"
+
+msgid "Cerebellum"
+msgstr "小脑"
+
+msgid "Humerus"
+msgstr "肱骨"
+
+msgid "Femoral"
+msgstr "股骨"
+
+msgid "Lower Uterine"
+msgstr "子宫下段"
+
+msgid "Orbit"
+msgstr "眼眶"
+
+msgid "Vena Cav"
+msgstr "腔静脉"
+
+msgid "Renal Pelvis"
+msgstr "肾盂"
+
+msgid "Cailces"
+msgstr "肾盏"
+
+msgid "Pyramid"
+msgstr "肾椎体"
+
+msgid "Column"
+msgstr "肾柱"
+
+msgid "Renal A"
+msgstr "肾动脉"
+
+msgid "Renal V"
+msgstr "肾静脉"
+
+msgid "Trans Zone"
+msgstr "移行带"
+
+msgid "Periph Zone"
+msgstr "边缘带"
+
+msgid "Central Zone"
+msgstr "中心带"
+
+msgid "Lt Seminal Vesicle"
+msgstr "左精囊"
+
+msgid "Rt Seminal Vesicle"
+msgstr "右精囊"
+
+msgid "Urethra"
+msgstr "尿道"
+
+msgid "Lt Testicle"
+msgstr "左睾丸"
+
+msgid "Rt Testicle"
+msgstr "右睾丸"
+
+msgid "Epididymis"
+msgstr "附睾"
+
+msgid "Epididymis Head"
+msgstr "附睾头"
+
+msgid "Epididymis Body"
+msgstr "附睾体"
+
+msgid "Epididymis Tail"
+msgstr "附睾尾"
+
+msgid "Testicle"
+msgstr "睾丸"
+
+msgid "Scrotum"
+msgstr "阴囊"
+
+msgid "Penis"
+msgstr "阴茎"
+
+msgid "Corpus Cavernosum"
+msgstr "阴茎海绵体"
+
+msgid "Corpus Spongiosum"
+msgstr "尿道海绵体"
+
+msgid "Varicocele"
+msgstr "精索静脉曲张"
+
+msgid "Hydrocele"
+msgstr "鞘膜积液"
+
+msgid "Spermatic Cord"
+msgstr "精液囊肿"
+
+msgid "Renal Cortex"
+msgstr "肾皮质"
+
+msgid "Pre Void"
+msgstr "尿前"
+
+msgid "Post Void"
+msgstr "尿后"
+
+msgid "Peplos"
+msgstr "包膜"
+
+msgid "Lt Thyroid"
+msgstr "甲状腺左叶"
+
+msgid "Rt Thyroid"
+msgstr "甲状腺右叶"
+
+msgid "Isthmus"
+msgstr "峡部"
+
+msgid "Sup Thy A"
+msgstr "甲状腺上动脉"
+
+msgid "Inf Thy A"
+msgstr "甲状腺下动脉"
+
+msgid "Parathyroid"
+msgstr "甲状旁腺"
+
+msgid "Pyramidal Lobe"
+msgstr "锥状叶"
+
+msgid "Jugular V"
+msgstr "颈静脉"
+
+msgid "Lt Breast"
+msgstr "左乳腺"
+
+msgid "Rt Breast"
+msgstr "右乳腺"
+
+msgid "Duct"
+msgstr "导管"
+
+msgid "Radial"
+msgstr "径向"
+
+msgid "Anti-Radial"
+msgstr "反向"
+
+msgid "Arm"
+msgstr "上臂"
+
+msgid "Elbow"
+msgstr "肘"
+
+msgid "Wrist"
+msgstr "手腕"
+
+msgid "Finger"
+msgstr "手指"
+
+msgid "Thigh"
+msgstr "大腿"
+
+msgid "Knee"
+msgstr "膝盖"
+
+msgid "Ankle"
+msgstr "踝"
+
+msgid "Toes"
+msgstr "脚趾"
+
+msgid "Achilles Tendon"
+msgstr "跟腱"
+
+msgid "Lymph Node"
+msgstr "淋巴结"
+
+msgid "Mass 1"
+msgstr "肿块1"
+
+msgid "Mass 2"
+msgstr "肿块2"
+
+msgid "Mass 3"
+msgstr "肿块3"
+
+msgid "Mass 4"
+msgstr "肿块4"
+
+msgid "Mass 5"
+msgstr "肿块5"
+
+msgid "Mass 6"
+msgstr "肿块6"
+
+msgid "Mass 7"
+msgstr "肿块7"
+
+msgid "Mass 8"
+msgstr "肿块8"
+
+msgid "Mass 9"
+msgstr "肿块9"
+
+msgid "Mass 10"
+msgstr "肿块10"
+
+msgid "Mass 11"
+msgstr "肿块11"
+
+msgid "Mass 12"
+msgstr "肿块12"
+
+msgid "Nipple"
+msgstr "乳头"
+
+msgid "Needle"
+msgstr "穿刺线"
+
+msgid "Nerve"
+msgstr "神经"
+
+msgid "Nerne Root"
+msgstr "神经根"
+
+msgid "Brachial Plexus"
+msgstr "臂纵神经"
+
+msgid "SCM"
+msgstr "胸锁乳突肌"
+
+msgid "ASM"
+msgstr "前斜角肌"
+
+msgid "MSM"
+msgstr "中斜角肌"
+
+msgid "Sciatic"
+msgstr "坐骨神经"
+
+msgid "Interscalene"
+msgstr "斜角肌间"
+
+msgid "Base Line"
+msgstr "基线"
+
+msgid "Cartilage Roof Line"
+msgstr "软骨顶盖线"
+
+msgid "Bony Roof Line"
+msgstr "骨顶盖线"
+
+msgid "Auxillary Base Line"
+msgstr "辅助基线"
+
+msgid "Ilium"
+msgstr "髂骨"
+
+msgid "Femur Head"
+msgstr "股骨头"
+
+msgid "Acetabular Labrum"
+msgstr "髋臼盂"
+
+msgid "Ischium"
+msgstr "坐骨"
+
+msgid "Femur"
+msgstr "股骨"
+
+msgid "Peroneal"
+msgstr "腓神经"
+
+msgid "Saphenous"
+msgstr "隐神经"
+
+msgid "Axillary Nerve"
+msgstr "腋神经"
+
+msgid "Radial Nerve"
+msgstr "桡神经"
+
+msgid "UInar Nerve"
+msgstr "尺神经"
+
+msgid "Femoral Nerve"
+msgstr "股神经"
+
+msgid "Musculocutaneous"
+msgstr "肌皮神经"
+
+msgid "Infraclavicular"
+msgstr "锁骨下"
+
+msgid "Supraclavicular"
+msgstr "锁骨上"
+
+msgid "Axiallary"
+msgstr "轴神经"
+
+msgid "Median"
+msgstr "正中神经"
+
+msgid "UInar"
+msgstr "尺侧"
+
+msgid "Ilio Psoas"
+msgstr "髂腰肌"
+
+msgid "Pectineus"
+msgstr "耻骨肌"
+
+msgid "Semi-membranous"
+msgstr "半膜"
+
+msgid "Sartorius"
+msgstr "缝匠肌"
+
+msgid "Biceps Femoris"
+msgstr "股二头肌"
+
+msgid "Popliteal"
+msgstr "腘肌"
+
+msgid "Retinal"
+msgstr "视网膜"
+
+msgid "Post Vitreous"
+msgstr "玻璃体"
+
+msgid "Choroidal"
+msgstr "脉络膜"
+
+msgid "Detachment"
+msgstr "脱落"
+
+msgid "Skin"
+msgstr "皮肤"
+
+msgid "Vessel"
+msgstr "血管"
+
+msgid "CCA"
+msgstr "颈总动脉"
+
+msgid "BIF"
+msgstr "分叉部"
+
+msgid "ICA"
+msgstr "颈内动脉"
+
+msgid "ECA"
+msgstr "颈外动脉"
+
+msgid "Vert A"
+msgstr "椎动脉"
+
+msgid "Subc A"
+msgstr "锁骨下动脉"
+
+msgid "Innom A"
+msgstr "无名动脉"
+
+msgid "ACA"
+msgstr "大脑前动脉"
+
+msgid "MCA"
+msgstr "大脑中动脉"
+
+msgid "PCA"
+msgstr "大脑后动脉"
+
+msgid "Ax A"
+msgstr "腋动脉"
+
+msgid "Brach A"
+msgstr "肱动脉"
+
+msgid "UInar A"
+msgstr "尺动脉"
+
+msgid "Radial A"
+msgstr "桡动脉"
+
+msgid "CIA"
+msgstr "髂总动脉"
+
+msgid "IIA"
+msgstr "髂内动脉"
+
+msgid "EIA"
+msgstr "髂外动脉"
+
+msgid "CFA"
+msgstr "股总动脉"
+
+msgid "SFA"
+msgstr "股浅动脉"
+
+msgid "PFA"
+msgstr "股深动脉"
+
+msgid "Pop A"
+msgstr "腘动脉"
+
+msgid "Ant Tibial A"
+msgstr "胫前动脉"
+
+msgid "Post Tibial A"
+msgstr "胫后动脉"
+
+msgid "Tp-Trunk A"
+msgstr "经腓动脉干"
+
+msgid "Peroneal A"
+msgstr "腓动脉"
+
+msgid "Dorsalis Pedis A"
+msgstr "足背动脉"
+
+msgid "Sudc V"
+msgstr "锁骨下静脉"
+
+msgid "Ax V"
+msgstr "腋静脉"
+
+msgid "Cephalic V"
+msgstr "头静脉"
+
+msgid "Basilica V"
+msgstr "贵要静脉"
+
+msgid "UInar V"
+msgstr "尺静脉"
+
+msgid "Radial V"
+msgstr "桡静脉"
+
+msgid "CIV"
+msgstr "髂总静脉"
+
+msgid "IIV"
+msgstr "髂内静脉"
+
+msgid "EIV"
+msgstr "髂外静脉"
+
+msgid "CFV"
+msgstr "股总静脉"
+
+msgid "Pop V"
+msgstr "腘静脉"
+
+msgid "Tp-Trunk V"
+msgstr "经腓静脉干"
+
+msgid "Sural V"
+msgstr "腓肠肌静脉"
+
+msgid "Soleal V"
+msgstr "比目鱼肌静脉"
+
+msgid "Ant Tibial V"
+msgstr "胫前静脉"
+
+msgid "Peronral V"
+msgstr "胫后静脉"
+
+msgid "Bulb"
+msgstr "窦部"
+
+msgid "Stenosis"
+msgstr "狭窄"
+
+msgid "Plaque"
+msgstr "斑块"
+
+msgid "Augment"
+msgstr "增宽"
+
+msgid "Innom V"
+msgstr "无名静脉"
+
+msgid "Anastomosis"
+msgstr "吻合口"
+
+msgid "Graft"
+msgstr "桥血管"
+
+msgid "Stent"
+msgstr "支架"
+
+msgid "SFV"
+msgstr "股浅静脉"
+
+msgid "Dorsalis Pedis V"
+msgstr "足背静脉"
+
+msgid "Confluence"
+msgstr "汇合"
+
+msgid "Antegrade"
+msgstr "前向血流"
+
+msgid "Retrograde"
+msgstr "反向血流"
+
+msgid "Anti Fossa"
+msgstr "鹰嘴"
+
+msgid "Forearm"
+msgstr "前臂"
+
+msgid "Fistula"
+msgstr "瘘管"
+
+msgid "ABD Aorta"
+msgstr "腹主动脉"
+
+msgid "Calf"
+msgstr "腓肠肌"
+
+msgid "Siphon"
+msgstr "虹吸"
+
+msgid "Vena Cava"
+msgstr "腔静脉"
+
+msgid "Profunda V"
+msgstr "股深静脉"
+
+msgid "Heel"
+msgstr "足跟"
+
+msgid "Ulnar"
+msgstr "尺侧"
+
+msgid "Tibial"
+msgstr "胫侧"
+
+msgid "Fibular"
+msgstr "腓侧"
+
+msgid "Vertebrae"
+msgstr "椎骨"
+
+msgid "Cervical vevtebrae"
+msgstr "颈椎"
+
+msgid "Thoracic vertebrae"
+msgstr "胸椎"
+
+msgid "Lumbar vertebrae"
+msgstr "腰椎"
+
+msgid "Sternum"
+msgstr "胸骨"
+
+msgid "Scapula"
+msgstr "肩胛骨"
+
+msgid "Carpal bone"
+msgstr "腕骨"
+
+msgid "Hip"
+msgstr "髋骨"
+
+msgid "Pubis"
+msgstr "耻骨"
+
+msgid "Patella"
+msgstr "髌骨"
+
+msgid "Articulation"
+msgstr "关节"
+
+msgid "Liganment"
+msgstr "韧带"
+
+msgid "Vertebral column"
+msgstr "脊柱"
+
+msgid "Intervertebral disc"
+msgstr "椎间盘"
+
+msgid "Shoudler joint"
+msgstr "肩关节"
+
+msgid "Elbow joint"
+msgstr "肘关节"
+
+msgid "Radiocarpal"
+msgstr "桡腕关节"
+
+msgid "Hip joint"
+msgstr "髋关节"
+
+msgid "Knee joint"
+msgstr "膝关节"
+
+msgid "Ankle joint"
+msgstr "踝关节"
+
+msgid "Deltoid"
+msgstr "三角肌"
+
+msgid "Biceps brachii"
+msgstr "肱二头肌"
+
+msgid "Triceps brachii"
+msgstr "肱三头肌"
+
+msgid "Triceps surae"
+msgstr "小腿三头肌"
+
+msgid "Quadriceps femoris"
+msgstr "股四头肌"
+
+msgid "Select Lexicon:"
+msgstr "选择词库:"
+
+msgid "Select Item"
+msgstr "可选词条"
+
+msgid "Selected Item"
+msgstr "已选词条"
+
+msgid " Only Userdefined items can be deleted!"
+msgstr "只有自定义词条可被删除"
+
+msgid " Item has existed. Please select item again!"
+msgstr "词条已经存在，请重新选择！"
+
+msgid " Item has existed. Please input item again!"
+msgstr "词条已经存在，请重新输入！"
+
+msgid "Please select a item before delete!"
+msgstr "在进行删除之前，请选择一个词条！"
+
+msgid "Please select a item before up!"
+msgstr "在进行上移之前，请选择一个词条！"
+
+msgid "Please select a item before down!"
+msgstr "在进行下移之前，请选择一个词条！"
+
+msgid "Please select a item before add!"
+msgstr "在进行左移之前，请选择一个词条！"
+
+msgid " 'New Item' has existed. Please rename item !"
+msgstr "‘新增结点’ 已经存在，请重命名！ "
+
+msgid "Only Userdefined items can be renamed!"
+msgstr "只有自定义词条可被重命名！"
+
+msgid "AI PISA"
+msgstr "主动脉瓣近端等速表面积"
+
+msgid "MV PISA"
+msgstr "二尖瓣近端等速表面积"
+
+msgid "MR PISA"
+msgstr "二尖瓣返流近端等速表面积"
+
+msgid "TV PISA"
+msgstr "三尖瓣近端等速表面积"
+
+msgid "Fetal 1"
+msgstr "胎儿1"
+
+msgid "Fetal 2"
+msgstr "胎儿2"
+
+msgid "CW Color Mode"
+msgstr "CW彩色模式"
+
+msgid "Color CW Mode"
+msgstr "彩色CW模式"
+
+msgid "FetalCardio"
+msgstr "胎儿心脏"
+
+msgid "Upgrade success,please reboot!"
+msgstr "升级成功,请重启!"
+
+msgid "Y  "
+msgstr "年"
+
+msgid "M  "
+msgstr "月"
+
+msgid "D  "
+msgstr "日"
+
+msgid "Select Image(Maximum of 6)"
+msgstr "选择图像(最多六幅)"
+
+msgid "KidAbdomen"
+msgstr "小儿腹部"
+
+msgid "KidCardio"
+msgstr "小儿心脏"
+
+msgid "MammaryGlands"
+msgstr "乳腺"
+
+msgid "<b>TV Out Format (Restart to complete changes)</b>"
+msgstr "<b>视频输出格式 (重启后生效)</b>"
+
+msgid "KidneyUreter"
+msgstr "双肾输尿管"
+
+msgid "HipJoint"
+msgstr "髋关节"
+
+msgid "<b>Measure Result Font Size</b>"
+msgstr "<b>测量结果字体大小</b>"
+
+msgid "AUA"
+msgstr "平均孕龄"
+
+msgid "PSAD"
+msgstr "前列腺特异性抗原密度"
+
+#, c-format
+msgid "The deadline of the diagnostic Ultrasound system have %d days left, please contact manufacturer to obtain register key then registering, otherwise, the system will don't work because the deadline expire!"
+msgstr "超声诊断系统的使用期限还剩%d天，为避免因使用期限过期而导致超声系统不可用的情况，请尽快联系厂家获得注册码进行注册。"
+
+#, c-format
+msgid "The deadline of the diagnostic Ultrasound system have expired, please contact manufacturer to obtain register key then registering!"
+msgstr "超声诊断系统的使用期限已过期，请联系厂家获得注册码进行注册！"
+
+#, c-format
+msgid "The diagnostic Ultrasound system was not authorized, please contact manufacturer to obtain register key then registering!"
+msgstr "超声诊断系统未获得使用授权，请联系厂家获得注册码进行注册！"
+
+msgid ""
+"Tel.: 0755-26073882   400-180-0318\n"
+"Email: service@china-emperor.com"
+msgstr ""
+"联系电话：0755-26073882   400-180-0318\n"
+"Email: service@china-emperor.com"
+
+msgid ""
+"Note: According to the license file, the manufacturer will generate a unique register key for every machine, you can register by inputting this register key. If register is successful, you can use the system.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will find this file named 'license' in Udisk. Please send this file to manufacturer."
+msgstr ""
+"注意：厂家将通过许可文件，为每台机器生成一个唯一的注册码，通过输入匹配的注册码对超声系统进行注册，一旦注册成功，您将可以使用超声系统。\n"
+"\n"
+"请先插入U盘，然后点击“导出许可文件”，您将在U盘中找到名为'license'的许可文件，请将该许可文件发送给厂家。"
+
+msgid "Try Out"
+msgstr "试用"
+
+msgid "Power Off"
+msgstr "关机"
+
+msgid "SPSA"
+msgstr "SPSA"
+
+msgid "Peripheral"
+msgstr "外围设备"
+
+msgid "[Scan Line]: Invalid when localzoom is open!."
+msgstr "[扫描线]: 打开局放时无效!"
+
+msgid "<b>Mouse Speed</b>"
+msgstr "<b>鼠标速度</b>"
+
+msgid "<b>Heart Beat:</b>"
+msgstr "<b>心动周期:</b>"
+
+msgid "Fetal 1 √"
+msgstr "胎儿1 √"
+
+msgid "Fetal 2 √"
+msgstr "胎儿2 √"
+
+msgid "Abdomen-General"
+msgstr "腹部－常规"
+
+msgid "Abdomen-Arterial"
+msgstr "腹部－动脉"
+
+msgid "Abdomen-Venous"
+msgstr "腹部－静脉"
+
+msgid "Obstetrics-General"
+msgstr "产科－常规"
+
+msgid "Obstetrics-FetalHeart"
+msgstr "产科－胎儿心脏"
+
+msgid "SmallPart-Glands"
+msgstr "小器官－乳腺"
+
+msgid "SmallPart-Thyroid"
+msgstr "小器官－甲状腺"
+
+msgid "SmallPart-Eye"
+msgstr "小器官－眼球"
+
+msgid "SmallPart-Testicle"
+msgstr "小器官－睾丸"
+
+msgid "Vascular-LE"
+msgstr "血管－下肢"
+
+msgid "Vascular-UE"
+msgstr "血管－上肢"
+
+msgid "Measure Sequence:"
+msgstr "测量顺序:"
+
+msgid "Next"
+msgstr "下一个"
+
+msgid "Please select a item before move!"
+msgstr "在移动之前请先选择一个项目!"
+
+msgid "Data Name:"
+msgstr "数据名称:"
+
+msgid "Please input name for exporting data:"
+msgstr "请为导出数据命名:"
+
+msgid "Please select measure type!"
+msgstr "请选择测量类型!"
+
+msgid "Available Items:"
+msgstr "可选项目:"
+
+msgid "Selected Items:"
+msgstr "已选项目:"
+
+msgid "Gallbladder Vol"
+msgstr "胆囊体积"
+
+msgid "VTI"
+msgstr "速度时间积分"
+
+msgid "L Kid Vol"
+msgstr "左肾体积"
+
+msgid "R Kid Vol"
+msgstr "右肾体积"
+
+msgid "Breast L Lesion1 Vol"
+msgstr "乳腺左病灶1体积"
+
+msgid "Breast L Lesion1 L"
+msgstr "乳腺左病灶1长度"
+
+msgid "Breast L Lesion1 W"
+msgstr "乳腺左病灶1宽度"
+
+msgid "Breast L Lesion1 H"
+msgstr "乳腺左病灶1高度"
+
+msgid "Breast L Lesion2 Vol"
+msgstr "乳腺左病灶2体积"
+
+msgid "Breast L Lesion2 L"
+msgstr "乳腺左病灶2长度"
+
+msgid "Breast L Lesion2 W"
+msgstr "乳腺左病灶2宽度"
+
+msgid "Breast L Lesion2 H"
+msgstr "乳腺左病灶2高度"
+
+msgid "Breast L Lesion3 Vol"
+msgstr "乳腺左病灶3体积"
+
+msgid "Breast L Lesion3 L"
+msgstr "乳腺左病灶3长度"
+
+msgid "Breast L Lesion3 W"
+msgstr "乳腺左病灶3宽度"
+
+msgid "Breast L Lesion3 H"
+msgstr "乳腺左病灶3高度"
+
+msgid "Breast L Lesion4 Vol"
+msgstr "乳腺左病灶4体积"
+
+msgid "Breast L Lesion4 L"
+msgstr "乳腺左病灶4长度"
+
+msgid "Breast L Lesion4 W"
+msgstr "乳腺左病灶4宽度"
+
+msgid "Breast L Lesion4 H"
+msgstr "乳腺左病灶4高度"
+
+msgid "Breast L Lesion5 Vol"
+msgstr "乳腺左病灶5体积"
+
+msgid "Breast L Lesion5 L"
+msgstr "乳腺左病灶5长度"
+
+msgid "Breast L Lesion5 W"
+msgstr "乳腺左病灶5宽度"
+
+msgid "Breast L Lesion5 H"
+msgstr "乳腺左病灶5高度"
+
+msgid "Breast R Lesion1 Vol"
+msgstr "乳腺右病灶1体积"
+
+msgid "Breast R Lesion1 L"
+msgstr "乳腺右病灶1长度"
+
+msgid "Breast R Lesion1 W"
+msgstr "乳腺右病灶1宽度"
+
+msgid "Breast R Lesion1 H"
+msgstr "乳腺右病灶1高度"
+
+msgid "Breast R Lesion2 Vol"
+msgstr "乳腺右病灶2体积"
+
+msgid "Breast R Lesion2 L"
+msgstr "乳腺右病灶2长度"
+
+msgid "Breast R Lesion2 W"
+msgstr "乳腺右病灶2宽度"
+
+msgid "Breast R Lesion2 H"
+msgstr "乳腺右病灶2高度"
+
+msgid "Breast R Lesion3 Vol"
+msgstr "乳腺右病灶3体积"
+
+msgid "Breast R Lesion3 L"
+msgstr "乳腺右病灶3长度"
+
+msgid "Breast R Lesion3 W"
+msgstr "乳腺右病灶3宽度"
+
+msgid "Breast R Lesion3 H"
+msgstr "乳腺右病灶3高度"
+
+msgid "Breast R Lesion4 Vol"
+msgstr "乳腺右病灶4体积"
+
+msgid "Breast R Lesion4 L"
+msgstr "乳腺右病灶4长度"
+
+msgid "Breast R Lesion4 W"
+msgstr "乳腺右病灶4宽度"
+
+msgid "Breast R Lesion4 H"
+msgstr "乳腺右病灶4高度"
+
+msgid "Breast R Lesion5 Vol"
+msgstr "乳腺右病灶5体积"
+
+msgid "Breast R Lesion5 L"
+msgstr "乳腺右病灶5长度"
+
+msgid "Breast R Lesion5 W"
+msgstr "乳腺右病灶5宽度"
+
+msgid "Breast R Lesion5 H"
+msgstr "乳腺右病灶5高度"
+
+msgid "L Testis Vol"
+msgstr "左睾丸体积"
+
+msgid "R Testis Vol"
+msgstr "右睾丸体积"
+
+msgid "Testis L Lesion1 Vol"
+msgstr "睾丸左病灶1体积"
+
+msgid "Testis L Lesion1 L"
+msgstr "睾丸左病灶1长度"
+
+msgid "Testis L Lesion1 W"
+msgstr "睾丸左病灶1宽度"
+
+msgid "Testis L Lesion1 H"
+msgstr "睾丸左病灶1高度"
+
+msgid "Testis L Lesion2 Vol"
+msgstr "睾丸左病灶2体积"
+
+msgid "Testis L Lesion2 L"
+msgstr "睾丸左病灶2长度"
+
+msgid "Testis L Lesion2 W"
+msgstr "睾丸左病灶2宽度"
+
+msgid "Testis L Lesion2 H"
+msgstr "睾丸左病灶2高度"
+
+msgid "Testis L Lesion3 Vol"
+msgstr "睾丸左病灶3体积"
+
+msgid "Testis L Lesion3 L"
+msgstr "睾丸左病灶3长度"
+
+msgid "Testis L Lesion3 W"
+msgstr "睾丸左病灶3宽度"
+
+msgid "Testis L Lesion3 H"
+msgstr "睾丸左病灶3高度"
+
+msgid "Testis L Lesion4 Vol"
+msgstr "睾丸左病灶4体积"
+
+msgid "Testis L Lesion4 L"
+msgstr "睾丸左病灶4长度"
+
+msgid "Testis L Lesion4 W"
+msgstr "睾丸左病灶4宽度"
+
+msgid "Testis L Lesion4 H"
+msgstr "睾丸左病灶4高度"
+
+msgid "Testis L Lesion5 Vol"
+msgstr "睾丸左病灶5体积"
+
+msgid "Testis L Lesion5 L"
+msgstr "睾丸左病灶5长度"
+
+msgid "Testis L Lesion5 W"
+msgstr "睾丸左病灶5宽度"
+
+msgid "Testis L Lesion5 H"
+msgstr "睾丸左病灶5高度"
+
+msgid "Testis R Lesion1 Vol"
+msgstr "睾丸右病灶1体积"
+
+msgid "Testis R Lesion1 L"
+msgstr "睾丸右病灶1长度"
+
+msgid "Testis R Lesion1 W"
+msgstr "睾丸右病灶1宽度"
+
+msgid "Testis R Lesion1 H"
+msgstr "睾丸右病灶1高度"
+
+msgid "Testis R Lesion2 Vol"
+msgstr "睾丸右病灶2体积"
+
+msgid "Testis R Lesion2 L"
+msgstr "睾丸右病灶2长度"
+
+msgid "Testis R Lesion2 W"
+msgstr "睾丸右病灶2宽度"
+
+msgid "Testis R Lesion2 H"
+msgstr "睾丸右病灶2高度"
+
+msgid "Testis R Lesion3 Vol"
+msgstr "睾丸右病灶3体积"
+
+msgid "Testis R Lesion3 L"
+msgstr "睾丸右病灶3长度"
+
+msgid "Testis R Lesion3 W"
+msgstr "睾丸右病灶3宽度"
+
+msgid "Testis R Lesion3 H"
+msgstr "睾丸右病灶3高度"
+
+msgid "Testis R Lesion4 Vol"
+msgstr "睾丸右病灶4体积"
+
+msgid "Testis R Lesion4 L"
+msgstr "睾丸右病灶4长度"
+
+msgid "Testis R Lesion4 W"
+msgstr "睾丸右病灶4宽度"
+
+msgid "Testis R Lesion4 H"
+msgstr "睾丸右病灶4高度"
+
+msgid "Testis R Lesion5 Vol"
+msgstr "睾丸右病灶5体积"
+
+msgid "Testis R Lesion5 L"
+msgstr "睾丸右病灶5长度"
+
+msgid "Testis R Lesion5 W"
+msgstr "睾丸右病灶5宽度"
+
+msgid "Testis R Lesion5 H"
+msgstr "睾丸右病灶5高度"
+
+msgid "Thyroid Lesion1 Vol"
+msgstr "甲状腺病灶1体积"
+
+msgid "Thyroid Lesion1 L"
+msgstr "甲状腺病灶1长度"
+
+msgid "Thyroid Lesion1 W"
+msgstr "甲状腺病灶1宽度"
+
+msgid "Thyroid Lesion1 H"
+msgstr "甲状腺病灶1高度"
+
+msgid "Thyroid Lesion2 Vol"
+msgstr "甲状腺病灶2体积"
+
+msgid "Thyroid Lesion2 L"
+msgstr "甲状腺病灶2长度"
+
+msgid "Thyroid Lesion2 W"
+msgstr "甲状腺病灶2宽度"
+
+msgid "Thyroid Lesion2 H"
+msgstr "甲状腺病灶2高度"
+
+msgid "Thyroid Lesion3 Vol"
+msgstr "甲状腺病灶3体积"
+
+msgid "Thyroid Lesion3 L"
+msgstr "甲状腺病灶3长度"
+
+msgid "Thyroid Lesion3 W"
+msgstr "甲状腺病灶3宽度"
+
+msgid "Thyroid Lesion3 H"
+msgstr "甲状腺病灶3高度"
+
+msgid "Thyroid Lesion4 Vol"
+msgstr "甲状腺病灶4体积"
+
+msgid "Thyroid Lesion4 L"
+msgstr "甲状腺病灶4长度"
+
+msgid "Thyroid Lesion4 W"
+msgstr "甲状腺病灶4宽度"
+
+msgid "Thyroid Lesion4 H"
+msgstr "甲状腺病灶4高度"
+
+msgid "Thyroid Lesion5 Vol"
+msgstr "甲状腺病灶5体积"
+
+msgid "Thyroid Lesion5 L"
+msgstr "甲状腺病灶5长度"
+
+msgid "Thyroid Lesion5 W"
+msgstr "甲状腺病灶5宽度"
+
+msgid "Thyroid Lesion5 H"
+msgstr "甲状腺病灶5高度"
+
+msgid "Galact1 Thick"
+msgstr "乳腺1厚度"
+
+msgid "Galact2 Thick"
+msgstr "乳腺2厚度"
+
+msgid "Galact3 Thick"
+msgstr "乳腺3厚度"
+
+msgid "Galact4 Thick"
+msgstr "乳腺4厚度"
+
+msgid "Galact5 Thick"
+msgstr "乳腺5厚度"
+
+msgid "Bre1 Le1 L"
+msgstr "乳腺1病灶1长度"
+
+msgid "Bre1 Le1 W"
+msgstr "乳腺1病灶1宽度"
+
+msgid "Bre1 Le1 H"
+msgstr "乳腺1病灶1高度"
+
+msgid "Bre1 Le2 L"
+msgstr "乳腺1病灶2长度"
+
+msgid "Bre1 Le2 W"
+msgstr "乳腺1病灶2宽度"
+
+msgid "Bre1 Le2 H"
+msgstr "乳腺1病灶2高度"
+
+msgid "Bre1 Le3 L"
+msgstr "乳腺1病灶3长度"
+
+msgid "Bre1 Le3 W"
+msgstr "乳腺1病灶3宽度"
+
+msgid "Bre1 Le3 H"
+msgstr "乳腺1病灶3高度"
+
+msgid "Bre1 Le4 L"
+msgstr "乳腺1病灶4长度"
+
+msgid "Bre1 Le4 W"
+msgstr "乳腺1病灶4宽度"
+
+msgid "Bre1 Le4 H"
+msgstr "乳腺1病灶4高度"
+
+msgid "Bre1 Le5 L"
+msgstr "乳腺1病灶5长度"
+
+msgid "Bre1 Le5 W"
+msgstr "乳腺1病灶5宽度"
+
+msgid "Bre1 Le5 H"
+msgstr "乳腺1病灶5高度"
+
+msgid "Bre2 Le1 L"
+msgstr "乳腺2病灶1长度"
+
+msgid "Bre2 Le1 W"
+msgstr "乳腺2病灶宽长度"
+
+msgid "Bre2 Le1 H"
+msgstr "乳腺2病灶1高度"
+
+msgid "Bre2 Le2 L"
+msgstr "乳腺2病灶2长度"
+
+msgid "Bre2 Le2 W"
+msgstr "乳腺2病灶2宽度"
+
+msgid "Bre2 Le2 H"
+msgstr "乳腺2病灶2高度"
+
+msgid "Bre2 Le3 L"
+msgstr "乳腺2病灶3长度"
+
+msgid "Bre2 Le3 W"
+msgstr "乳腺2病灶3宽度"
+
+msgid "Bre2 Le3 H"
+msgstr "乳腺2病灶3高度"
+
+msgid "Bre2 Le4 L"
+msgstr "乳腺2病灶4长度"
+
+msgid "Bre2 Le4 W"
+msgstr "乳腺2病灶4宽度"
+
+msgid "Bre2 Le4 H"
+msgstr "乳腺2病灶4高度"
+
+msgid "Bre2 Le5 L"
+msgstr "乳腺2病灶5长度"
+
+msgid "Bre2 Le5 W"
+msgstr "乳腺2病灶5宽度"
+
+msgid "Bre2 Le5 H"
+msgstr "乳腺2病灶5高度"
+
+msgid "Bre3 Le1 L"
+msgstr "乳腺3病灶1长度"
+
+msgid "Bre3 Le1 W"
+msgstr "乳腺3病灶1宽度"
+
+msgid "Bre3 Le1 H"
+msgstr "乳腺3病灶1高度"
+
+msgid "Bre3 Le2 L"
+msgstr "乳腺3病灶2长度"
+
+msgid "Bre3 Le2 W"
+msgstr "乳腺3病灶2宽度"
+
+msgid "Bre3 Le2 H"
+msgstr "乳腺3病灶2高度"
+
+msgid "Bre3 Le3 L"
+msgstr "乳腺3病灶3长度"
+
+msgid "Bre3 Le3 W"
+msgstr "乳腺3病灶3宽度"
+
+msgid "Bre3 Le3 H"
+msgstr "乳腺3病灶3高度"
+
+msgid "Bre3 Le4 L"
+msgstr "乳腺3病灶4长度"
+
+msgid "Bre3 Le4 W"
+msgstr "乳腺3病灶4宽度"
+
+msgid "Bre3 Le4 H"
+msgstr "乳腺3病灶4高度"
+
+msgid "Bre3 Le5 L"
+msgstr "乳腺3病灶5长度"
+
+msgid "Bre3 Le5 W"
+msgstr "乳腺3病灶5宽度"
+
+msgid "Bre3 Le5 H"
+msgstr "乳腺3病灶5高度"
+
+msgid "Bre4 Le1 L"
+msgstr "乳腺4病灶1长度"
+
+msgid "Bre4 Le1 W"
+msgstr "乳腺4病灶1宽度"
+
+msgid "Bre4 Le1 H"
+msgstr "乳腺4病灶1高度"
+
+msgid "Bre4 Le2 L"
+msgstr "乳腺4病灶2长度"
+
+msgid "Bre4 Le2 W"
+msgstr "乳腺4病灶2宽度"
+
+msgid "Bre4 Le2 H"
+msgstr "乳腺4病灶2高度"
+
+msgid "Bre4 Le3 L"
+msgstr "乳腺4病灶3长度"
+
+msgid "Bre4 Le3 W"
+msgstr "乳腺4病灶3宽度"
+
+msgid "Bre4 Le3 H"
+msgstr "乳腺4病灶3高度"
+
+msgid "Bre4 Le4 L"
+msgstr "乳腺4病灶4长度"
+
+msgid "Bre4 Le4 W"
+msgstr "乳腺4病灶4宽度"
+
+msgid "Bre4 Le4 H"
+msgstr "乳腺4病灶4高度"
+
+msgid "Bre4 Le5 L"
+msgstr "乳腺4病灶5长度"
+
+msgid "Bre4 Le5 W"
+msgstr "乳腺4病灶5宽度"
+
+msgid "Bre4 Le5 H"
+msgstr "乳腺4病灶5高度"
+
+msgid "Bre5 Le1 L"
+msgstr "乳腺5病灶1长度"
+
+msgid "Bre5 Le1 W"
+msgstr "乳腺5病灶1宽度"
+
+msgid "Bre5 Le1 H"
+msgstr "乳腺5病灶1高度"
+
+msgid "Bre5 Le2 L"
+msgstr "乳腺5病灶2长度"
+
+msgid "Bre5 Le2 W"
+msgstr "乳腺5病灶2宽度"
+
+msgid "Bre5 Le2 H"
+msgstr "乳腺5病灶2高度"
+
+msgid "Bre5 Le3 L"
+msgstr "乳腺5病灶3长度"
+
+msgid "Bre5 Le3 W"
+msgstr "乳腺5病灶3宽度"
+
+msgid "Bre5 Le3 H"
+msgstr "乳腺5病灶3高度"
+
+msgid "Bre5 Le4 L"
+msgstr "乳腺5病灶4长度"
+
+msgid "Bre5 Le4 W"
+msgstr "乳腺5病灶4宽度"
+
+msgid "Bre5 Le4 H"
+msgstr "乳腺5病灶4高度"
+
+msgid "Bre5 Le5 L"
+msgstr "乳腺5病灶5长度"
+
+msgid "Bre5 Le5 W"
+msgstr "乳腺5病灶5宽度"
+
+msgid "Bre5 Le5 H"
+msgstr "乳腺5病灶5高度"
+
+msgid "Area 1"
+msgstr ""
+
+msgid "Area 2"
+msgstr ""
+
+msgid "Area 3"
+msgstr ""
+
+msgid "GSD"
+msgstr ""
+
+msgid "HD"
+msgstr ""
+
+msgid "BD"
+msgstr ""
+
+msgid "SL"
+msgstr ""
+
+msgid "K-CRL"
+msgstr ""
+
+msgid "W-CRL"
+msgstr ""
+
+msgid "H-CRL"
+msgstr ""
+
+msgid "BBD"
+msgstr ""
+
+msgid "BTD"
+msgstr ""
+
+msgid "BUD"
+msgstr ""
+
+msgid "ERD"
+msgstr ""
+
+msgid "ESD"
+msgstr ""
+
+msgid "EED"
+msgstr ""
+
+msgid ""
+"Please insert USB storage before export! \n"
+"Click Export will export current exam data to USB storage!"
+msgstr ""
+"在导出之前请插入USB存储设备!\n"
+"点击导出按钮将导出当前检查项目数据至USB存储设备!"
+
+msgid "The name has existed, please rename!"
+msgstr "此名称已经存在，请重命名!"
+
+msgid "Loading......"
+msgstr "载入中......"
+
+msgid "Plsease select one item:"
+msgstr "请选择需要导出的数据:"
+
+msgid "Delete data from USB storage after import."
+msgstr "在导入之后删除USB存储设备中的数据."
+
+msgid "Import data to override the current exam data!"
+msgstr "导入数据将覆盖当前检查项目的数据!"
+
+msgid "FocusNum"
+msgstr "焦点数目"
+
+msgid "[Focus]: Knob to move focus, Press to change focus sum."
+msgstr "【焦点】：旋转移动焦点，按下改变焦点数目."
+
+msgid "[Length]: <Value> to cancel or redraw."
+msgstr "[长度]：<Value> 取消或重绘"
+
+msgid "[AreaTrack]: <Value> to cancel or redraw."
+msgstr "[面积描迹]: <Value> 取消或重绘."
+
+msgid "[Simpsom]: <Value> to cancle or redraw."
+msgstr "[Simpsom]: <Value> 取消或重绘."
+
+msgid "[A/L]: <Value> to cancle or redraw."
+msgstr "[A/L]: <Value> 取消或重绘."
+
+msgid "[ManualTrack]: <Update> to switch to AutoTrack."
+msgstr "[手动描迹]: <Update>  切换到自动描迹"
+
+msgid "[ManualTrack]: <Value> to cancel or redraw. <Update> to AutoTrack."
+msgstr "[手动描迹]: <Value> 取消或重绘.<Update> 为了自动描迹"
+
+msgid "[AutoTrack]: <Angle> knob to adjust."
+msgstr "[自动描迹]: <Angle>旋转进行校正。"
+
+msgid "[AutoTrack]: <Update> to switch to ManualTrack."
+msgstr "[自动描迹]: <Update> 切换到手动描迹"
+
+msgid "[PI]: <Value> to cancel or redraw."
+msgstr "[PI]: <Value> 取消或重绘."
+
+msgid "[PG Mean]: <Value> to cancel or redraw."
+msgstr "[平均压力阶差]: <Value> to 取消或重绘."
+
+msgid "Snap"
+msgstr "图像"
+
+msgid "This is charging software, the period of validity is permanent."
+msgstr "此系统是合作计费软件，有效期是永久使用。"
+
+msgid "This is charging software, the period of validity is"
+msgstr "此系统是合作计费软件，有效期是"
+
+msgid "days."
+msgstr "天。"
+
+msgid "Vascular-Carotid"
+msgstr "血管－颈动脉"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "Please select measure method!"
+msgstr "请选择测量方法！"
+
+msgid ""
+"Item has existed, \n"
+"Clicked Import will rename the item and continue, \n"
+"Clicked Cancel will quit and continue!"
+msgstr ""
+"测量项已存在, \n"
+"点击导入系统将自动重命名该测量项,\n"
+"点击取消将删除该测量项."
+
+msgid "LVLd Apical(2D)"
+msgstr "舒张末期左室长径(2D)"
+
+msgid "LVIDs(2D)"
+msgstr "左室收缩末期内径(2D)"
+
+msgid "LVPWs(2D)"
+msgstr "左室后壁收缩期厚度(2D)"
+
+msgid "LVOT Diam(2D)"
+msgstr "左室流出道内径(2D)"
+
+msgid "LVIDd(2D)"
+msgstr "左室舒张末期内径(2D)"
+
+msgid "LVPWd(2D)"
+msgstr "左室后壁舒张期厚度(2D)"
+
+msgid "LVAd SAx Endo(2D)"
+msgstr "舒张末乳头肌尖端水平的左心室内膜面积(2D)"
+
+msgid "LVAd SAx Epi(2D)"
+msgstr "舒张末乳头肌尖端水平的左心室外膜面积(2D)"
+
+msgid "RVIDd(2D)"
+msgstr "右室舒张末期内径(2D)"
+
+msgid "RVAWd(2D)"
+msgstr "右室前壁舒张期厚度(2D)"
+
+msgid "RVOT Diam(2D)"
+msgstr "右室流出道内径(2D)"
+
+msgid "IVSd(2D)"
+msgstr "室间隔舒张期厚度(2D)"
+
+msgid "IVSs(2D)"
+msgstr "室间隔收缩期厚度(2D)"
+
+msgid "LA Dimen(2D)"
+msgstr "左房内径(2D)"
+
+msgid "AoR Diam(2D)"
+msgstr "主动脉根部内径(2D)"
+
+msgid "Ao Isthmus Diam(2D)"
+msgstr "主动脉峡部内径(2D)"
+
+msgid "LPA Diam(2D)"
+msgstr "左肺动脉内径(2D)"
+
+msgid "RPA Diam(2D)"
+msgstr "右肺动脉内径(2D)"
+
+msgid "RPA Diam(2D) "
+msgstr "右肺动脉内径(2D) "
+
+msgid "RPA Diam(2D-Ves)"
+msgstr "右肺动脉内径(2D-脉管)"
+
+msgid "A2Cd(2D)"
+msgstr "心尖二腔舒张末左室长轴面积(2D)"
+
+msgid "A2Cs(2D)"
+msgstr "心尖二腔收缩末左室长轴面积(2D)"
+
+msgid "A4Cd(2D)"
+msgstr "心尖四腔舒张末左室长轴面积(2D)"
+
+msgid "A4Cs(2D)"
+msgstr "心尖四腔收缩末左室长轴面积(2D)"
+
+msgid "LVd(A/L)(2D)"
+msgstr "舒张末期左室容积(面积长度法)(2D)"
+
+msgid "LVs(A/L)(2D)"
+msgstr "收缩末期左室容积(面积长度法)(2D)"
+
+msgid "AV Area(2D)"
+msgstr "主动脉瓣面积(2D)"
+
+msgid "AI Radius(2D)"
+msgstr "主动脉瓣关闭不全半径(2D)"
+
+msgid "MV Diam(2D)"
+msgstr "二尖瓣内径(2D)"
+
+msgid "MV Radius(2D)"
+msgstr "二尖瓣半径(2D)"
+
+msgid "MV Area(Planim)(2D)"
+msgstr "二尖瓣瓣口面积(2D)"
+
+msgid "MR Radius(2D)"
+msgstr "二尖瓣返流半径(2D)"
+
+msgid "TV Diam(2D)"
+msgstr "三尖瓣内径(2D)"
+
+msgid "TV Radius(2D)"
+msgstr "三尖瓣半径(2D)"
+
+msgid "RVAWd(M)"
+msgstr "右室前壁舒张期厚度(M)"
+
+msgid "RVIDd(M)"
+msgstr "右室舒张末期内径(M)"
+
+msgid "IVSd(M)"
+msgstr "室间隔舒张期厚度(M)"
+
+msgid "LVIDd(M)"
+msgstr "左室舒张末内径(M)"
+
+msgid "LVPWd(M)"
+msgstr "左室后壁舒张期厚度(M)"
+
+msgid "IVSs(M)"
+msgstr "室间隔收缩期厚度(M)"
+
+msgid "LVIDs(M)"
+msgstr "左室收缩末期内径(M)"
+
+msgid "LVPWs(M)"
+msgstr "左室后壁收缩期厚度(M)"
+
+msgid "HR-LV(M)"
+msgstr "心率-左室(M)"
+
+msgid "LVOT Diam(M)"
+msgstr "左室流出道内径(M)"
+
+msgid "AoR Diam(M)"
+msgstr "主动脉根部内径(M)"
+
+msgid "LA Dimen(M)"
+msgstr "左房内径(M)"
+
+msgid "LV ET(M)"
+msgstr "左室射血时间(M)"
+
+msgid "LV PEP(M)"
+msgstr "左室射血前期(M)"
+
+msgid "AV Cusp Sep(M)"
+msgstr "主动脉瓣尖端开放(M)"
+
+msgid "MV D-E Exc(M)"
+msgstr "二尖瓣DE段闭合(M)"
+
+msgid "MV D-E Slope(M)"
+msgstr "二尖瓣DE斜率(M)"
+
+msgid "MV E-F Sep(M)"
+msgstr "二尖瓣EF段开放(M)"
+
+msgid "MV E-F Slope(M)"
+msgstr "二尖瓣EF斜率(M)"
+
+msgid "MV EPSS(M)"
+msgstr "二尖瓣E点与室间隔距离(M)"
+
+msgid "MV A-C Interval(M)"
+msgstr "二尖瓣AC间期(M)"
+
+msgid "TV D-E Exc(M)"
+msgstr "三尖瓣DE段闭合(M)"
+
+msgid "TV D-E Slope(M)"
+msgstr "三尖瓣DE斜率(M)"
+
+msgid "TV E-F Slope(M)"
+msgstr "三尖瓣EF斜率(M)"
+
+msgid "TV A-C Interval(M)"
+msgstr "三尖瓣AC间期(M)"
+
+msgid "Late Dias Slope(M)"
+msgstr "舒张晚期斜率(M)"
+
+msgid "A Wave Amp(M)"
+msgstr "A波振幅(M)"
+
+msgid "B-C Slope(M)"
+msgstr "BC段斜率(M)"
+
+msgid "RV ET(M)"
+msgstr "右室射血时间(M)"
+
+msgid "RV PEP(M)"
+msgstr "右室射血前期(M)"
+
+msgid "AV Accel Time(D)"
+msgstr "主动脉加速时间(D)"
+
+msgid "AV Decel Time(D)"
+msgstr "主动脉减速时间(D)"
+
+msgid "AV Vmax(D)"
+msgstr "主动脉最大速度(D)"
+
+msgid "LVOT Accel Time(D)"
+msgstr "左室流出道加速时间(D)"
+
+msgid "LVOT Vmax(D)"
+msgstr "左室流出道最大速度(D)"
+
+msgid "AI Accel Time(D)"
+msgstr "主动脉关闭不全加速时间(D)"
+
+msgid "AI P1/2t(D)"
+msgstr "主动脉关闭不全压力半降时间(D)"
+
+msgid "AI Dec Slope(D)"
+msgstr "主动脉关闭不全减速斜率(D) "
+
+msgid "AI Vmax(D)"
+msgstr "主动脉关闭不全最大速度(D)"
+
+msgid "AI End Dias Vel(D)"
+msgstr "主动脉关闭不全舒末流速(D)"
+
+msgid "VTI(D)"
+msgstr "速度时间积分(D)"
+
+msgid "HR-AV(D)"
+msgstr "心率-主动脉瓣(D)"
+
+msgid "HR-MV(D)"
+msgstr "心率-二尖瓣(D)"
+
+msgid "MV P1/2t(D)"
+msgstr "二尖瓣压力半降时间(D)"
+
+msgid "MV Peak E Vel(D)"
+msgstr "二尖瓣E峰速度(D)"
+
+msgid "MV Peak A Vel(D)"
+msgstr "二尖瓣A峰速度(D)"
+
+msgid "MV A Dur(D)"
+msgstr "二尖瓣A峰时间(D)"
+
+msgid "IVRT(D)"
+msgstr "等容舒张期(D)"
+
+msgid "MV Decel Time(D)"
+msgstr "二尖瓣减速时间(D)"
+
+msgid "MV Decel Slope(D)"
+msgstr "二尖瓣减速斜率(D)"
+
+msgid "IVCT(D)"
+msgstr "等容收缩期(D)"
+
+msgid "MV Accel Time(D)"
+msgstr "二尖瓣加速时间(D)"
+
+msgid "MV Vmax(D)"
+msgstr "二尖瓣最大速度(D)"
+
+msgid "MR Vmax(D)"
+msgstr "二尖瓣返流最大速度(D)"
+
+msgid "HR-TV(D)"
+msgstr "心率-三尖瓣(D)"
+
+msgid "TV Vmax(D)"
+msgstr "三尖瓣最大速度(D)"
+
+msgid "TR Vmax(D)"
+msgstr "三尖瓣返流最大速度(D)"
+
+msgid "TV Accel Time(D)"
+msgstr "三尖瓣加速时间(D)"
+
+msgid "TV Peak E Vel(D)"
+msgstr "三尖瓣E峰速度(D)"
+
+msgid "TV Peak A Vel(D)"
+msgstr "三尖瓣A峰速度(D)"
+
+msgid "HR-PV(D)"
+msgstr "心率－肺动脉(D)"
+
+msgid "PV Vmax(D)"
+msgstr "肺动脉瓣最大速度(D)"
+
+msgid "PV Accel Time(D)"
+msgstr "肺动脉瓣加速时间(D)"
+
+msgid "PI End Dias Vel(D)"
+msgstr "肺动脉关闭不全舒末流速(D)"
+
+msgid "Pulm Dias Vel(D)"
+msgstr "肺动脉舒张期流速(D)"
+
+msgid "Pulm Sys Vel(D)"
+msgstr "肺动脉收缩期流速(D)"
+
+msgid "RVOT Vmax(D)"
+msgstr "右室流出道最大速度(D)"
+
+msgid "AFI1"
+msgstr "象限1"
+
+msgid "AFI2"
+msgstr "象限2"
+
+msgid "AFI3"
+msgstr "象限3"
+
+msgid "AFI4"
+msgstr "象限4"
+
+msgid "LV Length(2D)"
+msgstr "左心室长(2D)"
+
+msgid "LV Width(2D)"
+msgstr "左心室宽(2D)"
+
+msgid "LV Wall Width(2D)"
+msgstr "左心室壁厚度(2D)"
+
+msgid "IVS Width(2D)"
+msgstr "室间隔厚度(2D)"
+
+msgid "RV Length(2D)"
+msgstr "右心室长度(2D)"
+
+msgid "RV Width(2D)"
+msgstr "右心室宽度(2D)"
+
+msgid "RV Wall Width(2D)"
+msgstr "右心室壁厚度(2D)"
+
+msgid "LA Length(2D)"
+msgstr "左心房长(2D)"
+
+msgid "LA Width(2D)"
+msgstr "左心房宽(2D)"
+
+msgid "RA Length(2D)"
+msgstr "右心房长度(2D)"
+
+msgid "RA Width(2D)"
+msgstr "右心房宽度(2D)"
+
+msgid "Heart Area(2D)"
+msgstr "心脏面积(2D)"
+
+msgid "Heart Circ(2D)"
+msgstr "心脏周长(2D)"
+
+msgid "Thorax Circ(2D)"
+msgstr "胸周长(2D)"
+
+msgid "Ao Arch Diam(2D)"
+msgstr "主动脉弓直径(2D)"
+
+msgid "SVC Diam(2D)"
+msgstr "上腔静脉直径(2D)"
+
+msgid "IVC Diam(2D)"
+msgstr "下腔静脉直径(2D)"
+
+msgid "Ao Annul Diam(2D)"
+msgstr "主动脉末端直径(2D)"
+
+msgid "Ao Annul Circ(2D)"
+msgstr "主动脉瓣环周长(2D)"
+
+msgid "MV Annul Diam(2D)"
+msgstr "二尖瓣环直径(2D)"
+
+msgid "MV Annul Circ(2D)"
+msgstr "二尖瓣瓣环周径(2D)"
+
+msgid "PV Annul Diam(2D)"
+msgstr "肺动脉瓣环直径(2D)"
+
+msgid "TV Annul Diam(2D)"
+msgstr "三尖瓣环直径(2D)"
+
+msgid "LA Wall Diam(M)"
+msgstr "左心房壁直径(M)"
+
+msgid "RA Wall Diam(M)"
+msgstr "右心房壁直径(M)"
+
+msgid "Asc Ao Diam(M)"
+msgstr "升主动脉内径(M)"
+
+msgid "Ao Arch Diam(M)"
+msgstr "主动脉弓内径(M)"
+
+msgid "Ao Isthmus Diam(M)"
+msgstr "主动脉峡部内径(M)"
+
+msgid "Desc Ao Diam(M)"
+msgstr "降主动脉内径(M)"
+
+msgid "Duct Art Diam(M)"
+msgstr "动脉导管内径(M)"
+
+msgid "LPA Diam(M)"
+msgstr "左肺动脉内径(M)"
+
+msgid "MPA Diam(M)"
+msgstr "主肺动脉内径(M)"
+
+msgid "RPA Diam(M)"
+msgstr "右肺动脉内径(M)"
+
+msgid "HR-AV(M)"
+msgstr "心率- 主动脉瓣(M)"
+
+msgid "HR-PV(M)"
+msgstr "心率－肺动脉(M)"
+
+msgid "Placenta(D)"
+msgstr "胎盘(D)"
+
+msgid "Umbilical A(D)"
+msgstr "脐动脉(D)"
+
+msgid "Umbilical V(D)"
+msgstr "脐静脉(D)"
+
+msgid "L Uterine A(D)"
+msgstr "左侧子宫动脉(D)"
+
+msgid "R Uterine A(D)"
+msgstr "右侧子宫动脉(D)"
+
+msgid "L Ovarian A(D)"
+msgstr "左侧卵巢动脉(D)"
+
+msgid "R Ovarian A(D)"
+msgstr "右侧卵巢动脉(D)"
+
+msgid "Foramen Ovale(D)"
+msgstr "卵圆孔(D)"
+
+msgid "Duct Art(D)"
+msgstr "动脉导管(D)"
+
+msgid "L Coronary A(D)"
+msgstr "左侧冠状动脉(D)"
+
+msgid "R Coronary A(D)"
+msgstr "右侧冠状动脉(D)"
+
+msgid "AoR(D)"
+msgstr "主动脉根部(D)"
+
+msgid "Asc Ao(D)"
+msgstr "升主动脉(D)"
+
+msgid "Ao Arch(D)"
+msgstr "主动脉弓(D)"
+
+msgid "Ao Isthmus(D)"
+msgstr "主动脉峡部内径(D)"
+
+msgid "Desc Ao(D)"
+msgstr "降主动脉(D)"
+
+msgid "MPA(D)"
+msgstr "主肺动脉(D)"
+
+msgid "LPA(D)"
+msgstr "左肺动脉(D)"
+
+msgid "RPA(D)"
+msgstr "右肺动脉(D)"
+
+msgid "Pulm V(D)"
+msgstr "肺静脉(D)"
+
+msgid "Duct Ven(D)"
+msgstr "静脉导管(D)"
+
+msgid "LVOT Acc Time(D)"
+msgstr "左室流出道加速时间(D) "
+
+msgid "AV Acc Time(D)"
+msgstr "主动脉瓣加速时间(D) "
+
+msgid "AI Acc Time(D)"
+msgstr "主动脉瓣关闭不全加速时间(D) "
+
+msgid "MV Peak E(D)"
+msgstr "二尖瓣A峰值速度(D)"
+
+msgid "MV Peak A(D)"
+msgstr "二尖瓣E峰值速度(D)"
+
+msgid "MV Acc Time(D)"
+msgstr "二尖瓣加速时间(D) "
+
+msgid "MV Dec Time(D)"
+msgstr "二尖瓣减速时间 (D) "
+
+msgid "RVOT Acc Time(D)"
+msgstr "右室流出道加速时间(D) "
+
+msgid "PV Acc Time(D)"
+msgstr "肺动脉瓣加速时间(D) "
+
+msgid "TV Peak A(D)"
+msgstr "三尖瓣A峰值速度(D)"
+
+msgid "TV Peak E(D)"
+msgstr "三尖瓣E峰值速度(D)"
+
+msgid "TV Acc Time(D)"
+msgstr "三尖瓣加速时间(D) "
+
+msgid "TV Dec Time(D)"
+msgstr "三尖瓣减速时间 (D) "
+
+msgid "Thoracic Ao(D)"
+msgstr "胸主动脉(D)"
+
+msgid "L Renal A(D)"
+msgstr "左肾动脉(D)"
+
+msgid "R Renal A(D)"
+msgstr "右肾动脉(D)"
+
+msgid "Hepatic A(D)"
+msgstr "肝动脉(D)"
+
+msgid "Hepatic V(D)"
+msgstr "肝静脉(D)"
+
+msgid "Splenic A(D)"
+msgstr "脾动脉(D)"
+
+msgid "L MCA(D)"
+msgstr "左侧大脑中动脉(D)"
+
+msgid "R MCA(D)"
+msgstr "右侧大脑中动脉(D)"
+
+msgid "L ICA(D)"
+msgstr "左侧颈内动脉(D)"
+
+msgid "R ICA(D)"
+msgstr "右侧颈内动脉(D)"
+
+msgid "SVC(D)"
+msgstr "上腔静脉(D)"
+
+msgid "IVC(D)"
+msgstr "下腔静脉(D)"
+
+msgid "EDD"
+msgstr "预产期"
+
+msgid "EDD(AUA)"
+msgstr "预产期(AUA)"
+
+msgid "EDD(LMP)"
+msgstr "预产期(LMP)"
+
+msgid "Success to import from USB storage."
+msgstr "导入成功！"
+
+msgid "[SemiAuto]: <Angle> knob to adjust."
+msgstr "[半自动]: <Angle> 旋转进行矫正."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack."
+msgstr "[半自动]: <Update>切换到手动描迹."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto."
+msgstr "[自动描迹]: <Update> 切换到半自动描迹."
+
+msgid "Acceleration"
+msgstr "加速度"
+
+msgid "Dist-Dot"
+msgstr "两点法"
+
+msgid "Dist-Line"
+msgstr "两线法"
+
+msgid "Length-Track"
+msgstr "长度 轨迹法"
+
+msgid "Length-Dot"
+msgstr "长度 描点法"
+
+msgid "Integral-Track"
+msgstr "积分 轨迹法"
+
+msgid "Peri-Track"
+msgstr "周长 轨迹法"
+
+msgid "Peri-Ellipse"
+msgstr "周长 椭圆法"
+
+msgid "Area-Track"
+msgstr "面积 轨迹法"
+
+msgid "Area-Dot"
+msgstr "面积 两点法"
+
+msgid "Area-Rectangle"
+msgstr "面积 矩形法"
+
+msgid "Area-Ellipse"
+msgstr "面积 椭圆法"
+
+msgid "Vol-3Axis"
+msgstr "三轴"
+
+msgid "Vol-Ellipse1"
+msgstr "体积 椭圆法1"
+
+msgid "Vol-Ellipse2"
+msgstr "体积 椭圆法2"
+
+msgid "Angle-3Dot"
+msgstr "角度 三点法"
+
+msgid "Angle-2Line"
+msgstr "角度 两线法"
+
+msgid "Angusty-Dist-Dot"
+msgstr "面积狭窄比"
+
+msgid "Ratio-Dist-Dot"
+msgstr "距离比率"
+
+msgid "Angusty-Area"
+msgstr "面积狭窄比"
+
+msgid "Ratio-Area"
+msgstr "面积比率"
+
+msgid "Ratio-D-P"
+msgstr "距离周长比"
+
+msgid "Ratio-Vol"
+msgstr "体积比率"
+
+msgid "Depth-Dist"
+msgstr "距离法"
+
+msgid "Depth-Dist-M"
+msgstr "M模式距离法"
+
+msgid "Time-M"
+msgstr "M模式时间"
+
+msgid "Time-D"
+msgstr "D模式时间"
+
+msgid "Time(M)"
+msgstr "时间(M)"
+
+msgid "Vel-M"
+msgstr "M模式速度"
+
+msgid "Vel-D"
+msgstr "D模式速度"
+
+msgid "HR-M"
+msgstr "M模式心率"
+
+msgid "Hadlock"
+msgstr ""
+
+msgid "Robinson"
+msgstr ""
+
+msgid "Hansmenn"
+msgstr ""
+
+msgid "Lasser"
+msgstr ""
+
+msgid "Tokyo"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Merz"
+msgstr ""
+
+msgid "Jeanty"
+msgstr ""
+
+msgid "Rempen"
+msgstr ""
+
+msgid "Hellman"
+msgstr ""
+
+msgid "Goldstein"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Hadlock1"
+msgstr ""
+
+msgid "Hadlock2"
+msgstr ""
+
+msgid "Hadlock3"
+msgstr ""
+
+msgid "Hadlock4"
+msgstr ""
+
+msgid "Shepard"
+msgstr ""
+
+msgid "The entered date of LMP is under the range: "
+msgstr "末次月经输入日期的范围: "
+
+msgid "The entered date of Ovul. Date is under the range: "
+msgstr "排卵日输入日期的范围: "
+
+msgid "Month out of range"
+msgstr "月份超出了范围"
+
+msgid "Day out of range"
+msgstr "日期超出了范围"
+
+msgid "Option"
+msgstr "选配名称"
+
+msgid "State"
+msgstr "选配状态"
+
+msgid "Install"
+msgstr "安装"
+
+msgid "Uninstall"
+msgstr "卸载"
+
+msgid "Installed"
+msgstr "已安装"
+
+msgid "Disabled"
+msgstr "未安装"
+
+msgid "Installed(* Restart to take effect)"
+msgstr "已安装(* 重启后生效)"
+
+msgid "Disabled(* Restart to take effect)"
+msgstr "未安装(* 重启后生效)"
+
+msgid "If the registeration is successful, it will take effect after the machine is rebooted."
+msgstr "如果注册成功， 机器重启后生效."
+
+msgid "eFci"
+msgstr "频率复合成像"
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate a unique register key for every machine,you can register optional function by inputting thist register key.If register is successful,you can use the optional function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will find this file named 'license' in Udisk. Please send this file to manufacturer."
+msgstr ""
+"注意：厂家将通过许可文件，为每台机器生成一个唯一的注册码，通过输入匹配的注册码对选配功能进行注册，一旦注册成功，您将可以使用选配功能。\n"
+"\n"
+"请先插入U盘，然后点击“导出许可文件”,您将在U盘中找到名为'license'的许可文件请将该许可文件发送给厂家。"
+
+msgid "Gynecology"
+msgstr "妇科"
+
+msgid "Bre1 Le1 Vol"
+msgstr "乳腺1病灶1体积"
+
+msgid "Bre1 Le2 Vol"
+msgstr "乳腺1病灶2体积"
+
+msgid "Bre1 Le3 Vol"
+msgstr "乳腺1病灶3体积"
+
+msgid "Bre1 Le4 Vol"
+msgstr "乳腺1病灶4体积"
+
+msgid "Bre1 Le5 Vol"
+msgstr "乳腺1病灶5体积"
+
+msgid "Bre2 Le1 Vol"
+msgstr "乳腺2病灶1体积"
+
+msgid "Bre2 Le2 Vol"
+msgstr "乳腺2病灶2体积"
+
+msgid "Bre2 Le3 Vol"
+msgstr "乳腺2病灶3体积"
+
+msgid "Bre2 Le4 Vol"
+msgstr "乳腺2病灶4体积"
+
+msgid "Bre2 Le5 Vol"
+msgstr "乳腺2病灶5体积"
+
+msgid "Bre3 Le1 Vol"
+msgstr "乳腺3病灶1体积"
+
+msgid "Bre3 Le2 Vol"
+msgstr "乳腺3病灶2体积"
+
+msgid "Bre3 Le3 Vol"
+msgstr "乳腺3病灶3体积"
+
+msgid "Bre3 Le4 Vol"
+msgstr "乳腺3病灶4体积"
+
+msgid "Bre3 Le5 Vol"
+msgstr "乳腺3病灶5体积"
+
+msgid "Bre4 Le1 Vol"
+msgstr "乳腺4病灶1体积"
+
+msgid "Bre4 Le2 Vol"
+msgstr "乳腺4病灶2体积"
+
+msgid "Bre4 Le3 Vol"
+msgstr "乳腺4病灶3体积"
+
+msgid "Bre4 Le4 Vol"
+msgstr "乳腺4病灶4体积"
+
+msgid "Bre4 Le5 Vol"
+msgstr "乳腺4病灶5体积"
+
+msgid "Bre5 Le1 Vol"
+msgstr "乳腺5病灶1体积"
+
+msgid "Bre5 Le2 Vol"
+msgstr "乳腺5病灶2体积"
+
+msgid "Bre5 Le3 Vol"
+msgstr "乳腺5病灶3体积"
+
+msgid "Bre5 Le4 Vol"
+msgstr "乳腺5病灶4体积"
+
+msgid "Bre5 Le5 Vol"
+msgstr "乳腺5病灶5体积"
+
+msgid "Lesion1 Area"
+msgstr "病灶1面积"
+
+msgid "Lesion1 Area 1"
+msgstr "病灶1面积1"
+
+msgid "Lesion1 Area 2"
+msgstr "病灶1面积2"
+
+msgid "Lesion1 Area 3"
+msgstr "病灶1面积3"
+
+msgid "Lesion2 Area"
+msgstr "病灶2面积"
+
+msgid "Lesion2 Area 1"
+msgstr "病灶2面积1"
+
+msgid "Lesion2 Area 2"
+msgstr "病灶2面积2"
+
+msgid "Lesion2 Area 3"
+msgstr "病灶2面积3"
+
+msgid "Lesion3 Area"
+msgstr "病灶3面积"
+
+msgid "Lesion3 Area 1"
+msgstr "病灶3面积1"
+
+msgid "Lesion3 Area 2"
+msgstr "病灶3面积2"
+
+msgid "Lesion3 Area 3"
+msgstr "病灶3面积3"
+
+msgid "Lesion4 Area"
+msgstr "病灶4面积"
+
+msgid "Lesion4 Area 1"
+msgstr "病灶4面积1"
+
+msgid "Lesion4 Area 2"
+msgstr "病灶4面积2"
+
+msgid "Lesion4 Area 3"
+msgstr "病灶4面积3"
+
+msgid "Lesion5 Area"
+msgstr "病灶5面积"
+
+msgid "Lesion5 Area 1"
+msgstr "病灶5面积1"
+
+msgid "Lesion5 Area 2"
+msgstr "病灶5面积2"
+
+msgid "Lesion5 Area 3"
+msgstr "病灶5面积3"
+
+msgid "Lesion6 Area"
+msgstr "病灶6面积"
+
+msgid "Lesion6 Area 1"
+msgstr "病灶6面积1"
+
+msgid "Lesion6 Area 2"
+msgstr "病灶6面积2"
+
+msgid "Lesion6 Area 3"
+msgstr "病灶6面积3"
+
+msgid "Lesion7 Area"
+msgstr "病灶7面积"
+
+msgid "Lesion7 Area 1"
+msgstr "病灶7面积1"
+
+msgid "Lesion7 Area 2"
+msgstr "病灶7面积2"
+
+msgid "Lesion7 Area 3"
+msgstr "病灶7面积3"
+
+msgid "Lesion8 Area"
+msgstr "病灶8面积"
+
+msgid "Lesion8 Area 1"
+msgstr "病灶8面积"
+
+msgid "Lesion8 Area 2"
+msgstr "病灶8面积2"
+
+msgid "Lesion8 Area 3"
+msgstr "病灶8面积3"
+
+msgid "Lesion9 Area"
+msgstr "病灶9面积"
+
+msgid "Lesion9 Area 1"
+msgstr "病灶9面积1"
+
+msgid "Lesion9 Area 2"
+msgstr "病灶9面积2"
+
+msgid "Lesion9 Area 3"
+msgstr "病灶9面积3"
+
+msgid "Lesion10 Area"
+msgstr "病灶10面积"
+
+msgid "Lesion10 Area 1"
+msgstr "病灶10面积1"
+
+msgid "Lesion10 Area 2"
+msgstr "病灶10面积2"
+
+msgid "Lesion10 Area 3"
+msgstr "病灶10面积3"
+
+msgid "Lesion11 Area"
+msgstr "病灶11面积"
+
+msgid "Lesion11 Area 1"
+msgstr "病灶11面积1"
+
+msgid "Lesion11 Area 2"
+msgstr "病灶11面积2"
+
+msgid "Lesion11 Area 3"
+msgstr "病灶11面积3"
+
+msgid "Dog GSD"
+msgstr "狗-妊娠囊径"
+
+msgid "Dog CRL"
+msgstr "狗-顶臀径"
+
+msgid "Dog HD"
+msgstr "狗-头直径"
+
+msgid "Dog BD"
+msgstr "狗-身体直径"
+
+msgid "Cat HD"
+msgstr "猫-头直径"
+
+msgid "Cat BD"
+msgstr "猫-身体直径"
+
+msgid "Sheep CRL"
+msgstr "羊-顶臂径"
+
+msgid "Swine HL"
+msgstr "猪-心脏长轴"
+
+msgid "Swine SL"
+msgstr "猪-胃长轴"
+
+msgid "MSK"
+msgstr "肌骨"
+
+msgid "Bovine K-CRL"
+msgstr "牛-顶臂径-K"
+
+msgid "Bovine W-CRL"
+msgstr "牛-顶臂径-W"
+
+msgid "Bovine H-CRL"
+msgstr "牛-顶臂径-H"
+
+msgid "Bovine BBD"
+msgstr "牛-脑直径"
+
+msgid "Bovine BTD"
+msgstr "牛-躯干直径"
+
+msgid "Bovine BUD"
+msgstr "牛-子宫直径"
+
+msgid "Equine GSD"
+msgstr "马-妊娠囊径"
+
+msgid "Equine ERD"
+msgstr "马-臀部直径"
+
+msgid "Equine ESD"
+msgstr "马-头骨直径"
+
+msgid "Equine EED"
+msgstr "马-眼球直径"
+
+msgid "TA Max"
+msgstr ""
+
+msgid "Fetal 3"
+msgstr "胎儿3"
+
+msgid "Fetal 3 √"
+msgstr "胎儿3 √"
+
+msgid "(Fetus 3)"
+msgstr "胎儿3"
+
+msgid "Sharp"
+msgstr "形状"
+
+msgid "Thumbnails"
+msgstr "缩略图"
+
+msgid "Load"
+msgstr "加载"
+
+msgid "Calc"
+msgstr "计算"
+
+msgid "Caliper"
+msgstr "测量"
+
+msgid "DynamicRange"
+msgstr "动态范围"
+
+msgid "SpaceCompound"
+msgstr "空间复合"
+
+msgid "Doppler Freq"
+msgstr "多普勒频率"
+
+msgid "Line Aver"
+msgstr "线相关"
+
+msgid "[Arrow]: <Angle> to change arrow direction."
+msgstr "[箭头]: <Angle> 改变箭头方向."
+
+msgid "[BodyMark]: <Angle> to change probe direction."
+msgstr "[BodyMark]: <Angle> 改变探头标记方向."
+
+msgid "[Global Zoom]: <Zoom> to change scale, Mouse to scroll."
+msgstr "[全局放大]: <Zoom>调节倍率, 鼠标卷动."
+
+msgid "[PIP]: <Zoom> to change scale, Mouse to Move Magnifier."
+msgstr "[画中画]: <Zoom>调节倍率, 鼠标移动放大镜."
+
+msgid "Calc And Caliper"
+msgstr "计算和测量"
+
+msgid "<b>Zoom Type</b>"
+msgstr "放大类型"
+
+msgid "<b>[Set/Undo] Switch</b>"
+msgstr "退出/切换"
+
+msgid "Undo"
+msgstr "撤销"
+
+msgid "Color1"
+msgstr "彩色1"
+
+msgid "Color2"
+msgstr "彩色2"
+
+msgid "2D"
+msgstr ""
+
+msgid "Cfm"
+msgstr ""
+
+msgid "Cw"
+msgstr ""
+
+msgid "Pw"
+msgstr ""
+
+msgid "CFM"
+msgstr ""
+
+msgid "Prepare"
+msgstr "准备状态"
+
+msgid "Render"
+msgstr "渲染模式"
+
+msgid "Render Setting"
+msgstr "渲染设置"
+
+msgid "Magic Cut"
+msgstr "魔术切割"
+
+msgid "UserDefinedKeys"
+msgstr "自定义按键"
+
+msgid "RealBC"
+msgstr "B/C双实时"
+
+msgid "Yes to Delete,No to cancel"
+msgstr "点击yes删除，no 取消"
+
+msgid "Setup"
+msgstr "设置"
+
+msgid "Single."
+msgstr "单线"
+
+msgid "Double"
+msgstr "双线"
+
+msgid "Angle_40"
+msgstr "角度40"
+
+msgid "Angle_50"
+msgstr "角度50"
+
+msgid "Angle_60"
+msgstr "角度60"
+
+msgid "EView"
+msgstr "宽景成像"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Set"
+msgstr "设置"
+
+msgid "[Full Screen Zoom]: invalid in Freeze status or M mode."
+msgstr "[全屏放大]: 在冻结或者M模式下无效."
+
+msgid "[Full Screen Zoom]: <Zoom> to change scale."
+msgstr "[全屏放大]: <Zoom> 调节倍率."
+
+msgid "Full Screen Zoom"
+msgstr "全屏放大"
+
+msgid "Muscles-Bones"
+msgstr "肌骨"
+
+msgid "Contrast"
+msgstr "对比度"
+
+msgid "Transparent"
+msgstr "透明度"
+
+msgid "QualityFactor"
+msgstr "品质因子"
+
+msgid "SwingAngle"
+msgstr "摆动角度"
+
+msgid "Change"
+msgstr "改变"
+
+msgid "Curve"
+msgstr "曲线"
+
+msgid "Pos"
+msgstr "位置"
+
+msgid "Biopsy Bracket"
+msgstr "穿刺校准"
+
+msgid "Verify"
+msgstr "校准"
+
+msgid "Exoprt"
+msgstr "导出"
+
+msgid "No"
+msgstr "否"
+
+msgid "AutoTrack"
+msgstr "自动描迹"
+
+msgid "[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr "[穿刺线]:仅在单B，CFM，PDI非冻结状态下可用"
+
+msgid "whether delete or not?"
+msgstr "确认删除？"
+
+msgid "[Verify]: <Angle> to adjust angle, Mouse to adjust position."
+msgstr "[校正]:<Angle>调节角度，鼠标调节位置"
+
+msgid "saving parameter succeed!"
+msgstr "参数保存成功"
+
+msgid "Restoring default factory succeed!"
+msgstr "恢复出厂设置成功"
+
+msgid "[Biopsy]: Only valid in B mode and UnFreeze status."
+msgstr "[穿刺线]:仅在单B非冻结状态下可用"
+
+msgid "Line Type     Double"
+msgstr "穿刺线类型  双线"
+
+msgid "Line Type     Single"
+msgstr "穿刺线类型  单线"
+
+msgid "[Verify]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr "[提醒]:仅在单B，CFM，PDI非冻结状态下可用"
+
+msgid "Assistant"
+msgstr "助手"
+
+msgid "Section Application"
+msgstr "部分 应用"
+
+msgid "Probe is not exist!"
+msgstr "探头不存在"
+
+msgid "Key"
+msgstr "按键"
+
+msgid "function select"
+msgstr "功能选择"
+
+msgid "Exam Mode"
+msgstr "检查模式"
+
+msgid "function selected"
+msgstr "选择的功能"
+
+msgid "CFM/PDI"
+msgstr ""
+
+msgid "Capture"
+msgstr "采集"
+
+msgid "Powering off,please wait for a minute."
+msgstr "关机，请稍等."
+
+msgid "Powering off,please wait for a minute.."
+msgstr "关机，请稍等.."
+
+msgid "Powering off,please wait for a minute..."
+msgstr "关机，请稍等..."
+
+msgid "poweroff"
+msgstr "关机"
+
+msgid "<b>检查切面: </b>"
+msgstr ""
+
+msgid "Only valid when pluged volume probe!"
+msgstr "仅在容积探头下可用"
+
+msgid "Ref.A"
+msgstr "参考面A"
+
+msgid "Ref.B"
+msgstr "参考面B"
+
+msgid "Ref.C"
+msgstr "参考面C"
+
+msgid "Ref.3D"
+msgstr "参考面3D"
+
+msgid "Color Setting"
+msgstr "彩色设置"
+
+msgid "MagicCut"
+msgstr "魔术切割"
+
+msgid "Init"
+msgstr "初始化"
+
+msgid ""
+"Fast Rotate\n"
+"0°"
+msgstr ""
+"快速旋转\n"
+"0°"
+
+msgid ""
+"Fast Rotate\n"
+"90°"
+msgstr ""
+"快速旋转\n"
+"90°"
+
+msgid ""
+"Fast Rotate\n"
+"180°"
+msgstr ""
+"快速旋转\n"
+"180°"
+
+msgid ""
+"Fast Rotate\n"
+"270°"
+msgstr ""
+"快速旋转\n"
+"270°"
+
+msgid "Swing Angle"
+msgstr "摆动角度"
+
+msgid "Quality Factor"
+msgstr "品质因子"
+
+msgid "Single"
+msgstr "单B"
+
+msgid "Dual"
+msgstr "双B"
+
+msgid "Quad"
+msgstr "四B"
+
+msgid "Bone"
+msgstr "骨骼"
+
+msgid "Biopsy Enhance"
+msgstr "穿刺增强"
+
+msgid "BiopsySetting"
+msgstr "穿刺设置"
+
+msgid "Angle_25"
+msgstr "角度_25"
+
+msgid "Angle_35"
+msgstr "角度_35"
+
+msgid "Angle_45"
+msgstr "角度_45"
+
+msgid "User List"
+msgstr "用户列表"
+
+msgid "User Name"
+msgstr "用户名"
+
+msgid "Default Log User"
+msgstr "默认登录用户"
+
+msgid "Angle_A(27)"
+msgstr "角度_A(27)"
+
+msgid "Angle_B(38)"
+msgstr "角度_B(38)"
+
+msgid "Angle_C(52)"
+msgstr "角度_C(52)"
+
+msgid "Angle_A(20)"
+msgstr "角度_A(20)"
+
+msgid "Angle_B(30)"
+msgstr "角度_B(30)"
+
+msgid "Angle_C(40)"
+msgstr "角度_C(40)"
+
+msgid "<b>Unit Setting</b>"
+msgstr "<b>单位设置</b>"
+
+msgid "Eraser"
+msgstr "橡皮擦"
+
+msgid "Eraser Size"
+msgstr "橡皮擦大小"
+
+msgid "Surface"
+msgstr "表面"
+
+msgid "eSurface"
+msgstr "易彩"
+
+msgid "eCloud"
+msgstr "易星云"
+
+msgid "Skeleton"
+msgstr "骨骼"
+
+msgid "X Ray"
+msgstr "X 光"
+
+msgid "E Range"
+msgstr "易彩范围"
+
+msgid "E Pos"
+msgstr "易彩位置"
+
+msgid "E Lock"
+msgstr "易彩锁定"
+
+msgid "E Follow"
+msgstr "易彩跟随"
+
+msgid "Full"
+msgstr "贯通"
+
+msgid "Define"
+msgstr "自定义"
+
+msgid "Opacity"
+msgstr "透明度"
+
+msgid "Vol.Angle"
+msgstr "摆动角度"
+
+msgid ""
+"Inside\n"
+"Curve"
+msgstr ""
+"自由曲线\n"
+"内部"
+
+msgid ""
+"Outside\n"
+"Curve"
+msgstr ""
+"自由曲线\n"
+"外部"
+
+msgid ""
+"Outside\n"
+"Box"
+msgstr ""
+"矩形框\n"
+"外部"
+
+msgid ""
+"Inside\n"
+"Box"
+msgstr ""
+"矩形框\n"
+"内部"
+
+msgid ""
+"Image\n"
+"Priority"
+msgstr "图像优先"
+
+msgid ""
+"Penetrate\n"
+"Priority"
+msgstr "穿透优先"
+
+msgid "ROI Cut"
+msgstr "ROI切割"
+
+msgid "Next Page"
+msgstr "下一页"
+
+msgid "Last Page"
+msgstr "上一页"
+
+msgid "Processing,Please wait..."
+msgstr "处理中，请稍候..."
+
+msgid "Prepare Status"
+msgstr "准备状态"
+
+msgid "Capture Status"
+msgstr "捕获状态"
+
+msgid "View Status"
+msgstr "查看状态"
+
+msgid "Review Status"
+msgstr "回放状态"
+
+msgid "[Color Invert]: Invalid in turbo and PDI/TEI mode."
+msgstr "[彩色反转]: 湍流或PDI/TEI模式下操作无效."
+
+msgid "<Update> to enter the \"Capture Status\"."
+msgstr "<Update> 进入\"捕获状态\". "
+
+msgid "<Update> to enter the \"Prepare Status\", <Freeze> to enter the \"View Status\"."
+msgstr "<Update> 进入\"准备状态\", <Freeze> 进入\"查看状态\"."
+
+msgid "<Freeze> to enter the \"Prepare Status\"."
+msgstr "<Freeze> 进入\"准备状态\"."
+
+msgid "Exam Mode is not exist!"
+msgstr "检查模式不存在!"
+
+msgid "User Name:"
+msgstr "用户名:"
+
+msgid "Fail to default factory!  New item is in use!"
+msgstr "恢复出厂设置失败! 新建检查模式正在使用中!"
+
+msgid "Please select an user name before delete!"
+msgstr "在删除之前请选择一个用户名!"
+
+msgid "current user and system user are not deleted!"
+msgstr "当前用户和系统用户不能被删除!"
+
+msgid ""
+"Warnning: The user will be permanently deleted!\n"
+"Sure to delete?"
+msgstr ""
+"警告: 此用户将被永久删除!\n"
+"确定删除吗？"
+
+msgid "Set default user failed!"
+msgstr "设置默认用户失败!"
+
+msgid "Please select an user name before default!"
+msgstr "设置默认用户前请先选择一个用户名!"
+
+msgid "the selected user has been defaulted!"
+msgstr "选择的用户已经是系统默认用户!"
+
+msgid ""
+"Warnning: It is valid to change the default user after poweroff!\n"
+"Sure to poweroff now?"
+msgstr ""
+"警告: 必须重启系统，改变系统默认用户才可生效!\n"
+"确定现在关机吗？"
+
+msgid "TVI/TEI"
+msgstr ""
+
+msgid "Whether Leave From MaigicCutEdit?"
+msgstr "是否退出魔术切割?"
+
+msgid "Operation is invalid in curent mode"
+msgstr "操作在当前模式无效"
+
+msgid "Can't save image in current status!"
+msgstr "在当前状态下不能保存图像!"
+
+msgid "Failed to save!"
+msgstr "保存失败!"
+
+msgid "Fail to save."
+msgstr "保存失败."
+
+msgid "Whether give up ROIEdit or not?"
+msgstr "是否放弃ROIEdit？"
+
+msgid "[BodyMark]: Angle to change ProbeMark Direction."
+msgstr "[BodyMark]: <Angle> 改变探头标记方向."
+
+msgid "Left Brachial Plexus Diameter of C5"
+msgstr "左侧臂从神经C5直径"
+
+msgid "Left Brachial Plexus Diameter of C6"
+msgstr "左侧臂从神经C6直径"
+
+msgid "Left Brachial Plexus Diameter of C7"
+msgstr "左侧臂从神经C7直径"
+
+msgid "Left Brachial Plexus Diameter of C8"
+msgstr "左侧臂从神经C8直径"
+
+msgid "Right Brachial Plexus Diameter of C5"
+msgstr "右侧臂从神经C5直径"
+
+msgid "Right Brachial Plexus Diameter of C6"
+msgstr "右侧臂从神经C6直径"
+
+msgid "Right Brachial Plexus Diameter of C7"
+msgstr "右侧臂从神经C7直径"
+
+msgid "Right Brachial Plexus Diameter of C8"
+msgstr "右侧臂从神经C8直径"
+
+msgid "Diameter of left median nerve"
+msgstr "左侧正中神经直径"
+
+msgid "Diameter of right median nerve"
+msgstr "右侧正中神经直径"
+
+msgid "Diameter of Left ulnar nerve"
+msgstr "左侧尺神经直径"
+
+msgid "Diameter of Right ulnar nerve"
+msgstr "右侧尺神经直径"
+
+msgid "Diameter of left radial nerve"
+msgstr "左侧桡神经直径"
+
+msgid "Diameter of right radial nerve"
+msgstr "右侧桡神经直径"
+
+msgid "Diameter of left sciatic nerve"
+msgstr "左侧坐骨神经直径"
+
+msgid "Diameter of right sciatic nerve"
+msgstr "右侧坐骨神经直径"
+
+msgid "Diameter of left tibial nerve"
+msgstr "左侧胫神经直径"
+
+msgid "Diameter of right tibial nerve"
+msgstr "右侧胫神经直径"
+
+msgid "Diameter of left common fibular nerve"
+msgstr "左侧腓总神经直径"
+
+msgid "Diameter of right common fibular nerve"
+msgstr "右侧腓总神经直径"
+
+msgid "Needle Angle"
+msgstr "进针角度"
+
+msgid "Needle Depth"
+msgstr "进针深度"
+
+msgid "Nerve Area"
+msgstr "神经横截面积"
+
+msgid "Bladder Vol(Gyn)"
+msgstr "膀胱体积(妇科)"
+
+msgid "PV Bladder Vol(Gyn)"
+msgstr "排尿后膀胱体积(妇科)"
+
+msgid "Narcosis"
+msgstr "麻醉"
+
+msgid "No file found or file is error!"
+msgstr "文件未发现或者文件错误!"
+
+msgid "PowerOff"
+msgstr "关机"
+
+msgid "Shut Down"
+msgstr "立刻关机"
+
+msgid "After 5 seconds to turn it off ."
+msgstr ""
+
+msgid "Clicking OK will clear calculated value, whether to cotunue?"
+msgstr "点击确定，将要删除所有已测计算项目，是否继续？"
+
+msgid "Exit Slide Show"
+msgstr "退出幻灯片演示"
+
+msgid "EraserSize"
+msgstr "橡皮擦大小"
+
+msgid "Bladder H(Gyn)"
+msgstr "膀胱高度(妇科)"
+
+msgid "Bladder L(Gyn)"
+msgstr "膀胱长径(妇科)"
+
+msgid "Bladder W(GYN)"
+msgstr "膀胱宽度(妇科)"
+
+msgid "PV Bladder H(Gyn)"
+msgstr "排尿后膀胱高度(妇科)"
+
+msgid "PV Bladder L(Gyn)"
+msgstr "排尿后膀胱长径(妇科)"
+
+msgid "PV Bladder W(Gyn)"
+msgstr "排尿后膀胱宽度(妇科)"
+
+msgid "Gamma correction"
+msgstr "伽玛校正"
+
+msgid "Bodymark"
+msgstr "体标"
+
+msgid "Echocardiography Area"
+msgstr "心内膜自动描迹 面积"
+
+msgid "<i><b>Echocardiography Area </b></i>"
+msgstr "<i><b>心内膜自动描迹面积</b></i>"
+
+msgid "Print Config"
+msgstr "打印设置"
+
+msgid "Fail to get configuration infomation!"
+msgstr "获得打印属性信息失!"
+
+msgid "No default print server!"
+msgstr "无默认的打印服务器!"
+
+msgid "Connect print server failure!"
+msgstr "链接打印服务器失败!"
+
+msgid "No print image!"
+msgstr "无打印图像!"
+
+msgid "Print failure!"
+msgstr "打印失败!"
+
+msgid "Print success!"
+msgstr "打印成功!"
+
+msgid "DICOM Server"
+msgstr "DICOM服务器"
+
+msgid "DICOM Printer"
+msgstr "DICOM打印机"
+
+msgid "Device can not be empty!"
+msgstr "设备不能为空!"
+
+msgid "Fail to add the device configuration!"
+msgstr "添加打印服务属性失败!"
+
+msgid "Fail to update the device configuration!"
+msgstr "更新打印服务属性失败!"
+
+msgid "<b>Print Property</b>"
+msgstr "打印属性"
+
+msgid "<b>Destination:</b>"
+msgstr "打印目标:"
+
+msgid "<b>Configuration Info :</b>"
+msgstr "<b>配置信息：</b>"
+
+msgid "<i><b>Echocardiography Area</b></i>"
+msgstr "心内膜自动描迹面积"
+
+msgid "please set the default print service in system setting!"
+msgstr "请在系统预设中设置默认的打印服务"

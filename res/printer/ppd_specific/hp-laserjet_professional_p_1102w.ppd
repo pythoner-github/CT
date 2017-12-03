@@ -1,0 +1,186 @@
+*PPD-Adobe: "4.3"
+*% PPD file for HP LaserJet Professional P 1102w with CUPS.
+*% Created by the CUPS PPD Compiler v1.2.3.
+*% (c) 2008 Copyright Hewlett-Packard Development Company, LP
+*FormatVersion: "4.3"
+*FileVersion: "hpcups 3.11.5"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "hp-laserjet_professional_p_1102w.ppd"
+*Product: "(HP LaserJet Professional P 1102w Printer)"
+*Manufacturer: "HP"
+*ModelName: "HP LaserJet Professional P 1102w"
+*ShortNickName: "HP LJ Professional P 1102w"
+*NickName: "HP LaserJet Professional P 1102w, hpcups 3.11.5, requires proprietary plugin"
+*PSVersion: "(3010.000) 705"
+*PSVersion: "(3010.000) 707"
+*PSVersion: "(3010.000) 815"
+*PSVersion: "(3010.000) 853"
+*LanguageLevel: "3"
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*FileSystem: False
+*Throughput: "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*% Driver-defined attributes...
+*RequiresPageRegion All: True
+*hpPrinterLanguage: "ljzjstream"
+*cupsIPPReason hplip.plugin-error/printer requires a binary plugin, run hp-setup: ""
+*cupsModelName: "HP LaserJet 1018"
+*1284DeviceID: "MFG:HP;MDL:hp laserjet professional p 1102w;DES:hp laserjet professional p 1102w;"
+*cupsVersion: 1.3
+*cupsModelNumber: 0
+*cupsManualCopies: True
+*cupsFilter: "application/vnd.cups-raster 0 hpcups"
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize A6/A6 105x148mm: "<</cupsInteger0 24/PageSize[298 420]/ImagingBBox null>>setpagedevice"
+*PageSize A5/A5 148x210mm: "<</cupsInteger0 25/PageSize[420 595]/ImagingBBox null>>setpagedevice"
+*PageSize Postcard/Postcard: "<</cupsInteger0 71/PageSize[283 420]/ImagingBBox null>>setpagedevice"
+*PageSize DoublePostcard/Double Postcard: "<</cupsInteger0 72/PageSize[420 567]/ImagingBBox null>>setpagedevice"
+*PageSize JB5/JB5 182x257mm: "<</cupsInteger0 96/PageSize[516.24 728.64]/ImagingBBox null>>setpagedevice"
+*PageSize Executive/Executive 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 756]/ImagingBBox null>>setpagedevice"
+*PageSize 16k195x270/16k 195x270mm: "<</cupsInteger0 34/PageSize[553 765]/ImagingBBox null>>setpagedevice"
+*PageSize 16k184x260/16k 184x260mm: "<</cupsInteger0 89/PageSize[522 737]/ImagingBBox null>>setpagedevice"
+*PageSize 16k197x273/16k 197x273mm: "<</cupsInteger0 17/PageSize[558 774]/ImagingBBox null>>setpagedevice"
+*PageSize Letter/Letter 8.5x11in: "<</cupsInteger0 2/PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize A4/A4 210x297mm: "<</cupsInteger0 9/PageSize[595.44 841.68]/ImagingBBox null>>setpagedevice"
+*PageSize FLSA/American Foolscap 8.5x13in: "<</cupsInteger0 10/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageSize Legal/Legal 8.5x14in: "<</cupsInteger0 3/PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageSize EnvMonarch/Monarch Envelope 3.875x7.5in: "<</cupsInteger0 96/PageSize[279 540]/ImagingBBox null>>setpagedevice"
+*PageSize EnvDL/DL Envelope 110x220mm: "<</cupsInteger0 27/PageSize[311.76 623.52]/ImagingBBox null>>setpagedevice"
+*PageSize Env10/#10 Envelope 4.12x9.5in: "<</cupsInteger0 81/PageSize[297 684]/ImagingBBox null>>setpagedevice"
+*PageSize EnvC5/C5 Envelope 162x229mm: "<</cupsInteger0 91/PageSize[459 649]/ImagingBBox null>>setpagedevice"
+*PageSize EnvB5/B5 Envelope 176x250mm: "<</cupsInteger0 100/PageSize[499 709]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion A6/A6 105x148mm: "<</cupsInteger0 24/PageSize[298 420]/ImagingBBox null>>setpagedevice"
+*PageRegion A5/A5 148x210mm: "<</cupsInteger0 25/PageSize[420 595]/ImagingBBox null>>setpagedevice"
+*PageRegion Postcard/Postcard: "<</cupsInteger0 71/PageSize[283 420]/ImagingBBox null>>setpagedevice"
+*PageRegion DoublePostcard/Double Postcard: "<</cupsInteger0 72/PageSize[420 567]/ImagingBBox null>>setpagedevice"
+*PageRegion JB5/JB5 182x257mm: "<</cupsInteger0 96/PageSize [516.24 728.64]/ImagingBBox null>>setpagedevice"
+*PageRegion Executive/Executive 7.25x10.5in: "<</cupsInteger0 1/PageSize[522 756]/ImagingBBox null>>setpagedevice"
+*PageRegion 16k195x270/16k 195x270mm: "<</cupsInteger0 34/PageSize[553 765]/ImagingBBox null>>setpagedevice"
+*PageRegion 16k184x260/16k 184x260mm: "<</cupsInteger0 89/PageSize[522 737]/ImagingBBox null>>setpagedevice"
+*PageRegion 16k197x273/16k 197x273mm: "<</cupsInteger0 17/PageSize[558 774]/ImagingBBox null>>setpagedevice"
+*PageRegion Letter/Letter 8.5x11in: "<</cupsInteger0 2/PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion A4/A4 210x297mm: "<</cupsInteger0 9/PageSize[595.44 841.68]/ImagingBBox null>>setpagedevice"
+*PageRegion FLSA/American Foolscap 8.5x13in: "<</cupsInteger0 10/PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal/Legal 8.5x14in: "<</cupsInteger0 3/PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvMonarch/Monarch Envelope 3.875x7.5in: "<</cupsInteger0 96/PageSize[279 540]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvDL/DL Envelope 110x220mm: "<</cupsInteger0 27/PageSize[311.76 623.52]/ImagingBBox null>>setpagedevice"
+*PageRegion Env10/#10 Envelope 4.12x9.5in: "<</cupsInteger0 81/PageSize[297 684]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvC5/C5 Envelope 162x229mm: "<</cupsInteger0 91/PageSize[459 649]/ImagingBBox null>>setpagedevice"
+*PageRegion EnvB5/B5 Envelope 176x250mm: "<</cupsInteger0 100/PageSize[499 709]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: Letter
+*ImageableArea A6/A6 105x148mm: "12.00 12.00 286.00 408.00"
+*ImageableArea A5/A5 148x210mm: "12.00 12.00 408.00 583.00"
+*ImageableArea Postcard/Postcard: "12.00 12.00 271.00 408.00"
+*ImageableArea DoublePostcard/Double Postcard: "12.00 12.00 408.00 555.00"
+*ImageableArea JB5/JB5 182x257mm: "18.00 15.50 498.24 713.14"
+*ImageableArea Executive/Executive 7.25x10.5in: "12.00 12.00 510.00 744.00"
+*ImageableArea 16k195x270/16k 195x270mm: "18.00 15.50 535.00 749.50"
+*ImageableArea 16k184x260/16k 184x260mm: "12.00 12.00 510.00 725.00"
+*ImageableArea 16k197x273/16k 197x273mm: "12.00 12.00 546.00 762.00"
+*ImageableArea Letter/Letter 8.5x11in: "12.00 12.00 600.00 780.00"
+*ImageableArea A4/A4 210x297mm: "18.00 15.50 577.44 826.18"
+*ImageableArea FLSA/American Foolscap 8.5x13in: "12.00 12.00 600.00 924.00"
+*ImageableArea Legal/Legal 8.5x14in: "12.00 12.00 600.00 996.00"
+*ImageableArea EnvMonarch/Monarch Envelope 3.875x7.5in: "18.00 15.50 261.00 524.50"
+*ImageableArea EnvDL/DL Envelope 110x220mm: "18.00 15.50 293.76 608.02"
+*ImageableArea Env10/#10 Envelope 4.12x9.5in: "12.00 12.00 285.00 672.00"
+*ImageableArea EnvC5/C5 Envelope 162x229mm: "12.00 12.00 447.00 637.00"
+*ImageableArea EnvB5/B5 Envelope 176x250mm: "12.00 12.00 487.00 697.00"
+*DefaultPaperDimension: Letter
+*PaperDimension A6/A6 105x148mm: "298.00 420.00"
+*PaperDimension A5/A5 148x210mm: "420.00 595.00"
+*PaperDimension Postcard/Postcard: "283.00 420.00"
+*PaperDimension DoublePostcard/Double Postcard: "420.00 567.00"
+*PaperDimension JB5/JB5 182x257mm: "516.24 728.64"
+*PaperDimension Executive/Executive 7.25x10.5in: "522.00 756.00"
+*PaperDimension 16k195x270/16k 195x270mm: "553.00 765.00"
+*PaperDimension 16k184x260/16k 184x260mm: "522.00 737.00"
+*PaperDimension 16k197x273/16k 197x273mm: "558.00 774.00"
+*PaperDimension Letter/Letter 8.5x11in: "612.00 792.00"
+*PaperDimension A4/A4 210x297mm: "595.44 841.68"
+*PaperDimension FLSA/American Foolscap 8.5x13in: "612.00 936.00"
+*PaperDimension Legal/Legal 8.5x14in: "612.00 1008.00"
+*PaperDimension EnvMonarch/Monarch Envelope 3.875x7.5in: "279.00 540.00"
+*PaperDimension EnvDL/DL Envelope 110x220mm: "311.76 623.52"
+*PaperDimension Env10/#10 Envelope 4.12x9.5in: "297.00 684.00"
+*PaperDimension EnvC5/C5 Envelope 162x229mm: "459.00 649.00"
+*PaperDimension EnvB5/B5 Envelope 176x250mm: "499.00 709.00"
+*MaxMediaWidth: "1224.00"
+*MaxMediaHeight: "2592.00"
+*HWMargins: 12.00 12.00 12.00 12.00
+*CustomPageSize True: "pop pop pop <</PageSize[5 -2 roll]/ImagingBBox null>>setpagedevice"
+*ParamCustomPageSize Width: 1 points 216.00 1224.00
+*ParamCustomPageSize Height: 2 points 360.00 2592.00
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 0
+*RequiresPageRegion All: True
+*OpenUI *InputSlot/Media Source: PickOne
+*OrderDependency: 10.0 AnySetup *InputSlot
+*DefaultInputSlot: Auto
+*InputSlot Auto/Auto-Select: "<</MediaPosition 7>>setpagedevice"
+*InputSlot Manual/Manual Feeder: "<</MediaPosition 2>>setpagedevice"
+*CloseUI: *InputSlot
+*OpenUI *ColorModel/Output Mode: PickOne
+*OrderDependency: 10.0 AnySetup *ColorModel
+*DefaultColorModel: Gray
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 1/cupsRowStep 2>>setpagedevice"
+*CloseUI: *ColorModel
+*OpenUI *MediaType/Media Type: PickOne
+*OrderDependency: 10.0 AnySetup *MediaType
+*DefaultMediaType: Plain
+*MediaType Plain/Plain Paper: "<</MediaType(Plain)/cupsMediaType 0>>setpagedevice"
+*CloseUI: *MediaType
+*OpenUI *OutputMode/Print Quality: PickOne
+*OrderDependency: 10.0 AnySetup *OutputMode
+*DefaultOutputMode: Normal
+*OutputMode Normal: "<</OutputType(0)/HWResolution[600 600]>>setpagedevice"
+*OutputMode Draft: "<</OutputType(-1)/HWResolution[600 600]>>setpagedevice"
+*CloseUI: *OutputMode
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(1.05)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(1.05)" Standard ROM
+*Font AvantGarde-Demi: Standard "(1.05)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(1.05)" Standard ROM
+*Font Bookman-Demi: Standard "(1.05)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(1.05)" Standard ROM
+*Font Bookman-Light: Standard "(1.05)" Standard ROM
+*Font Bookman-LightItalic: Standard "(1.05)" Standard ROM
+*Font Courier: Standard "(1.05)" Standard ROM
+*Font Courier-Bold: Standard "(1.05)" Standard ROM
+*Font Courier-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Courier-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica: Standard "(1.05)" Standard ROM
+*Font Helvetica-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(1.05)" Standard ROM
+*Font Helvetica-Oblique: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(1.05)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(1.05)" Standard ROM
+*Font Palatino-Bold: Standard "(1.05)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Palatino-Italic: Standard "(1.05)" Standard ROM
+*Font Palatino-Roman: Standard "(1.05)" Standard ROM
+*Font Symbol: Special "(001.005)" Special ROM
+*Font Times-Bold: Standard "(1.05)" Standard ROM
+*Font Times-BoldItalic: Standard "(1.05)" Standard ROM
+*Font Times-Italic: Standard "(1.05)" Standard ROM
+*Font Times-Roman: Standard "(1.05)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(1.05)" Standard ROM
+*Font ZapfDingbats: Special "(001.005)" Special ROM
+*% End of hp-laserjet_professional_p_1102w.ppd, 11322 bytes.

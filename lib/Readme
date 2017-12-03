@@ -1,0 +1,13 @@
+libName			author			function
+libdicom.a		hehao			send image and it's info to dicom server according network
+libColormap.so	zhouchuantao	generate color map for CFM, PDI, pesudo color
+libImageFile.a	hehao			change dicom image file's format
+
+需要安装的库列表：
+1、libcv-dev
+2、libdcmtk1-dev
+3、libhal-dev
+4. libcvaux-dev
+5. libhighgui-dev
+6. libssl-dev
+7. libwrap0-dev

@@ -1,0 +1,39 @@
+Left
+Right
+Cranial
+Caudal
+Anterior
+Posterior
+Amnion
+Umbil.C
+Uterus
+Plancenta
+Bladder
+Ovary
+Douglas
+Follicle
+Uterine A
+Umbil.A
+Umbil.V
+Tumor
+Cyst
+Myoma
+Cervix
+Portio
+Corpus
+Fundus
+Endometr.
+C. Iliac A
+E. Iliac 
+I. Iliac 
+Fallop.T
+Fet.Aorta
+Cerebr.A
+Fet.CCA
+Duct.Ven
+Duct. Art
+Chorion
+Yolk Sac
+Yolk Stag
+Septum
+Fetus

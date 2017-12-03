@@ -1,0 +1,159 @@
+style "default"
+{
+#	font_name = "DejaVu Sans Mono Book 10,NSimSun 10"
+#	font_name = "YaHei Consolas Hybrid 10"
+#	font_name = "WenQuanYi Bitmap Song 10"
+#	font_name = "DejaVu Mono 10, SimSun 10"#"WenQuanYi Zen Hei 11"
+	font_name = "DejaVu Sans 10"#"WenQuanYi Zen Hei 11"
+
+	GtkWidget::focus-line-width = 0
+	GtkWidget::focus-padding = 0
+
+	GtkComboBox::appears-as-list = 0
+
+#	GtkTreeView::allow_rules = 1
+}
+
+style "window"
+{
+	bg[NORMAL] = "#2A2F3A"
+}
+
+style "button"
+{
+	bg[NORMAL] = "#555961"
+}
+
+style "label"
+{
+	fg[NORMAL] = "#ffffff"
+}
+
+style "frame"
+{
+	bg[NORMAL] = "#555961"
+}
+
+style "separator"
+{
+	bg[NORMAL] = "#555961"
+}
+
+style "frame_label"
+{
+	fg[NORMAL] = "#ffffff"
+}
+
+style "notebook"
+{
+	bg[NORMAL] = "#3A3F4A"
+#	bg[SELECTED] = "#555961"
+	bg[ACTIVE] = "#555961"
+}
+
+style "notebook_label"
+{
+	fg[NORMAL] = "#ffffff"
+	fg[ACTIVE] = "#ffffff"
+}
+
+style "progressbar"
+{
+	fg[NORMAL] = "#ffffff"
+	bg[NORMAL] = "#a5a5a5"
+	bg[SELECTED] = "#2a2f3a"
+}
+
+style "scrolledwindow"
+{
+	bg[NORMAL] = "#3A3F4A"
+}
+
+style "treeview"
+{
+#	base[NORMAL] = "#2A2F3A"
+	base[NORMAL] = "#3A3F4A"
+	text[NORMAL] = "#ffffff"
+	fg[NORMAL] = "#ffffff"
+}
+
+style "treeview_header" = "label"
+{
+}
+
+style "scrollbar"
+{
+	bg[NORMAL] = "#a5a5a5"
+	bg[SELECTED] = "#2a2f3a"
+}
+
+style "combobox"
+{
+	base[NORMAL] = "#ffffff"
+	text[NORMAL] = "#ffffff"
+}
+
+style "calendar"
+{
+	fg[NORMAL] = "#ffffff"
+	bg[NORMAL] = "#555961"
+	base[NORMAL] = "#3A3F4A"
+	text[NORMAL] = "#ffffff"
+	text[ACTIVE] = "#ffffff"
+}
+
+style "togglebutton_label"
+{
+	fg[NORMAL] = "#ffffff"
+	fg[ACTIVE] = "#ffffff"
+	fg[PRELIGHT] = "#ffffff"
+}
+
+style "menu_item"
+{
+	fg[NORMAL] = "#000000"
+	text[NORMAL] = "#ffffff"
+	text[ACTIVE] = "#ffffff"
+}
+
+style "combo"
+{
+	fg[NORMAL] = "#000000"
+	text[NORMAL] = "#ffffff"
+	text[ACTIVE] = "#ffffff"
+}
+
+class "GtkWidget" style "default"
+class "GtkWindow" style "window"
+class "GtkButton" style "button"
+class "GtkSpinButton" style "button"
+class "GtkLabel" style "label"
+class "GtkFrame" style "frame"
+class "GtkNotebook" style "notebook"
+class "GtkProgressBar" style "progressbar"
+class "GtkTreeView" style "treeview"
+class "GtkScrollbar" style "scrollbar"
+class "GtkHScrollbar" style "scrollbar"
+class "GtkVScrollbar" style "scrollbar"
+class "GtkSeparator" style "separator"
+class "GtkHSeparator" style "separator"
+class "GtkVSeparator" style "separator"
+class "GtkCalendar" style "calendar"
+class "GtkMenuItem" style "menu_item"
+
+widget_class "*<GtkList>*" style "combo"
+
+widget_class "*.<GtkMenuItem>.<GtkLabel>" style "menu_item"
+widget_class "*.<GtkFrame>.<GtkLabel>" style "frame_label"
+widget_class "*.<GtkNotebook>.<GtkLabel>" style "notebook_label"
+widget_class "*.<GtkComboBox>.<GtkCellView>" style "combobox"
+widget_class "*.<GtkComboBox>.<GtkArrow>" style "combobox"
+widget_class "*.<GtkTreeView>.<GtkButton>" style "treeview_header"
+widget_class "*.<GtkToggleButton>.<GtkLabel>" style "togglebutton_label"
+widget_class "*.<GtkCheckButton>.<GtkLabel>" style "togglebutton_label"
+widget_class "*.<GtkRadioButton>.<GtkLabel>" style "togglebutton_label"
+
+widget_class "*.<GtkNotebook>*<GtkScrolledWindow>" style "scrolledwindow"
+widget_class "*.<GtkNotebook>*<GtkViewport>" style "scrolledwindow"
+widget_class "*.<GtkFrame>*<GtkScrolledWindow>" style "scrolledwindow"
+widget_class "*.<GtkFrame>*<GtkViewport>" style "scrolledwindow"

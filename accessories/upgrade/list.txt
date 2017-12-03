@@ -1,0 +1,4 @@
+[Upgrade-List]
+1=09001Color
+2=res/config/SysSetting.ini
+3=res/i18n/09001_lang.mo

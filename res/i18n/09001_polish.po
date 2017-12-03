@@ -1,0 +1,8493 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-12 00:17-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>VGA Source:</b>"
+msgstr "<b>Źródło VGA</b>"
+
+msgid "Internal"
+msgstr "Wewnętrzny"
+
+msgid "External"
+msgstr "Zewnętrzny"
+
+msgid "LOW"
+msgstr "NISKI"
+
+msgid "MID"
+msgstr "ŚREDNI"
+
+msgid "HIGH"
+msgstr "WYSOKI"
+
+msgid "Power OFF?"
+msgstr "Wyłączyć zasilanie?"
+
+msgid "Are you sure you want to close the program and shut down the computer?"
+msgstr "Czy na pewno chcesz zamknąć program i wyłączyć urządzenie?"
+
+msgid "Freq."
+msgstr "Częst."
+
+msgid "Scan Angle"
+msgstr "Kąt skanu"
+
+msgid "Dynamic Range"
+msgstr "Zakres dynamiki"
+
+msgid "Line Density"
+msgstr "Gęstość linii"
+
+msgid "THI"
+msgstr "THI"
+
+msgid "TSI"
+msgstr "TSI"
+
+msgid "AGC"
+msgstr "AGC"
+
+msgid "MBP"
+msgstr "MBP"
+
+msgid "Edge"
+msgstr "Krawędź"
+
+msgid "Steer"
+msgstr "Nachylenie"
+
+msgid "Steer:"
+msgstr "Nachylenie:"
+
+msgid "Scale"
+msgstr "Skala"
+
+msgid "Baseline"
+msgstr "Linia bazowa"
+
+msgid "Wall Filter"
+msgstr "Filtr ścianowy"
+
+msgid "Sensitive"
+msgstr "Czułość"
+
+msgid "Doppler Freq."
+msgstr "Częst. Dopplera"
+
+msgid "CFM Map"
+msgstr "Mapa CFM"
+
+msgid "Turbo"
+msgstr "Turbo"
+
+msgid "SV Length"
+msgstr "Długość SV"
+
+msgid "Angle:"
+msgstr "Kąt:"
+
+msgid "Angle"
+msgstr "Kąt"
+
+msgid "PW Map"
+msgstr "Mapa PW"
+
+msgid "HPRF"
+msgstr "HPRF"
+
+msgid "Replay"
+msgstr "Powtórka"
+
+msgid "Trim Left"
+msgstr "Lewe cięcie"
+
+msgid "Trim Right"
+msgstr "Prawe cięcie"
+
+msgid "Save Cine"
+msgstr "Zapisz film"
+
+msgid "Rotate"
+msgstr "Obrót"
+
+msgid "Frame aver."
+msgstr "Średnia klatk."
+
+msgid "Line aver."
+msgstr "Uśrednien. lin."
+
+msgid "Smooth"
+msgstr "Wygładzanie"
+
+msgid "Gamma"
+msgstr "Gamma"
+
+msgid "Chroma"
+msgstr "Chroma"
+
+msgid "Polarity"
+msgstr "Biegun"
+
+msgid "Noise Reject"
+msgstr "Redukcja szumu"
+
+msgid "Gray Trans."
+msgstr "Ustaw. szarości"
+
+msgid "Gray Rejection"
+msgstr "Redukcja szarości"
+
+msgid "Global Zoom"
+msgstr "Globalny Zoom"
+
+msgid "Picture In Picture"
+msgstr "Obraz w obrazie"
+
+msgid "Image Enh"
+msgstr "Wygł. obraz."
+
+msgid "Image Enh:"
+msgstr "Wygł. obraz:"
+
+msgid "Main Menu"
+msgstr "Menu Główne"
+
+msgid "Sub Menu"
+msgstr "Podmenu"
+
+msgid "2D Mode"
+msgstr "Tryb 2D"
+
+msgid "M Mode"
+msgstr "Tryb M"
+
+msgid "PW Mode"
+msgstr "Tryb PW"
+
+msgid "CW Mode"
+msgstr "Tryb CW"
+
+msgid "CFM/PDI Mode"
+msgstr "Tryb CFM/PDI"
+
+msgid "Color Mode"
+msgstr "Tryb Kolorowy"
+
+msgid "PW Color Mode"
+msgstr "Tryb kolorowej PW"
+
+msgid "Color PW Mode"
+msgstr "Kolorowy Tryb PW"
+
+msgid "Note Menu"
+msgstr "Menu Notatek"
+
+msgid "System Setting"
+msgstr "Ustawienia Systemu"
+
+msgid ""
+"System Setting\n"
+"\n"
+"Biopsy Setting"
+msgstr ""
+"Ustawienia Systemu\n"
+"\n"
+"i Ustawienia Biopsji"
+
+msgid "Measure Menu"
+msgstr "Menu Pomiaru"
+
+msgid "BodyMark Menu"
+msgstr "Menu Znaczników Ciała"
+
+msgid "Review Menu"
+msgstr "Menu Przeglądu"
+
+msgid "Calculate Menu"
+msgstr "Menu Obliczeń"
+
+msgid "ABD"
+msgstr "ABD"
+
+msgid "OB"
+msgstr "OB"
+
+msgid "GYN"
+msgstr "GYN"
+
+msgid "UR"
+msgstr "UR"
+
+msgid "CAR"
+msgstr "CAR"
+
+msgid "VES"
+msgstr "VES"
+
+msgid "ORT"
+msgstr "ORT"
+
+msgid "EXTRA"
+msgstr "EXTRA"
+
+# msgid "Abdominal"
+# msgstr "Jama Brzuszna"
+msgid "Urology"
+msgstr "Urologia"
+
+msgid "Adult Echo"
+msgstr "Echo dorośli"
+
+msgid "Obstetrics"
+msgstr "Położnictwo"
+
+msgid "Gynecology"
+msgstr "Ginekologia"
+
+msgid "SP"
+msgstr "SP"
+
+msgid "Vascular"
+msgstr "Naczynia"
+
+msgid "Fetal Cardio"
+msgstr "Kardio. Płodu"
+
+msgid "TCD"
+msgstr "TCD"
+
+msgid "General"
+msgstr "Ogólne"
+
+msgid "Heart Rate"
+msgstr "Częstot. Pracy Serca"
+
+msgid "Thyroid"
+msgstr "Tarczyca"
+
+msgid "Eye Ball"
+msgstr "Gałka oczna"
+
+msgid "Bladder"
+msgstr "Pęcherz"
+
+msgid "Carotid"
+msgstr "Tętnice"
+
+msgid "LE Art"
+msgstr "LE Art"
+
+msgid "UE Art"
+msgstr "UE Art"
+
+msgid "Threshold"
+msgstr "Próg"
+
+msgid "Persist"
+msgstr "Utrzymaj"
+
+msgid "artifact"
+msgstr "Artefakt"
+
+msgid "Color Hide"
+msgstr "Ukryj Kolor"
+
+# msgid "Background Hide"
+# msgstr "Ukryj tło"
+msgid "B/C"
+msgstr "B/C "
+
+msgid "2D+2D/Color"
+msgstr "2D+2D/Kolor "
+
+msgid "Direction PDI"
+msgstr "Kierunkowy PDI"
+
+msgid "Direction:"
+msgstr "Kierunkowy:"
+
+# msgid "Scale Unit"
+# msgstr "Jednostka Skali"
+msgid "cm/s"
+msgstr "cm/s"
+
+msgid "kHz"
+msgstr "kHz"
+
+msgid "2D Post-process"
+msgstr "Obróbka obrazu 2D"
+
+msgid "M Post-process"
+msgstr "Obróbka obrazu M"
+
+msgid "PW Post-process"
+msgstr "Obróbka obrazu PW"
+
+msgid "CW Post-process"
+msgstr "Obróbka obrazu CW"
+
+msgid "CFM Post-process"
+msgstr "Obróbka obrazu CFM"
+
+msgid "PDI Post-process"
+msgstr "Obróbka obrazu PDI"
+
+msgid "Note"
+msgstr "Notatka"
+
+msgid "Arrow"
+msgstr "Strzałka"
+
+msgid "Body Mark"
+msgstr "Znacznik Ciała"
+
+msgid "Measure"
+msgstr "Pomiar"
+
+msgid "Review"
+msgstr "Przegląd"
+
+msgid "Calculate"
+msgstr "Oblicz"
+
+msgid "Enhance M"
+msgstr "Popraw M"
+
+msgid "Time Mark"
+msgstr "Znacznik Czasu"
+
+msgid "Display Format"
+msgstr "Wyświetl Format"
+
+msgid "Dist-2Point"
+msgstr "Dyst.-2Pkt"
+
+msgid "Dist-2Line"
+msgstr "Dyst.-2 Lini"
+
+msgid "Distance"
+msgstr "Szerokość"
+
+msgid "Area"
+msgstr "Pole"
+
+msgid "Depth"
+msgstr "Głębokość"
+
+msgid "Time"
+msgstr "Czas"
+
+msgid "Slope"
+msgstr "Pochyłość"
+
+msgid "Velocity"
+msgstr "Prędkość"
+
+msgid "Auto Trace"
+msgstr "Autoślad"
+
+msgid "Manual Trace"
+msgstr "Ślad ręcznie"
+
+msgid "RI"
+msgstr "RI"
+
+msgid "PS / ED"
+msgstr "PS / ED"
+
+msgid "Accelerate"
+msgstr "Przyspieszenie"
+
+msgid "PI"
+msgstr "PI"
+
+msgid "HR"
+msgstr "HR"
+
+msgid "PG Max"
+msgstr "PG Maks."
+
+msgid "PG Mean"
+msgstr "Średnie PG"
+
+msgid "Distance Angusty"
+msgstr "Szerokość Cieśni"
+
+msgid "Distance Ratio"
+msgstr "Stosunek Szerokości"
+
+msgid "Area Angusty"
+msgstr "Pole Cieśni"
+
+msgid "Area Ratio"
+msgstr "Stosunek Pól"
+
+msgid "Dist Peri Ratio"
+msgstr "Szer. do Granicy "
+
+msgid "Volume Ratio"
+msgstr "Stosunek Objętości"
+
+msgid "Angle Ratio"
+msgstr "Stosunek kątów"
+
+msgid "EF"
+msgstr "EF"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Histogram"
+msgstr "Histogram"
+
+msgid "Time Resolution"
+msgstr "Rozdzielczość czasowa"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Mean"
+msgstr "Średni"
+
+msgid "Scatter"
+msgstr "Rzosypany"
+
+msgid "above"
+msgstr "Powyżej"
+
+msgid "below"
+msgstr "Poniżej"
+
+msgid "both"
+msgstr "Oba"
+
+msgid "high"
+msgstr "wysoki"
+
+msgid "medium"
+msgstr "średni"
+
+msgid "low"
+msgstr "niski"
+
+msgid "HIGH-Q illustrate"
+msgstr "Wysoka Jakość Obrazu"
+
+msgid "adjust"
+msgstr "Ustaw"
+
+msgid "Fast Angle"
+msgstr "Szybki Kąt"
+
+msgid "Trace-Type"
+msgstr "Typ Śladu"
+
+msgid "Trace-Direction"
+msgstr "Kierunek Śladu"
+
+msgid "Trace-Threshold"
+msgstr "Próg Śladu "
+
+msgid "Trace-Smooth"
+msgstr "Wygładzanie śladu"
+
+msgid "Show Cine"
+msgstr "Pokaż Film"
+
+msgid "Show Snap"
+msgstr "Pokaż Ujęcie"
+
+msgid "Send"
+msgstr "Wyślij"
+
+msgid "Select All"
+msgstr ""
+"Wybierz \n"
+" Wszystko"
+
+msgid "Deselect"
+msgstr "Anuluj Wybór"
+
+msgid "No Image to play."
+msgstr "Brak obrazów do wyświetlania"
+
+msgid "GenArrow"
+msgstr "Ogólna Strzałka"
+
+msgid "Hand"
+msgstr "Rączka"
+
+msgid "SolidArrow"
+msgstr "Jednolita strzałka"
+
+msgid "Shape"
+msgstr "Kształt"
+
+# msgid "Sun."
+# msgstr "Ni."
+# msgid "Mon."
+# msgstr "Pn."
+# msgid "Tues."
+# msgstr "Wt."
+# msgid "Wed."
+# msgstr "Śr."
+# msgid "Thur"
+# msgstr "Czw."
+# msgid "Fri."
+# msgstr "Pt."
+# msgid "Sat."
+# msgstr "Sb."
+#, c-format
+msgid "OFF"
+msgstr " OFF "
+
+msgid "ON"
+msgstr " ON "
+
+msgid "ON: 0"
+msgstr " ON: 0"
+
+msgid "ON: 1"
+msgstr "ON: 1"
+
+msgid "ON: 2"
+msgstr " ON: 2"
+
+msgid "OFF: 0"
+msgstr "OFF: 0"
+
+msgid "OFF: 1"
+msgstr "OFF: 1"
+
+msgid "OFF: 2"
+msgstr "OFF: 2"
+
+# msgid "Routine"
+# msgstr "Zwykłe"
+# msgid "Muscle"
+# msgstr "Mięśniowe"
+# msgid "Liquid"
+# msgstr "Ciecz"
+# msgid "Fat"
+# msgstr "Tłuszcz"
+msgid "Upgrading, please wait..."
+msgstr "Proszę czekać trwa aktualizacja…"
+
+msgid "Sure to upgrade?"
+msgstr "Jesteś pewny, że chcesz aktualizować?"
+
+msgid "Upgrade success,please reboot!"
+msgstr "Aktualizacja zakończona pomyślnie!"
+
+msgid "Upgrade failed: USB device not found!"
+msgstr "Nie można aktualizować: Nie odnaleziono urządzenia USB!"
+
+msgid "Upgrade failed: Cannot mount USB device!"
+msgstr " Nie można aktualizować: Nie odczytano urządzenia USB!"
+
+msgid "Upgrade failed: Cannot copy upgrade file!"
+msgstr " Nie można aktualizować: Nie można skopiować pliku!"
+
+msgid "Upgrade failed: Upgrade file not found!"
+msgstr " Nie można aktualizować: Nie odnaleziono pliku!"
+
+msgid "Upgrade failed: Dest directory not found!"
+msgstr " Nie można aktualizować:"
+
+msgid "Upgrade failed!"
+msgstr " Nie można aktualizować!"
+
+msgid "<b>Disk Info</b>"
+msgstr "<b>Informacje o dysku</b>"
+
+msgid "Local Disk"
+msgstr "Dysk Lokalny"
+
+msgid "USB Storage"
+msgstr "Pamięć USB"
+
+msgid "CD/DVD"
+msgstr "CD/DVD "
+
+msgid "Free Space:"
+msgstr "Wolne miejsce:"
+
+msgid "Total Space:"
+msgstr "Całkowita pojemność:"
+
+msgid "Date Start:"
+msgstr "Data począt:"
+
+msgid "Date End:"
+msgstr "Data końc:"
+
+msgid "Clear"
+msgstr "Wyczyść"
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "<b>Search</b>"
+msgstr "<b>Szukaj</b>"
+
+msgid "<b>Quick Search</b>"
+msgstr "<b>Szybkie Wyszukiwanie</b>"
+
+msgid "Select Method:"
+msgstr "Wybierz sposób:"
+
+msgid "Details"
+msgstr "Szczególy"
+
+msgid "Show All"
+msgstr "Pokaż wszystko"
+
+# msgid "Show Today"
+# msgstr "Pokaż dzisiejsze"
+msgid "Show Lastest Week"
+msgstr "Pokaż z ostatniego tygodnia"
+
+msgid "Show Lastest Month"
+msgstr "Pokaż z ostatniego miesiąca"
+
+msgid "Export Data"
+msgstr "Wyślij dane"
+
+msgid "Exit"
+msgstr "Wyjście"
+
+msgid "Exam Date"
+msgstr "Data badania"
+
+msgid "Doctor"
+msgstr "Lekarz"
+
+msgid "Calendar"
+msgstr "Kalendarz"
+
+msgid "Burn"
+msgstr "Nagraj"
+
+msgid "Burn CD/DVD"
+msgstr "Nagraj CD/DVD"
+
+msgid "Available:"
+msgstr "Dostępne:"
+
+msgid "Estimated:"
+msgstr "Szacunkowa:"
+
+msgid "Remain:"
+msgstr "Pozostaje:"
+
+msgid "Erase"
+msgstr "Wymaż"
+
+msgid "Ready!"
+msgstr "Gotów!"
+
+msgid "Getting the media info, Please wait..."
+msgstr "Proszę czekać. Określam informacje o nośnikach"
+
+# msgid "Please insert one disc!"
+# msgstr "Proszę włożyć dysk!"
+msgid "Beyond the available capacity of the disc!"
+msgstr "Przekroczono pojemność dysku!"
+
+msgid ""
+"No any files selected!\n"
+"Please select files to backup first."
+msgstr "Nie wybrano żadnych plików! Proszę wybrać najpierw pliki."
+
+msgid "Failed to prepare data!"
+msgstr "Nie przygotowano danych!"
+
+msgid "No enough space!"
+msgstr "Nie wystarczająca pojemność!"
+
+msgid ""
+"Failed to get media information!\n"
+"Please check the media correct."
+msgstr ""
+"Nie określono informacji o nośnikach! \n"
+"Proszę sprawdzić nośnik"
+
+msgid "Ready to burn, please wait..."
+msgstr "Gotowy do ngrania, proszę czekać"
+
+msgid "Making ISO image, please wait..."
+msgstr "Sporządzanie obrazu ISO, proszę czekać…"
+
+msgid "Failed to make ISO image!"
+msgstr "Nie udało się sporządzić obrazu ISO!"
+
+msgid "Burning, please wait..."
+msgstr "Nagrywanie, proszę czekać…"
+
+msgid "Failed to burn!"
+msgstr "Nie udało się nagrać!"
+
+msgid "The media type is not supported!"
+msgstr "Urządzenie nie obsługuje takiego nośnika!"
+
+msgid "Finished!"
+msgstr "Zakończono!"
+
+msgid "/"
+msgstr "/"
+
+msgid "Patient ID:"
+msgstr "PESEL:"
+
+msgid "Gender:"
+msgstr "Płeć:"
+
+msgid "Male"
+msgstr "Mężczyzna"
+
+msgid "Female"
+msgstr "Kobieta"
+
+msgid "Male "
+msgstr "Mężczyzna"
+
+msgid "Female "
+msgstr "Kobieta"
+
+msgid "Other"
+msgstr "Inna"
+
+msgid "R"
+msgstr "RR"
+
+msgid "M"
+msgstr "MM"
+
+msgid "D"
+msgstr "DD"
+
+msgid "First Name:"
+msgstr "Imię:"
+
+msgid "Age:"
+msgstr "Wiek:"
+
+msgid "Last Name:"
+msgstr "Nazwisko:"
+
+msgid "Birth Date:"
+msgstr "Data urodzenia:"
+
+msgid "General Information"
+msgstr "Ogólne informacje"
+
+msgid "Patient Information"
+msgstr "Informacje o pacjencie"
+
+msgid "CARD"
+msgstr "KARDIO"
+
+msgid "URO"
+msgstr "URO"
+
+msgid "Comment:"
+msgstr "Komentarz:"
+
+msgid "Accession #:"
+msgstr "Dostęp #:"
+
+msgid "Diagnostician:"
+msgstr "Diagnosta:"
+
+msgid "Physician:"
+msgstr "Pracownik:"
+
+msgid "Pause Exam"
+msgstr "Zatrzymaj badanie"
+
+msgid "End Exam"
+msgstr ""
+"Zakończ \n"
+" badanie"
+
+msgid "End Exam?"
+msgstr "Zakończyć badanie?"
+
+msgid "Hide BodyMark"
+msgstr "Ukryjznacznik"
+
+msgid "BodyMark Size"
+msgstr "Rozmiar znacznika ciała"
+
+# msgid "ProbeMark Color"
+# msgstr "Kolor znacznika sondy"
+msgid "Small"
+msgstr "Mały"
+
+msgid "Mid"
+msgstr "Średni"
+
+msgid "Big"
+msgstr "Duży"
+
+msgid "White"
+msgstr "Biały"
+
+msgid "Gray"
+msgstr "Szary"
+
+msgid "Red"
+msgstr "Czerwony"
+
+msgid "Green"
+msgstr "Zielony"
+
+msgid "Yellow"
+msgstr "Żółty"
+
+msgid "Blue"
+msgstr "Niebieski"
+
+msgid "[BodyMark]: Invalid when bodymark is off."
+msgstr "[Znacznik ciała]: Nie dostępny przy wyłączonych znacznikach ciała."
+
+msgid "[Calc]: Calculation selected is invalid in current mode."
+msgstr "[Oblicz.: ] Wybranych obliczeń nie można stosować w obecnym trybie."
+
+msgid "Cardio"
+msgstr "Kardio."
+
+msgid "Small Part"
+msgstr "Małe narządy"
+
+msgid "Orthopedics"
+msgstr "Ortopedia"
+
+# msgid "<b>Indication:</b>"
+# msgstr "<b>Wskaźnik</b>"
+msgid "<b>Comments:</b>"
+msgstr "<b>Komentarze:</b>"
+
+msgid "Insert"
+msgstr "Wstaw"
+
+msgid "Delete"
+msgstr "Skasuj"
+
+msgid "Copy"
+msgstr "Kopiuj"
+
+msgid "Paste"
+msgstr "Wklej"
+
+msgid "Edit Templet"
+msgstr "Edytuj szablon"
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "Save Templet"
+msgstr "Zachowaj szablon"
+
+msgid "Default Factory"
+msgstr "Ustawienia fabryczne"
+
+msgid "Return"
+msgstr "Powrót"
+
+msgid "Database error!"
+msgstr "Błąd bazy danych!"
+
+msgid "New Item"
+msgstr "Nowa jednostka"
+
+msgid "Please select the father node before insert!"
+msgstr "Wybierz father nde przed włożeniem!"
+
+msgid "Please rename the New Item!"
+msgstr "Proszę nazwij nową jednostkę"
+
+msgid "Insert failure! Already the leaf node!"
+msgstr "Błąd! Istnije już leaf node!"
+
+msgid "Please select one node to be save!"
+msgstr "Wybierz node do zapsiu!"
+
+msgid "Delete failure! Can not delete the root!"
+msgstr "Kasowanie nieudane! Nie mozna skasować root!"
+
+msgid "Please select one node to be copy!"
+msgstr "Proszę wybrać node do kopiowania!"
+
+msgid "Copy failure! Can not copy the root!"
+msgstr "Błąd kopiowania! Nie można skopiować rdzenia(root)!"
+
+msgid "Please select one node to be paste!"
+msgstr "Proszę wybierz node do wklejenia!"
+
+msgid "Can not paste it!"
+msgstr "Nie można wkleić!"
+
+msgid "Can not paste it in the same parent!"
+msgstr "Nie można wkleić do tego samego rodzica (parent)!"
+
+msgid "Save failure! Please select leaf node!"
+msgstr "Nie zapisano! Proszę wybrać leaf node!"
+
+msgid "The indication is too long!"
+msgstr "Zbyt długi ciąg znaków!"
+
+msgid "The comments are too long!"
+msgstr "Zbyt długi komentarz!"
+
+msgid "Default Factory will remove all the users modified data!"
+msgstr "Ustawienia fabryczne powodują skasowanie wszystkich modyfikacji danych użytkownika!"
+
+msgid "Node name can not be null!"
+msgstr "Nazwa rdzenie nie może być zerowa!"
+
+msgid "Can not rename the root!"
+msgstr "Nie można zmienić nazwy rdzenia!"
+
+msgid "Rename failed! The node has been exist!"
+msgstr "Nie udało się utworzyć mowej nazwy. "
+
+msgid "Recovery failed!"
+msgstr "Odzyskiwanie nie powiodło się!"
+
+msgid "Recovery succeed! Restart request!"
+msgstr "Odzyskiwanie zakonczone pomyślnie. Prosze zrestartować"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Color"
+msgstr "Kolor"
+
+msgid "Simple Arrow"
+msgstr "Prosta strzałka"
+
+msgid "Hollow Arrow"
+msgstr "Pusta strzałka"
+
+msgid "Low"
+msgstr "Niski"
+
+msgid "High"
+msgstr "Wysoki"
+
+msgid "Report"
+msgstr "Raport"
+
+msgid ""
+"Add\n"
+"Image"
+msgstr ""
+"Dodaj\n"
+"Obraz"
+
+msgid ""
+"Edit\n"
+"Report"
+msgstr ""
+"Edytuj\n"
+"Raport"
+
+msgid "Print"
+msgstr "Drukuj"
+
+msgid "Hospital:"
+msgstr "Szpital:"
+
+# msgid "Exam ID:"
+# msgstr "ID badania:"
+# msgid "Exam Type:"
+# msgstr "Typ egzaminu:"
+# msgid "Exam Date:"
+# msgstr "Data egzaminu:"
+msgid "Select Image(Maximum of 2)"
+msgstr "Wybierz obrazy (maks. 2)"
+
+msgid "Select Image(Maximum of 6)"
+msgstr "Wybierz obrazy (maks. 6)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Cofnij"
+
+# msgid "Edit Report"
+# msgstr "Edytuj raport"
+msgid "Transfer templet"
+msgstr "Transfer szablonu"
+
+msgid "<i><b>Growth Curve<i><b>"
+msgstr "<i><b>Krzywa wzrostu<i><b>"
+
+msgid "<i><b>Fetal Biophysical Profile</b></i>"
+msgstr "<i><b>Profil biofizyczny płodu</b></i>"
+
+msgid "Single Explain:    2-point:Normal  1-point:Slight Abnormal  0-point:Obvious Abnormal"
+msgstr "Wyjaśnienie: 2 punkty: normalny; 1 punkt odchył od normy 0 punktów daleki od normy"
+
+msgid "No measured"
+msgstr "Nie zmierzono"
+
+msgid "<i><b>General</b></i>"
+msgstr "<i><b>Ogólnel</b></i>"
+
+msgid "<i><b>Arterial</b></i>"
+msgstr "<i><b>Tętniczel</b></i>"
+
+msgid "<i><b>Venous</b></i>"
+msgstr "<i><b>Żylne</b></i>"
+
+msgid "<i><b>Bladder</b></i>"
+msgstr "<i><b>Pęcherz</b></i>"
+
+msgid "<i><b>Prostate</b></i>"
+msgstr "<i><b>Prostata</b></i>"
+
+msgid "<i><b>Left Renal</b></i>"
+msgstr "<i><b>Lewa nerka</b></i>"
+
+msgid "<i><b>Right Renal</b></i>"
+msgstr "<i><b>Prawa nerka</b></i>"
+
+msgid "<i><b>Dimensions(2D)</b></i>"
+msgstr "<i><b>Wymiary(2D)</b></i>"
+
+msgid "<i><b>Vessels(2D)</b></i>"
+msgstr "<i><b>Naczynia(2D)</b></i>"
+
+msgid "<i><b>EF &amp; Volume(2D)</b></i>"
+msgstr "<i><b>EF&amp; Objętość (2D)</b></i>"
+
+msgid "<i><b>Valves(2D)</b></i>"
+msgstr "<i><b>Zastawki(2D)</b></i> "
+
+msgid "<i><b>Dimensions(M)</b></i>"
+msgstr "<i><b>Wymiary(M)</b></i> "
+
+msgid "<i><b>Aortic Valve(M)</b></i>"
+msgstr "<i><b>Zastawka aorty (M)</b></i>"
+
+msgid "<i><b>Mitral Valve(M)</b></i>"
+msgstr "<i><b>Zastawka mitralna (M)</b></i>"
+
+msgid "<i><b>Tricuspid Valve(M)</b></i>"
+msgstr "<i><b>Zastawka trójdzielna (M)</b></i>"
+
+msgid "<i><b>Pulmonic Valve(M)</b></i>"
+msgstr "<i><b>Zastawka płucna (M)</b></i>"
+
+msgid "<i><b>Aortic Valve(D)</b></i>"
+msgstr " <i><b>Zastawka aorty (D)</b></i> "
+
+msgid "<i><b>Mitral Valve(D)</b></i>"
+msgstr " <i><b>Zastawka mitralna  (D)</b></i> "
+
+msgid "<i><b>Tricuspid Valve(D)</b></i>"
+msgstr "<i><b>Zastawka trójdzielna (D)</b></i>"
+
+msgid "<i><b>Pulmonic Valve(D)</b></i>"
+msgstr "<i><b>Zastawka płucna (D)</b></i>"
+
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+msgid "(Fetus 1)"
+msgstr "(Płód 1)"
+
+msgid "AFI"
+msgstr "AFI"
+
+msgid "Early"
+msgstr "Wczesna"
+
+msgid "Fetal Heart"
+msgstr "Serce płodu"
+
+msgid "EFW"
+msgstr "EFW"
+
+msgid "(Fetus 2)"
+msgstr "(Płód 2)"
+
+msgid "<i><b>Fertility</b></i>"
+msgstr "<i><b>Płodność </b></i>"
+
+msgid "<i><b>Fibroid</b></i>"
+msgstr "<i><b>Błony </b></i>"
+
+msgid "<i><b>Breast</b></i>"
+msgstr "<i><b>Pierś</b></i>"
+
+msgid "<i><b>Testicle</b></i>"
+msgstr "<i><b>Jądrok</b></i>"
+
+msgid "<i><b>Thyroid</b></i>"
+msgstr "<i><b>Tarczyca</b></i> "
+
+msgid "<i><b>Eyeball</b></i>"
+msgstr " <i><b>Gałka oczna </b></i> "
+
+msgid "<i><b>Carotid</b></i>"
+msgstr " <i><b>Tętnica</b></i> "
+
+msgid "<i><b>LE Art</b></i>"
+msgstr "<i><b>LE Art</b></i>"
+
+msgid "<i><b>UE Art</b></i>"
+msgstr "<i><b>UE Art</b></i>"
+
+msgid "<i><b>Dimen(2D)</b></i>"
+msgstr " <i><b>Średnica (2D)</b></i>"
+
+msgid "<i><b>Dimen(M)</b></i>"
+msgstr "<i><b>Średnica (M)</b></i>"
+
+msgid "<i><b>Vessels(M)</b></i>"
+msgstr "<i><b>Żyły (M)</b></i>"
+
+msgid "<i><b>AV &amp; MV(M)</b></i>"
+msgstr "<i><b>AV &amp; MV(M)</b></i>"
+
+msgid "<i><b>PV &amp; TV(M)</b></i>"
+msgstr "<i><b>PV &amp; TV(M)</b></i>"
+
+msgid "<i><b>Utero &amp; Placenta(D)</b></i>"
+msgstr "<i><b>Macica &amp; Łożysko</b></i>"
+
+msgid "<i><b>Vessels(D)</b></i>"
+msgstr "<i><b>Żyły </b></i>"
+
+msgid "<i><b>AV &amp; MV(D)</b></i>"
+msgstr "<i><b>AV &amp; MV(D)</b></i>"
+
+msgid "<i><b>PV &amp; TV(D)</b></i>"
+msgstr "<i><b>PV &amp; TV(D)</b></i>"
+
+msgid "<i><b>Peripheral Vasc(D)</b></i>"
+msgstr "<i><b>Naczynia peryf. (D)</b></i>"
+
+msgid "Sex:"
+msgstr "Płeć:"
+
+msgid "ID:"
+msgstr "PESEL:"
+
+msgid "Double-click to confirm"
+msgstr "Kliknij dwa razy by potwierdzić"
+
+msgid "Information"
+msgstr "Informacja"
+
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+msgid "Error"
+msgstr "Błąd"
+
+msgid "Cancelling..."
+msgstr "Kasuje …"
+
+msgid "[Harmonic]: Invalid when frequency larger than 2.5MHz."
+msgstr "[Harmoniczna]: Nie dostępne przy częstotliwości większej niż 2.5MHz."
+
+msgid "[Color Invert]: Invalid in turbo and PDI mode."
+msgstr "[Odwr. Koloru]: Nie dostępne w trybie turbo i PDI"
+
+msgid "[Scale]: Can not be changed when HPRF is on."
+msgstr "[Skala]: Nie można zmienić gdy HPRF jest włączona."
+
+msgid "[ScanAngle]: Invalid for linear probe."
+msgstr "[Kąt skanu]: Nie dostępne dla sondy liniowej."
+
+msgid "[Harmonic]: Only valid for low frequency convex probe."
+msgstr "[Harmoniczna]: Tylko dla sondy konweksowej o niskiej częstotliwości."
+
+msgid "[Steer]: Only valid for linear probe."
+msgstr "[Nachylenie]: Tylko dla sondy liniowej."
+
+msgid "Sensitivity"
+msgstr "Czułość"
+
+msgid "Color Map"
+msgstr "Mapa kolorem"
+
+msgid "Variance"
+msgstr "Różnicowanie"
+
+msgid "Flow Opt."
+msgstr "Opt. przepływu"
+
+msgid "Color Invert"
+msgstr "Odwr. kolor"
+
+msgid "Color Focus"
+msgstr "Ogniskuj kolor"
+
+msgid "Color Line Density"
+msgstr "Gęstość linii koloru"
+
+msgid "Tissue"
+msgstr "Tkanka"
+
+msgid "Noise"
+msgstr "Szum"
+
+msgid "Rate"
+msgstr "Tempo"
+
+msgid "variance"
+msgstr " różnicowanie "
+
+msgid "Gain Gate"
+msgstr "Bramka wzmocnienia"
+
+msgid "Operation is invalid in current mode."
+msgstr "Operacja niemożliwa w obecnym trybie."
+
+msgid "M Speed"
+msgstr "Prędkość M"
+
+msgid "Spectrum Speed"
+msgstr "Prędkość spektrum"
+
+msgid "Noise Threshold"
+msgstr "Próg szumu"
+
+msgid "Sound"
+msgstr "Dźwięk"
+
+msgid "Invalid when HPRF is on."
+msgstr "Nie dostępne gdy HPRF jest włączona"
+
+msgid "Operation is invalid."
+msgstr "Operacja nie dostępna."
+
+msgid "[DynamicRange]: Operation is invalid."
+msgstr "[Zakres dynamiki]: Operacja nie dostępna."
+
+msgid "[Threshold]: Invalid when chroma is on."
+msgstr "[Próg]: Nie dostępny, gdy działa chroma."
+
+msgid "Reset Trim"
+msgstr "Skasuj ujęcie"
+
+msgid "Press"
+msgstr "Naciśnij"
+
+msgid "Error: No USB device Plug-in!"
+msgstr "Błąd: Nie włożonu urządzenia USB!"
+
+msgid "Error: Failed to mount USB device!"
+msgstr "Błąd: Nie można odczytać urządzenia USB"
+
+msgid "Saving..."
+msgstr "Zapisywanie…"
+
+msgid "Please input the file name(without suffix)"
+msgstr "Proszę wpisać nazwę pliku (bez sufiksu)"
+
+msgid "[Global Zoom]: Invalid when image is rotated."
+msgstr "[Zoom całości]: Nie dostępny, gdy obraz się obraca."
+
+msgid "[Global Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[Zoom całości]: Tylko w trybie 2D, B i przy odmrożonym obrazie."
+
+msgid "[PIP]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[PIP]: Tylko w trybie 2D, B i przy odmrożonym obrazie."
+
+msgid "[Rotate]: Only valid in 2D B mode."
+msgstr "[Obrót]: Tylko w trybie 2D, B."
+
+msgid "Persistence"
+msgstr "Opór"
+
+# msgid "Color Reject"
+# msgstr "Redukcja kolor"
+# msgid "Artifact"
+# msgstr "Artefakt"
+msgid "Anatomic M"
+msgstr "Anatomiczny M"
+
+msgid "[Format]: Format change is invalid in current mode."
+msgstr "[Format]: Zmiana formatu jest nie możliwa w obecnym trybie."
+
+msgid "[Format]: Format change is invalid in freeze mode."
+msgstr "[Format]: Zmiana formatu jest nie możliwa na zamrożonym obrazie."
+
+msgid "Auto Calculate"
+msgstr "Autoobliczenie"
+
+msgid "[Format]: Format change is disable in current mode."
+msgstr " [Format]: Zmiana formatu jest wyłączona w obecnym trybie."
+
+msgid "Export to USB storage"
+msgstr "Wyślij na USB"
+
+msgid "Loading..."
+msgstr "Ładowanie…"
+
+# msgid "No USB storage found!"
+# msgstr "Nie znaleziono urządzenia USB!"
+msgid "Failed to mount USB storage!"
+msgstr "Nie udało się odczytać urządzenia USB!"
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Nie udało się wysłać danych do pamięci USB\n"
+"Błąd: Nie udało się utworzyć katalogu"
+
+msgid "Exporting"
+msgstr "Wysyłanie…"
+
+msgid "Please wait..."
+msgstr "Proszę czekać…"
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"Nie udało się zapisać pamięci USB! \n"
+"Błąd: Brak miejsca w pamięci."
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+" Nie udało się zapisać pamięci USB! \n"
+"Błąd: Cofnięto operację."
+
+#, c-format
+msgid "Failed to export to USB storage!"
+msgstr "Nie udało się zapisać pamięci USB "
+
+msgid ""
+"Success to export to USB storage.\n"
+"Path: "
+msgstr ""
+"Wysłano do pamięci USB.\n"
+"Ścieżka:"
+
+#, c-format
+msgid "Success to export to USB storage."
+msgstr "Wysłano do pamięci USB."
+
+msgid "Please select from the list you want to export the image/cine!"
+msgstr "Proszę wybrać z listy obrazy/filmy do wysłania!"
+
+msgid "[Replay]: No image can be replayed."
+msgstr "[Powtórka]: Brak obrazów, które można powtórzyć."
+
+msgid "[Global Zoom]: Please zoom image first."
+msgstr "[Zoom całości]: Proszę najpierw powiększyć obraz."
+
+msgid "[Measure]: Measure is disable in current image."
+msgstr "[Pomiar]: Pomiar nie możliwy na obecnym obrazie."
+
+msgid "[Calc]: Calc is disable in current image."
+msgstr "[Obliczenia]: Obliczenie nie możliwe na obecnym obrazie."
+
+msgid "[Local Zoom]: Invalid when image is rotated."
+msgstr "[Zoom miejscowy]: Nie działa gdy obraz jest obracany."
+
+msgid "[End Exam]: All details of patient has been archived."
+msgstr "[Zakończono badanie]: Wszystkie dane pacjenta zostały zapisane w archiwum."
+
+msgid "[Focus]: Mouse to move focus, <Value> to change focus sum."
+msgstr "[Ogniskowa]: Użyj myszy by przesunąć ogniskową, <Value> by zmienić liczbę ogniskowych."
+
+msgid "[Depth]: <Value> to change scale."
+msgstr "[Głębokość]: Uzyj <Value> by zmienić skalę."
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size, <Update> to zoom."
+msgstr ""
+"[Zoom miejscowy]: Użyj myszy by przemieścić okno, klawisza <Set> aby zmienić jego wielkość,\n"
+"<Update> by powiększyć."
+
+msgid "[Global Zoom]: <Value> to change scale, Mouse to scroll."
+msgstr "[Zoom całości]: Użyj pokrętła <Value> aby zmienić skalę, a myszy, aby rzowinąć"
+
+msgid "[PIP]: <Value> to change scale, Mouse to Move Magnifier."
+msgstr "[PIP]: Użyj pokrętła <Value> aby zmienić skalę a myszy aby sterować powiększeniem"
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Update> to select curve."
+msgstr "[Przekszt. Szarości]: Mysz porusza kropką, <Value> wybiera kropkę, <Update> wÃ¤hlen Kurve."
+
+msgid "[Gray Reject]: Mouse to move position."
+msgstr "[Redukcja szarości]: Mysz zmienia pozycję."
+
+msgid "[Length-Point]: <Update> to set shape point."
+msgstr "[Punkt-szerokość]: <Update> przytwierdza punkt."
+
+msgid "[Area-Point]: <Update> to set shape point."
+msgstr "[Punkt-pole]: <Update> przytwierdza punkt "
+
+msgid "[Trace]: <Update> to set shape point."
+msgstr "[Ślad]: <Update> przytwierdza punkt."
+
+msgid "[Measure]: Measurement selected is invalid in current mode."
+msgstr "[Pomiar]: Wybrany pomiar nie jest dostępny w obecnym trybie."
+
+msgid "[Measure]: Measurement selected is only valid in freezing mode."
+msgstr "[Pomiar]: Wybrany pomiar można przeprowadzić tylko na zamrożonym obrazie."
+
+msgid "Biopsy"
+msgstr "Biopsja"
+
+msgid "No Patient ID."
+msgstr "Brak numeru PESEL"
+
+msgid "Fail to save. The file name is already existed, please input another file name!"
+msgstr "Nie zapisano. Plik o podanej nazwie już istnieje. Proszę wprowadzić inną nazwę."
+
+msgid "Fail to save. No enough space!"
+msgstr " Nie zapisano. Brak wolnego miejsca."
+
+msgid "Success to save image. Filename is "
+msgstr "Zapisano obraz o nazwie"
+
+msgid "Next Snap"
+msgstr "Następne ujęcie"
+
+msgid "Previous Snap"
+msgstr "Poprzednie ujęcie"
+
+msgid "Slide Play"
+msgstr "Odtwórz slajdy"
+
+msgid "Slide Speed"
+msgstr "Szybkość pokazu"
+
+msgid "Success to save cine. Filename is "
+msgstr "Zapisano film o nazwie"
+
+msgid "All"
+msgstr "Wszystko"
+
+msgid "Export to CD/DVD"
+msgstr "Wyślij na CD/DVD"
+
+#, c-format
+msgid "Failed to load data from USB storage!"
+msgstr "Nie udało się załadować danych z pamięci USB"
+
+msgid "Please wait, loading data from USB storage..."
+msgstr "Proszę czekać. Trwa ładowanie danych z pamięci USB"
+
+msgid "No Record is selected!"
+msgstr "Nie wybrano zapisu!"
+
+msgid ""
+"Warnning: The patient data will be permanently deleted!\n"
+"Sure to delete?"
+msgstr ""
+"Uwaga: Dane pacjenta będą ciągle kasowane \n"
+" Na pewno skasować?"
+
+msgid "Sending..."
+msgstr "Wysyłanie…"
+
+msgid "Name"
+msgstr "Nazwisko"
+
+msgid "ID"
+msgstr "PESEL"
+
+msgid "Gender"
+msgstr "Płeć"
+
+# msgid "Birthday"
+# msgstr "Data urodz"
+# msgid "Birthday:  "
+# msgstr "Data urodz:"
+msgid "Age"
+msgstr "Wiek"
+
+msgid "Exam Type"
+msgstr "Typ badania"
+
+msgid "Exam ID"
+msgstr "Nr. badania"
+
+msgid "Please select the list you want to export the data!"
+msgstr " Wybierz z listy dane, które zamierzasz wysłać!"
+
+msgid "Sending finished!"
+msgstr "Wysyłanie zakończone!"
+
+msgid "Success:"
+msgstr "Wykonano:"
+
+msgid "Fail:"
+msgstr "Nie wykonano:"
+
+# msgid "Please select from the list you want to export the data!"
+# msgstr "Wybierz z listy dane, które zamierzasz wysłać!"
+msgid "Image manage"
+msgstr "Zarządzanie obrazami"
+
+msgid "<b>Patient</b>"
+msgstr "<b>Pacjent</b>"
+
+msgid "<b>Type</b>"
+msgstr "<b>Typ</b>"
+
+msgid "Image"
+msgstr "Obraz"
+
+msgid "Cine"
+msgstr "Film"
+
+msgid "Info."
+msgstr "Info."
+
+msgid "Slide Show"
+msgstr "Pokaz slajdów"
+
+msgid "Name:  "
+msgstr "Nazwisko: "
+
+msgid "Exam ID:  "
+msgstr "Nr. badania: "
+
+msgid "Patient ID:  "
+msgstr "PESEL: "
+
+msgid "Age:  "
+msgstr "Wiek: "
+
+msgid "Gender:  "
+msgstr "Płeć: "
+
+# msgid "Birthday:"
+# msgstr "Data urodz:"
+msgid "Exam Date:  "
+msgstr "Data badania: "
+
+msgid "Exam Time:  "
+msgstr "Czas badania: "
+
+msgid "Exam Type:  "
+msgstr "Typ badania: "
+
+msgid "Physician:  "
+msgstr "Pracownik: "
+
+msgid "Diagnostician:  "
+msgstr "Diagnosta: "
+
+msgid "Comment:  "
+msgstr "komentarz: "
+
+msgid "<b>General Information</b>"
+msgstr "<b>Informacje ogólne</b>"
+
+msgid "Weight:"
+msgstr "Waga:"
+
+# msgid "Stature:"
+# msgstr "Postawa:"
+msgid "BSA:  "
+msgstr "BSA: "
+
+msgid "Gravida:"
+msgstr "Gravida:"
+
+msgid "Ectopic:"
+msgstr "Ectopic:"
+
+msgid "Gest:ations:"
+msgstr "Ciąże:"
+
+msgid "Para:"
+msgstr "Para:"
+
+msgid "Aborta:"
+msgstr "Aborta:"
+
+msgid "Ovulatory Data:"
+msgstr "Data owulacji:"
+
+msgid "LMP:"
+msgstr "LMP:"
+
+msgid "HR:"
+msgstr "HR:"
+
+msgid "BP(High/Low):"
+msgstr "BP (wysokie/niskie):"
+
+msgid "PSA:"
+msgstr "PSA:"
+
+msgid "Telephone:"
+msgstr "Telefon:"
+
+msgid "Address:"
+msgstr "Adres:"
+
+msgid "Auto Generated ID"
+msgstr "Automatyczne ID"
+
+msgid "New Patient"
+msgstr "Nowy pacjent"
+
+msgid "New Exam"
+msgstr "Nowe badanie"
+
+msgid "BSA:"
+msgstr "BSA:"
+
+msgid "GA:"
+msgstr "GA:"
+
+msgid "EDD:"
+msgstr "EDD:"
+
+msgid "LMP"
+msgstr "LMP"
+
+msgid "Ovul. Date"
+msgstr "Data owulac."
+
+msgid "No result found!"
+msgstr "Nie znaleziono wyników!"
+
+msgid "Search Info"
+msgstr "Informacja o wyszukiwaniu"
+
+msgid "BirthDate"
+msgstr "Data urodzenia"
+
+msgid "BirthDate:"
+msgstr "Data urodzenia:"
+
+msgid "ExamDate"
+msgstr "Data badania"
+
+msgid "ExamID"
+msgstr "Nr badania"
+
+msgid "ExamType"
+msgstr "Typ badania"
+
+msgid "Data Selection"
+msgstr "Wybór danych"
+
+msgid "Delete the lasted loaded file."
+msgstr "Skasuj ostatni zapisany plik"
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Nie udało się załadować danych z USB! \n"
+" Błąd: Nie utworzono katalogu."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+" Nie udało się załadować danych z USB! \n"
+" Błąd: Brak miejsca."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+" Nie udało się załadować danych z USB! \n"
+" Błąd: Operacje anulowano."
+
+#, c-format
+msgid "Success to load data from USB storage."
+msgstr "Załadowano dane z pamięci USB"
+
+msgid "idle"
+msgstr "czekam"
+
+msgid "printing"
+msgstr "drukowanie"
+
+msgid "disable"
+msgstr "wyłącz"
+
+msgid "PPD File Selection"
+msgstr "Wybór plików PPD"
+
+msgid "Open"
+msgstr "Otwórz"
+
+msgid "File Name"
+msgstr "Nazwa pliku"
+
+msgid "Modified Time"
+msgstr "Zmieniono czas"
+
+msgid "Add Printer"
+msgstr "Dodaj drukarkę"
+
+msgid "Printer URI:"
+msgstr "URI drukarki:"
+
+msgid "URI not found!"
+msgstr "Nie znaleziono URI!"
+
+msgid "Printer Name:"
+msgstr "Nazwa drukarki:"
+
+msgid "Specifies a PPD file:"
+msgstr "Określenie pliku PPD:"
+
+msgid "(PostScript Printer Description file)"
+msgstr "(PostScript opis drukowanego pliku)"
+
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Add Printer Error: URI not found!"
+msgstr "Błąd dodawania drukarki: Nie znaleziono URI!"
+
+msgid "Add Printer Error: Please enter printer name!"
+msgstr " Błąd dodawania drukarki: Proszę wprowadzić nazwę drukarki!"
+
+msgid "Add Printer Error: Please select a PPD file!"
+msgstr " Błąd dodawania drukarki: Proszę wybrać plik PPD!"
+
+msgid "No printer found."
+msgstr "Nie znaleziono drukarki."
+
+msgid "Print Preview"
+msgstr "Próba wydruku"
+
+msgid ""
+"Print\n"
+"Preview"
+msgstr ""
+"Próba\n"
+"wydruku"
+
+msgid "Setting"
+msgstr "Ustawienia"
+
+msgid "Media Size:"
+msgstr "Rozmiar nośnika:"
+
+msgid "Print Copies:"
+msgstr "Kopie:"
+
+msgid "Gamma:"
+msgstr " Gamma:"
+
+msgid "Brightness:"
+msgstr "Jasność:"
+
+msgid "<b>Printer Setting</b>"
+msgstr "<b>Ustawienia drukarki</b>"
+
+msgid ""
+"Default\n"
+"Factory"
+msgstr ""
+"Domyślne\n"
+" Fabryczne"
+
+msgid "Position"
+msgstr "Pozycja"
+
+msgid "<b>General Setting :</b>"
+msgstr "<b>Ustawienia ogólne:</b>"
+
+msgid "Display"
+msgstr "Wyświetlanie"
+
+msgid "Dot Size"
+msgstr "Rozmiar kropki"
+
+msgid "<b>Biopsy Verify :</b>"
+msgstr "<b>Ustawienia biopsji:</b>"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Load Factory"
+msgstr "Ustawienia fabryczne"
+
+msgid "Large"
+msgstr "Szeroki"
+
+msgid "Middle"
+msgstr "Średni"
+
+msgid "Abdo-adult"
+msgstr "Brzuch-dorośli"
+
+msgid "Abdo-kid"
+msgstr "Brzuch-dzieci"
+
+msgid "Later-preg."
+msgstr "Późna ciąża"
+
+msgid "Abdo-liver"
+msgstr "Wątroba"
+
+msgid "Car-adult"
+msgstr "Kar.-drśl."
+
+msgid "Car-kid"
+msgstr "Kar-dci."
+
+msgid "Glands"
+msgstr "Gruczoły"
+
+msgid "Small-part"
+msgstr "Małe narządy"
+
+msgid "Early-preg."
+msgstr "Wczesna ciąża"
+
+msgid "Car-fetus"
+msgstr "Kard. płodu"
+
+msgid "Kidney"
+msgstr "Nerka"
+
+msgid "Jugular"
+msgstr "Żyła szyjna "
+
+msgid "Peri-artery"
+msgstr "Peri arteria"
+
+msgid "Peri-vein"
+msgstr "Peri żyła"
+
+msgid "Hip-joint"
+msgstr "Staw skokowy"
+
+msgid "Meniscus"
+msgstr "Łękotka"
+
+msgid "Joint-cavity"
+msgstr "Torebka stawowa"
+
+msgid "Spine"
+msgstr "Kręgosłup"
+
+msgid "User defined 1"
+msgstr "Ustawienia użytkownika 1"
+
+msgid "User defined 2"
+msgstr " Ustawienia użytkownika 2"
+
+msgid "User defined 3"
+msgstr " Ustawienia użytkownika 3"
+
+msgid "User defined 4"
+msgstr " Ustawienia użytkownika 4"
+
+msgid "[Probe Select]: No Probe was found."
+msgstr "[Wybór sondy]: Nie znaleziono sondy."
+
+msgid "[Probe Select]: Reading Probe Para..."
+msgstr "[Wybór sondy]: Wczytuję sondę…"
+
+msgid "Probe Select"
+msgstr "Wybór sondy"
+
+msgid "No Probe"
+msgstr "Brak sondy"
+
+msgid "General System Setting"
+msgstr "Ustawienia systemu"
+
+msgid "Biopsy Setting"
+msgstr "Ustawienia biopsji"
+
+msgid "Press any key to resume!"
+msgstr "Naciśnij dowolny klawisz by podsumować!"
+
+# msgid ""
+# "Upgrade failed: After lasted upgrade does not restart the system.\n"
+# "Please restart the system and try again!"
+# msgstr ""
+# "Aktualizacja nie powiodła się: Po ostatniej aktualizacji nie zrestartowano systemu. \n"
+# " Proszę zrestartować system i spróbować ponownie."
+msgid "NULL"
+msgstr "NULL"
+
+msgid "Save Video"
+msgstr "Zapisz wideo"
+
+msgid "Print Screen"
+msgstr "Print Screen"
+
+msgid "PIP"
+msgstr "PIP"
+
+# msgid "Spectrum Sound"
+# msgstr "Dźwięk spetum"
+msgid "Abdomen"
+msgstr "Jama brzuszna"
+
+# msgid "Adult Abdomen"
+# msgstr "Brzuszna dorosli"
+msgid "Adult Liver"
+msgstr "Wątroba dorośli"
+
+# msgid "Kid Abdomen"
+# msgstr "Brzuszna dzieci"
+msgid "Cardiac"
+msgstr "Serce"
+
+msgid "Adult Cardio"
+msgstr "Kardio. dorośli"
+
+msgid "Kid Cardio"
+msgstr "Kardio. dzieci"
+
+msgid "Mammary Glands"
+msgstr "Gruczoly piersiowe"
+
+msgid "EyeBall"
+msgstr "Gałka oczna"
+
+msgid "SmallPart"
+msgstr "Małe narządy"
+
+msgid "Gyn"
+msgstr "Ginek."
+
+msgid "Early Pregnant"
+msgstr "Wczesna ciąża"
+
+msgid "Later Pregnant"
+msgstr "Późna ciąża"
+
+msgid "Fetus Cardio"
+msgstr "Kardio. płodu"
+
+msgid "Kidney Ureter"
+msgstr "Moczowód"
+
+msgid "Bladder Prostate"
+msgstr "Pęcherz i prostata"
+
+msgid "Periphery Artery"
+msgstr "Tętnice peryferyjne"
+
+msgid "Periphery Vein"
+msgstr "Żyły peryferyjne"
+
+msgid "Orthopedic"
+msgstr "Ortopedia"
+
+msgid "Hip Joint"
+msgstr "Staw skokowy"
+
+msgid "Joint Cavity"
+msgstr "Torebka stawowa"
+
+msgid "User Defined"
+msgstr "Określenia użytkownika"
+
+msgid "User-defined 1"
+msgstr " Określenia użytkownika 1"
+
+msgid "User-defined 2"
+msgstr " Określenia użytkownika 2"
+
+msgid "User-defined 3"
+msgstr " Określenia użytkownika 3"
+
+msgid "User-defined 4"
+msgstr " Określenia użytkownika 4"
+
+msgid "System Setup"
+msgstr "Podstawowe ustawienia systemu"
+
+msgid "Options"
+msgstr "Opcje"
+
+msgid "Measure Setting"
+msgstr "Pomiary"
+
+msgid "Image Preset"
+msgstr "Obraz"
+
+msgid "Calculate Preset"
+msgstr "Obliczenia"
+
+msgid "Comment Setting"
+msgstr "Komentarz"
+
+msgid "DICOM"
+msgstr "DICOM"
+
+msgid "P1-P2"
+msgstr "P1-P2"
+
+msgid "System Info"
+msgstr "Informacje systemowe"
+
+msgid "Apply"
+msgstr "Zastosuj"
+
+msgid "Save & Exit"
+msgstr "Zapisz i wyjdź"
+
+msgid "<b>Hospital Name:</b>"
+msgstr "<b>Nazwa szpitala:</b>"
+
+msgid "<b>Language:</b>"
+msgstr "<b>Język:</b>"
+
+msgid "<b>Date Format:</b>"
+msgstr "<b>Format Daty:</b>"
+
+msgid "Y/M/D"
+msgstr "RR/MM/DD"
+
+msgid "M/D/Y"
+msgstr "MM/DD/RR"
+
+msgid "D/M/Y"
+msgstr "DD/MM/RR"
+
+msgid "D  "
+msgstr "DD"
+
+msgid "M  "
+msgstr "MM"
+
+msgid "Y  "
+msgstr "RR"
+
+msgid "<b>Screen saver:</b>"
+msgstr "<b>Wygaszacz ekranu:</b>"
+
+# msgid "none"
+# msgstr "bez"
+msgid "5 Min."
+msgstr "5 Min."
+
+msgid "10 Min."
+msgstr "10 Min."
+
+msgid "20 Min."
+msgstr "20 Min."
+
+msgid "30 Min."
+msgstr "30 Min."
+
+msgid "45 Min."
+msgstr "45 Min."
+
+msgid "60 Min."
+msgstr "60 Min."
+
+msgid "<b>Video Standard:</b>"
+msgstr "<b>Standard wideo:</b>"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "<b>TV Connector:</b>"
+msgstr "<b>Złącze TV:</b>"
+
+msgid "S-Video"
+msgstr " S-Video "
+
+msgid "Composite"
+msgstr "Kompozyt"
+
+msgid " (Restart to complete changes)"
+msgstr "(Uruchom ponownie aby dokonać zmian)"
+
+msgid "Time Setting:"
+msgstr "Ustawienia czasu:"
+
+msgid "HH:MM:SS"
+msgstr " HH:MM:SS "
+
+msgid "<b>Data and Time</b>"
+msgstr "<b>Data i czas</b>"
+
+msgid "Adjust Time&Date"
+msgstr "Ustaw datę i czas"
+
+msgid "Common"
+msgstr "Zwykła"
+
+# msgid "Specific"
+# msgstr "Szczególna"
+msgid "<b>Printer</b>"
+msgstr "<b>Drukarka</b>"
+
+msgid "<b>TI</b>"
+msgstr "<b>TI</b>"
+
+msgid "TIC"
+msgstr " TIC "
+
+msgid "TIB"
+msgstr " TIB "
+
+msgid "TIS"
+msgstr " TIS "
+
+msgid "<b>Center Line</b>"
+msgstr "<b>Linia Środkowa</b>"
+
+msgid "<b>Keyboard Sound</b>"
+msgstr "<b>Dźwięk klawiatury</b>"
+
+msgid "<b>Image Options</b>"
+msgstr "<b>Opcje obrazu</b>"
+
+msgid "BMP"
+msgstr " BMP "
+
+msgid "JPEG"
+msgstr " JPEG"
+
+msgid "EMP"
+msgstr " EMP "
+
+msgid "Hard disk"
+msgstr "Dysk twardy"
+
+msgid "U disk"
+msgstr "USB"
+
+msgid "Manual"
+msgstr "Ręcznie"
+
+msgid "Auto"
+msgstr " Auto "
+
+msgid "<b>File name:</b>"
+msgstr "<b>Nazwa pliku:</b>"
+
+msgid "<b>Storage medium:</b>"
+msgstr "<b>Nośnik pamięci:</b>"
+
+msgid "<b>Storage format: </b>"
+msgstr "<b>Format pamięci:</b>"
+
+msgid "<b>Video Options</b>"
+msgstr "<b>Opcje wideo</b>"
+
+msgid "AVI"
+msgstr "AVI"
+
+msgid "CINE"
+msgstr "CINE"
+
+msgid "<b>Probe Type: </b>"
+msgstr "<b>Typ sondy:</b>"
+
+msgid "Get Current"
+msgstr "Obecny"
+
+msgid "<b>Common</b>"
+msgstr "<b>Zwykły</b>"
+
+msgid "MBP :"
+msgstr "MBPŁ:"
+
+msgid "AO / Power :"
+msgstr " AO / Power:"
+
+msgid "<b>2D and M mode</b>"
+msgstr "<b>Tryb 2D i M</b>"
+
+msgid "2D Gain:"
+msgstr "Wzmocnienie 2D:"
+
+msgid "Freq. :"
+msgstr "Częst.:"
+
+msgid "Focus sum:"
+msgstr "Liczba ognisk:"
+
+msgid "Focus Pos. Index:"
+msgstr "Indeks poz. ognisk:"
+
+msgid "Scan Range:"
+msgstr "Zakres skanu:"
+
+msgid "Dynamic Range:"
+msgstr "Zakres dynamiki:"
+
+msgid "Line Density:"
+msgstr "Gęstość linii:"
+
+msgid "Depth Scale:"
+msgstr "Skala głębokości:"
+
+msgid "AGC:"
+msgstr "AGC:"
+
+msgid "Edge enh. :"
+msgstr "Wygł. kraw.:"
+
+msgid "Chroma:"
+msgstr " Chroma:"
+
+msgid "L / R:"
+msgstr "L / R:"
+
+msgid "U / D:"
+msgstr " U / D:"
+
+msgid "Rotation:"
+msgstr "Obrót:"
+
+msgid "Frame aver. :"
+msgstr "Średnia klatkowa:"
+
+msgid "Line aver. :"
+msgstr "Średnia liniowa:"
+
+msgid "Smooth:"
+msgstr "Wygładzenie:"
+
+msgid "Reject:"
+msgstr "Redukcja:"
+
+msgid "THI:"
+msgstr "THI:"
+
+msgid "TSI:"
+msgstr "TSI:"
+
+msgid "M Gain:"
+msgstr "Wzmoc. M:"
+
+msgid "<b>PW mode</b>"
+msgstr "<b>Tryb PW</b>"
+
+msgid "Gain:"
+msgstr "Wzmocnienie:"
+
+msgid "Gain"
+msgstr "Wzmocnienie"
+
+msgid "Scale PRF:"
+msgstr "Skala PRF:"
+
+msgid "Wall Filter:"
+msgstr "Filtr ścienny:"
+
+msgid "Spectrum Invert:"
+msgstr "Odwr. spektrum:"
+
+msgid "Color Invert:"
+msgstr "Odwr. koloru:"
+
+msgid "Time Resolution:"
+msgstr "Rozdzielczość czasowa:"
+
+msgid "<b>CFM mode</b>"
+msgstr "<b>Tryb CFM</b>"
+
+msgid "Color Gain:"
+msgstr "Wzmoc. Koloru.:"
+
+msgid "Sensitivity:"
+msgstr "Czułość:"
+
+msgid "Variance:"
+msgstr "Różnicowanie:"
+
+msgid "Persistence:"
+msgstr "Opór:"
+
+msgid "Color Reject:"
+msgstr "Redukcja kolor:"
+
+msgid "<b>IP Address:     </b>"
+msgstr " <b>Adres IP:</b> "
+
+msgid "<b>IP Address:</b>"
+msgstr " <b>Adres IP:</b> "
+
+msgid "<b>Netmask :</b>"
+msgstr " <b>Maska sieciowa:</b> "
+
+msgid "<b>Gateway :</b>"
+msgstr " <b>Brama:</b> "
+
+msgid "<b>Network Setting</b>"
+msgstr " <b>Ustawienia sieci</b> "
+
+msgid "<b>DICOM Server :</b>"
+msgstr "<b>Serwer DICOM:</b>"
+
+msgid "<b>Port :</b>"
+msgstr "<b>Port :</b> "
+
+msgid "<b>AE Title :</b>"
+msgstr "<b>Tytuł AE :</b> "
+
+msgid "<b>Host</b>"
+msgstr "<b>Host</b>"
+
+msgid "<b>Ultrasound Equipment</b>"
+msgstr "<b>Sprzęt USG</b>"
+
+# msgid "Connection Test"
+# msgstr "test połączenia"
+msgid "Reset"
+msgstr "Reset"
+
+msgid "<b>Font Size</b>"
+msgstr "<b>Rozmiar czcionki</b> "
+
+msgid "<b>Bodymark Size</b>"
+msgstr "<b>Rozmiar znacznika ciała</b>"
+
+msgid "Font Color: "
+msgstr "Kolor czcionki:"
+
+msgid "Probe Mark Color: "
+msgstr "kolor znacznika sond:"
+
+msgid "<b>Measure Line</b>"
+msgstr "<b>Linia pomiaru</b>"
+
+msgid "<b>Cursor Size</b>"
+msgstr "<b>Rozmiar kursora</b>"
+
+msgid "Current Line:"
+msgstr "Obecna linia:"
+
+msgid "Confirmed Line:"
+msgstr "Wybrana linia:"
+
+msgid "<b>Line Color</b>"
+msgstr "<b>Kolor linii</b>"
+
+msgid "Point"
+msgstr "Punkt"
+
+msgid "Track"
+msgstr "Ścieżka"
+
+msgid "<b>Trace Method</b>"
+msgstr "<b>Sposób znaczenia śladu</b>"
+
+msgid "Last"
+msgstr "Ostatni"
+
+msgid "Average"
+msgstr "Średni"
+
+# msgid "<b>Report Result Method</b>"
+# msgstr "<b>Sposób raportowania wyników</b>"
+msgid "<b>Auto Spectrum Calculation Result</b>"
+msgstr "<b>Rezultat obliczenia auto spektrum</b>"
+
+msgid "Key P1"
+msgstr "Klawisz P1"
+
+msgid "Key P2"
+msgstr " Klawisz P2"
+
+msgid "Function:"
+msgstr "Funkcja:"
+
+msgid "<b>Key</b>"
+msgstr "<b>Klawisz</b>"
+
+msgid "<b>Function</b>"
+msgstr "<b>Funkcja</b>"
+
+msgid "hadlock"
+msgstr "hadlock"
+
+msgid "robinson"
+msgstr "robinson"
+
+msgid "hansmenn"
+msgstr "hansmenn"
+
+msgid "lasser"
+msgstr " lasser "
+
+msgid "tokyo"
+msgstr " tokyo "
+
+msgid "custom"
+msgstr " custom "
+
+msgid "merz"
+msgstr " merz "
+
+msgid "jeanty"
+msgstr " jeanty "
+
+msgid "rempen"
+msgstr " rempen "
+
+msgid "hellman"
+msgstr " hellman "
+
+msgid "goldstein"
+msgstr " goldstein "
+
+msgid "<b>HL :</b>"
+msgstr "<b>HL :</b>"
+
+msgid "<b>BPD :</b>"
+msgstr "<b>BPD :</b>"
+
+msgid "<b>CRL :</b>"
+msgstr "<b>CRL :</b>"
+
+msgid "<b>GS :</b>"
+msgstr "<b>GS :</b>"
+
+msgid "<b>CER :</b>"
+msgstr "<b>CER :</b>"
+
+msgid "<b>FL :</b>"
+msgstr "<b>FL :</b>"
+
+msgid "<b>AC :</b>"
+msgstr "<b>AC :</b>"
+
+msgid "<b>APAD :</b>"
+msgstr "<b>APAD :</b>"
+
+msgid "<b>HC :</b>"
+msgstr "<b>HC :</b>"
+
+msgid "<b>THD :</b>"
+msgstr "<b>THD :</b>"
+
+msgid "<b>TAD :</b>"
+msgstr "<b>TAD :</b>"
+
+msgid "<b>OFD :</b>"
+msgstr "<b>OFD :</b>"
+
+msgid "korean"
+msgstr "koreański"
+
+msgid "<b>EFW :</b>"
+msgstr "<b>EFW :</b>"
+
+msgid "hadlock1"
+msgstr " hadlock1"
+
+msgid "hadlock2"
+msgstr " hadlock2"
+
+msgid "hadlock3"
+msgstr " hadlock3"
+
+msgid "hadlock4"
+msgstr " hadlock4"
+
+msgid "shepard"
+msgstr "shepard"
+
+msgid "<b>OB Calc Method</b>"
+msgstr " <b>Sposób obliczania OB</b> "
+
+msgid "OB Custom"
+msgstr "Zwykłe OB"
+
+msgid "<b>BSA :</b>"
+msgstr "<b>BSA :</b>"
+
+msgid "Oriental"
+msgstr "Wschodni"
+
+msgid "Occidental"
+msgstr "Zachodni"
+
+msgid "<b>Model</b>"
+msgstr "<b>Model</b>"
+
+msgid "<b>Software and FPGA Version</b>"
+msgstr " <b>Wersja oprogramowania i FPGA</b> "
+
+msgid "Upgrade"
+msgstr "Aktualizuj"
+
+msgid "Equipment Model"
+msgstr "Model sprzętu"
+
+msgid "Software version"
+msgstr "Wersja oprogramowania"
+
+msgid "FPGA version"
+msgstr "Wresja FPGA"
+
+msgid "Brand"
+msgstr "Marka"
+
+msgid "Model"
+msgstr " Model"
+
+msgid "Printer"
+msgstr "Drukarka"
+
+msgid "Default"
+msgstr "Domyślne"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Message"
+msgstr "Wiadomość"
+
+msgid "Function"
+msgstr "Funkcja"
+
+msgid "Deptment"
+msgstr "Oddział"
+
+#, c-format
+msgid "Connection test successfully!"
+msgstr "Test połączenia powiódł się!"
+
+#, c-format
+msgid "Connection test fails!"
+msgstr " Test połączenia nie powiódł się!"
+
+#, c-format
+msgid "Fail to set the local network!"
+msgstr "Nie udało się połączyć z lokalną siecią!"
+
+msgid "Configuring Network and Testing..."
+msgstr "Konfiguracja i test sieci"
+
+msgid "GW:31~300days"
+msgstr " GW:31~300dni"
+
+msgid "Value:0.0~500.0mm (Click to enter a value)"
+msgstr " Wartość:0.0~500.0mm (kliknij by podać wartość)"
+
+msgid "Value"
+msgstr "Wartość"
+
+msgid "Not realize now!"
+msgstr "Nie możliwe teraz!"
+
+msgid "[Depth]: Not valid in current mode."
+msgstr "[Głębokość]: Nie dostępna w obecnym trybie."
+
+msgid "[Local Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[Zoom miejscowy]: Dostepny tylko w trybie 2D i M oraz na odmrożonym obrazie."
+
+msgid "Invalid in current mode."
+msgstr "Nie dostępne w obecnym trybie"
+
+msgid "FHR ≤ 1 times"
+msgstr " FHR ≤ 1 raz"
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, 1~4 times"
+msgstr " FHR ≥ 15 razy/m, w czasie ≥ 15s, 1~4 razy"
+
+msgid "FHR ≥ 15 razy/m, w czasie ≥ 15s, ≥ 5 razy"
+msgstr "FHR ≥ 15 razy/m, w czasie ≥ 15s,  ≥ 5 razy"
+
+msgid "No FM"
+msgstr "Nie ma FM"
+
+msgid "1~2 times FM"
+msgstr "1~2 razyFM "
+
+msgid "FM ≥ 3 times"
+msgstr " FM ≥ 3 razy"
+
+msgid "No FBM or time ≤ 30s"
+msgstr "Brak FBM lub czas ≤ 30s"
+
+msgid "FBM ≥ 1 times,time 30-60s"
+msgstr "FBM ≥ 1 raz w czasie 30-60s"
+
+msgid "FBM ≥ 1 times,time ≥ 60s"
+msgstr ""
+
+msgid "Limbs stretch, no bend, fingers loose"
+msgstr "Długość kończyn, brak stawów i palców"
+
+msgid "Limbs or spine stretch-bend ≥ 1 times"
+msgstr "Rozpiętość kończyn lub kręgosłupa - stawy ≥ 1 raz"
+
+msgid "Limbs and spine stretch-bend ≥ 1 times"
+msgstr "Rozpiętość kończyn i kręgosłupa ≥ 1 raz"
+
+msgid "Placental grade is 3"
+msgstr "Stopień łożyska 3"
+
+msgid "Placental on posterior wall, no grade"
+msgstr "Łożysko na ścianie tylnej, brak stopnia."
+
+msgid "Placental grade ≤ 2"
+msgstr "Stopień łożyska ≤ 2"
+
+msgid "AF > 2cm"
+msgstr " AF > 2cm "
+
+msgid "1cm < AF < 2cm"
+msgstr "1cm < AF < 2cm "
+
+msgid "AF < 1cm"
+msgstr "AF < 1cm "
+
+msgid "Normal, chronic asphyxia risk low"
+msgstr "W normie, niskie ryzyko chronicznej asfiksji"
+
+msgid "Chronic asphyxia risk suspicious"
+msgstr "Istnieje ryzyko chronicznej asfiksji "
+
+msgid "Chronic asphyxia risk high"
+msgstr "Wysokie ryzyko chronicznej asfiksji "
+
+msgid "Formula: Vintzileos"
+msgstr "Formuła: Vintzileos"
+
+msgid "FHR:"
+msgstr "FHR:"
+
+msgid "FM:"
+msgstr "FM:"
+
+msgid "FBM:"
+msgstr "FBM:"
+
+msgid "FT:"
+msgstr "FT:"
+
+msgid "PL:"
+msgstr "PL:"
+
+msgid "AF:"
+msgstr "AF:"
+
+msgid "Total:"
+msgstr " Razem:"
+
+msgid "Patient ID exist, load data?"
+msgstr "Istnieje już pacjent o takim numerze PESEL, załadować dane?"
+
+msgid "<b>Measure Sequence</b>"
+msgstr " <b>Sekwencja pomiarów</b>"
+
+msgid "Repeat"
+msgstr "Powtórz"
+
+# msgid "None"
+# msgstr "Żaden"
+msgid "【Chroma】"
+msgstr "【Chroma】"
+
+msgid "TV Out"
+msgstr "Wyjście TV"
+
+# msgid "All Screen"
+# msgstr "Pełny ekran"
+msgid "Hide Menu Area"
+msgstr "Ukryj pole menu"
+
+msgid "Image Area Only"
+msgstr "Tylko pole obrazu"
+
+msgid "<b>TV Out Format</b>"
+msgstr " <b>Format wyjścia TV</b> "
+
+msgid "<b>TV Out Format (Restart to complete changes)</b>"
+msgstr "<b>Format wyjścia TV (Uruchom ponownie aby dokonać zmian)</b>"
+
+msgid "SendTo DICOM"
+msgstr ""
+"Wyslij do\n"
+" DICOM"
+
+# msgid ""
+# "Browse\n"
+# "Udisk Image"
+# msgstr ""
+# "Szukaj\n"
+# " obraz na USB"
+msgid "GW:"
+msgstr " GW:"
+
+msgid "EDCB:"
+msgstr "EDCB:"
+
+msgid "Replay/Speed"
+msgstr "Powtórka/Prędkość"
+
+msgid "Please turn off auto calc!"
+msgstr "Proszę wyłączyć autoobliczenia!"
+
+msgid "vView Mode"
+msgstr "Tryb vView"
+
+msgid "BodyMark"
+msgstr "Znacznik ciała"
+
+msgid ""
+"vView Mode\n"
+"\n"
+"Prepare Status"
+msgstr ""
+"Tryb vView\n"
+"\n"
+" Przygotowanie"
+
+msgid ""
+"vView Mode\n"
+"\n"
+"Capture Status"
+msgstr ""
+" Tryb vView\n"
+"\n"
+" Uchwytywanie"
+
+msgid ""
+"vView Mode\n"
+"\n"
+"View Status"
+msgstr ""
+" Tryb vView\n"
+"\n"
+" Statusu oglądu "
+
+msgid ""
+"vView Mode\n"
+"\n"
+"Review Status"
+msgstr ""
+"Tryb vView\n"
+"\n"
+"Przeglądanie"
+
+# msgid "Focus"
+# msgstr "Ognisko"
+msgid "4B"
+msgstr "4B"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "[vView]: Only valid in 2D mode, unfreeze status, linear probe."
+msgstr "[vView]: Tylko przy sondzie liniwej na odmrożonym obrazie"
+
+msgid "Success to save vView cine. Filename is "
+msgstr "Zapisano film vView nazwa pliku"
+
+msgid " <b>Press</b>"
+msgstr "<b>Naciśnij</b>"
+
+msgid ""
+"<b>button to enter the\n"
+" \"Capture Status\"</b>"
+msgstr ""
+"<b>aby przejść do \n"
+" \"uchwytywania\"</b>"
+
+msgid ""
+" <b> button to enter the \n"
+" \"View Status\"</b>"
+msgstr ""
+"<b>aby przejść do \n"
+" \"widoku\"</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"Prepare Status\"</b>"
+msgstr ""
+"<b> aby przejść do \n"
+" \"przygotowania\"</b>"
+
+msgid "Speed: "
+msgstr "Prędkość: "
+
+msgid "vView cine is oversized. Intercept the cine automatically?"
+msgstr "Film vView jest zbyt duży. Zmienić film automatycznie?"
+
+msgid "ROI Size"
+msgstr "Rozmiar ROI"
+
+msgid "Space Compound"
+msgstr "Złożenie przestrzenne"
+
+msgid "Freq. Compound"
+msgstr "Złożenie częst."
+
+msgid "Invalid when compound imaging is on."
+msgstr "Nie dostępne przy obrazowaniu złożonym."
+
+#, c-format
+msgid "%s"
+msgstr "%s"
+
+msgid "[Compound]: Only valid in 2D and M mode, linear probe, harmonic off."
+msgstr "[Złożenie]: Tylko w trybie 2D i M z sondą liniową i wyłącząnej harmonicznej."
+
+msgid "[Compound]: Only valid in 2D and M mode, harmonic off."
+msgstr "[Złożenie]: Tylko w trybie 2D i M i wyłącząnej harmonicznej."
+
+msgid "[Focus]: Mouse to move focus."
+msgstr "[Ogniskowa]: Użyj myszy aby sterowac ogniskową"
+
+msgid "[Replay]: No image can be saved."
+msgstr "[Powtórka]: Nie można zapisać żadnego obrazu."
+
+msgid "Please Set the remote host attribute in system setting"
+msgstr "Proszę podać włsciwości zdalnego serwera w ustawieniach systemu"
+
+msgid "[Rotate]: Invalid when IMTMeasure is open."
+msgstr "[Obrót]: Nie dost?pny przy otwartym pomiarze IMT."
+
+msgid "TP-View"
+msgstr "TP-View"
+
+msgid "EFVI"
+msgstr "EFVI"
+
+msgid "[ScanAngle]: Invalid when Zoom is on."
+msgstr "[Kąt skanu]: Nie dostępny przy włączonym Zoomie."
+
+msgid "[TP-View]: Invalid when EFVI , compound or localzoom is open."
+msgstr "[TP-View]: Nie dostępny, gdy EFVI, złożenie, lub zoom miejscowy są otwarte. "
+
+msgid "[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."
+msgstr "[TP-View]: Dostępny tylko na sondzie liniowej w trybie B, na odmrożonym obrazie."
+
+msgid "[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."
+msgstr "[EFVI]: Dostępny tylko na sondzie konweksowej w trybie B, na odmrożonym obrazie."
+
+msgid "Normal"
+msgstr "Normalny"
+
+msgid "Steer Left"
+msgstr "Nachylenie w lewo"
+
+msgid "Steer Right"
+msgstr " Nachylenie w prawo"
+
+msgid "[Local Zoom]: Invalid when Tp-View or EFVI is on."
+msgstr "[Zoom miejscowy]: Nie dostępny, gdy Tp-View lub EFVI są włączone. "
+
+msgid "There are not enough images for IMT measure."
+msgstr "Obraz jest niewystarczający dla dokonania pomiaru IMT."
+
+msgid "Invalid when Tp-view and EFVI is open."
+msgstr "Nie dostępny, gdy Tp-View i EFVI są otwarte "
+
+msgid "Tp-View"
+msgstr "Tp-View"
+
+msgid "Measurement is invalid in current mode."
+msgstr "Pomiar nie dostępny w obecnym trybie."
+
+msgid "[Local Zoom]: Invalid when Tp-View is on."
+msgstr "[Zoom miejscowy]: Nie dostępny, gdy Tp-View jest włączony."
+
+msgid "[Depth]: <Value> to change depth size."
+msgstr "[Głębokość]: Użyj pokrętła <Value> by ustawić głębokość."
+
+msgid "PageSize:"
+msgstr "Rozmiar strony:"
+
+msgid "[Compound]: Invalid when Tp-view or EFVI is open."
+msgstr " Nie dostępny, gdy Tp-View lub EFVI są otwarte."
+
+msgid "please selected frame numbers are more than one."
+msgstr "wybrana liczba klatek jest większa niż jeden."
+
+msgid "[Local Zoom]: Invalid when in status read picture."
+msgstr "[Zoom miejscowy]: Nie dostępny w trybie odczytywania zdjęć."
+
+msgid "[Local Zoom]: Invalid when TP-view, biopsy line or centerline is on."
+msgstr "[Zoom miejscowy]: Nie dostępny, gdy Tp-View, kanał biopsji lub linia środkowa są włączone."
+
+msgid "Please enter patient ID again!"
+msgstr "Proszę wprowadzić ponownie PESEL pacjenta."
+
+msgid "[Local Zoom]: Invalid when Tp-view, biopsy line or centerline is on."
+msgstr "[Zoom miejscowy]: Nie dostępny, gdy Tp-View. kanał biopsji lub linia środkowa są włączone."
+
+msgid "Invalid when image is rotated!"
+msgstr " Nie dostępne, gdy obraz jest obracany! "
+
+msgid "[EFVI]: Invalid when Tp-view or compound is open."
+msgstr "[EFVI]: Nie dostępny gdy Tp-view lub składanie są otwarte."
+
+msgid "[EFVI]: Invalid when Tp-view , compound or biopsy line is open."
+msgstr "[EFVI]: Nie dostępny, gdy Tp-View, złożenie, lub kanał biopsji są właczone."
+
+msgid "[Local Zoom]: Invalid when in review status."
+msgstr "[Zoom miejscowy]: Nie dostępny w trybie przeglądu."
+
+msgid "[Local Zoom]: Invalid when image is steered."
+msgstr "[Zoom miejscowy]: Nie dostępny gdy bramka jest nachylana."
+
+msgid "[Local Zoom]: Only valid in 2D B mode and not replay status."
+msgstr "[Zoom miejscowy]: Dostępny tylko w trybie 2D i przy wyłączonej powtórce."
+
+msgid "[vView]: Only valid in 2D B mode , unfreeze status, linear probe."
+msgstr "[vView]: Dostępny tylko w trybie 2D i B, na odmrożonym obrazie, przy sondzie liniowej."
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, ≥ 5 times"
+msgstr "FHR ≥ 15 razy/m, czas≥ 15s, ≥ 5 razy"
+
+msgid "<i><b>Growth Curve</b></i>"
+msgstr "<i><b>Krzywa wzrostu</b></i>"
+
+msgid "Y"
+msgstr "RR"
+
+msgid "Sound Power"
+msgstr "Głośność"
+
+msgid "[Scan Angle]: Invalid for linear probe."
+msgstr "[Kąt skanu]: Nie dostępny na sądzie liniowej."
+
+msgid "[Scan Angle]: Invalid when Zoom is on."
+msgstr "[Kąt skanu]: Nie dostępny przy włączonym Zoomie."
+
+msgid "[Steer]: Invalid when localzoom is open!."
+msgstr "Nie dostępny"
+
+msgid "Replay Speed"
+msgstr "Prędkośćpowtórki"
+
+msgid "[Global Zoom]: Only valid in B mode and UnFreeze status."
+msgstr "[Zoom całości]: Dostępny tylko w trybie B na odmrożonym obrazie."
+
+msgid "[PIP]: Only valid in B mode and UnFreeze status."
+msgstr "[PIP]:Dostępny tylkow trybie B na odmrożonym obrazie."
+
+msgid "[Rotate]: Only valid in B mode."
+msgstr "Dostępny tylkow trybie B."
+
+msgid "[vView]: Only valid in B/BB mode, unfreeze status, linear probe."
+msgstr "Dostępny tylkow trybie B/BB na odmrożonym obrazie przy sondzie liniowej."
+
+msgid ""
+" <b>button to enter the\n"
+" \"Capture Status\"</b>"
+msgstr ""
+"<b>klawisz by wejść do \n"
+" \"Uchwytywania\"</b>"
+
+msgid "Failed to create progress"
+msgstr "Proces nie zakończył się  powodzeniem."
+
+msgid "[Local Zoom]: Only valid in B mode and not replay status."
+msgstr "[Zoom miejscowy]:Dostępny tylkow trybie B bez włączenia powtórki."
+
+msgid "[Local Zoom]: Exit."
+msgstr "[Zoom miejscowy]: Wyjście."
+
+msgid "[Freq]: Invalid when simult is on."
+msgstr "[Częst.]:Nie dostępny gdy obrazowanie równoczesne (simult) jest włączone."
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size and to zoom."
+msgstr "[Zoom miejscowy]:Użyj Myszy aby poruszać ramką, <Set> zmienia rozmiar ramki i powiększa."
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Set> to select curve."
+msgstr ""
+"[Przekszt. Szarości]: Użyj Myszy aby poruszać punktem, <Value> aby wybrać punkt, <Set> aby powrócić do\n"
+"pierwotnych wÃ¤hlen Kurve."
+
+msgid "[Freq. Reject]: <Value> change freq. size"
+msgstr "[Redukcja częstot.]: Użyj pokrętła <Value> aby zmienić częstotliwość."
+
+msgid "[Chroma  Reject]: <Value> change chroma "
+msgstr "[Redukcja chrommy]: Użyj pokrętła <Value> aby zmienićchrommę."
+
+msgid "Show Latest Week"
+msgstr "Pokażostatnitydzień"
+
+msgid "Show Latest Month"
+msgstr "Pokażostatnimiesiąc"
+
+msgid "The time input is not correct!"
+msgstr "Wprowadzony czas jest niepoprawny!"
+
+msgid "Gestations:"
+msgstr "Ciąże:"
+
+msgid "Middle Name:"
+msgstr "Drugieimię:"
+
+msgid "Export to USB"
+msgstr "Wyślij do USB"
+
+msgid "Export"
+msgstr "Wyślij"
+
+msgid "Getting the USB info, Please wait..."
+msgstr "Proszę czekać… Określam informacje o USB."
+
+msgid "Please insert one USB!"
+msgstr "Proszęwłożyć USB!"
+
+msgid "Beyond the available capacity of the USB!"
+msgstr "Przekroczono dostępną pojemność USB!"
+
+msgid "No printer found or specified."
+msgstr "Nie znaleziono lub nie wybrano drukarki."
+
+msgid "Failed to print!"
+msgstr "Drukowanie nie powiodło się!"
+
+msgid "SonyGamma:"
+msgstr "SonyGamma:"
+
+msgid "No biopsy bracket found!"
+msgstr "Nie znaleziono nakładki biopsyjnej."
+
+msgid "Value-Gain"
+msgstr "Wartośćwzmocnienia"
+
+msgid "<b>Date and Time</b>"
+msgstr "<b>Data i czas</b>"
+
+msgid "Please set the relevant information of network,host and equipment!"
+msgstr "Proszę określić informacje o sieci, hoście i sprzęcie"
+
+msgid ""
+" <b>button to enter the\n"
+" \"View Status\"</b>"
+msgstr ""
+"<b>klawisz by wejść do \n"
+" \"Statusu oglądu\"</b>"
+
+msgid "PW Gain:"
+msgstr "PW Wzmocnienie:"
+
+msgid "<b>User Select: </b>"
+msgstr "<b>Użytkownik: </b>"
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Nie udało się wysłać danych do urządzenia USB!\n"
+"Błąd:NIe udało się utworzyć dostępu."
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"Nie udało się wysłać danych do urządzenia USB!\n"
+" Błąd: Brak miejsca do zapisu."
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"Nie udało się wysłać danych do urządzenia USB!\n"
+"Błąd: Operacja została przerwana."
+
+#, c-format
+msgid "Failed to send data to USB storage!"
+msgstr "Nie udało się wysłać danych do urządzenia USB!"
+
+msgid "Please wait, sending data to USB storage..."
+msgstr "Proszę poczekać, wysyłanie danych du urządzenia USB!"
+
+msgid "Import From USB"
+msgstr "Ściąganie z USB"
+
+msgid "Export To USB"
+msgstr "Wysyłanie do USB"
+
+msgid "REPORT OF ULTRASOUND"
+msgstr "RAPORT BADANIA USG"
+
+msgid "Hospital: "
+msgstr "Szpital:"
+
+msgid "Check Date: "
+msgstr "Data egzaminu:"
+
+msgid "ID: "
+msgstr "PESEL: "
+
+msgid "Check Num: "
+msgstr "ID badania:"
+
+msgid "Name: "
+msgstr "Nazwa:"
+
+msgid "Sex: "
+msgstr "Płeć:"
+
+msgid "Age: "
+msgstr "Wiek: "
+
+msgid "Section: "
+msgstr "Sekcja: "
+
+msgid "Descriptor: "
+msgstr "Opisujący: "
+
+msgid "Comment: "
+msgstr "komentarz: "
+
+msgid "Check Doctor: "
+msgstr "Diagnosta: "
+
+msgid "Report Doctor: "
+msgstr "Pracownik: "
+
+msgid "System Default"
+msgstr "Domyślne Systemu"
+
+msgid "Simult"
+msgstr "Duplex"
+
+msgid "[HPRF]: Can not be on when simult is on."
+msgstr "[HPRF]: Nie można włączyć, gdy działa Duplex."
+
+msgid "[Simult]: Can not be on when HPRF is on."
+msgstr "[Duplex]: Nie można włączyć gdy działa HPRF."
+
+msgid "[Simult]: Operation is invalid in current mode."
+msgstr "[Duplex]: Operacja jest nie wykonalna w obecnym trybie"
+
+msgid "[Focus]: Invalid when simult is on."
+msgstr "[Ogniskowanie]: Nie działa, gdy Duplex jest włączony."
+
+msgid "Name:"
+msgstr "Nazwa:"
+
+# msgid "Polarity:"
+# msgstr "Polaryzacja:"
+msgid "<b>Current User: </b>"
+msgstr "<b>Bieżący użytkownik: </b>"
+
+msgid "GW"
+msgstr "GW"
+
+msgid "EDCB"
+msgstr "EDCB"
+
+msgid "<i><b>Average</b></i>"
+msgstr "<i><b>Średni</b></i>"
+
+msgid "Spectrum Sound"
+msgstr "Dźwięk spektrum"
+
+msgid "Connection Test"
+msgstr "Test połączenia"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "none"
+msgstr "brak"
+
+msgid "Adult Abdomen"
+msgstr "Brzuch dorośli"
+
+msgid "Kid Abdomen"
+msgstr "Brzuch dzieci"
+
+msgid "<b>Report Result Method</b>"
+msgstr " <b>Raportowanie wyników</b> "
+
+msgid "Polarity:"
+msgstr "Polaryzacja:"
+
+msgid "Focus"
+msgstr "Ogniskowa"
+
+msgid "Scale Unit"
+msgstr "Jednostka Skali"
+
+msgid "Color Reject"
+msgstr "Redukuj Kolor"
+
+msgid "Artifact"
+msgstr "Artefakty"
+
+msgid "Background Hide"
+msgstr "Ukryj Tło"
+
+msgid "ProbeMark Color"
+msgstr "Kolor znacznika sondy"
+
+msgid "Specific"
+msgstr "Inna"
+
+#, c-format
+msgid "Sun."
+msgstr "Ni."
+
+#, c-format
+msgid "Mon."
+msgstr "Pn."
+
+#, c-format
+msgid "Tues."
+msgstr "Wt."
+
+#, c-format
+msgid "Wed."
+msgstr "Śr."
+
+msgid "Thur"
+msgstr "Czw."
+
+#, c-format
+msgid "Fri."
+msgstr "Pt."
+
+#, c-format
+msgid "Sat."
+msgstr "Sb."
+
+msgid "No USB storage found!"
+msgstr "Nie wykryto urządzenia USB!"
+
+msgid "Show Today"
+msgstr "Dzisiejsze"
+
+msgid "Show Lasted Week"
+msgstr "Ostatni tydzień"
+
+msgid "Show Lasted Month"
+msgstr "Ostatni miesiąc"
+
+msgid ""
+"Browse\n"
+"Udisk Image"
+msgstr "Obrazy z USB"
+
+msgid "Exam Type:"
+msgstr "Typ badania:"
+
+msgid "<b>Indication:</b>"
+msgstr "<b>Uwagi</b>"
+
+msgid "Exam Date:"
+msgstr "Data badania:"
+
+msgid "Exam ID:"
+msgstr "Nr badania:"
+
+msgid "Edit Report"
+msgstr "Edytuj Raport"
+
+msgid "Abdominal"
+msgstr "Jama Brzuszna"
+
+msgid "Second Name:"
+msgstr "Drugie imię:"
+
+msgid "Stature:"
+msgstr "Wzrost:"
+
+msgid "Muscle"
+msgstr "Mięśniowe"
+
+msgid "Liquid"
+msgstr "Ciecz"
+
+msgid "Fat"
+msgstr "Tłuszcz"
+
+msgid "Routine"
+msgstr "Zwykłe"
+
+msgid "B/M"
+msgstr "B/M"
+
+msgid "B/PW"
+msgstr "B/PW"
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+msgid "UD_11"
+msgstr "UD_11"
+
+msgid "UD_21"
+msgstr "UD_21"
+
+msgid "UD_12"
+msgstr "UD_12"
+
+msgid "LR_11"
+msgstr "LR_11"
+
+msgid ">"
+msgstr ">"
+
+msgid "<<"
+msgstr "<<"
+
+msgid "<"
+msgstr "<"
+
+msgid ">>"
+msgstr ">>"
+
+msgid ""
+"Not inserted Ukey, please insert Ukey and click button 'OK' to try again.\n"
+"Click button 'Close' to power off."
+msgstr ""
+"Brak Ukey. Wprowadź Ukey i naciśnij przycisk 'OK'.\n"
+"Aby wyłączyć, naciśnij przycisk 'Zamknij'."
+
+msgid "The Ukey has expired, please power off and update license file for Ukey."
+msgstr "Upłynął termin ważności Ukey. Wyłącz urządzenie i uaktualnij plik licencji, aby uzyskać Ukey."
+
+msgid "Not authorize, please contact vendor."
+msgstr "Brak autoryzacji. Skontaktuj się z dostawcą."
+
+msgid "<b>Descriptor:</b>"
+msgstr "<b>Opisujący:</b>"
+
+msgid "<i><b>User</b></i>"
+msgstr "<i><b>Użyt</b></i>"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Prepare Status"
+msgstr "Stan przyg"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Capture Status"
+msgstr "Stan zdj"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"View Status"
+msgstr "Stan podgl"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Review Status"
+msgstr "Stan przegl"
+
+#, c-format
+msgid "Thur."
+msgstr "Czw."
+
+msgid "[Compound]: Only valid in 2D and M mode, no phase probe, harmonic off."
+msgstr "[Seria zdjęć]: Tylko w trybie 2D i M, bez sondy fazowej, tryb harmonijny wył."
+
+msgid "eView cine is oversized. Intercept the cine automatically?"
+msgstr "Rozmiar filmu eView jest za duży. Przerwać film automatycznie?"
+
+msgid "ePure"
+msgstr ""
+
+msgid "eView Mode"
+msgstr ""
+
+msgid "[eView]: Only valid in B/BB mode, unfreeze status, linear probe."
+msgstr "[eView]: Tylko w trybie B/BB, stan odblokowania, sonda liniowa."
+
+msgid "[eView]: Only valid in 2D mode, unfreeze status, linear probe."
+msgstr "[eView]: Tylko w trybie 2D, stan odblokowania, sonda liniowa."
+
+msgid "Please select the wanted image/cine from the list to be exported!"
+msgstr "Aby eksportować wybierz obraz/film z listy!"
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"No Probe was found."
+msgstr ""
+"Nie można przejść w tryb 3D/4D!\n"
+"Nie znaleziono żadnej sondy!"
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"The process cannot be created."
+msgstr ""
+"Nie można przejść w tryb 3D/4D!\n"
+"Nie można utworzyć procesu."
+
+msgid "Success to save eView cine. Filename is "
+msgstr "Zapis filmu eView zakończony. Nazwa pliku to"
+
+msgid "Date of Birth"
+msgstr "Data urodzenia"
+
+msgid "Please select the wanted data from the list  to be exported!"
+msgstr "Wybierz dane do eksportu!"
+
+msgid "Date of Birth:  "
+msgstr "Data urodzenia: "
+
+msgid "Date of Birth:"
+msgstr "Data urodzenia:"
+
+msgid "Error saving user-settings!"
+msgstr "Błąd zapisu ustawień użytk.!"
+
+msgid "Too many printers!"
+msgstr "Za dużo drukarek!"
+
+msgid "Unable to add instance!"
+msgstr ""
+
+msgid "Options saved!"
+msgstr "Opcje zapisano!"
+
+msgid ""
+"Unable to print, \n"
+"unknown file format!"
+msgstr ""
+"Nie można wydrukować. \n"
+"Nieznany format pliku!"
+
+msgid "JobID"
+msgstr "JobID"
+
+msgid "Unable to print!"
+msgstr "Błąd drukowania!"
+
+msgid "(stdin)"
+msgstr ""
+
+msgid "Conflicts"
+msgstr "Konflikty"
+
+msgid "Media Selections"
+msgstr "Wybór mediów"
+
+msgid "Media Size"
+msgstr "Rozm. mediów"
+
+msgid "Media Type"
+msgstr "Rodz. mediów"
+
+msgid "Media Source"
+msgstr "Źródło mediów"
+
+msgid "Number of Copies"
+msgstr "Ilość kopii"
+
+msgid "Collate Copies"
+msgstr "Zestaw kopie"
+
+msgid "Printing in Black"
+msgstr "Druk na czarno"
+
+msgid "Fit on Page"
+msgstr "Dopasuj"
+
+msgid "Pen Width"
+msgstr "Szer. linii"
+
+msgid "micrometers"
+msgstr "mikrometrów"
+
+msgid "HP-GL/2"
+msgstr "HP-GL/2"
+
+msgid "Sheet relativ"
+msgstr "Arkusz wzgl"
+
+msgid "Image relativ"
+msgstr "Obraz wzgl"
+
+msgid "PPI"
+msgstr ""
+
+msgid "Scaling"
+msgstr "Skal"
+
+msgid "Color HUE rotation"
+msgstr "Odcień rotacja"
+
+msgid "Color saturation"
+msgstr "Nasycenie koloru"
+
+msgid "Fehlerteufel"
+msgstr ""
+
+msgid "Warning!"
+msgstr "Ostrzeżenie!"
+
+msgid "You have installed too many printers or templates !"
+msgstr "Zainstalowano zbyt dużą ilość drukarek lub szablonów!"
+
+msgid "The given printer does not exist!"
+msgstr "Wybrana drukarka nie istnieje!"
+
+msgid "PRINTER SETTING"
+msgstr "USTAW. DRUKARKI"
+
+msgid "Sheet Usage"
+msgstr "Zastos. Ark"
+
+msgid "Orientation(horizontal/vertical)"
+msgstr "Orientacja (pozioma/pionowa)"
+
+msgid "Mirror Output"
+msgstr "Lustrzany obraz"
+
+msgid "Brightness"
+msgstr "Jasność"
+
+msgid "Gamma correction"
+msgstr "Poprawki gamma"
+
+msgid "Output"
+msgstr "Wynik"
+
+msgid "PPD"
+msgstr ""
+
+msgid "Look"
+msgstr ""
+
+msgid "Show Output"
+msgstr "Podgl. wyniku"
+
+msgid "Show Text"
+msgstr "Podgl. Teks"
+
+msgid "Show Image"
+msgstr "Podgl. Zdj"
+
+msgid "Show HP-GL/2"
+msgstr "Podgl. HP-GL/2"
+
+msgid "Show PPD"
+msgstr "Podgl. PPD"
+
+msgid "Feel"
+msgstr "Feel"
+
+msgid "Remember last printer"
+msgstr "Zapam. ost. drukarkę"
+
+msgid "Remember last Tab"
+msgstr "Zapamiętaj ost. Tab"
+
+msgid "Save all preferences on exit"
+msgstr "Zapisz wsz. ustaw. przy wych"
+
+msgid "Save number of copies on exit"
+msgstr "Zapisz ilość kopii przy wych"
+
+msgid "Sizes and Spacings"
+msgstr "Rozmiary i rozkład"
+
+msgid "Chars per Inch"
+msgstr "Znaków na cal"
+
+msgid "Lines per Inch"
+msgstr "Linii na cal"
+
+msgid "Columns per Page"
+msgstr "Kolumn na str"
+
+msgid "Margins"
+msgstr "Margin"
+
+msgid "Top"
+msgstr "Up"
+
+msgid "Bottom"
+msgstr "Down"
+
+msgid "Left"
+msgstr "Lewo"
+
+msgid "Right"
+msgstr "Prawo"
+
+msgid "Text formatting"
+msgstr "Formatow. tekstu"
+
+msgid "Use Pretty Print"
+msgstr "Użyj dobrą jakość druku"
+
+msgid "Wrap text"
+msgstr "Zawiń"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Please insert disc!"
+msgstr "Włóż dysk!"
+
+msgid "Gender: "
+msgstr "Płeć: "
+
+msgid "Exam Type: "
+msgstr "Typ badania: "
+
+msgid "Comments: "
+msgstr "Komentarze: "
+
+msgid "Diagnostician: "
+msgstr "Diagnosta: "
+
+msgid "Physician: "
+msgstr "Pracownik: "
+
+msgid "Section:"
+msgstr "Sekcja:"
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Settings"
+msgstr "Ustaw"
+
+msgid "Select Same Item!"
+msgstr "Wybierz tą samą poz.!"
+
+msgid "Only Userdefined items can be deleted!"
+msgstr "Można usunąć tylko pozycje zdefiniowane przez użytkownika!"
+
+msgid " "
+msgstr ""
+
+msgid "Length"
+msgstr "Długość"
+
+msgid "Peri"
+msgstr "Obw"
+
+msgid "Volume"
+msgstr "Obj."
+
+msgid "Ratio"
+msgstr "Stosunek"
+
+msgid "Vel"
+msgstr "Pręd."
+
+msgid "Measure_track"
+msgstr "Śledz. pom."
+
+msgid "DIST_DOT"
+msgstr ""
+
+msgid "DIST_LINE"
+msgstr ""
+
+msgid "LENGTH_TRACK"
+msgstr ""
+
+msgid "LENGTH_DOT"
+msgstr ""
+
+msgid "PERI_TRACK"
+msgstr ""
+
+msgid "PERI_ELLIPSE"
+msgstr ""
+
+msgid "AREA_TRACK"
+msgstr ""
+
+msgid "AREA_DOT"
+msgstr ""
+
+msgid "AREA_REC"
+msgstr ""
+
+msgid "AREA_ELLIPSE"
+msgstr ""
+
+msgid "VOL_3AXIS"
+msgstr ""
+
+msgid "VOL_ELLIPSE1"
+msgstr ""
+
+msgid "VOL_ELLIPSE2"
+msgstr ""
+
+msgid "ANGLE_3DOT"
+msgstr ""
+
+msgid "ANGLE_2LINE"
+msgstr ""
+
+msgid "ANGUSTY_DIST_DOT"
+msgstr ""
+
+msgid "RATIO_DIST_DOT"
+msgstr ""
+
+msgid "ANGUSTY_AREA"
+msgstr ""
+
+msgid "RATIO_AREA"
+msgstr ""
+
+msgid "RATIO_D_P"
+msgstr ""
+
+msgid "RATIO_VOL"
+msgstr ""
+
+msgid "RATIO_ANGLE"
+msgstr ""
+
+msgid "DEPTH_DIST"
+msgstr ""
+
+msgid "DEPTH_DIST_M"
+msgstr ""
+
+msgid "PROFILE"
+msgstr ""
+
+msgid "HISTOGRAM"
+msgstr ""
+
+msgid "TIME_M"
+msgstr ""
+
+msgid "TIME_D"
+msgstr ""
+
+msgid "SLOPE"
+msgstr ""
+
+msgid "VEL_M"
+msgstr ""
+
+msgid "VEL_D"
+msgstr ""
+
+msgid "HR_M"
+msgstr ""
+
+msgid "MEASURE_TRACK"
+msgstr ""
+
+msgid "ACCEL"
+msgstr ""
+
+msgid "PGMEAN"
+msgstr ""
+
+msgid "CalcSetting"
+msgstr "Ustaw. pom."
+
+msgid "Method:"
+msgstr "Metoda:"
+
+msgid "Type:"
+msgstr ""
+
+msgid "Item:"
+msgstr "Poz.:"
+
+msgid "Please Input Name!"
+msgstr "Wprowadź nazwę!"
+
+msgid "Please Custom Type and Method!"
+msgstr "Wybierz typ i metodę!"
+
+msgid "Item has existed. Please input item again!"
+msgstr "Ta pozycja istnieje. Wybierz inną pozycję!"
+
+msgid ""
+"Upgrade failed: The system has not been restarted  after last upgrade.\n"
+"Please restart the system and try again!"
+msgstr ""
+"Błąd aktualizacji: Po ostatniej aktualizacji system nie został zrestartowany.\n"
+"Zrestartuj system i spróbuj ponownie!"
+
+msgid "Others"
+msgstr "Inne"
+
+msgid "Show Comments"
+msgstr "Pokaż koment."
+
+msgid "Show Descriptor"
+msgstr "Pokaż deskr."
+
+msgid "New Template"
+msgstr "Nowy szablon"
+
+msgid "Please rename!"
+msgstr "Zmień nazwę!"
+
+msgid "Please select a node!"
+msgstr "Wybierz tryb!"
+
+msgid "Recovery succeeded!"
+msgstr "Odzyskiwanie zak.!"
+
+msgid "<b>Please Input New Name:</b>"
+msgstr "<b>Wprowadź nową nazwę:</b>"
+
+msgid "<b>Please Select New Name:</b>"
+msgstr "<b>Wybierz nową nazwę:</b>"
+
+msgid "OB "
+msgstr "OB"
+
+msgid "Comment"
+msgstr "Komentarz"
+
+msgid "Custom Report"
+msgstr "Raport klienta"
+
+msgid "<b>MODE</b>"
+msgstr "<b>TRYB</b>"
+
+msgid "<b>Display Format</b>"
+msgstr "<b>Format wyśw.</b>"
+
+msgid "GrayTrans:"
+msgstr "Szarość:"
+
+msgid "ePure:"
+msgstr ""
+
+msgid "SpaceCompound"
+msgstr "Przestrzeń:"
+
+msgid "FreqCompound"
+msgstr "Częstotliwość"
+
+msgid "Full Screen"
+msgstr "Pełny ekran"
+
+msgid "PRINTCONFIG"
+msgstr "Konfig. druk."
+
+msgid "Please select again!"
+msgstr "Wybierz ponownie!"
+
+msgid "SpaceCompound:"
+msgstr "Przestrzeń:"
+
+msgid "FreqCompound:"
+msgstr "Częstotliwość:"
+
+msgid "System Default is proteced!"
+msgstr "Ustawienia fabryczne są chronione!"
+
+msgid "The userconfig is in use!"
+msgstr "Konfig. użytk. jest teraz używana!"
+
+msgid "CW Color Mode"
+msgstr "Kolor trybu CW"
+
+msgid "CW"
+msgstr ""
+
+msgid "PW"
+msgstr ""
+
+msgid "Color CW Mode"
+msgstr ""
+
+msgid "[Arrow]: <Value> to change arrow direction."
+msgstr "[Strzałka]: <Value> by zmienić kierunek strzałki."
+
+msgid "[Focus]: Mouse to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[Ostrość]: Myszka aby zmienić ostrość. Przy włączonym zoom, serii zdjęć, Tp-View lub EFVI, jest tylko jedna ostrość."
+
+msgid "[Freq.]: <Value> change freq. size"
+msgstr "[Częst.]: <Value> zmień częst."
+
+msgid "Query/Retrieve"
+msgstr "Zapyt./Pobier."
+
+msgid " Query/Retrieve"
+msgstr "Zapyt./Pobier."
+
+msgid "QueryRetrieve"
+msgstr "Zapyt.Pobier."
+
+msgid "Import Data"
+msgstr "Importuj dane"
+
+msgid "Browse Udisk Image"
+msgstr "Przegl. zdjęcia Udysku"
+
+msgid "Import DICOM File"
+msgstr "Importuj plik DICOM"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "No USB storage is found!"
+msgstr "Nie znaleziono USB!"
+
+msgid "No record is selected!"
+msgstr "Nie wybrano danych!"
+
+msgid "Please Set the default query/retrieve service in system setting"
+msgstr "Ustaw domyślne zapytanie/pobieranie w ustawieniach systemu"
+
+msgid "Backup Status"
+msgstr "Stan kopii zapas"
+
+msgid "Please Set the default storage service in system setting"
+msgstr "Ustaw domyślne gromadzenie danych w ustawieniach systemu"
+
+msgid "Export Setting"
+msgstr "Eksportuj ustaw"
+
+msgid "Please select export data type"
+msgstr "Wybierz rodzaj eksportu danych"
+
+msgid "Data Format:"
+msgstr ""
+
+msgid "JPEG/BMP/EMP/AVI/CINE"
+msgstr ""
+
+msgid "Export data successfully!"
+msgstr "Eksportowanie zakończone!"
+
+msgid "Study Info has existed!"
+msgstr "Info o bad. już istnieją!"
+
+msgid "Invalid storage device!"
+msgstr "Niepraw. urz. pamięci masowej!"
+
+msgid "Export data failure!"
+msgstr "Błąd eksportu danych!"
+
+msgid "Exporting finished!"
+msgstr "Eksportuj ustaw.!"
+
+msgid "Browse DICOMDIR"
+msgstr "Przegl. DICOMDIR"
+
+msgid "<b>DICOMDIR List</b>"
+msgstr "<b>Lista DICOMDIR</b>"
+
+msgid "<b>Property Description</b>"
+msgstr "<b>Opis właściwości</b>"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Property"
+msgstr "Właśc"
+
+msgid "Patient Name"
+msgstr "Nazwa pacjenta"
+
+msgid "Patient ID"
+msgstr "PESEL"
+
+msgid "Exam Time"
+msgstr "Czas badania"
+
+msgid "Accession Number"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Instance UID"
+msgstr ""
+
+msgid "type"
+msgstr ""
+
+msgid "filePath"
+msgstr "Śc. pliku"
+
+msgid "Import data successfully!"
+msgstr "Import zakończony!"
+
+msgid "DICOMDIR is not existed!"
+msgstr " DICOMDIR nie istnieje!"
+
+msgid "File has lost in DICOMDIR !"
+msgstr "Plik w DICOMDIR zaginął !"
+
+msgid "Import data unsuccessfully!"
+msgstr "Import nie powiódł się!"
+
+msgid "Worklist"
+msgstr "lista robocza"
+
+msgid "Please Set the default MPPS service in system setting"
+msgstr " Wybierz domyślną usługę MPPS w ustawieniach systemu"
+
+msgid "Please Set the default worklist service in system setting"
+msgstr "Wybierz domyślną usługę listy roboczej w ustawieniach systemu"
+
+msgid "<b>Query</b>"
+msgstr "<b>Zapyt.</b>"
+
+msgid "<b>ID:</b>"
+msgstr "<b>PESEL:</b>"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nazwa:</b>"
+
+msgid "<b>Accession Number:</b>"
+msgstr ""
+
+msgid "<b>Gender:</b>"
+msgstr "<b>Płeć:</b>"
+
+msgid "male"
+msgstr "Mężczyzna"
+
+msgid "female"
+msgstr "Kobieta"
+
+msgid "male "
+msgstr "Mężczyzna"
+
+msgid "female "
+msgstr "Kobieta"
+
+msgid "<b>Exam Date :</b>"
+msgstr "<b>Data badania :</b>"
+
+msgid "<b>To :</b>"
+msgstr "<b>Do :</b>"
+
+msgid "Query"
+msgstr "Zapyt."
+
+msgid "<b>Patient List(Source)</b>"
+msgstr "<b>Lista pacjentów (źr.)</b>"
+
+msgid "<b>Device :</b>"
+msgstr "<b>Urządz :</b>"
+
+msgid "Retrieve"
+msgstr "Pobierz"
+
+msgid "<b>Patient List(Destination)</b>"
+msgstr "<b>Lista pacjentów (docel.)</b>"
+
+msgid "patient ID"
+msgstr ""
+
+msgid "Birth Date"
+msgstr "Data urodzenia"
+
+msgid "Exam Description"
+msgstr "Opis badania"
+
+msgid "Stature"
+msgstr "Wzrost"
+
+msgid "Weight"
+msgstr "Waga"
+
+msgid "Exam Doctor"
+msgstr "Lekarz"
+
+msgid "No default server!"
+msgstr "Brak domyśl. serw.!"
+
+msgid "Server connection is failed!"
+msgstr "Brak poł. z serwerem!"
+
+msgid "Query unsuccessfully!"
+msgstr "Błąd zapytania!"
+
+msgid "Retrieve finished!"
+msgstr "Pobieranie zak.!"
+
+msgid "No record or device is selected!"
+msgstr "Nie wybrano danych ani urządzenia!"
+
+msgid "No record or server existed!"
+msgstr "Dane ani serwer nie istnieją!"
+
+msgid "Destination server is invalid!"
+msgstr "Docelowy serwer jest nieprawidłowy!"
+
+msgid "Retrieve failedly!"
+msgstr " Błąd pobierania!"
+
+msgid "Not support study root!"
+msgstr "Brak wsparcia dla badania!"
+
+msgid "Study has existed!"
+msgstr "Badanie już istnieje!"
+
+msgid "Retrieve unsuccessfully!"
+msgstr "Pobieranie nie powiodło się!"
+
+msgid "Delete the latest loaded file."
+msgstr "Usuń ostatni załadowany plik."
+
+msgid " Worklist"
+msgstr ""
+"lista\n"
+"robocza"
+
+msgid "Patient ID :"
+msgstr "PESEL :"
+
+msgid "Patient Name :"
+msgstr "Nazwa pacjenta :"
+
+msgid "Accession Number :"
+msgstr ""
+
+msgid "Requested Procedure ID :"
+msgstr ""
+
+msgid "Scheduled Date :"
+msgstr "Ustalona data:"
+
+msgid "To :"
+msgstr "Do :"
+
+msgid "0 record is found"
+msgstr "Znalez. 0 danych"
+
+msgid "Start Exam"
+msgstr "Rozp. Bad"
+
+msgid "Detail"
+msgstr "Szczeg"
+
+msgid "Scheduled Date"
+msgstr "Wyznaczona data"
+
+msgid "record is found"
+msgstr "odnaleziono"
+
+msgid "No patient is selected!"
+msgstr "Wybierz pacjenta!"
+
+msgid "The exam record  has exsited, please select other record again!"
+msgstr "Dane o badaniu już istnieją. Wybierz inne dane."
+
+msgid "Test Link is failed"
+msgstr "Błąd linku testu"
+
+msgid "Patient Detail"
+msgstr "Info o pacjencie"
+
+msgid "<b>Detail</b>"
+msgstr "<b>Szczeg</b>"
+
+msgid "Gender :"
+msgstr "Płeć :"
+
+msgid "Diagnostician :"
+msgstr "Diagnosta :"
+
+msgid "Stature :"
+msgstr "Wzrost :"
+
+msgid "Weight :"
+msgstr "Waga :"
+
+msgid "Address :"
+msgstr "Adres :"
+
+msgid " Comment "
+msgstr " Komentarz"
+
+msgid "Year"
+msgstr "Rok"
+
+msgid "Month"
+msgstr "Mies"
+
+msgid "Day"
+msgstr "Dz"
+
+msgid "PrintConfig"
+msgstr "Konfig. Druk"
+
+msgid "KidneyUreter"
+msgstr "Moczowód ner"
+
+msgid "HipJoint"
+msgstr "Staw b"
+
+msgid "Kid Adbomen"
+msgstr "Brzuch dziec"
+
+msgid "Item has existed. Please select item again!"
+msgstr "Ta pozycja istnieje. Wybierz inną pozycję!"
+
+msgid "INTEGRAL_TRACK"
+msgstr "ŚLEDZ- INTEGR"
+
+msgid "<b>NetWork Property</b>"
+msgstr "<b>Właść. sieci</b>"
+
+msgid "<b>(xxx.xxx.xxx.xxx)</b>"
+msgstr ""
+
+msgid "Local information must be not empty!"
+msgstr "Wprowadź info o lokalizacji!"
+
+#, c-format
+msgid "Sucess to set the local network!"
+msgstr "Ustawienie lokalnej sieci zakończone!"
+
+msgid "<b>Device</b>"
+msgstr "<b>Urządz</b>"
+
+msgid "<b>IP Address :</b>"
+msgstr "<b>Adres IP :</b>"
+
+msgid "Ping"
+msgstr "Ping"
+
+msgid "<b>Device List</b>"
+msgstr "Lista urz"
+
+msgid "Device"
+msgstr "Urządz"
+
+msgid "IP Address"
+msgstr "Adres IP"
+
+msgid "Device or IP is empty, please input!"
+msgstr "Wprowadź urządzenie lub IP!"
+
+msgid "Ping..."
+msgstr "Ping..."
+
+msgid "Success to ping ip"
+msgstr "Ping ip zakończone"
+
+msgid "Failed to ping ip"
+msgstr "Błąd ping ip"
+
+msgid "'localhost' has been used, please input again!"
+msgstr "Nazwa 'localhost' jest już używana. Wprowadź inną nazwę!"
+
+msgid "Add failed,device or IP has been existed\n"
+msgstr "Dodawanie nie powiodło się. Urządz. lub IP już istnieją.\n"
+
+msgid "Storage"
+msgstr "Przech"
+
+msgid "MPPS"
+msgstr ""
+
+msgid "Storage Commitment"
+msgstr "Zobowiązanie przech"
+
+msgid "StorageCommitment"
+msgstr "Zobowiązanieprzech"
+
+msgid "<b>Device Property</b>"
+msgstr "Właściw. Urządz"
+
+msgid "<b>Service Name :</b>"
+msgstr "Nazwa usługi :"
+
+msgid "<b>Service List</b>"
+msgstr "Lista usługi"
+
+msgid "Connect Test"
+msgstr "Podł. test"
+
+msgid "Attach Structured Report"
+msgstr "Dołącz raport strukt"
+
+msgid "Allow Multiframe"
+msgstr "Zezwól na multiramki"
+
+msgid "Max number of frames:"
+msgstr "Maks. ilość ramek:"
+
+msgid "Auto Query"
+msgstr "Aut. Zapyt"
+
+msgid "Send MPPS after start exam and end exam"
+msgstr "Wyślij MPPS po rozp. i zak. badania"
+
+msgid "Send storage commitment after storage"
+msgstr "Wyślij zobow. przechowyw. danych po ich zmag."
+
+msgid "Service Name"
+msgstr "Nazwa usługi"
+
+msgid "AE Title"
+msgstr "Tytuł AE"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Device ,AE or Port is empty, please input!"
+msgstr "Wprowadź urządzenie, AE lub Port!"
+
+msgid "Add failed,device has been existed\n"
+msgstr "Dodawanie nie powiodło się. Urządz. już istnieje.\n"
+
+msgid "No device is selected!"
+msgstr "Nie wybrano urządzenia!"
+
+msgid "Connect..."
+msgstr "Połącz…"
+
+msgid "Please Set the default Worklist server in system setting"
+msgstr "Ustaw domyślny serwer listy roboczej w ustawieniach systemu"
+
+msgid "Please Set the default MPPS server in system setting"
+msgstr "Ustaw domyślny serwer MPPS w ustawieniach systemu"
+
+msgid "Please Set the default Storage Commitment server in system setting"
+msgstr "Ustaw domyślny serwer Przechowywania Danych w ustawieniach systemu"
+
+msgid "DICOM Register"
+msgstr "Rejestr DICOM"
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate\n"
+"a unique register key for every machine,you can register DICOM\n"
+"function by inputting thist register key.If register is successful,\n"
+"you can use the DICOM function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will\n"
+"find this file named 'license' in Udisk. Please send this file to\n"
+"manufacturer."
+msgstr ""
+"Uwaga: Zgodnie z plikiem licencji, producent generuje unikatowy klucz\n"
+"rejestru dla każdej maszyny. Funkcję DICOM można zarejestrować,\n"
+"wprowadzając ten klucz rejestracyjny. Jeżeli rejestracja się powiedzie,\n"
+"można użyć funkcji DICOM.\n"
+"\n"
+"Wprowadź Udisk i naciśnij przycisk 'Eksportuj plik licencyjny'. Ten plik\n"
+"znajduje się na Udisku pod nazwą 'licencja'. Prześlij ten plik do\n"
+"producenta."
+
+msgid "Export License File"
+msgstr "Eksportuj plik licencyjny"
+
+msgid "Register Key:"
+msgstr "Klucz rejestracji:"
+
+msgid "Register"
+msgstr "Rejestr"
+
+msgid "Succeed to export file!"
+msgstr "Eksport pliku zakończony!"
+
+msgid "Fail to export file!"
+msgstr "Eksport pliku nie udał się!"
+
+msgid "Succeed to register!"
+msgstr "Rejestrowanie zakończone!"
+
+msgid "Fail to register!"
+msgstr "Nie można zarejestr!"
+
+msgid "Template name has existed or the input format is incorrect.Please input again!"
+msgstr "Nazwa szablonu już istnieje lub format jest nieprawidłowy. Spróbuj jeszcze raz!"
+
+msgid "Selected exam type has existed!"
+msgstr "Wybrany rodzaj badania już istnieje!"
+
+msgid "<b>Please Select Exam Type:</b>"
+msgstr "<b>Wybierz rodzaj badania:</b>"
+
+msgid "Blank template can't apply!"
+msgstr "Pusty szablon!"
+
+msgid "<b>M: </b>"
+msgstr ""
+
+msgid "<b>PW/CW: </b>"
+msgstr ""
+
+msgid "The exam type can not be null!"
+msgstr "Wprowadź rodzaj badania!"
+
+msgid "Rename failed! The exam type has been exist!"
+msgstr "Zmiana nazwy nie powiodła się! Ten rodzaj badania już istnieje!"
+
+msgid "Operation is invaild."
+msgstr "Nieprawidłowa operacja."
+
+msgid "Defaulted Item"
+msgstr "Pozycja domyślna"
+
+msgid "Please select the department before insert!"
+msgstr "Wybierz najpierw sekcję!"
+
+msgid "The number of the defined exam item is beyond max!"
+msgstr "Ilość zdefiniowanych pozycji badania przekracza maks. wartość!"
+
+msgid "Insert failure! Please select the department before insert!"
+msgstr "Wybierz najpierw sekcję!"
+
+msgid "Please select one exam type to be delete!"
+msgstr "Wybierz jeden rodzaj badania, które chcesz usunąć!"
+
+msgid "Delete failure! Can not delete the department!"
+msgstr "Nie można usunąć sekcji!"
+
+msgid "Delete failure! Can not delete the defaulted exam item!"
+msgstr "Nie można usunąć domyślnego badania!"
+
+msgid "Delete failure! Can not delete the exam type and using!"
+msgstr ""
+
+msgid "Local"
+msgstr ""
+
+msgid "Server"
+msgstr "Serwer"
+
+msgid "Service"
+msgstr "Usługa"
+
+msgid "<b>Value</b>"
+msgstr "<b>Wartość</b>"
+
+msgid "<b>P1</b>"
+msgstr ""
+
+msgid "<b>Gain</b>"
+msgstr "<b>Wzmocnienie</b>"
+
+msgid "<b>P2</b>"
+msgstr ""
+
+msgid "Department"
+msgstr "Sekcja"
+
+msgid "User configuration being in use!"
+msgstr "Konfig. użytk. jest teraz używana!"
+
+msgid "System Default is protected!"
+msgstr "Ustawienia fabryczne są chronione!"
+
+msgid "The new item can not be null!"
+msgstr "Nowa poz. nie może mieć wartości zero!"
+
+msgid "Rename failed! The item has been exist!"
+msgstr "Taka pozycja już istnieje!"
+
+msgid "The defined items have reached the maximum!"
+msgstr "Ilość zdefiniowanych pozycji osiągnęła maks. wartość!"
+
+msgid "Please select one item to be delete!"
+msgstr "Wybierz jedną pozycję, która ma być usunięta!"
+
+msgid "Delete failure! Can not delete the item and using!"
+msgstr "Nie można usunąć używanej obecnie pozycji!"
+
+msgid "Animal"
+msgstr "Zwierz"
+
+msgid "Part"
+msgstr "Cz"
+
+msgid "Dist"
+msgstr "Odl"
+
+msgid "Vol"
+msgstr "Obj"
+
+msgid "SD"
+msgstr ""
+
+msgid "Accel"
+msgstr ""
+
+msgid "PG max"
+msgstr ""
+
+msgid "PG mean"
+msgstr ""
+
+msgid "Angusty"
+msgstr "Cieśni"
+
+msgid "Gallbladder Vol"
+msgstr ""
+
+msgid "Gallbladder L"
+msgstr ""
+
+msgid "Gallbladder W"
+msgstr ""
+
+msgid "Gallbladder H"
+msgstr ""
+
+msgid "CBD Diam"
+msgstr ""
+
+msgid "GB Wall"
+msgstr ""
+
+msgid "Liver L"
+msgstr ""
+
+msgid "Spleen Vol"
+msgstr ""
+
+msgid "Spleen L"
+msgstr ""
+
+msgid "Spleen W"
+msgstr ""
+
+msgid "Spleen H"
+msgstr ""
+
+msgid "Pancreas Vol"
+msgstr ""
+
+msgid "Pancreas L"
+msgstr ""
+
+msgid "Pancreas W"
+msgstr ""
+
+msgid "Pancreas H"
+msgstr ""
+
+msgid "Ao Dist Diam"
+msgstr ""
+
+msgid "Ao Mid Diam"
+msgstr ""
+
+msgid "Ao Prox Diam"
+msgstr ""
+
+msgid "Dist Ao"
+msgstr ""
+
+msgid "Celiac A"
+msgstr ""
+
+msgid "Com Hep A"
+msgstr ""
+
+msgid "L Hep A"
+msgstr ""
+
+msgid "R Hep A"
+msgstr ""
+
+msgid "GDA"
+msgstr ""
+
+msgid "IMA"
+msgstr ""
+
+msgid "SMA"
+msgstr ""
+
+msgid "Splenic A"
+msgstr ""
+
+msgid "Prox IVC"
+msgstr ""
+
+msgid "Dist IVC"
+msgstr ""
+
+msgid "L Hep V"
+msgstr ""
+
+msgid "M Hep V"
+msgstr ""
+
+msgid "R Hep V"
+msgstr ""
+
+msgid "L Port V"
+msgstr ""
+
+msgid "M Port V"
+msgstr ""
+
+msgid "R Port V"
+msgstr ""
+
+msgid "Splenic V"
+msgstr ""
+
+msgid "IMV"
+msgstr ""
+
+msgid "SMV"
+msgstr ""
+
+msgid "LVLd Apical(2D)"
+msgstr ""
+
+msgid "LVIDs(2D)"
+msgstr ""
+
+msgid "LVPWs(2D)"
+msgstr ""
+
+msgid "LVOT Diam(2D)"
+msgstr ""
+
+msgid "LVIDd(2D)"
+msgstr ""
+
+msgid "LVPWd(2D)"
+msgstr ""
+
+msgid "LVAd SAx Endo(2D)"
+msgstr ""
+
+msgid "LVAd SAx Epi(2D)"
+msgstr ""
+
+msgid "RVIDd(2D)"
+msgstr ""
+
+msgid "RVAWd(2D)"
+msgstr ""
+
+msgid "RVOT Diam(2D)"
+msgstr ""
+
+msgid "IVSd(2D)"
+msgstr ""
+
+msgid "IVSs(2D)"
+msgstr ""
+
+msgid "LA Dimen(2D)"
+msgstr ""
+
+msgid "AoR Diam(2D)"
+msgstr ""
+
+msgid "Ao Isthmus Diam(2D)"
+msgstr ""
+
+msgid "Asc Ao Diam(2D)"
+msgstr ""
+
+msgid "Desc Ao Diam(2D)"
+msgstr ""
+
+msgid "MPA Diam(2D)"
+msgstr ""
+
+msgid "LPA Diam(2D)"
+msgstr ""
+
+msgid "RPA Diam(2D)"
+msgstr ""
+
+msgid "A2Cd(2D)"
+msgstr ""
+
+msgid "A2Cs(2D)"
+msgstr ""
+
+msgid "A4Cd(2D)"
+msgstr ""
+
+msgid "A4Cs(2D)"
+msgstr ""
+
+msgid "LVd(A/L)(2D)"
+msgstr ""
+
+msgid "LVs(A/L)(2D)"
+msgstr ""
+
+msgid "AV Area(2D)"
+msgstr ""
+
+msgid "AI Radius(2D)"
+msgstr ""
+
+msgid "MV Diam(2D)"
+msgstr ""
+
+msgid "MV Radius(2D)"
+msgstr ""
+
+msgid "MV Area(Planim)(2D)"
+msgstr ""
+
+msgid "MR Radius(2D)"
+msgstr ""
+
+msgid "TV Diam(2D)"
+msgstr ""
+
+msgid "TV Radius(2D)"
+msgstr ""
+
+msgid "RVAWd(M)"
+msgstr ""
+
+msgid "RVIDd(M)"
+msgstr ""
+
+msgid "IVSd(M)"
+msgstr ""
+
+msgid "LVIDd(M)"
+msgstr ""
+
+msgid "LVPWd(M)"
+msgstr ""
+
+msgid "IVSs(M)"
+msgstr ""
+
+msgid "LVIDs(M)"
+msgstr ""
+
+msgid "LVPWs(M)"
+msgstr ""
+
+msgid "HR-LV(M)"
+msgstr ""
+
+msgid "LVOT Diam(M)"
+msgstr ""
+
+msgid "AoR Diam(M)"
+msgstr ""
+
+msgid "LA Dimen(M)"
+msgstr ""
+
+msgid "LV ET(M)"
+msgstr ""
+
+msgid "LV PEP(M)"
+msgstr ""
+
+msgid "AV Cusp Sep(M)"
+msgstr ""
+
+msgid "MV D-E Exc(M)"
+msgstr ""
+
+msgid "MV D-E Slope(M)"
+msgstr ""
+
+msgid "MV E-F Sep(M)"
+msgstr ""
+
+msgid "MV E-F Slope(M)"
+msgstr ""
+
+msgid "MV EPSS(M)"
+msgstr ""
+
+msgid "MV A-C Interval(M)"
+msgstr ""
+
+msgid "TV D-E Exc(M)"
+msgstr ""
+
+msgid "TV D-E Slope(M)"
+msgstr ""
+
+msgid "TV E-F Slope(M)"
+msgstr ""
+
+msgid "TV A-C Interval(M)"
+msgstr ""
+
+msgid "Late Dias Slope(M)"
+msgstr ""
+
+msgid "A Wave Amp(M)"
+msgstr ""
+
+msgid "B-C Slope(M)"
+msgstr ""
+
+msgid "RV ET(M)"
+msgstr ""
+
+msgid "RV PEP(M)"
+msgstr ""
+
+msgid "AV Accel Time(D)"
+msgstr ""
+
+msgid "AV Decel Time(D)"
+msgstr ""
+
+msgid "AV Vmax(D)"
+msgstr ""
+
+msgid "LVOT Accel Time(D)"
+msgstr ""
+
+msgid "LVOT Vmax(D)"
+msgstr ""
+
+msgid "AI Accel Time(D)"
+msgstr ""
+
+msgid "AI P1/2t(D)"
+msgstr ""
+
+msgid "AI Dec Slope(D)"
+msgstr ""
+
+msgid "AI Vmax(D)"
+msgstr ""
+
+msgid "AI End Dias Vel(D)"
+msgstr ""
+
+msgid "VTI(D)"
+msgstr ""
+
+msgid "HR-AV(D)"
+msgstr ""
+
+msgid "HR-MV(D)"
+msgstr ""
+
+msgid "MV P1/2t(D)"
+msgstr ""
+
+msgid "MV Peak E Vel(D)"
+msgstr ""
+
+msgid "MV Peak A Vel(D)"
+msgstr ""
+
+msgid "MV A Dur(D)"
+msgstr ""
+
+msgid "IVRT(D)"
+msgstr ""
+
+msgid "MV Decel Time(D)"
+msgstr ""
+
+msgid "MV Decel Slope(D)"
+msgstr ""
+
+msgid "IVCT(D)"
+msgstr ""
+
+msgid "MV Accel Time(D)"
+msgstr ""
+
+msgid "MV Vmax(D)"
+msgstr ""
+
+msgid "MR Vmax(D)"
+msgstr ""
+
+msgid "HR-TV(D)"
+msgstr ""
+
+msgid "TV Vmax(D)"
+msgstr ""
+
+msgid "TR Vmax(D)"
+msgstr ""
+
+msgid "TV Accel Time(D)"
+msgstr ""
+
+msgid "TV Peak E Vel(D)"
+msgstr ""
+
+msgid "TV Peak A Vel(D)"
+msgstr ""
+
+msgid "HR-PV(D)"
+msgstr ""
+
+msgid "PV Vmax(D)"
+msgstr ""
+
+msgid "PV Accel Time(D)"
+msgstr ""
+
+msgid "PI End Dias Vel(D)"
+msgstr ""
+
+msgid "Pulm Dias Vel(D)"
+msgstr ""
+
+msgid "Pulm Sys Vel(D)"
+msgstr ""
+
+msgid "RVOT Vmax(D)"
+msgstr ""
+
+msgid "CER"
+msgstr ""
+
+msgid "Cist Magna"
+msgstr ""
+
+msgid "OOD"
+msgstr ""
+
+msgid "Tibia"
+msgstr ""
+
+msgid "TTD"
+msgstr ""
+
+msgid "IOD"
+msgstr ""
+
+msgid "Radius"
+msgstr ""
+
+msgid "Ulna"
+msgstr ""
+
+msgid "Fibula"
+msgstr ""
+
+msgid "Nuch Fold"
+msgstr ""
+
+msgid "Umbilical A"
+msgstr ""
+
+msgid "L MCA"
+msgstr ""
+
+msgid "R MCA"
+msgstr ""
+
+msgid "AFI1"
+msgstr ""
+
+msgid "AFI2"
+msgstr ""
+
+msgid "AFI3"
+msgstr ""
+
+msgid "AFI4"
+msgstr ""
+
+msgid "CRL"
+msgstr ""
+
+msgid "NT"
+msgstr ""
+
+msgid "Cerv Length"
+msgstr ""
+
+msgid "Sac Diam"
+msgstr ""
+
+msgid "Yolk Sac"
+msgstr ""
+
+msgid "L Ov Vol"
+msgstr ""
+
+msgid "L Ov Height"
+msgstr ""
+
+msgid "L Ov Length"
+msgstr ""
+
+msgid "L Ov Width"
+msgstr ""
+
+msgid "R Ov Vol"
+msgstr ""
+
+msgid "R Ov Height"
+msgstr ""
+
+msgid "R Ov Length"
+msgstr ""
+
+msgid "R Ov Width"
+msgstr ""
+
+msgid "RA Dimension"
+msgstr ""
+
+msgid "RA Length"
+msgstr ""
+
+msgid "RA Width"
+msgstr ""
+
+msgid "RV Dimension"
+msgstr ""
+
+msgid "RV Length"
+msgstr ""
+
+msgid "RV Width"
+msgstr ""
+
+msgid "RVOT Diam"
+msgstr ""
+
+msgid "IVS(2D)"
+msgstr ""
+
+msgid "LA Dimension"
+msgstr ""
+
+msgid "LA Length"
+msgstr ""
+
+msgid "LA Width"
+msgstr ""
+
+msgid "LV Dimension"
+msgstr ""
+
+msgid "LV Length"
+msgstr ""
+
+msgid "LV Width"
+msgstr ""
+
+msgid "LVOT Diam"
+msgstr ""
+
+msgid "Heart Area"
+msgstr ""
+
+msgid "Heart Circ"
+msgstr ""
+
+msgid "ThrC"
+msgstr ""
+
+msgid "AoR Diam"
+msgstr ""
+
+msgid "Ao Annul Diam"
+msgstr ""
+
+msgid "Desc Ao"
+msgstr ""
+
+msgid "Duct Art Diam(2D)"
+msgstr ""
+
+msgid "Duct Ven"
+msgstr ""
+
+msgid "MV Annul Diam"
+msgstr ""
+
+msgid "TV Annul Diam"
+msgstr ""
+
+msgid "Thoracic Ao"
+msgstr ""
+
+msgid "GS"
+msgstr ""
+
+msgid "BPD"
+msgstr ""
+
+msgid "AC"
+msgstr ""
+
+msgid "HC"
+msgstr ""
+
+msgid "HL"
+msgstr ""
+
+msgid "FL"
+msgstr ""
+
+msgid "TAD"
+msgstr ""
+
+msgid "APAD"
+msgstr ""
+
+msgid "THD"
+msgstr ""
+
+msgid "OFD"
+msgstr ""
+
+msgid "FTA"
+msgstr ""
+
+msgid "Ear"
+msgstr ""
+
+msgid "Orbit1"
+msgstr ""
+
+msgid "Orbit2"
+msgstr ""
+
+msgid "Post Fossa"
+msgstr ""
+
+msgid "Mandible"
+msgstr ""
+
+msgid "Nasal"
+msgstr ""
+
+msgid "Clavicle"
+msgstr ""
+
+msgid "M Phalanx 5"
+msgstr ""
+
+msgid "L Foot L"
+msgstr ""
+
+msgid "L Foot A"
+msgstr ""
+
+msgid "R Foot L"
+msgstr ""
+
+msgid "R Foot A"
+msgstr ""
+
+msgid "Bladder AP"
+msgstr ""
+
+msgid "Bladder L"
+msgstr ""
+
+msgid "Bladder Tr"
+msgstr ""
+
+msgid "L Renal AP"
+msgstr ""
+
+msgid "L Renal L"
+msgstr ""
+
+msgid "L Renal Tr"
+msgstr ""
+
+msgid "L Renal Pelvis"
+msgstr ""
+
+msgid "R Renal AP"
+msgstr ""
+
+msgid "R Renal L"
+msgstr ""
+
+msgid "R Renal Tr"
+msgstr ""
+
+msgid "R Renal Pelvis"
+msgstr ""
+
+msgid "Adr Gland AP"
+msgstr ""
+
+msgid "Adr Gland L"
+msgstr ""
+
+msgid "Adr Gland Tr"
+msgstr ""
+
+msgid "Ureter AP"
+msgstr ""
+
+msgid "Ureter Tr"
+msgstr ""
+
+msgid "L Lung Diam"
+msgstr ""
+
+msgid "R Lung Diam"
+msgstr ""
+
+msgid "L Uterine A"
+msgstr ""
+
+msgid "R Uterine A"
+msgstr ""
+
+msgid "Pelvis AP"
+msgstr ""
+
+msgid "Pelvis L"
+msgstr ""
+
+msgid "Pelvis Tr"
+msgstr ""
+
+msgid "Scapul"
+msgstr ""
+
+msgid "Bladder Vol"
+msgstr ""
+
+msgid "Bladder H"
+msgstr ""
+
+msgid "Bladder W"
+msgstr ""
+
+msgid "PV Bladder Vol"
+msgstr ""
+
+msgid "PV Bladder H"
+msgstr ""
+
+msgid "PV Bladder L"
+msgstr ""
+
+msgid "PV Bladder W"
+msgstr ""
+
+msgid "L Ovarian A"
+msgstr ""
+
+msgid "R Ovarian A"
+msgstr ""
+
+msgid "Endo Thick"
+msgstr ""
+
+msgid "Uterus Vol"
+msgstr ""
+
+msgid "Uterus Height"
+msgstr ""
+
+msgid "Uterus Length"
+msgstr ""
+
+msgid "Uterus Width"
+msgstr ""
+
+msgid "L Uterine A Diam"
+msgstr ""
+
+msgid "R Uterine A Diam"
+msgstr ""
+
+msgid "FHR"
+msgstr ""
+
+msgid "L Foll1"
+msgstr ""
+
+msgid "L Foll2"
+msgstr ""
+
+msgid "L Foll3"
+msgstr ""
+
+msgid "L Foll4"
+msgstr ""
+
+msgid "L Foll5"
+msgstr ""
+
+msgid "L Foll6"
+msgstr ""
+
+msgid "L Foll7"
+msgstr ""
+
+msgid "L Foll8"
+msgstr ""
+
+msgid "L Foll9"
+msgstr ""
+
+msgid "L Foll10"
+msgstr ""
+
+msgid "R Foll1"
+msgstr ""
+
+msgid "R Foll2"
+msgstr ""
+
+msgid "R Foll3"
+msgstr ""
+
+msgid "R Foll4"
+msgstr ""
+
+msgid "R Foll5"
+msgstr ""
+
+msgid "R Foll6"
+msgstr ""
+
+msgid "R Foll7"
+msgstr ""
+
+msgid "R Foll8"
+msgstr ""
+
+msgid "R Foll9"
+msgstr ""
+
+msgid "R Foll10"
+msgstr ""
+
+msgid "Fibroid1"
+msgstr ""
+
+msgid "Fibroid2"
+msgstr ""
+
+msgid "Fibroid3"
+msgstr ""
+
+msgid "Fibroid4"
+msgstr ""
+
+msgid "Fibroid5"
+msgstr ""
+
+msgid "Fibroid6"
+msgstr ""
+
+msgid "Fibroid7"
+msgstr ""
+
+msgid "Fibroid8"
+msgstr ""
+
+msgid "Fibroid9"
+msgstr ""
+
+msgid "Fibroid10"
+msgstr ""
+
+msgid "Prostate Vol"
+msgstr ""
+
+msgid "Prostate H"
+msgstr ""
+
+msgid "Prostate L"
+msgstr ""
+
+msgid "Prostate W"
+msgstr ""
+
+msgid "L Kid Vol"
+msgstr ""
+
+msgid "L Kid H"
+msgstr ""
+
+msgid "L Kid L"
+msgstr ""
+
+msgid "L Kid W"
+msgstr ""
+
+msgid "L Dist Ren A"
+msgstr ""
+
+msgid "L Main Ren A"
+msgstr ""
+
+msgid "L Ren V"
+msgstr ""
+
+msgid "L Ureter AP"
+msgstr ""
+
+msgid "L Ureter Tr"
+msgstr ""
+
+msgid "R Kid Vol"
+msgstr ""
+
+msgid "R Kid H"
+msgstr ""
+
+msgid "R Kid L"
+msgstr ""
+
+msgid "R Kid W"
+msgstr ""
+
+msgid "R Dist Ren A"
+msgstr ""
+
+msgid "R Main Ren A"
+msgstr ""
+
+msgid "R Ren V"
+msgstr ""
+
+msgid "R Ureter AP"
+msgstr ""
+
+msgid "R Ureter Tr"
+msgstr ""
+
+msgid "L Galact Thick"
+msgstr ""
+
+msgid "R Galact Thick"
+msgstr ""
+
+msgid "Breast L Lesion1 Vol"
+msgstr ""
+
+msgid "Breast L Lesion1 L"
+msgstr ""
+
+msgid "Breast L Lesion1 W"
+msgstr ""
+
+msgid "Breast L Lesion1 H"
+msgstr ""
+
+msgid "Breast L Lesion2 Vol"
+msgstr ""
+
+msgid "Breast L Lesion2 L"
+msgstr ""
+
+msgid "Breast L Lesion2 W"
+msgstr ""
+
+msgid "Breast L Lesion2 H"
+msgstr ""
+
+msgid "Breast L Lesion3 Vol"
+msgstr ""
+
+msgid "Breast L Lesion3 L"
+msgstr ""
+
+msgid "Breast L Lesion3 W"
+msgstr ""
+
+msgid "Breast L Lesion3 H"
+msgstr ""
+
+msgid "Breast L Lesion4 Vol"
+msgstr ""
+
+msgid "Breast L Lesion4 L"
+msgstr ""
+
+msgid "Breast L Lesion4 W"
+msgstr ""
+
+msgid "Breast L Lesion4 H"
+msgstr ""
+
+msgid "Breast L Lesion5 Vol"
+msgstr ""
+
+msgid "Breast L Lesion5 L"
+msgstr ""
+
+msgid "Breast L Lesion5 W"
+msgstr ""
+
+msgid "Breast L Lesion5 H"
+msgstr ""
+
+msgid "Breast R Lesion1 Vol"
+msgstr ""
+
+msgid "Breast R Lesion1 L"
+msgstr ""
+
+msgid "Breast R Lesion1 W"
+msgstr ""
+
+msgid "Breast R Lesion1 H"
+msgstr ""
+
+msgid "Breast R Lesion2 Vol"
+msgstr ""
+
+msgid "Breast R Lesion2 L"
+msgstr ""
+
+msgid "Breast R Lesion2 W"
+msgstr ""
+
+msgid "Breast R Lesion2 H"
+msgstr ""
+
+msgid "Breast R Lesion3 Vol"
+msgstr ""
+
+msgid "Breast R Lesion3 L"
+msgstr ""
+
+msgid "Breast R Lesion3 W"
+msgstr ""
+
+msgid "Breast R Lesion3 H"
+msgstr ""
+
+msgid "Breast R Lesion4 Vol"
+msgstr ""
+
+msgid "Breast R Lesion4 L"
+msgstr ""
+
+msgid "Breast R Lesion4 W"
+msgstr ""
+
+msgid "Breast R Lesion4 H"
+msgstr ""
+
+msgid "Breast R Lesion5 Vol"
+msgstr ""
+
+msgid "Breast R Lesion5 L"
+msgstr ""
+
+msgid "Breast R Lesion5 W"
+msgstr ""
+
+msgid "Breast R Lesion5 H"
+msgstr ""
+
+msgid "L Testis Vol"
+msgstr ""
+
+msgid "L Testis L"
+msgstr ""
+
+msgid "L Testis W"
+msgstr ""
+
+msgid "L Testis H"
+msgstr ""
+
+msgid "L Testis Artery"
+msgstr ""
+
+msgid "R Testis Vol"
+msgstr ""
+
+msgid "R Testis L"
+msgstr ""
+
+msgid "R Testis W"
+msgstr ""
+
+msgid "R Testis H"
+msgstr ""
+
+msgid "R Testis Artery"
+msgstr ""
+
+msgid "Testis L Lesion1 Vol"
+msgstr ""
+
+msgid "Testis L Lesion1 L"
+msgstr ""
+
+msgid "Testis L Lesion1 W"
+msgstr ""
+
+msgid "Testis L Lesion1 H"
+msgstr ""
+
+msgid "Testis L Lesion2 Vol"
+msgstr ""
+
+msgid "Testis L Lesion2 L"
+msgstr ""
+
+msgid "Testis L Lesion2 W"
+msgstr ""
+
+msgid "Testis L Lesion2 H"
+msgstr ""
+
+msgid "Testis L Lesion3 Vol"
+msgstr ""
+
+msgid "Testis L Lesion3 L"
+msgstr ""
+
+msgid "Testis L Lesion3 W"
+msgstr ""
+
+msgid "Testis L Lesion3 H"
+msgstr ""
+
+msgid "Testis L Lesion4 Vol"
+msgstr ""
+
+msgid "Testis L Lesion4 L"
+msgstr ""
+
+msgid "Testis L Lesion4 W"
+msgstr ""
+
+msgid "Testis L Lesion4 H"
+msgstr ""
+
+msgid "Testis L Lesion5 Vol"
+msgstr ""
+
+msgid "Testis L Lesion5 L"
+msgstr ""
+
+msgid "Testis L Lesion5 W"
+msgstr ""
+
+msgid "Testis L Lesion5 H"
+msgstr ""
+
+msgid "Testis R Lesion1 Vol"
+msgstr ""
+
+msgid "Testis R Lesion1 L"
+msgstr ""
+
+msgid "Testis R Lesion1 W"
+msgstr ""
+
+msgid "Testis R Lesion1 H"
+msgstr ""
+
+msgid "Testis R Lesion2 Vol"
+msgstr ""
+
+msgid "Testis R Lesion2 L"
+msgstr ""
+
+msgid "Testis R Lesion2 W"
+msgstr ""
+
+msgid "Testis R Lesion2 H"
+msgstr ""
+
+msgid "Testis R Lesion3 Vol"
+msgstr ""
+
+msgid "Testis R Lesion3 L"
+msgstr ""
+
+msgid "Testis R Lesion3 W"
+msgstr ""
+
+msgid "Testis R Lesion3 H"
+msgstr ""
+
+msgid "Testis R Lesion4 Vol"
+msgstr ""
+
+msgid "Testis R Lesion4 L"
+msgstr ""
+
+msgid "Testis R Lesion4 W"
+msgstr ""
+
+msgid "Testis R Lesion4 H"
+msgstr ""
+
+msgid "Testis R Lesion5 Vol"
+msgstr ""
+
+msgid "Testis R Lesion5 L"
+msgstr ""
+
+msgid "Testis R Lesion5 W"
+msgstr ""
+
+msgid "Testis R Lesion5 H"
+msgstr ""
+
+msgid "Isthmus AP"
+msgstr ""
+
+msgid "Long L Lobe"
+msgstr ""
+
+msgid "AP L Lobe"
+msgstr ""
+
+msgid "Tr L Lobe"
+msgstr ""
+
+msgid "Long R Lobe"
+msgstr ""
+
+msgid "AP R Lobe"
+msgstr ""
+
+msgid "Tr R Lobe"
+msgstr ""
+
+msgid "Supa L Lobe"
+msgstr ""
+
+msgid "Infa L Lobe"
+msgstr ""
+
+msgid "Supa R Lobe"
+msgstr ""
+
+msgid "Infa R Lobe"
+msgstr ""
+
+msgid "Thyroid Lesion1 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion1 L"
+msgstr ""
+
+msgid "Thyroid Lesion1 W"
+msgstr ""
+
+msgid "Thyroid Lesion1 H"
+msgstr ""
+
+msgid "Thyroid Lesion2 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion2 L"
+msgstr ""
+
+msgid "Thyroid Lesion2 W"
+msgstr ""
+
+msgid "Thyroid Lesion2 H"
+msgstr ""
+
+msgid "Thyroid Lesion3 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion3 L"
+msgstr ""
+
+msgid "Thyroid Lesion3 W"
+msgstr ""
+
+msgid "Thyroid Lesion3 H"
+msgstr ""
+
+msgid "Thyroid Lesion4 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion4 L"
+msgstr ""
+
+msgid "Thyroid Lesion4 W"
+msgstr ""
+
+msgid "Thyroid Lesion4 H"
+msgstr ""
+
+msgid "Thyroid Lesion5 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion5 L"
+msgstr ""
+
+msgid "Thyroid Lesion5 W"
+msgstr ""
+
+msgid "Thyroid Lesion5 H"
+msgstr ""
+
+msgid "L Eye OA"
+msgstr ""
+
+msgid "L Eye Lens"
+msgstr ""
+
+msgid "L Eye AC"
+msgstr ""
+
+msgid "L Eye ON"
+msgstr ""
+
+msgid "R Eye OA"
+msgstr ""
+
+msgid "R Eye Lens"
+msgstr ""
+
+msgid "R Eye AC"
+msgstr ""
+
+msgid "R Eye ON"
+msgstr ""
+
+msgid "Galact1 Thick"
+msgstr ""
+
+msgid "Galact2 Thick"
+msgstr ""
+
+msgid "Galact3 Thick"
+msgstr ""
+
+msgid "Galact4 Thick"
+msgstr ""
+
+msgid "Galact5 Thick"
+msgstr ""
+
+msgid "Bre1 Le1 L"
+msgstr ""
+
+msgid "Bre1 Le1 W"
+msgstr ""
+
+msgid "Bre1 Le1 H"
+msgstr ""
+
+msgid "Bre1 Le2 L"
+msgstr ""
+
+msgid "Bre1 Le2 W"
+msgstr ""
+
+msgid "Bre1 Le2 H"
+msgstr ""
+
+msgid "Bre1 Le3 L"
+msgstr ""
+
+msgid "Bre1 Le3 W"
+msgstr ""
+
+msgid "Bre1 Le3 H"
+msgstr ""
+
+msgid "Bre1 Le4 L"
+msgstr ""
+
+msgid "Bre1 Le4 W"
+msgstr ""
+
+msgid "Bre1 Le4 H"
+msgstr ""
+
+msgid "Bre1 Le5 L"
+msgstr ""
+
+msgid "Bre1 Le5 W"
+msgstr ""
+
+msgid "Bre1 Le5 H"
+msgstr ""
+
+msgid "Bre2 Le1 L"
+msgstr ""
+
+msgid "Bre2 Le1 W"
+msgstr ""
+
+msgid "Bre2 Le1 H"
+msgstr ""
+
+msgid "Bre2 Le2 L"
+msgstr ""
+
+msgid "Bre2 Le2 W"
+msgstr ""
+
+msgid "Bre2 Le2 H"
+msgstr ""
+
+msgid "Bre2 Le3 L"
+msgstr ""
+
+msgid "Bre2 Le3 W"
+msgstr ""
+
+msgid "Bre2 Le3 H"
+msgstr ""
+
+msgid "Bre2 Le4 L"
+msgstr ""
+
+msgid "Bre2 Le4 W"
+msgstr ""
+
+msgid "Bre2 Le4 H"
+msgstr ""
+
+msgid "Bre2 Le5 L"
+msgstr ""
+
+msgid "Bre2 Le5 W"
+msgstr ""
+
+msgid "Bre2 Le5 H"
+msgstr ""
+
+msgid "Bre3 Le1 L"
+msgstr ""
+
+msgid "Bre3 Le1 W"
+msgstr ""
+
+msgid "Bre3 Le1 H"
+msgstr ""
+
+msgid "Bre3 Le2 L"
+msgstr ""
+
+msgid "Bre3 Le2 W"
+msgstr ""
+
+msgid "Bre3 Le2 H"
+msgstr ""
+
+msgid "Bre3 Le3 L"
+msgstr ""
+
+msgid "Bre3 Le3 W"
+msgstr ""
+
+msgid "Bre3 Le3 H"
+msgstr ""
+
+msgid "Bre3 Le4 L"
+msgstr ""
+
+msgid "Bre3 Le4 W"
+msgstr ""
+
+msgid "Bre3 Le4 H"
+msgstr ""
+
+msgid "Bre3 Le5 L"
+msgstr ""
+
+msgid "Bre3 Le5 W"
+msgstr ""
+
+msgid "Bre3 Le5 H"
+msgstr ""
+
+msgid "Bre4 Le1 L"
+msgstr ""
+
+msgid "Bre4 Le1 W"
+msgstr ""
+
+msgid "Bre4 Le1 H"
+msgstr ""
+
+msgid "Bre4 Le2 L"
+msgstr ""
+
+msgid "Bre4 Le2 W"
+msgstr ""
+
+msgid "Bre4 Le2 H"
+msgstr ""
+
+msgid "Bre4 Le3 L"
+msgstr ""
+
+msgid "Bre4 Le3 W"
+msgstr ""
+
+msgid "Bre4 Le3 H"
+msgstr ""
+
+msgid "Bre4 Le4 L"
+msgstr ""
+
+msgid "Bre4 Le4 W"
+msgstr ""
+
+msgid "Bre4 Le4 H"
+msgstr ""
+
+msgid "Bre4 Le5 L"
+msgstr ""
+
+msgid "Bre4 Le5 W"
+msgstr ""
+
+msgid "Bre4 Le5 H"
+msgstr ""
+
+msgid "Bre5 Le1 L"
+msgstr ""
+
+msgid "Bre5 Le1 W"
+msgstr ""
+
+msgid "Bre5 Le1 H"
+msgstr ""
+
+msgid "Bre5 Le2 L"
+msgstr ""
+
+msgid "Bre5 Le2 W"
+msgstr ""
+
+msgid "Bre5 Le2 H"
+msgstr ""
+
+msgid "Bre5 Le3 L"
+msgstr ""
+
+msgid "Bre5 Le3 W"
+msgstr ""
+
+msgid "Bre5 Le3 H"
+msgstr ""
+
+msgid "Bre5 Le4 L"
+msgstr ""
+
+msgid "Bre5 Le4 W"
+msgstr ""
+
+msgid "Bre5 Le4 H"
+msgstr ""
+
+msgid "Bre5 Le5 L"
+msgstr ""
+
+msgid "Bre5 Le5 W"
+msgstr ""
+
+msgid "Bre5 Le5 H"
+msgstr ""
+
+msgid "L Lesion1 L"
+msgstr ""
+
+msgid "L Lesion1 W"
+msgstr ""
+
+msgid "L Lesion1 H"
+msgstr ""
+
+msgid "L Lesion2 L"
+msgstr ""
+
+msgid "L Lesion2 W"
+msgstr ""
+
+msgid "L Lesion2 H"
+msgstr ""
+
+msgid "L Lesion3 L"
+msgstr ""
+
+msgid "L Lesion3 W"
+msgstr ""
+
+msgid "L Lesion3 H"
+msgstr ""
+
+msgid "L Lesion4 L"
+msgstr ""
+
+msgid "L Lesion4 W"
+msgstr ""
+
+msgid "L Lesion4 H"
+msgstr ""
+
+msgid "L Lesion5 L"
+msgstr ""
+
+msgid "L Lesion5 W"
+msgstr ""
+
+msgid "L Lesion5 H"
+msgstr ""
+
+msgid "R Lesion1 L"
+msgstr ""
+
+msgid "R Lesion1 W"
+msgstr ""
+
+msgid "R Lesion1 H"
+msgstr ""
+
+msgid "R Lesion2 L"
+msgstr ""
+
+msgid "R Lesion2 W"
+msgstr ""
+
+msgid "R Lesion2 H"
+msgstr ""
+
+msgid "R Lesion3 L"
+msgstr ""
+
+msgid "R Lesion3 W"
+msgstr ""
+
+msgid "R Lesion3 H"
+msgstr ""
+
+msgid "R Lesion4 L"
+msgstr ""
+
+msgid "R Lesion4 W"
+msgstr ""
+
+msgid "R Lesion4 H"
+msgstr ""
+
+msgid "R Lesion5 L"
+msgstr ""
+
+msgid "R Lesion5 W"
+msgstr ""
+
+msgid "R Lesion5 H"
+msgstr ""
+
+msgid "Lesion1 L"
+msgstr ""
+
+msgid "Lesion1 W"
+msgstr ""
+
+msgid "Lesion1 H"
+msgstr ""
+
+msgid "Lesion2 L"
+msgstr ""
+
+msgid "Lesion2 W"
+msgstr ""
+
+msgid "Lesion2 H"
+msgstr ""
+
+msgid "Lesion3 L"
+msgstr ""
+
+msgid "Lesion3 W"
+msgstr ""
+
+msgid "Lesion3 H"
+msgstr ""
+
+msgid "Lesion4 L"
+msgstr ""
+
+msgid "Lesion4 W"
+msgstr ""
+
+msgid "Lesion4 H"
+msgstr ""
+
+msgid "Lesion5 L"
+msgstr ""
+
+msgid "Lesion5 W"
+msgstr ""
+
+msgid "Lesion5 H"
+msgstr ""
+
+msgid "LV Length(2D)"
+msgstr ""
+
+msgid "LV Width(2D)"
+msgstr ""
+
+msgid "LV Wall Width(2D)"
+msgstr ""
+
+msgid "IVS Width(2D)"
+msgstr ""
+
+msgid "RV Length(2D)"
+msgstr ""
+
+msgid "RV Width(2D)"
+msgstr ""
+
+msgid "RV Wall Width(2D)"
+msgstr ""
+
+msgid "LA Length(2D)"
+msgstr ""
+
+msgid "LA Width(2D)"
+msgstr ""
+
+msgid "RA Length(2D)"
+msgstr ""
+
+msgid "RA Width(2D)"
+msgstr ""
+
+msgid "Heart Area(2D)"
+msgstr ""
+
+msgid "Heart Circ(2D)"
+msgstr ""
+
+msgid "Thorax Circ(2D)"
+msgstr ""
+
+msgid "Ao Arch Diam(2D)"
+msgstr ""
+
+msgid "SVC Diam(2D)"
+msgstr ""
+
+msgid "IVC Diam(2D)"
+msgstr ""
+
+msgid "Ao Annul Diam(2D)"
+msgstr ""
+
+msgid "Ao Annul Circ(2D)"
+msgstr ""
+
+msgid "MV Annul Diam(2D)"
+msgstr ""
+
+msgid "MV Annul Circ(2D)"
+msgstr ""
+
+msgid "PV Annul Diam(2D)"
+msgstr ""
+
+msgid "TV Annul Diam(2D)"
+msgstr ""
+
+msgid "LA Wall Diam(M)"
+msgstr ""
+
+msgid "RA Wall Diam(M)"
+msgstr ""
+
+msgid "Asc Ao Diam(M)"
+msgstr ""
+
+msgid "Ao Arch Diam(M)"
+msgstr ""
+
+msgid "Ao Isthmus Diam(M)"
+msgstr ""
+
+msgid "Desc Ao Diam(M)"
+msgstr ""
+
+msgid "Duct Art Diam(M)"
+msgstr ""
+
+msgid "LPA Diam(M)"
+msgstr ""
+
+msgid "MPA Diam(M)"
+msgstr ""
+
+msgid "RPA Diam(M)"
+msgstr ""
+
+msgid "HR-AV(M)"
+msgstr ""
+
+msgid "HR-PV(M)"
+msgstr ""
+
+msgid "Placenta(D)"
+msgstr ""
+
+msgid "Umbilical A(D)"
+msgstr ""
+
+msgid "Umbilical V(D)"
+msgstr ""
+
+msgid "L Uterine A(D)"
+msgstr ""
+
+msgid "R Uterine A(D)"
+msgstr ""
+
+msgid "L Ovarian A(D)"
+msgstr ""
+
+msgid "R Ovarian A(D)"
+msgstr ""
+
+msgid "Foramen Ovale(D)"
+msgstr ""
+
+msgid "Duct Art(D)"
+msgstr ""
+
+msgid "L Coronary A(D)"
+msgstr ""
+
+msgid "R Coronary A(D)"
+msgstr ""
+
+msgid "AoR(D)"
+msgstr ""
+
+msgid "Asc Ao(D)"
+msgstr ""
+
+msgid "Ao Arch(D)"
+msgstr ""
+
+msgid "Ao Isthmus(D)"
+msgstr ""
+
+msgid "Desc Ao(D)"
+msgstr ""
+
+msgid "MPA(D)"
+msgstr ""
+
+msgid "LPA(D)"
+msgstr ""
+
+msgid "RPA(D)"
+msgstr ""
+
+msgid "Pulm V(D)"
+msgstr ""
+
+msgid "Duct Ven(D)"
+msgstr ""
+
+msgid "LVOT Acc Time(D)"
+msgstr ""
+
+msgid "AV Acc Time(D)"
+msgstr ""
+
+msgid "AI Acc Time(D)"
+msgstr ""
+
+msgid "MV Peak E(D)"
+msgstr ""
+
+msgid "MV Peak A(D)"
+msgstr ""
+
+msgid "MV Acc Time(D)"
+msgstr ""
+
+msgid "MV Dec Time(D)"
+msgstr ""
+
+msgid "RVOT Acc Time(D)"
+msgstr ""
+
+msgid "PV Acc Time(D)"
+msgstr ""
+
+msgid "TV Peak A(D)"
+msgstr ""
+
+msgid "TV Peak E(D)"
+msgstr ""
+
+msgid "TV Acc Time(D)"
+msgstr ""
+
+msgid "TV Dec Time(D)"
+msgstr ""
+
+msgid "Thoracic Ao(D)"
+msgstr ""
+
+msgid "L Renal A(D)"
+msgstr ""
+
+msgid "R Renal A(D)"
+msgstr ""
+
+msgid "Hepatic A(D)"
+msgstr ""
+
+msgid "Hepatic V(D)"
+msgstr ""
+
+msgid "Splenic A(D)"
+msgstr ""
+
+msgid "L MCA(D)"
+msgstr ""
+
+msgid "R MCA(D)"
+msgstr ""
+
+msgid "L ICA(D)"
+msgstr ""
+
+msgid "R ICA(D)"
+msgstr ""
+
+msgid "SVC(D)"
+msgstr ""
+
+msgid "IVC(D)"
+msgstr ""
+
+msgid "L CCA"
+msgstr ""
+
+msgid "R CCA"
+msgstr ""
+
+msgid "L Dist CCA"
+msgstr ""
+
+msgid "R Dist CCA"
+msgstr ""
+
+msgid "L Mid CCA"
+msgstr ""
+
+msgid "R Mid CCA"
+msgstr ""
+
+msgid "L Prox CCA"
+msgstr ""
+
+msgid "R Prox CCA"
+msgstr ""
+
+msgid "L ICA"
+msgstr ""
+
+msgid "R ICA"
+msgstr ""
+
+msgid "L Dist ICA"
+msgstr ""
+
+msgid "R Dist ICA"
+msgstr ""
+
+msgid "L Mid ICA"
+msgstr ""
+
+msgid "R Mid ICA"
+msgstr ""
+
+msgid "L Prox ICA"
+msgstr ""
+
+msgid "R Prox ICA"
+msgstr ""
+
+msgid "L Dist LSV"
+msgstr ""
+
+msgid "R Dist LSV"
+msgstr ""
+
+msgid "L Mid LSV"
+msgstr ""
+
+msgid "R Mid LSV"
+msgstr ""
+
+msgid "L Prox LSV"
+msgstr ""
+
+msgid "R Prox LSV"
+msgstr ""
+
+msgid "L Dist Ceph V"
+msgstr ""
+
+msgid "R Dist Ceph V"
+msgstr ""
+
+msgid "L Mid Ceph V"
+msgstr ""
+
+msgid "R Mid Ceph V"
+msgstr ""
+
+msgid "L Prox Ceph V"
+msgstr ""
+
+msgid "R Prox Ceph V"
+msgstr ""
+
+msgid "L Prox ECA"
+msgstr ""
+
+msgid "R Prox ECA"
+msgstr ""
+
+msgid "L Brachioceph A"
+msgstr ""
+
+msgid "R Brachioceph A"
+msgstr ""
+
+msgid "L Brachioceph V"
+msgstr ""
+
+msgid "R Brachioceph V"
+msgstr ""
+
+msgid "L Bulb"
+msgstr ""
+
+msgid "R Bulb"
+msgstr ""
+
+msgid "L Vertebral A"
+msgstr ""
+
+msgid "R Vertebral A"
+msgstr ""
+
+msgid "L IJV"
+msgstr ""
+
+msgid "R IJV"
+msgstr ""
+
+msgid "L Mid SCL A"
+msgstr ""
+
+msgid "R Mid SCL A"
+msgstr ""
+
+msgid "L Prox SCL A"
+msgstr ""
+
+msgid "R Prox SCL A"
+msgstr ""
+
+msgid "L Mid SCL V"
+msgstr ""
+
+msgid "R Mid SCL V"
+msgstr ""
+
+msgid "L Prox SCL V"
+msgstr ""
+
+msgid "R Prox SCL V"
+msgstr ""
+
+msgid "L CFA"
+msgstr ""
+
+msgid "R CFA"
+msgstr ""
+
+msgid "L CFV"
+msgstr ""
+
+msgid "R CFV"
+msgstr ""
+
+msgid "L Com Iliac A"
+msgstr ""
+
+msgid "R Com Iliac A"
+msgstr ""
+
+msgid "L Com Iliac V"
+msgstr ""
+
+msgid "R Com Iliac V"
+msgstr ""
+
+msgid "L Dist ATA"
+msgstr ""
+
+msgid "R Dist ATA"
+msgstr ""
+
+msgid "L Mid ATA"
+msgstr ""
+
+msgid "R Mid ATA"
+msgstr ""
+
+msgid "L Prox ATA"
+msgstr ""
+
+msgid "R Prox ATA"
+msgstr ""
+
+msgid "L Dist ATV"
+msgstr ""
+
+msgid "R Dist ATV"
+msgstr ""
+
+msgid "L Mid ATV"
+msgstr ""
+
+msgid "R Mid ATV"
+msgstr ""
+
+msgid "L Prox ATV"
+msgstr ""
+
+msgid "R Prox ATV"
+msgstr ""
+
+msgid "L Dist GSV Calf"
+msgstr ""
+
+msgid "R Dist GSV Calf"
+msgstr ""
+
+msgid "L Mid GSV Calf"
+msgstr ""
+
+msgid "R Mid GSV Calf"
+msgstr ""
+
+msgid "L Prox GSV Calf"
+msgstr ""
+
+msgid "R Prox GSV Calf"
+msgstr ""
+
+msgid "L Dist GSV Thigh"
+msgstr ""
+
+msgid "R Dist GSV Thigh"
+msgstr ""
+
+msgid "L Mid GSV Thigh"
+msgstr ""
+
+msgid "R Mid GSV Thigh"
+msgstr ""
+
+msgid "L Prox GSV Thigh"
+msgstr ""
+
+msgid "R Prox GSV Thigh"
+msgstr ""
+
+msgid "L Dist Pero A"
+msgstr ""
+
+msgid "R Dist Pero A"
+msgstr ""
+
+msgid "L Mid Pero A"
+msgstr ""
+
+msgid "R Mid Pero A"
+msgstr ""
+
+msgid "L Prox Pero A"
+msgstr ""
+
+msgid "R Prox Pero A"
+msgstr ""
+
+msgid "L Dist Pero V"
+msgstr ""
+
+msgid "R Dist Pero V"
+msgstr ""
+
+msgid "L Mid Pero V"
+msgstr ""
+
+msgid "R Mid Pero V"
+msgstr ""
+
+msgid "L Prox Pero V"
+msgstr ""
+
+msgid "R Prox Pero V"
+msgstr ""
+
+msgid "L Dist Pop A"
+msgstr ""
+
+msgid "R Dist Pop A"
+msgstr ""
+
+msgid "L Mid Pop A"
+msgstr ""
+
+msgid "R Mid Pop A"
+msgstr ""
+
+msgid "L Prox Pop A"
+msgstr ""
+
+msgid "R Prox Pop A"
+msgstr ""
+
+msgid "L Dist Pop V"
+msgstr ""
+
+msgid "R Dist Pop V"
+msgstr ""
+
+msgid "L Mid Pop V"
+msgstr ""
+
+msgid "R Mid Pop V"
+msgstr ""
+
+msgid "L Prox Pop V"
+msgstr ""
+
+msgid "R Prox Pop V"
+msgstr ""
+
+msgid "L Dist PTA"
+msgstr ""
+
+msgid "R Dist PTA"
+msgstr ""
+
+msgid "L Mid PTA"
+msgstr ""
+
+msgid "R Mid PTA"
+msgstr ""
+
+msgid "L Prox PTA"
+msgstr ""
+
+msgid "R Prox PTA"
+msgstr ""
+
+msgid "L Dist PTV"
+msgstr ""
+
+msgid "R Dist PTV"
+msgstr ""
+
+msgid "L Mid PTV"
+msgstr ""
+
+msgid "R Mid PTV"
+msgstr ""
+
+msgid "L Prox PTV"
+msgstr ""
+
+msgid "R Prox PTV"
+msgstr ""
+
+msgid "L Dist SFA"
+msgstr ""
+
+msgid "R Dist SFA"
+msgstr ""
+
+msgid "L Mid SFA"
+msgstr ""
+
+msgid "R Mid SFA"
+msgstr ""
+
+msgid "L Prox SFA"
+msgstr ""
+
+msgid "R Prox SFA"
+msgstr ""
+
+msgid "L Dist SFV"
+msgstr ""
+
+msgid "R Dist SFV"
+msgstr ""
+
+msgid "L Mid SFV"
+msgstr ""
+
+msgid "R Mid SFV"
+msgstr ""
+
+msgid "L Prox SFV"
+msgstr ""
+
+msgid "R Prox SFV"
+msgstr ""
+
+msgid "L Dor Pedis"
+msgstr ""
+
+msgid "R Dor Pedis"
+msgstr ""
+
+msgid "L Ext Iliac A"
+msgstr ""
+
+msgid "R Ext Iliac A"
+msgstr ""
+
+msgid "L Ext Iliac V"
+msgstr ""
+
+msgid "R Ext Iliac V"
+msgstr ""
+
+msgid "L Int Iliac A"
+msgstr ""
+
+msgid "R Int Iliac A"
+msgstr ""
+
+msgid "L Int Iliac V"
+msgstr ""
+
+msgid "R Int Iliac V"
+msgstr ""
+
+msgid "L Lat Sural V"
+msgstr ""
+
+msgid "R Lat Sural V"
+msgstr ""
+
+msgid "L Prox PFA"
+msgstr ""
+
+msgid "R Prox PFA"
+msgstr ""
+
+msgid "L SFJ"
+msgstr ""
+
+msgid "R SFJ"
+msgstr ""
+
+msgid "L Antecube"
+msgstr ""
+
+msgid "R Antecube"
+msgstr ""
+
+msgid "L Ax A"
+msgstr ""
+
+msgid "R Ax A"
+msgstr ""
+
+msgid "L Ax V"
+msgstr ""
+
+msgid "R Ax V"
+msgstr ""
+
+msgid "L Dist Basilic V"
+msgstr ""
+
+msgid "R Dist Basilic V"
+msgstr ""
+
+msgid "L Mid Basilic V"
+msgstr ""
+
+msgid "R Mid Basilic V"
+msgstr ""
+
+msgid "L Prox Basilic V"
+msgstr ""
+
+msgid "R Prox Basilic V"
+msgstr ""
+
+msgid "L Dist Brach A"
+msgstr ""
+
+msgid "R Dist Brach A"
+msgstr ""
+
+msgid "L Prox Brach A"
+msgstr ""
+
+msgid "R Prox Brach A"
+msgstr ""
+
+msgid "L Dist Brach V"
+msgstr ""
+
+msgid "R Dist Brach V"
+msgstr ""
+
+msgid "L Prox Brach V"
+msgstr ""
+
+msgid "R Prox Brach V"
+msgstr ""
+
+msgid "L Dist Rad A"
+msgstr ""
+
+msgid "R Dist Rad A"
+msgstr ""
+
+msgid "L Mid Rad A"
+msgstr ""
+
+msgid "R Mid Rad A"
+msgstr ""
+
+msgid "L Prox Rad A"
+msgstr ""
+
+msgid "R Prox Rad A"
+msgstr ""
+
+msgid "L Dist Rad V"
+msgstr ""
+
+msgid "R Dist Rad V"
+msgstr ""
+
+msgid "L Mid Rad V"
+msgstr ""
+
+msgid "R Mid Rad V"
+msgstr ""
+
+msgid "L Prox Rad V"
+msgstr ""
+
+msgid "R Prox Rad V"
+msgstr ""
+
+msgid "L Dist Ulnar A"
+msgstr ""
+
+msgid "R Dist Ulnar A"
+msgstr ""
+
+msgid "L Mid Ulnar A"
+msgstr ""
+
+msgid "R Mid Ulnar A"
+msgstr ""
+
+msgid "L Prox Ulnar A"
+msgstr ""
+
+msgid "R Prox Ulnar A"
+msgstr ""
+
+msgid "L Dist Ulnar V"
+msgstr ""
+
+msgid "R Dist Ulnar V"
+msgstr ""
+
+msgid "L Mid Ulnar V"
+msgstr ""
+
+msgid "R Mid Ulnar V"
+msgstr ""
+
+msgid "L Prox Ulnar V"
+msgstr ""
+
+msgid "R Prox Ulnar V"
+msgstr ""
+
+msgid "L ACA"
+msgstr ""
+
+msgid "R ACA"
+msgstr ""
+
+msgid "L PCA"
+msgstr ""
+
+msgid "R PCA"
+msgstr ""
+
+msgid "Basilar A"
+msgstr ""
+
+msgid "L Hip"
+msgstr ""
+
+msgid "R Hip"
+msgstr ""
+
+msgid "Area 1"
+msgstr "Pole 1"
+
+msgid "Area 2"
+msgstr "Pole 2"
+
+msgid "Area 3"
+msgstr "Pole 3"
+
+msgid "GSD"
+msgstr ""
+
+msgid "HD"
+msgstr ""
+
+msgid "BD"
+msgstr ""
+
+msgid "SL"
+msgstr ""
+
+msgid "K-CRL"
+msgstr ""
+
+msgid "W-CRL"
+msgstr ""
+
+msgid "H-CRL"
+msgstr ""
+
+msgid "BBD"
+msgstr ""
+
+msgid "BTD"
+msgstr ""
+
+msgid "BUD"
+msgstr ""
+
+msgid "ERD"
+msgstr ""
+
+msgid "ESD"
+msgstr ""
+
+msgid "EED"
+msgstr ""
+
+msgid "Fetal 1"
+msgstr ""
+
+msgid "Fetal 2"
+msgstr ""
+
+msgid "Fetal 1 √"
+msgstr ""
+
+msgid "Fetal 2 √"
+msgstr ""
+
+msgid "Animal Information"
+msgstr "Info o zwierzęciu"
+
+msgid "Animal Name:"
+msgstr "Naz. zwierz:"
+
+msgid "Owner:"
+msgstr "Właśc:"
+
+msgid "Species:"
+msgstr "Gatunek:"
+
+msgid "Tendon"
+msgstr ""
+
+msgid "Slight"
+msgstr ""
+
+msgid "Moderate"
+msgstr ""
+
+msgid "Severe"
+msgstr ""
+
+msgid "Undefine"
+msgstr ""
+
+msgid "<i><b>Lesion 1</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 2</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 3</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 4</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 5</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 6</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 7</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 8</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 9</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 10</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 11</b></i>"
+msgstr ""
+
+msgid "<i><b>Dog</b></i>"
+msgstr "<i><b>P</b></i>"
+
+msgid "<i><b>Cat</b></i>"
+msgstr "<i><b>Kot</b></i>"
+
+msgid "<i><b>Sheep</b></i>"
+msgstr "<i><b>Owca</b></i>"
+
+msgid "<i><b>Swine</b></i>"
+msgstr "<i><b>Świnia</b></i>"
+
+msgid "<i><b>Bovine</b></i>"
+msgstr "<i><b>Krowa</b></i>"
+
+msgid "<i><b>Equine</b></i>"
+msgstr "<i><b>Koń</b></i>"
+
+msgid "Ultrasonic"
+msgstr "Ultrason"
+
+msgid "Dog"
+msgstr "P"
+
+msgid "Cat"
+msgstr "Kot"
+
+msgid "Sheep"
+msgstr "Owca"
+
+msgid "Swine"
+msgstr "Świnia"
+
+msgid "Bovine"
+msgstr "Krowa"
+
+msgid "Equine"
+msgstr "Koń"
+
+msgid "FocusNum"
+msgstr "Num. ostr"
+
+msgid "Animal:"
+msgstr "Zwierz:"
+
+msgid "Scan Line"
+msgstr "Linia sk"
+
+msgid "[Focus]: Knob to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[Ostrość]: Pokrętło do ust ostrości. Dla zoom, serii zdjęć, Tp-View lub EFVI istnieje tylko jedna ostrość."
+
+msgid "[Focus]: Knob to move focus, Press to change focus sum."
+msgstr "[Ostrość]: Pokrętło do ust ostrości, Naciśnij by zmienić ostrość."
+
+msgid "[Scan Line]: Invalid when localzoom is open!."
+msgstr "[Linia skanowania]: Nie działa, gdy włączona jest lokalna ostrość!."
+
+msgid "[Scan Line]: Only valid when probe type is phase."
+msgstr "[Linia skanowania]: Działa tylko wtedy, gdy rodzaj sondy jest fazą."
+
+msgid "THI OFF"
+msgstr ""
+
+msgid "THI ON"
+msgstr ""
+
+msgid "[Length]: <Value> to cancel or redraw."
+msgstr "[Długość]: <Value> aby anulować lub zmienić."
+
+msgid "[AreaTrack]: <Value> to cancel or redraw."
+msgstr "[Śledzenie powierzchni]: <Value> aby usunąć lub zmienić."
+
+msgid "[Simpsom]: <Value> to cancle or redraw."
+msgstr "[Simpsom]: <Value> aby anulować lub zmienić."
+
+msgid "[A/L]: <Value> to cancle or redraw."
+msgstr "[A/L]: <Value> aby anulować lub zmienić."
+
+msgid "PS"
+msgstr ""
+
+msgid "ED"
+msgstr ""
+
+msgid "S/D"
+msgstr ""
+
+msgid "TAMAX"
+msgstr ""
+
+msgid "PGmax"
+msgstr ""
+
+msgid "PGmean"
+msgstr ""
+
+msgid "[ManualTrack]: <Update> to switch to AutoTrack."
+msgstr "[Manualne śledzenie]: <Update> aby przejść do automatycznego śledzenia."
+
+msgid "[ManualTrack]: <Value> to cancel or redraw. <Update> to AutoTrack."
+msgstr "[Manualne śledzenie]: <Value> aby anulować lub zmienić. <Update> do automatycznego śledzenia."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack. <Value> press to adjust."
+msgstr "[Półautomatyczne]: <Update> aby przejść do manualnego śledzenia. Naciśnij, <Value> aby dopasować."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack."
+msgstr "[Półautomatyczne]: <Update> aby przejść do manualnego śledzenia."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto. <Value> press to adjust."
+msgstr "[Automatyczne śledzenie]: <Update> aby przejść do półautomatycznego śledzenia. Naciśnij, <Value> aby dopasować."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto."
+msgstr "[Automatyczne śledzenie]: <Update> aby przejść do półautomatycznego śledzenia."
+
+msgid "[PI]: <Value> to cancel or redraw."
+msgstr "[PI]: <Value> aby anulować lub zmienić."
+
+msgid "[PG Mean]: <Value> to cancel or redraw."
+msgstr "[Średnia PG]: <Value> aby anulować lub zmienić."
+
+msgid "dist"
+msgstr "odl"
+
+#, c-format
+msgid " Invalid"
+msgstr "Nie dostępny"
+
+#, c-format
+msgid " Invalid  "
+msgstr "Nie dostępny"
+
+msgid "length"
+msgstr "długość"
+
+msgid "area"
+msgstr "pole"
+
+msgid "vol"
+msgstr "obj"
+
+msgid "radius"
+msgstr "prom"
+
+msgid "dist1"
+msgstr "odl1"
+
+msgid "dist2"
+msgstr "odl2"
+
+msgid "angle"
+msgstr "kąt"
+
+msgid "ratio"
+msgstr ""
+
+msgid "peri"
+msgstr ""
+
+msgid "angusty"
+msgstr "zwężen"
+
+msgid "area1"
+msgstr "pole1"
+
+msgid "area2"
+msgstr "pole2"
+
+msgid "vol1"
+msgstr "obj1"
+
+msgid "vol2"
+msgstr "obj2"
+
+msgid "angle1"
+msgstr "kąt1"
+
+msgid "angle2"
+msgstr "kąt2"
+
+msgid "LVIDd"
+msgstr ""
+
+msgid "EDV"
+msgstr ""
+
+msgid "LVODs"
+msgstr ""
+
+msgid "ESV"
+msgstr ""
+
+msgid "vel"
+msgstr ""
+
+msgid "slope"
+msgstr "nach"
+
+msgid "IMT MAX "
+msgstr ""
+
+msgid "IMT MIN "
+msgstr ""
+
+msgid "IMT STD "
+msgstr ""
+
+msgid "IMT MEAN "
+msgstr ""
+
+msgid "IMT QUALITY "
+msgstr ""
+
+msgid "IMT LENGTH "
+msgstr ""
+
+msgid "No Animal ID."
+msgstr "Brak ID zw."
+
+msgid "Snap"
+msgstr ""
+
+msgid "Show Latest Three Days"
+msgstr "Pokaż trzy ostatnie dni"
+
+msgid "Animal Name"
+msgstr "Naz. zwierz"
+
+msgid "Owner"
+msgstr "Właśc"
+
+msgid "Species"
+msgstr "Gatunek"
+
+msgid "<b>Animal</b>"
+msgstr "<b>Zwierz</b>"
+
+msgid "View Mode"
+msgstr "Tryb podgl"
+
+msgid "Auto Size"
+msgstr "Rozm. Auto"
+
+msgid "Orignial Size"
+msgstr "Oryg. rozmiar"
+
+msgid "Animal Name:  "
+msgstr "Naz. zwierz: "
+
+msgid "Species: "
+msgstr "Gatunek:"
+
+msgid "ID:  "
+msgstr "PESEL:  "
+
+msgid "Owner:  "
+msgstr "Właśc: "
+
+msgid "Owner Telephone:"
+msgstr "Telefon właścic.:"
+
+msgid "Owner Address:"
+msgstr "Adres właścic.:"
+
+msgid "Bir."
+msgstr "Ur."
+
+msgid "New Animal"
+msgstr "Nowe zw"
+
+msgid "Animal ID exist, load data?"
+msgstr "ID zw. istnieje. Załadować dane?"
+
+msgid "<b>Destination :</b>"
+msgstr "<b>Docelowy :</b>"
+
+msgid "ID :"
+msgstr "PESEL :"
+
+msgid "Animal Name :"
+msgstr "Naz. zwierz :"
+
+msgid "No animal is selected!"
+msgstr "Nie wybrano zwierzęcia!"
+
+msgid "Animal Detail"
+msgstr "Dane zwierz"
+
+msgid "Early Pregnancy"
+msgstr "Wczesna ciąża"
+
+msgid "Middle-late Pregnancy"
+msgstr "Średnio późna ciąża"
+
+msgid "User1"
+msgstr "Użyt1"
+
+msgid "User2"
+msgstr "Użyt2"
+
+msgid "User3"
+msgstr "Użyt3"
+
+msgid "User4"
+msgstr "Uży4t"
+
+msgid "User5"
+msgstr "Użyt5"
+
+msgid "User6"
+msgstr "Użyt6"
+
+msgid "User7"
+msgstr "Użyt7"
+
+msgid "User8"
+msgstr "Użyt8"
+
+msgid "User9"
+msgstr "Użyt9"
+
+msgid "User10"
+msgstr "Użyt10"
+
+msgid "User11"
+msgstr "Użyt11"
+
+msgid "User12"
+msgstr "Użyt12"
+
+msgid "User13"
+msgstr "Użyt13"
+
+msgid "User14"
+msgstr "Użyt14"
+
+msgid "User15"
+msgstr "Użyt15"
+
+msgid "User16"
+msgstr "Użyt16"
+
+msgid "Abdomen-General"
+msgstr "Brzuch -Ogólne"
+
+msgid "Abdomen-Arterial"
+msgstr "Brzuch -Tętnicze"
+
+msgid "Abdomen-Venous"
+msgstr "Brzuch - Żylne"
+
+msgid "Obstetrics-General"
+msgstr "Położnictwo - Ogólne"
+
+msgid "Obstetrics-FetalHeart"
+msgstr "Położnictwo - Serce płodu"
+
+msgid "SmallPart-Glands"
+msgstr "Drobne - Grucz"
+
+msgid "SmallPart-Thyroid"
+msgstr "Drobne - Tarcz"
+
+msgid "SmallPart-Eye"
+msgstr "Drobne- Oko"
+
+msgid "SmallPart-Testicle"
+msgstr "Drobne - Jądro"
+
+msgid "Vascular-LE"
+msgstr "Nacz. kończ. d."
+
+msgid "Vascular-UE"
+msgstr "Nacz. kończ. g."
+
+msgid "Vascular-Carotid"
+msgstr "Tętnica szyjna"
+
+msgid "Available Items:"
+msgstr "Dostępne pozycje:"
+
+msgid "Measure Sequence:"
+msgstr "Kolejność pomiaru:"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Selected Items:"
+msgstr "Wybrane pozycje:"
+
+msgid "Up"
+msgstr "Up"
+
+msgid "Down"
+msgstr "Down"
+
+msgid "Please select a item before move!"
+msgstr "Wybierz pozycję!"
+
+msgid " Item has existed. Please select item again!"
+msgstr "Ta pozycja istnieje. Wybierz inną pozycję!"
+
+msgid "Please select a item before delete!"
+msgstr "Przed usunięciem wybierz pozycję!"
+
+msgid " Only Userdefined items can be deleted!"
+msgstr "Tylko pozycje zdefiniowane przez użytkownika mogą być usunięte!"
+
+msgid "Please select a item before down!"
+msgstr "Wybierz poz. przed przejściem w dół!"
+
+msgid "Please select a item before up!"
+msgstr "Wybierz poz. przed przejściem w górę!"
+
+msgid "Please input name for exporting data:"
+msgstr "Wprowadź nazwę dla eksportu danych:"
+
+msgid "Data Name:"
+msgstr "Nazw. danych:"
+
+msgid ""
+"Please insert USB storage before export! \n"
+"Click Export will export current exam data to USB storage!"
+msgstr ""
+"Przed eksportem danych włóż USB. \n"
+"Kliknięcie Eksport wyeksportuje bieżące informacje o\n"
+"badaniu do USB!"
+
+msgid "Success to import from USB storage."
+msgstr "Import z USB zakończony."
+
+msgid "The name has existed, please rename!"
+msgstr "Taka nazwa już istnieje. Zmień nazwę!"
+
+msgid "Loading......"
+msgstr "Ładowanie......"
+
+msgid "Please select measure method!"
+msgstr "Wybierz metodę pomiaru!"
+
+msgid "Please select measure type!"
+msgstr "Wybierz rodzaj pomiaru!"
+
+msgid "Please select one item:"
+msgstr "Wybierz jedną pozycję:"
+
+msgid "Delete data from USB storage after import."
+msgstr "Po zaimportowaniu usuń dane z USB."
+
+msgid "Import data to override the current exam data!"
+msgstr "Importuj dane, by nadpisać obecne dane z badania."
+
+msgid ""
+"Item has existed, \n"
+"Clicked Import will rename the item and continue, \n"
+"Clicked Cancel will quit and continue!"
+msgstr ""
+"Pozycja już istnieje.\n"
+"Naciśnięcie 'Importuj' zmieni nazwę i będzie kontynuowac polecenie.\n"
+"Nacisnięcie 'Anuluj' będzie kontynuować polecenie."
+
+msgid "PSAD"
+msgstr ""
+
+msgid "SPSA"
+msgstr ""
+
+msgid "AUA"
+msgstr ""
+
+msgid "EDD(AUA)"
+msgstr ""
+
+msgid "GA(LMP)"
+msgstr ""
+
+msgid "EDD(LMP)"
+msgstr ""
+
+msgid " Dog "
+msgstr " P "
+
+msgid " Cat "
+msgstr " Kot "
+
+msgid " Sheep "
+msgstr " Owca "
+
+msgid " Swine "
+msgstr " Świnia "
+
+msgid " Bovine "
+msgstr " Krowa "
+
+msgid " Equine "
+msgstr " Koń "
+
+msgid "<i><b>Tendon Le1</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le2</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le3</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le4</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le5</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le6</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le7</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le8</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le9</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le10</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le11</b></i>"
+msgstr ""
+
+msgid "Peripheral"
+msgstr "Obwodowy"
+
+msgid "<b>Mouse Speed</b>"
+msgstr "<b>Szybk. myszki</b>"
+
+msgid "New"
+msgstr "Now"
+
+msgid "FH:"
+msgstr ""
+
+msgid "The new item name can not be empty!"
+msgstr "Pole nowej nazwy nie może być puste!"
+
+msgid "Fail to rename! The item name has existed!"
+msgstr "Nie można zmienić nazwy! Taka nazwa już istnieje!"
+
+msgid "Please select a department before inserting!"
+msgstr "Przed włożeniem wybierz sekcję!"
+
+msgid "Fail to insert! 'New Item' has existed in the probe type. please rename it before inserting!"
+msgstr "Nie można wprowadzić. 'Nowa pozycja' istnieje już w rodzaju sondy. Zmień nazwę!"
+
+msgid "Fail to insert! Please select a department before inserting!"
+msgstr "Nie można wprowadzić! Przed włożeniem wybierz sekcję!"
+
+msgid "Fail to delete! Can not delete the department!"
+msgstr "Nie można usunąć sekcji!"
+
+msgid "Fail to delete! Can not delete the defaulted exam item!"
+msgstr "Nie można usunąć badanej pozycji!"
+
+msgid "Fail to delete! The item is under using!"
+msgstr "Nie można usunąć! Pozycja jest teraz używana!"
+
+msgid "Probe Type: "
+msgstr "Typ sondy: "
+
+msgid "Select Lexicon:"
+msgstr "Wybierz leks.:"
+
+msgid "All Delete"
+msgstr "Usuń wsz."
+
+msgid "Please select a item before add!"
+msgstr "Przed dodaniem wybierz pozycję!"
+
+msgid " 'New Item' has existed. Please rename item !"
+msgstr "'Nowa pozycja' już istnieje. Zmień nazwę pozycji!"
+
+msgid "Only Userdefined items can be renamed!"
+msgstr "Tylko pozycje zdefiniowane przez użytkownika mogą mieć zmienioną nazwę!"
+
+msgid "<b>Measure Result Font Size</b>"
+msgstr "<b>Zmierz rozm. czcionki wyn.</b>"
+
+msgid "<b>Heart Beat:</b>"
+msgstr "<b>Bicie serca:</b>"
+
+msgid "This is charging software, the period of validity is permanent."
+msgstr "Jest to oprogramowanie ładowania, okres ważności jest trwały."
+
+msgid "This is charging software, the period of validity is"
+msgstr "Jest to oprogramowanie ładowania, okres ważności wynosi"
+
+msgid "days."
+msgstr "dni."
+
+msgid "User"
+msgstr "Użyt"
+
+msgid "Select Item"
+msgstr "Wybierz poz"
+
+msgid "Selected Item"
+msgstr "Wybrana poz"
+
+msgid ""
+"Clicking OK will override the previous data, whether\n"
+" to continue the operation."
+msgstr ""
+"Kliknięcie OK nadpisze poprzednie dane. \n"
+"Czy kontynuować?"
+
+msgid "Fail to default factory! Define user or New item is under using!"
+msgstr ""
+"Nie można wprowadzić ustawień fabrycznych! Zdefiniowany użytkownik\n"
+"lub nowa pozycja są obecnie używane!"
+
+msgid "Length-Point"
+msgstr "Długość-Punkt"
+
+msgid "Area-Point"
+msgstr "Pole-Punkt"
+
+msgid "Area-Ellipse"
+msgstr "Pole-Elipsa:"
+
+msgid "Area-Rectangle"
+msgstr "Pole-Prostokąt"
+
+msgid "Volume-3 Dist."
+msgstr "Obj.-3 Dyst."
+
+msgid "Volume-Ellipse 1 Dist."
+msgstr "Obj.-Elipsa 1 Dyst."
+
+msgid "Volume-1 Dist."
+msgstr "Obj.-1 Dyst."
+
+msgid "Angle-3 Point"
+msgstr "Skanu-3 Punkt"
+
+msgid "Acceleration"
+msgstr "Przyśpieszenie"
+
+msgid "Dist-Dot"
+msgstr "Dyst-Kropka"
+
+msgid "Dist-Line"
+msgstr "Dyst-Linia"
+
+msgid "Length-Track"
+msgstr "Długość-Ścieżka"
+
+msgid "Length-Dot"
+msgstr "Długość-Kropka"
+
+msgid "Integral-Track"
+msgstr "Integralny-Ścieżka"
+
+msgid "Peri-Track"
+msgstr "Obw-Ścieżka"
+
+msgid "Peri-Ellipse"
+msgstr "Obw-Elipsa"
+
+msgid "Area-Track"
+msgstr "Pole-Ścieżka"
+
+msgid "Area-Dot"
+msgstr "Polei-Kropka"
+
+msgid "Vol-3Axis"
+msgstr "Obj-3Oś"
+
+msgid "Vol-Ellipse1"
+msgstr "Obj-Elipsa1"
+
+msgid "Vol-Ellipse2"
+msgstr "Obj-Elipsa2"
+
+msgid "Angle-3Dot"
+msgstr "Skanu-3Kropka"
+
+msgid "Angle-2Line"
+msgstr "Skanu-2Linia"
+
+msgid "Angusty-Dist-Dot"
+msgstr "Cieśni-Dyst-Kropka"
+
+msgid "Ratio-Dist-Dot"
+msgstr "Stosunek-Dyst-Kropka"
+
+msgid "Angusty-Area"
+msgstr "Cieśni-Pole"
+
+msgid "Ratio-Area"
+msgstr "Stosunek-Pole"
+
+msgid "Ratio-D-P"
+msgstr "Stosunek-D-P"
+
+msgid "Ratio-Vol"
+msgstr "Stosunek-Obj"
+
+msgid "Depth-Dist"
+msgstr "Głębokość-Dyst"
+
+msgid "Depth-Dist-M"
+msgstr "Głębokość-Dyst-M"
+
+msgid "Time-M"
+msgstr "Czas-M"
+
+msgid "Time-D"
+msgstr "Czas-D"
+
+msgid "Vel-M"
+msgstr "Pręd.-M"
+
+msgid "Vel-D"
+msgstr "Pręd.-D"
+
+msgid "The entered date of LMP is under the range: "
+msgstr "Wprowadzona data LMP jest w zakresie: "
+
+msgid "The entered date of Ovul. Date is under the range: "
+msgstr "Wprowadzona data Data owulac. jest w zakresie: "
+
+msgid "Month out of range"
+msgstr "Miesiąc poza zasięgiem"
+
+msgid "Day out of range"
+msgstr "Dzień z zakresu"
+
+msgid "HR-M"
+msgstr ""
+
+msgid "Hadlock"
+msgstr ""
+
+msgid "Robinson"
+msgstr ""
+
+msgid "Hansmenn"
+msgstr ""
+
+msgid "Lasser"
+msgstr ""
+
+msgid "Tokyo"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Merz"
+msgstr ""
+
+msgid "Jeanty"
+msgstr ""
+
+msgid "Rempen"
+msgstr ""
+
+msgid "Hellman"
+msgstr ""
+
+msgid "Goldstein"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Hadlock1"
+msgstr ""
+
+msgid "Hadlock2"
+msgstr ""
+
+msgid "Hadlock3"
+msgstr ""
+
+msgid "Hadlock4"
+msgstr ""
+
+msgid "Shepard"
+msgstr ""
+
+msgid "Option"
+msgstr "Opcja"
+
+msgid "State"
+msgstr "Stan"
+
+msgid "Install"
+msgstr "instalować"
+
+msgid "Uninstall"
+msgstr "Odinstaluj"
+
+msgid "Installed"
+msgstr "zainstalowana"
+
+msgid "Disabled"
+msgstr "Niepełnosprawny"
+
+msgid "Installed(* Restart to take effect)"
+msgstr "zainstalowana(* Uruchom ponownie wejść w życie)"
+
+msgid "Disabled(* Restart to take effect)"
+msgstr "Niepełnosprawny(* Uruchom ponownie wejść w życie)"
+
+msgid "If the registeration is successful, it will take effect after the machine is rebooted."
+msgstr "Jeśli rejestracja zakończy się pomyślnie, to będzie obowiązywać po restarcie komputera."
+
+msgid "eFci"
+msgstr "Złożenie częst."
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate a unique register key for every machine,you can register optional function by inputting thist register key.If register is successful,you can use the optional function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will find this file named 'license' in Udisk. Please send this file to manufacturer."
+msgstr ""
+"Uwaga: Zgodnie z plikiem licencji, producent generuje unikatowy klucz rejestru dla każdej maszyny. Funkcję fakultatywn można zarejestrować, wprowadzając ten klucz rejestracyjny. Jeżeli rejestracja się powiedzie, można użyć funkcji fakultatywn.\n"
+"\n"
+"Wprowadź Udisk i naciśnij przycisk 'Eksportuj plik licencyjny'. Ten plik znajduje się na Udisku pod nazwą 'licencja'. Prześlij ten plik do producenta."
+
+msgid "RPA Diam(2D) "
+msgstr ""
+
+msgid "Bre1 Le1 Vol"
+msgstr ""
+
+msgid "Bre1 Le2 Vol"
+msgstr ""
+
+msgid "Bre1 Le3 Vol"
+msgstr ""
+
+msgid "Bre1 Le4 Vol"
+msgstr ""
+
+msgid "Bre1 Le5 Vol"
+msgstr ""
+
+msgid "Bre2 Le1 Vol"
+msgstr ""
+
+msgid "Bre2 Le2 Vol"
+msgstr ""
+
+msgid "Bre2 Le3 Vol"
+msgstr ""
+
+msgid "Bre2 Le4 Vol"
+msgstr ""
+
+msgid "Bre2 Le5 Vol"
+msgstr ""
+
+msgid "Bre3 Le1 Vol"
+msgstr ""
+
+msgid "Bre3 Le2 Vol"
+msgstr ""
+
+msgid "Bre3 Le3 Vol"
+msgstr ""
+
+msgid "Bre3 Le4 Vol"
+msgstr ""
+
+msgid "Bre3 Le5 Vol"
+msgstr ""
+
+msgid "Bre4 Le1 Vol"
+msgstr ""
+
+msgid "Bre4 Le2 Vol"
+msgstr ""
+
+msgid "Bre4 Le3 Vol"
+msgstr ""
+
+msgid "Bre4 Le4 Vol"
+msgstr ""
+
+msgid "Bre4 Le5 Vol"
+msgstr ""
+
+msgid "Bre5 Le1 Vol"
+msgstr ""
+
+msgid "Bre5 Le2 Vol"
+msgstr ""
+
+msgid "Bre5 Le3 Vol"
+msgstr ""
+
+msgid "Bre5 Le4 Vol"
+msgstr ""
+
+msgid "Bre5 Le5 Vol"
+msgstr ""
+
+msgid "RPA Diam(2D-Ves)"
+msgstr ""
+
+msgid "Lesion1 Area"
+msgstr ""
+
+msgid "Lesion1 Area 1"
+msgstr ""
+
+msgid "Lesion1 Area 2"
+msgstr ""
+
+msgid "Lesion1 Area 3"
+msgstr ""
+
+msgid "Lesion2 Area"
+msgstr ""
+
+msgid "Lesion2 Area 1"
+msgstr ""
+
+msgid "Lesion2 Area 2"
+msgstr ""
+
+msgid "Lesion2 Area 3"
+msgstr ""
+
+msgid "Lesion3 Area"
+msgstr ""
+
+msgid "Lesion3 Area 1"
+msgstr ""
+
+msgid "Lesion3 Area 2"
+msgstr ""
+
+msgid "Lesion3 Area 3"
+msgstr ""
+
+msgid "Lesion4 Area"
+msgstr ""
+
+msgid "Lesion4 Area 1"
+msgstr ""
+
+msgid "Lesion4 Area 2"
+msgstr ""
+
+msgid "Lesion4 Area 3"
+msgstr ""
+
+msgid "Lesion5 Area"
+msgstr ""
+
+msgid "Lesion5 Area 1"
+msgstr ""
+
+msgid "Lesion5 Area 2"
+msgstr ""
+
+msgid "Lesion5 Area 3"
+msgstr ""
+
+msgid "Lesion6 Area"
+msgstr ""
+
+msgid "Lesion6 Area 1"
+msgstr ""
+
+msgid "Lesion6 Area 2"
+msgstr ""
+
+msgid "Lesion6 Area 3"
+msgstr ""
+
+msgid "Lesion7 Area"
+msgstr ""
+
+msgid "Lesion7 Area 1"
+msgstr ""
+
+msgid "Lesion7 Area 2"
+msgstr ""
+
+msgid "Lesion7 Area 3"
+msgstr ""
+
+msgid "Lesion8 Area"
+msgstr ""
+
+msgid "Lesion8 Area 1"
+msgstr ""
+
+msgid "Lesion8 Area 2"
+msgstr ""
+
+msgid "Lesion8 Area 3"
+msgstr ""
+
+msgid "Lesion9 Area"
+msgstr ""
+
+msgid "Lesion9 Area 1"
+msgstr ""
+
+msgid "Lesion9 Area 2"
+msgstr ""
+
+msgid "Lesion9 Area 3"
+msgstr ""
+
+msgid "Lesion10 Area"
+msgstr ""
+
+msgid "Lesion10 Area 1"
+msgstr ""
+
+msgid "Lesion10 Area 2"
+msgstr ""
+
+msgid "Lesion10 Area 3"
+msgstr ""
+
+msgid "Lesion11 Area"
+msgstr ""
+
+msgid "Lesion11 Area 1"
+msgstr ""
+
+msgid "Lesion11 Area 2"
+msgstr ""
+
+msgid "Lesion11 Area 3"
+msgstr ""
+
+msgid "Dog GSD"
+msgstr ""
+
+msgid "Dog CRL"
+msgstr ""
+
+msgid "Dog HD"
+msgstr ""
+
+msgid "Dog BD"
+msgstr ""
+
+msgid "Cat HD"
+msgstr ""
+
+msgid "Cat BD"
+msgstr ""
+
+msgid "Sheep CRL"
+msgstr ""
+
+msgid "Swine HL"
+msgstr ""
+
+msgid "Swine SL"
+msgstr ""
+
+msgid "Bovine K-CRL"
+msgstr ""
+
+msgid "Bovine W-CRL"
+msgstr ""
+
+msgid "Bovine H-CRL"
+msgstr ""
+
+msgid "Bovine BBD"
+msgstr ""
+
+msgid "Bovine BTD"
+msgstr ""
+
+msgid "Bovine BUD"
+msgstr ""
+
+msgid "Equine GSD"
+msgstr ""
+
+msgid "Equine ERD"
+msgstr ""
+
+msgid "Equine ESD"
+msgstr ""
+
+msgid "Equine EED"
+msgstr ""
+
+msgid "Fetus"
+msgstr ""
+
+msgid "Pwr"
+msgstr ""
+
+msgid "Freq"
+msgstr "Częst."
+
+msgid "Speed"
+msgstr "Prędkość"
+
+msgid "[Global Zoom]: <Auto> to change scale, Mouse to scroll."
+msgstr "[Zoom całości]: Użyj pokrętła <Auto> aby zmienić skalę, a myszy, aby rzowinąć"
+
+msgid "[PIP]: <Auto> to change scale, Mouse to Move Magnifier."
+msgstr "[PIP]: Użyj pokrętła <Auto> aby zmienić skalę a myszy aby sterować powiększeniem"
+
+msgid "[Gray Transform]: Mouse to move dot, <Auto> to select dot, <Update> to select curve."
+msgstr "[Przekszt. Szarości]: Mysz porusza kropką, <Auto> wybiera kropkę, <Update> wÃ¤hlen Kurve."
+
+msgid "[Length]: <Auto> to cancel or redraw."
+msgstr "[Długość]: <Auto> aby anulować lub zmienić."
+
+msgid "[AreaTrack]: <Auto> to cancel or redraw."
+msgstr "[Śledzenie powierzchni]: <Auto> aby usunąć lub zmienić."
+
+msgid "[Simpsom]: <Auto> to cancle or redraw."
+msgstr "[Simpsom]: <Auto> aby anulować lub zmienić."
+
+msgid "[A/L]: <Auto> to cancle or redraw."
+msgstr "[A/L]: <Auto> aby anulować lub zmienić."
+
+msgid "[ManualTrack]: <Auto> to cancel or redraw. <Update> to AutoTrack."
+msgstr "[Manualne śledzenie]: <Auto> aby anulować lub zmienić. <Update> do automatycznego śledzenia."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack. <Auto> press to adjust."
+msgstr "[Półautomatyczne]: <Update> aby przejść do manualnego śledzenia. Naciśnij, <Auto> aby dopasować."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto. <Auto> press to adjust."
+msgstr "[Automatyczne śledzenie]: <Update> aby przejść do półautomatycznego śledzenia. Naciśnij, <Auto> aby dopasować."
+
+msgid "[PI]: <Auto> to cancel or redraw."
+msgstr "[PI]: <Auto> aby anulować lub zmienić."
+
+msgid "[PG Mean]: <Auto> to cancel or redraw."
+msgstr "[Średnia PG]: <Auto> aby anulować lub zmienić."
+
+msgid "Testicle"
+msgstr ""
+
+msgid "Obstetrics-Dog"
+msgstr ""
+
+msgid "Obstetrics-Cat"
+msgstr ""
+
+msgid "Obstetrics-Sheep"
+msgstr ""
+
+msgid "Obstetrics-Swine"
+msgstr ""
+
+msgid "Obstetrics-Bovine"
+msgstr ""
+
+msgid "Obstetrics-Equine"
+msgstr ""
+
+msgid "P1-P3"
+msgstr ""
+
+msgid "TA Max"
+msgstr ""
+
+msgid "Please select one item to be save!"
+msgstr ""
+
+msgid "When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "Dla zoom, serii zdjęć, Tp-View lub EFVI istnieje tylko jedna ostrość."
+
+msgid "[Angle]: <AUTO> to adjust size."
+msgstr ""
+
+msgid "Time(M)"
+msgstr ""
+
+msgid "Slope(M)"
+msgstr ""
+
+msgid "Vel(M)"
+msgstr ""
+
+msgid "HR(M)"
+msgstr ""
+
+msgid "Dist(M)"
+msgstr ""
+
+msgid "Auto Trace(D)"
+msgstr ""
+
+msgid "Trace(D)"
+msgstr ""
+
+msgid "Velocity(D)"
+msgstr ""
+
+msgid "RI(D)"
+msgstr ""
+
+msgid "PS / ED(D)"
+msgstr ""
+
+msgid "Time(D)"
+msgstr ""
+
+msgid "Accel(D)"
+msgstr ""
+
+msgid "PI(D)"
+msgstr ""
+
+msgid "HR(D)"
+msgstr ""
+
+msgid "PG max(D)"
+msgstr ""
+
+msgid "PG mean(D)"
+msgstr ""
+
+msgid "EF(M)"
+msgstr ""
+
+msgid "IMT"
+msgstr ""
+
+msgid "IMT-Above"
+msgstr ""
+
+msgid "IMT-Below"
+msgstr ""
+
+msgid "Biopsy Bracket"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+msgid "[Arrow]: <Auto> to change arrow direction."
+msgstr ""
+
+msgid "[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr ""
+
+msgid "[End Exam]: All details of animal has been archived."
+msgstr ""
+
+msgid "[Verify]: <Auto> to adjust angle, Mouse to adjust position."
+msgstr ""
+
+msgid "[Verify]: <Value> to adjust angle, Mouse to adjust position."
+msgstr ""
+
+msgid "saving parameter succeed!"
+msgstr ""
+
+msgid "Restoring default factory succeed!"
+msgstr ""
+
+msgid "[Biopsy]: Only valid in B mode and UnFreeze status."
+msgstr ""
+
+msgid "Line Type     Double"
+msgstr ""
+
+msgid "Line Type     Single"
+msgstr ""
+
+msgid "[Verify]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr ""
+
+msgid "Clicking OK will clear calculated value, whether to cotunue?"
+msgstr ""
+
+msgid "Calc And Caliper"
+msgstr ""
+
+msgid "<b>P3</b>"
+msgstr ""

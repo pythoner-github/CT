@@ -1,0 +1,8396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-12 00:20-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>VGA Source:</b>"
+msgstr "<b>VGA:</b>"
+
+msgid "Internal"
+msgstr "внутренний"
+
+msgid "External"
+msgstr "внешний"
+
+msgid " (Restart to complete changes)"
+msgstr "(Перезапустите, чтобы завершить изменение настроек)"
+
+msgid " <b>Press</b>"
+msgstr "<b>Нажмите</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"Capture Status\"</b>"
+msgstr ""
+"<b>кнопку, чтобы \n"
+" войти в\n"
+" \"Состояние ввода\"</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"Prepare Status\"</b>"
+msgstr ""
+"<b> кнопку, чтобы \n"
+" войти в\n"
+" Состоя. подготов.</b>"
+
+msgid ""
+" <b>button to enter the\n"
+" \"View Status\"</b>"
+msgstr ""
+"<b> кнопку, чтобы \n"
+" войти в\n"
+" \"Состоя. просмо.\"</b>"
+
+#, c-format
+msgid "%s"
+msgstr "%s"
+
+msgid "(Fetus 1)"
+msgstr "(Эмбрион 1)"
+
+msgid "(Fetus 2)"
+msgstr "(Эмбрион 2)"
+
+msgid "(PostScript Printer Description file)"
+msgstr "(Файл описания принтера PostScript)"
+
+msgid "/"
+msgstr "/"
+
+msgid "10 Min."
+msgstr "10 минут"
+
+msgid "1cm < AF < 2cm"
+msgstr "1см < AF < 2см"
+
+msgid "1~2 times FM"
+msgstr "FM 1~2 раза "
+
+msgid "20 Min."
+msgstr "20 минут"
+
+msgid "2D Gain:"
+msgstr "Уси. 2D:"
+
+msgid "2D Mode"
+msgstr "Режим 2D"
+
+msgid "2D Post-process"
+msgstr "После. обработка 2D"
+
+msgid "2D+2D/Color"
+msgstr "2D+2D/Цвет"
+
+msgid "30 Min."
+msgstr "30 минут"
+
+msgid "45 Min."
+msgstr "45 минут"
+
+msgid "4B"
+msgstr "4B"
+
+msgid "5 Min."
+msgstr "5 минут"
+
+msgid "60 Min."
+msgstr "60 минут"
+
+msgid "<b>2D and M mode</b>"
+msgstr "<b>Режимы 2D и Режимы M </b>"
+
+msgid "<b>AC :</b>"
+msgstr "<b>AC :</b>"
+
+msgid "<b>AE Title :</b>"
+msgstr "<b>AE Title :</b>"
+
+msgid "<b>APAD :</b>"
+msgstr "<b>APAD :</b>"
+
+msgid "<b>Auto Spectrum Calculation Result</b>"
+msgstr "<b>Результат авто. расчета спектра</b>"
+
+msgid "<b>BPD :</b>"
+msgstr "<b>BPD :</b>"
+
+msgid "<b>BSA :</b>"
+msgstr "<b>BSA :</b>"
+
+msgid "<b>Biopsy Verify :</b>"
+msgstr "<b>Подтверждение :</b>"
+
+msgid "<b>Bodymark Size</b>"
+msgstr "<b>Размер меток тела</b>"
+
+msgid "<b>CER :</b>"
+msgstr "<b>CER :</b>"
+
+msgid "<b>CFM mode</b>"
+msgstr "<b>Режим CFM</b>"
+
+msgid "<b>CRL :</b>"
+msgstr "<b>CRL :</b>"
+
+# msgid "<b>Center Line</b>"
+# msgstr "<b>Осевая линия</b>"
+msgid "<b>Comments:</b>"
+msgstr "<b>Комментарии:</b>"
+
+msgid "<b>Common</b>"
+msgstr "<b>Общее</b>"
+
+msgid "<b>Current User: </b>"
+msgstr "<b>Текущ. Пользо-ль: </b>"
+
+msgid "<b>Cursor Size</b>"
+msgstr "<b>Размер курсора</b>"
+
+msgid "<b>DICOM Server :</b>"
+msgstr "<b>DICOM Сервер:</b>"
+
+msgid "<b>Data and Time</b>"
+msgstr "<b>Дата и время</b>"
+
+msgid "<b>Date Format:</b>"
+msgstr "<b>Формат даты:</b>"
+
+msgid "<b>Date and Time</b>"
+msgstr "<b>Время</b>"
+
+msgid "<b>Disk Info</b>"
+msgstr "<b>Инфо. о диске</b>"
+
+msgid "<b>Display Format</b>"
+msgstr "<b>Формат отображения</b>"
+
+msgid "<b>EFW :</b>"
+msgstr "<b>EFW :</b>"
+
+msgid "<b>FL :</b>"
+msgstr "<b>FL :</b>"
+
+msgid "<b>File name:</b>"
+msgstr "<b>Имя файла:</b>"
+
+msgid "<b>Font Size</b>"
+msgstr "<b>Размер шрифта</b>"
+
+msgid "<b>Function</b>"
+msgstr "<b>Функция</b>"
+
+msgid "<b>GS :</b>"
+msgstr "<b>GS :</b>"
+
+msgid "<b>Gateway :</b>"
+msgstr "<b>Шлюз :</b>"
+
+msgid "<b>General Information</b>"
+msgstr "<b>Общая информация</b>"
+
+msgid "<b>General Setting :</b>"
+msgstr "<b>Общая настройка :</b>"
+
+msgid "<b>HC :</b>"
+msgstr "<b>HC :</b>"
+
+msgid "<b>HL :</b>"
+msgstr "<b>HL :</b>"
+
+msgid "<b>Hospital Name:</b>"
+msgstr "<b>Назвение больници:</b>"
+
+# msgid "<b>Host</b>"
+# msgstr "<b>Основное устройство</b>"
+msgid "<b>IP Address:     </b>"
+msgstr "<b>IP адрес:</b>"
+
+msgid "<b>Image Options</b>"
+msgstr "<b>Параметры изображения</b>"
+
+msgid "<b>Indication:</b>"
+msgstr "<b>Показание:</b>"
+
+msgid "<b>Key</b>"
+msgstr "<b>Кнопка</b>"
+
+msgid "<b>Keyboard Sound</b>"
+msgstr "<b>Звук клавиатуры</b>"
+
+msgid "<b>Language:</b>"
+msgstr "<b>Язык:</b>"
+
+msgid "<b>Line Color</b>"
+msgstr "<b>Цвет линии</b>"
+
+msgid "<b>MODE</b>"
+msgstr "<b>РЕЖИМ</b>"
+
+msgid "<b>Measure Line</b>"
+msgstr "<b>Линия измерения</b>"
+
+msgid "<b>Measure Sequence</b>"
+msgstr "<b>После. изм.</b>"
+
+msgid "<b>Model</b>"
+msgstr "<b>Модель</b>"
+
+msgid "<b>Netmask :</b>"
+msgstr "<b>Маска подсети :</b>"
+
+msgid "<b>Network Setting</b>"
+msgstr "<b>Сетевые настройки</b>"
+
+msgid "<b>OB Calc Method</b>"
+msgstr "<b>Метод расчета OB</b>"
+
+msgid "<b>OFD :</b>"
+msgstr "<b>OFD :</b>"
+
+msgid "<b>PW mode</b>"
+msgstr "<b>PW режим</b>"
+
+msgid "<b>Patient</b>"
+msgstr "<b>Пациент</b>"
+
+msgid "<b>Port :</b>"
+msgstr "<b>Порт :</b>"
+
+msgid "<b>Printer Setting</b>"
+msgstr "<b>Настройка принтера</b>"
+
+msgid "<b>Printer</b>"
+msgstr "<b>Принтер</b>"
+
+msgid "<b>Probe Type: </b>"
+msgstr "<b>Тип датчика: </b>"
+
+msgid "<b>Quick Search</b>"
+msgstr "<b>Быстрый поиск</b>"
+
+msgid "<b>Report Result Method</b>"
+msgstr "<b>Способ выв. резуль.</b>"
+
+msgid "<b>Screen saver:</b>"
+msgstr "<b>Экран. заставка:</b>"
+
+msgid "<b>Search</b>"
+msgstr "<b>Поиск</b>"
+
+msgid "<b>Software and FPGA Version</b>"
+msgstr "<b>Версия программного обеспечения и ППВМ</b>"
+
+msgid "<b>Storage format: </b>"
+msgstr "<b>Формат данных: </b>"
+
+msgid "<b>Storage medium:</b>"
+msgstr "<b>Носитель данных:</b>"
+
+msgid "<b>TAD :</b>"
+msgstr "<b>TAD :</b>"
+
+msgid "<b>THD :</b>"
+msgstr "<b>THD :</b>"
+
+msgid "<b>TI</b>"
+msgstr "<b>TI</b>"
+
+msgid "<b>TV Connector:</b>"
+msgstr "<b>ТВ-разъем:</b>"
+
+msgid "<b>TV Out Format</b>"
+msgstr "<b>Формат ТВ выхода</b>"
+
+msgid "<b>TV Out Format (Restart to complete changes)</b>"
+msgstr "<b>Формат ТВ выхода (Перезапустите, чтобы завершить изменение настроек)</b>"
+
+msgid "<b>Trace Method</b>"
+msgstr "<b>Метод трассирования</b>"
+
+msgid "<b>Type</b>"
+msgstr "<b>Тип</b>"
+
+msgid "<b>Ultrasound Equipment</b>"
+msgstr "<b>Ультразвуковое оборудование</b>"
+
+msgid "<b>User Select: </b>"
+msgstr "<b>Выбор: </b>"
+
+msgid "<b>Video Options</b>"
+msgstr "<b>Параметры видео</b>"
+
+msgid "<b>Video Standard:</b>"
+msgstr "<b>Формат видео:</b>"
+
+msgid "<i><b>AV &amp; MV(D)</b></i>"
+msgstr "<i><b>AV &amp; MV (D)</b></i>"
+
+msgid "<i><b>AV &amp; MV(M)</b></i>"
+msgstr "<i><b>AV &amp;MV(M)</b></i>"
+
+msgid "<i><b>Aortic Valve(D)</b></i>"
+msgstr "<i><b>Аортальный клапан(D)</b></i>"
+
+msgid "<i><b>Aortic Valve(M)</b></i>"
+msgstr "<i><b>Аортальный клапан(M)</b></i>"
+
+# msgid "<i><b>Arterial</b></i>"
+# msgstr "<i><b>Артериальноеl</b></i>"
+msgid "<i><b>Average</b></i>"
+msgstr "<i><b>Средний</b></i>"
+
+msgid "<i><b>Bladder</b></i>"
+msgstr "<i><b>Мочевой пузырь</b></i>"
+
+msgid "<i><b>Breast</b></i>"
+msgstr "<i><b>Молочная железа</b></i>"
+
+msgid "<i><b>Carotid</b></i>"
+msgstr "<i><b>Сонная артерия</b></i>"
+
+msgid "<i><b>Dimen(2D)</b></i>"
+msgstr "<i><b>Разм.(2D)</b></i>"
+
+msgid "<i><b>Dimen(M)</b></i>"
+msgstr "<i><b>Разм.(M)</b></i>"
+
+msgid "<i><b>Dimensions(2D)</b></i>"
+msgstr "<i><b>Размеры(2D)</b></i>"
+
+msgid "<i><b>Dimensions(M)</b></i>"
+msgstr "<i><b>Размеры(M)</b></i>"
+
+msgid "<i><b>EF &amp; Volume(2D)</b></i>"
+msgstr "<i><b> EF и амплитуда; Объем(2D)</b></i>"
+
+msgid "<i><b>Eyeball</b></i>"
+msgstr "<i><b>Глазное яблоко</b></i>"
+
+msgid "<i><b>Fertility</b></i>"
+msgstr "<i><b>Фертильность</b></i>"
+
+msgid "<i><b>Fetal Biophysical Profile</b></i>"
+msgstr "<i><b>Биофизический профиль плода</b></i>"
+
+msgid "<i><b>Fibroid</b></i>"
+msgstr "<i><b>Фиброид</b></i>"
+
+msgid "<i><b>General</b></i>"
+msgstr "<i><b>Общее</b></i>"
+
+msgid "<i><b>Growth Curve</b></i>"
+msgstr "<i><b>Кривая роста</b></i>"
+
+msgid "<i><b>LE Art</b></i>"
+msgstr "<i><b>Артерии LE </b></i>"
+
+msgid "<i><b>Left Renal</b></i>"
+msgstr "<i><b>Левое ренальное</b></i>"
+
+msgid "<i><b>Mitral Valve(D)</b></i>"
+msgstr "<i><b>Митральный клапан(D)</b></i>"
+
+msgid "<i><b>Mitral Valve(M)</b></i>"
+msgstr "<i><b>Митральный клапан(M)</b></i>"
+
+msgid "<i><b>PV &amp; TV(D)</b></i>"
+msgstr "<i><b>PV &amp; TV(D)</b></i>"
+
+msgid "<i><b>PV &amp; TV(M)</b></i>"
+msgstr "<i><b>PV &amp; TV(M)</b></i>"
+
+msgid "<i><b>Peripheral Vasc(D)</b></i>"
+msgstr "<i><b>Перифери. сосуды(D)</b></i>"
+
+msgid "<i><b>Prostate</b></i>"
+msgstr "<i><b>Простатное</b></i>"
+
+msgid "<i><b>Pulmonic Valve(D)</b></i>"
+msgstr "<i><b>Клапан легочного ствола(D)</b></i>"
+
+msgid "<i><b>Pulmonic Valve(M)</b></i>"
+msgstr "<i><b>Клапан легочного ствола(M)</b></i>"
+
+msgid "<i><b>Right Renal</b></i>"
+msgstr "<i><b>Правое ренальное</b></i>"
+
+msgid "<i><b>Testicle</b></i>"
+msgstr "<i><b>Семенник</b></i>"
+
+msgid "<i><b>Thyroid</b></i>"
+msgstr "<i><b>Щитовидная железа</b></i>"
+
+msgid "<i><b>Tricuspid Valve(D)</b></i>"
+msgstr "<i><b>Трехстворчатый клапан(D)</b></i>"
+
+msgid "<i><b>Tricuspid Valve(M)</b></i>"
+msgstr "<i><b>Трехстворчатый клапан(M)</b></i>"
+
+msgid "<i><b>UE Art</b></i>"
+msgstr "<i><b>Артерии UE</b></i>"
+
+msgid "<i><b>Utero &amp; Placenta(D)</b></i>"
+msgstr "<i><b>Утроба и амплитуда; Плацента(D)</b></i>"
+
+msgid "<i><b>Valves(2D)</b></i>"
+msgstr "<i><b>Клапаны(2D)</b></i>"
+
+msgid "<i><b>Venous</b></i>"
+msgstr "<i><b>Венозное</b></i>"
+
+msgid "<i><b>Vessels(2D)</b></i>"
+msgstr "<i><b>Сосуды(2D)</b></i>"
+
+msgid "<i><b>Vessels(D)</b></i>"
+msgstr "<i><b>Сосуды(D)</b></i>"
+
+msgid "<i><b>Vessels(M)</b></i>"
+msgstr "<i><b>Сосуды(M)</b></i>"
+
+msgid "ABD"
+msgstr "ABD"
+
+msgid "AF < 1cm"
+msgstr "AF < 1см"
+
+msgid "AF:"
+msgstr "AF:"
+
+msgid "AFI"
+msgstr "AFI"
+
+msgid "AGC"
+msgstr "AGC"
+
+msgid "AGC:"
+msgstr "AGC:"
+
+msgid "AO / Power :"
+msgstr "AO /Питание:"
+
+msgid "AVI"
+msgstr "AVI"
+
+msgid "Abdo-adult"
+msgstr "Абдом.-взрослые"
+
+msgid "Abdo-kid"
+msgstr "Абдом.-дети"
+
+msgid "Abdo-liver"
+msgstr "Абдом.-печень"
+
+msgid "Abdomen"
+msgstr "Абдом."
+
+msgid "Abdominal"
+msgstr "Абдом."
+
+msgid "Aborta:"
+msgstr "Аборты:"
+
+msgid "Accelerate"
+msgstr "Ускорение"
+
+msgid "Accession :"
+msgstr "Регистрационный :"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid ""
+"Add\n"
+"Image"
+msgstr ""
+"Добавить\n"
+"изобр."
+
+msgid "Add Printer"
+msgstr "Добавить принтер"
+
+# sgid "Add Printer Error: Please enter printer name!"
+# sgstr "Добавить ошибку принтера: Пожалуйста, введите имя принтера!"
+# msgid "Add Printer Error: Please select a PPD file!"
+# msgstr "Добавить ошибку принтера : Пожалуйста, выберите файл PPD! "
+# msgid "Add Printer Error: URI not found!"
+# msgstr "Добавить ошибку принтера: URI не найден!"
+msgid "Address:"
+msgstr "Адрес:"
+
+msgid "Adjust Time&Date"
+msgstr "Настройка"
+
+msgid "Adult Abdomen"
+msgstr "Абдом.-взрослые"
+
+msgid "Adult Cardio"
+msgstr "Кардио-взрослые"
+
+msgid "Adult Echo"
+msgstr "Эхо. для взрослых"
+
+msgid "Adult Liver"
+msgstr "Печень-взрослые"
+
+msgid "Advanced"
+msgstr "Поздняя"
+
+msgid "Age"
+msgstr "Лет"
+
+msgid "Age:"
+msgstr "Лет:"
+
+msgid "Age: "
+msgstr "Лет: "
+
+msgid "Age:  "
+msgstr "Лет: "
+
+msgid "All"
+msgstr "Все"
+
+msgid "Anatomic M"
+msgstr "Анато. M-режим"
+
+msgid "Angle"
+msgstr "Угол"
+
+msgid "Angle Ratio"
+msgstr "Отношение угла"
+
+msgid "Angle:"
+msgstr "Угол:"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Are you sure you want to close the program and shut down the computer?"
+msgstr "Вы уверены, что хотите закрыть программу и отключить компьютер?"
+
+msgid "Area"
+msgstr "Площадь"
+
+msgid "Area Angusty"
+msgstr "Площадь коарктации"
+
+msgid "Area Ratio"
+msgstr "Отношение площади"
+
+msgid "Arrow"
+msgstr "Стрелочка"
+
+msgid "Artifact"
+msgstr "Артифакт"
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "Auto Calculate"
+msgstr "Авто вычисления"
+
+msgid "Auto Generated ID"
+msgstr "Авто. ID"
+
+msgid "Auto Trace"
+msgstr "Авто. трассировка"
+
+msgid "Available:"
+msgstr "Доступно:"
+
+msgid "Average"
+msgstr "Средний"
+
+msgid "BMP"
+msgstr "BMP"
+
+msgid "BP(High/Low):"
+msgstr "BP(Выс./Низк.):"
+
+msgid "BSA:"
+msgstr "BSA:"
+
+msgid "BSA:  "
+msgstr "BSA:  "
+
+msgid "Background Hide"
+msgstr "Скрыть фон"
+
+msgid "Baseline"
+msgstr "Исходный уровень"
+
+msgid "Beyond the available capacity of the USB!"
+msgstr "Недостаточно свободного места на USB!"
+
+msgid "Beyond the available capacity of the disc!"
+msgstr "Недостаточно свободного места на диске!"
+
+msgid "Big"
+msgstr "Крупн."
+
+msgid "Biopsy"
+msgstr "Биопсия"
+
+msgid "Biopsy Setting"
+msgstr "Биопсия"
+
+msgid "Birth Date:"
+msgstr "DOB:"
+
+msgid "BirthDate"
+msgstr "DOB"
+
+msgid "Bladder"
+msgstr "Мочевой пузырь"
+
+msgid "Bladder Prostate"
+msgstr "УЗИ простаты"
+
+msgid "Blue"
+msgstr "Синий"
+
+msgid "Body Mark"
+msgstr "Метка тела"
+
+msgid "BodyMark"
+msgstr "Метки тела"
+
+msgid "BodyMark Menu"
+msgstr "Меню меток тела"
+
+msgid "BodyMark Size"
+msgstr "Размер меток тела"
+
+msgid "Brand"
+msgstr "Марка"
+
+msgid "Brightness:"
+msgstr "Яркость:"
+
+msgid ""
+"Browse\n"
+"Udisk Image"
+msgstr ""
+"Изобр. с \n"
+" USB-диска"
+
+msgid "Burn"
+msgstr "Записать"
+
+msgid "Burn CD/DVD"
+msgstr "Записать CD/DVD"
+
+msgid "Burning, please wait..."
+msgstr "Запись, пожалуйста подождите..."
+
+msgid "CAR"
+msgstr "CAR"
+
+msgid "CARD"
+msgstr "КАРД."
+
+msgid "CD/DVD"
+msgstr "CD/DVD"
+
+msgid "CFM Map"
+msgstr "Карта CFM "
+
+msgid "CFM Post-process"
+msgstr "Последующая обработка ЦДК"
+
+msgid "CFM/PDI Mode"
+msgstr "CFM/PDI режим"
+
+msgid "CINE"
+msgstr "КИНО"
+
+msgid "CW Mode"
+msgstr "CW-режим"
+
+msgid "CW Post-process"
+msgstr "Последующая обработка CW-режима "
+
+msgid "Calculate"
+msgstr "Расчет"
+
+msgid "Calculate Menu"
+msgstr "Меню вычислений"
+
+msgid "Calculate Preset"
+msgstr "Расчет"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Can not paste it in the same parent!"
+msgstr "Невозможно вставить в тот же родительский каталог!"
+
+msgid "Can not paste it!"
+msgstr "Невозможно вставить из буфера!"
+
+msgid "Can not rename the root!"
+msgstr "Невозможно переименовать корневой каталог!"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Cancelling..."
+msgstr "Отмена..."
+
+msgid "Car-adult"
+msgstr "Кардио.-взрослые"
+
+msgid "Car-fetus"
+msgstr "Кардио.плода"
+
+msgid "Car-kid"
+msgstr "Кардио.-дети"
+
+msgid "Cardiac"
+msgstr "Кардиальный"
+
+msgid "Cardio"
+msgstr "Кардио"
+
+msgid "Carotid"
+msgstr "Сонная артерия"
+
+msgid "Check Date: "
+msgstr "Дата: "
+
+msgid "Check Doctor: "
+msgstr "Диагност: "
+
+msgid "Check Num: "
+msgstr "Exam ID: "
+
+msgid "Chroma"
+msgstr "Цветность"
+
+msgid "Chroma:"
+msgstr "Цветность:"
+
+msgid "Chronic asphyxia risk high"
+msgstr "Высокий риск хронической асфиксии"
+
+msgid "Chronic asphyxia risk suspicious"
+msgstr "Вероятность хронической асфиксии"
+
+msgid "Cine"
+msgstr "Кино"
+
+msgid "Clear"
+msgstr "Очитсить"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Color Focus"
+msgstr "Цветовой фокус"
+
+msgid "Color Hide"
+msgstr "Скрыть цвет"
+
+msgid "Color Invert"
+msgstr "Инверция цвета"
+
+msgid "Color Invert:"
+msgstr "Инверция цвета:"
+
+msgid "Color Line Density"
+msgstr "Лин. плотн. цвета"
+
+msgid "Color Map"
+msgstr "Карт. цветом"
+
+msgid "Color Mode"
+msgstr "Цветовой режим"
+
+msgid "Color PW Mode"
+msgstr "Цвет. PW режим"
+
+msgid "Color Reject"
+msgstr "Отмена"
+
+msgid "Color Reject:"
+msgstr "Отмена:"
+
+msgid "Comment Setting"
+msgstr "Комментарий"
+
+msgid "Comment:"
+msgstr "Комментарий:"
+
+msgid "Comment: "
+msgstr "Комментарий:"
+
+msgid "Comment:  "
+msgstr "Комментарий: "
+
+msgid "Common"
+msgstr "Общее"
+
+msgid "Composite"
+msgstr "Композитный"
+
+msgid "Configuring Network and Testing..."
+msgstr "Конфигурирование сети и тестирование…"
+
+msgid "Confirmed Line:"
+msgstr "Линия подтверждения:"
+
+msgid "Connection Test"
+msgstr "Проверка соединения"
+
+#, c-format
+msgid "Connection test fails!"
+msgstr "Ошибка при проверке соединения!"
+
+#, c-format
+msgid "Connection test successfully!"
+msgstr "Проверка соединения выполнена успешно!"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Copy failure! Can not copy the root!"
+msgstr "Ошибка копирования! Нельзя копировать корневой каталог!"
+
+msgid "Current Line:"
+msgstr "Текущая строка:"
+
+msgid "D"
+msgstr "День"
+
+msgid "D/M/Y"
+msgstr "Д/М/Г"
+
+msgid "DICOM"
+msgstr "DICOM"
+
+msgid "Data Selection"
+msgstr "Выбор даты"
+
+msgid "Database error!"
+msgstr "Ошибка базы данных!"
+
+msgid "Date End:"
+msgstr "Окончание:"
+
+msgid "Date Start:"
+msgstr "Начало:"
+
+msgid "Date of Birth"
+msgstr "DOB"
+
+msgid "Date of Birth:  "
+msgstr "DOB:  "
+
+msgid "Default"
+msgstr "Умолчан"
+
+msgid ""
+"Default\n"
+"Factory"
+msgstr "Умолчан"
+
+msgid "Default Factory"
+msgstr "По умолчанию"
+
+msgid "Default Factory will remove all the users modified data!"
+msgstr "Восстановление настроек по умолчанию удалит все изменения, внесенные пользователем!"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete failure! Can not delete the root!"
+msgstr "Ошибка удаления! Нельзя удалить корневой каталог!"
+
+msgid "Delete the lasted loaded file."
+msgstr "Удалить последний загруженный файл."
+
+msgid "Depth"
+msgstr "Глуб."
+
+msgid "Depth Scale:"
+msgstr "Шкала глуб.:"
+
+msgid "Deptment"
+msgstr "Отдел"
+
+msgid "Descriptor: "
+msgstr "Описание: "
+
+msgid "Deselect"
+msgstr ""
+"Отменить\n"
+" выбор"
+
+msgid "Details"
+msgstr "Подробнее"
+
+msgid "Diagnostician:"
+msgstr "Диагност:"
+
+msgid "Diagnostician:  "
+msgstr "Диагност:  "
+
+msgid "Diagnostician: "
+msgstr "Диагност: "
+
+msgid "Direction PDI"
+msgstr "Направленнная PDI"
+
+msgid "Direction:"
+msgstr "Направление:"
+
+msgid "Display"
+msgstr "Дисплей"
+
+msgid "Display Format"
+msgstr "Формат отображения"
+
+msgid "Dist Peri Ratio"
+msgstr "Отношение расстояния к периметру"
+
+msgid "Dist-2Line"
+msgstr "Расстояние до линии"
+
+msgid "Dist-2Point"
+msgstr "Расстояние до точки"
+
+msgid "Distance"
+msgstr "Расстояние"
+
+msgid "Distance Angusty"
+msgstr "Расстояние коарктации"
+
+msgid "Distance Ratio"
+msgstr "Отношение расстояния"
+
+msgid "Doctor"
+msgstr "Врач"
+
+msgid "Doppler Freq."
+msgstr "Допплер. частота"
+
+msgid "Dot Size"
+msgstr "Размер растрового элемента"
+
+msgid "Double-click to confirm"
+msgstr "Двойной клик для подтверждения"
+
+msgid "Dynamic Range"
+msgstr "Динам. диапаз."
+
+msgid "Dynamic Range:"
+msgstr "Динами. диапаз.:"
+
+msgid "EDCB"
+msgstr "EDCB"
+
+msgid "EDCB:"
+msgstr "EDCB:"
+
+msgid "EDD:"
+msgstr "EDD:"
+
+msgid "EF"
+msgstr "EF"
+
+msgid "EFVI"
+msgstr "EFVI"
+
+msgid "EFW"
+msgstr "EFW"
+
+msgid "EMP"
+msgstr "EMP"
+
+msgid "EXTRA"
+msgstr "EXTRA"
+
+msgid "Early"
+msgstr "Ранняя"
+
+msgid "Early Pregnant"
+msgstr "Ран. срок беремен."
+
+msgid "Early-preg."
+msgstr "Ран. срок беремен."
+
+msgid "Ectopic:"
+msgstr "Смещение:"
+
+msgid "Edge"
+msgstr "Край"
+
+msgid "Edge enh. :"
+msgstr "Увели. края :"
+
+msgid ""
+"Edit\n"
+"Report"
+msgstr ""
+"Редакти.\n"
+"Отчет"
+
+msgid "Edit Report"
+msgstr "Редакти. отчет"
+
+msgid "Edit Templet"
+msgstr "Редакти. модель"
+
+msgid "End Exam"
+msgstr "Закончить"
+
+msgid "End Exam?"
+msgstr "Закончить?"
+
+msgid "Enhance M"
+msgstr "Увели. М"
+
+msgid "Equipment Model"
+msgstr "Модель оборудования"
+
+msgid "Erase"
+msgstr "Стереть"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Error: Failed to mount USB device!"
+msgstr "Ошибка: USB устройство не опознано!"
+
+msgid "Error: No USB device Plug-in!"
+msgstr "Ошибка: USB устройство не подключено!"
+
+msgid "Estimated:"
+msgstr "Планируется:"
+
+msgid "Exam Date"
+msgstr "Дата"
+
+msgid "Exam Date:"
+msgstr "Дата:"
+
+msgid "Exam Date:  "
+msgstr "Дата:  "
+
+msgid "Exam ID"
+msgstr "Exam ID"
+
+msgid "Exam ID:"
+msgstr "Exam ID:"
+
+msgid "Exam ID:  "
+msgstr "Exam ID:"
+
+msgid "Exam Time:  "
+msgstr "Время:  "
+
+msgid "Exam Type"
+msgstr "Тип"
+
+msgid "Exam Type:"
+msgstr "Тип:"
+
+msgid "Exam Type:  "
+msgstr "Тип:  "
+
+msgid "ExamDate"
+msgstr "Дата"
+
+msgid "ExamID"
+msgstr "ID"
+
+msgid "ExamType"
+msgstr "Тип"
+
+msgid "Exit"
+msgstr "Выход"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Export Data"
+msgstr ""
+"Экспорт \n"
+" данные"
+
+msgid "Export To USB"
+msgstr "Экспорт на USB"
+
+msgid "Export to CD/DVD"
+msgstr "Экспорт на CD/DVD"
+
+msgid "Export to USB"
+msgstr "Экспорт на USB"
+
+msgid "Export to USB storage"
+msgstr "Отправить на USB-накопитель"
+
+msgid "Exporting"
+msgstr "Экспорт"
+
+msgid "Eye Ball"
+msgstr "Глазное яблоко"
+
+msgid "EyeBall"
+msgstr "Глазное яблоко"
+
+msgid "FBM ≥ 1 times,time 30-60s"
+msgstr "FBM ≥ 1 раз, время ≥ 30-60с"
+
+msgid "FBM ≥ 1 times,time ≥ 60s"
+msgstr "FBM ≥ 1 раз, время ≥ 60 с"
+
+msgid "FBM:"
+msgstr "FBM:"
+
+msgid "FHR ≤ 1 times"
+msgstr "FHR ≤ 1 раз"
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, 1~4 times"
+msgstr " FHR ≥ 15 раз/мин, время ≥ 15с, ≥ 1~4 раза"
+
+msgid "FHR ≥ 15 times/m, time ≥ 15s, ≥ 5 times"
+msgstr " FHR ≥ 15 раз/мин, время ≥ 15с, ≥ 5 раза"
+
+msgid "FHR:"
+msgstr "FHR:"
+
+msgid "FM ≥ 3 times"
+msgstr "FM ≥ 3 раза"
+
+msgid "FM:"
+msgstr "FM:"
+
+msgid "FPGA version"
+msgstr "Версия ППВМ"
+
+msgid "FT:"
+msgstr "FT:"
+
+msgid "Fail to save. No enough space!"
+msgstr "Ошибка сохранения. Недостаточно места!"
+
+msgid "Fail to save. The file name is already existed, please input another file name!"
+msgstr "Ошибка сохранения. Файл с таким именем уже существует, пожалуйста, введите другое имя файла!"
+
+#, c-format
+msgid "Fail to set the local network!"
+msgstr "Ошибка при установке локальной сети!"
+
+msgid "Fail:"
+msgstr "Ошибка:"
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"No Probe was found."
+msgstr ""
+"Ошибка при режиме 3D/4D!\n"
+"Датчик не найден."
+
+msgid ""
+"Failed to Enter 3D/4D mode!\n"
+"The process cannot be created."
+msgstr ""
+"Ошибка при режиме 3D/4D!\n"
+"Процесс не может быть создан."
+
+msgid "Failed to burn!"
+msgstr "Ошибка записи!"
+
+msgid "Failed to create progress"
+msgstr "Ошибка при создании прогресса"
+
+#, c-format
+msgid "Failed to export to USB storage!"
+msgstr "Ошибка экспорта на USB-накопитель!"
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: не удалось создать директорию."
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: Недостаточно места."
+
+#, c-format
+msgid ""
+"Failed to export to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: Действие отменено!"
+
+msgid ""
+"Failed to get media information!\n"
+"Please check the media correct."
+msgstr ""
+"Не удалось получить медиа файлы!\n"
+"Пожалуйста, проверьте медиа файлы!"
+
+#, c-format
+msgid "Failed to load data from USB storage!"
+msgstr "Ошибка при загрузке данных с USB-накопителя!"
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Ошибка при загрузке данных с USB-накопителя!\n"
+"Ошибка: Не удалось создать директорию."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"Ошибка при загрузке данных с USB-накопителя!\n"
+"Ошибка: Не осталось места на диске."
+
+#, c-format
+msgid ""
+"Failed to load data from USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"Ошибка при загрузке данных с USB-накопителя!\n"
+"Ошибка: Действие отменено."
+
+msgid "Failed to make ISO image!"
+msgstr "Ошибка при монтировании ISO образа!"
+
+msgid "Failed to mount USB storage!"
+msgstr "Не удалось определить USB-накопитель!"
+
+msgid "Failed to prepare data!"
+msgstr "Ошибка при подготовке данных!"
+
+msgid "Failed to print!"
+msgstr "Ошибка при печати"
+
+#, c-format
+msgid "Failed to send data to USB storage!"
+msgstr "Ошибка экспорта на USB-накопитель!"
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Failed to create directory."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: не удалось создать директорию."
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: No space left on storage."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: Недостаточно места."
+
+#, c-format
+msgid ""
+"Failed to send data to USB storage!\n"
+"Error: Operation was cancelled."
+msgstr ""
+"Ошибка экспорта на USB-накопитель!\n"
+"Ошибка: Действие отменено!"
+
+msgid "Failed to send data to USB storage!"
+msgstr "Ошибка экспорта на USB-накопитель!"
+
+msgid "Fast Angle"
+msgstr "Фикси. угол"
+
+msgid "Fat"
+msgstr "Жир"
+
+msgid "Female"
+msgstr "Женский"
+
+msgid "Female "
+msgstr "Женский"
+
+msgid "Fetal Cardio"
+msgstr "Кардио. плода"
+
+msgid "Fetal Heart"
+msgstr "Сердце плода"
+
+msgid "Fetus Cardio"
+msgstr "Кардио плода"
+
+msgid "File Name"
+msgstr "Имя файла"
+
+msgid "Finished!"
+msgstr "Завершено!"
+
+msgid "First Name:"
+msgstr "Имя:"
+
+msgid "Flow Opt."
+msgstr "Опти. потока"
+
+msgid "Focus"
+msgstr "Фокус"
+
+msgid "Focus Pos. Index:"
+msgstr "Поз. фокус:"
+
+msgid "Focus sum:"
+msgstr "Число фокуса:"
+
+msgid "Font Color: "
+msgstr "Цвет фона: "
+
+msgid "Formula: Vintzileos"
+msgstr "Формула: Vintzileos "
+
+msgid "Frame aver."
+msgstr "Кадр"
+
+msgid "Frame aver. :"
+msgstr "Кадр:"
+
+msgid "Free Space:"
+msgstr "Своб."
+
+msgid "Freq."
+msgstr "Частота"
+
+msgid "Freq. :"
+msgstr "Частота:"
+
+msgid "Freq. Compound"
+msgstr "Компаундинг част."
+
+#, c-format
+msgid "Fri."
+msgstr "Пт."
+
+msgid "Full Screen"
+msgstr "Полный экран"
+
+msgid "Function"
+msgstr "Функция"
+
+msgid "Function:"
+msgstr "Функция:"
+
+msgid "GA:"
+msgstr "GA:"
+
+msgid "GW"
+msgstr "GW"
+
+msgid "GW:"
+msgstr "GW:"
+
+msgid "GW:31~300days"
+msgstr "GW: 31~300дней"
+
+msgid "GYN"
+msgstr "GYN"
+
+msgid "Gain"
+msgstr "Уси."
+
+msgid "Gain Gate"
+msgstr "Получить шлюз"
+
+msgid "Gain:"
+msgstr "Уси."
+
+msgid "Gamma"
+msgstr "Гамма"
+
+msgid "Gamma:"
+msgstr "Гамма:"
+
+msgid "GenArrow"
+msgstr "Основная стрелка"
+
+msgid "Gender"
+msgstr "Пол"
+
+msgid "Gender:"
+msgstr "Пол:"
+
+msgid "Gender:  "
+msgstr "Пол: "
+
+msgid "General"
+msgstr "Общая"
+
+msgid "General Information"
+msgstr "Общая информация"
+
+msgid "General System Setting"
+msgstr "Настройка системы"
+
+msgid "Gestations:"
+msgstr "Гестация:"
+
+msgid "Get Current"
+msgstr "Текущее значение"
+
+msgid "Getting the USB info, Please wait..."
+msgstr "Получение данных с USB-порта, пожалуйста подождите…"
+
+msgid "Getting the media info, Please wait..."
+msgstr "Получение мультимедиа, пожалуйста подождите…"
+
+msgid "Glands"
+msgstr "Гланды"
+
+msgid "Global Zoom"
+msgstr "Общее приближение"
+
+msgid "Gravida:"
+msgstr "Беремен.:"
+
+msgid "Gray"
+msgstr "Серый"
+
+msgid "Gray Rejection"
+msgstr "Удаление серого"
+
+msgid "Gray Trans."
+msgstr "Преобразование в сер."
+
+msgid "Green"
+msgstr "Зеленый"
+
+msgid "Gyn"
+msgstr "Гинеколокия"
+
+msgid "Gynecology"
+msgstr "Гинекология"
+
+msgid "HH:MM:SS"
+msgstr "ЧЧ:ММ:СС"
+
+msgid "HIGH"
+msgstr "ВЫС."
+
+msgid "HIGH-Q illustrate"
+msgstr "ВЫСОКОЕ качество отображения"
+
+msgid "HPRF"
+msgstr "HPRF"
+
+msgid "HR"
+msgstr "HR"
+
+msgid "HR:"
+msgstr "Пульс:"
+
+msgid "Hand"
+msgstr "Рука"
+
+msgid "Hard disk"
+msgstr "Жесткий диск"
+
+msgid "Heart Rate"
+msgstr "Пульс"
+
+msgid "Hide BodyMark"
+msgstr "Скр. мет. тел."
+
+msgid "Hide Menu Area"
+msgstr "Скрыть область меню"
+
+msgid "High"
+msgstr "Высоко"
+
+msgid "Hip Joint"
+msgstr "Тазобедрен. сустав"
+
+msgid "Hip-joint"
+msgstr "Тазобедрен. сустав"
+
+msgid "Histogram"
+msgstr "Гистограмма"
+
+msgid "Hollo Arrow"
+msgstr "Пуст. стрелка"
+
+msgid "Hollow Arrow"
+msgstr "Пуст. стрелка"
+
+msgid "Hospital:"
+msgstr "Больница:"
+
+msgid "Hospital: "
+msgstr "Больница: "
+
+msgid "ID"
+msgstr "ID"
+
+msgid "ID:"
+msgstr "ID:"
+
+msgid "ID: "
+msgstr "ID: "
+
+msgid "Image"
+msgstr "Изображение"
+
+msgid "Image Area Only"
+msgstr "Только область изобр."
+
+msgid "Image Preset"
+msgstr "Изображение"
+
+msgid "Image manage"
+msgstr "Работа с изображением"
+
+msgid "Import From USB"
+msgstr "Импорт из USB "
+
+msgid "Info."
+msgstr "Инфо"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Insert"
+msgstr "Вставить"
+
+msgid "Insert failure! Already the leaf node!"
+msgstr "Ошибка вставки! Уже является краевой узел!"
+
+msgid "Invalid in current mode."
+msgstr "Недостапно в текущем режиме."
+
+msgid "Invalid when HPRF is on."
+msgstr "Невозможно, когда включен режим HPRF."
+
+msgid "Invalid when Tp-view and EFVI is open."
+msgstr "Невозможно при Tp-View или EFVI включен."
+
+msgid "Invalid when compound imaging is on."
+msgstr "Невозможно, когда включен режим сканирования с технологией компаундинга."
+
+msgid "Invalid when image is rotated!"
+msgstr "Невозможно когда изображение вращается!"
+
+msgid "JPEG"
+msgstr "JPEG"
+
+msgid "Joint Cavity"
+msgstr "Полость сустава"
+
+msgid "Joint-cavity"
+msgstr "Полость сустава"
+
+msgid "Jugular"
+msgstr "Югулярный"
+
+msgid "Key P1"
+msgstr "Кнопка P1"
+
+msgid "Key P2"
+msgstr "Кнопка P2"
+
+msgid "Kid Abdomen"
+msgstr "Абдом.-дети"
+
+msgid "Kid Cardio"
+msgstr "Кардио-дети"
+
+msgid "Kidney"
+msgstr "Почка"
+
+msgid "Kidney Ureter"
+msgstr "Мочеточник почки"
+
+msgid "L / R:"
+msgstr "Влево/Вправо:"
+
+msgid "LE Art"
+msgstr "Артерии LE "
+
+msgid "LMP"
+msgstr "LMP"
+
+msgid "LMP:"
+msgstr "LMP:"
+
+msgid "LOW"
+msgstr "НИЗК."
+
+msgid "Large"
+msgstr "Большая"
+
+msgid "Last"
+msgstr "Последний"
+
+msgid "Last Name:"
+msgstr "Фамилия:"
+
+msgid "Later Pregnant"
+msgstr "Поз. срок беремен."
+
+msgid "Later-preg."
+msgstr "Поз. срок беремен."
+
+msgid "Limbs and spine stretch-bend ≥ 1 times"
+msgstr "Конечности и позвоночник вытянуты ≥ 1 изгиб"
+
+msgid "Limbs or spine stretch-bend ≥ 1 times"
+msgstr "Конечности и позвоночник вытянуты ≥ 1 изгиб"
+
+msgid "Limbs stretch, no bend, fingers loose"
+msgstr "Конечности вытянуты, нет перегибов, пальцы свободны"
+
+msgid "Line Density"
+msgstr "Лин. плотн."
+
+msgid "Line Density:"
+msgstr "Лин. плотн.:"
+
+msgid "Line aver."
+msgstr "Линия"
+
+msgid "Line aver. :"
+msgstr "Линия:"
+
+msgid "Liquid"
+msgstr "Жидкость"
+
+msgid "Load Factory"
+msgstr "Загр. стандартную"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Local Disk"
+msgstr "Локальный диск"
+
+msgid "Low"
+msgstr "Низко"
+
+msgid "M"
+msgstr "Месяц"
+
+msgid "M Gain:"
+msgstr "Уси. в режиме M:"
+
+msgid "M Mode"
+msgstr "M-режим"
+
+msgid "M Post-process"
+msgstr "Последующая обработка M-режима"
+
+msgid "M Speed"
+msgstr "Скор. в режиме M"
+
+msgid "M/D/Y"
+msgstr "М/Д/Г"
+
+msgid "MBP"
+msgstr "MBP "
+
+msgid "MBP :"
+msgstr "MBP :"
+
+msgid "MBP:"
+msgstr "MBP:"
+
+msgid "MID"
+msgstr "СРЕДН."
+
+msgid "Main Menu"
+msgstr "Главное меню"
+
+msgid "Making ISO image, please wait..."
+msgstr "Монтирование ISO образа, пожалуйста подождите… "
+
+msgid "Male"
+msgstr "Мужской"
+
+msgid "Male "
+msgstr "Мужской"
+
+msgid "Mammary Glands"
+msgstr "Молочные железы"
+
+msgid "Manual"
+msgstr "Ручная"
+
+msgid "Manual Trace"
+msgstr "Ручная трассировка"
+
+msgid "Max"
+msgstr "Макс."
+
+msgid "Mean"
+msgstr "Средн."
+
+msgid "Measure"
+msgstr "Показатель"
+
+msgid "Measure Menu"
+msgstr "Меню показателей"
+
+msgid "Measure Setting"
+msgstr "Измерение"
+
+msgid "Measurement is invalid in current mode."
+msgstr "Измерение недействительно в текущем режиме"
+
+# msgid "Media Size:"
+# msgstr "Размер изобр.:"
+msgid "Meniscus"
+msgstr "Мениск"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Mid"
+msgstr "Средн."
+
+msgid "Middle"
+msgstr "Средняя"
+
+msgid "Middle Name:"
+msgstr "Очество:"
+
+msgid "Model"
+msgstr "Модель"
+
+msgid "Modified Time"
+msgstr "Измененное время"
+
+#, c-format
+msgid "Mon."
+msgstr "Пн."
+
+msgid "Muscle"
+msgstr "Мышцы"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "NULL"
+msgstr "Нулевое значение"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Name:"
+msgstr "Название:"
+
+msgid "Name: "
+msgstr "Имя: "
+
+msgid "Name:  "
+msgstr "Имя:"
+
+msgid "New Exam"
+msgstr "Нов. осмотр"
+
+msgid "New Item"
+msgstr "Нов. позиция"
+
+msgid "New Patient"
+msgstr "Нов. пациент"
+
+msgid "Next Snap"
+msgstr "Следующий кадр"
+
+msgid "No FBM or time ≤ 30s"
+msgstr "Отсутствует FBM, или дыхание с интервалом ≤30 с"
+
+msgid "No FM"
+msgstr "Отсутствует FM "
+
+msgid "No Image to play."
+msgstr "Изображение отсутствует"
+
+msgid "No Patient ID."
+msgstr "ID отсутствует."
+
+msgid "No Probe"
+msgstr "No Probe"
+
+msgid "No Record is selected!"
+msgstr "Ни одна запись не выбрана!"
+
+msgid "No USB storage found!"
+msgstr "USB-накопитель не найден!"
+
+msgid ""
+"No any files selected!\n"
+"Please select files to backup first."
+msgstr ""
+"Ни один файл не выбран\n"
+"Пожалуйста, сначала выберите файлы для восстановления."
+
+msgid ""
+"No any files selected!\n"
+"Please select files to export first."
+msgstr ""
+"Ни один файл не выбран\n"
+"Пожалуйста, сначала выберите файлы для экспорта"
+
+msgid "No biopsy bracket found!"
+msgstr "Биопсия не найден"
+
+msgid "No biopsy bracket was found!"
+msgstr "Биопсия не найден"
+
+msgid "No enough space!"
+msgstr "Недостаточно места!"
+
+msgid ""
+"No files selected!\n"
+"Please select files to backup first."
+msgstr ""
+"Никакие файлы не отобраны!\n"
+"Пожалуйста, выберите файлы, чтобы сделать копию сначала."
+
+msgid "No measured"
+msgstr "Измерения отсутствуют"
+
+msgid "No printer found or specified."
+msgstr "Принтер не найден или указан"
+
+msgid "No printer found."
+msgstr "Принтер не найден."
+
+msgid "No result found!"
+msgstr "Результатов не найдено!"
+
+msgid "Node name can not be null!"
+msgstr "Имя узла не может быть нулевым!"
+
+msgid "Noise"
+msgstr "Шум"
+
+msgid "Noise Reject"
+msgstr "Удаление шумов"
+
+msgid "Noise Threshold"
+msgstr "Порог шума"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Normal"
+msgstr "Нормально"
+
+msgid "Normal, chronic asphyxia risk low"
+msgstr "Нормально, низкий риск хронической асфиксии"
+
+msgid "Not authorize, please contact vendor."
+msgstr "Не разрешают, пожалуйста, свяжитесь с продавцом."
+
+msgid ""
+"Not inserted Ukey, please insert Ukey and click button 'OK' to try again.\n"
+"Click button 'Close' to power off."
+msgstr ""
+"Не вставлена Ukey, пожалуйста, вставьте Ukey и нажмите кнопку 'OK', чтобы попытаться еще раз.\n"
+"Нажмите кнопку 'Close' для выключения питания."
+
+msgid "Not realize now!"
+msgstr "Не выполнено!"
+
+msgid "Note"
+msgstr "Примечание"
+
+msgid "Note Menu"
+msgstr "Меню записей"
+
+msgid "OB"
+msgstr "Акушерство"
+
+msgid "OB Custom"
+msgstr "Програм. OB"
+
+msgid "OFF"
+msgstr "ВЫКЛ."
+
+msgid "OFF: 0"
+msgstr "ВЫКЛ:0"
+
+msgid "OFF: 1"
+msgstr "ВЫКЛ:1"
+
+msgid "OFF: 2"
+msgstr "ВЫКЛ:2"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "ON"
+msgstr "ВКЛ"
+
+msgid "ON: 0"
+msgstr "ВКЛ:0"
+
+msgid "ON: 1"
+msgstr "ВКЛ:1"
+
+msgid "ON: 2"
+msgstr "ВКЛ:2"
+
+msgid "ORT"
+msgstr "ORT"
+
+msgid "Obstetrics"
+msgstr "Акушерство"
+
+msgid "Occidental"
+msgstr "Западная"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "Operation is invalid in current mode."
+msgstr "В текущем режиме выполнение операции невозможно."
+
+msgid "Operation is invalid."
+msgstr "Действие невозможно."
+
+msgid "Options"
+msgstr "Параметры"
+
+msgid "Oriental"
+msgstr "Восточная"
+
+msgid "Orthopedic"
+msgstr "Ортопедия"
+
+msgid "Orthopedics"
+msgstr "Ортопедия"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Ovul. Date"
+msgstr "Дата овуляции"
+
+msgid "Ovulatory Data:"
+msgstr "Овуляция:"
+
+msgid "P1-P2"
+msgstr "P1-P2"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "PDI Post-process"
+msgstr "Последующая обработка PDI-режима "
+
+msgid "PG Max"
+msgstr "Максимальная PG "
+
+msgid "PG Mean"
+msgstr "Средняя PG "
+
+msgid "PI"
+msgstr "PI"
+
+msgid "PIP"
+msgstr "PIP"
+
+msgid "PL:"
+msgstr "PL:"
+
+msgid "PPD File Selection"
+msgstr "Выбор файла PPD "
+
+msgid "PS / ED"
+msgstr "PS / ED"
+
+msgid "PSA:"
+msgstr "PSA:"
+
+msgid "PW Color Mode"
+msgstr "PW цвет. режим "
+
+msgid "PW Gain:"
+msgstr "Уси. PW:"
+
+msgid "PW Map"
+msgstr "Карта PW"
+
+msgid "PW Mode"
+msgstr "PW-режим"
+
+msgid "PW Post-process"
+msgstr "Последующая обработка  PW-режима"
+
+msgid "PageSize:"
+msgstr "Размер бумаги:"
+
+msgid "Para:"
+msgstr "Роды:"
+
+msgid "Paste"
+msgstr "Вставить из буфера"
+
+msgid "Patient ID exist, load data?"
+msgstr "Профиль пациента существует, загрузить данные?"
+
+msgid "Patient ID:"
+msgstr "ID:"
+
+msgid "Patient ID:  "
+msgstr "ID:  "
+
+msgid "Patient Information"
+msgstr "Информация для пациента"
+
+msgid "Pause Exam"
+msgstr "Приостановить осмотр"
+
+msgid "Peri-artery"
+msgstr "Перифери. артерии"
+
+msgid "Peri-vein"
+msgstr "Перифери. вены"
+
+msgid "Periphery Artery"
+msgstr "Перифери. артерии"
+
+msgid "Periphery Vein"
+msgstr "Перифери. вены"
+
+msgid "Persist"
+msgstr "Выдержка"
+
+msgid "Persistence"
+msgstr "Выдержка"
+
+msgid "Persistence:"
+msgstr "Выдержка:"
+
+msgid "Physician:"
+msgstr "Терапевт:"
+
+msgid "Physician:  "
+msgstr "Терапевт:  "
+
+msgid "Physician: "
+msgstr "Терапевт: "
+
+msgid "Picture In Picture"
+msgstr "Картинка в картинке"
+
+msgid "Placental grade is 2"
+msgstr "Оценка плаценты 2"
+
+msgid "Placental grade is 3"
+msgstr "Оценка плаценты 3"
+
+msgid "Placental grade ≤ 2"
+msgstr "Оценка плаценты ≤ 2"
+
+msgid "Placental on posterior wall, no grade"
+msgstr "Плацентарный на задней стенке, нет оценки"
+
+msgid "Please Set the remote host attribute in system setting"
+msgstr "Пожалуйста, задайте свойства удаленного главного компьютера в настройках системы."
+
+msgid "Please enter patient ID again!"
+msgstr "Пожалуйста, напишите ID снова!"
+
+msgid "Please input the file name(without suffix)"
+msgstr "Пожалуйста, введите название файла (без постфикса)"
+
+msgid "Please insert disc!"
+msgstr "Пожалуйста, вставьте диск!"
+
+msgid "Please insert one USB!"
+msgstr "Пожалуйста, вставьте USB"
+
+msgid "Please insert one disc!"
+msgstr "Пожалуйста, вставьте диск!"
+
+msgid "Please rename the New Item!"
+msgstr "Пожалуйста, измените имя новой позиции!"
+
+msgid "Please select from the list you want to export the data!"
+msgstr "Пожалуйста, выберите из списка, куда вы хотите экспортировать данные?"
+
+msgid "Please select from the list you want to export the image/cine!"
+msgstr "Пожалуйста, выберите из списка картинку/кино для экспорта! "
+
+msgid "Please select one node to be copy!"
+msgstr "Пожалуйста, выберите один узел для копирования!"
+
+msgid "Please select one node to be paste!"
+msgstr "Пожалуйста, выберите один корень для вставки из буфера!"
+
+msgid "Please select one node to be save!"
+msgstr "Пожалуйста, выберите один узел для копирования!"
+
+msgid "Please select the father node before insert!"
+msgstr "Пожалуйста, выберите родительский узел, прежде чем вставить!"
+
+msgid "Please select the list you want to export the data!"
+msgstr "Пожалуйста, выберите список, в который хотите экспортировать данные!"
+
+msgid "Please select the wanted data from the list  to be exported!"
+msgstr "Пожалуйста, выберите требуемые данные из списка, которые будет экспортироваться!"
+
+msgid "Please select the wanted image/cine from the list to be exported!"
+msgstr "Пожалуйста, выберите требуемое изображение/кино из списка, который будет экспортироваться!"
+
+msgid "Please set the relevant information of network,host and equipment!"
+msgstr "Пожалуйста, установите соответствующую информацию из сети, хоста и оборудования"
+
+msgid "Please turn off auto calc!"
+msgstr "Пожалуйста, отключите авто расчеты!"
+
+msgid "Please wait, loading data from USB storage..."
+msgstr "Пожалуйста подождите, выполняется загрузка данных с USB-накопителя…"
+
+msgid "Please wait, sending data to USB storage..."
+msgstr "Пожалуйста подождите, экспорт на USB-накопитель..."
+
+msgid "Please wait..."
+msgstr "Пожалуйста подождите…"
+
+msgid "Please wait, sending data to USB storage..."
+msgstr "Пожалуйста подождите, экспорт на USB-накопитель..."
+
+msgid "Point"
+msgstr "Точка"
+
+msgid "Polarity"
+msgstr "Полярность"
+
+msgid "Polarity:"
+msgstr "Полярность:"
+
+msgid "Position"
+msgstr "Положение"
+
+msgid "Power OFF?"
+msgstr "ВЫКЛ. питание?"
+
+msgid "Press"
+msgstr "Нажмите"
+
+msgid "Press any key to resume!"
+msgstr "Для возобновления нажмите любую кнопку!"
+
+msgid "Previous Snap"
+msgstr "Предыдущий кадр"
+
+msgid "Print"
+msgstr "Печать"
+
+msgid "Print Copies:"
+msgstr "Печать копий:"
+
+msgid "Print Preview"
+msgstr "Предпросм. печати"
+
+msgid ""
+"Print\n"
+"Preview"
+msgstr ""
+"Предпросм.\n"
+"печати"
+
+msgid "Print Screen"
+msgstr "Печать экрана"
+
+msgid "Printer"
+msgstr "Принтер"
+
+msgid "Printer Name:"
+msgstr "Имя принтера:"
+
+msgid "Printer URI:"
+msgstr "URI Принтера:"
+
+msgid "Probe Mark Color: "
+msgstr "Цвет мет. датч.:"
+
+msgid "Probe Select"
+msgstr "Выбор датчика"
+
+msgid "ProbeMark Color"
+msgstr "Цвет меток датчика"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "REPORT OF ULTRASOUND"
+msgstr "       Отчет"
+
+msgid "RI"
+msgstr "RI "
+
+msgid "ROI Size"
+msgstr "Размер ROI"
+
+msgid "Rate"
+msgstr "Диапазон"
+
+msgid "Ready to burn, please wait..."
+msgstr "Подготовка к записи, пожалуйста подождите…"
+
+msgid "Ready!"
+msgstr "Готово!"
+
+msgid "Recovery failed!"
+msgstr "Ошибка восстановления"
+
+msgid "Recovery succeed! Restart request!"
+msgstr "Восстановление выполнено успешно! Перезапустите систему!"
+
+msgid "Red"
+msgstr "Красный"
+
+msgid "Reject:"
+msgstr "Отмена:"
+
+msgid "Remain:"
+msgstr "Осталось:"
+
+msgid "Rename failed! The node has been exist!"
+msgstr "Ошибка перенаименования! Узел с таким именем существует!"
+
+msgid "Repeat"
+msgstr "Повтор."
+
+msgid "Replay"
+msgstr "Повтор"
+
+msgid "Replay Speed"
+msgstr "Повторное воспроизведение Скорость"
+
+msgid "Replay/Speed"
+msgstr "Повтор/Скорость"
+
+msgid "Report"
+msgstr "Отчет"
+
+msgid "Report Doctor: "
+msgstr "Терапевт: "
+
+msgid "Reset"
+msgstr "Перезагрузка"
+
+msgid "Reset Trim"
+msgstr "Отмена поворота"
+
+msgid "Return"
+msgstr "Вернуть"
+
+msgid "Review"
+msgstr "Обзор"
+
+msgid "Review Menu"
+msgstr "Меню журнала"
+
+msgid "Rotate"
+msgstr "Повернуть"
+
+msgid "Rotation:"
+msgstr "Поворот:"
+
+msgid "Routine"
+msgstr "Регулярный"
+
+msgid "S-Video"
+msgstr "S-Видео"
+
+msgid "SP"
+msgstr "SP"
+
+msgid "SV Length"
+msgstr "Длина SV "
+
+#, c-format
+msgid "Sat."
+msgstr "Сб"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Save & Exit"
+msgstr ""
+"Сохранить \n"
+"и выйти"
+
+msgid "Save Cine"
+msgstr "Сохранить кино"
+
+msgid "Save Templet"
+msgstr "Сохранить модель"
+
+msgid "Save Video"
+msgstr "Сохранить видео"
+
+msgid "Save failure! Please select leaf node!"
+msgstr "Ошибка сохранения! Пожалуйста, выберите краевой узел!"
+
+msgid "Saving..."
+msgstr "Сохранение…"
+
+msgid "Scale"
+msgstr "Масштаб"
+
+msgid "Scale PRF:"
+msgstr "PRF:"
+
+msgid "Scale Unit"
+msgstr "Шкала"
+
+msgid "Scan Angle"
+msgstr "Угол скан."
+
+msgid "Scan Range:"
+msgstr "Диапаз. скан.:"
+
+msgid "Scatter"
+msgstr "Расхождение"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Search Info"
+msgstr "Поиск инфо."
+
+msgid "Section: "
+msgstr "Отдел: "
+
+msgid "Select All"
+msgstr "Выбрать все"
+
+msgid "Select Image(Maximum of 2)"
+msgstr "Выбрать изображение (Максимум 2)"
+
+msgid "Select Image(Maximum of 6)"
+msgstr "Выбрать изображение (Максимум 6)"
+
+msgid "Select Method:"
+msgstr "Выбрать метод:"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "SendTo DICOM"
+msgstr ""
+"Отправить\n"
+"на DICOM"
+
+msgid "Sending finished!"
+msgstr "Отправка завершена!"
+
+msgid "Sending..."
+msgstr "Отправка"
+
+msgid "Sensitive"
+msgstr "Чувствительный"
+
+msgid "Sensitivity"
+msgstr "Чувствительность"
+
+msgid "Sensitivity:"
+msgstr "Чувствительность:"
+
+msgid "Setting"
+msgstr "Настройки"
+
+msgid "Sex:"
+msgstr "Пол:"
+
+msgid "Sex: "
+msgstr "Пол: "
+
+msgid "Shape"
+msgstr "Форма"
+
+msgid "Show All"
+msgstr "Показать все"
+
+msgid "Show Cine"
+msgstr "Показать кино"
+
+msgid "Show Latest Month"
+msgstr "Показать за прошлый месяц"
+
+msgid "Show Latest Week"
+msgstr "Показать за прошлую неделю"
+
+msgid "Show Snap"
+msgstr "Показать моментальный снимок"
+
+msgid "Show Today"
+msgstr "Показать за сегодня"
+
+msgid "Simple Arrow"
+msgstr "Простая"
+
+msgid "Simult"
+msgstr "Одновр."
+
+msgid "Single Explain:    2-point:Normal  1-point:Slight Abnormal  0-point:Obvious Abnormal"
+msgstr "Простое толкование: 2 точки: Нормально 1 точка: Незначительные отклонения 0 точек: Очевидные отклонения"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Slide Play"
+msgstr "Показ слайдов"
+
+msgid "Slide Show"
+msgstr "Показ"
+
+msgid "Slide Speed"
+msgstr "Скорость слайдов"
+
+msgid "Slope"
+msgstr "Уклон"
+
+msgid "Small"
+msgstr "Мелк."
+
+msgid "Small Part"
+msgstr "Детольно"
+
+msgid "Small-part"
+msgstr "Детальное"
+
+msgid "SmallPart"
+msgstr "Детально"
+
+msgid "Smooth"
+msgstr "Сглаживание"
+
+msgid "Smooth:"
+msgstr "Сглаживание:"
+
+msgid "Software version"
+msgstr "Версия П.О."
+
+msgid "SolidArrow"
+msgstr "Фиксированная стрелка"
+
+msgid "SonyGamma:"
+msgstr "SonyГамма:"
+
+msgid "Sound"
+msgstr "Звук"
+
+msgid "Sound Power"
+msgstr "Мощность звука"
+
+# msgid "Space Compound"
+# msgstr "Компаундинг"
+msgid "Specific"
+msgstr "Специальн."
+
+msgid "Specifies a PPD file:"
+msgstr "Укажите PPD файл:"
+
+msgid "Spectrum Invert:"
+msgstr "Отражение спектра:"
+
+msgid "Spectrum Sound"
+msgstr "Звуковой спектр"
+
+msgid "Spectrum Speed"
+msgstr "Скорость спектра"
+
+msgid "Speed: "
+msgstr "Скорость:"
+
+msgid "Spine"
+msgstr "Спинной хребет"
+
+msgid "Stature:"
+msgstr "Рост:"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "Steer"
+msgstr "Steer"
+
+msgid "Steer Left"
+msgstr "Steer влево"
+
+msgid "Steer Right"
+msgstr "Steer вправо"
+
+msgid "Steer:"
+msgstr "Steer:"
+
+msgid "Sub Menu"
+msgstr "Подменю"
+
+#, c-format
+msgid "Success to export to USB storage."
+msgstr "Удачный экспорт на USB-накопитель."
+
+msgid ""
+"Success to export to USB storage.\n"
+"Path: "
+msgstr ""
+"Удачный экспорт на USB-накопитель.\n"
+"Путь:"
+
+#, c-format
+msgid "Success to load data from USB storage."
+msgstr "Успешная загрузка данных с USB-накопителя. "
+
+msgid "Success to save cine. Filename is "
+msgstr "Успешное сохранение записи. Название файла  "
+
+msgid "Success to save eView cine. Filename is "
+msgstr "Успешное сохранение кино eView. Имя файла"
+
+msgid "Success to save image. Filename is "
+msgstr "Успешное сохранение изображения. Название файла…"
+
+msgid "Success:"
+msgstr "Успешно:"
+
+#, c-format
+msgid "Sun."
+msgstr "Вс."
+
+msgid "Sure to upgrade?"
+msgstr "Уверены, что хотите обновить?"
+
+msgid "System Default"
+msgstr "Умолчан системы"
+
+msgid "System Info"
+msgstr "Систем"
+
+msgid "System Setting"
+msgstr "Настройка системы"
+
+msgid ""
+"System Setting\n"
+"\n"
+"Biopsy Setting"
+msgstr ""
+"Настройка системы\n"
+"\n"
+"Настройка биопсии"
+
+msgid "System Setup"
+msgstr "Загрузка системы"
+
+msgid "TCD"
+msgstr "TCD"
+
+msgid "THI"
+msgstr "THI"
+
+msgid "THI:"
+msgstr "THI:"
+
+msgid "TIB"
+msgstr "TIB "
+
+msgid "TIC"
+msgstr "TIC "
+
+msgid "TIS"
+msgstr "TIS"
+
+msgid "TP-View"
+msgstr "TP-View "
+
+msgid "TSI"
+msgstr "TSI"
+
+msgid "TSI:"
+msgstr "TSI:"
+
+msgid "TV Out"
+msgstr "ТВ выход"
+
+msgid "Telephone:"
+msgstr "Телефон:"
+
+msgid "The Ukey has expired, please power off and update license file for Ukey."
+msgstr "Ukey истек, пожалуйста,  выключите питание и обновите файл лицензии для Ukey."
+
+msgid "The comments are too long!"
+msgstr "Комментарий слишком длинный!"
+
+msgid "The indication is too long!"
+msgstr "Показание слишком длинное!"
+
+msgid "The media type is not supported!"
+msgstr "Данный тип файла не поддерживается!"
+
+msgid "The time input is not correct!"
+msgstr "Ввод по времени не правильный"
+
+msgid "There are not enough images for IMT measure."
+msgstr "Не хватает изображений для IMT."
+
+msgid "There is no biopsy bracket."
+msgstr "Биопсия отсутствует"
+
+msgid "There is not enough image for IMT measure."
+msgstr "Недостаточно изображения для меры по IMT."
+
+msgid "Threshold"
+msgstr "Порог"
+
+#, c-format
+msgid "Thur"
+msgstr "Чт."
+
+msgid "Thyroid"
+msgstr "Щитовидная"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Time Mark"
+msgstr "Врем. метка"
+
+msgid "Time Resolution"
+msgstr "Врем. разре."
+
+msgid "Time Resolution:"
+msgstr "Врем. разрешение:"
+
+msgid "Time Setting:"
+msgstr "Время:"
+
+msgid "Tissue"
+msgstr "Ткань"
+
+msgid "Total Space:"
+msgstr "Всвго"
+
+msgid "Total:"
+msgstr "Всвго:"
+
+msgid "Tp-View"
+msgstr "Tp-View"
+
+msgid "Trace-Direction"
+msgstr "Напр. трасси."
+
+msgid "Trace-Smooth"
+msgstr "Плавная линия"
+
+msgid "Trace-Threshold"
+msgstr "Порог трасси."
+
+msgid "Trace-Type"
+msgstr "Тип трасси."
+
+msgid "Track"
+msgstr "Проекция"
+
+msgid "Transfer"
+msgstr "Отправить"
+
+msgid "Transfer templet"
+msgstr "Передать модель"
+
+msgid "Trim Left"
+msgstr "Перемотка влево"
+
+msgid "Trim Right"
+msgstr "Перемотка вправо"
+
+#, c-format
+msgid "Tues."
+msgstr "Вт."
+
+msgid "Turbo"
+msgstr "Турбо"
+
+msgid "U / D:"
+msgstr "Вверх/Вниз:"
+
+msgid "U disk"
+msgstr "U диск"
+
+msgid "UE Art"
+msgstr "Артерии UE "
+
+msgid "UR"
+msgstr "Урология"
+
+msgid "URI not found!"
+msgstr "URI не найден!"
+
+msgid "URO"
+msgstr "Урология"
+
+msgid "USB Storage"
+msgstr "USB-накопитель"
+
+msgid "Upgrade"
+msgstr "Обновить"
+
+msgid "Upgrade failed!"
+msgstr "Ошибка обновления!"
+
+msgid "Upgrade failed: Cannot copy upgrade file!"
+msgstr "Ошибка обновления: Невозможно скачать файл обновления!"
+
+msgid "Upgrade failed: Cannot mount USB device!"
+msgstr "Ошибка обновления: USB-устройство не может быть установлено!"
+
+msgid "Upgrade failed: Dest directory not found!"
+msgstr "Ошибка обновления: Целевой каталог не найден!"
+
+msgid ""
+"Upgrade failed: The system has not been restarted  after last upgrade.\n"
+"Please restart the system and try again!"
+msgstr ""
+"Система не была перезапущена после последнего обновления.\n"
+"Пожалуйста,  перезапустите систему и попробуйте еще раз!"
+
+msgid "Upgrade failed: USB device not found!"
+msgstr "Ошибка обновления: USB-устройство не найдено!"
+
+msgid "Upgrade failed: Upgrade file not found!"
+msgstr "Ошибка обновления: файл не найден!"
+
+msgid "Upgrade success,please reboot!"
+msgstr "Обновление выполнено успешно!"
+
+msgid "Upgrading, please wait..."
+msgstr "Обновление, пожалуйста, подождите…"
+
+msgid "Urology"
+msgstr "Урология"
+
+msgid "User Defined"
+msgstr "Определяется пользователем"
+
+msgid "User defined 1"
+msgstr "Определен пользователем 1"
+
+msgid "User defined 2"
+msgstr "Определен пользователем 2"
+
+msgid "User defined 3"
+msgstr "Определен пользователем 3"
+
+msgid "User defined 4"
+msgstr "Определен пользователем 4"
+
+msgid "User-defined 1"
+msgstr "Определяется пользователем 1"
+
+msgid "User-defined 2"
+msgstr "Определяется пользователем 2"
+
+msgid "User-defined 3"
+msgstr "Определяется пользователем 3"
+
+msgid "User-defined 4"
+msgstr "Определяется пользователем 4"
+
+msgid "VES"
+msgstr "VES"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Value-Gain"
+msgstr "Value-Gain"
+
+msgid "Value:0.0~500.0mm (Click to enter a value)"
+msgstr "Значение: 0.0~500.0мм (Кликните, чтобы ввести значение)"
+
+msgid "Variance"
+msgstr "Погрешность"
+
+msgid "Variance:"
+msgstr "Погрешность:"
+
+msgid "Vascular"
+msgstr "Сосуды"
+
+msgid "Velocity"
+msgstr "Скорость"
+
+msgid "Volume Ratio"
+msgstr "Отношение объема"
+
+msgid "Wall Filter"
+msgstr "WF"
+
+msgid "Wall Filter:"
+msgstr "WF:"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid ""
+"Warnning: The patient data will be permanently deleted!\n"
+"Sure to delete?"
+msgstr "Предупреждение: Информация о пациенте будет безвозвратно удалена! Уверены, что хотите удалить?"
+
+#, c-format
+msgid "Wed."
+msgstr "Ср."
+
+msgid "Weight:"
+msgstr "Вес:"
+
+msgid "White"
+msgstr "Белый"
+
+msgid "Y"
+msgstr "Год"
+
+msgid "Y  "
+msgstr "Г"
+
+msgid "M  "
+msgstr "М"
+
+msgid "D  "
+msgstr "Д"
+
+msgid "Y/M/D"
+msgstr "Г/М/Д"
+
+msgid "Yellow"
+msgstr "Желтый"
+
+msgid "Zoom"
+msgstr "Приближение"
+
+msgid "[Area-Point]: <Update> to set shape point."
+msgstr "[Площадь-точка]: <Update> для выбора точки."
+
+msgid "[BodyMark]: Invalid when bodymark is off."
+msgstr "[Метка тела]: Недоступена, когда метка датчика отключена."
+
+msgid "[Calc]: Calc is disable in current image."
+msgstr "[Расчитать]: Расчет недоступен для текущего изображения."
+
+msgid "[Calc]: Calculation selected is invalid in current mode."
+msgstr "[Расч.]: Выбранные расчеты не применимы в текущем режиме."
+
+msgid "[Chroma  Reject]: <Value> change chroma "
+msgstr "[Настройка цветности]: <Value>для изменения цветности "
+
+msgid "[Color Invert]: Invalid in turbo and PDI mode."
+msgstr "[Изменение цвета]: Неверно в турбо режиме и в режиме электронной допплерографии."
+
+msgid "[Compound]: Invalid when Tp-view or EFVI is open."
+msgstr "[Компаундинг]: Невозможно когда Tp-View или EFVI включен."
+
+msgid "[Compound]: Only valid in 2D and M mode, harmonic off."
+msgstr ""
+"[Компаундинг]: Доступно только в режиме 2D и режиме M, при выкл.\n"
+"гармонич. имп. "
+
+msgid "[Compound]: Only valid in 2D and M mode, linear probe, harmonic off."
+msgstr ""
+"[Компаундинг]: Доступно только в режиме 2D и режиме M, для линейных датчиков,\n"
+"при выкл.гармонических импульсах. "
+
+msgid "[Compound]: Only valid in 2D and M mode, no phase probe, harmonic off."
+msgstr "[Компаундинг ]: Возможно только в режиме 2D, M, без фазированного датчика, выкл.гармонических импульсах."
+
+msgid "[Depth]: <Value> to change depth size."
+msgstr "[Глубина]: < Value > для изменения шкалы."
+
+msgid "[Depth]: <Value> to change scale."
+msgstr "[Глубина]: < Value > для изменения шкалы."
+
+msgid "[Depth]: Not valid in current mode."
+msgstr "[Глубина]: Не применимо в текущем режиме."
+
+msgid "[DynamicRange]: Operation is invalid."
+msgstr "[Динамический диапазон]: Действие невозможно."
+
+msgid "[EFVI]: Invalid when Tp-view , compound or biopsy line is open."
+msgstr "[EFVI]: Невозможно когда Tp-View,компаундинг или линия биопсии включен."
+
+msgid "[EFVI]: Invalid when Tp-view or compound is open."
+msgstr "[EFVI]: Невозможно когда Tp-View или компаундинг включен."
+
+msgid "[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."
+msgstr "[EFVI]: Доступно только для конвескного датчика и в разморозке в режиме B."
+
+msgid "[End Exam]: All details of patient has been archived."
+msgstr "[Завершение осмотра]: Все данные пациента были сохранены в архиве."
+
+msgid "[Focus]: Mouse to move focus, <Value> to change focus sum."
+msgstr "[Фокусировка]: Мышь для перемещения фокуса, <Value> для изменения глубины фокуса."
+
+msgid "[Focus]: Mouse to move focus."
+msgstr "[Фокус]: используйте мышь для перемещения фокуса."
+
+msgid "[Focus]: Invalid when simult is on."
+msgstr "[Фокусировка]: Невозможна при включенном режиме одновр."
+
+msgid "[Format]: Format change is disable in current mode."
+msgstr "[Формат]: В текущем режиме изменение формата отключено. "
+
+msgid "[Format]: Format change is invalid in current mode."
+msgstr "[Формат]: Изменение формата недоступно в текущем режиме."
+
+msgid "[Format]: Format change is invalid in freeze mode."
+msgstr "[Формат]: Изменение формата невозможно в режиме приостановки."
+
+msgid "[Freq. Reject]: <Value> change freq. size"
+msgstr "[Настройка частоти]: < Value> для изменения размера по частоте"
+
+msgid "[Freq]: Invalid when simult is on."
+msgstr "[Частота]:Невозможна при включенном режиме одновр"
+
+msgid "[Global Zoom]: <Value> to change scale, Mouse to scroll."
+msgstr "[Общее приближение]: <Value> для изменения масштаба, Мышь для прокрутки."
+
+msgid "[Global Zoom]: Invalid when image is rotated."
+msgstr "[Общее приближение]: Невозможно при повороте изображения."
+
+msgid "[Global Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[Общее приближение]: Возможно только в режиме 2D B и в разморозке."
+
+msgid "[Global Zoom]: Only valid in B mode and UnFreeze status."
+msgstr "[Общее приближение]: Возможно только в режиме B и в разморозке"
+
+msgid "[Global Zoom]: Please zoom image first."
+msgstr "[Общее приближение]: Пожалуйста, сначала приблизьте изображение."
+
+msgid "[Gray Reject]: Mouse to move position."
+msgstr "[Отмена уровня серого]: Мышь для изменения положения."
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Set> to select curve."
+msgstr "[Трансформация уровня серого]: Мышь для перемещения точки, < Value > для выбора точки, <Set> для wÃ¤hlen Kurve."
+
+msgid "[Gray Transform]: Mouse to move dot, <Value> to select dot, <Update> to select curve."
+msgstr ""
+"[Трансформация уровня серого]: Мышь для перемещения точки, <Value> для выбора точки,\n"
+"<Update> для wÃ¤hlen Kurve"
+
+msgid "[HPRF]: Can not be on when simult is on."
+msgstr "[HPRF]: Не может быть включена при включенном одновр.режиме."
+
+msgid "[Harmonic]: Invalid when frequency larger than 2.5MHz."
+msgstr "[Гармоническое]: Неверно при частоте более 2.5МHz."
+
+msgid "[Harmonic]: Only valid for low frequency convex probe."
+msgstr "[Гармоническое]: Только возможно для низк. частот конвескного датчика."
+
+msgid "[Length-Point]: <Update> to set shape point."
+msgstr "[Длина-точка]: <Update> для выбора точки."
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size and to zoom."
+msgstr ""
+"[Местное приближение]: Мышь для перемещения поля, < Set> для изменения размера\n"
+"поля и для увеличения"
+
+msgid "[Local Zoom]: Mouse to move box, <Set> to change box size, <Update> to zoom."
+msgstr ""
+"[Местное приближение]: Мышь для перемещения поля, <Set> для изменения размера поля,\n"
+"<Update> для увеличения."
+
+msgid "[Local Zoom]: Exit."
+msgstr "[Местное приближение]:Выход"
+
+msgid "[Local Zoom]: Invalid when TP-view, biopsy line or centerline is on."
+msgstr "[Местн. приближение]: Невозм. когда TP-view, линия биопсии или линия центра вкл.."
+
+msgid "[Local Zoom]: Invalid when Tp-View is on."
+msgstr "[Местное приближение]: Невозможно при Tp-View включен."
+
+msgid "[Local Zoom]: Invalid when Tp-View or EFVI is on."
+msgstr "[Местное приближение]: Невозможно при Tp-View или EFVI включен."
+
+msgid "[Local Zoom]: Invalid when Tp-view, biopsy line or centerline is on."
+msgstr "[Местн. приближение]: Невозм. когда TP-view, линия биопсии или линия центра вкл.."
+
+msgid "[Local Zoom]: Invalid when image is rotated."
+msgstr "[Местное приближение]: Невозможно, когда изображение   повернуто."
+
+msgid "[Local Zoom]: Invalid when image is steered."
+msgstr "[Местное приближение]: Невозможно когда изображение находится в угол рулевого управления."
+
+msgid "[Local Zoom]: Invalid when in review status."
+msgstr "[Местное приближение]: Невозможно когда в статусе обзора"
+
+msgid "[Local Zoom]: Invalid when in status read picture."
+msgstr "[Местное приближение]: Невозможно когда в статусе читает картину"
+
+msgid "[Local Zoom]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[Локальное приближение]: Доступно только в 2D режиме, в разблокированном состоянии."
+
+msgid "[Local Zoom]: Only valid in 2D B mode and not replay status."
+msgstr "[Местное приближение]:Доступно только в режиме 2D B  без состоянии повтора."
+
+msgid "[Local Zoom]: Only valid in B mode and UnFreeze status."
+msgstr "[Локальное приближение]: Доступно только в режиме, в разблокированном состоянии"
+
+msgid "[Local Zoom]: Only valid in B mode and not replay status."
+msgstr "[Местное приближение]:Доступно только в режиме B без состоянии повтора"
+
+msgid "[Measure]: Measure is disable in current image."
+msgstr "[Измерение]: Измерение недоступно для текущего изображения."
+
+msgid "[Measure]: Measurement selected is invalid in current mode."
+msgstr "[Измерение]: Выбранное измерение не активно в текущем режиме."
+
+msgid "[Measure]: Measurement selected is only valid in freezing mode."
+msgstr "[Измерение]: Выбранное измерение применимо только в приостановленном режиме."
+
+msgid "[PIP]: <Value> to change scale, Mouse to Move Magnifier."
+msgstr "[Картинка в картинке]: <Value> для изменения масштаба, Мышь для перемещения лупы."
+
+msgid "[PIP]: Only valid in 2D B mode and UnFreeze status."
+msgstr "[Картинка в картинке]: Доступно только в режиме 2D B и в разморозке."
+
+msgid "[PIP]: Only valid in B mode and UnFreeze status."
+msgstr "[Картинка в картинке]: Доступно только в режиме B и в разморозке"
+
+msgid "[Probe Select]: No Probe was found."
+msgstr "[Выбор датчика]: Датчик не найден. "
+
+msgid "[Probe Select]: Reading Probe Para..."
+msgstr "[Выбор датчика]: Чтение параметров датчика…"
+
+msgid "[Replay]: No image can be replayed."
+msgstr "[Повтор]: Ни одно изображение не может быть просмотрено повторно."
+
+msgid "[Replay]: No image can be saved."
+msgstr "[Повтор]: Изображение не может быть сохранено."
+
+msgid "[Rotate]: Invalid when IMTMeasure is open."
+msgstr "[Повернуть]:Невозможно когда IMT включен."
+
+msgid "[Rotate]: Only valid in 2D B mode."
+msgstr "[Поворот]: Доступно только в режиме 2D B."
+
+msgid "[Rotate]: Only valid in B mode."
+msgstr "[Поворот]: Доступно только в режиме B."
+
+msgid "[Scale]: Can not be changed when HPRF is on."
+msgstr "[Масштаб]: Невозможно изменить, когда включен HPRF."
+
+msgid "[Scan Angle]: Invalid for linear probe."
+msgstr "[Угол сканирования]: Не применяется для линейного датчика."
+
+msgid "[Scan Angle]: Invalid when Zoom is on."
+msgstr "[Угол сканирования]:Недоступен, когда приближение включена"
+
+msgid "[ScanAngle]: Invalid for linear probe."
+msgstr "[Угол сканирования]: Не применяется для линейного датчика."
+
+msgid "[ScanAngle]: Invalid when Zoom is on."
+msgstr "[Угол сканирования]: Не применяется когда приближение включен."
+
+msgid "[Simult]: Can not be on when HPRF is on."
+msgstr "[Одновр.]: Не может быть включено при режиме HPRF."
+
+msgid "[Simult]: Operation is invalid in current mode."
+msgstr "[Одновр.]: Действие невозможно в текущем режиме."
+
+msgid "[Steer]: Invalid when localzoom is open!."
+msgstr "[Steer]: Невозможно, когда включено Местное приближение"
+
+msgid "[Steer]: Only valid for linear probe."
+msgstr "[Steer]: Только для линейных датчиков."
+
+msgid "[TP-View]: Invalid when EFVI , compound or localzoom is open."
+msgstr "[TP-View]:Невозможно при EFVI, компаундинг или местн. приближение включен."
+
+msgid "[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."
+msgstr "[TP-View]: Доступно только для линейного датчика и в разморозке в режиме B."
+
+msgid "[Threshold]: Invalid when chroma is on."
+msgstr "[Порог]: Невозможно, когда включена хроматичность."
+
+msgid "[Trace]: <Update> to set shape point."
+msgstr "[График]: <Update> для выбора точки."
+
+msgid "[eView]: Only valid in 2D mode, unfreeze status, linear probe."
+msgstr "[eView]：Доступно только в режиме 2D для датчиков линейного типа в активном состоянии."
+
+msgid "[eView]: Only valid in B/BB mode, unfreeze status, linear probe."
+msgstr "[eView] : Возможно только в режиме B/BB, в разморозке, для линейных датчиков."
+
+msgid "[eView]: Only valid when probe type is linear and unfreeze status."
+msgstr "[eView]: Доступно только для датчиков линейного типа в активном состоянии."
+
+msgid "above"
+msgstr "вверх"
+
+msgid "adjust"
+msgstr "настройка"
+
+msgid "artifact"
+msgstr "артифакт"
+
+msgid "below"
+msgstr "вниз"
+
+msgid "both"
+msgstr "оба"
+
+msgid "change the angle."
+msgstr "Изменение угола."
+
+msgid "cm/s"
+msgstr "cm/s"
+
+msgid "custom"
+msgstr "пользователь"
+
+msgid "disable"
+msgstr "отключено"
+
+msgid "ePure"
+msgstr "ePure"
+
+msgid "ePure:"
+msgstr "ePure:"
+
+msgid "eView Mode"
+msgstr "Режим eView "
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Capture Status"
+msgstr ""
+"Режим eView \n"
+"\n"
+"Состоя. ввода"
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Prepare Status"
+msgstr ""
+"Режим eView \n"
+"\n"
+"Состоя. подготов."
+
+msgid ""
+"eView Mode\n"
+"\n"
+"Review Status"
+msgstr ""
+"Режим eView \n"
+"\n"
+"Состоя. провер."
+
+msgid ""
+"eView Mode\n"
+"\n"
+"View Status"
+msgstr ""
+"Режим eView \n"
+"\n"
+"Состоя. просмо."
+
+msgid "eView cine is oversized. Intercept the cine automatically?"
+msgstr "Слишком большой размер кино eView . Обрезать кино автоматически?"
+
+msgid "goldstein"
+msgstr "голдстайн"
+
+msgid "hadlock"
+msgstr "хэдлок"
+
+msgid "hadlock1"
+msgstr "хэдлок 1"
+
+msgid "hadlock2"
+msgstr "хэдлок 2"
+
+msgid "hadlock3"
+msgstr "хэдлок 3"
+
+msgid "hadlock4"
+msgstr "хэдлок 4"
+
+msgid "hansmenn"
+msgstr "хансмен"
+
+msgid "hellman"
+msgstr "хеллман"
+
+msgid "high"
+msgstr "высокий"
+
+msgid "idle"
+msgstr "неактивно"
+
+msgid "jeanty"
+msgstr "жеанти"
+
+msgid "kHz"
+msgstr "КГц"
+
+msgid "korean"
+msgstr "корейский"
+
+msgid "lasser"
+msgstr "лассер"
+
+msgid "low"
+msgstr "низкий"
+
+msgid "medium"
+msgstr "средний"
+
+msgid "merz"
+msgstr "мерц"
+
+msgid "none"
+msgstr "нет"
+
+msgid "please selected frame numbers are more than one."
+msgstr "пожалуйста, отобранные числа структуры - больше чем один."
+
+msgid "printing"
+msgstr "печать"
+
+msgid "rempen"
+msgstr "ремпен"
+
+msgid "robinson"
+msgstr "робинсон"
+
+msgid "shepard"
+msgstr "шепард"
+
+msgid "tokyo"
+msgstr "токио"
+
+msgid "variance"
+msgstr "погрешность"
+
+msgid "ЎѕChromaЎї"
+msgstr "ЎѕЦветностьЎї"
+
+msgid "【Chroma】"
+msgstr "【Цветность】"
+
+msgid "Date of Birth:"
+msgstr "DOB:"
+
+msgid "<b>Please Input New Name:</b>"
+msgstr "<b>Введите новое имя:</b>"
+
+msgid "<b>Please Select New Name:</b>"
+msgstr "<b>Выбираете новое имя:</b>"
+
+msgid "Custom Report"
+msgstr "Пользова. отчет"
+
+msgid "Show Comment"
+msgstr "Показывать комментарий"
+
+msgid "Show Indication"
+msgstr "Показывать признак"
+
+msgid "Others"
+msgstr "Другие"
+
+msgid "New Templet"
+msgstr "Новый шаблон"
+
+msgid "Please rename!"
+msgstr "Переименуйте,пожалуйста"
+
+msgid "Please select a node!"
+msgstr "Выберите узел,пожалуйста!"
+
+msgid "<b>Descriptor:</b>"
+msgstr "<b>Описание:</b>"
+
+msgid "<i><b>User</b></i>"
+msgstr "<i><b>Пользователь</b></i>"
+
+#, c-format
+msgid "Thur."
+msgstr "Чт."
+
+msgid "Error saving user-settings!"
+msgstr "Ошибка для сохранения пользовательскистройках!"
+
+msgid "Too many printers!"
+msgstr "Много принтеров!"
+
+msgid "Unable to add instance!"
+msgstr "Невозможно добавить экземпляр!"
+
+msgid "Options saved!"
+msgstr "Настройки сохранены!"
+
+msgid ""
+"Unable to print, \n"
+"unknown file format!"
+msgstr ""
+"Невозможно печатать, \n"
+"неизвестный формат!"
+
+msgid "JobID"
+msgstr "JobID"
+
+msgid "Unable to print!"
+msgstr "Невозможно печатать!"
+
+msgid "(stdin)"
+msgstr "(stdin)"
+
+msgid "Conflicts"
+msgstr "Конфликты"
+
+msgid "Media Selections"
+msgstr "Выбор медиа"
+
+msgid "Media Size"
+msgstr "Размер  медиа"
+
+msgid "Media Type"
+msgstr "Тип медиа"
+
+msgid "Media Source"
+msgstr "Источник медиа"
+
+msgid "Number of Copies"
+msgstr "Количество копий"
+
+msgid "Collate Copies"
+msgstr "Разобрать по копиям"
+
+msgid "Printing in Black"
+msgstr "Печать в черном"
+
+msgid "Fit on Page"
+msgstr "Установите на страницу"
+
+msgid "Pen Width"
+msgstr "Pen Width"
+
+msgid "micrometers"
+msgstr "микрометры"
+
+msgid "HP-GL/2"
+msgstr "HP-GL/2"
+
+msgid "Sheet relativ"
+msgstr "Лист релятивистской"
+
+msgid "Image relativ"
+msgstr "Изобр. релятивистской"
+
+msgid "PPI"
+msgstr "PPI"
+
+msgid "Scaling"
+msgstr "Масштабирование"
+
+msgid "Color HUE rotation"
+msgstr "Цветной HUE поворот"
+
+msgid "Color saturation"
+msgstr "Насыщенность цвета"
+
+msgid "Fehlerteufel"
+msgstr "Fehlerteufel"
+
+msgid "Warning!"
+msgstr "Внимание!"
+
+msgid "You have installed too many printers or templates !"
+msgstr "Вы установили слишком много принтеров или шаблоны!"
+
+msgid "The given printer does not exist!"
+msgstr "Данный принтер не существует!"
+
+msgid "PRINTER SETTING"
+msgstr "Настройки принтера"
+
+msgid "Sheet Usage"
+msgstr "Лист Статистика"
+
+msgid "Orientation(horizontal/vertical)"
+msgstr "Ориентация (горизонтальный / вертикальный)"
+
+msgid "Mirror Output"
+msgstr "Mirror выход"
+
+msgid "Brightness"
+msgstr "Яркость"
+
+msgid "Gamma correction"
+msgstr "Гамма коррекция"
+
+msgid "Output"
+msgstr "Выход"
+
+msgid "PPD"
+msgstr "PPD"
+
+msgid "Look"
+msgstr "Вид"
+
+msgid "Show Output"
+msgstr "Показать выход"
+
+msgid "Show Text"
+msgstr "Показать текст"
+
+msgid "Show Image"
+msgstr "Показать изображение"
+
+msgid "Show HP-GL/2"
+msgstr "Показать HP-GL/2"
+
+msgid "Show PPD"
+msgstr "Показать PPD"
+
+msgid "Feel"
+msgstr "Ощущение"
+
+msgid "Remember last printer"
+msgstr "Помнить последний принтер"
+
+msgid "Remember last Tab"
+msgstr "Помнить последнюю вкладку"
+
+msgid "Save all preferences on exit"
+msgstr "Сохранить все предпочтения на выходе"
+
+msgid "Save number of copies on exit"
+msgstr "Сохранить количество копий на выходе"
+
+msgid "Sizes and Spacings"
+msgstr "Размеры и расстояния"
+
+msgid "Chars per Inch"
+msgstr "Chars per Inch"
+
+msgid "Lines per Inch"
+msgstr "Lines per Inch"
+
+msgid "Columns per Page"
+msgstr "Columns per Page"
+
+msgid "Margins"
+msgstr "Margins"
+
+msgid "Top"
+msgstr "Топ"
+
+msgid "Bottom"
+msgstr "Низ"
+
+msgid "Left"
+msgstr "Влево"
+
+msgid "Right"
+msgstr "Вправо"
+
+msgid "Text formatting"
+msgstr "Форматирование текста"
+
+msgid "Use Pretty Print"
+msgstr "Use Pretty Print"
+
+msgid "Wrap text"
+msgstr "Перенос текста"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Gender: "
+msgstr "Пол:"
+
+msgid "Exam Type: "
+msgstr "Exam Тип:"
+
+msgid "Comments: "
+msgstr "Комментарии:"
+
+msgid "Section:"
+msgstr "Раздел:"
+
+msgid ">"
+msgstr ">"
+
+msgid "<<"
+msgstr "<<"
+
+msgid "<"
+msgstr "<"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Settings"
+msgstr "Настройка"
+
+msgid "Select Same  Name!"
+msgstr "Выберите то же самое имя!"
+
+msgid "Length"
+msgstr "Длина"
+
+msgid "Peri"
+msgstr "Пери"
+
+msgid "Volume"
+msgstr "Объем"
+
+msgid "Ratio"
+msgstr "Отношение"
+
+msgid "Vel"
+msgstr "Vel"
+
+msgid "Measure_track"
+msgstr "Измерение_ пути"
+
+msgid "CalcSetting"
+msgstr "Урегулирование вычисления"
+
+msgid "Method:"
+msgstr "Метод:"
+
+msgid "Type:"
+msgstr "Тип:"
+
+msgid "item:"
+msgstr "пункт:"
+
+msgid "Please Input Name!"
+msgstr "Пожалуйста, введите имя!"
+
+msgid "Please Custom Type and Method!"
+msgstr "Пожалуйста введите метод!"
+
+msgid "Name has been Existed, please Input Name Again!"
+msgstr "Имя было существовали, пожалуйста, введите имя снова!"
+
+msgid "New Template"
+msgstr "Новый шаблон"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "GrayTrans:"
+msgstr "Трансформация уровня серого:"
+
+msgid "<b>Center Line</b>"
+msgstr "<b>Основная Линия</b>"
+
+msgid "<b>Host</b>"
+msgstr "<b> Host</b>"
+
+msgid "<i><b>Arterial</b></i>"
+msgstr "<i><b>Артериальное</b></i>"
+
+msgid "Add Printer Error: Please enter printer name!"
+msgstr "Ошибка принтера: Пожалуйста, введите имя принтера!"
+
+msgid "Add Printer Error: Please select a PPD file!"
+msgstr "Ошибка принтера: Пожалуйста, выберите файл PPD! "
+
+msgid "Add Printer Error: URI not found!"
+msgstr "Ошибка принтера: URI не найден!"
+
+msgid "B/C"
+msgstr "B/C"
+
+msgid "Color Gain:"
+msgstr "Уси. цвета:"
+
+msgid "Media Size:"
+msgstr "Размер Медиа:"
+
+msgid "Space Compound"
+msgstr "Простран. Компаун."
+
+msgid "DIST_DOT"
+msgstr "DIST_DOT"
+
+msgid "DIST_LINE"
+msgstr "DIST_LINE"
+
+msgid "LENGTH_TRACK"
+msgstr "LENGTH_TRACK"
+
+msgid "LENGTH_DOT"
+msgstr "LENGTH_DOT"
+
+msgid "PERI_TRACK"
+msgstr "PERI_TRACK"
+
+msgid "PERI_ELLIPSE"
+msgstr "PERI_ELLIPSE"
+
+msgid "AREA_TRACK"
+msgstr "AREA_TRACK"
+
+msgid "AREA_DOT"
+msgstr "AREA_DOT"
+
+msgid "AREA_REC"
+msgstr "AREA_REC"
+
+msgid "AREA_ELLIPSE"
+msgstr "AREA_ELLIPSE"
+
+msgid "VOL_3AXIS"
+msgstr "VOL_3AXIS"
+
+msgid "VOL_ELLIPSE1"
+msgstr "VOL_ELLIPSE1"
+
+msgid "VOL_ELLIPSE2"
+msgstr "VOL_ELLIPSE2"
+
+msgid "ANGLE_3DOT"
+msgstr "ANGLE_3DOT"
+
+msgid "ANGLE_2LINE"
+msgstr "ANGLE_2LINE"
+
+msgid "ANGUSTY_DIST_DOT"
+msgstr "ANGUSTY_DIST_DOT"
+
+msgid "RATIO_DIST_DOT"
+msgstr "RATIO_DIST_DOT"
+
+msgid "ANGUSTY_AREA"
+msgstr "ANGUSTY_AREA"
+
+msgid "RATIO_AREA"
+msgstr "RATIO_AREA"
+
+msgid "RATIO_D_P"
+msgstr "RATIO_D_P"
+
+msgid "RATIO_VOL"
+msgstr "RATIO_VOL"
+
+msgid "RATIO_ANGLE"
+msgstr "RATIO_ANGLE"
+
+msgid "DEPTH_DIST"
+msgstr "DEPTH_DIST"
+
+msgid "DEPTH_DIST_M"
+msgstr "DEPTH_DIST_M"
+
+msgid "TIME_M"
+msgstr "TIME_M"
+
+msgid "TIME_D"
+msgstr "TIME_D"
+
+msgid "VEL_M"
+msgstr "VEL_M"
+
+msgid "VEL_D"
+msgstr "VEL_D"
+
+msgid "HR_M"
+msgstr "HR_M"
+
+msgid "MEASURE_TRACK"
+msgstr "MEASURE_TRACK"
+
+msgid "PROFILE"
+msgstr "PROFILE"
+
+msgid "HISTOGRAM"
+msgstr "HISTOGRAM"
+
+msgid "SLOPE"
+msgstr "SLOPE"
+
+msgid "ACCEL"
+msgstr "ACCEL"
+
+msgid "PGMEAN"
+msgstr "PGMEAN"
+
+msgid "OB "
+msgstr "OB"
+
+msgid " "
+msgstr ""
+
+msgid "B/M"
+msgstr "B/M"
+
+msgid "B/PW"
+msgstr "B/PW"
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+msgid "UD_11"
+msgstr "UD_11"
+
+msgid "UD_21"
+msgstr "UD_21"
+
+msgid "UD_12"
+msgstr "UD_12"
+
+msgid "LR_11"
+msgstr "LR_11"
+
+msgid "Select Same Item!"
+msgstr "Выберите тот же самый пункт!"
+
+msgid "Only Userdefined items can be deleted!"
+msgstr "Только Пользовательские пункты могут быть удалены!"
+
+msgid "Item:"
+msgstr "Пункт:"
+
+msgid "Item has existed. Please input item again!"
+msgstr "Пункт существовал. Пожалуйста, входной пункт снова!"
+
+msgid "Show Comments"
+msgstr "Покажите комментарии"
+
+msgid "Show Descriptor"
+msgstr "Покажите описатель"
+
+msgid "Recovery succeeded!"
+msgstr "Восстановление преуспело!"
+
+msgid "SpaceCompound"
+msgstr "Простран. Компаун."
+
+msgid "FreqCompound"
+msgstr "Компаундинг част."
+
+msgid "PrintConfig"
+msgstr "PrintConfig"
+
+msgid "Please select again!"
+msgstr "Пожалуйста, выберите снова!"
+
+msgid "SpaceCompound:"
+msgstr "Простран. Компаун.:"
+
+msgid "FreqCompound:"
+msgstr "Компаундинг част.:"
+
+msgid "System Default is protected!"
+msgstr "По умолчанию система защищена!"
+
+msgid "User configuration being in use!"
+msgstr "Конфиг используется!"
+
+msgid "Template name has existed or the input format is incorrect.Please input again!"
+msgstr "Имя шаблона существовало, или входной формат неправильный. Пожалуйста, введите снова!"
+
+msgid "Selected exam type has existed!"
+msgstr "Тип экзамена существовал!"
+
+msgid "<b>Please Select Exam Type:</b>"
+msgstr "<b>Выбираете новое Тип:</b>"
+
+msgid "Blank template can't apply!"
+msgstr "Чистый шаблон не может примениться!"
+
+msgid "CW Color Mode"
+msgstr "Цвет реж Доппл"
+
+msgid "CW"
+msgstr ""
+
+msgid "PW"
+msgstr ""
+
+msgid "Color CW Mode"
+msgstr ""
+
+msgid "[Arrow]: <Value> to change arrow direction."
+msgstr "[Стрелка]: <Value>изм. направл стрелки."
+
+msgid "[Focus]: Mouse to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[Фокус]: Мышь переместить фокус. При увеличении, совмещ изобр, Tp-View или EFVI включ - только один фокус."
+
+msgid "[Freq.]: <Value> change freq. size"
+msgstr "[Частота]: <Value> изм. разм.частоты"
+
+msgid "Query/Retrieve"
+msgstr ""
+"Запрос/\n"
+"Извлеч"
+
+msgid " Query/Retrieve"
+msgstr "Запрос/Извлеч"
+
+msgid "QueryRetrieve"
+msgstr "ЗапросИзвлеч"
+
+msgid "Import Data"
+msgstr ""
+"Импрт\n"
+"данных"
+
+msgid "Browse Udisk Image"
+msgstr "Загр изобр с Uдиска"
+
+msgid "Import DICOM File"
+msgstr "Иморт файла DICOM"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No USB storage is found!"
+msgstr "USB не найден!"
+
+msgid "No record is selected!"
+msgstr "Запись не выбрана!"
+
+msgid "Please Set the default query/retrieve service in system setting"
+msgstr "Установите сервис запрос/извлеч по умолчанию"
+
+msgid "Backup Status"
+msgstr "Резерв статус"
+
+msgid "Please Set the default storage service in system setting"
+msgstr "Установитье сервис хранения по умолчанию"
+
+msgid "Export Setting"
+msgstr "Настр экспорт"
+
+msgid "Please select export data type"
+msgstr "Выбирите тип экспорта данных"
+
+msgid "Data Format:"
+msgstr "Формат данных:"
+
+msgid "JPEG/BMP/EMP/AVI/CINE"
+msgstr ""
+
+msgid "Export data successfully!"
+msgstr "Данные экспортированы!"
+
+msgid "Study Info has existed!"
+msgstr "Учеб информ существует!"
+
+msgid "Invalid storage device!"
+msgstr "Неверн устр-во хранения!"
+
+msgid "Export data failure!"
+msgstr "Данные не экспортир!"
+
+msgid "Exporting finished!"
+msgstr "Экспорт завершен!"
+
+msgid "Browse DICOMDIR"
+msgstr "Загруз DICOMDIR"
+
+msgid "<b>DICOMDIR List</b>"
+msgstr "<b>Список DICOMDIR</b>"
+
+msgid "<b>Property Description</b>"
+msgstr "<b>Описание св-ва</b>"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Property"
+msgstr "Св-во"
+
+msgid "Patient Name"
+msgstr "Имя пациента"
+
+msgid "Patient ID"
+msgstr "ID"
+
+msgid "Exam Time"
+msgstr "Время:  "
+
+msgid "Accession Number"
+msgstr ""
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Instance UID"
+msgstr ""
+
+msgid "type"
+msgstr "Tип"
+
+msgid "filePath"
+msgstr "Путь файл"
+
+msgid "Import data successfully!"
+msgstr "Данные импортированы!"
+
+msgid "DICOMDIR is not existed!"
+msgstr "DICOMDIR не существует!"
+
+msgid "File has lost in DICOMDIR !"
+msgstr "Файл потерян в DICOMDIR!"
+
+msgid "Import data unsuccessfully!"
+msgstr "Данные не импортированы!"
+
+msgid "Worklist"
+msgstr "рабочего листа"
+
+msgid "Please Set the default MPPS service in system setting"
+msgstr "Установите сервис MPPS по умолчанию"
+
+msgid "Please Set the default worklist service in system setting"
+msgstr "Установите сервис рабоченго листа по умолчанию"
+
+msgid "<b>Query</b>"
+msgstr "<b>Запрос</b>"
+
+msgid "<b>ID:</b>"
+msgstr "<b>ID:</b>"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Имя:</b>"
+
+msgid "<b>Accession Number:</b>"
+msgstr ""
+
+msgid "<b>Gender:</b>"
+msgstr "<b>Пол:</b>"
+
+msgid "male"
+msgstr "Мужской"
+
+msgid "female"
+msgstr "Женский"
+
+msgid "male "
+msgstr "Мужской"
+
+msgid "female "
+msgstr "Женский"
+
+msgid "<b>Exam Date :</b>"
+msgstr "<b>Дата :</b>"
+
+msgid "<b>To :</b>"
+msgstr "<b>Кому :</b>"
+
+msgid "Query"
+msgstr "Запрос"
+
+msgid "<b>Patient List(Source)</b>"
+msgstr "<b>Список пациент(источ)</b>"
+
+msgid "<b>Device :</b>"
+msgstr "<b>Устр-во :</b>"
+
+msgid "Retrieve"
+msgstr "Извлечь"
+
+msgid "<b>Patient List(Destination)</b>"
+msgstr "<b>Список пациентов (назнач)</b>"
+
+msgid "patient ID"
+msgstr "ID"
+
+msgid "Birth Date"
+msgstr "Дата рожден"
+
+msgid "Exam Description"
+msgstr "Опис обследования"
+
+msgid "Stature"
+msgstr "Рост:"
+
+msgid "Weight"
+msgstr "Вес:"
+
+msgid "Exam Doctor"
+msgstr "Врач"
+
+msgid "No default server!"
+msgstr "Нет сервер по умол!"
+
+msgid "Server connection is failed!"
+msgstr "Нет соединения с сервером!"
+
+msgid "Query unsuccessfully!"
+msgstr "Запрос не отправлен!"
+
+msgid "Retrieve finished!"
+msgstr "Извлеч. завершено!"
+
+msgid "No record or device is selected!"
+msgstr "Не выбрана запись или устр-во!"
+
+msgid "No record or server existed!"
+msgstr "Запись или устр-во не существ!"
+
+msgid "Destination server is invalid!"
+msgstr "Неверный сервер назначения!"
+
+msgid "Retrieve failedly!"
+msgstr "Не извлечено!"
+
+msgid "Not support study root!"
+msgstr "Не поддерж учебный"
+
+msgid "Study has existed!"
+msgstr "Учеб. Существует!"
+
+msgid "Retrieve unsuccessfully!"
+msgstr "Не извлечено!"
+
+msgid "Delete the latest loaded file."
+msgstr "Удалить последний загруж файл."
+
+msgid " Worklist"
+msgstr ""
+"рабочего\n"
+"листа"
+
+msgid "Patient ID :"
+msgstr "ID :"
+
+msgid "Patient Name :"
+msgstr "Имя пациента :"
+
+msgid "Accession Number :"
+msgstr ""
+
+msgid "Requested Procedure ID :"
+msgstr ""
+
+msgid "Scheduled Date :"
+msgstr ""
+
+msgid "To :"
+msgstr "Кому :"
+
+msgid "0 record is found"
+msgstr "Найдено 0 записей"
+
+msgid "Start Exam"
+msgstr ""
+"Начать\n"
+"обсл"
+
+msgid "Detail"
+msgstr "Детали"
+
+msgid "Scheduled Date"
+msgstr "Установлен дата"
+
+msgid "record is found"
+msgstr "Запись найдена"
+
+msgid "No patient is selected!"
+msgstr "Не выбран пациент!"
+
+msgid "The exam record  has exsited, please select other record again!"
+msgstr "Запись обслед существует, выбирите другую!"
+
+msgid "Test Link is failed"
+msgstr "Нет тестов.соединен"
+
+msgid "Patient Detail"
+msgstr "Детали пациента"
+
+msgid "<b>Detail</b>"
+msgstr "<b>Детали</b>"
+
+msgid "Gender :"
+msgstr "Пол:"
+
+msgid "Diagnostician :"
+msgstr "Диагност: "
+
+msgid "Stature :"
+msgstr "Рост:"
+
+msgid "Weight :"
+msgstr "Вес:"
+
+msgid "Address :"
+msgstr "Адрес:"
+
+msgid " Comment "
+msgstr " Комментарий "
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "Day"
+msgstr "День"
+
+msgid "KidneyUreter"
+msgstr "ПочкиМочеточн"
+
+msgid "HipJoint"
+msgstr "Тазобедр"
+
+msgid "Kid Adbomen"
+msgstr "ПочкиБрюшина"
+
+msgid "Item has existed. Please select item again!"
+msgstr "Объект существует. Выбирите еще раз!"
+
+msgid "INTEGRAL_TRACK"
+msgstr "ИНТЕГРАЛ_ТРЭК"
+
+msgid "<b>NetWork Property</b>"
+msgstr "<b>Свойство Сети</b>"
+
+msgid "<b>(xxx.xxx.xxx.xxx)</b>"
+msgstr ""
+
+msgid "Local information must be not empty!"
+msgstr "Локальн.инфо не может быть пустой!"
+
+#, c-format
+msgid "Sucess to set the local network!"
+msgstr "Локальная сеть настроена!"
+
+msgid "<b>Device</b>"
+msgstr "<b>Устр-во</b>"
+
+msgid "<b>IP Address :</b>"
+msgstr "<b>IP адрес :</b>"
+
+msgid "Ping"
+msgstr "Пинг"
+
+msgid "<b>Device List</b>"
+msgstr "<b>Спис. устр-в</b>"
+
+msgid "Device"
+msgstr "Устр-во"
+
+msgid "IP Address"
+msgstr "IP адрес"
+
+msgid "Device or IP is empty, please input!"
+msgstr "Введите устр-во или IP!"
+
+msgid "Ping..."
+msgstr "Пинг..."
+
+msgid "Success to ping ip"
+msgstr "IP отслежен"
+
+msgid "Failed to ping ip"
+msgstr "IP не отслежен"
+
+msgid "'localhost' has been used, please input again!"
+msgstr "Локальн.сервер' используется, задайте снова!"
+
+msgid "Add failed,device or IP has been existed\n"
+msgstr "Не добавлено, устр-во или IP исполь\n"
+
+msgid "Storage"
+msgstr "Зап.устр"
+
+msgid "MPPS"
+msgstr ""
+
+msgid "StorageCommitment"
+msgstr "Обязат-вохранения"
+
+msgid "Storage Commitment"
+msgstr "Обязат-во хранения"
+
+msgid "<b>Device Property</b>"
+msgstr "<b>Св-во устр-ва</b>"
+
+msgid "<b>Service Name :</b>"
+msgstr "<b>Назв. Сервиса:</b>"
+
+msgid "<b>Service List</b>"
+msgstr "<b>Спис. сервиса</b>"
+
+msgid "Connect Test"
+msgstr "Тест соединия"
+
+msgid "Attach Structured Report"
+msgstr "Прилож. Структурир.отчет"
+
+msgid "Allow Multiframe"
+msgstr "Разреш.мультикадр"
+
+msgid "Max number of frames:"
+msgstr "Макс кол-во кадров:"
+
+msgid "Auto Query"
+msgstr "Автозапрос"
+
+msgid "Send MPPS after start exam and end exam"
+msgstr "Отправиль  MPPS до и после обследов"
+
+msgid "Send storage commitment after storage"
+msgstr "Отправить обяз-во хранения после сохр."
+
+msgid "Service Name"
+msgstr "Наим. сервиса"
+
+msgid "AE Title"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Device ,AE or Port is empty, please input!"
+msgstr "Устр-во, АЕ или Порт не заполнены!"
+
+msgid "Add failed,device has been existed\n"
+msgstr "Не добавлено, устр-во существует\n"
+
+msgid "No device is selected!"
+msgstr "Устр-во не выбрано!"
+
+msgid "Connect..."
+msgstr "Соединение"
+
+msgid "Please Set the default Worklist server in system setting"
+msgstr "Установите сервер рабочего листа по умолчанию"
+
+msgid "Please Set the default MPPS server in system setting"
+msgstr "Установите MPPS сервис по умолчанию"
+
+msgid "Please Set the default Storage Commitment server in system setting"
+msgstr "Установите сервер хранения по умолчанию в системных настройках"
+
+msgid "DICOM Register"
+msgstr "Регистр DICOM"
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate\n"
+"a unique register key for every machine,you can register DICOM\n"
+"function by inputting thist register key.If register is successful,\n"
+"you can use the DICOM function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will\n"
+"find this file named 'license' in Udisk. Please send this file to\n"
+"manufacturer."
+msgstr ""
+"Примеч: производитель генерирует уникальных ключ для каждого\n"
+"устройствава в соответствии с лицензионным файлом. Вы можете\n"
+"зарегистрировать функцию DICOM с помощью ключа.\n"
+"\n"
+"Вставьте диск U,нажмите 'Экспорт лицензии файла'. Этот файл под\n"
+"названием 'лицензия'  вы обнаружите на диске U. Отправьте этот файл\n"
+"производителю."
+
+msgid "Export License File"
+msgstr "Экспорт лиценз файла"
+
+msgid "Register Key:"
+msgstr "Регистр ключ:"
+
+msgid "Register"
+msgstr "Регистрац"
+
+msgid "Succeed to export file!"
+msgstr "Файл экспортирован!"
+
+msgid "Fail to export file!"
+msgstr "Файл не экспортирован!"
+
+msgid "Succeed to register!"
+msgstr "Зарегистрировано!"
+
+msgid "Fail to register!"
+msgstr "Регистр. не выпол!"
+
+msgid "<b>M: </b>"
+msgstr ""
+
+msgid "<b>PW/CW: </b>"
+msgstr ""
+
+msgid "The new item can not be null!"
+msgstr "Новый объект не м б пустым!"
+
+msgid "Rename failed! The item has been exist!"
+msgstr "Не переименовано! Объект уже существует!"
+
+msgid "Operation is invaild."
+msgstr "Операция неверна."
+
+msgid "Defaulted Item"
+msgstr "Объект по умолч"
+
+msgid "Please select the department before insert!"
+msgstr "Выбирите отдел, прежде чем вставить!"
+
+msgid "The defined items have reached the maximum!"
+msgstr "Выбрано максимальное кол-во объектов!"
+
+msgid "Insert failure! Please select the department before insert!"
+msgstr "Не вставлено! Выбирите отдел для вставки!"
+
+msgid "Please select one item to be delete!"
+msgstr "Выбирите объект для удаления!"
+
+msgid "Delete failure! Can not delete the department!"
+msgstr "Не удалено! Невозможно удалить отдел!"
+
+msgid "Delete failure! Can not delete the defaulted exam item!"
+msgstr "Не удалено! Невозможно удалить обследование!"
+
+msgid "Delete failure! Can not delete the item and using!"
+msgstr ""
+
+msgid "Local"
+msgstr "Местн."
+
+msgid "Server"
+msgstr "Сервер"
+
+msgid "Service"
+msgstr "Сервис"
+
+msgid "<b>Value</b>"
+msgstr ""
+
+msgid "<b>P1</b>"
+msgstr ""
+
+msgid "<b>Gain</b>"
+msgstr ""
+
+msgid "<b>P2</b>"
+msgstr ""
+
+msgid "Department"
+msgstr "Отдел"
+
+msgid "Animal"
+msgstr "Животное"
+
+msgid "Part"
+msgstr "Часть"
+
+msgid "Tendon"
+msgstr "Сухожилие"
+
+msgid "Animal Information"
+msgstr "Информация о животном"
+
+msgid "Animal Name:"
+msgstr "Кличка:"
+
+msgid "Owner:"
+msgstr "Владелец:"
+
+msgid "Species:"
+msgstr "Вид:"
+
+msgid "Slight"
+msgstr ""
+
+msgid "Moderate"
+msgstr ""
+
+msgid "Severe"
+msgstr ""
+
+msgid "Undefine"
+msgstr ""
+
+msgid "<i><b>Lesion 1</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 2</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 3</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 4</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 5</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 6</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 7</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 8</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 9</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 10</b></i>"
+msgstr ""
+
+msgid "<i><b>Lesion 11</b></i>"
+msgstr ""
+
+msgid "<i><b>Dog</b></i>"
+msgstr "<i><b>Собака</b></i>"
+
+msgid "<i><b>Cat</b></i>"
+msgstr "<i><b>Кошка</b></i>"
+
+msgid "<i><b>Sheep</b></i>"
+msgstr "<i><b>Овца</b></i>"
+
+msgid "<i><b>Swine</b></i>"
+msgstr "<i><b>Dog</b></i>"
+
+msgid "<i><b>Bovine</b></i>"
+msgstr "<i><b>Жвачное животное</b></i>"
+
+msgid "<i><b>Equine</b></i>"
+msgstr "<i><b>Dog</b></i>"
+
+msgid "Ultrasonic"
+msgstr "Ультразвук"
+
+msgid "Dog"
+msgstr "Собака"
+
+msgid "Cat"
+msgstr "Кошка"
+
+msgid "Sheep"
+msgstr "Овца"
+
+msgid "Swine"
+msgstr "Свинья"
+
+msgid "Bovine"
+msgstr "Жвачное животное"
+
+msgid "Equine"
+msgstr "Лошадь"
+
+msgid "Animal:"
+msgstr "Животное:"
+
+msgid "No Animal ID."
+msgstr "Идентификационный номер животного не найден."
+
+msgid "Animal Name"
+msgstr "Кличка животного"
+
+msgid "Owner"
+msgstr "Владелец"
+
+msgid "Species"
+msgstr "Вид"
+
+msgid "<b>Animal</b>"
+msgstr "<b>Животное</b>"
+
+msgid "View Mode"
+msgstr "Просмотр"
+
+msgid "Auto Size"
+msgstr "Авто разм"
+
+msgid "Orignial Size"
+msgstr "Оригин размер"
+
+msgid "Animal Name:  "
+msgstr "Кличка животного:  "
+
+msgid "Species: "
+msgstr "Вид: "
+
+msgid "ID:  "
+msgstr ""
+
+msgid "Owner:  "
+msgstr "Владелец:  "
+
+msgid "Owner Telephone:"
+msgstr "Телефон владельца:"
+
+msgid "Owner Address:"
+msgstr "Адрес Владельца:"
+
+msgid "Bir."
+msgstr "DOB:"
+
+msgid "New Animal"
+msgstr ""
+"Новое\n"
+"животное"
+
+msgid "Animal ID exist, load data?"
+msgstr "Идентификационный номер животного существует, загрузить данные?"
+
+msgid "<b>Destination :</b>"
+msgstr "<b>Назначение :</b>"
+
+msgid "ID :"
+msgstr ""
+
+msgid "Animal Name :"
+msgstr "Кличка животного :"
+
+msgid "No animal is selected!"
+msgstr "Ни одно животное не выбрано!"
+
+msgid "Animal Detail"
+msgstr "Животное Detail"
+
+msgid "User1"
+msgstr "Пользователь1"
+
+msgid "User2"
+msgstr "Пользователь2"
+
+msgid "User3"
+msgstr "Пользователь3"
+
+msgid "User4"
+msgstr "Пользователь4"
+
+msgid "User5"
+msgstr "Пользователь5"
+
+msgid "User6"
+msgstr "Пользователь6"
+
+msgid "User7"
+msgstr "Пользователь7"
+
+msgid "User8"
+msgstr "Пользователь8"
+
+msgid "User9"
+msgstr "Пользователь9"
+
+msgid "User10"
+msgstr "Пользователь10"
+
+msgid "User11"
+msgstr "Пользователь11"
+
+msgid "User12"
+msgstr "Пользователь12"
+
+msgid "User13"
+msgstr "Пользователь13"
+
+msgid "User14"
+msgstr "Пользователь14"
+
+msgid "User15"
+msgstr "Пользователь15"
+
+msgid "User16"
+msgstr "Пользователь16"
+
+msgid " Dog "
+msgstr "Собака"
+
+msgid " Cat "
+msgstr "Кошка"
+
+msgid " Sheep "
+msgstr "Овца"
+
+msgid " Swine "
+msgstr " Свинья "
+
+msgid " Bovine "
+msgstr " Жвачное животное "
+
+msgid " Equine "
+msgstr " Лошадь "
+
+msgid "<i><b>Tendon Le1</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le2</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le3</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le4</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le5</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le6</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le7</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le8</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le9</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le10</b></i>"
+msgstr ""
+
+msgid "<i><b>Tendon Le11</b></i>"
+msgstr ""
+
+msgid "The new item name can not be empty!"
+msgstr "Объект не может быть пустым!"
+
+msgid "Fail to rename! The item name has existed!"
+msgstr "Не переименовано! Название уже существует!"
+
+msgid "Please select a department before inserting!"
+msgstr "Выбирите отдел, прежде чем вставить!"
+
+msgid "Fail to insert! 'New Item' has existed in the probe type. please rename it before inserting!"
+msgstr "Не вставлено! 'Новый объект' существует в типе зондирования. Переименуйте!"
+
+msgid "Fail to insert! Please select a department before inserting!"
+msgstr "Не вставлено! Выбирите отдел!"
+
+msgid "Fail to delete! Can not delete the department!"
+msgstr "Не удалено! Нельзя удалить отдел!"
+
+msgid "Fail to delete! Can not delete the defaulted exam item!"
+msgstr "Нельзя удалить обеъект исследования по умолчанию!"
+
+msgid "Fail to delete! The item is under using!"
+msgstr "Невозможно удалить использующийся объект!"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Fail to default factory. Define user or item is under using!"
+msgstr "Невозможно удалить завод по умолчанию, объект используется!"
+
+msgid "Dist"
+msgstr "Расст"
+
+msgid "Vol"
+msgstr "Звук"
+
+msgid "SD"
+msgstr ""
+
+msgid "Accel"
+msgstr ""
+
+msgid "PG max"
+msgstr ""
+
+msgid "PG mean"
+msgstr ""
+
+msgid "Angusty"
+msgstr ""
+
+msgid "Gallbladder Vol"
+msgstr ""
+
+msgid "Gallbladder L"
+msgstr ""
+
+msgid "Gallbladder W"
+msgstr ""
+
+msgid "Gallbladder H"
+msgstr ""
+
+msgid "CBD Diam"
+msgstr ""
+
+msgid "GB Wall"
+msgstr ""
+
+msgid "Liver L"
+msgstr ""
+
+msgid "Spleen Vol"
+msgstr ""
+
+msgid "Spleen L"
+msgstr ""
+
+msgid "Spleen W"
+msgstr ""
+
+msgid "Spleen H"
+msgstr ""
+
+msgid "Pancreas Vol"
+msgstr ""
+
+msgid "Pancreas L"
+msgstr ""
+
+msgid "Pancreas W"
+msgstr ""
+
+msgid "Pancreas H"
+msgstr ""
+
+msgid "Ao Dist Diam"
+msgstr ""
+
+msgid "Ao Mid Diam"
+msgstr ""
+
+msgid "Ao Prox Diam"
+msgstr ""
+
+msgid "Dist Ao"
+msgstr ""
+
+msgid "Celiac A"
+msgstr ""
+
+msgid "Com Hep A"
+msgstr ""
+
+msgid "L Hep A"
+msgstr ""
+
+msgid "R Hep A"
+msgstr ""
+
+msgid "GDA"
+msgstr ""
+
+msgid "IMA"
+msgstr ""
+
+msgid "SMA"
+msgstr ""
+
+msgid "Splenic A"
+msgstr ""
+
+msgid "Prox IVC"
+msgstr ""
+
+msgid "Dist IVC"
+msgstr ""
+
+msgid "L Hep V"
+msgstr ""
+
+msgid "M Hep V"
+msgstr ""
+
+msgid "R Hep V"
+msgstr ""
+
+msgid "L Port V"
+msgstr ""
+
+msgid "M Port V"
+msgstr ""
+
+msgid "R Port V"
+msgstr ""
+
+msgid "Splenic V"
+msgstr ""
+
+msgid "IMV"
+msgstr ""
+
+msgid "SMV"
+msgstr ""
+
+msgid "LVLd Apical(2D)"
+msgstr ""
+
+msgid "LVIDs(2D)"
+msgstr ""
+
+msgid "LVPWs(2D)"
+msgstr ""
+
+msgid "LVOT Diam(2D)"
+msgstr ""
+
+msgid "LVIDd(2D)"
+msgstr ""
+
+msgid "LVPWd(2D)"
+msgstr ""
+
+msgid "LVAd SAx Endo(2D)"
+msgstr ""
+
+msgid "LVAd SAx Epi(2D)"
+msgstr ""
+
+msgid "RVIDd(2D)"
+msgstr ""
+
+msgid "RVAWd(2D)"
+msgstr ""
+
+msgid "RVOT Diam(2D)"
+msgstr ""
+
+msgid "IVSd(2D)"
+msgstr ""
+
+msgid "IVSs(2D)"
+msgstr ""
+
+msgid "LA Dimen(2D)"
+msgstr ""
+
+msgid "AoR Diam(2D)"
+msgstr ""
+
+msgid "Ao Isthmus Diam(2D)"
+msgstr ""
+
+msgid "Asc Ao Diam(2D)"
+msgstr ""
+
+msgid "Desc Ao Diam(2D)"
+msgstr ""
+
+msgid "MPA Diam(2D)"
+msgstr ""
+
+msgid "LPA Diam(2D)"
+msgstr ""
+
+msgid "RPA Diam(2D)"
+msgstr ""
+
+msgid "A2Cd(2D)"
+msgstr ""
+
+msgid "A2Cs(2D)"
+msgstr ""
+
+msgid "A4Cd(2D)"
+msgstr ""
+
+msgid "A4Cs(2D)"
+msgstr ""
+
+msgid "LVd(A/L)(2D)"
+msgstr ""
+
+msgid "LVs(A/L)(2D)"
+msgstr ""
+
+msgid "AV Area(2D)"
+msgstr ""
+
+msgid "AI Radius(2D)"
+msgstr ""
+
+msgid "MV Diam(2D)"
+msgstr ""
+
+msgid "MV Radius(2D)"
+msgstr ""
+
+msgid "MV Area(Planim)(2D)"
+msgstr ""
+
+msgid "MR Radius(2D)"
+msgstr ""
+
+msgid "TV Diam(2D)"
+msgstr ""
+
+msgid "TV Radius(2D)"
+msgstr ""
+
+msgid "RVAWd(M)"
+msgstr ""
+
+msgid "RVIDd(M)"
+msgstr ""
+
+msgid "IVSd(M)"
+msgstr ""
+
+msgid "LVIDd(M)"
+msgstr ""
+
+msgid "LVPWd(M)"
+msgstr ""
+
+msgid "IVSs(M)"
+msgstr ""
+
+msgid "LVIDs(M)"
+msgstr ""
+
+msgid "LVPWs(M)"
+msgstr ""
+
+msgid "HR-LV(M)"
+msgstr ""
+
+msgid "LVOT Diam(M)"
+msgstr ""
+
+msgid "AoR Diam(M)"
+msgstr ""
+
+msgid "LA Dimen(M)"
+msgstr ""
+
+msgid "LV ET(M)"
+msgstr ""
+
+msgid "LV PEP(M)"
+msgstr ""
+
+msgid "AV Cusp Sep(M)"
+msgstr ""
+
+msgid "MV D-E Exc(M)"
+msgstr ""
+
+msgid "MV D-E Slope(M)"
+msgstr ""
+
+msgid "MV E-F Sep(M)"
+msgstr ""
+
+msgid "MV E-F Slope(M)"
+msgstr ""
+
+msgid "MV EPSS(M)"
+msgstr ""
+
+msgid "MV A-C Interval(M)"
+msgstr ""
+
+msgid "TV D-E Exc(M)"
+msgstr ""
+
+msgid "TV D-E Slope(M)"
+msgstr ""
+
+msgid "TV E-F Slope(M)"
+msgstr ""
+
+msgid "TV A-C Interval(M)"
+msgstr ""
+
+msgid "Late Dias Slope(M)"
+msgstr ""
+
+msgid "A Wave Amp(M)"
+msgstr ""
+
+msgid "B-C Slope(M)"
+msgstr ""
+
+msgid "RV ET(M)"
+msgstr ""
+
+msgid "RV PEP(M)"
+msgstr ""
+
+msgid "AV Accel Time(D)"
+msgstr ""
+
+msgid "AV Decel Time(D)"
+msgstr ""
+
+msgid "AV Vmax(D)"
+msgstr ""
+
+msgid "LVOT Accel Time(D)"
+msgstr ""
+
+msgid "LVOT Vmax(D)"
+msgstr ""
+
+msgid "AI Accel Time(D)"
+msgstr ""
+
+msgid "AI P1/2t(D)"
+msgstr ""
+
+msgid "AI Dec Slope(D)"
+msgstr ""
+
+msgid "AI Vmax(D)"
+msgstr ""
+
+msgid "AI End Dias Vel(D)"
+msgstr ""
+
+msgid "VTI(D)"
+msgstr ""
+
+msgid "HR-AV(D)"
+msgstr ""
+
+msgid "HR-MV(D)"
+msgstr ""
+
+msgid "MV P1/2t(D)"
+msgstr ""
+
+msgid "MV Peak E Vel(D)"
+msgstr ""
+
+msgid "MV Peak A Vel(D)"
+msgstr ""
+
+msgid "MV A Dur(D)"
+msgstr ""
+
+msgid "IVRT(D)"
+msgstr ""
+
+msgid "MV Decel Time(D)"
+msgstr ""
+
+msgid "MV Decel Slope(D)"
+msgstr ""
+
+msgid "IVCT(D)"
+msgstr ""
+
+msgid "MV Accel Time(D)"
+msgstr ""
+
+msgid "MV Vmax(D)"
+msgstr ""
+
+msgid "MR Vmax(D)"
+msgstr ""
+
+msgid "HR-TV(D)"
+msgstr ""
+
+msgid "TV Vmax(D)"
+msgstr ""
+
+msgid "TR Vmax(D)"
+msgstr ""
+
+msgid "TV Accel Time(D)"
+msgstr ""
+
+msgid "TV Peak E Vel(D)"
+msgstr ""
+
+msgid "TV Peak A Vel(D)"
+msgstr ""
+
+msgid "HR-PV(D)"
+msgstr ""
+
+msgid "PV Vmax(D)"
+msgstr ""
+
+msgid "PV Accel Time(D)"
+msgstr ""
+
+msgid "PI End Dias Vel(D)"
+msgstr ""
+
+msgid "Pulm Dias Vel(D)"
+msgstr ""
+
+msgid "Pulm Sys Vel(D)"
+msgstr ""
+
+msgid "RVOT Vmax(D)"
+msgstr ""
+
+msgid "CER"
+msgstr ""
+
+msgid "Cist Magna"
+msgstr ""
+
+msgid "OOD"
+msgstr ""
+
+msgid "Tibia"
+msgstr ""
+
+msgid "TTD"
+msgstr ""
+
+msgid "IOD"
+msgstr ""
+
+msgid "Radius"
+msgstr "Pадиус"
+
+msgid "Ulna"
+msgstr ""
+
+msgid "Fibula"
+msgstr ""
+
+msgid "Nuch Fold"
+msgstr ""
+
+msgid "Umbilical A"
+msgstr ""
+
+msgid "L MCA"
+msgstr ""
+
+msgid "R MCA"
+msgstr ""
+
+msgid "AFI1"
+msgstr ""
+
+msgid "AFI2"
+msgstr ""
+
+msgid "AFI3"
+msgstr ""
+
+msgid "AFI4"
+msgstr ""
+
+msgid "CRL"
+msgstr ""
+
+msgid "NT"
+msgstr ""
+
+msgid "Cerv Length"
+msgstr ""
+
+msgid "Sac Diam"
+msgstr ""
+
+msgid "Yolk Sac"
+msgstr ""
+
+msgid "L Ov Vol"
+msgstr ""
+
+msgid "L Ov Height"
+msgstr ""
+
+msgid "L Ov Length"
+msgstr ""
+
+msgid "L Ov Width"
+msgstr ""
+
+msgid "R Ov Vol"
+msgstr ""
+
+msgid "R Ov Height"
+msgstr ""
+
+msgid "R Ov Length"
+msgstr ""
+
+msgid "R Ov Width"
+msgstr ""
+
+msgid "RA Dimension"
+msgstr ""
+
+msgid "RA Length"
+msgstr ""
+
+msgid "RA Width"
+msgstr ""
+
+msgid "RV Dimension"
+msgstr ""
+
+msgid "RV Length"
+msgstr ""
+
+msgid "RV Width"
+msgstr ""
+
+msgid "RVOT Diam"
+msgstr ""
+
+msgid "IVS(2D)"
+msgstr ""
+
+msgid "LA Dimension"
+msgstr ""
+
+msgid "LA Length"
+msgstr ""
+
+msgid "LA Width"
+msgstr ""
+
+msgid "LV Dimension"
+msgstr ""
+
+msgid "LV Length"
+msgstr ""
+
+msgid "LV Width"
+msgstr ""
+
+msgid "LVOT Diam"
+msgstr ""
+
+msgid "Heart Area"
+msgstr ""
+
+msgid "Heart Circ"
+msgstr ""
+
+msgid "ThrC"
+msgstr ""
+
+msgid "AoR Diam"
+msgstr ""
+
+msgid "Ao Annul Diam"
+msgstr ""
+
+msgid "Desc Ao"
+msgstr ""
+
+msgid "Duct Art Diam(2D)"
+msgstr ""
+
+msgid "Duct Ven"
+msgstr ""
+
+msgid "MV Annul Diam"
+msgstr ""
+
+msgid "TV Annul Diam"
+msgstr ""
+
+msgid "Thoracic Ao"
+msgstr ""
+
+msgid "GS"
+msgstr ""
+
+msgid "BPD"
+msgstr ""
+
+msgid "AC"
+msgstr ""
+
+msgid "HC"
+msgstr ""
+
+msgid "HL"
+msgstr ""
+
+msgid "FL"
+msgstr ""
+
+msgid "TAD"
+msgstr ""
+
+msgid "APAD"
+msgstr ""
+
+msgid "THD"
+msgstr ""
+
+msgid "OFD"
+msgstr ""
+
+msgid "FTA"
+msgstr ""
+
+msgid "Ear"
+msgstr ""
+
+msgid "Orbit1"
+msgstr ""
+
+msgid "Orbit2"
+msgstr ""
+
+msgid "Post Fossa"
+msgstr ""
+
+msgid "Mandible"
+msgstr ""
+
+msgid "Nasal"
+msgstr ""
+
+msgid "Clavicle"
+msgstr ""
+
+msgid "M Phalanx 5"
+msgstr ""
+
+msgid "L Foot L"
+msgstr ""
+
+msgid "L Foot A"
+msgstr ""
+
+msgid "R Foot L"
+msgstr ""
+
+msgid "R Foot A"
+msgstr ""
+
+msgid "Bladder AP"
+msgstr ""
+
+msgid "Bladder L"
+msgstr ""
+
+msgid "Bladder Tr"
+msgstr ""
+
+msgid "L Renal AP"
+msgstr ""
+
+msgid "L Renal L"
+msgstr ""
+
+msgid "L Renal Tr"
+msgstr ""
+
+msgid "L Renal Pelvis"
+msgstr ""
+
+msgid "R Renal AP"
+msgstr ""
+
+msgid "R Renal L"
+msgstr ""
+
+msgid "R Renal Tr"
+msgstr ""
+
+msgid "R Renal Pelvis"
+msgstr ""
+
+msgid "Adr Gland AP"
+msgstr ""
+
+msgid "Adr Gland L"
+msgstr ""
+
+msgid "Adr Gland Tr"
+msgstr ""
+
+msgid "Ureter AP"
+msgstr ""
+
+msgid "Ureter Tr"
+msgstr ""
+
+msgid "L Lung Diam"
+msgstr ""
+
+msgid "R Lung Diam"
+msgstr ""
+
+msgid "L Uterine A"
+msgstr ""
+
+msgid "R Uterine A"
+msgstr ""
+
+msgid "Pelvis AP"
+msgstr ""
+
+msgid "Pelvis L"
+msgstr ""
+
+msgid "Pelvis Tr"
+msgstr ""
+
+msgid "Scapul"
+msgstr ""
+
+msgid "Bladder Vol"
+msgstr ""
+
+msgid "Bladder H"
+msgstr ""
+
+msgid "Bladder W"
+msgstr ""
+
+msgid "PV Bladder Vol"
+msgstr ""
+
+msgid "PV Bladder H"
+msgstr ""
+
+msgid "PV Bladder L"
+msgstr ""
+
+msgid "PV Bladder W"
+msgstr ""
+
+msgid "L Ovarian A"
+msgstr ""
+
+msgid "R Ovarian A"
+msgstr ""
+
+msgid "Endo Thick"
+msgstr ""
+
+msgid "Uterus Vol"
+msgstr ""
+
+msgid "Uterus Height"
+msgstr ""
+
+msgid "Uterus Length"
+msgstr ""
+
+msgid "Uterus Width"
+msgstr ""
+
+msgid "L Uterine A Diam"
+msgstr ""
+
+msgid "R Uterine A Diam"
+msgstr ""
+
+msgid "FHR"
+msgstr ""
+
+msgid "L Foll1"
+msgstr ""
+
+msgid "L Foll2"
+msgstr ""
+
+msgid "L Foll3"
+msgstr ""
+
+msgid "L Foll4"
+msgstr ""
+
+msgid "L Foll5"
+msgstr ""
+
+msgid "L Foll6"
+msgstr ""
+
+msgid "L Foll7"
+msgstr ""
+
+msgid "L Foll8"
+msgstr ""
+
+msgid "L Foll9"
+msgstr ""
+
+msgid "L Foll10"
+msgstr ""
+
+msgid "R Foll1"
+msgstr ""
+
+msgid "R Foll2"
+msgstr ""
+
+msgid "R Foll3"
+msgstr ""
+
+msgid "R Foll4"
+msgstr ""
+
+msgid "R Foll5"
+msgstr ""
+
+msgid "R Foll6"
+msgstr ""
+
+msgid "R Foll7"
+msgstr ""
+
+msgid "R Foll8"
+msgstr ""
+
+msgid "R Foll9"
+msgstr ""
+
+msgid "R Foll10"
+msgstr ""
+
+msgid "Fibroid1"
+msgstr ""
+
+msgid "Fibroid2"
+msgstr ""
+
+msgid "Fibroid3"
+msgstr ""
+
+msgid "Fibroid4"
+msgstr ""
+
+msgid "Fibroid5"
+msgstr ""
+
+msgid "Fibroid6"
+msgstr ""
+
+msgid "Fibroid7"
+msgstr ""
+
+msgid "Fibroid8"
+msgstr ""
+
+msgid "Fibroid9"
+msgstr ""
+
+msgid "Fibroid10"
+msgstr ""
+
+msgid "Prostate Vol"
+msgstr ""
+
+msgid "Prostate H"
+msgstr ""
+
+msgid "Prostate L"
+msgstr ""
+
+msgid "Prostate W"
+msgstr ""
+
+msgid "L Kid Vol"
+msgstr ""
+
+msgid "L Kid H"
+msgstr ""
+
+msgid "L Kid L"
+msgstr ""
+
+msgid "L Kid W"
+msgstr ""
+
+msgid "L Dist Ren A"
+msgstr ""
+
+msgid "L Main Ren A"
+msgstr ""
+
+msgid "L Ren V"
+msgstr ""
+
+msgid "L Ureter AP"
+msgstr ""
+
+msgid "L Ureter Tr"
+msgstr ""
+
+msgid "R Kid Vol"
+msgstr ""
+
+msgid "R Kid H"
+msgstr ""
+
+msgid "R Kid L"
+msgstr ""
+
+msgid "R Kid W"
+msgstr ""
+
+msgid "R Dist Ren A"
+msgstr ""
+
+msgid "R Main Ren A"
+msgstr ""
+
+msgid "R Ren V"
+msgstr ""
+
+msgid "R Ureter AP"
+msgstr ""
+
+msgid "R Ureter Tr"
+msgstr ""
+
+msgid "L Galact Thick"
+msgstr ""
+
+msgid "R Galact Thick"
+msgstr ""
+
+msgid "Breast L Lesion1 Vol"
+msgstr ""
+
+msgid "Breast L Lesion1 L"
+msgstr ""
+
+msgid "Breast L Lesion1 W"
+msgstr ""
+
+msgid "Breast L Lesion1 H"
+msgstr ""
+
+msgid "Breast L Lesion2 Vol"
+msgstr ""
+
+msgid "Breast L Lesion2 L"
+msgstr ""
+
+msgid "Breast L Lesion2 W"
+msgstr ""
+
+msgid "Breast L Lesion2 H"
+msgstr ""
+
+msgid "Breast L Lesion3 Vol"
+msgstr ""
+
+msgid "Breast L Lesion3 L"
+msgstr ""
+
+msgid "Breast L Lesion3 W"
+msgstr ""
+
+msgid "Breast L Lesion3 H"
+msgstr ""
+
+msgid "Breast L Lesion4 Vol"
+msgstr ""
+
+msgid "Breast L Lesion4 L"
+msgstr ""
+
+msgid "Breast L Lesion4 W"
+msgstr ""
+
+msgid "Breast L Lesion4 H"
+msgstr ""
+
+msgid "Breast L Lesion5 Vol"
+msgstr ""
+
+msgid "Breast L Lesion5 L"
+msgstr ""
+
+msgid "Breast L Lesion5 W"
+msgstr ""
+
+msgid "Breast L Lesion5 H"
+msgstr ""
+
+msgid "Breast R Lesion1 Vol"
+msgstr ""
+
+msgid "Breast R Lesion1 L"
+msgstr ""
+
+msgid "Breast R Lesion1 W"
+msgstr ""
+
+msgid "Breast R Lesion1 H"
+msgstr ""
+
+msgid "Breast R Lesion2 Vol"
+msgstr ""
+
+msgid "Breast R Lesion2 L"
+msgstr ""
+
+msgid "Breast R Lesion2 W"
+msgstr ""
+
+msgid "Breast R Lesion2 H"
+msgstr ""
+
+msgid "Breast R Lesion3 Vol"
+msgstr ""
+
+msgid "Breast R Lesion3 L"
+msgstr ""
+
+msgid "Breast R Lesion3 W"
+msgstr ""
+
+msgid "Breast R Lesion3 H"
+msgstr ""
+
+msgid "Breast R Lesion4 Vol"
+msgstr ""
+
+msgid "Breast R Lesion4 L"
+msgstr ""
+
+msgid "Breast R Lesion4 W"
+msgstr ""
+
+msgid "Breast R Lesion4 H"
+msgstr ""
+
+msgid "Breast R Lesion5 Vol"
+msgstr ""
+
+msgid "Breast R Lesion5 L"
+msgstr ""
+
+msgid "Breast R Lesion5 W"
+msgstr ""
+
+msgid "Breast R Lesion5 H"
+msgstr ""
+
+msgid "L Testis Vol"
+msgstr ""
+
+msgid "L Testis L"
+msgstr ""
+
+msgid "L Testis W"
+msgstr ""
+
+msgid "L Testis H"
+msgstr ""
+
+msgid "L Testis Artery"
+msgstr ""
+
+msgid "R Testis Vol"
+msgstr ""
+
+msgid "R Testis L"
+msgstr ""
+
+msgid "R Testis W"
+msgstr ""
+
+msgid "R Testis H"
+msgstr ""
+
+msgid "R Testis Artery"
+msgstr ""
+
+msgid "Testis L Lesion1 Vol"
+msgstr ""
+
+msgid "Testis L Lesion1 L"
+msgstr ""
+
+msgid "Testis L Lesion1 W"
+msgstr ""
+
+msgid "Testis L Lesion1 H"
+msgstr ""
+
+msgid "Testis L Lesion2 Vol"
+msgstr ""
+
+msgid "Testis L Lesion2 L"
+msgstr ""
+
+msgid "Testis L Lesion2 W"
+msgstr ""
+
+msgid "Testis L Lesion2 H"
+msgstr ""
+
+msgid "Testis L Lesion3 Vol"
+msgstr ""
+
+msgid "Testis L Lesion3 L"
+msgstr ""
+
+msgid "Testis L Lesion3 W"
+msgstr ""
+
+msgid "Testis L Lesion3 H"
+msgstr ""
+
+msgid "Testis L Lesion4 Vol"
+msgstr ""
+
+msgid "Testis L Lesion4 L"
+msgstr ""
+
+msgid "Testis L Lesion4 W"
+msgstr ""
+
+msgid "Testis L Lesion4 H"
+msgstr ""
+
+msgid "Testis L Lesion5 Vol"
+msgstr ""
+
+msgid "Testis L Lesion5 L"
+msgstr ""
+
+msgid "Testis L Lesion5 W"
+msgstr ""
+
+msgid "Testis L Lesion5 H"
+msgstr ""
+
+msgid "Testis R Lesion1 Vol"
+msgstr ""
+
+msgid "Testis R Lesion1 L"
+msgstr ""
+
+msgid "Testis R Lesion1 W"
+msgstr ""
+
+msgid "Testis R Lesion1 H"
+msgstr ""
+
+msgid "Testis R Lesion2 Vol"
+msgstr ""
+
+msgid "Testis R Lesion2 L"
+msgstr ""
+
+msgid "Testis R Lesion2 W"
+msgstr ""
+
+msgid "Testis R Lesion2 H"
+msgstr ""
+
+msgid "Testis R Lesion3 Vol"
+msgstr ""
+
+msgid "Testis R Lesion3 L"
+msgstr ""
+
+msgid "Testis R Lesion3 W"
+msgstr ""
+
+msgid "Testis R Lesion3 H"
+msgstr ""
+
+msgid "Testis R Lesion4 Vol"
+msgstr ""
+
+msgid "Testis R Lesion4 L"
+msgstr ""
+
+msgid "Testis R Lesion4 W"
+msgstr ""
+
+msgid "Testis R Lesion4 H"
+msgstr ""
+
+msgid "Testis R Lesion5 Vol"
+msgstr ""
+
+msgid "Testis R Lesion5 L"
+msgstr ""
+
+msgid "Testis R Lesion5 W"
+msgstr ""
+
+msgid "Testis R Lesion5 H"
+msgstr ""
+
+msgid "Isthmus AP"
+msgstr ""
+
+msgid "Long L Lobe"
+msgstr ""
+
+msgid "AP L Lobe"
+msgstr ""
+
+msgid "Tr L Lobe"
+msgstr ""
+
+msgid "Long R Lobe"
+msgstr ""
+
+msgid "AP R Lobe"
+msgstr ""
+
+msgid "Tr R Lobe"
+msgstr ""
+
+msgid "Supa L Lobe"
+msgstr ""
+
+msgid "Infa L Lobe"
+msgstr ""
+
+msgid "Supa R Lobe"
+msgstr ""
+
+msgid "Infa R Lobe"
+msgstr ""
+
+msgid "Thyroid Lesion1 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion1 L"
+msgstr ""
+
+msgid "Thyroid Lesion1 W"
+msgstr ""
+
+msgid "Thyroid Lesion1 H"
+msgstr ""
+
+msgid "Thyroid Lesion2 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion2 L"
+msgstr ""
+
+msgid "Thyroid Lesion2 W"
+msgstr ""
+
+msgid "Thyroid Lesion2 H"
+msgstr ""
+
+msgid "Thyroid Lesion3 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion3 L"
+msgstr ""
+
+msgid "Thyroid Lesion3 W"
+msgstr ""
+
+msgid "Thyroid Lesion3 H"
+msgstr ""
+
+msgid "Thyroid Lesion4 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion4 L"
+msgstr ""
+
+msgid "Thyroid Lesion4 W"
+msgstr ""
+
+msgid "Thyroid Lesion4 H"
+msgstr ""
+
+msgid "Thyroid Lesion5 Vol"
+msgstr ""
+
+msgid "Thyroid Lesion5 L"
+msgstr ""
+
+msgid "Thyroid Lesion5 W"
+msgstr ""
+
+msgid "Thyroid Lesion5 H"
+msgstr ""
+
+msgid "L Eye OA"
+msgstr ""
+
+msgid "L Eye Lens"
+msgstr ""
+
+msgid "L Eye AC"
+msgstr ""
+
+msgid "L Eye ON"
+msgstr ""
+
+msgid "R Eye OA"
+msgstr ""
+
+msgid "R Eye Lens"
+msgstr ""
+
+msgid "R Eye AC"
+msgstr ""
+
+msgid "R Eye ON"
+msgstr ""
+
+msgid "Galact1 Thick"
+msgstr ""
+
+msgid "Galact2 Thick"
+msgstr ""
+
+msgid "Galact3 Thick"
+msgstr ""
+
+msgid "Galact4 Thick"
+msgstr ""
+
+msgid "Galact5 Thick"
+msgstr ""
+
+msgid "Bre1 Le1 L"
+msgstr ""
+
+msgid "Bre1 Le1 W"
+msgstr ""
+
+msgid "Bre1 Le1 H"
+msgstr ""
+
+msgid "Bre1 Le2 L"
+msgstr ""
+
+msgid "Bre1 Le2 W"
+msgstr ""
+
+msgid "Bre1 Le2 H"
+msgstr ""
+
+msgid "Bre1 Le3 L"
+msgstr ""
+
+msgid "Bre1 Le3 W"
+msgstr ""
+
+msgid "Bre1 Le3 H"
+msgstr ""
+
+msgid "Bre1 Le4 L"
+msgstr ""
+
+msgid "Bre1 Le4 W"
+msgstr ""
+
+msgid "Bre1 Le4 H"
+msgstr ""
+
+msgid "Bre1 Le5 L"
+msgstr ""
+
+msgid "Bre1 Le5 W"
+msgstr ""
+
+msgid "Bre1 Le5 H"
+msgstr ""
+
+msgid "Bre2 Le1 L"
+msgstr ""
+
+msgid "Bre2 Le1 W"
+msgstr ""
+
+msgid "Bre2 Le1 H"
+msgstr ""
+
+msgid "Bre2 Le2 L"
+msgstr ""
+
+msgid "Bre2 Le2 W"
+msgstr ""
+
+msgid "Bre2 Le2 H"
+msgstr ""
+
+msgid "Bre2 Le3 L"
+msgstr ""
+
+msgid "Bre2 Le3 W"
+msgstr ""
+
+msgid "Bre2 Le3 H"
+msgstr ""
+
+msgid "Bre2 Le4 L"
+msgstr ""
+
+msgid "Bre2 Le4 W"
+msgstr ""
+
+msgid "Bre2 Le4 H"
+msgstr ""
+
+msgid "Bre2 Le5 L"
+msgstr ""
+
+msgid "Bre2 Le5 W"
+msgstr ""
+
+msgid "Bre2 Le5 H"
+msgstr ""
+
+msgid "Bre3 Le1 L"
+msgstr ""
+
+msgid "Bre3 Le1 W"
+msgstr ""
+
+msgid "Bre3 Le1 H"
+msgstr ""
+
+msgid "Bre3 Le2 L"
+msgstr ""
+
+msgid "Bre3 Le2 W"
+msgstr ""
+
+msgid "Bre3 Le2 H"
+msgstr ""
+
+msgid "Bre3 Le3 L"
+msgstr ""
+
+msgid "Bre3 Le3 W"
+msgstr ""
+
+msgid "Bre3 Le3 H"
+msgstr ""
+
+msgid "Bre3 Le4 L"
+msgstr ""
+
+msgid "Bre3 Le4 W"
+msgstr ""
+
+msgid "Bre3 Le4 H"
+msgstr ""
+
+msgid "Bre3 Le5 L"
+msgstr ""
+
+msgid "Bre3 Le5 W"
+msgstr ""
+
+msgid "Bre3 Le5 H"
+msgstr ""
+
+msgid "Bre4 Le1 L"
+msgstr ""
+
+msgid "Bre4 Le1 W"
+msgstr ""
+
+msgid "Bre4 Le1 H"
+msgstr ""
+
+msgid "Bre4 Le2 L"
+msgstr ""
+
+msgid "Bre4 Le2 W"
+msgstr ""
+
+msgid "Bre4 Le2 H"
+msgstr ""
+
+msgid "Bre4 Le3 L"
+msgstr ""
+
+msgid "Bre4 Le3 W"
+msgstr ""
+
+msgid "Bre4 Le3 H"
+msgstr ""
+
+msgid "Bre4 Le4 L"
+msgstr ""
+
+msgid "Bre4 Le4 W"
+msgstr ""
+
+msgid "Bre4 Le4 H"
+msgstr ""
+
+msgid "Bre4 Le5 L"
+msgstr ""
+
+msgid "Bre4 Le5 W"
+msgstr ""
+
+msgid "Bre4 Le5 H"
+msgstr ""
+
+msgid "Bre5 Le1 L"
+msgstr ""
+
+msgid "Bre5 Le1 W"
+msgstr ""
+
+msgid "Bre5 Le1 H"
+msgstr ""
+
+msgid "Bre5 Le2 L"
+msgstr ""
+
+msgid "Bre5 Le2 W"
+msgstr ""
+
+msgid "Bre5 Le2 H"
+msgstr ""
+
+msgid "Bre5 Le3 L"
+msgstr ""
+
+msgid "Bre5 Le3 W"
+msgstr ""
+
+msgid "Bre5 Le3 H"
+msgstr ""
+
+msgid "Bre5 Le4 L"
+msgstr ""
+
+msgid "Bre5 Le4 W"
+msgstr ""
+
+msgid "Bre5 Le4 H"
+msgstr ""
+
+msgid "Bre5 Le5 L"
+msgstr ""
+
+msgid "Bre5 Le5 W"
+msgstr ""
+
+msgid "Bre5 Le5 H"
+msgstr ""
+
+msgid "L Lesion1 L"
+msgstr ""
+
+msgid "L Lesion1 W"
+msgstr ""
+
+msgid "L Lesion1 H"
+msgstr ""
+
+msgid "L Lesion2 L"
+msgstr ""
+
+msgid "L Lesion2 W"
+msgstr ""
+
+msgid "L Lesion2 H"
+msgstr ""
+
+msgid "L Lesion3 L"
+msgstr ""
+
+msgid "L Lesion3 W"
+msgstr ""
+
+msgid "L Lesion3 H"
+msgstr ""
+
+msgid "L Lesion4 L"
+msgstr ""
+
+msgid "L Lesion4 W"
+msgstr ""
+
+msgid "L Lesion4 H"
+msgstr ""
+
+msgid "L Lesion5 L"
+msgstr ""
+
+msgid "L Lesion5 W"
+msgstr ""
+
+msgid "L Lesion5 H"
+msgstr ""
+
+msgid "R Lesion1 L"
+msgstr ""
+
+msgid "R Lesion1 W"
+msgstr ""
+
+msgid "R Lesion1 H"
+msgstr ""
+
+msgid "R Lesion2 L"
+msgstr ""
+
+msgid "R Lesion2 W"
+msgstr ""
+
+msgid "R Lesion2 H"
+msgstr ""
+
+msgid "R Lesion3 L"
+msgstr ""
+
+msgid "R Lesion3 W"
+msgstr ""
+
+msgid "R Lesion3 H"
+msgstr ""
+
+msgid "R Lesion4 L"
+msgstr ""
+
+msgid "R Lesion4 W"
+msgstr ""
+
+msgid "R Lesion4 H"
+msgstr ""
+
+msgid "R Lesion5 L"
+msgstr ""
+
+msgid "R Lesion5 W"
+msgstr ""
+
+msgid "R Lesion5 H"
+msgstr ""
+
+msgid "Lesion1 L"
+msgstr ""
+
+msgid "Lesion1 W"
+msgstr ""
+
+msgid "Lesion1 H"
+msgstr ""
+
+msgid "Lesion2 L"
+msgstr ""
+
+msgid "Lesion2 W"
+msgstr ""
+
+msgid "Lesion2 H"
+msgstr ""
+
+msgid "Lesion3 L"
+msgstr ""
+
+msgid "Lesion3 W"
+msgstr ""
+
+msgid "Lesion3 H"
+msgstr ""
+
+msgid "Lesion4 L"
+msgstr ""
+
+msgid "Lesion4 W"
+msgstr ""
+
+msgid "Lesion4 H"
+msgstr ""
+
+msgid "Lesion5 L"
+msgstr ""
+
+msgid "Lesion5 W"
+msgstr ""
+
+msgid "Lesion5 H"
+msgstr ""
+
+msgid "LV Length(2D)"
+msgstr ""
+
+msgid "LV Width(2D)"
+msgstr ""
+
+msgid "LV Wall Width(2D)"
+msgstr ""
+
+msgid "IVS Width(2D)"
+msgstr ""
+
+msgid "RV Length(2D)"
+msgstr ""
+
+msgid "RV Width(2D)"
+msgstr ""
+
+msgid "RV Wall Width(2D)"
+msgstr ""
+
+msgid "LA Length(2D)"
+msgstr ""
+
+msgid "LA Width(2D)"
+msgstr ""
+
+msgid "RA Length(2D)"
+msgstr ""
+
+msgid "RA Width(2D)"
+msgstr ""
+
+msgid "Heart Area(2D)"
+msgstr ""
+
+msgid "Heart Circ(2D)"
+msgstr ""
+
+msgid "Thorax Circ(2D)"
+msgstr ""
+
+msgid "Ao Arch Diam(2D)"
+msgstr ""
+
+msgid "SVC Diam(2D)"
+msgstr ""
+
+msgid "IVC Diam(2D)"
+msgstr ""
+
+msgid "Ao Annul Diam(2D)"
+msgstr ""
+
+msgid "Ao Annul Circ(2D)"
+msgstr ""
+
+msgid "MV Annul Diam(2D)"
+msgstr ""
+
+msgid "MV Annul Circ(2D)"
+msgstr ""
+
+msgid "PV Annul Diam(2D)"
+msgstr ""
+
+msgid "TV Annul Diam(2D)"
+msgstr ""
+
+msgid "LA Wall Diam(M)"
+msgstr ""
+
+msgid "RA Wall Diam(M)"
+msgstr ""
+
+msgid "Asc Ao Diam(M)"
+msgstr ""
+
+msgid "Ao Arch Diam(M)"
+msgstr ""
+
+msgid "Ao Isthmus Diam(M)"
+msgstr ""
+
+msgid "Desc Ao Diam(M)"
+msgstr ""
+
+msgid "Duct Art Diam(M)"
+msgstr ""
+
+msgid "LPA Diam(M)"
+msgstr ""
+
+msgid "MPA Diam(M)"
+msgstr ""
+
+msgid "RPA Diam(M)"
+msgstr ""
+
+msgid "HR-AV(M)"
+msgstr ""
+
+msgid "HR-PV(M)"
+msgstr ""
+
+msgid "Placenta(D)"
+msgstr ""
+
+msgid "Umbilical A(D)"
+msgstr ""
+
+msgid "Umbilical V(D)"
+msgstr ""
+
+msgid "L Uterine A(D)"
+msgstr ""
+
+msgid "R Uterine A(D)"
+msgstr ""
+
+msgid "L Ovarian A(D)"
+msgstr ""
+
+msgid "R Ovarian A(D)"
+msgstr ""
+
+msgid "Foramen Ovale(D)"
+msgstr ""
+
+msgid "Duct Art(D)"
+msgstr ""
+
+msgid "L Coronary A(D)"
+msgstr ""
+
+msgid "R Coronary A(D)"
+msgstr ""
+
+msgid "AoR(D)"
+msgstr ""
+
+msgid "Asc Ao(D)"
+msgstr ""
+
+msgid "Ao Arch(D)"
+msgstr ""
+
+msgid "Ao Isthmus(D)"
+msgstr ""
+
+msgid "Desc Ao(D)"
+msgstr ""
+
+msgid "MPA(D)"
+msgstr ""
+
+msgid "LPA(D)"
+msgstr ""
+
+msgid "RPA(D)"
+msgstr ""
+
+msgid "Pulm V(D)"
+msgstr ""
+
+msgid "Duct Ven(D)"
+msgstr ""
+
+msgid "LVOT Acc Time(D)"
+msgstr ""
+
+msgid "AV Acc Time(D)"
+msgstr ""
+
+msgid "AI Acc Time(D)"
+msgstr ""
+
+msgid "MV Peak E(D)"
+msgstr ""
+
+msgid "MV Peak A(D)"
+msgstr ""
+
+msgid "MV Acc Time(D)"
+msgstr ""
+
+msgid "MV Dec Time(D)"
+msgstr ""
+
+msgid "RVOT Acc Time(D)"
+msgstr ""
+
+msgid "PV Acc Time(D)"
+msgstr ""
+
+msgid "TV Peak A(D)"
+msgstr ""
+
+msgid "TV Peak E(D)"
+msgstr ""
+
+msgid "TV Acc Time(D)"
+msgstr ""
+
+msgid "TV Dec Time(D)"
+msgstr ""
+
+msgid "Thoracic Ao(D)"
+msgstr ""
+
+msgid "L Renal A(D)"
+msgstr ""
+
+msgid "R Renal A(D)"
+msgstr ""
+
+msgid "Hepatic A(D)"
+msgstr ""
+
+msgid "Hepatic V(D)"
+msgstr ""
+
+msgid "Splenic A(D)"
+msgstr ""
+
+msgid "L MCA(D)"
+msgstr ""
+
+msgid "R MCA(D)"
+msgstr ""
+
+msgid "L ICA(D)"
+msgstr ""
+
+msgid "R ICA(D)"
+msgstr ""
+
+msgid "SVC(D)"
+msgstr ""
+
+msgid "IVC(D)"
+msgstr ""
+
+msgid "L CCA"
+msgstr ""
+
+msgid "R CCA"
+msgstr ""
+
+msgid "L Dist CCA"
+msgstr ""
+
+msgid "R Dist CCA"
+msgstr ""
+
+msgid "L Mid CCA"
+msgstr ""
+
+msgid "R Mid CCA"
+msgstr ""
+
+msgid "L Prox CCA"
+msgstr ""
+
+msgid "R Prox CCA"
+msgstr ""
+
+msgid "L ICA"
+msgstr ""
+
+msgid "R ICA"
+msgstr ""
+
+msgid "L Dist ICA"
+msgstr ""
+
+msgid "R Dist ICA"
+msgstr ""
+
+msgid "L Mid ICA"
+msgstr ""
+
+msgid "R Mid ICA"
+msgstr ""
+
+msgid "L Prox ICA"
+msgstr ""
+
+msgid "R Prox ICA"
+msgstr ""
+
+msgid "L Dist LSV"
+msgstr ""
+
+msgid "R Dist LSV"
+msgstr ""
+
+msgid "L Mid LSV"
+msgstr ""
+
+msgid "R Mid LSV"
+msgstr ""
+
+msgid "L Prox LSV"
+msgstr ""
+
+msgid "R Prox LSV"
+msgstr ""
+
+msgid "L Dist Ceph V"
+msgstr ""
+
+msgid "R Dist Ceph V"
+msgstr ""
+
+msgid "L Mid Ceph V"
+msgstr ""
+
+msgid "R Mid Ceph V"
+msgstr ""
+
+msgid "L Prox Ceph V"
+msgstr ""
+
+msgid "R Prox Ceph V"
+msgstr ""
+
+msgid "L Prox ECA"
+msgstr ""
+
+msgid "R Prox ECA"
+msgstr ""
+
+msgid "L Brachioceph A"
+msgstr ""
+
+msgid "R Brachioceph A"
+msgstr ""
+
+msgid "L Brachioceph V"
+msgstr ""
+
+msgid "R Brachioceph V"
+msgstr ""
+
+msgid "L Bulb"
+msgstr ""
+
+msgid "R Bulb"
+msgstr ""
+
+msgid "L Vertebral A"
+msgstr ""
+
+msgid "R Vertebral A"
+msgstr ""
+
+msgid "L IJV"
+msgstr ""
+
+msgid "R IJV"
+msgstr ""
+
+msgid "L Mid SCL A"
+msgstr ""
+
+msgid "R Mid SCL A"
+msgstr ""
+
+msgid "L Prox SCL A"
+msgstr ""
+
+msgid "R Prox SCL A"
+msgstr ""
+
+msgid "L Mid SCL V"
+msgstr ""
+
+msgid "R Mid SCL V"
+msgstr ""
+
+msgid "L Prox SCL V"
+msgstr ""
+
+msgid "R Prox SCL V"
+msgstr ""
+
+msgid "L CFA"
+msgstr ""
+
+msgid "R CFA"
+msgstr ""
+
+msgid "L CFV"
+msgstr ""
+
+msgid "R CFV"
+msgstr ""
+
+msgid "L Com Iliac A"
+msgstr ""
+
+msgid "R Com Iliac A"
+msgstr ""
+
+msgid "L Com Iliac V"
+msgstr ""
+
+msgid "R Com Iliac V"
+msgstr ""
+
+msgid "L Dist ATA"
+msgstr ""
+
+msgid "R Dist ATA"
+msgstr ""
+
+msgid "L Mid ATA"
+msgstr ""
+
+msgid "R Mid ATA"
+msgstr ""
+
+msgid "L Prox ATA"
+msgstr ""
+
+msgid "R Prox ATA"
+msgstr ""
+
+msgid "L Dist ATV"
+msgstr ""
+
+msgid "R Dist ATV"
+msgstr ""
+
+msgid "L Mid ATV"
+msgstr ""
+
+msgid "R Mid ATV"
+msgstr ""
+
+msgid "L Prox ATV"
+msgstr ""
+
+msgid "R Prox ATV"
+msgstr ""
+
+msgid "L Dist GSV Calf"
+msgstr ""
+
+msgid "R Dist GSV Calf"
+msgstr ""
+
+msgid "L Mid GSV Calf"
+msgstr ""
+
+msgid "R Mid GSV Calf"
+msgstr ""
+
+msgid "L Prox GSV Calf"
+msgstr ""
+
+msgid "R Prox GSV Calf"
+msgstr ""
+
+msgid "L Dist GSV Thigh"
+msgstr ""
+
+msgid "R Dist GSV Thigh"
+msgstr ""
+
+msgid "L Mid GSV Thigh"
+msgstr ""
+
+msgid "R Mid GSV Thigh"
+msgstr ""
+
+msgid "L Prox GSV Thigh"
+msgstr ""
+
+msgid "R Prox GSV Thigh"
+msgstr ""
+
+msgid "L Dist Pero A"
+msgstr ""
+
+msgid "R Dist Pero A"
+msgstr ""
+
+msgid "L Mid Pero A"
+msgstr ""
+
+msgid "R Mid Pero A"
+msgstr ""
+
+msgid "L Prox Pero A"
+msgstr ""
+
+msgid "R Prox Pero A"
+msgstr ""
+
+msgid "L Dist Pero V"
+msgstr ""
+
+msgid "R Dist Pero V"
+msgstr ""
+
+msgid "L Mid Pero V"
+msgstr ""
+
+msgid "R Mid Pero V"
+msgstr ""
+
+msgid "L Prox Pero V"
+msgstr ""
+
+msgid "R Prox Pero V"
+msgstr ""
+
+msgid "L Dist Pop A"
+msgstr ""
+
+msgid "R Dist Pop A"
+msgstr ""
+
+msgid "L Mid Pop A"
+msgstr ""
+
+msgid "R Mid Pop A"
+msgstr ""
+
+msgid "L Prox Pop A"
+msgstr ""
+
+msgid "R Prox Pop A"
+msgstr ""
+
+msgid "L Dist Pop V"
+msgstr ""
+
+msgid "R Dist Pop V"
+msgstr ""
+
+msgid "L Mid Pop V"
+msgstr ""
+
+msgid "R Mid Pop V"
+msgstr ""
+
+msgid "L Prox Pop V"
+msgstr ""
+
+msgid "R Prox Pop V"
+msgstr ""
+
+msgid "L Dist PTA"
+msgstr ""
+
+msgid "R Dist PTA"
+msgstr ""
+
+msgid "L Mid PTA"
+msgstr ""
+
+msgid "R Mid PTA"
+msgstr ""
+
+msgid "L Prox PTA"
+msgstr ""
+
+msgid "R Prox PTA"
+msgstr ""
+
+msgid "L Dist PTV"
+msgstr ""
+
+msgid "R Dist PTV"
+msgstr ""
+
+msgid "L Mid PTV"
+msgstr ""
+
+msgid "R Mid PTV"
+msgstr ""
+
+msgid "L Prox PTV"
+msgstr ""
+
+msgid "R Prox PTV"
+msgstr ""
+
+msgid "L Dist SFA"
+msgstr ""
+
+msgid "R Dist SFA"
+msgstr ""
+
+msgid "L Mid SFA"
+msgstr ""
+
+msgid "R Mid SFA"
+msgstr ""
+
+msgid "L Prox SFA"
+msgstr ""
+
+msgid "R Prox SFA"
+msgstr ""
+
+msgid "L Dist SFV"
+msgstr ""
+
+msgid "R Dist SFV"
+msgstr ""
+
+msgid "L Mid SFV"
+msgstr ""
+
+msgid "R Mid SFV"
+msgstr ""
+
+msgid "L Prox SFV"
+msgstr ""
+
+msgid "R Prox SFV"
+msgstr ""
+
+msgid "L Dor Pedis"
+msgstr ""
+
+msgid "R Dor Pedis"
+msgstr ""
+
+msgid "L Ext Iliac A"
+msgstr ""
+
+msgid "R Ext Iliac A"
+msgstr ""
+
+msgid "L Ext Iliac V"
+msgstr ""
+
+msgid "R Ext Iliac V"
+msgstr ""
+
+msgid "L Int Iliac A"
+msgstr ""
+
+msgid "R Int Iliac A"
+msgstr ""
+
+msgid "L Int Iliac V"
+msgstr ""
+
+msgid "R Int Iliac V"
+msgstr ""
+
+msgid "L Lat Sural V"
+msgstr ""
+
+msgid "R Lat Sural V"
+msgstr ""
+
+msgid "L Prox PFA"
+msgstr ""
+
+msgid "R Prox PFA"
+msgstr ""
+
+msgid "L SFJ"
+msgstr ""
+
+msgid "R SFJ"
+msgstr ""
+
+msgid "L Antecube"
+msgstr ""
+
+msgid "R Antecube"
+msgstr ""
+
+msgid "L Ax A"
+msgstr ""
+
+msgid "R Ax A"
+msgstr ""
+
+msgid "L Ax V"
+msgstr ""
+
+msgid "R Ax V"
+msgstr ""
+
+msgid "L Dist Basilic V"
+msgstr ""
+
+msgid "R Dist Basilic V"
+msgstr ""
+
+msgid "L Mid Basilic V"
+msgstr ""
+
+msgid "R Mid Basilic V"
+msgstr ""
+
+msgid "L Prox Basilic V"
+msgstr ""
+
+msgid "R Prox Basilic V"
+msgstr ""
+
+msgid "L Dist Brach A"
+msgstr ""
+
+msgid "R Dist Brach A"
+msgstr ""
+
+msgid "L Prox Brach A"
+msgstr ""
+
+msgid "R Prox Brach A"
+msgstr ""
+
+msgid "L Dist Brach V"
+msgstr ""
+
+msgid "R Dist Brach V"
+msgstr ""
+
+msgid "L Prox Brach V"
+msgstr ""
+
+msgid "R Prox Brach V"
+msgstr ""
+
+msgid "L Dist Rad A"
+msgstr ""
+
+msgid "R Dist Rad A"
+msgstr ""
+
+msgid "L Mid Rad A"
+msgstr ""
+
+msgid "R Mid Rad A"
+msgstr ""
+
+msgid "L Prox Rad A"
+msgstr ""
+
+msgid "R Prox Rad A"
+msgstr ""
+
+msgid "L Dist Rad V"
+msgstr ""
+
+msgid "R Dist Rad V"
+msgstr ""
+
+msgid "L Mid Rad V"
+msgstr ""
+
+msgid "R Mid Rad V"
+msgstr ""
+
+msgid "L Prox Rad V"
+msgstr ""
+
+msgid "R Prox Rad V"
+msgstr ""
+
+msgid "L Dist Ulnar A"
+msgstr ""
+
+msgid "R Dist Ulnar A"
+msgstr ""
+
+msgid "L Mid Ulnar A"
+msgstr ""
+
+msgid "R Mid Ulnar A"
+msgstr ""
+
+msgid "L Prox Ulnar A"
+msgstr ""
+
+msgid "R Prox Ulnar A"
+msgstr ""
+
+msgid "L Dist Ulnar V"
+msgstr ""
+
+msgid "R Dist Ulnar V"
+msgstr ""
+
+msgid "L Mid Ulnar V"
+msgstr ""
+
+msgid "R Mid Ulnar V"
+msgstr ""
+
+msgid "L Prox Ulnar V"
+msgstr ""
+
+msgid "R Prox Ulnar V"
+msgstr ""
+
+msgid "L ACA"
+msgstr ""
+
+msgid "R ACA"
+msgstr ""
+
+msgid "L PCA"
+msgstr ""
+
+msgid "R PCA"
+msgstr ""
+
+msgid "Basilar A"
+msgstr ""
+
+msgid "L Hip"
+msgstr ""
+
+msgid "R Hip"
+msgstr ""
+
+msgid "Area 1"
+msgstr ""
+
+msgid "Area 2"
+msgstr ""
+
+msgid "Area 3"
+msgstr ""
+
+msgid "GSD"
+msgstr ""
+
+msgid "HD"
+msgstr ""
+
+msgid "BD"
+msgstr ""
+
+msgid "SL"
+msgstr ""
+
+msgid "K-CRL"
+msgstr ""
+
+msgid "W-CRL"
+msgstr ""
+
+msgid "H-CRL"
+msgstr ""
+
+msgid "BBD"
+msgstr ""
+
+msgid "BTD"
+msgstr ""
+
+msgid "BUD"
+msgstr ""
+
+msgid "ERD"
+msgstr ""
+
+msgid "ESD"
+msgstr ""
+
+msgid "EED"
+msgstr ""
+
+msgid "Fetal 1"
+msgstr "Плод 1"
+
+msgid "Fetal 2"
+msgstr ""
+
+msgid "Fetal 1 √"
+msgstr ""
+
+msgid "Fetal 2 √"
+msgstr ""
+
+msgid "FocusNum"
+msgstr "№ фокуса"
+
+msgid "Scan Line"
+msgstr "Развертка"
+
+msgid "[Focus]: Knob to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr "[Фокус]: ручка переместить фокус. При увеличении, совмещ изобр, Tp-View или EFVI включ-только один фокус."
+
+msgid "[Focus]: Knob to move focus, Press to change focus sum."
+msgstr "[Фокус]: ручка для перемещ фокуса, Наж для измен велич.Ф."
+
+msgid "[Scan Line]: Invalid when localzoom is open!."
+msgstr "[Стр.изобр]: Недоступна с работающим зумом!"
+
+msgid "[Scan Line]: Only valid when probe type is phase."
+msgstr "[Стр.изобр]: Доступен в фазе типа зонда"
+
+msgid "THI OFF"
+msgstr "THI ВЫКЛ."
+
+msgid "THI ON"
+msgstr "THI ВКЛ"
+
+msgid "[Length]: <Value> to cancel or redraw."
+msgstr "[Длина]: <Value> отменить или перерис."
+
+msgid "[AreaTrack]: <Value> to cancel or redraw."
+msgstr "[Площ.трека]: <Value> отменить или перерис."
+
+msgid "[Simpsom]: <Value> to cancle or redraw."
+msgstr "[Simpsom]: <Value> отменить или перерис."
+
+msgid "[A/L]: <Value> to cancle or redraw."
+msgstr "[A/L]: <Value> отменить или перерис."
+
+msgid "PS"
+msgstr ""
+
+msgid "ED"
+msgstr ""
+
+msgid "S/D"
+msgstr ""
+
+msgid "TAMAX"
+msgstr ""
+
+msgid "PGmax"
+msgstr ""
+
+msgid "PGmean"
+msgstr ""
+
+msgid "[ManualTrack]: <Update> to switch to AutoTrack."
+msgstr "[Ручн.трек]: <Update> переключ на автотрек."
+
+msgid "[ManualTrack]: <Value> to cancel or redraw. <Update> to AutoTrack."
+msgstr "[Ручн.трек]: <Value> отменить или перерис. <Update> автотрек."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack. <Value> press to adjust."
+msgstr "[Ручн.трек]: <Update> отменить или перерис. <Value> автотрек."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack."
+msgstr "[п/а трек]: <Update> переключ на ручн.трек."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto. <Value> press to adjust."
+msgstr "[Автотрек]: <Update> перекл на п/а. <Value> нажать для регулир."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto."
+msgstr "[Автотрек]: <Update> перекл на полуавтомат."
+
+msgid "[PI]: <Value> to cancel or redraw."
+msgstr "[PI]: <Value> отменить или перерис."
+
+msgid "[PG Mean]: <Value> to cancel or redraw."
+msgstr "[PG сред]: <Value> отменить или перерис."
+
+msgid "dist"
+msgstr "Расст"
+
+#, c-format
+msgid " Invalid"
+msgstr "Невозможно,"
+
+#, c-format
+msgid " Invalid  "
+msgstr "Невозможно,"
+
+msgid "length"
+msgstr "Длина"
+
+msgid "area"
+msgstr "Площадь"
+
+msgid "vol"
+msgstr "Звук"
+
+msgid "radius"
+msgstr "радиус"
+
+msgid "dist1"
+msgstr "Расст1"
+
+msgid "dist2"
+msgstr "Расст"
+
+msgid "angle"
+msgstr "Угол"
+
+msgid "ratio"
+msgstr "Соотн"
+
+msgid "peri"
+msgstr "Перим"
+
+msgid "angusty"
+msgstr "коарктации"
+
+msgid "area1"
+msgstr "Площадь1"
+
+msgid "area2"
+msgstr "Площадь2"
+
+msgid "vol1"
+msgstr "Звук1"
+
+msgid "vol2"
+msgstr "Звук2"
+
+msgid "angle1"
+msgstr "Угол1"
+
+msgid "angle2"
+msgstr "Угол2"
+
+msgid "LVIDd"
+msgstr ""
+
+msgid "EDV"
+msgstr ""
+
+msgid "LVODs"
+msgstr ""
+
+msgid "ESV"
+msgstr ""
+
+msgid "vel"
+msgstr "Скор"
+
+msgid "slope"
+msgstr "Наклон"
+
+msgid "IMT MAX "
+msgstr ""
+
+msgid "IMT MIN "
+msgstr ""
+
+msgid "IMT STD "
+msgstr ""
+
+msgid "IMT MEAN "
+msgstr ""
+
+msgid "IMT QUALITY "
+msgstr ""
+
+msgid "IMT LENGTH "
+msgstr ""
+
+msgid "Snap"
+msgstr "снимок"
+
+msgid "Show Latest Three Days"
+msgstr "Показать 3 последн. дня"
+
+msgid "Early Pregnancy"
+msgstr "Ранняя берем."
+
+msgid "Middle-late Pregnancy"
+msgstr "Берем средняя-поздняя"
+
+msgid "Abdomen-General"
+msgstr "Брюш Пол-Общее"
+
+msgid "Abdomen-Arterial"
+msgstr "Брюш П-артериальн"
+
+msgid "Abdomen-Venous"
+msgstr "БП-Венозный"
+
+msgid "Obstetrics-General"
+msgstr "Акушер.-Общее"
+
+msgid "Obstetrics-FetalHeart"
+msgstr "Акушер.-сердцеб. плода"
+
+msgid "SmallPart-Glands"
+msgstr "Мелк.орг-гланды"
+
+msgid "SmallPart-Thyroid"
+msgstr "Мелк.орг-щитов.жел"
+
+msgid "SmallPart-Eye"
+msgstr "Мелк.орг-глаза"
+
+msgid "SmallPart-Testicle"
+msgstr "Мелк.орг-яички"
+
+msgid "Vascular-LE"
+msgstr "Сосуд-нижн к"
+
+msgid "Vascular-UE"
+msgstr "Сосуд-верх к"
+
+msgid "Vascular-Carotid"
+msgstr "Сосуд-сонная арт."
+
+msgid "Available Items:"
+msgstr "Доступн. объекты:"
+
+msgid "Measure Sequence:"
+msgstr "Измер. последоват:"
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "Selected Items:"
+msgstr "Выбранные объект:"
+
+msgid "Up"
+msgstr "Bpx"
+
+msgid "Down"
+msgstr "Вниз"
+
+msgid "Please select a item before move!"
+msgstr "Выбирите объект для перемещения!"
+
+msgid " Item has existed. Please select item again!"
+msgstr "Объект существует. Выбирите еще раз!"
+
+msgid "Please select a item before delete!"
+msgstr "Выбирите объект для удаления!"
+
+msgid " Only Userdefined items can be deleted!"
+msgstr "Удалить можно только пользовател объекты"
+
+msgid "Please select a item before down!"
+msgstr "Выбирите объект и нажмите вниз!"
+
+msgid "Please select a item before up!"
+msgstr "Выбирите объект и нажмите вверх!"
+
+msgid "Please input name for exporting data:"
+msgstr "Введите название для экспорт.данных:"
+
+msgid "Data Name:"
+msgstr "Наим.данных:"
+
+msgid ""
+"Please insert USB storage before export! \n"
+"Click Export will export current exam data to USB storage!"
+msgstr ""
+"Вставьте USB перед экспортом!\n"
+"Нажмите Экспорт и данные обследования экспортируются на накопитель!"
+
+msgid "Success to import from USB storage."
+msgstr "Успешно импортировано с USB!"
+
+msgid "The name has existed, please rename!"
+msgstr "Название существует, переименовать!"
+
+msgid "Loading......"
+msgstr ""
+
+msgid "Please select measure method!"
+msgstr "Выбирите способ измерений!"
+
+msgid "Please select measure type!"
+msgstr "Выбирите тип измерений!"
+
+msgid "Please select one item:"
+msgstr "Выбирите один объект:"
+
+msgid "Delete data from USB storage after import."
+msgstr "Удалить данные с USB после импорта."
+
+msgid "Import data to override the current exam data!"
+msgstr "Импорт данных заменит данные текущ обследования"
+
+msgid ""
+"Item has existed, \n"
+"Clicked Import will rename the item and continue, \n"
+"Clicked Cancel will quit and continue!"
+msgstr ""
+"Объект существует.\n"
+"Нажмите Импорт,переимен объект,\n"
+"продолжить-нажмите Отменить, чтобы отменить и продолжить!"
+
+msgid "PSAD"
+msgstr ""
+
+msgid "SPSA"
+msgstr ""
+
+msgid "AUA"
+msgstr ""
+
+msgid "EDD(AUA)"
+msgstr ""
+
+msgid "GA(LMP)"
+msgstr ""
+
+msgid "EDD(LMP)"
+msgstr ""
+
+msgid "Peripheral"
+msgstr "Периферич."
+
+msgid "<b>Mouse Speed</b>"
+msgstr "<b>СкоростьМыши</b>"
+
+msgid "New"
+msgstr "Нов."
+
+msgid "FH:"
+msgstr ""
+
+msgid "Probe Type: "
+msgstr "Тип датчика:"
+
+msgid "Select Lexicon:"
+msgstr "лексикон:"
+
+msgid "All Delete"
+msgstr "Удалить все"
+
+msgid "Please select a item before add!"
+msgstr "Выбирите объект для добавления!"
+
+msgid " 'New Item' has existed. Please rename item !"
+msgstr "Новый объект' существует. Переименуйте!"
+
+msgid "Only Userdefined items can be renamed!"
+msgstr "Можно переимен. только пользов объекты!"
+
+msgid "<b>Measure Result Font Size</b>"
+msgstr "<b>Размер шрифта рез. измер</b>"
+
+msgid "<b>Heart Beat:</b>"
+msgstr "<b>Сердцебиение:</b>"
+
+msgid "This is charging software, the period of validity is permanent."
+msgstr "ПО зарядки, срок действия постоянен."
+
+msgid "This is charging software, the period of validity is"
+msgstr "ПО зарядки, срок действия"
+
+msgid "days."
+msgstr "дней."
+
+msgid "Select Item"
+msgstr "ВыбратьОбъект"
+
+msgid "Selected Item"
+msgstr "Выбранные объект"
+
+msgid ""
+"Clicking OK will override the previous data, whether\n"
+" to continue the operation."
+msgstr ""
+"Нажатие ОК заменит предыдущие данные, нужно ли\n"
+"продолжить операцию."
+
+msgid "Fail to default factory! Define user or New item is under using!"
+msgstr "Заводской сбой! Пользователь или объект используются!"
+
+msgid "AF > 2cm"
+msgstr ""
+
+msgid ">>"
+msgstr ""
+
+msgid "Acceleration"
+msgstr "Ускорение"
+
+msgid "Dist-Dot"
+msgstr "Расст-точкa"
+
+msgid "Dist-Line"
+msgstr "Расст-Линия"
+
+msgid "Length-Track"
+msgstr "Длина-Проекция"
+
+msgid "Length-Dot"
+msgstr "Длина-точкa"
+
+msgid "Integral-Track"
+msgstr "интеграл-Проекция"
+
+msgid "Peri-Track"
+msgstr "Пери-Проекция"
+
+msgid "Peri-Ellipse"
+msgstr "Пери-эллипс"
+
+msgid "Area-Track"
+msgstr "Площадь-Проекция"
+
+msgid "Area-Dot"
+msgstr "Площадь-точкa"
+
+msgid "Area-Rectangle"
+msgstr "Площадь-прямоугольник"
+
+msgid "Area-Ellipse"
+msgstr "Площадь-эллипс"
+
+msgid "Vol-3Axis"
+msgstr "Звук-3ось"
+
+msgid "Vol-Ellipse1"
+msgstr "Звук-эллипс1"
+
+msgid "Vol-Ellipse2"
+msgstr "Звук-эллипс2"
+
+msgid "Angle-3Dot"
+msgstr "Угол-3точкa"
+
+msgid "Angle-2Line"
+msgstr "Угол-2Линия"
+
+msgid "Angusty-Dist-Dot"
+msgstr "коарктации-Расст-точкa"
+
+msgid "Ratio-Dist-Dot"
+msgstr "Отношение-Расст-точкa"
+
+msgid "Angusty-Area"
+msgstr "коарктации-Площадь"
+
+msgid "Ratio-Area"
+msgstr "Отношение-Площадь"
+
+msgid "Ratio-D-P"
+msgstr "Отношение-D-P"
+
+msgid "Ratio-Vol"
+msgstr "Отношение-Звук"
+
+msgid "Depth-Dist"
+msgstr "Глубина-Расст"
+
+msgid "Depth-Dist-M"
+msgstr "Глубина-Расст-M"
+
+msgid "Time-M"
+msgstr "Время-M"
+
+msgid "Time-D"
+msgstr "Время-D"
+
+msgid "Vel-M"
+msgstr "Скорость-M"
+
+msgid "Vel-D"
+msgstr "Скорость-D"
+
+msgid "Hadlock"
+msgstr ""
+
+msgid "Robinson"
+msgstr ""
+
+msgid "Hansmenn"
+msgstr ""
+
+msgid "Lasser"
+msgstr ""
+
+msgid "Tokyo"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Merz"
+msgstr ""
+
+msgid "Jeanty"
+msgstr ""
+
+msgid "Rempen"
+msgstr ""
+
+msgid "Hellman"
+msgstr ""
+
+msgid "Goldstein"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Hadlock1"
+msgstr ""
+
+msgid "Hadlock2"
+msgstr ""
+
+msgid "Hadlock3"
+msgstr ""
+
+msgid "Hadlock4"
+msgstr ""
+
+msgid "Shepard"
+msgstr ""
+
+msgid "Length-Point"
+msgstr "Длина-точка"
+
+msgid "Area-Point"
+msgstr "Площадь-точка"
+
+msgid "Volume-3 Dist."
+msgstr "Объем-3 Расст"
+
+msgid "Volume-Ellipse 1 Dist."
+msgstr "Объем-эллипс 1 Расст"
+
+msgid "Volume-1 Dist."
+msgstr "Объем-1 Расст"
+
+msgid "Angle-3 Point"
+msgstr "Угол-3 точка"
+
+msgid "HR-M"
+msgstr ""
+
+msgid "The entered date of LMP is under the range: "
+msgstr "Введенный дата LMP под диапазоне: "
+
+msgid "The entered date of Ovul. Date is under the range: "
+msgstr "Введенный дата Дата овуляции под диапазоне: "
+
+msgid "Month out of range"
+msgstr "Месяц из диапазона"
+
+msgid "Day out of range"
+msgstr "День вне диапазона"
+
+msgid "Option"
+msgstr "вариант"
+
+msgid "State"
+msgstr "состояние"
+
+msgid "Install"
+msgstr "устанавливать"
+
+msgid "Uninstall"
+msgstr "Удаление"
+
+msgid "Installed"
+msgstr "Установлен"
+
+msgid "Disabled"
+msgstr "Отключено"
+
+msgid "Installed(* Restart to take effect)"
+msgstr "Установлен(* Перезапуск вступили в силу)"
+
+msgid "Disabled(* Restart to take effect)"
+msgstr "Отключено(* Перезапуск вступили в силу)"
+
+msgid "If the registeration is successful, it will take effect after the machine is rebooted."
+msgstr "Если регистрация прошла успешно, он вступит в силу после того, как машина будет перезагружена."
+
+msgid "eFci"
+msgstr "Компаундинг част."
+
+msgid ""
+"Note: According to the license file,the manufacturer will generate a unique register key for every machine,you can register optional function by inputting thist register key.If register is successful,you can use the optional function.\n"
+"\n"
+"Please insert Udisk,and click button 'Export License File'. You will find this file named 'license' in Udisk. Please send this file to manufacturer."
+msgstr ""
+"Примеч: производитель генерирует уникальных ключ для каждого устройствава в соответствии с лицензионным файлом. Вы можете зарегистрировать функцию Дополнительные функции.\n"
+"\n"
+"Вставьте диск U,нажмите 'Экспорт лицензии файла'. Этот файл под названием 'лицензия'  вы обнаружите на диске U. Отправьте этот файл производителю."
+
+msgid "RPA Diam"
+msgstr ""
+
+msgid "Bre1 Le1 Vol"
+msgstr ""
+
+msgid "Bre1 Le2 Vol"
+msgstr ""
+
+msgid "Bre1 Le3 Vol"
+msgstr ""
+
+msgid "Bre1 Le4 Vol"
+msgstr ""
+
+msgid "Bre1 Le5 Vol"
+msgstr ""
+
+msgid "Bre2 Le1 Vol"
+msgstr ""
+
+msgid "Bre2 Le2 Vol"
+msgstr ""
+
+msgid "Bre2 Le3 Vol"
+msgstr ""
+
+msgid "Bre2 Le4 Vol"
+msgstr ""
+
+msgid "Bre2 Le5 Vol"
+msgstr ""
+
+msgid "Bre3 Le1 Vol"
+msgstr ""
+
+msgid "Bre3 Le2 Vol"
+msgstr ""
+
+msgid "Bre3 Le3 Vol"
+msgstr ""
+
+msgid "Bre3 Le4 Vol"
+msgstr ""
+
+msgid "Bre3 Le5 Vol"
+msgstr ""
+
+msgid "Bre4 Le1 Vol"
+msgstr ""
+
+msgid "Bre4 Le2 Vol"
+msgstr ""
+
+msgid "Bre4 Le3 Vol"
+msgstr ""
+
+msgid "Bre4 Le4 Vol"
+msgstr ""
+
+msgid "Bre4 Le5 Vol"
+msgstr ""
+
+msgid "Bre5 Le1 Vol"
+msgstr ""
+
+msgid "Bre5 Le2 Vol"
+msgstr ""
+
+msgid "Bre5 Le3 Vol"
+msgstr ""
+
+msgid "Bre5 Le4 Vol"
+msgstr ""
+
+msgid "Bre5 Le5 Vol"
+msgstr ""
+
+msgid "RPA Diam(2D-Ves)"
+msgstr ""
+
+msgid "Lesion1 Area"
+msgstr ""
+
+msgid "Lesion1 Area 1"
+msgstr ""
+
+msgid "Lesion1 Area 2"
+msgstr ""
+
+msgid "Lesion1 Area 3"
+msgstr ""
+
+msgid "Lesion2 Area"
+msgstr ""
+
+msgid "Lesion2 Area 1"
+msgstr ""
+
+msgid "Lesion2 Area 2"
+msgstr ""
+
+msgid "Lesion2 Area 3"
+msgstr ""
+
+msgid "Lesion3 Area"
+msgstr ""
+
+msgid "Lesion3 Area 1"
+msgstr ""
+
+msgid "Lesion3 Area 2"
+msgstr ""
+
+msgid "Lesion3 Area 3"
+msgstr ""
+
+msgid "Lesion4 Area"
+msgstr ""
+
+msgid "Lesion4 Area 1"
+msgstr ""
+
+msgid "Lesion4 Area 2"
+msgstr ""
+
+msgid "Lesion4 Area 3"
+msgstr ""
+
+msgid "Lesion5 Area"
+msgstr ""
+
+msgid "Lesion5 Area 1"
+msgstr ""
+
+msgid "Lesion5 Area 2"
+msgstr ""
+
+msgid "Lesion5 Area 3"
+msgstr ""
+
+msgid "Lesion6 Area"
+msgstr ""
+
+msgid "Lesion6 Area 1"
+msgstr ""
+
+msgid "Lesion6 Area 2"
+msgstr ""
+
+msgid "Lesion6 Area 3"
+msgstr ""
+
+msgid "Lesion7 Area"
+msgstr ""
+
+msgid "Lesion7 Area 1"
+msgstr ""
+
+msgid "Lesion7 Area 2"
+msgstr ""
+
+msgid "Lesion7 Area 3"
+msgstr ""
+
+msgid "Lesion8 Area"
+msgstr ""
+
+msgid "Lesion8 Area 1"
+msgstr ""
+
+msgid "Lesion8 Area 2"
+msgstr ""
+
+msgid "Lesion8 Area 3"
+msgstr ""
+
+msgid "Lesion9 Area"
+msgstr ""
+
+msgid "Lesion9 Area 1"
+msgstr ""
+
+msgid "Lesion9 Area 2"
+msgstr ""
+
+msgid "Lesion9 Area 3"
+msgstr ""
+
+msgid "Lesion10 Area"
+msgstr ""
+
+msgid "Lesion10 Area 1"
+msgstr ""
+
+msgid "Lesion10 Area 2"
+msgstr ""
+
+msgid "Lesion10 Area 3"
+msgstr ""
+
+msgid "Lesion11 Area"
+msgstr ""
+
+msgid "Lesion11 Area 1"
+msgstr ""
+
+msgid "Lesion11 Area 2"
+msgstr ""
+
+msgid "Lesion11 Area 3"
+msgstr ""
+
+msgid "Dog GSD"
+msgstr ""
+
+msgid "Dog CRL"
+msgstr ""
+
+msgid "Dog HD"
+msgstr ""
+
+msgid "Dog BD"
+msgstr ""
+
+msgid "Cat HD"
+msgstr ""
+
+msgid "Cat BD"
+msgstr ""
+
+msgid "Sheep  CRL"
+msgstr ""
+
+msgid "Swine HL"
+msgstr ""
+
+msgid "Swine SL"
+msgstr ""
+
+msgid "Bovine K-CRL"
+msgstr ""
+
+msgid "Bovine W-CRL"
+msgstr ""
+
+msgid "Bovine H-CRL"
+msgstr ""
+
+msgid "Bovine BBD"
+msgstr ""
+
+msgid "Bovine BTD"
+msgstr ""
+
+msgid "Bovine BUD"
+msgstr ""
+
+msgid "Equine GSD"
+msgstr ""
+
+msgid "Equine ERD"
+msgstr ""
+
+msgid "Equine ESD"
+msgstr ""
+
+msgid "Equine EED"
+msgstr ""
+
+msgid "Testicle"
+msgstr ""
+
+msgid "Obstetrics-Dog"
+msgstr ""
+
+msgid "Obstetrics-Cat"
+msgstr ""
+
+msgid "Obstetrics-Sheep"
+msgstr ""
+
+msgid "Obstetrics-Swine"
+msgstr ""
+
+msgid "Obstetrics-Bovine"
+msgstr ""
+
+msgid "Obstetrics-Equine"
+msgstr ""
+
+msgid "TA Max"
+msgstr ""
+
+msgid "RPA Diam(2D) "
+msgstr ""
+
+msgid "Sheep CRL"
+msgstr ""
+
+msgid "Fetus"
+msgstr ""
+
+msgid "Pwr"
+msgstr ""
+
+msgid "Freq"
+msgstr "Частота"
+
+msgid "Speed"
+msgstr "Скорость"
+
+msgid "[Global Zoom]: <Auto> to change scale, Mouse to scroll."
+msgstr "[Общее приближение]: <Auto> для изменения масштаба, Мышь для прокрутки."
+
+msgid "[PIP]: <Auto> to change scale, Mouse to Move Magnifier."
+msgstr "[Картинка в картинке]: <Auto> для изменения масштаба, Мышь для перемещения лупы."
+
+msgid "[Gray Transform]: Mouse to move dot, <Auto> to select dot, <Update> to select curve."
+msgstr ""
+"[Трансформация уровня серого]: Мышь для перемещения точки, <Auto> для выбора точки,\n"
+"<Update> для wÃ¤hlen Kurve"
+
+msgid "[Length]: <Auto> to cancel or redraw."
+msgstr "[Длина]: <Auto> отменить или перерис."
+
+msgid "[AreaTrack]: <Auto> to cancel or redraw."
+msgstr "[Площ.трека]: <Auto> отменить или перерис."
+
+msgid "[Simpsom]: <Auto> to cancle or redraw."
+msgstr "[Simpsom]: <Auto> отменить или перерис."
+
+msgid "[A/L]: <Auto> to cancle or redraw."
+msgstr "[A/L]: <Auto> отменить или перерис."
+
+msgid "[ManualTrack]: <Auto> to cancel or redraw. <Update> to AutoTrack."
+msgstr "[Ручн.трек]: <Auto> отменить или перерис. <Update> автотрек."
+
+msgid "[SemiAuto]: <Update> to switch to ManualTrack. <Auto> press to adjust."
+msgstr "[Ручн.трек]: <Update> отменить или перерис. <Auto> автотрек."
+
+msgid "[AutoTrack]: <Update> to switch to SemiAuto. <Auto> press to adjust."
+msgstr "[Автотрек]: <Update> перекл на п/а. <Auto> нажать для регулир."
+
+msgid "[PI]: <Auto> to cancel or redraw."
+msgstr "[PI]: <Auto> отменить или перерис."
+
+msgid "[PG Mean]: <Auto> to cancel or redraw."
+msgstr "[PG сред]: <Auto> отменить или перерис."
+
+msgid "P1-P3"
+msgstr ""
+
+msgid "Please select one item to be save!"
+msgstr ""
+
+msgid "When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."
+msgstr " При увеличении, совмещ изобр, Tp-View или EFVI включ - только один фокус."
+
+msgid "[Angle]: <AUTO> to adjust size."
+msgstr ""
+
+msgid "Time(M)"
+msgstr ""
+
+msgid "Slope(M)"
+msgstr ""
+
+msgid "Vel(M)"
+msgstr ""
+
+msgid "HR(M)"
+msgstr ""
+
+msgid "Dist(M)"
+msgstr ""
+
+msgid "Auto Trace(D)"
+msgstr ""
+
+msgid "Trace(D)"
+msgstr ""
+
+msgid "Velocity(D)"
+msgstr ""
+
+msgid "RI(D)"
+msgstr ""
+
+msgid "PS / ED(D)"
+msgstr ""
+
+msgid "Time(D)"
+msgstr ""
+
+msgid "Accel(D)"
+msgstr ""
+
+msgid "PI(D)"
+msgstr ""
+
+msgid "HR(D)"
+msgstr ""
+
+msgid "PG max(D)"
+msgstr ""
+
+msgid "PG mean(D)"
+msgstr ""
+
+msgid "EF(M)"
+msgstr ""
+
+msgid "IMT"
+msgstr ""
+
+msgid "IMT-Above"
+msgstr ""
+
+msgid "IMT-Below"
+msgstr ""
+
+msgid "Biopsy Bracket"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+msgid "[Arrow]: <Auto> to change arrow direction."
+msgstr ""
+
+msgid "[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr ""
+
+msgid "[End Exam]: All details of animal has been archived."
+msgstr ""
+
+msgid "[Verify]: <Auto> to adjust angle, Mouse to adjust position."
+msgstr ""
+
+msgid "[Verify]: <Value> to adjust angle, Mouse to adjust position."
+msgstr ""
+
+msgid "saving parameter succeed!"
+msgstr ""
+
+msgid "Restoring default factory succeed!"
+msgstr ""
+
+msgid "[Biopsy]: Only valid in B mode and UnFreeze status."
+msgstr ""
+
+msgid "Line Type     Double"
+msgstr ""
+
+msgid "Line Type     Single"
+msgstr ""
+
+msgid "[Verify]: Only valid in B mode,CFM,PDI and UnFreeze status."
+msgstr ""
+
+msgid "Clicking OK will clear calculated value, whether to cotunue?"
+msgstr ""
+
+msgid "Calc And Caliper"
+msgstr ""
+
+msgid "<b>P3</b>"
+msgstr ""

@@ -1,0 +1,622 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*FileVersion: "1.0.0"
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+*PSVersion: "(3010) 864"
+*LanguageLevel: "3"
+*Product: "(UP-D711MD)"
+*ShortNickName: "Sony UP-D711MD"
+*ModelName: "Sony UP-D711MD"
+*NickName: "Sony UP-D711MD"
+*PCFileName: "SOUD711MD.ppd"
+*Manufacturer: "SONY"
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*Troughput: "12"
+*TTRasterizer: Type42
+*LandscapeOrientation: Plus90
+
+
+*%----- for cups settings. ------
+*cupsVersion: 1.3
+*cupsManualCopies: False
+*cupsModelNumber: 1
+*cupsFilter: "application/vnd.cups-raster 0 rastertosonyhs"
+*cupsLanguages: "en"
+*%----------------------
+
+
+*%============================
+
+*%----- Resolution -----
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 300x300dpi
+*Resolution 300x300dpi/300 x 300dpi: "<</HWResolution[300 300]/cupsCompression 8>>setpagedevice"
+*CloseUI: *Resolution
+
+*%----- ColorModel -----
+*OpenUI *ColorModel/Color Model: PickOne
+*OrderDependency: 20 AnySetup *ColorModel
+*DefaultColorModel: Gray
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 0/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
+*CloseUI: *ColorModel
+
+
+*%============================
+*%=== for Paper Settings.. ===
+
+*%----- PageSize -----
+*OpenUI *PageSize: PickOne
+*OrderDependency: 20 AnySetup *PageSize
+*DefaultPageSize: 896x1196
+*PageSize 896x596/896x596:   "<</PageSize[237.71 165.71]/ImagingBBox null>>setpagedevice"
+*PageSize 896x672/896x672:   "<</PageSize[237.71 183.97]/ImagingBBox null>>setpagedevice"
+*PageSize 896x896/896x896:   "<</PageSize[237.71 237.71]/ImagingBBox null>>setpagedevice"
+*PageSize 896x1196/896x1196: "<</PageSize[237.71 309.71]/ImagingBBox null>>setpagedevice"
+*PageSize 896x2688/896x2688: "<</PageSize[237.71 667.79]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+
+*%----- PageRegion -----
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 30 AnySetup *PageRegion
+*DefaultPageRegion: 896x1196
+*PageRegion 896x596/896x596:   "<</PageSize[237.71 165.71]/ImagingBBox null>>setpagedevice"
+*PageRegion 896x672/896x672:   "<</PageSize[237.71 183.97]/ImagingBBox null>>setpagedevice"
+*PageRegion 896x896/896x896:   "<</PageSize[237.71 237.71]/ImagingBBox null>>setpagedevice"
+*PageRegion 896x1196/896x1196: "<</PageSize[237.71 309.71]/ImagingBBox null>>setpagedevice"
+*PageRegion 896x2688/896x2688: "<</PageSize[237.71 667.79]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+
+*%----- PaperDimension -----
+*DefaultPaperDimension: 896x1196
+*PaperDimension 896x596/896x596:   "237.71 165.71"
+*PaperDimension 896x672/896x672:   "237.71 183.97"
+*PaperDimension 896x896/896x896:   "237.71 237.71"
+*PaperDimension 896x1196/896x1196: "237.71 309.71"
+*PaperDimension 896x2688/896x2688: "237.71 667.79"
+
+*%----- ImageableArea -----
+*DefaultImageableArea: 896x1196
+*ImageableArea 896x596/896x596:   "11.34 11.34 226.37 154.37"
+*ImageableArea 896x672/896x672:   "11.34 11.34 226.37 172.63"
+*ImageableArea 896x896/896x896:   "11.34 11.34 226.37 226.37"
+*ImageableArea 896x1196/896x1196: "11.34 11.34 226.37 298.37"
+*ImageableArea 896x2688/896x2688: "11.34 11.34 226.37 656.45"
+
+*%============================
+*%+++++++++++++++++++++
+*OpenGroup: SOLayoutGroup/Main
+
+*%----- Enlarge to Paper -----
+*OpenUI *SOLayoutEnlargetoPaper/Enlarge to Paper: PickOne
+*OrderDependency: 50 AnySetup *SOLayoutEnlargetoPaper
+*DefaultSOLayoutEnlargetoPaper: OFF
+*SOLayoutEnlargetoPaper ON: ""
+*SOLayoutEnlargetoPaper OFF: ""
+*CloseUI: *SOLayoutEnlargetoPaper
+
+*%----- Paper Type -----
+*OpenUI *SOLayoutPaperType/Paper Type: PickOne
+*OrderDependency: 60 AnySetup *SOLayoutPaperType
+*DefaultSOLayoutPaperType: HG
+*SOLayoutPaperType S: ""
+*SOLayoutPaperType HG: ""
+*CloseUI: *SOLayoutPaperType
+
+*%----- Print Speed -----
+*OpenUI *SOLayoutPrintSpeed/Print Speed: PickOne
+*OrderDependency: 70 AnySetup *SOLayoutPrintSpeed
+*DefaultSOLayoutPrintSpeed: High
+*SOLayoutPrintSpeed Normal: ""
+*SOLayoutPrintSpeed High: ""
+*CloseUI: *SOLayoutPrintSpeed
+
+*%----- Interpolation Method -----
+*OpenUI *SOLayoutInterpolationMethod/Interpolation Method: PickOne
+*OrderDependency: 80 AnySetup *SOLayoutInterpolationMethod
+*DefaultSOLayoutInterpolationMethod: Bilinear
+*SOLayoutInterpolationMethod Bilinear/Bilinear: ""
+*SOLayoutInterpolationMethod NearestNeighbor/Nearest Neighbor: ""
+*CloseUI: *SOLayoutInterpolationMethod
+
+*%----- Auto Post Feed Mode -----
+*OpenUI *SOLayoutFeedSelect/Auto Post Feed Mode: PickOne
+*OrderDependency: 90 AnySetup *SOLayoutFeedSelect
+*DefaultSOLayoutFeedSelect: ON
+*SOLayoutFeedSelect ON: ""
+*SOLayoutFeedSelect OFF: ""
+*CloseUI: *SOLayoutFeedSelect
+
+*%----- Once every xx Sheets -----
+*OpenUI *SOLayoutFeedCount/Once every xx Sheets: PickOne
+*OrderDependency: 100 AnySetup *SOLayoutFeedCount
+*DefaultSOLayoutFeedCount: 1
+*SOLayoutFeedCount 10: ""
+*SOLayoutFeedCount 9: ""
+*SOLayoutFeedCount 8: ""
+*SOLayoutFeedCount 7: ""
+*SOLayoutFeedCount 6: ""
+*SOLayoutFeedCount 5: ""
+*SOLayoutFeedCount 4: ""
+*SOLayoutFeedCount 3: ""
+*SOLayoutFeedCount 2: ""
+*SOLayoutFeedCount 1: ""
+*CloseUI: *SOLayoutFeedCount
+
+*%----- Print with Information -----
+*OpenUI *SOLayoutInfoSelect/Print with Information: PickOne
+*OrderDependency: 110 AnySetup *SOLayoutInfoSelect
+*DefaultSOLayoutInfoSelect: OFF
+*SOLayoutInfoSelect ON: ""
+*SOLayoutInfoSelect OFF: ""
+*CloseUI: *SOLayoutInfoSelect
+
+*%----- Orientation -----
+*OpenUI *SOLayoutOrientation/Orientation: PickOne
+*OrderDependency: 120 AnySetup *SOLayoutOrientation
+*DefaultSOLayoutOrientation: Normal
+*SOLayoutOrientation Normal: ""
+*SOLayoutOrientation Reverse: ""
+*CloseUI: *SOLayoutOrientation
+
+*%----- Image Area Portrait -----
+*%OpenUI *SOImgAreaP/Image Area Portrait: PickOne
+*%OrderDependency: 130 AnySetup *SOImgAreaP
+*%DefaultSOImgAreaP: Auto
+*%SOImgAreaP Auto/Auto: ""
+*%SOImgAreaP 0x0x225x225/0x0x225x225: ""
+*%SOImgAreaP 30x20x120x130/30x20x120x130: ""
+*%SOImgAreaP 0x100x200x500/0x100x200x500: ""
+*%CloseUI: *SOImgAreaP
+
+*%----- Image Area Landscape -----
+*%OpenUI *SOImgAreaL/Image Area Landscape: PickOne
+*%OrderDependency: 140 AnySetup *SOImgAreaL
+*%DefaultSOImgAreaL: Auto
+*%SOImgAreaL Auto/Auto: ""
+*%SOImgAreaL 0x0x225x225/0x0x225x225: ""
+*%SOImgAreaL 30x20x120x130/30x20x120x130: ""
+*%SOImgAreaL 0x100x200x500/0x100x200x500: ""
+*%CloseUI: *SOImgAreaL
+
+*%----- Image Resolution -----
+*%OpenUI *SOImgResolution/Image Resolution: PickOne
+*%OrderDependency: 150 AnySetup *SOImgResolution
+*%DefaultSOImgResolution: 72
+*%SOImgResolution 72/72dpi: ""
+*%SOImgResolution 96/96dpi: ""
+*%CloseUI: *SOImgResolution
+
+*CloseGroup: SOLayoutGroup
+*%+++++++++++++++++++++
+
+*%+++++++++++++++++++++
+*OpenGroup: SODensityAdjustGroup/Density Adjust
+
+*%----- Gamma -----
+*OpenUI *SODensityAdjustGamma/Gamma: PickOne
+*OrderDependency: 160 AnySetup *SODensityAdjustGamma
+*DefaultSODensityAdjustGamma: TONE2
+*SODensityAdjustGamma TONE1: ""
+*SODensityAdjustGamma TONE2: ""
+*SODensityAdjustGamma TONE3: ""
+*SODensityAdjustGamma TONE4: ""
+*CloseUI: *SODensityAdjustGamma
+
+*%----- Advanced -----
+*OpenUI *SODensityAdjustAdvanced/Advanced: PickOne
+*OrderDependency: 170 AnySetup *SODensityAdjustAdvanced
+*DefaultSODensityAdjustAdvanced: 0
+*SODensityAdjustAdvanced 32: ""
+*SODensityAdjustAdvanced 31: ""
+*SODensityAdjustAdvanced 30: ""
+*SODensityAdjustAdvanced 29: ""
+*SODensityAdjustAdvanced 28: ""
+*SODensityAdjustAdvanced 27: ""
+*SODensityAdjustAdvanced 26: ""
+*SODensityAdjustAdvanced 25: ""
+*SODensityAdjustAdvanced 24: ""
+*SODensityAdjustAdvanced 23: ""
+*SODensityAdjustAdvanced 22: ""
+*SODensityAdjustAdvanced 21: ""
+*SODensityAdjustAdvanced 20: ""
+*SODensityAdjustAdvanced 19: ""
+*SODensityAdjustAdvanced 18: ""
+*SODensityAdjustAdvanced 17: ""
+*SODensityAdjustAdvanced 16: ""
+*SODensityAdjustAdvanced 15: ""
+*SODensityAdjustAdvanced 14: ""
+*SODensityAdjustAdvanced 13: ""
+*SODensityAdjustAdvanced 12: ""
+*SODensityAdjustAdvanced 11: ""
+*SODensityAdjustAdvanced 10: ""
+*SODensityAdjustAdvanced 9: ""
+*SODensityAdjustAdvanced 8: ""
+*SODensityAdjustAdvanced 7: ""
+*SODensityAdjustAdvanced 6: ""
+*SODensityAdjustAdvanced 5: ""
+*SODensityAdjustAdvanced 4: ""
+*SODensityAdjustAdvanced 3: ""
+*SODensityAdjustAdvanced 2: ""
+*SODensityAdjustAdvanced 1: ""
+*SODensityAdjustAdvanced 0: ""
+*SODensityAdjustAdvanced -1: ""
+*SODensityAdjustAdvanced -2: ""
+*SODensityAdjustAdvanced -3: ""
+*SODensityAdjustAdvanced -4: ""
+*SODensityAdjustAdvanced -5: ""
+*SODensityAdjustAdvanced -6: ""
+*SODensityAdjustAdvanced -7: ""
+*SODensityAdjustAdvanced -8: ""
+*SODensityAdjustAdvanced -9: ""
+*SODensityAdjustAdvanced -10: ""
+*SODensityAdjustAdvanced -11: ""
+*SODensityAdjustAdvanced -12: ""
+*SODensityAdjustAdvanced -13: ""
+*SODensityAdjustAdvanced -14: ""
+*SODensityAdjustAdvanced -15: ""
+*SODensityAdjustAdvanced -16: ""
+*SODensityAdjustAdvanced -17: ""
+*SODensityAdjustAdvanced -18: ""
+*SODensityAdjustAdvanced -19: ""
+*SODensityAdjustAdvanced -20: ""
+*SODensityAdjustAdvanced -21: ""
+*SODensityAdjustAdvanced -22: ""
+*SODensityAdjustAdvanced -23: ""
+*SODensityAdjustAdvanced -24: ""
+*SODensityAdjustAdvanced -25: ""
+*SODensityAdjustAdvanced -26: ""
+*SODensityAdjustAdvanced -27: ""
+*SODensityAdjustAdvanced -28: ""
+*SODensityAdjustAdvanced -29: ""
+*SODensityAdjustAdvanced -30: ""
+*SODensityAdjustAdvanced -31: ""
+*SODensityAdjustAdvanced -32: ""
+*CloseUI: *SODensityAdjustAdvanced
+
+*%----- Dark -----
+*OpenUI *SODensityAdjustDark/Dark: PickOne
+*OrderDependency: 180 AnySetup *SODensityAdjustDark
+*DefaultSODensityAdjustDark: 0
+*SODensityAdjustDark 64: ""
+*SODensityAdjustDark 63: ""
+*SODensityAdjustDark 62: ""
+*SODensityAdjustDark 61: ""
+*SODensityAdjustDark 60: ""
+*SODensityAdjustDark 59: ""
+*SODensityAdjustDark 58: ""
+*SODensityAdjustDark 57: ""
+*SODensityAdjustDark 56: ""
+*SODensityAdjustDark 55: ""
+*SODensityAdjustDark 54: ""
+*SODensityAdjustDark 53: ""
+*SODensityAdjustDark 52: ""
+*SODensityAdjustDark 51: ""
+*SODensityAdjustDark 50: ""
+*SODensityAdjustDark 49: ""
+*SODensityAdjustDark 48: ""
+*SODensityAdjustDark 47: ""
+*SODensityAdjustDark 46: ""
+*SODensityAdjustDark 45: ""
+*SODensityAdjustDark 44: ""
+*SODensityAdjustDark 43: ""
+*SODensityAdjustDark 42: ""
+*SODensityAdjustDark 41: ""
+*SODensityAdjustDark 40: ""
+*SODensityAdjustDark 39: ""
+*SODensityAdjustDark 38: ""
+*SODensityAdjustDark 37: ""
+*SODensityAdjustDark 36: ""
+*SODensityAdjustDark 35: ""
+*SODensityAdjustDark 34: ""
+*SODensityAdjustDark 33: ""
+*SODensityAdjustDark 32: ""
+*SODensityAdjustDark 31: ""
+*SODensityAdjustDark 30: ""
+*SODensityAdjustDark 29: ""
+*SODensityAdjustDark 28: ""
+*SODensityAdjustDark 27: ""
+*SODensityAdjustDark 26: ""
+*SODensityAdjustDark 25: ""
+*SODensityAdjustDark 24: ""
+*SODensityAdjustDark 23: ""
+*SODensityAdjustDark 22: ""
+*SODensityAdjustDark 21: ""
+*SODensityAdjustDark 20: ""
+*SODensityAdjustDark 19: ""
+*SODensityAdjustDark 18: ""
+*SODensityAdjustDark 17: ""
+*SODensityAdjustDark 16: ""
+*SODensityAdjustDark 15: ""
+*SODensityAdjustDark 14: ""
+*SODensityAdjustDark 13: ""
+*SODensityAdjustDark 12: ""
+*SODensityAdjustDark 11: ""
+*SODensityAdjustDark 10: ""
+*SODensityAdjustDark 9: ""
+*SODensityAdjustDark 8: ""
+*SODensityAdjustDark 7: ""
+*SODensityAdjustDark 6: ""
+*SODensityAdjustDark 5: ""
+*SODensityAdjustDark 4: ""
+*SODensityAdjustDark 3: ""
+*SODensityAdjustDark 2: ""
+*SODensityAdjustDark 1: ""
+*SODensityAdjustDark 0: ""
+*SODensityAdjustDark -1: ""
+*SODensityAdjustDark -2: ""
+*SODensityAdjustDark -3: ""
+*SODensityAdjustDark -4: ""
+*SODensityAdjustDark -5: ""
+*SODensityAdjustDark -6: ""
+*SODensityAdjustDark -7: ""
+*SODensityAdjustDark -8: ""
+*SODensityAdjustDark -9: ""
+*SODensityAdjustDark -10: ""
+*SODensityAdjustDark -11: ""
+*SODensityAdjustDark -12: ""
+*SODensityAdjustDark -13: ""
+*SODensityAdjustDark -14: ""
+*SODensityAdjustDark -15: ""
+*SODensityAdjustDark -16: ""
+*SODensityAdjustDark -17: ""
+*SODensityAdjustDark -18: ""
+*SODensityAdjustDark -19: ""
+*SODensityAdjustDark -20: ""
+*SODensityAdjustDark -21: ""
+*SODensityAdjustDark -22: ""
+*SODensityAdjustDark -23: ""
+*SODensityAdjustDark -24: ""
+*SODensityAdjustDark -25: ""
+*SODensityAdjustDark -26: ""
+*SODensityAdjustDark -27: ""
+*SODensityAdjustDark -28: ""
+*SODensityAdjustDark -29: ""
+*SODensityAdjustDark -30: ""
+*SODensityAdjustDark -31: ""
+*SODensityAdjustDark -32: ""
+*SODensityAdjustDark -33: ""
+*SODensityAdjustDark -34: ""
+*SODensityAdjustDark -35: ""
+*SODensityAdjustDark -36: ""
+*SODensityAdjustDark -37: ""
+*SODensityAdjustDark -38: ""
+*SODensityAdjustDark -39: ""
+*SODensityAdjustDark -40: ""
+*SODensityAdjustDark -41: ""
+*SODensityAdjustDark -42: ""
+*SODensityAdjustDark -43: ""
+*SODensityAdjustDark -44: ""
+*SODensityAdjustDark -45: ""
+*SODensityAdjustDark -46: ""
+*SODensityAdjustDark -47: ""
+*SODensityAdjustDark -48: ""
+*SODensityAdjustDark -49: ""
+*SODensityAdjustDark -50: ""
+*SODensityAdjustDark -51: ""
+*SODensityAdjustDark -52: ""
+*SODensityAdjustDark -53: ""
+*SODensityAdjustDark -54: ""
+*SODensityAdjustDark -55: ""
+*SODensityAdjustDark -56: ""
+*SODensityAdjustDark -57: ""
+*SODensityAdjustDark -58: ""
+*SODensityAdjustDark -59: ""
+*SODensityAdjustDark -60: ""
+*SODensityAdjustDark -61: ""
+*SODensityAdjustDark -62: ""
+*SODensityAdjustDark -63: ""
+*SODensityAdjustDark -64: ""
+*CloseUI: *SODensityAdjustDark
+
+*%----- Light -----
+*OpenUI *SODensityAdjustLight/Light: PickOne
+*OrderDependency: 190 AnySetup *SODensityAdjustLight
+*DefaultSODensityAdjustLight: 0
+*SODensityAdjustLight 64: ""
+*SODensityAdjustLight 63: ""
+*SODensityAdjustLight 62: ""
+*SODensityAdjustLight 61: ""
+*SODensityAdjustLight 60: ""
+*SODensityAdjustLight 59: ""
+*SODensityAdjustLight 58: ""
+*SODensityAdjustLight 57: ""
+*SODensityAdjustLight 56: ""
+*SODensityAdjustLight 55: ""
+*SODensityAdjustLight 54: ""
+*SODensityAdjustLight 53: ""
+*SODensityAdjustLight 52: ""
+*SODensityAdjustLight 51: ""
+*SODensityAdjustLight 50: ""
+*SODensityAdjustLight 49: ""
+*SODensityAdjustLight 48: ""
+*SODensityAdjustLight 47: ""
+*SODensityAdjustLight 46: ""
+*SODensityAdjustLight 45: ""
+*SODensityAdjustLight 44: ""
+*SODensityAdjustLight 43: ""
+*SODensityAdjustLight 42: ""
+*SODensityAdjustLight 41: ""
+*SODensityAdjustLight 40: ""
+*SODensityAdjustLight 39: ""
+*SODensityAdjustLight 38: ""
+*SODensityAdjustLight 37: ""
+*SODensityAdjustLight 36: ""
+*SODensityAdjustLight 35: ""
+*SODensityAdjustLight 34: ""
+*SODensityAdjustLight 33: ""
+*SODensityAdjustLight 32: ""
+*SODensityAdjustLight 31: ""
+*SODensityAdjustLight 30: ""
+*SODensityAdjustLight 29: ""
+*SODensityAdjustLight 28: ""
+*SODensityAdjustLight 27: ""
+*SODensityAdjustLight 26: ""
+*SODensityAdjustLight 25: ""
+*SODensityAdjustLight 24: ""
+*SODensityAdjustLight 23: ""
+*SODensityAdjustLight 22: ""
+*SODensityAdjustLight 21: ""
+*SODensityAdjustLight 20: ""
+*SODensityAdjustLight 19: ""
+*SODensityAdjustLight 18: ""
+*SODensityAdjustLight 17: ""
+*SODensityAdjustLight 16: ""
+*SODensityAdjustLight 15: ""
+*SODensityAdjustLight 14: ""
+*SODensityAdjustLight 13: ""
+*SODensityAdjustLight 12: ""
+*SODensityAdjustLight 11: ""
+*SODensityAdjustLight 10: ""
+*SODensityAdjustLight 9: ""
+*SODensityAdjustLight 8: ""
+*SODensityAdjustLight 7: ""
+*SODensityAdjustLight 6: ""
+*SODensityAdjustLight 5: ""
+*SODensityAdjustLight 4: ""
+*SODensityAdjustLight 3: ""
+*SODensityAdjustLight 2: ""
+*SODensityAdjustLight 1: ""
+*SODensityAdjustLight 0: ""
+*SODensityAdjustLight -1: ""
+*SODensityAdjustLight -2: ""
+*SODensityAdjustLight -3: ""
+*SODensityAdjustLight -4: ""
+*SODensityAdjustLight -5: ""
+*SODensityAdjustLight -6: ""
+*SODensityAdjustLight -7: ""
+*SODensityAdjustLight -8: ""
+*SODensityAdjustLight -9: ""
+*SODensityAdjustLight -10: ""
+*SODensityAdjustLight -11: ""
+*SODensityAdjustLight -12: ""
+*SODensityAdjustLight -13: ""
+*SODensityAdjustLight -14: ""
+*SODensityAdjustLight -15: ""
+*SODensityAdjustLight -16: ""
+*SODensityAdjustLight -17: ""
+*SODensityAdjustLight -18: ""
+*SODensityAdjustLight -19: ""
+*SODensityAdjustLight -20: ""
+*SODensityAdjustLight -21: ""
+*SODensityAdjustLight -22: ""
+*SODensityAdjustLight -23: ""
+*SODensityAdjustLight -24: ""
+*SODensityAdjustLight -25: ""
+*SODensityAdjustLight -26: ""
+*SODensityAdjustLight -27: ""
+*SODensityAdjustLight -28: ""
+*SODensityAdjustLight -29: ""
+*SODensityAdjustLight -30: ""
+*SODensityAdjustLight -31: ""
+*SODensityAdjustLight -32: ""
+*SODensityAdjustLight -33: ""
+*SODensityAdjustLight -34: ""
+*SODensityAdjustLight -35: ""
+*SODensityAdjustLight -36: ""
+*SODensityAdjustLight -37: ""
+*SODensityAdjustLight -38: ""
+*SODensityAdjustLight -39: ""
+*SODensityAdjustLight -40: ""
+*SODensityAdjustLight -41: ""
+*SODensityAdjustLight -42: ""
+*SODensityAdjustLight -43: ""
+*SODensityAdjustLight -44: ""
+*SODensityAdjustLight -45: ""
+*SODensityAdjustLight -46: ""
+*SODensityAdjustLight -47: ""
+*SODensityAdjustLight -48: ""
+*SODensityAdjustLight -49: ""
+*SODensityAdjustLight -50: ""
+*SODensityAdjustLight -51: ""
+*SODensityAdjustLight -52: ""
+*SODensityAdjustLight -53: ""
+*SODensityAdjustLight -54: ""
+*SODensityAdjustLight -55: ""
+*SODensityAdjustLight -56: ""
+*SODensityAdjustLight -57: ""
+*SODensityAdjustLight -58: ""
+*SODensityAdjustLight -59: ""
+*SODensityAdjustLight -60: ""
+*SODensityAdjustLight -61: ""
+*SODensityAdjustLight -62: ""
+*SODensityAdjustLight -63: ""
+*SODensityAdjustLight -64: ""
+*CloseUI: *SODensityAdjustLight
+
+*%----- Sharpness -----
+*OpenUI *SODensityAdjustSharp/Sharpness: PickOne
+*OrderDependency: 200 AnySetup *SODensityAdjustSharp
+*DefaultSODensityAdjustSharp: 2
+*SODensityAdjustSharp 14: ""
+*SODensityAdjustSharp 13: ""
+*SODensityAdjustSharp 12: ""
+*SODensityAdjustSharp 11: ""
+*SODensityAdjustSharp 10: ""
+*SODensityAdjustSharp 9: ""
+*SODensityAdjustSharp 8: ""
+*SODensityAdjustSharp 7: ""
+*SODensityAdjustSharp 6: ""
+*SODensityAdjustSharp 5: ""
+*SODensityAdjustSharp 4: ""
+*SODensityAdjustSharp 3: ""
+*SODensityAdjustSharp 2: ""
+*SODensityAdjustSharp 1: ""
+*SODensityAdjustSharp 0: ""
+*CloseUI: *SODensityAdjustSharp
+
+*CloseGroup: SODensityAdjustGroup
+*%+++++++++++++++++++++
+
+
+*%======================
+*%used init data.
+
+*%----- Timeout support param.. -----
+*SOErrorSleepTime: "1"
+*SOFatalErrorTimeOut: "10"
+
+*%----- LogMessage support param.. -----
+*SOLogMsgEnable: "0"
+*SOLogMsgMaxSize: "500"
+*SOLogMsgTypeError: "1"
+
+*%----- Rotation support param.. -----
+*SORotateOrientation: "0"
+
+*%======================
+*% filter messages.
+
+*SOErrorStatus_003: "com.sony.status.S003-error"
+*SOErrorStatus_010: "com.sony.status.S010-warning"
+*SOErrorStatus_030: "com.sony.status.S030-warning"
+*SOErrorStatus_007: "com.sony.status.S007-warning"
+*SOErrorStatus_016: "com.sony.status.S016-warning"
+*SOErrorStatus_017: "com.sony.status.S017-error"
+*SOErrorStatus_020: "com.sony.status.S020-error"
+
+*cupsIPPReason com.sony.status.E003/Mechanical error. Printing has been aborted.: ""
+*cupsIPPReason com.sony.status.S003-error/Please turn off the printer, then turn it back on and print again.: ""
+*cupsIPPReason com.sony.status.E010/No thermal paper.: ""
+*cupsIPPReason com.sony.status.S010-warning/Please set the thermal paper.: ""
+*cupsIPPReason com.sony.status.E030/Now, Feeding.: ""
+*cupsIPPReason com.sony.status.S030-warning/Please wait.: ""
+*cupsIPPReason com.sony.status.E007/Door is open.: ""
+*cupsIPPReason com.sony.status.S007-warning/Please close the door.: ""
+*cupsIPPReason com.sony.status.E016/Now regulating the head temperature of the printer.: ""
+*cupsIPPReason com.sony.status.S016-warning/Please wait.: ""
+*cupsIPPReason com.sony.status.E017/Printer is not ready.: ""
+*cupsIPPReason com.sony.status.S017-error: "text:Make%20sure%20the%20printer%20is%20plugged%20in%20to%20a%20power%20source%20and%20the%20printer%20cable%20is%20correctly%20connected."
+*cupsIPPReason com.sony.status.E020/Error source unknown. Printing is aborted.: ""
+*cupsIPPReason com.sony.status.S020-error/Restart your PC as well as the printer and print again.: ""
+
+*SOStatusSense_000: "003"
+*SOStatusSense_002: "007"
+*SOStatusSense_004: "010"
+*SOStatusSense_006: "016"
+*SOStatusSense_007: "030"
+*%======================
+
+*% ===== End =====
