@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: GlobalClassMan.cpp
- * @brief: manage global class object 
+ * @brief: manage global class object
  *
  * version: V1.0
  * date: 2009-7-31
@@ -40,7 +40,7 @@ GlobalClassMan* GlobalClassMan::GetInstance()
 	if (m_ptrInstance == NULL)
 		m_ptrInstance = new GlobalClassMan;
 
-	return m_ptrInstance;	
+	return m_ptrInstance;
 }
 
 Calc2D* GlobalClassMan::GetCalc2D(string model)
@@ -90,7 +90,7 @@ Calc2D* GlobalClassMan::GetCalc2D(string model)
 			case 'N':
 				m_ptrCalc2D = new Calc2DTinyConvex;
 				break;
-			
+
 			case 'n':
 			case 'c':
 				m_ptrCalc2D = new Calc2DTinyConvexHigh;
@@ -111,11 +111,10 @@ Calc2D* GlobalClassMan::GetCalc2D(string model)
 
 			default:
 				m_ptrCalc2D = new Calc2DConvex;
-				break;			
+				break;
 		}
 	}
 
 	return m_ptrCalc2D;
 }
-
 

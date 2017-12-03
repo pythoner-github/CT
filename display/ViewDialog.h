@@ -3,7 +3,7 @@
 #define _VIEW_DIALOG_H_
 
 #include <gtk/gtk.h>
-#include "FakeXEvent.h" 
+#include "FakeXEvent.h"
 
 typedef int (*pFuncDialog)(gpointer data);
 
@@ -21,7 +21,7 @@ public:
     void SetProgressBar(double fraction);
     void SetText(const char *info);
       bool Exist(void);
-	
+
 private:
     ViewDialog();
     static ViewDialog* m_ptrInstance;
@@ -43,7 +43,7 @@ private:
     void BtnCloseClicked(GtkButton *button);
     void BtnPrgCancelClicked(GtkButton *button);
     void EntryInsertText(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
-    
+
 // signal connect
     static gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, ViewDialog *data) { return data->WindowDeleteEvent(widget, event); }
     static void on_button_ok_clicked(GtkButton *button, ViewDialog *data)
@@ -60,7 +60,7 @@ private:
 };
 
 /*
- *  Used for show info when something is processing, e.g. copying, sending. It is different from ViewDialog. In the normal case, using ViewDialog 
+ *  Used for show info when something is processing, e.g. copying, sending. It is different from ViewDialog. In the normal case, using ViewDialog
  *  to show info.
  */
 class ViewHintDialog : public FakeXEvent
@@ -75,7 +75,7 @@ public:
 private:
     ViewHintDialog();
     static ViewHintDialog* m_ptrInstance;
-    
+
     GtkWidget *m_window;
 };
 

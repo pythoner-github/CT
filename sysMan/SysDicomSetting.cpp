@@ -10,7 +10,7 @@ SysDicomSetting::SysDicomSetting()
 {
     char path[256];
     sprintf(path, "%s/%s", CFG_RES_PATH, SYS_SETTING_FILE);
-    ptrIni = new IniFile(path);	
+    ptrIni = new IniFile(path);
 }
 
 SysDicomSetting::~SysDicomSetting()
@@ -44,7 +44,7 @@ void SysDicomSetting::GetLocalAE(string& localAE)
 void SysDicomSetting::GetLocalIP(string& localIP)
 {
     localIP = ptrIni->ReadString("DicomSetting", "LocalIP");
-} 
+}
 
 void SysDicomSetting::GetLocalGateWay(string& localGateway)
 {

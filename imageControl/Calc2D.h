@@ -13,7 +13,7 @@ class Calc2D
 		enum EMODE{C_BW, C_PW, C_CFM}; //calc mode
 
 		Calc2D();
-		~Calc2D();		
+		~Calc2D();
 
 		///> type
 		static const int FOC_MAX = 4; ///< max num of focus
@@ -96,7 +96,7 @@ class Calc2D
 		void GetScanRange(int range[2]); ///< get scan range of current image
 		virtual void CalcDisplayScanRange(int range[2], int widthInDots); ///< get valid scan range of current display
 		void Valid2DImage(void);
-		
+
 		void CalcFocSum(); ///<para: foucs sum, focus position, depth dots, depth, probe type(offset)
 		void CalcSample(); ///<para
 		int CalcMaxPeriod();
@@ -118,13 +118,13 @@ class Calc2D
 		void CalcFreqCompoundCoef(void);
         int CalcFPS(void);
         void CalcCwLinesDelay(void);
-		
+
 		///> M mode
 		void CalcMLine();
 		void CalcMSpeed();
 		double CalcScaleM();
 
-        //CW 
+        //CW
         void ChangeChanelNum(int num);
 
 		///> virtual 2D mode
@@ -146,7 +146,7 @@ class Calc2D
 		virtual void CalcFilter() = 0; ///< probe type, freq
         virtual void CalcDefaultDemodFd();
         virtual void CalcFilterFreqCompound(int order) = 0; ///< probe type, freq
-		virtual float CalcImgStartDepth(); ///< image y start offset dot in portrait direction 
+		virtual float CalcImgStartDepth(); ///< image y start offset dot in portrait direction
 		virtual float Get2DTis(int scanAngleIndex, float focPos, int freqReceive, int powerIndex, int depthIndex);
 		virtual float GetCfmTis(int dopFreq, float focPos, int prfIndex, int powerIndex, int boxLineBegin, int boxLineEnd);
 		virtual float GetPwTis(int dopFreq, int prfIndex);
@@ -173,7 +173,7 @@ class Calc2D
 
 		//optimization test 2014.12.02
         void DefaultFreqBPFilter(const int fc1[5], const int fc2[5]);
-		void BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqDepth[5], int freqCompound);		
+		void BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqDepth[5], int freqCompound);
 		void LowPassFilterFunction(unsigned short* coef, float wc_in, int order, float fs, int windowType);
 
         void DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompound);
@@ -189,18 +189,18 @@ class Calc2D
 		static FpgaCtrl2D m_fpga;
 		FpgaPw m_fpgaPW;
 		static struct CalcPara* m_calcPara;
-        
+
 		///> tgc curve section
 		static const int TGC_X[8];
         static const int TGC_CTL_DEFAULT[4];
-     
+
 		///> log value
 		static const double LOG_VALUE_DEFAULT = 2.7;
 
 		///> filter
-		static const int DYNAMIC_FILTER_SIZE = 45056;	
-		static const unsigned char m_filterDynamic[30720]; 
-        static const unsigned char m_filterMatch[30720]; 
+		static const int DYNAMIC_FILTER_SIZE = 45056;
+		static const unsigned char m_filterDynamic[30720];
+        static const unsigned char m_filterMatch[30720];
         static const unsigned char m_filterMatch_harmonic_1[30720];
         static const unsigned char m_filterMatch_harmonic_2[30720];
         static const unsigned char m_filterMatch_harmonic_3[30720];
@@ -217,7 +217,7 @@ class Calc2D
         float m_fcBPFilter_3;
         float m_fcBPFilter_4;
         float m_fcBPFilter_5;
-    
+
 
         ///> internal
 		int m_pulseCycle;
@@ -225,7 +225,7 @@ class Calc2D
 
 		void Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section);
 		void TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section);
-		void FocChange(int start); 
+		void FocChange(int start);
                 void Log(double value);
 		void Log(double value, int size, unsigned char *pLogCurveBuf);
 		void Log(float dynamicRange, float gain, int size, unsigned char *pLogCurveBuf);
@@ -277,7 +277,7 @@ class Calc2D
 		int GetCfmPrfIndex(int prfIndex);
 
     public:
-		void DynamicDemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmonic,int& cycleFilterChg, unsigned short sinStep[64]);		
+		void DynamicDemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmonic,int& cycleFilterChg, unsigned short sinStep[64]);
         void DynamicDemod_test(float freq[5], int freqDepth[5], bool enableHarmonic);
         ///>dynamic range
 		typedef struct tagLogPair
@@ -303,8 +303,8 @@ class Calc2D
 		static const int FOCUS_DOTS = 504; ///< dots of calc focus delay
 		static const int APERTURE_DOTS = 64; ///< dots of calc aperture
 		static const int MAX_UNIT = 500; ///< (int)700/NS_PER_UNIT;//最大延迟时间
-		static const int APERTURE_SPAN_C[12]; ///< control calculating aperture	
-		static const int APERTURE_SPAN_L[12]; ///< control calculating aperture	
+		static const int APERTURE_SPAN_C[12]; ///< control calculating aperture
+		static const int APERTURE_SPAN_L[12]; ///< control calculating aperture
 		static const int EMIT_CH_NUM_C[20]; ///< control calculating emit delay
 
 		///> tgc
@@ -325,7 +325,7 @@ class Calc2D
 		static const int MAX_LINES = 256;
 		static const int MAX_MBP = 4;
         static const int FREQ_SECTION = 64;
-        
+
         ///> single aperture
         static bool m_singleAperture;
 
@@ -384,7 +384,7 @@ class Calc2D
         void PReceiveDelayCw();
 
 		void CompoundParaCalc(const float steer, const float angle, int& line, int &dot, int& start);
-		void DynamicDemodCalc(float freq[5], int freqDepth[5], bool enableHarmonic,int& cycleFilterChg, unsigned short sinStep[64]);		
+		void DynamicDemodCalc(float freq[5], int freqDepth[5], bool enableHarmonic,int& cycleFilterChg, unsigned short sinStep[64]);
         void CompoundRate(void);
 
         void CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int size, unsigned short delay[MAX_LINES * APERTURE_HALF * 2]);
@@ -424,7 +424,7 @@ inline double Calc2D::CalcScale2D()
 
 	return (scale);
 }
-		
+
 /*
  * @brief get width between two lines
  *

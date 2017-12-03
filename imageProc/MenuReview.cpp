@@ -35,7 +35,7 @@
 #include "VideoMan.h"
 #include "AviEncDecH264.h"
 //#define SNAP_W	100
-//#define SNAP_H	80 
+//#define SNAP_H	80
 
 MenuReview g_menuReview;
 static char LabelReviewType[][25] = { N_("Show Cine"), N_("Show Snap") };
@@ -68,17 +68,17 @@ gboolean DelayPlayVideoDemo(gpointer data)
 }
 
 // class
-const int MenuReview::SLIDE_SPEED[MAX_SLIDE_SPEED] = 
+const int MenuReview::SLIDE_SPEED[MAX_SLIDE_SPEED] =
 {
 	500, 1000, 1500, 2000, 3000
-}; 
+};
 
 MenuReview::MenuReview(void)
 {
 	m_ptrImgMan = ImgMan::GetInstance();
 	m_ptrImgArea= ImageArea::GetInstance();
 	m_ptrTopArea= TopArea::GetInstance();
-	
+
     SysOptions so;
 	m_imageFormat = so.GetImageFormat();
 	m_videoFormat = so.GetCineFormat();
@@ -190,7 +190,7 @@ void MenuReview::Show(void)
 		gtk_widget_set_sensitive(m_btnUnSel, true);
 		gtk_widget_set_sensitive(m_btnDel, true);
     }
-    
+
 	if(m_limit == 1)
 	{
 		gtk_widget_hide(m_btnSend);
@@ -317,7 +317,7 @@ GtkWidget* MenuReview::Create(void)
 
 	// init
 	InitKnobReview();
-   
+
     return m_fixed;
 }
 
@@ -329,7 +329,7 @@ GtkWidget* MenuReview::CreateItem(GtkWidget **button, GtkWidget **checkbutton, c
     gtk_widget_set_size_request (*button, SNAP_W+10, -1);
     gtk_box_pack_start (GTK_BOX (hbox), *button, FALSE, FALSE, 15);
 	g_signal_connect(G_OBJECT(*button), "clicked", G_CALLBACK(HandlePreviewClicked), this);
-//	gtk_button_set_relief (GTK_BUTTON (*button), GTK_RELIEF_NONE);	
+//	gtk_button_set_relief (GTK_BUTTON (*button), GTK_RELIEF_NONE);
 	gtk_button_set_focus_on_click(GTK_BUTTON(*button), FALSE);
 	g_object_set_data(G_OBJECT(*button), "id", id);
 
@@ -347,8 +347,8 @@ void MenuReview::UpdateSelectedColor()
 {
 	for(int i=0; i<MAX_SNAP; i++)
 	{
-		gtk_widget_modify_bg(m_btn[i], GTK_STATE_NORMAL, g_deepGray); 
-		gtk_widget_modify_bg(m_btn[i], GTK_STATE_PRELIGHT, g_deepGray); 
+		gtk_widget_modify_bg(m_btn[i], GTK_STATE_NORMAL, g_deepGray);
+		gtk_widget_modify_bg(m_btn[i], GTK_STATE_PRELIGHT, g_deepGray);
 	}
 
 	if((m_typeShowed != m_reviewType))
@@ -357,8 +357,8 @@ void MenuReview::UpdateSelectedColor()
 	}
 	if(m_idShowed/MAX_SNAP == m_pageCur-1)
 	{
-		gtk_widget_modify_bg(m_btn[m_idShowed%MAX_SNAP], GTK_STATE_NORMAL, g_white); 
-		gtk_widget_modify_bg(m_btn[m_idShowed%MAX_SNAP], GTK_STATE_PRELIGHT, g_white); 
+		gtk_widget_modify_bg(m_btn[m_idShowed%MAX_SNAP], GTK_STATE_NORMAL, g_white);
+		gtk_widget_modify_bg(m_btn[m_idShowed%MAX_SNAP], GTK_STATE_PRELIGHT, g_white);
 	}
 }
 
@@ -425,11 +425,11 @@ void MenuReview::UpdateSlideSpeed(int speed, EKnobReturn ret, bool update)
 
 void MenuReview::UpdateSlidePlay(bool on, EKnobReturn ret, bool update)
 {
-	const char * toggle[2] = 
+	const char * toggle[2] =
 	{
 		N_("OFF"),
 		N_("ON")
-	};	
+	};
 
 	SyncKnobReview(REVIEW_SLIDE_PLAY, toggle[(int)on], ret, update);
 }
@@ -441,7 +441,7 @@ void MenuReview::UpdateSnapIndex(int index, bool update)
         ret = MAX;
     else if(index == 0)
         ret = MIN;
-    else 
+    else
         ret = OK;
 	char buf[10];
 	sprintf(buf, "%d", (index+1));
@@ -533,7 +533,7 @@ bool review_pic =false;
 void MenuReview::PreviewClicked(GtkButton *button)
 {
     review_pic = true;
-	
+
 	m_cur_btn = GTK_WIDGET(button);
 //	PRINTF("%s\n", __FUNCTION__);
 	if(!m_slidePlay)
@@ -547,7 +547,7 @@ void MenuReview::PreviewClicked(GtkButton *button)
 
 	MeasureMan::GetInstance()->DeleteAllForClearScreen(FALSE);	//update operation must be after the LoadFrm() function
     ImageArea::GetInstance()->ClearScreen(FALSE);	//update operation must be after the LoadFrm() function
-	CUpdateBodyMark cub; 
+	CUpdateBodyMark cub;
 	cub.HideBodyMark();
 
     int id = (m_pageCur-1) * MAX_SNAP + atoi((char*)(g_object_get_data(G_OBJECT(button), "id")));
@@ -555,7 +555,7 @@ void MenuReview::PreviewClicked(GtkButton *button)
 	m_typeShowed = m_reviewType;
 	UpdateSelectedColor();
     UpdateSnapIndex(m_idShowed, TRUE);
-   
+
 	if(m_reviewType == REVIEW_SNAP)
 	{
 		FreezeMode::GetInstance()->ExitAutoReplay();
@@ -624,7 +624,7 @@ void MenuReview::LoadSnapToScreen(const char* path)
     		return;
     	}
     }
-    
+
 	//设置图像参数
 	ScanMode::GetInstance()->EnterSpecialMeasure(item.para);
 
@@ -650,7 +650,7 @@ void MenuReview::LoadSnapToScreen(const char* path)
 
 	//默认显示待字符的图像，存在Frm图像先加载好，待进入测量后通过刷新将Frm图像刷新出来，从而去掉字符信息
 	m_ptrTopArea->DrawSnap(item.pixbuf, 0, 0, width, TOP_AREA_H);
-	m_ptrImgArea->DrawSnap(item.pixbuf, 0, IMG_AREA_Y, width, height-IMG_AREA_Y); 
+	m_ptrImgArea->DrawSnap(item.pixbuf, 0, IMG_AREA_Y, width, height-IMG_AREA_Y);
     if(!ViewSuperuser::GetInstance()->GetDemoStatus())
     {
        if(m_limit != 2)
@@ -745,7 +745,7 @@ void MenuReview::ChangeShowClicked(GtkButton *button)
 				KnobCineCreate();
 			else
 				KnobNoneCreate();
-		} 
+		}
         if ((m_vecName.size() > 0) && (ViewSuperuser::GetInstance()->GetDemoStatus())) //demo
         {
             m_idShowed = 0;
@@ -755,7 +755,7 @@ void MenuReview::ChangeShowClicked(GtkButton *button)
             g_timeout_add(200, DelayPlayVideoDemo, this);
             KnobReplayCreate();
         }
-        
+
 	}
 	else if(m_reviewType == REVIEW_VIDEO)
 	{
@@ -783,11 +783,11 @@ static void progress_callback(goffset current, goffset total, gpointer data)
 //	PRINTF("prac = %f\n", prac);
 	if(prac >= 0 && prac <= 1.0)
 	{
-		gdk_threads_enter();	
+		gdk_threads_enter();
 		ViewDialog::GetInstance()->SetProgressBar(prac);
 		while(gtk_events_pending())
 			gtk_main_iteration();
-		gdk_threads_leave();	
+		gdk_threads_leave();
 	}
 	else
 		PRINTF("fraction out of range!\n");
@@ -829,9 +829,9 @@ static gboolean SendToFlash(gpointer data)
 
 	if(!ptr->CheckUsbStorageState())
 	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 				ViewDialog::ERROR,
-				_("No USB storage found!"), 
+				_("No USB storage found!"),
 				NULL);
 		return FALSE;
 	}
@@ -839,9 +839,9 @@ static gboolean SendToFlash(gpointer data)
 	{
 		if(!ptr->MountUsbStorage())
 		{
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 					ViewDialog::ERROR,
-					_("Failed to mount USB storage!"), 
+					_("Failed to mount USB storage!"),
 					NULL);
 			return FALSE;
 		}
@@ -856,9 +856,9 @@ static gboolean SendToFlash(gpointer data)
 		if(err_mkdir->code!=G_IO_ERROR_EXISTS)
 		{
 			PRINTF("g_file_make_directory %s error: %s\n", g_file_get_path(dir), err_mkdir->message);
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 					ViewDialog::ERROR,
-					_("Failed to export to USB storage!\nError: Failed to create directory."), 
+					_("Failed to export to USB storage!\nError: Failed to create directory."),
 					NULL);
 			g_object_unref(dir);
 			return FALSE;
@@ -890,7 +890,7 @@ static gboolean SendToFlash(gpointer data)
 					sprintf(name , "%s", (*ite).c_str());
 					break;
 			}
-	
+
 			sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), name, count, total, _("Please wait..."));
 			ViewDialog::GetInstance()->SetText(str_info);
 			ViewDialog::GetInstance()->SetProgressBar(0);
@@ -959,9 +959,9 @@ static gboolean SendToFlash(gpointer data)
 
 	ptr->UmountUsbStorage();
 
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 			ViewDialog::INFO,
-			result, 
+			result,
 			NULL);
 
 	return FALSE;
@@ -977,21 +977,21 @@ static int CancelCopyToFlash(gpointer data)
 void MenuReview::SendClicked(GtkButton *button)
 {
 	int size = m_vecNameSel.size();
-	
+
 	if(size == 0)
 	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 				ViewDialog::ERROR,
-				_("Please select the wanted image/cine from the list to be exported!"), 
+				_("Please select the wanted image/cine from the list to be exported!"),
 				NULL);
 		return;
 	}
 
 	g_timeout_add(1000, SendToFlash, NULL);
 
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
 			ViewDialog::PRG_CANCEL,
-			_("Please wait..."), 
+			_("Please wait..."),
 			CancelCopyToFlash);
 }
 
@@ -1031,7 +1031,7 @@ void MenuReview::DelSelClicked(GtkButton *button)
 	int size = m_vecNameSel.size();
 	vector<string>::iterator iter;
 
-	//delete all file in selecting vector 
+	//delete all file in selecting vector
 	for(i=0; i<size; i++)
     {
         m_ptrImgMan->DeleteSnap(m_vecNameSel[i].c_str());
@@ -1084,7 +1084,7 @@ void MenuReview::PageDownClicked(GtkButton *button)
 void MenuReview::PreviewNextOrPrevious(GtkButton *button)
 {
     review_pic = true;
-	
+
 	m_cur_btn = GTK_WIDGET(button);
 //	PRINTF("%s\n", __FUNCTION__);
 	if(!m_slidePlay)
@@ -1101,7 +1101,7 @@ void MenuReview::PreviewNextOrPrevious(GtkButton *button)
     m_typeShowed = m_reviewType;
 	UpdateSelectedColor();
     UpdateSnapIndex(m_idShowed, TRUE);
-   
+
 	if(m_reviewType == REVIEW_SNAP)
 	{
 		FreezeMode::GetInstance()->ExitAutoReplay();
@@ -1220,7 +1220,7 @@ EKnobReturn MenuReview::SlidePlayDemo(void)
         HintArea::GetInstance()->UpdateHint(_("No Image to play."), 2);
         return ERROR;
     }
-    
+
     m_slidePlay = TRUE;
 	UpdateSlidePlay(m_slidePlay, MAX, TRUE);
     UpdateSlideSpeed(m_slideSpeed, OK, TRUE);
@@ -1369,14 +1369,14 @@ void MenuReview::UpdatePreview()
                 img_item.pixbuf = gdk_pixbuf_new_from_file(m_vecName[i].c_str(), NULL);
                 if(!img_item.pixbuf)continue;
             }
-            else 
+            else
             {
     			if(ptrIM->ReadSnap(m_vecName[i].c_str(), &img_item) != 0)
     			{
     				continue;
     			}
             }
-            
+
 			pixbuf = gdk_pixbuf_scale_simple(img_item.pixbuf, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
 			g_object_unref(img_item.pixbuf);
 		}
@@ -1386,15 +1386,15 @@ void MenuReview::UpdatePreview()
             {
                 continue;
             }
-            
-			GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB, 
+
+			GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB,
 					false, 8, video_item.width, video_item.height, video_item.width*3, NULL, NULL);
 			pixbuf = gdk_pixbuf_scale_simple(pb, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
 			g_object_unref(pb);
             free(video_item.data);
             //g_free(video_item.data);
 		}
-		
+
 		if(pixbuf)
 		{
 			image = gtk_image_new();
@@ -1466,7 +1466,7 @@ unsigned char MenuReview::LoadSnapDemo(unsigned int no, const char* filepath, ve
 	{
 		PRINTF("%s: the dir is null!\n", __FUNCTION__);
 		g_dir_close(dir);
-		return 2; 
+		return 2;
 	}
     FileMan fm;
 	while(name != NULL)
@@ -1477,7 +1477,7 @@ unsigned char MenuReview::LoadSnapDemo(unsigned int no, const char* filepath, ve
 			str = name;
 			vec->push_back(str);
         }
-	
+
 		name = g_dir_read_name(dir);
 	}
 
@@ -1490,7 +1490,7 @@ void MenuReview::InitSnapInfo(void)
 	unsigned int i;
 	char *path, sid[10];
 	string str;
-	
+
 	HideAllButton();
 	m_vecName.clear();
 
@@ -1504,7 +1504,7 @@ void MenuReview::InitSnapInfo(void)
         {
     		m_ptrImgMan->LoadSnap(m_folderID, m_path, &m_vecName);
         }
-        
+
 		for (i = 0; i < m_vecName.size(); i ++)
 		{
 			sprintf(sid, "%d", m_folderID);
@@ -1568,7 +1568,7 @@ void MenuReview::InitSnapInfo(void)
 	UpdatePreview();
 	UpdateSelectedColor();
     UpdateSnapIndex(m_idShowed, TRUE);
-#endif 
+#endif
 }
 
 void MenuReview::LoadVideoInfo()
@@ -1576,7 +1576,7 @@ void MenuReview::LoadVideoInfo()
 	unsigned int i;
 	char *path, sid[10];
 	string str;
-	
+
 	HideAllButton();
 	m_vecName.clear();
 
@@ -1658,7 +1658,7 @@ EKnobReturn MenuReview::ChangeSnap(EKnobOper oper)
     {
         if(m_idShowed < m_numTotal - 1)
             m_idShowed++;
-        else 
+        else
             m_idShowed = 0;
     }
 
@@ -1739,4 +1739,3 @@ void MenuReview::PreviousSnap()
 		PreviewClicked(GTK_BUTTON(m_btn[(m_idShowed-1)%MAX_SNAP]));
 	}
 }
-

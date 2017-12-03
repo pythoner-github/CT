@@ -21,9 +21,9 @@ class ImgCfm
 
 		static const int MAX_PRF_INDEX = 13;
 		static const int CFM_PRF[MAX_PRF_INDEX]; // unit:hz
-		static const int MAX_PKTSIZE_INDEX = 10; // max pktsize index 
+		static const int MAX_PKTSIZE_INDEX = 10; // max pktsize index
 		static const int MAX_WALLFILTER_INDEX_ALL = 16; //max number of wall filter in wall filter lib(can be selected)
-		static const int MAX_WALLFILTER_INDEX = 13; // max wall filter index 
+		static const int MAX_WALLFILTER_INDEX = 13; // max wall filter index
 		static const float WALLFILTER_DISPLAY[MAX_PKTSIZE_INDEX][MAX_WALLFILTER_INDEX_ALL];
 		static const int WALL_FILTER_SELECT_IDNEX[MAX_PKTSIZE_INDEX][8];
 		static const int MAX_LINE_DENSITY = 2;
@@ -35,13 +35,13 @@ class ImgCfm
 
 		static ImgCfm* GetInstance();
 		static int GetWFDisplay(int prfIndex, int pktIndex, int wfIndex);
-		
+
 		void SetImg2D(Img2D* img) { m_ptrImg2D = img; }
 		void SetCalcCfm(CalcCfm* calc);
 		void SetDsc(CDSC* dsc) {m_ptrDsc = dsc;}
 
-		void InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);		
-		void InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);		
+		void InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);
+		void InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);
 		void GetCurPara(ExamItem::ParaItem* ptrParaItem);
 		void ChangeDopplerFreq();
 
@@ -114,7 +114,7 @@ class ImgCfm
 	private:
 		static const int PRF_DISPLAY[MAX_PRF_INDEX];
 		static const int WALL_FILTER_SIZE = MAX_WALLFILTER_INDEX_ALL * MAX_PKTSIZE_INDEX * 26 * 32 ;
-		static const short WALL_FILTER[WALL_FILTER_SIZE];		
+		static const short WALL_FILTER[WALL_FILTER_SIZE];
 		static const int PACKSIZE[MAX_PKTSIZE_INDEX];
 		static const int MAX_BASELINE_INDEX = 8;
 		static const int MAX_COLOR_MAP_CFM = 6;
@@ -131,8 +131,8 @@ class ImgCfm
 		static const int MAX_GAIN_CFM = 1084 ;
 #endif
 		static const int MAX_FLOW_OPT = 8;
-		static const int FLOW_OPT[MAX_FLOW_OPT][5]; 
-		static const int FLOW_OPT_PDI[MAX_FLOW_OPT][5]; 
+		static const int FLOW_OPT[MAX_FLOW_OPT][5];
+		static const int FLOW_OPT_PDI[MAX_FLOW_OPT][5];
         static const int MAX_CFM_FOC_RATIO = 3;
         static const float CFM_FOC_RATIO[MAX_CFM_FOC_RATIO];
 		//temp
@@ -169,7 +169,7 @@ class ImgCfm
 		void GetBoxLineRange(int &begin, int &end);
 		void GetBoxDotRange(int &begin, int &end);
 		void Steer(void);
-		EKnobReturn WallFilter(int indexWallFilter, int indexPktsize);		
+		EKnobReturn WallFilter(int indexWallFilter, int indexPktsize);
 		int GetPRFIndex(int prf); //unit:hz
 		EKnobReturn UpdatePRFRangeStatus(int index, int maxIndex);
         void BalancePwInfo(void);
@@ -209,7 +209,7 @@ class ImgCfm
 		int m_colorMapCfm; ///< level of cfm map
 		int m_colorMapPdi; ///< level of pdi map
 		int m_colorMapPdiDir; ///< level of direction pdiDirmap
-		int m_boxLine[2]; ///< range of line in box 
+		int m_boxLine[2]; ///< range of line in box
 		int m_boxDot[2]; ///< range of dot in box
 		int m_boxDotBefore[2]; ///< range of dot in box before correct
 		bool m_boxStatus; ///< if or not change box size
@@ -240,7 +240,7 @@ class ImgCfm
 		int m_timerOpenColorFlow;
 		unsigned char m_colorPersistBak;
 		unsigned char m_colorThresholdBak;
-       
+
         ///>test
     public:
         void ChangeLowFilterFc(EKnobOper oper);

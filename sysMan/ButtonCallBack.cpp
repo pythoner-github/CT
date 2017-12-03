@@ -35,20 +35,20 @@ void ButtonCallBack::PrintDeviceChanged(GtkComboBox *combobox,GtkWidget *m_combo
     char *device = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_worklist_device));
     if(device != NULL)
     {
-        
-        char tmp_serviceName[256]="\0"; 
-        
+
+        char tmp_serviceName[256]="\0";
+
             sprintf(tmp_serviceName,"%s",device);
             strcat(tmp_serviceName,"-");
             strcat(tmp_serviceName,_("Print"));
-        
+
         gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_name),tmp_serviceName);
     }
 }
 static gboolean WorklistConnectTimeout(gpointer data)
 {
    // DicomServiceSetting *pdata = (DicomServiceSetting *)data;
-    
+
     char info[256]= "\0";
     //if(CDCMMan::GetMe()->TestLinkWorklist(ButtonCallBack::GetInstance()->m_selectedDevice))
     if(CDCMMan::GetMe()->TestLinkPrint(ButtonCallBack::GetInstance()->m_selectedDevice))
@@ -62,8 +62,8 @@ static gboolean WorklistConnectTimeout(gpointer data)
             sprintf(info, _("Connection test fails!"));
         }
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 info,
                 NULL);
 
@@ -85,7 +85,7 @@ void ButtonCallBack::ButtonPrintConnectClicked(GtkButton *button,GtkWidget *m_tr
                 -1);
         m_selectedDevice = device;
 
-        ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+        ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 _("Connect..."));
 
         g_timeout_add(2000, WorklistConnectTimeout, this);
@@ -94,8 +94,8 @@ void ButtonCallBack::ButtonPrintConnectClicked(GtkButton *button,GtkWidget *m_tr
     else
     {
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             _("No device is selected!"),
             NULL);
 
@@ -128,8 +128,8 @@ bool ButtonCallBack::ButtonPrintDeleteClicked(GtkButton *button,GtkWidget *m_tre
     else
     {
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             _("No device is selected!"),
             NULL);
 		return FALSE;
@@ -158,7 +158,7 @@ void ButtonCallBack::ButtonPrintDefaultClicked(GtkButton *button,GtkWidget *m_tr
                     COL_DEFAULT, " ",
                     -1);
 
-            exist = gtk_tree_model_iter_next(model, &iter0); 
+            exist = gtk_tree_model_iter_next(model, &iter0);
         }
         gtk_list_store_set(GTK_LIST_STORE(model), &iter,
                 COL_DEFAULT, _("Yes"),
@@ -175,8 +175,8 @@ void ButtonCallBack::ButtonPrintDefaultClicked(GtkButton *button,GtkWidget *m_tr
     else
     {
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             _("No device is selected!"),
             NULL);
 
@@ -198,7 +198,7 @@ void ButtonCallBack::ButtonPrintClearClicked(GtkButton *button,GtkWidget *m_comb
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_name),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_AE),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_worklist_port),"");
-	
+
 
 }
 
@@ -222,7 +222,7 @@ char * ButtonCallBack::GtkTreeDeviceGet(GtkWidget *m_treeview_worklist)
 			break;
 		}
 		exist = gtk_tree_model_iter_next(model, &iter);
-				
+
 	}
 	return device;
 }
@@ -247,7 +247,7 @@ char * ButtonCallBack::GtkTreeServiceGet(GtkWidget *m_treeview_worklist)
 			break;
 		}
 		exist = gtk_tree_model_iter_next(model, &iter);
-				
+
 	}
 	return service;
 
@@ -273,7 +273,7 @@ char * ButtonCallBack::GtkTreeAEGet(GtkWidget *m_treeview_worklist)
 			break;
 		}
 		exist = gtk_tree_model_iter_next(model, &iter);
-				
+
 	}
 
 	return ae;
@@ -281,20 +281,20 @@ char * ButtonCallBack::GtkTreeAEGet(GtkWidget *m_treeview_worklist)
 }
 
 char * ButtonCallBack::GtkTreePortGet(GtkWidget *m_treeview_worklist)
-{	
+{
 	GtkTreeModel *model;
 	GtkTreeIter iter;
     gboolean exist = FALSE;
 	char *port;
-	
+
 	bool ret;
 	GtkTreeSelection *selected;
 	selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
-	
+
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
-	
-	
+
+
 	while(exist)
 	{
 		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
@@ -304,9 +304,9 @@ char * ButtonCallBack::GtkTreePortGet(GtkWidget *m_treeview_worklist)
 			break;
 		}
 		exist = gtk_tree_model_iter_next(model, &iter);
-				
+
 	}
-    
+
 
 	return port;
 
@@ -317,13 +317,13 @@ printf("========================================================================
     char *device = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_worklist_device));
     const char *ae = gtk_entry_get_text(GTK_ENTRY(m_entry_worklist_AE));
     const char *port = gtk_entry_get_text(GTK_ENTRY(m_entry_worklist_port));
-    
+
 
     if(ae[0] == '\0' ||port[0] == '\0'||device[0] == '\0')
     {
 		CDCMMan::GetMe()->DeletePrintService(device);
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("Device ,AE or Port is empty, please input!"),
                 NULL);
 
@@ -331,15 +331,15 @@ printf("========================================================================
     }
 
     char tmp_serviceName[256];
-   
+
         sprintf(tmp_serviceName,"%s",device);
         strcat(tmp_serviceName,"-");
         strcat(tmp_serviceName,_("Print"));
-   
+
     char device_tmp0[256];
     char *device_tmp1;
     sprintf(device_tmp0,"%s",device);
-    
+
     GtkTreeModel *model;
     GtkTreeIter iter;
     gboolean exist = FALSE;
@@ -359,8 +359,8 @@ printf("========================================================================
         {
 			CDCMMan::GetMe()->DeletePrintService(device);
             //printf("Add failed\n");
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Add failed,device has been existed\n"),
                     NULL);
 
@@ -368,15 +368,15 @@ printf("========================================================================
             return;
         }
 
-        exist = gtk_tree_model_iter_next(model, &iter); 
+        exist = gtk_tree_model_iter_next(model, &iter);
     }
 
-   
+
     if(!CDCMMan::GetMe()->AddPrintService(device, tmp_serviceName, ae, atoi(port)))
     {
 		CDCMMan::GetMe()->DeletePrintService(device);
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("Add failed,device has been existed\n"),
                 NULL);
 
@@ -394,9 +394,9 @@ printf("========================================================================
             -1);
 
    // m_group_device_service.push_back(device);
-    gtk_tree_model_iter_next(model, &iter); 
+    gtk_tree_model_iter_next(model, &iter);
 printf("===========================================================================\n");
     g_free(device);
-	
+
 
 }

@@ -28,17 +28,17 @@ public:
      */
     void SampleVolume(int line, int dotBegin, int dotEnd, vector<int> HPRFEmitPos);
     void SampleVolumeClear();
-    
+
     void SampleVolumeCW(int line, int dotPos);
     void SampleVolumeCWClear();
 
 	void SpectrumInvert(bool on);
     /*
 	 * @brief update Pw total gain when it changed
-	 * @para gain value of pw gain 
+	 * @para gain value of pw gain
      */
     void GainPw(int gain);
-   
+
     void GainCw(int gain);
 
     void DopFreq(int freq, EKnobReturn status);

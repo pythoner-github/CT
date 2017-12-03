@@ -15,7 +15,7 @@ class CalcPw
 
 		struct CalcPara
 		{
-			int spectrumSpeed;	
+			int spectrumSpeed;
 			int PRFIndex;
 			int colorFreq; // = (real color freq * 20) MHz
 			int correctAngle; // unit is degree
@@ -25,8 +25,8 @@ class CalcPw
 		void SetCalcPara(CalcPara* calc) {m_calcPara = calc;}
 
         void CalcGainCw(int dataCw);
-		void CalcPwLine(int line); 
-		void CalcSvPos(int dotBegin, int dotEnd); 
+		void CalcPwLine(int line);
+		void CalcSvPos(int dotBegin, int dotEnd);
 		void CalcNoise(int data);
 		void CalcDynamicRange(int range);
 		void CalcBaseline(int baseline);
@@ -37,7 +37,7 @@ class CalcPw
 		void CalcSoundFilter(int index);
 		void CalcHPRF(int data);
 		void CalcSoundStatus(int data);
-		void CalcBandPassFilter(int pulseNum); 
+		void CalcBandPassFilter(int pulseNum);
         void CalcBandPassFilter_test(int pulseNum, int bplist);
         void CalcBandPassFilter_new(int halfpulseCylce, float fc_offset);
 
@@ -72,15 +72,15 @@ class CalcPw
 		void CalcCwImgCtrl(bool on);
 
 	private:
-		static FpgaPw m_fpga; 
-		static FpgaCtrl2D m_fpga2D; 
-#if (defined(EMP_355)) 
+		static FpgaPw m_fpga;
+		static FpgaCtrl2D m_fpga2D;
+#if (defined(EMP_355))
 		static const int MAX_SOUND_FILTER = 25+8;
         static const int SOUND_FILTER_ORDER = 254;
 		static const short SOUND_FILTER[MAX_SOUND_FILTER][SOUND_FILTER_ORDER+4];
-#else	
+#else
 		static const int MAX_SOUND_FILTER = 13;
-		static const unsigned short SOUND_FILTER[MAX_SOUND_FILTER][16];		
+		static const unsigned short SOUND_FILTER[MAX_SOUND_FILTER][16];
 #endif
 		static const int HPRF_CORRECT = 5; //us
 #ifdef EMP_430

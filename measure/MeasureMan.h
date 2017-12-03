@@ -18,7 +18,7 @@ using std::vector;
 void SetChangePointerMeasure(void);
 void SetChangePointerCalc(void);
 ///> change pointer when input "true" to SetChangePointer
-void ChangePointerWhenMeasure(void); 
+void ChangePointerWhenMeasure(void);
 
 class MeasureMan
 {
@@ -34,7 +34,7 @@ class MeasureMan
 		void ClearAll();
 		void ClearAllValue(void);
         void GetMeasureUnit(double& coeffi, string& units, int unit);
-        int GetDequeSize(); 
+        int GetDequeSize();
 
 		void DeleteAllForClearScreen(bool update=true);
 
@@ -54,7 +54,7 @@ class MeasureMan
 		struct MeasureInfo
 		{
 			EMeaType measureType;
-			int cursorType;	
+			int cursorType;
 		    int cursorSize;
 		    int confirmColor;
 			vector<POINT> vecPoint;
@@ -72,7 +72,7 @@ class MeasureMan
 		static const int MAX = 4;//屏幕上测量线最多保留MAX个
 
 		deque<MeasureInfo> m_deq; ///< define an sequence container, including MAX memebers.
-		
+
 		MeaResult *m_ptrMeaResult;
         POINT m_startP;
         POINT m_endP;

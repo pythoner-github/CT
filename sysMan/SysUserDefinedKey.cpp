@@ -5,7 +5,7 @@ SysUserDefinedKey::SysUserDefinedKey()
 {
     char path[256];
     sprintf(path, "%s/%s", CFG_RES_PATH, SYS_SETTING_FILE);
-    ptrIni = new IniFile(path);	
+    ptrIni = new IniFile(path);
 }
 
 SysUserDefinedKey::~SysUserDefinedKey()

@@ -24,7 +24,7 @@ extern bool updateoffsound;
 
 #ifdef EMP_355
 int g_fps = 0;
-#endif 
+#endif
 /**
 * @brief service routine only used to receive data from usb device
 */
@@ -98,9 +98,9 @@ begin:
             static int n = 0;
 
 			for (pkt = 0; pkt < pktPerBlock; pkt++)
-            {	
+            {
                 int offset; //offset in block
-                offset = pkt * pktSize;	
+                offset = pkt * pktSize;
                 ptrTemp = ptrSrc + offset;
 #if 0
 
@@ -129,7 +129,7 @@ begin:
                     PRINTF("---flag=%d autoOn=%d\n", ptrTemp[16], QuickAdjustmentPw::m_onQAPw);
                     if (ptrTemp[16] == 2) //第17位标识是模式
                     {
-#ifdef EMP_430 
+#ifdef EMP_430
                         memset(ptrTemp+450, 0, 52);
 #endif
                         //memset(ptrTemp+450, 0, 62);
@@ -148,7 +148,7 @@ begin:
                         memset(pBits+pktSize-rmColor, ptrTemp[pktSize-1], rmColor);
                         ptrTemp = pBits;
                     }
-                
+
 #if 0
 
                 printf("------------output 0-25-----------");
@@ -173,7 +173,7 @@ begin:
                 {
                     if (ptrTemp[16] == 1 && ptrTemp[8] == boxRange[1])
                     {
-                        g_fps++;	
+                        g_fps++;
                     }
                 }
 #endif
@@ -197,7 +197,7 @@ begin:
 //                        // 正在接收pw数据时，切换到了其他模式，需关闭QAPw，初始化各变量
 //                        QuickAdjustmentPw::GetInstance()->SetParaChangeMode();
 //                    }
-                    
+
                     // 由于控件调节后，pw数据会出现异常，将初始更新的pw数据不发给DSC
                     QuickAdjustmentPw::GetInstance()->SetParaChangeKnob(ptrTemp[16]);
 
@@ -233,15 +233,15 @@ begin:
 			//CFM
 			mode = ptrMode->GetScanMode();
 			int cur = ptrMode->GetPwCurImg();
-			if ((mode == ScanMode::CFM) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PDI) || (mode == ScanMode::PWPDI_INIT)  
+			if ((mode == ScanMode::CFM) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PDI) || (mode == ScanMode::PWPDI_INIT)
 					|| ((mode == ScanMode::PWPDI) && (cur == 1)) || ((mode == ScanMode::PWCFM) && (cur == 1))
 					|| (mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D)
-					) 
+					)
 			{
 				ImgCfm::GetInstance()->GetBoxRange(boxRange);
 				for (i = boxRange[0]; i <= boxRange[1]; i ++)
 				{
-					DataCfm(pBits, i);			
+					DataCfm(pBits, i);
 					ptrDscMan->SendDataToDsc(pBits);
 				}
 			}
@@ -255,7 +255,7 @@ begin:
 			if (((mode == ScanMode::PW) || ((mode == ScanMode::PWCFM) && (cur == 2)) || ((mode == ScanMode::PWPDI) && (cur == 2)))
 			    || ((mode == ScanMode::CW) || ((mode == ScanMode::CWCFM) && (cur == 2)) || ((mode == ScanMode::CWPDI) && (cur == 2))))
 			{
-				DataPw(pBits, simultData);			
+				DataPw(pBits, simultData);
 				ptrDscMan->SendDataToDsc(pBits);
 			}
 
@@ -290,10 +290,10 @@ begin:
 
             //copy data to mem
             for (pkt = 0; pkt < pktPerBlock; pkt++)
-            {	
+            {
                 mode = ptrMode->GetScanMode();
                 if (mode == ScanMode::PW)
-                    DataPw(pBits, count);	
+                    DataPw(pBits, count);
                 else
                     Data2D(pBits, count);
                 if (count < 255)
@@ -319,7 +319,7 @@ begin:
 /**
  * @brief get the ptrDsc and save it
  */
-void FpgaReceive::SetDsc(CDSC *ptrDsc) 
+void FpgaReceive::SetDsc(CDSC *ptrDsc)
 {
     m_ptrDsc = ptrDsc;
 }
@@ -407,4 +407,3 @@ void FpgaReceive::InitDataCfm()
         m_cfmData[i * 3 + 2] = 128;
     }
 }
-

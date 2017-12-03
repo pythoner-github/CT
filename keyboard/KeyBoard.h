@@ -1,7 +1,7 @@
 /*
 **********************************************************
 
-			keyboard_uart.cpp program header file			
+			keyboard_uart.cpp program header file
 
 **********************************************************
 */

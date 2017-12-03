@@ -40,8 +40,8 @@ ViewQueryRetrieve::ViewQueryRetrieve()
 
 ViewQueryRetrieve::~ViewQueryRetrieve()
 {
-    if (m_ptrInstance != NULL) 
-        delete m_ptrInstance; 
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 ViewQueryRetrieve* ViewQueryRetrieve::GetInstance()
@@ -65,14 +65,14 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
    // GtkWidget *label_gender;
    // GtkWidget *combobox_gender;
     GtkWidget *label_exam;
-    GtkWidget *label_to; 
-    GtkWidget *button_query; 
+    GtkWidget *label_to;
+    GtkWidget *button_query;
     GtkWidget *button_clear;
     GtkWidget *label_source;
     GtkWidget *label_destination;
-    //GtkWidget *button_retrieve; 
-    GtkWidget *button_quit; 
-    
+    //GtkWidget *button_retrieve;
+    GtkWidget *button_quit;
+
     GtkWidget *img_start_calendar;
     GtkWidget *eventbox_start_calendar;
     GtkWidget *img_end_calendar;
@@ -145,7 +145,7 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
     gtk_widget_set_size_request (m_entry_accession, 100+100, 30);
     gtk_entry_set_max_length (GTK_ENTRY (m_entry_accession), 15);
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_accession), 9679);
-#if 0  
+#if 0
     label_gender = gtk_label_new (_("<b>Gender:</b>"));
     gtk_widget_show (label_gender);
     gtk_fixed_put (GTK_FIXED (fixed), label_gender, 8, 50);
@@ -153,7 +153,7 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
     gtk_widget_set_size_request (label_gender, 100, 30);
 
     combobox_gender = gtk_combo_box_new_text ();
-    gtk_widget_show(combobox_gender); 
+    gtk_widget_show(combobox_gender);
     gtk_fixed_put (GTK_FIXED (fixed),combobox_gender, 100,50 );
     gtk_widget_set_size_request (combobox_gender, 100, 30);
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_gender), _("male"));
@@ -234,7 +234,7 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
 	gtk_container_add(GTK_CONTAINER(scrollWin_source), m_treeview_source);
 	gtk_widget_set_size_request (m_treeview_source, 780+210, 260+80);
     gtk_widget_show (m_treeview_source);
-    
+
     m_checkbutton_select_all = gtk_check_button_new_with_mnemonic (_("Select All"));
     gtk_widget_show (m_checkbutton_select_all);
     gtk_fixed_put (GTK_FIXED (fixed), m_checkbutton_select_all, 10, 290+80);
@@ -296,7 +296,7 @@ GtkWidget* ViewQueryRetrieve::CreateQueryRetrieveWin(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed), button_quit, 630+150, 530+160);
     gtk_widget_set_size_request (button_quit, 85, 35);
     g_signal_connect(button_quit, "clicked", G_CALLBACK(HandleButtonQuitClicked), this);
-    
+
 
     gtk_widget_set_sensitive(m_button_retrieve,false);
     gtk_widget_show_all(window_query_retrieve);
@@ -324,7 +324,7 @@ GtkWidget* ViewQueryRetrieve::create_query_treeview()
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
-    
+
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
 	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
@@ -342,7 +342,7 @@ GtkWidget* ViewQueryRetrieve::create_query_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Name"), renderer, "text", COL_NAME_S, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Gender"), renderer, "text", COL_Gender_S, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -352,7 +352,7 @@ GtkWidget* ViewQueryRetrieve::create_query_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Accession Number"), renderer, "text", COL_ACCESSION_NUMBER_S, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Birth Date"), renderer, "text", COL_BIRTH_DATE_S, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -371,8 +371,8 @@ GtkWidget* ViewQueryRetrieve::create_query_treeview()
     model = create_query_model();
     if (model != NULL)
 		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
-    g_object_unref (model); 
-    
+    g_object_unref (model);
+
 	return treeview;
 }
 
@@ -380,26 +380,26 @@ GtkTreeModel* ViewQueryRetrieve::create_query_model()
 {
     GtkListStore *store;
 
-    store = gtk_list_store_new(NUM_COLS_S, 
-			G_TYPE_BOOLEAN, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
+    store = gtk_list_store_new(NUM_COLS_S,
+			G_TYPE_BOOLEAN,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
 			G_TYPE_STRING);
 
 	return GTK_TREE_MODEL (store);
 }
- 
+
 GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
 {
     GtkWidget *treeview;
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
-    
+
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
 	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
@@ -413,12 +413,12 @@ GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Name"), renderer, "text", COL_NAME_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Gender"), renderer, "text", COL_Gender_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Age"), renderer, "text", COL_AGE_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -439,7 +439,7 @@ GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Accession Number"), renderer, "text", COL_ACCESSION_NUMBER_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Birth Date"), renderer, "text", COL_BIRTH_DATE_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -449,7 +449,7 @@ GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
    column = gtk_tree_view_column_new_with_attributes(_("Exam Date"), renderer, "text", COL_EXAM_DATE_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 130, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Exam Time"), renderer, "text", COL_EXAM_TIME_D, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -468,7 +468,7 @@ GtkWidget* ViewQueryRetrieve::create_retrieve_treeview()
     model = create_retrieve_model();
     if (model != NULL)
 		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
-    g_object_unref (model); 
+    g_object_unref (model);
 
 	return treeview;
 }
@@ -477,22 +477,22 @@ GtkTreeModel* ViewQueryRetrieve::create_retrieve_model()
 {
     GtkListStore *store;
 
-    store = gtk_list_store_new(NUM_COLS_D, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
+    store = gtk_list_store_new(NUM_COLS_D,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
 			G_TYPE_STRING);
 
 	return GTK_TREE_MODEL (store);
-}    
+}
 
 void ViewQueryRetrieve::ToggleRecord(GtkCellRendererToggle *cell, gchar *path_str)
 {
@@ -525,7 +525,7 @@ void ViewQueryRetrieve::ToggleRecord(GtkCellRendererToggle *cell, gchar *path_st
         }
         exist = gtk_tree_model_iter_next(model, &iter);
     }
-	
+
     /* clean up */
 	gtk_tree_path_free (path);
 }
@@ -620,28 +620,28 @@ void ViewQueryRetrieve::ButtonQueryClicked(GtkButton *button)
                     COL_EXAM_DATE_S,QueryRes[i].qrStudyDate.c_str(),
                     COL_EXAM_DESCRIPTION_S,QueryRes[i].qrStudyDescription.c_str(),
                     -1);
-            gtk_tree_model_iter_next(model, &iter); 
+            gtk_tree_model_iter_next(model, &iter);
         }
     }
     else if(status == DCMNODEFALUTSERVER)
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No default server!"),
                 NULL);
 
     }
     else if(status == DCMCONNECTIONFAILURE)
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("Server connection is failed!"),
                 NULL);
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("Query unsuccessfully!"),
                 NULL);
     }
@@ -665,7 +665,7 @@ unsigned int ViewQueryRetrieve::GetDCMStudyElement(DCMSTUDYELEMENT element)
     info.p.name.last = lastName;
     info.p.name.first = firstName;
     info.p.name.mid = midName;
-    
+
     if(element.stPatientSex.c_str() !=NULL)
     {
         string sex = element.stPatientSex;
@@ -778,7 +778,7 @@ unsigned int ViewQueryRetrieve::GetDCMStudyElement(DCMSTUDYELEMENT element)
         char exam_hour[100] = "\0";
         char exam_minute[100] = "\0";
         char exam_second[100] = "\0";
-        
+
         sprintf(exam_hour,"%c%c",studyTime[0],studyTime[1]);
         sprintf(exam_minute,"%c%c",studyTime[2],studyTime[3]);
         sprintf(exam_second,"%c%c",studyTime[4],studyTime[5]);
@@ -821,7 +821,7 @@ unsigned int ViewQueryRetrieve::GetDCMStudyElement(DCMSTUDYELEMENT element)
     info.uro.PSA = -1;
 
     m_ptrInstance->m_info = info;
-    m_ptrInstance->m_studyNo= element.stStudyNo; 
+    m_ptrInstance->m_studyNo= element.stStudyNo;
 #if 0
     string errmsg;
     string studyNo;
@@ -863,7 +863,7 @@ void ViewQueryRetrieve::CreateExamDir(int examNum)
 		{
 			perror("rmdir fail!");
 			PRINTF("delete folder of store path 0 error\n");
-			g_free(path);	
+			g_free(path);
 			return;
 		}
 	}
@@ -872,7 +872,7 @@ void ViewQueryRetrieve::CreateExamDir(int examNum)
 	{
 		PRINTF("create folder of store path %d error\n", examNum);
 	}
-	
+
 	g_free(path);
 
 }
@@ -880,7 +880,7 @@ void ViewQueryRetrieve::CreateExamDir(int examNum)
 string ViewQueryRetrieve::GetDCMImageElement(DCMIMAGEELEMENT element,unsigned char *pImageBuf, unsigned long bufLen)
 {
     m_ptrInstance->CreateExamDir(m_ptrInstance->m_studyNo);
-    
+
     time_t at;
     at = time(&at);
 
@@ -977,7 +977,7 @@ string ViewQueryRetrieve::GetDCMImageElement(DCMIMAGEELEMENT element,unsigned ch
                 break;
         }
     }
-    
+
     string part = element.imgStudyPart;
     if(strcmp(part.c_str(),"ABDOMEN") ==0)
         m_ptrInstance->m_info.e.examType = _("Abdomen");
@@ -987,7 +987,7 @@ string ViewQueryRetrieve::GetDCMImageElement(DCMIMAGEELEMENT element,unsigned ch
         m_ptrInstance->m_info.e.examType = _("Hip Joint");
     else if(strcmp(part.c_str(),"BREAST") ==0)
         m_ptrInstance->m_info.e.examType = _("Mammary Glands");
-    else 
+    else
         m_ptrInstance->m_info.e.examType = _("Abdomen");
 
     string imgFileName = (string)fileName;
@@ -1109,8 +1109,8 @@ void ViewQueryRetrieve::ButtonRetrieveClicked(GtkButton *button)
         char info[256];
         sprintf(info, "%s\n%s %d\n%s %d", _("Retrieve finished!"), _("Success:"), m_count_success,  _("Fail:"), m_count_failed);
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-            ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+            ViewDialog::INFO,
             info,
             NULL);
         m_count_failed =0;
@@ -1119,8 +1119,8 @@ void ViewQueryRetrieve::ButtonRetrieveClicked(GtkButton *button)
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No record or device is selected!"),
                 NULL);
         return;
@@ -1139,8 +1139,8 @@ void ViewQueryRetrieve::ButtonRetrieveClicked(GtkButton *button)
         }
         else
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("No record or server existed!"),
                     NULL);
             return;
@@ -1180,8 +1180,8 @@ void ViewQueryRetrieve::ButtonRetrieveClicked(GtkButton *button)
         }
         else
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("No record or device is selected!"),
                     NULL);
             return;
@@ -1267,55 +1267,55 @@ void ViewQueryRetrieve::InsertPatInfo(int index ,string device,int num)
                     COL_EXAM_DESCRIPTION_D,QueryRes[index].qrStudyDescription.c_str(),
                     -1);
 
-            gtk_tree_model_iter_next(model, &iter); 
+            gtk_tree_model_iter_next(model, &iter);
         }
         else if(status == DCMINVALIDQRDESTSERVER)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Destination server is invalid!"),
                     NULL);
         }
         else if(status == DCMRETRIEVEFAILURE)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Retrieve failedly!"),
                     NULL);
         }
         else if(status == DCMNONSUPPORTSTUDYROOT)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Not support study root!"),
                     NULL);
         }
         else if(status == DCMNODEFALUTSERVER)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("No default server!"),
                     NULL);
 
         }
         else if(status == DCMCONNECTIONFAILURE)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Server connection is failed!"),
                     NULL);
         }
         else if(status == DCMSTUDYEXISTED)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Study has existed!"),
                     NULL);
         }
         else
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Retrieve unsuccessfully!"),
                     NULL);
         }
@@ -1392,7 +1392,7 @@ void ViewQueryRetrieve::InsertPatInfo(int index ,string device,int num)
                     COL_EXAM_DESCRIPTION_D,QueryRes[index].qrStudyDescription.c_str(),
                     -1);
 
-            gtk_tree_model_iter_next(model, &iter); 
+            gtk_tree_model_iter_next(model, &iter);
         }
         else
         {
@@ -1421,7 +1421,7 @@ void ViewQueryRetrieve::ButtonQuitClicked(GtkButton *button)
 void ViewQueryRetrieve::DestroyWin(void)
 {
     QueryRes.clear();
-    vecIndex.clear(); 
+    vecIndex.clear();
     if (m_window)
     {
         g_keyInterface.Pop();
@@ -1486,7 +1486,7 @@ void ViewQueryRetrieve::ChangePersonNameFormat(string wlPersonName, string &firs
 void ViewQueryRetrieve::ChangePersonNameFormatForShow(string wlPersonName, string &name)
 {
 	string firstName, lastName, midName;
-	
+
 	ChangePersonNameFormat(wlPersonName, firstName, lastName, midName);
 	SysGeneralSetting sgs;
 	 int lang = sgs.GetLanguage();

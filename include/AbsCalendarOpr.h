@@ -3,7 +3,7 @@
 
 class AbsCalendarOpr
 {
-	public: 
+	public:
 
 	virtual ~AbsCalendarOpr() {}
 	virtual void SetStartDate(int year, int month, int day) {}

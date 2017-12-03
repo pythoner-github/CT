@@ -6,10 +6,10 @@
 class SysUserDefinedKey
 {
 public:
-	
+
     SysUserDefinedKey();
     ~SysUserDefinedKey();
-#if 0  
+#if 0
     void SetFuncGain(int func);
     int GetFuncGain(void);
 

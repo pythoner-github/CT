@@ -71,7 +71,7 @@ RGBTRIPLE CHROMA_TABLE0_NO[]= //256
 	{252,252,252},{253,253,253},{254,254,254},{255,255,255},
 };
 
-//purple 
+//purple
 RGBTRIPLE CHROMA_TABLE1_PURPLE[]= //256
 {
 	{1,0,1},{2,0,2},{3,0,3},{4,0,4},
@@ -617,4 +617,3 @@ RGBTRIPLE CHROMA_TABLE8[] =
 };
 
 #endif
-

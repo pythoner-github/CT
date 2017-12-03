@@ -30,7 +30,7 @@ CgosGpioI2C::CgosGpioI2C()
         report(TEXT("The driver has been installed.\n"));
         if (!CgosLibInitialize()) {
             report(TEXT("Still could not open driver, a reboot might be required!\n"));
-        }		
+        }
     }
 
     // open the cgos board
@@ -50,7 +50,7 @@ CgosGpioI2C::~CgosGpioI2C()
 {
 
     if (hCgos) CgosBoardClose(hCgos);
-    
+
     CgosLibUninitialize();
 }
 

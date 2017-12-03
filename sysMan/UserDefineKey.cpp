@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: UserDefineKey
- * @brief: manage userDefine key, realize key p1 and p2 functin acording to system setting 
+ * @brief: manage userDefine key, realize key p1 and p2 functin acording to system setting
  *
  * version: V1.0
  * date: 2010-5-28
@@ -97,8 +97,8 @@ void UserDefineKey::PressKeyP2(void)
         ModeStatus ms;
         if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
             FreezeMode::GetInstance()->PressFreeze();
-        
-        PrintScreen ps;  
+
+        PrintScreen ps;
         ps.PrintP2();
     }
     else
@@ -115,8 +115,8 @@ void UserDefineKey::PressKeyP3(void)
         ModeStatus ms;
         if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
             FreezeMode::GetInstance()->PressFreeze();
-        
-        PrintScreen ps;  
+
+        PrintScreen ps;
         ps.PrintP3();
     }
     else
@@ -206,7 +206,7 @@ void UserDefineKey::FactoryCreate(EKeyFunc type)
             {
                 if (ModeStatus::IsAutoReplayMode())
                     FreezeMode::GetInstance()->ChangeAutoReplay();
-                else if (ModeStatus::IsUnFreezeMode())	
+                else if (ModeStatus::IsUnFreezeMode())
                     FreezeMode::GetInstance()->PressFreeze();
 
                 ViewSystem::GetInstance()->CreateWindow();

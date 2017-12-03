@@ -55,7 +55,7 @@ private:
     char m_treeViewPath[32];
 
     void CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EItem>* itemList, int maxSocket);
-    GtkWidget* CreateProbe(const char *probe_name, const char probeType, 
+    GtkWidget* CreateProbe(const char *probe_name, const char probeType,
                            char exam_type[][50], int probe_index);
     int CreateAllExamType(const char *model, vector<ExamItem::EItem> item, char exam_type[][50]);
     void GetUserItemNameOfProbe(const char* model);

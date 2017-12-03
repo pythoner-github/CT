@@ -14,15 +14,15 @@ class ScreenSaver
 		void Init();
 		void Reset();
 		gboolean Timer();
-		void SetPeriod(guint time); 
+		void SetPeriod(guint time);
 		guint GetTimerCount() { return m_count; }
 		void BlackScreen();
 		void EnterScreenSaver2();
 		void EnterScreenSaver3();
-        
+
 	private:
 		ScreenSaver();
-        
+
 		static ScreenSaver* m_ptrInstance;
 		static const guint m_interval = 5; //second
 
@@ -32,9 +32,9 @@ class ScreenSaver
 		void BlackScreen2();
 		void BlackScreen3();
 		gboolean m_state;
-		guint m_timer;	
+		guint m_timer;
 		guint m_count;
-		guint m_period;	
+		guint m_period;
 
 		Display *m_dpy;
 		Window m_win;

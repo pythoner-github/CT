@@ -41,7 +41,7 @@
 #ifndef FALSE
 #define FALSE 0
 #endif
-#ifndef TRUE 
+#ifndef TRUE
 #define TRUE  1
 #endif
 #define	DICOM_ERROR_SUCCESS						0
@@ -65,7 +65,7 @@
 #define	DICOM_ERROR_TRANSYNTAXERROR				1101
 #define	DICOM_ERROR_ELEMLISTTORAWVRERROR			1102
 #define	DICOM_ERROR_RAWVRTOELEMLISTERROR			1103
-#define DICOM_ERROR_NO_ACCEPTED_PRESENTATION		1104 
+#define DICOM_ERROR_NO_ACCEPTED_PRESENTATION		1104
 #define	DICOM_ERROR_NODCMFILE					1105
 #define	DICOM_ERROR_DCMDICTNOTLOADED				1106
 #define	DICOM_ERROR_VRNOTFOUNDEDINDICT			1107
@@ -475,28 +475,28 @@
 #define DCM_SOP_PET_CURVE_STORAGE                DCM_UID_1_2_840_10008_5_1_4_1_1_129
 
 /* various supplement additions */
-#define DCM_SOP_DIGI_XRAY_PRES_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_1_1    
-#define DCM_SOP_DIGI_XRAY_PROC_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_1_1_1  
-#define DCM_SOP_DIGI_MAMMO_PRES_IMG_STORAGE      DCM_UID_1_2_840_10008_5_1_4_1_1_1_2    
-#define DCM_SOP_DIGI_MAMMO_PROC_IMG_STORAGE      DCM_UID_1_2_840_10008_5_1_4_1_1_1_2_1  
-#define DCM_SOP_DIGI_INTRA_ORAL_PRES_IMG_STORAGE DCM_UID_1_2_840_10008_5_1_4_1_1_1_3    
-#define DCM_SOP_DIGI_INTRA_ORAL_PROC_IMG_STORAGE DCM_UID_1_2_840_10008_5_1_4_1_1_1_3_1  
-#define DCM_SOP_WAVEFORM_STORAGE                 DCM_UID_1_2_840_10008_5_1_4_1_1_9_1    
-#define DCM_SOP_12_LEAD_ECG_WAVEFORM_STORAGE     DCM_UID_1_2_840_10008_5_1_4_1_1_9_1_1  
-#define DCM_SOP_GENERAL_ECG_WAVEFORM_STORAGE     DCM_UID_1_2_840_10008_5_1_4_1_1_9_1_2  
-#define DCM_SOP_VL_ENDO_IMG_STORAGE              DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_1 
-#define DCM_SOP_VL_MICRO_IMG_STORAGE             DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_2 
-#define DCM_SOP_VL_SLIDE_MICRO_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_3 
-#define DCM_SOP_VL_PHOTO_IMG_STORAGE             DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_4 
-#define DCM_SOP_MOD_PERF_PROC_STEP               DCM_UID_1_2_840_10008_3_1_2_3_3        
-#define DCM_SOP_MOD_PERF_PROC_STEP_RETRIEVE      DCM_UID_1_2_840_10008_3_1_2_3_4        
-#define DCM_SOP_MOD_PERF_PROC_STEP_NOTIFY        DCM_UID_1_2_840_10008_3_1_2_3_5        
-#define DCM_SOP_MODALITY_WORKLIST_FIND           DCM_UID_1_2_840_10008_5_1_4_31         
-#define DCM_SOP_PRESENTATION_LUT                 DCM_UID_1_2_840_10008_5_1_1_23         
-#define DCM_SOP_PRINT_QUEUE_INSTANCE             DCM_UID_1_2_840_10008_5_1_1_25         
-#define DCM_SOP_PRINT_QUEUE_MGMT                 DCM_UID_1_2_840_10008_5_1_1_26         
-#define DCM_SOP_PULL_PRINT_REQUEST               DCM_UID_1_2_840_10008_5_1_1_31         
-#define DCM_SOP_PULL_STORED_PRINT_MGMT_META      DCM_UID_1_2_840_10008_5_1_1_32         
+#define DCM_SOP_DIGI_XRAY_PRES_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_1_1
+#define DCM_SOP_DIGI_XRAY_PROC_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_1_1_1
+#define DCM_SOP_DIGI_MAMMO_PRES_IMG_STORAGE      DCM_UID_1_2_840_10008_5_1_4_1_1_1_2
+#define DCM_SOP_DIGI_MAMMO_PROC_IMG_STORAGE      DCM_UID_1_2_840_10008_5_1_4_1_1_1_2_1
+#define DCM_SOP_DIGI_INTRA_ORAL_PRES_IMG_STORAGE DCM_UID_1_2_840_10008_5_1_4_1_1_1_3
+#define DCM_SOP_DIGI_INTRA_ORAL_PROC_IMG_STORAGE DCM_UID_1_2_840_10008_5_1_4_1_1_1_3_1
+#define DCM_SOP_WAVEFORM_STORAGE                 DCM_UID_1_2_840_10008_5_1_4_1_1_9_1
+#define DCM_SOP_12_LEAD_ECG_WAVEFORM_STORAGE     DCM_UID_1_2_840_10008_5_1_4_1_1_9_1_1
+#define DCM_SOP_GENERAL_ECG_WAVEFORM_STORAGE     DCM_UID_1_2_840_10008_5_1_4_1_1_9_1_2
+#define DCM_SOP_VL_ENDO_IMG_STORAGE              DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_1
+#define DCM_SOP_VL_MICRO_IMG_STORAGE             DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_2
+#define DCM_SOP_VL_SLIDE_MICRO_IMG_STORAGE       DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_3
+#define DCM_SOP_VL_PHOTO_IMG_STORAGE             DCM_UID_1_2_840_10008_5_1_4_1_1_77_1_4
+#define DCM_SOP_MOD_PERF_PROC_STEP               DCM_UID_1_2_840_10008_3_1_2_3_3
+#define DCM_SOP_MOD_PERF_PROC_STEP_RETRIEVE      DCM_UID_1_2_840_10008_3_1_2_3_4
+#define DCM_SOP_MOD_PERF_PROC_STEP_NOTIFY        DCM_UID_1_2_840_10008_3_1_2_3_5
+#define DCM_SOP_MODALITY_WORKLIST_FIND           DCM_UID_1_2_840_10008_5_1_4_31
+#define DCM_SOP_PRESENTATION_LUT                 DCM_UID_1_2_840_10008_5_1_1_23
+#define DCM_SOP_PRINT_QUEUE_INSTANCE             DCM_UID_1_2_840_10008_5_1_1_25
+#define DCM_SOP_PRINT_QUEUE_MGMT                 DCM_UID_1_2_840_10008_5_1_1_26
+#define DCM_SOP_PULL_PRINT_REQUEST               DCM_UID_1_2_840_10008_5_1_1_31
+#define DCM_SOP_PULL_STORED_PRINT_MGMT_META      DCM_UID_1_2_840_10008_5_1_1_32
 
 //Additional added according to 2000
 #define DCM_SOP_RT_BRACHY_TREATMENT_RECORD_STORAGE     DCM_UID_1_2_840_10008_5_1_4_1_1_481_6
@@ -627,10 +627,10 @@
 #define	DCM_SOP_STRG_GENERAL_PURPOSE_SCHEDULED_PROC_STEP	"1.2.840.10008.5.1.4.32.2"
 #define	DCM_SOP_STRG_GENERAL_PURPOSE_PERFORMED_PROC_STEP	"1.2.840.10008.5.1.4.32.3"
 //...
-#define	DCM_TS_STRG_IMPLICIT_VR_LE					   "1.2.840.10008.1.2"			
+#define	DCM_TS_STRG_IMPLICIT_VR_LE					   "1.2.840.10008.1.2"
 #define	DCM_TS_STRG_EXPLICIT_VR_LE					   "1.2.840.10008.1.2.1"
-#define	DCM_TS_STRG_EXPLICIT_VR_BE					   "1.2.840.10008.1.2.2"	
-#define	DCM_TS_STRG_DEFAULT						   DCM_TS_STRG_IMPLICIT_VR_LE				
+#define	DCM_TS_STRG_EXPLICIT_VR_BE					   "1.2.840.10008.1.2.2"
+#define	DCM_TS_STRG_DEFAULT						   DCM_TS_STRG_IMPLICIT_VR_LE
 #define	DCM_TS_STRG_RLE								"1.2.840.10008.1.2.5"
 #define	DCM_TS_STRG_JPEG_LOSSY							"1.2.840.10008.1.2.4.50"
 #define	DCM_TS_STRG_JPEG_LOSSY_8						"1.2.840.10008.1.2.4.50"
@@ -710,7 +710,7 @@ typedef enum {
 
 typedef enum {
 	PHOTMETR_INTEPR_NONE,
-	PHOTMETR_INTEPR_MONOCHROME1, 
+	PHOTMETR_INTEPR_MONOCHROME1,
 	PHOTMETR_INTEPR_MONOCHROME2,
 	PHOTMETR_INTEPR_PALETTECOLOR,
 	PHOTMETR_INTEPR_RGB,
@@ -744,8 +744,8 @@ struct DICOM_DECL_SPEC DCMImgPixInfo {
 	WORD *			pRedPalColLUTData;	//Red Palette Color Lookup Table Data (0028,1201)
 	WORD *			pGreenPalColLUTData;//Green Palette Color Lookup Table Data	(0028,1202)
 	WORD *			pBluePalColLUTData;	//Blue Palette Color Lookup Table Data (0028,1203)
-	int				nXferSyn;	
-	
+	int				nXferSyn;
+
 	DCMImgPixInfo();
 	void clear();
 };
@@ -820,7 +820,7 @@ struct DICOM_DECL_SPEC DCMModLUTInfo {
 	char szRescOrLUTType[MAX_VRLO+1];	//Modality LUT Type (0028,3004)
 	char szLUTExplanation[MAX_VRLO+1];	//LUT Explanation (0028,3003)
 
-	BOOL bRelease;						//added by shape 20070205 for 控制是否释放pLUTData内存
+	BOOL bRelease;						//added by shape 20070205 for 鎺у埗鏄惁閲婃斁pLUTData鍐呭瓨
 	DCMModLUTInfo();
 	void clear();
 	const DCMModLUTInfo & operator=(const DCMModLUTInfo &dcmModLUTInfo);
@@ -841,7 +841,7 @@ struct DICOM_DECL_SPEC DCMCineInfo {
 	double dEffecDuration;		//Effective Duration (0018,0072)
 	int nActFramDuration;		//Actual Frame Duration (0018,1242)
 
-	BOOL bRelease;						//added by shape 20070205 for 控制是否释放pLUTData内存
+	BOOL bRelease;						//added by shape 20070205 for 鎺у埗鏄惁閲婃斁pLUTData鍐呭瓨
 	DCMCineInfo();
 	void clear();
 	const DCMCineInfo & operator=(const DCMCineInfo &dcmCineInfo);
@@ -854,7 +854,7 @@ struct DICOM_DECL_SPEC DCMCineInfo {
 /************************************************************************/
 enum DCM_OBJ{
 	DCM_OBJ_None,/*defaultinitializerorerrcondition*/
-	DCM_OBJ_Assoc=0X1001,		//edited by shape 20070706 for 和DCM_OBJ_CStoreRq冲突 1 -> 0X1001
+	DCM_OBJ_Assoc=0X1001,		//edited by shape 20070706 for 鍜孌CM_OBJ_CStoreRq鍐茬獊 1 -> 0X1001
 	DCM_OBJ_Elemlist,
 	DCM_OBJ_Elem,
 	DCM_OBJ_CEchoRq=0x0030,
@@ -897,7 +897,7 @@ public:
 };
 typedef DCMObj *DCMObjPtr;
 
-typedef struct PreContextItemRQ_ {	//A structure used for Presentation Context 
+typedef struct PreContextItemRQ_ {	//A structure used for Presentation Context
 	BYTE btPreContextID;
 	int nSop;	//SOP class, e.g. DCM_SOP_CR_STORAGE
 	int nTranSyntax[DCM_MAX_ALLOWED_TS]; //Aarry of Transfer Syntax, e.g. DCM_TS_IMPLICIT_VR_LE.
@@ -905,7 +905,7 @@ typedef struct PreContextItemRQ_ {	//A structure used for Presentation Context
 	DCM_SC_ROLE proSCRole;
 } PreContextItemRQ;
 
-typedef struct PreContextItemAC_ {	//A structure used for Presentation Context 
+typedef struct PreContextItemAC_ {	//A structure used for Presentation Context
 	BYTE btPreContextID;
 	BYTE btResultReason; // used for AC.
 	int nSop;	//SOP class, e.g. DCM_SOP_CR_STORAGE
@@ -920,17 +920,17 @@ typedef struct SCPSCURoleSelection_ {	//A structure used for SCP SCU Role Select
 	BYTE			bySCPRole;
 } SCPSCURoleSelection;
 
-typedef struct SOPClassExtNegotiation_ {	//A structure used for 
+typedef struct SOPClassExtNegotiation_ {	//A structure used for
 	char			szSOPClassUID[MAX_VRUI+1];
 	BYTE			byServClassAppinformation[100];
 	unsigned short	sServClsAppInfoLen;
 } SOPClassExtNegotiation;
 
-typedef struct RelaGenSOPClsIdentification_ {	//A structure used for 
+typedef struct RelaGenSOPClsIdentification_ {	//A structure used for
 	char			szSOPClassUID[MAX_VRUI+1];
 } RelaGenSOPClsIdentification;
 
-typedef struct SOPClassComExtNegotiation_ {	//A structure used for 
+typedef struct SOPClassComExtNegotiation_ {	//A structure used for
 	char			szSOPClassUID[MAX_VRUI+1];
 	char			szServiceClassUID[MAX_VRUI+1];
 	RelaGenSOPClsIdentification RelaGenSOPClsIdentifications[100];
@@ -982,7 +982,7 @@ typedef struct DCMScpInfo_ {
 }   DCMScpInfo;
 
 typedef enum {
-	DCMPRIT_MEDIUM, 
+	DCMPRIT_MEDIUM,
 	DCMPRIT_HIGH,
 	DCMPRIT_LOW,
 	DCMPRIT_NONE
@@ -1059,8 +1059,8 @@ typedef struct DCMDIMSERSPInfo_ {
 #define JPG_HUFFMAN_STANDARD	0
 
 typedef enum {
-	COMP_TYPE_NONE, 
-	COMP_TYPE_JPEG, 
+	COMP_TYPE_NONE,
+	COMP_TYPE_JPEG,
 	COMP_TYPE_RLE
 }COMP_TYPE;
 
@@ -1071,7 +1071,7 @@ typedef struct DCMCJpgOpt_ {
 	int nQuality;	//lossy JPEG representation options: --quality              [q]: integer (0..100, default: 90) use quality factor q
 	int nHuffOptim;	//other JPEG options: --huffman-optimize     1: optimize huffman tables (default) 0:use standard huffman tables if 8 bits/sample
 	int nSmooth;	//other JPEG options: --smooth               [s]: integer (0..100, default: 0)
-	//	int nBitPerSampOpt;	// compressed bits per sample options:  0: --bits-auto            choose bits/sample automatically (default) 
+	//	int nBitPerSampOpt;	// compressed bits per sample options:  0: --bits-auto            choose bits/sample automatically (default)
 	//										1: --bits-force-8         force 8 bits/sample
 	//										2: --bits-force-12        force 12 bits/sample (not with baseline)
 	//										3: --bits-force-16        force 16 bits/sample (lossless only)
@@ -1116,7 +1116,7 @@ typedef struct DCMDJpgOpt_ {
 	// 0   --planar-auto          automatically determine planar configuration
 	//							  from SOP class and color space (default)
 	// 1   --color-by-pixel       always store color-by-pixel
-	// 2   --color-by-plane       always store color-by-plane 
+	// 2   --color-by-plane       always store color-by-plane
 	int nSopInstUIDOpt;		// SOP Instance UID options:
 	//	0   --uid-default          keep same SOP Instance UID (default)
 	//  1 --uid-always           always assign new UID
@@ -1142,7 +1142,7 @@ BOOL DICOM_DECL_SPEC DCMDIMSERSPSend (DCMObjPtr pDIMSE, DCMObjPtr elemList, DCMD
 BOOL DICOM_DECL_SPEC DCMDIMSERSPReceive (DCMObjPtr pDIMSE, DCMDIMSERSPInfo * pDCMDIMSERSPInfo, char* szErrorMsg);
 
 /***************************************************************************/
-/* 
+/*
 *      DICOM COMM
 */
 /***************************************************************************/
@@ -1181,7 +1181,7 @@ BOOL DICOM_DECL_SPEC DCMClearSCPInfo(DCMScpInfo * pScpInfo, char* szErrorMsg);
 
 
 /***************************************************************************/
-/* 
+/*
 *      DLL Import/Export
 */
 /***************************************************************************/

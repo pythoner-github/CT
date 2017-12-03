@@ -81,8 +81,8 @@ void MenuCFM::Sensitive(bool on)
 GtkWidget* MenuCFM::Create(void)
 {
     m_table = gtk_table_new(20, 8, TRUE);
-	
-    // Background Hide 
+
+    // Background Hide
     m_labelBghide = create_label("", 0, 0, g_lightGray, NULL);
     m_check_btn_bghide = gtk_check_button_new();
     gtk_container_add(GTK_CONTAINER(m_check_btn_bghide), m_labelBghide);
@@ -100,7 +100,7 @@ GtkWidget* MenuCFM::Create(void)
     gtk_button_set_focus_on_click(GTK_BUTTON(m_btnBC), FALSE);
     gtk_widget_show(m_btnBC);
 
-    // Color Hide 
+    // Color Hide
     m_labelColorhide = create_label("", 0, 0, g_lightGray, NULL);
     m_btnColorhide = create_button(m_labelColorhide, 0, 0, g_deep);
     gtk_widget_modify_bg(m_btnColorhide, GTK_STATE_INSENSITIVE, g_deepGray);
@@ -345,5 +345,4 @@ void MenuCFM::ChgArtifact(EKnobOper oper)
 {
 	ImgProcCfm::GetInstance()->ChangeArtifact(oper);
 }
-
 

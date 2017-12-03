@@ -28,7 +28,7 @@ QuickAdjustmentPw::QuickAdjustmentPw()
     m_lineNo = 0;
     m_readPw = false;
     m_pPwBuf = NULL;
-    m_shutPwChangeKnob = false;  
+    m_shutPwChangeKnob = false;
     m_cout = 0;
 
 	m_prfChg = 0;
@@ -89,7 +89,7 @@ void QuickAdjustmentPw::QuickAdjustmentPwOff()
 		m_shutInitialPw = false;
 }
 
-// 从前端接收数据进行分析 
+// 从前端接收数据进行分析
 void QuickAdjustmentPw::SendDataToQAPw(unsigned char *pPwData)
 {
     ProbeSocket::ProbePara para;
@@ -97,7 +97,7 @@ void QuickAdjustmentPw::SendDataToQAPw(unsigned char *pPwData)
 
     // 先设置缓存pw数据的参数
     if(!m_readPw)
-    {                   
+    {
         m_spectrumSpeed = ImgPw::GetInstance()->GetKnobSpectrumSpeed();  //当前控制旋钮输入的频谱速度的重叠个数：（128-重叠个数）
         m_speedRatio = 48.0 / m_spectrumSpeed;   //频谱速度为0的重叠个数：（128-54）
 
@@ -135,7 +135,7 @@ void QuickAdjustmentPw::SendDataToQAPw(unsigned char *pPwData)
         {
             m_shutInitialPw = false;
         }
-        
+
         // 缓存结束
         if (m_lineNo == m_pwLines)
         {
@@ -149,9 +149,9 @@ void QuickAdjustmentPw::SendDataToQAPw(unsigned char *pPwData)
             m_pPwBuf = NULL;
 
             m_shutInitialPw = true;
-            m_shutPwChangeKnob = true;                                 
-        }                   
-    }   
+            m_shutPwChangeKnob = true;
+        }
+    }
 }
 
 // 正在接收pw数据时，切换到了其他模式，需关闭QAPw，初始化各变量
@@ -237,7 +237,7 @@ float QuickAdjustmentPw::MeanMaxMinCal(float *pSrc, int size, int flag)
 				for (i = 0; i < size; i++)
 				{
 					if (pSrc[i] > val)
-						val = pSrc[i];	
+						val = pSrc[i];
 				}
 			}
 			break;
@@ -293,7 +293,7 @@ void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width
 		reverseMaxIndex[i] = startPos2 ;
 	}
 
-	// calc noise 
+	// calc noise
 	for (i = noiseLine; i < noiseLine+noiseSize; i++)
 	{
 		for (j = 0; j < height; j++)
@@ -307,7 +307,7 @@ void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width
 					noiseMax = noisePwData;
 			}
 		}
-	}	
+	}
 	if (num > 0)
 	{
 		noiseMean = noiseMean / num;
@@ -320,7 +320,7 @@ void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width
 	//噪声阈值
 	noiseTh = ((4*noiseMean) < noiseMax)? (4*noiseMean) : noiseMax;
 	signalTh = ((6*noiseMean) > noiseMax)? (6*noiseMean) : noiseMax;
- 
+
 	// 搜寻频谱图的信号边界
 	for (j = invalidDataSize; j < width; j++)
 	{
@@ -395,7 +395,7 @@ void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width
 						break;
 			}
 		}
-		//PRINTF("----rM[%d] = %.2f", j-invalidDataSize, reverseMaxIndex[j-invalidDataSize]);	
+		//PRINTF("----rM[%d] = %.2f", j-invalidDataSize, reverseMaxIndex[j-invalidDataSize]);
 	}
 
 	// set prf and baseline
@@ -433,8 +433,8 @@ void QuickAdjustmentPw::AnalysisPw(unsigned char *srcData, int height, int width
 	float ratioPrfChg;
 	if (distForward > distReverse)
 	{
-		distOpt = distOpt * distMean / distMax; 
-		ratioPrfChg = distMean / distOpt; 
+		distOpt = distOpt * distMean / distMax;
+		ratioPrfChg = distMean / distOpt;
 		m_prfChg = m_refPRF * ratioPrfChg;
 		m_baselineChg = - static_cast<int>((distForward - distMax/2)/(height/16.0 * ratioPrfChg) + 0.8);
 	}

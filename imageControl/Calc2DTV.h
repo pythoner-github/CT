@@ -10,7 +10,7 @@ class Calc2DTV: public Calc2D
 		Calc2DTV();
 		~Calc2DTV();
 
-		virtual void CalcEmitDelay(); 
+		virtual void CalcEmitDelay();
 		void CalcTgc(int gain, int tgcY[],AbsUpdate2D* ptrUpdate, int section);
 		void CalcFocPos();
         void CalcDefaultDemodFd();
@@ -37,9 +37,8 @@ class Calc2DTV: public Calc2D
 		static float TIS_2D_POWER[10];
 		static float TIS_2D_DEPTH[20];
 		static float TIS_PW_BASIC[2][15]; ///< pw doppler freq--prf
-		
+
 		virtual int Get2DFreqReceiveIndex(int freq);
 		virtual int GetColorFreqIndex(int freq);
 };
 #endif
-

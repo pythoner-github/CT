@@ -65,7 +65,7 @@ GtkWidget * MenuM::Create(void)
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_check_btn_polarity, 0, 1, 0, 1);
     g_signal_connect(m_check_btn_polarity, "clicked", G_CALLBACK(HandleChkPolarity), this);
     gtk_widget_show(m_check_btn_polarity);
-    
+
     // time mark on/off
     m_labelTimemark = create_label("", 0, 0, g_lightGray, NULL);
     m_check_btn_timemark = gtk_check_button_new();
@@ -85,7 +85,7 @@ GtkWidget * MenuM::Create(void)
     gtk_table_attach_defaults(GTK_TABLE(m_table), table_smooth, 0, 1, 4, 5);
     spin_smooth.Show();
 
-    // enhance M 
+    // enhance M
     spin_enhanceM.SetItem(&item_enhanceM);
     GtkWidget *table_enhanceM = spin_enhanceM.Create();
     gtk_table_attach_defaults(GTK_TABLE(m_table), table_enhanceM, 0, 1, 5, 6);
@@ -134,7 +134,7 @@ GtkWidget * MenuM::Create(void)
     gtk_frame_set_label_align(GTK_FRAME(m_frameFormat), 0.5, 0.5);
     gtk_frame_set_shadow_type(GTK_FRAME (m_frameFormat), GTK_SHADOW_IN);
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_frameFormat, 0, 1, 11, 16);
-    
+
     GtkWidget *tableFormat = gtk_table_new (2, 3, TRUE);
     gtk_container_add (GTK_CONTAINER (m_frameFormat), tableFormat);
     gtk_container_set_border_width (GTK_CONTAINER (tableFormat), 2);
@@ -335,7 +335,7 @@ void MenuM::BtnFormat3Clicked(GtkButton *button)
     else
     {
         HintArea::GetInstance()->UpdateHint(_("[Format]: Format change is invalid in freeze mode."), 2);
-    }    
+    }
 }
 
 void MenuM::BtnFormat4Clicked(GtkButton *button)
@@ -348,7 +348,7 @@ void MenuM::BtnFormat4Clicked(GtkButton *button)
     else
     {
         HintArea::GetInstance()->UpdateHint(_("[Format]: Format change is invalid in freeze mode."), 2);
-    }    
+    }
 }
 
 void MenuM::BtnFormat5Clicked(GtkButton *button)
@@ -361,7 +361,7 @@ void MenuM::BtnFormat5Clicked(GtkButton *button)
     else
     {
         HintArea::GetInstance()->UpdateHint(_("[Format]: Format change is invalid in freeze mode."), 2);
-    }    
+    }
 }
 
 void MenuM::WriteFormatM(int format)

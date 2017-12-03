@@ -67,7 +67,7 @@ GUIMenuNew g_measureAllDefaultItem[] ={
 };
 MenuMeasure g_menuMeasure;
 
-MenuMeasure::MenuMeasure() 
+MenuMeasure::MenuMeasure()
 : m_sizeDefaultItems(0), m_examItem("AdultAbdo"), m_scanMode(ScanMode::D2), m_completeMeasureFlag(NULL)
 {
 	m_sizeDefaultItems = sizeof(g_measureAllDefaultItem) / sizeof(GUIMenuNew);
@@ -111,7 +111,7 @@ GtkWidget * MenuMeasure::Create()
     gtk_container_add (GTK_CONTAINER (m_scrolledWindow), m_treeView);
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_scrolledWindow, 0, 6, 1, 18);
     gtk_widget_modify_bg(m_scrolledWindow, GTK_STATE_NORMAL, g_deep);
-	
+
 	return m_table;
 }
 
@@ -268,7 +268,7 @@ void MenuMeasure::UpdateCurrentExamItemMeasureItems(string item)
 void MenuMeasure::UpdateCurrentScanModeMeasureItems(ScanMode::EScanMode mode)
 {
 	EMeasureMode meaMode = GetMeasureMode(mode);
-	
+
 	m_vecCurScanModeMeasureItem.clear();
 	for (int i = 0; i < (int)m_vecCurExamItemMeasureItem.size(); i++)
 	{
@@ -326,6 +326,5 @@ void MenuMeasure::CompleteCurrentMeasure()
 	if (parentEtype != -1)
 		SetCompleteMeasureFlag(parentEtype);
 }
-
 
 

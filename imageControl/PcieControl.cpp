@@ -72,7 +72,7 @@ int PcieControl::ReqIo(unsigned char request, int addr, int len, unsigned char *
 	control.par_type = BITS32;
 	control.par_len = len;
 	control.par_data = (char *)buf;
-	
+
 	ret = ioctl(m_fdPcieControl, SEND_PAR, &control);
 	if (ret < 0)
 	{
@@ -110,7 +110,7 @@ int PcieControl::ReadBufFromFpga(int len, unsigned char *buf)
 		PRINTF("Error is: %s\n", strerror(errno));
 		return (ERR_SYSCALL);
 	}
-	
+
 	return (SUCCESS);
 }
 
@@ -129,7 +129,7 @@ int PcieControl::WriteOneDataToFpga(INT32U addr, INT32U data)
 	INT32 ret;
 
 	dataType = BITS32;
-	paraLen = 1;	
+	paraLen = 1;
 	fpgaAddr = (unsigned char)addr;
 	buf = &data;
 
@@ -139,7 +139,7 @@ int PcieControl::WriteOneDataToFpga(INT32U addr, INT32U data)
 		PRINTF("fpga send one data error\n");
 		return (ERR_OP);
 	}
-	
+
 	return (SUCCESS);
 }
 
@@ -148,7 +148,7 @@ int PcieControl::WriteOneDataToFpga(INT32U addr, INT32U data)
 * @param addr fpga address
 * @param len data length
 * @param type bits type
-* @param send_buf[]  buf to send to fpga 
+* @param send_buf[]  buf to send to fpga
 */
 int PcieControl::WriteBufToFpga(INT32U addr, INT32U len, INT8U type, INT8U *sendBuf)
 {
@@ -160,17 +160,17 @@ int PcieControl::WriteBufToFpga(INT32U addr, INT32U len, INT8U type, INT8U *send
 
 	PRINTF("fpga send buf: type = %d\n", type);
 	PRINTF("fpga send buf: len = %d\n", len);
-	
+
 	lenRemain = type * len;
 	lenCur = 0;
-	
+
 	while(lenRemain)
 	{
 		if (lenRemain > dataPkt)
 			lenPara = dataPkt;
 		else
 			lenPara = lenRemain;
-		
+
 		ret = BulkOut(type, (lenPara / type), addr, (sendBuf + lenCur));
 		if (ret != SUCCESS)
 		{
@@ -198,7 +198,7 @@ int PcieControl::BulkOut(unsigned char dataType, unsigned int dataLen, unsigned 
 	control.par_type = dataType;
 	control.par_len = dataType * dataLen;
 	control.par_data = (char *)buf;
-	
+
 	ret = ioctl(m_fdPcieControl, SEND_PAR, &control);
 	if (ret < 0)
 	{
@@ -208,5 +208,4 @@ int PcieControl::BulkOut(unsigned char dataType, unsigned int dataLen, unsigned 
 
 	return (SUCCESS);
 }
-
 

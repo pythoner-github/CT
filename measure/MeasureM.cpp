@@ -40,7 +40,7 @@ void MMeasureTime::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	switch (m_step) 
+	switch (m_step)
 	{
 		case 0:
 			if (m_isDraw) {
@@ -81,7 +81,7 @@ void MMeasureTime::PressLeft(POINT p)
 			{
 				m_time = m_calc.MCalcTime(m_p1, m_tempP);
 				m_hr = m_calc.MCalcHR(m_time);
-				resultTmp = m_hr;	
+				resultTmp = m_hr;
 			}
 			m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
@@ -137,7 +137,7 @@ void MMeasureTime::MouseMove(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	switch (m_step) 
+	switch (m_step)
 	{
 		case 0:
 			if (m_isDraw) {
@@ -156,7 +156,7 @@ void MMeasureTime::MouseMove(POINT p)
 
 			m_tempP = p;
 			m_draw.DrawVLine(m_tempP);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			if (m_itemInfo->meaType == TIME_M)
 			{
@@ -167,7 +167,7 @@ void MMeasureTime::MouseMove(POINT p)
 			{
 				m_time = m_calc.MCalcTime(m_p1, m_tempP);
 				m_hr = m_calc.MCalcHR(m_time);
-				resultTmp = m_hr;	
+				resultTmp = m_hr;
 			}
 			m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, true, 1);
@@ -206,16 +206,16 @@ void MMeasureTime::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawVLine(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawVLine(m_tempP);
 			m_draw.DrawVLine(m_p1, FALSE);
 			m_draw.DrawOrderNumber(m_p1, m_draw.GetOrderNumber());
-		}		
+		}
 	}
 }
 
@@ -252,7 +252,7 @@ void MMeasureVel::PressLeft(POINT p)
 
 	double allData[SINGLE_MAX];
 
-	switch(m_step) 
+	switch(m_step)
 	{
 		case 0: // first
 			if (m_isDraw) {
@@ -288,7 +288,7 @@ void MMeasureVel::PressLeft(POINT p)
 			m_result = m_calc.MCalcVel(m_p1, m_tempP);
 			m_ptrMan->SingleMeaDataMan(m_result, m_itemInfo, allData, SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-			
+
 			//begin new measure
 			m_draw.ChangeCursorType();
 			Init();
@@ -302,7 +302,7 @@ void MMeasureVel::PressLeft(POINT p)
 
 void MMeasureVel::PressRight(POINT p)
 {
-	switch(m_step) 
+	switch(m_step)
 	{
 		case 0: // clear last measure result and measure line
 			m_ptrMan->ClearLast();
@@ -340,7 +340,7 @@ void MMeasureVel::MouseMove(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	switch (m_step) 
+	switch (m_step)
 	{
 		case 0:
 			if (m_isDraw) {
@@ -361,7 +361,7 @@ void MMeasureVel::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCrossLine(p);
 			m_draw.DrawDotLine(m_p1, p);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_result = m_calc.MCalcVel(m_p1, m_tempP);
 			m_ptrMan->SingleMeaDataMan(m_result, m_itemInfo, allData, NOT_SAVE);
@@ -400,16 +400,16 @@ void MMeasureVel::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCrossLine(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCrossLine(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawDotLine(m_p1, m_tempP);
-		}		
+		}
 	}
 }
 
@@ -444,7 +444,7 @@ void MMeasureDistSlope::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	switch(m_step) 
+	switch(m_step)
 	{
 		case 0: // first
 			if (m_isDraw) {
@@ -476,7 +476,7 @@ void MMeasureDistSlope::PressLeft(POINT p)
 			vec.push_back(m_p1);
 			vec.push_back(m_tempP);
 			m_ptrMan->AddNew(DIST_SLOPE_M, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-			
+
 			Result(SAVE, attr);
 
 			//begin new measure
@@ -492,7 +492,7 @@ void MMeasureDistSlope::PressLeft(POINT p)
 
 void MMeasureDistSlope::PressRight(POINT p)
 {
-	switch(m_step) 
+	switch(m_step)
 	{
 		case 0: // clear last measure result and measure line
 			m_ptrMan->ClearLast();
@@ -529,7 +529,7 @@ void MMeasureDistSlope::MouseMove(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	switch(m_step) 
+	switch(m_step)
 	{
 		case 0:
 			if (m_isDraw) {
@@ -550,7 +550,7 @@ void MMeasureDistSlope::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCrossLine(p);
 			m_draw.DrawDotLine(m_p1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			Result(NOT_SAVE, attr);
 			break;
@@ -587,16 +587,16 @@ void MMeasureDistSlope::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCrossLine(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCrossLine(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawDotLine(m_p1, m_tempP, true);
-		}		
+		}
 	}
 	m_update.ClearMeasure();
 }
@@ -609,7 +609,7 @@ void MMeasureDistSlope::Result(int saveR, UpdateMeasure::ResultAttr& attr)
 
 	m_dist = m_calc.MCalcDepthDist(m_p1, m_tempP);
 	m_slope = m_calc.MCalcVel(m_p1, m_tempP);
-	
+
 	data[0] = m_dist; unit_coeffi[0] = 1;
 	data[1] = m_slope; unit_coeffi[1] = 1;
 	for (int i=2; i<MEA_MULTI; i++) {data[i] = INVALID_VAL; unit_coeffi[i] = 0;}
@@ -652,7 +652,7 @@ void MMeasureDepth::PressLeft(POINT p)
 	attr.confirmColor = m_draw.GetConfirmColor();
 
 	double allData[SINGLE_MAX];
-	
+
 	switch(m_step) {
 		case 0: // first
 			if (m_isDraw) {
@@ -683,11 +683,11 @@ void MMeasureDepth::PressLeft(POINT p)
 			vec.push_back(m_p1);
 			vec.push_back(m_tempP);
 			m_ptrMan->AddNew(DEPTH_DIST_M, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-			
+
 			m_dist = m_calc.MCalcDepthDist(m_p1, m_tempP);
 			m_ptrMan->SingleMeaDataMan(m_dist, m_itemInfo, allData, SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-			
+
 			//begin new dist measure
 			m_draw.ChangeCursorType();
 			Init();
@@ -743,7 +743,7 @@ void MMeasureDepth::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -758,10 +758,10 @@ void MMeasureDepth::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist = m_calc.MCalcDepthDist(m_p1, m_tempP);
-			
+
 			m_ptrMan->SingleMeaDataMan(m_dist, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, true, 1);
 			break;
@@ -798,16 +798,16 @@ void MMeasureDepth::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawDotLine(m_p1, m_tempP, true);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 	m_update.ClearMeasure();
@@ -857,7 +857,7 @@ void MMeasureEFTei::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 			m_lvdd_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 1);
 			m_draw.SetCursor(m_tempP);
@@ -894,7 +894,7 @@ void MMeasureEFTei::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 			m_lvds_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 1);
 			m_draw.SetCursor(m_tempP);
@@ -1031,7 +1031,7 @@ void MMeasureEFTei::MouseMove(POINT p)
 			}
 
 			m_tempP = p;
-			m_lvdd_start = m_tempP;		
+			m_lvdd_start = m_tempP;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -1048,7 +1048,7 @@ void MMeasureEFTei::MouseMove(POINT p)
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lvdd_start, m_tempP);
 			//	m_draw.SetCursor(m_tempP);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_lvdd = m_calc.MCalcDepth(m_lvdd_start, m_lvdd_end);
 			m_lvvd = m_calc.MCalcLvTei(m_lvdd);
@@ -1062,7 +1062,7 @@ void MMeasureEFTei::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_lvds_start = m_tempP;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
@@ -1080,7 +1080,7 @@ void MMeasureEFTei::MouseMove(POINT p)
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lvds_start, m_tempP);
 			//	m_draw.SetCursor(m_tempP);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_lvds = m_calc.MCalcDepth(m_lvds_start, m_lvds_end);
 			m_lvvs = m_calc.MCalcLvTei(m_lvds);
@@ -1096,7 +1096,7 @@ void MMeasureEFTei::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void MMeasureEFTei::Change()
 {
 	if (m_step == 1)
@@ -1148,19 +1148,19 @@ void MMeasureEFTei::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else if (m_step == 1) 
+	else if (m_step == 1)
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_lvdd_start, FALSE);
 			m_draw.DrawLine(m_lvdd_start, m_tempP);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
-	else if (m_step == 2) 
+	else if (m_step == 2)
 	{
 		if (m_isDraw)
 		{
@@ -1170,10 +1170,10 @@ void MMeasureEFTei::Esc()
 
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawOrderNumber(m_lvdd_end, m_draw.GetOrderNumber());
-		}		
+		}
 		m_update.ClearMeasure();
 	}
-	else if (m_step == 3) 
+	else if (m_step == 3)
 	{
 		if (m_isDraw)
 		{
@@ -1185,7 +1185,7 @@ void MMeasureEFTei::Esc()
 			m_draw.DrawCursor(m_lvds_start, FALSE);
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lvds_start, m_tempP);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }

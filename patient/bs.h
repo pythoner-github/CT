@@ -366,4 +366,3 @@ static int bs_size_te( int x, int val )
 #endif
 #endif
 
-

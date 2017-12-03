@@ -5,7 +5,7 @@
  * @brief: manage patient info and patient exam info
  *
  * version: V1.0
- * date: 2009-7-21	
+ * date: 2009-7-21
  * @author: zhanglei
  */
 
@@ -71,7 +71,7 @@ void PatientInfo::ClearRecord(void)
 		{
 			perror("rmdir fail!");
 			PRINTF("delete folder of store path 0 error\n");
-			g_free(path);	
+			g_free(path);
 			return;
 		}
 	}
@@ -80,7 +80,7 @@ void PatientInfo::ClearRecord(void)
 	{
 		PRINTF("create folder of store path 0 error\n");
 	}
-	
+
 	g_free(path);
 }
 
@@ -91,7 +91,7 @@ void PatientInfo::ClearExam()
 
 	// clear record
 	ClearRecord();
-	
+
 	// clear result of measure, calc, report
 }
 
@@ -99,7 +99,7 @@ void PatientInfo::ClearAll()
 {
 	// clear patient info
 	ClearPatientInfo();
-    
+
 	UpdateTopArea();
 
 	// clear exam info
@@ -107,13 +107,13 @@ void PatientInfo::ClearAll()
 
 	// clear record
 	ClearRecord();
-	
+
 	m_exist = false;
 	// clear result of measure, calc, report
 	MeasureMan::GetInstance()->ClearAllValue();
 
 	// hide bodymark
-	BodyMark::HideBodyMark();    
+	BodyMark::HideBodyMark();
 }
 #ifdef VET
 
@@ -184,7 +184,7 @@ void PatientInfo::UpdateTopArea(void)
     GetAnimalSpeciesString(m_info.p.species, species);
 #else
     //string name;
-    SysGeneralSetting sgs;    
+    SysGeneralSetting sgs;
     int lang = sgs.GetLanguage();
     if(!lang)
         name = m_info.p.name.first + " " + m_info.p.name.mid + " " + m_info.p.name.last;
@@ -198,7 +198,7 @@ void PatientInfo::UpdateTopArea(void)
 #else
     TopArea::GetInstance()->UpdatePatInfo(name.c_str(), sex_text.c_str(), age.c_str(), m_info.p.id.c_str());
 #endif
- 
+
 }
 
 bool PatientInfo::ArchivePatientInfo(string &errmsg)
@@ -364,11 +364,10 @@ void PatientInfo::InitExamUro()
 
 void PatientInfo::ClearExamInfo()
 {
-	InitExam();	
+	InitExam();
 }
 void PatientInfo::ClearPatientInfo()
 {
     InitPatient();
 }
-
 

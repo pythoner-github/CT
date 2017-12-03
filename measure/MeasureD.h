@@ -34,8 +34,8 @@ class DMeasureManualTrack: public AbsMeasure
 	POINT m_psP;
 	POINT m_edP;
 
-	vector<POINT> m_track;//存储轨迹用于擦除  
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+	vector<POINT> m_track;//存储轨迹用于擦除
+	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -74,7 +74,7 @@ class DMeasureManualDot: public AbsMeasure
 	double m_pi;
 	int m_hr;
 	POINT m_psTmp;
-	vector<POINT> m_dot;//存储描点位置用于擦除   
+	vector<POINT> m_dot;//存储描点位置用于擦除
 	POINT m_psP;
 	POINT m_edP;
 
@@ -144,7 +144,7 @@ class DMeasureIntegralTrack: public AbsMeasure
     private:
 	double m_integral_area;
 	double m_perimeter;
-	vector<POINT> m_track;//存储轨迹用于擦除  
+	vector<POINT> m_track;//存储轨迹用于擦除
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -452,7 +452,7 @@ class DMeasureP12t :public AbsMeasure
 		double m_p12t;
 		int m_item;
 		const MultiItemInfo *m_itemInfo;
-		
+
     void Result(int saveR, UpdateMeasure::ResultAttr& attr);
 };
 
@@ -489,7 +489,7 @@ class DMeasurePI :public AbsMeasure//应该再加入鼠标反向运动时自动�
 		bool m_isDraw;
 		POINT m_tempP;
 		vector<POINT> m_vec;
-        vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+        vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
         POINT m_psP;
 		POINT m_edP;
 		double m_ps;

@@ -17,7 +17,7 @@ public:
     void DestroyWindow(void);
     bool DefaultFactory(void);
  void tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data);
-    
+
 
 private:
     ViewTemplet();
@@ -82,7 +82,7 @@ private:
 // signal connect
 static void HandleTempletBtnClicked(GtkWidget *widget, GdkEventButton *event, ViewTemplet *data) { data->BtnTempletClicked(widget, event); }
   static bool HandleTempletExpandBefore(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path, ViewTemplet *data)
-    { 
+    {
         return data->TempletTestRowExpandBefore(treeview, iter, path);
     }
 

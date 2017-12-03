@@ -4,14 +4,14 @@
 * for drawing probe mar arrow and bodymark, don't implement.
 *
 * @version: 1.0
-* @author:zhanglei 
+* @author:zhanglei
 * @date: 2009-9-17
 */
 
 #ifndef UPDATE_BODYMARK_H
 #define UPDATE_BODYMARK_H
 
-#include <gtk/gtk.h> 
+#include <gtk/gtk.h>
 #include "Def.h"
 #include  "MenuArea.h"
 

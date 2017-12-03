@@ -1,4 +1,4 @@
-// -*- c++ -*- 
+// -*- c++ -*-
 #ifndef FAKE_X_EVENT_H
 #define FAKE_X_EVENT_H
 

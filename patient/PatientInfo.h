@@ -44,7 +44,7 @@ class PatientInfo
             string address;
             string comment;
 
-        
+
         };
 #else
 		struct Patient
@@ -52,14 +52,14 @@ class PatientInfo
 			string id;
 			Name name;
 			int sex; ///< 0: Female; 1: Male 2: Other
-			int age; 
+			int age;
 			int ageUnit; ///< 0: year; 1-month; 2-day
 			Date birthDate;
 			string telephone;
 			string address;
 			string comment;
 		};
-#endif 
+#endif
 		struct ExamGeneral
 		{
 			string examNum;
@@ -114,8 +114,8 @@ class PatientInfo
 		void SetExamType(const std::string &examtype) { m_info.e.examType = examtype; }
 
 		bool ArchivePatientInfo(string &errmsg);
-		void ArchiveImg(); 
-		void ArchiveReport(); 
+		void ArchiveImg();
+		void ArchiveReport();
 		bool GetExist(void) { return m_exist; }
 
         void UpdatePatInfoToTopArea(Name name ,string sex,string age,string id);
@@ -123,7 +123,7 @@ class PatientInfo
 	private:
 		Info m_info;
 		bool m_exist;
-        
+
         void InitComment();
 		void InitPatient();
 		void InitExam();

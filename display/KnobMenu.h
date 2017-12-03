@@ -13,7 +13,7 @@ class KnobMenu
 {
 public:
     ~KnobMenu(){ if (m_ptrInstance != NULL) delete m_ptrInstance; }
-	
+
 	typedef EKnobReturn (*pKnobFunc)(EKnobOper);
 	typedef EKnobReturn (*pKnobFuncPress)(void);
 	struct KnobItem{
@@ -42,7 +42,7 @@ public:
     void Knob3_Screw(int cw);
     void Knob4_Screw(int cw);
     void Knob5_Screw(int cw);
-	
+
 	void Knob1_Press(void);
     void Knob2_Press(void);
     void Knob3_Press(void);

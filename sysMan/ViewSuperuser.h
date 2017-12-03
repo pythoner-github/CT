@@ -19,10 +19,10 @@ public:
 #ifdef EMP_PROJECT
     bool GetProjectModeStatus(void) { return m_statusProjectMode; }
 #endif
- 
+
    void ExitDemo();
 
-#ifdef TRANSDUCER 
+#ifdef TRANSDUCER
     int GetPressValue() { return m_tranPressCorrect;}
 #endif
 
@@ -57,7 +57,7 @@ private:
 #else
     static const int WPORBE_NUM = 11;
 #endif
-#endif    
+#endif
 
     static std::string m_probeName[WPORBE_NUM];
 
@@ -140,8 +140,8 @@ private:
     static void HandleBtnChgMonitorClicked2(GtkButton *widget, ViewSuperuser *data) { return data->BtnChgMonitorClicked2(widget); }
 
 #ifdef TRANSDUCER
-    static void on_spinbutton_press_adjust(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSuperuser *data) 
-    { data->SpinbuttonPressAdjust(editable, new_text, new_text_length, position); }  
+    static void on_spinbutton_press_adjust(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSuperuser *data)
+    { data->SpinbuttonPressAdjust(editable, new_text, new_text_length, position); }
 #endif
 
     //demo
@@ -164,7 +164,7 @@ public:
 	static void on_edited_cell_callback(GtkCellRendererText *cell, gchar *path_string, gchar *new_text, ViewSuperuser *data){
 		data->EditedCellChanged(cell, path_string, new_text);
 	}
-    static void  on_entry_probe_alias_insert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewSuperuser *data) 
+    static void  on_entry_probe_alias_insert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewSuperuser *data)
     { data->EntryProbeAliasInsert(cell, editable, path); }
 
     static void on_entry_insert_item(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSuperuser *data)

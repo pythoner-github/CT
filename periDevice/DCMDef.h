@@ -37,7 +37,7 @@ namespace DCM
 	enum EDCMRequestedResolutionID { RRID_STANDARD, RRID_HIGH, RRID_NONE };
 }
 
-typedef struct tagDCMStudyElement	
+typedef struct tagDCMStudyElement
 {
 	string stSpecificCharacterSet;	///< from Worklist, given empty string if no.
 	string stPatientName;
@@ -193,7 +193,7 @@ typedef void (*GetSingleServiceAttribute)(string device, string serviceName, str
 /**
  * @param nPos current position of progress, the total value is 100.
  */
-typedef void (*PROGRESSSTATUS)(int nPos);	
+typedef void (*PROGRESSSTATUS)(int nPos);
 
 /**
  *@return return studyNo.
@@ -210,6 +210,5 @@ typedef string (*GetDCMImageElement)(DCMIMAGEELEMENT element, unsigned char *pIm
  *@param progressPos the progress pos of retrieve current image or/and sr.
  */
 typedef void (*GetDCMSRElement)(DCMSRELEMENT element);
-	
-#endif //DCMDEF_H
 
+#endif //DCMDEF_H

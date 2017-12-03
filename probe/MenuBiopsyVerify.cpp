@@ -77,7 +77,7 @@ GtkWidget * MenuBiopsyVerify::Create(void)
 	gtk_menu_bar_set_pack_direction(GTK_MENU_BAR(menuBar0),GTK_PACK_DIRECTION_TTB);
 
 	UpdateLabel();
-    
+
 	return m_vboxBioVerify;
 
 }
@@ -98,10 +98,10 @@ void MenuBiopsyVerify:: Show(void)
 
 	 gtk_widget_show_all(m_vboxBioVerify);
 
-	//----------------------------------------------------// 
+	//----------------------------------------------------//
 	 g_menuBiopsy.SetDrawStatus(true);//2016.09.22
 	//-----------------------------------------------------//
-	
+
 	 BiopsyLine::GetInstance()->Create();
 	 //-----------------------------------------------------------//
 	/* SetSystemCursor(90,130);//	SetSystemCursor(90,100);
@@ -135,7 +135,7 @@ void MenuBiopsyVerify::MenuItemAngleActivate(GtkMenuItem *menuitem)
 
 	BiopsyMan::GetInstance()->SetCurBioAngleType(angleType);//2016.08.09
 	g_menuBiopsy.UpdateAngleMenuItem();
-	BiopsyLine::GetInstance()->AngleSwitch(); 
+	BiopsyLine::GetInstance()->AngleSwitch();
 }
 void MenuBiopsyVerify::MenuItemExitActivate(GtkMenuItem *menuitem)
 {
@@ -260,7 +260,7 @@ void MenuBiopsyVerify::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int i
 	}
 
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(menuitem),true);
-	
+
 	//----------------------------------------------------------------//
 
 	string angleType=gtk_menu_item_get_label(GTK_MENU_ITEM(menuitem));
@@ -277,4 +277,3 @@ void MenuBiopsyVerify::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int i
 	doBtnEvent(1, 0);*///fake btn unpress
 	//-------------------------------------------------------------//
 }
-

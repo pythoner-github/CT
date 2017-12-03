@@ -45,20 +45,20 @@ public:
     static ScanMode* GetInstance();
 
     void Enter2D();
-		
+
     void EnterM(); ///< enter initial M mode, 2D + MCursor
     void UpdateBM(); ///< enter real M mode from initial M mode
     void UpdateM(); ///< enter real M mode from initial M mode
-		
+
     void EnterPw();
     void UpdatePw();
     int SwitchPw();
-		
+
     void EnterCfm();
     void EnterPdi();
 
     void Enter4D();
-		
+
     void EnterPwCfmFromCfm();
     void UpdatePwCfmFromInit();
     int SwitchPwCfm();
@@ -90,19 +90,19 @@ public:
 
     void EnterAnatomicM();
 
-    ScanMode::EScanMode GetScanMode() 
-    { 
+    ScanMode::EScanMode GetScanMode()
+    {
         if (m_isSpecialMeasure)
-            return m_scanModeMeasure; 
-        else 
-            return m_scanMode; 
+            return m_scanModeMeasure;
+        else
+            return m_scanMode;
     }
-    ScanMode::EScanMode GetPreScanMode() 
-    { 
+    ScanMode::EScanMode GetPreScanMode()
+    {
         if (m_isSpecialMeasure)
-            return m_scanModeMeasure; 
-        else 
-            return m_preScanMode; 
+            return m_scanModeMeasure;
+        else
+            return m_preScanMode;
     }
 
     ScanMode::EScanMode GetFpgaScanMode() { return m_fpgaScanMode; }
@@ -127,18 +127,18 @@ private:
 
     static ScanMode* m_ptrInstance;
     		AbsUpdatePw* m_ptrUpdate;
-    // extern 
+    // extern
     FpgaCtrl2D m_fpgaCtrl2D;
 
     AbsUpdate2D* m_ptrUpdate2D;
     Img2D* m_ptrImg2D;
     Format2D* m_ptrFormat2D;
     FormatM* m_ptrFormatM;
-		
+
     AbsUpdatePw* m_ptrUpdatePw;
     ImgPw* m_ptrImgPw;
     FormatPw* m_ptrFormatPw;
-		
+
     AbsUpdateCfm* m_ptrUpdateCfm;
     ImgCfm* m_ptrImgCfm;
     FormatCfm* m_ptrFormatCfm;
@@ -160,9 +160,9 @@ private:
     int m_pulseNumTmp;
 
         ///> 0-pw and 2D both real
-    ///> 1-2D real 
-    ///> 2-pw real 
-    int m_pwCurImg; 
+    ///> 1-2D real
+    ///> 2-pw real
+    int m_pwCurImg;
 
     ///> special measure
     bool m_isSpecialMeasure;

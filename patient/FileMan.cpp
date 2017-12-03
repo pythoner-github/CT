@@ -25,7 +25,7 @@
 bool FileMan::CheckFreeSpace(const char* path, unsigned long size)
 {
 	struct statfs fs;
-	
+
 	if(statfs(path, &fs)==0)
 	{
 		if((double)fs.f_bsize*fs.f_bavail-size>0)
@@ -209,7 +209,7 @@ unsigned char FileMan::CheckFileName(unsigned int no, const char* filename, cons
 	absFrmPath[i] = '\0';
 	strcat(absFrmPath, ".frm");
 }
- 
+
 /*
  * @brief check the filename which name has the same suffix
  *
@@ -319,7 +319,7 @@ int FileMan::CheckFileName(const char *dest)
 
 /*
  * @brief Copy file to dest path by File I/O
- *  Warm: If the dest is existed, it will cover it! 
+ *  Warm: If the dest is existed, it will cover it!
  *		  If you don't want to cover it, plese call CheckFileName to check it first!
  *
  * @param delete: whether to delete the source file, defaults is not
@@ -389,7 +389,7 @@ int FileMan::CopyFileProgress(const char *source, const char *dest)
 
 	if(stat(source, &st)<0)
 		return -1;
-	
+
 	fds = open(source, O_RDONLY | O_SYNC);
 	if(fds < 0)
 	{
@@ -442,14 +442,14 @@ int FileMan::CopyFile(const char *source, const char *dest)
 		if( !feof(fs) && ( n=fread( buff, sizeof(char), sizeof(buff), fs ) >=0 ) )
 		{
 			fwrite(buff, sizeof(char), sizeof(buff), fd);
-		} 
-		else if(feof(fs)) 
+		}
+		else if(feof(fs))
 		{
 			fclose(fd);
 			fclose(fs);
 			return 0;
 		}
-		else 
+		else
 		{
 			fclose(fd);
 			fclose(fs);
@@ -489,7 +489,7 @@ int FileMan::copy_dir(const char* source, const char* dest)
 		perror("open source error");
 		return -1;
 	}
-		
+
 	dir2 = opendir(des);
 	if(!dir2)
 	{
@@ -621,7 +621,7 @@ int FileMan::delete_dir(const char* absPath)
 				PRINTF("%s: %s is not directory or regular file. type=%d\n", __FUNCTION__, ent->d_name, ent->d_type);
 				char *filename = g_build_filename(path, ent->d_name, NULL);
 				PRINTF("%s: begin to delete file %s\n", __FUNCTION__, filename);
-				if(unlink(filename) < 0)	
+				if(unlink(filename) < 0)
 				{
 					PRINTF("delete file %s error: %s\n", filename, strerror(errno));
 					free(path);
@@ -652,7 +652,7 @@ static gboolean HandleShellCopyFileCallback(GIOChannel *source, GIOCondition con
 	gchar *buffer = NULL;
 	GIOStatus status;
 
-	if (condition == G_IO_HUP || condition == G_IO_ERR) 
+	if (condition == G_IO_HUP || condition == G_IO_ERR)
 	{
 		perror("ShellCopyFile GIOChannel error:");
 		m_cont = 0;
@@ -688,8 +688,8 @@ int FileMan::ShellCopyFile(const char* source, const char* dest)
 		return -1;
 	}
 
-	status = g_spawn_async_with_pipes(NULL, cmd, NULL, 
-			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD), 
+	status = g_spawn_async_with_pipes(NULL, cmd, NULL,
+			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
 			NULL, NULL, &pid, NULL, &g_out, &g_err, NULL);
 	g_strfreev(cmd);
 	if(status == FALSE)
@@ -697,7 +697,7 @@ int FileMan::ShellCopyFile(const char* source, const char* dest)
 		PRINTF("%s error: g_spawn_async_with_pipes\n", __FUNCTION__);
 		return FALSE;
 	}
-	
+
 	m_cont = 1;
 
 	com = g_io_channel_unix_new(g_out);
@@ -731,7 +731,7 @@ int FileMan::ShellCopyFile(const char* source, const char* dest)
 	g_source_remove(event);
 
 	g_io_channel_shutdown(comerr, FALSE, NULL);
-	g_io_channel_unref(comerr);  
+	g_io_channel_unref(comerr);
 	g_io_channel_shutdown(com, FALSE, NULL);
 	g_io_channel_unref(com);
 	g_spawn_close_pid(pid);
@@ -748,7 +748,7 @@ bool FileMan::SortByName(const string s1, const string s2)
 	int len;
 	char str1[255], str2[255];
 
-	len = strlen(s1.c_str()); 
+	len = strlen(s1.c_str());
 	for(i=0; i<len; i++)
 	{
 		if(s1.c_str()[i]=='.')
@@ -757,7 +757,7 @@ bool FileMan::SortByName(const string s1, const string s2)
 	strncpy(str1, s1.c_str(), i);
 	str1[i] = '\0';
 
-	len = strlen(s2.c_str()); 
+	len = strlen(s2.c_str());
 	for(i=0; i<len; i++)
 	{
 		if(s2.c_str()[i]=='.')

@@ -1,13 +1,13 @@
 #ifndef BAND_PASS_FILTER_H
 #define BAND_PASS_FILTER_H
 
-//∆•≈‰¬À≤®∆˜£¨¥¯Õ®¬À≤®∆˜
-//»Áπ˚¬ˆ≥Â∏ˆ ˝Œ™9.±Ì æ: ¥¯Õ®¬À≤®∆˜,∑¢…‰¬ˆ≥ÂøÌ∂»Œ™9∏ˆ60MHz ±÷”£¨∆‰∂‘”¶µƒ∑¢…‰÷––ƒ∆µ¬ Œ™3.3MHz
+//ÂåπÈÖçÊª§Ê≥¢Âô®ÔºåÂ∏¶ÈÄöÊª§Ê≥¢Âô®
+//Â¶ÇÊûúËÑâÂÜ≤‰∏™Êï∞‰∏∫9.Ë°®Á§∫: Â∏¶ÈÄöÊª§Ê≥¢Âô®,ÂèëÂ∞ÑËÑâÂÜ≤ÂÆΩÂ∫¶‰∏∫9‰∏™60MHzÊó∂ÈíüÔºåÂÖ∂ÂØπÂ∫îÁöÑÂèëÂ∞Ñ‰∏≠ÂøÉÈ¢ëÁéá‰∏∫3.3MHz
 //=bandpass filter coeficient
 
 const int MAX_PULSE_NUM = 24;
 const int BAND_PASS_FILTER_SIZE = 32;
-const unsigned short BAND_PASS_FILTER_1[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_1[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     //f0-0.5  ~ f0+0.5
@@ -68,7 +68,7 @@ const unsigned short BAND_PASS_FILTER_1[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 
 };
 
-const unsigned short BAND_PASS_FILTER_2[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_2[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     //f0-0.5  ~ f0+0.5
@@ -129,7 +129,7 @@ const unsigned short BAND_PASS_FILTER_2[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 
 };
 
-const unsigned short BAND_PASS_FILTER_3[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_3[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//0---CenterFreq = 30MHz
@@ -155,7 +155,7 @@ const unsigned short BAND_PASS_FILTER_3[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
     {1,-5,-12,-19,-29,-40,-52,-65,-78,-91,-103,-114,-122,-127,-129,-125,-117,-104,-85,-62,-33,-1,34,71,108,146,181,212,239,260,275,283},//20---CenterFreq = 1.4MHz
     {-10,-12,-19,-27,-36,-47,-58,-70,-82,-94,-104,-112,-118,-120,-119,-114,-103,-89,-69,-45,-17,15,49,84,120,155,188,217,243,262,276,283},//21---CenterFreq = 1.36MHz
     {-19,-17,-24,-33,-42,-52,-63,-73,-84,-94,-102,-108,-112,-112,-109,-102,-90,-74,-54,-29,-1,29,62,96,130,163,194,222,245,264,276,283},//22---CenterFreq = 1.3MHz
-    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq = 
+    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq =
 #endif
 //f0-0.5  ~ f0+0.5
 	//low pass + high pass
@@ -187,7 +187,7 @@ const unsigned short BAND_PASS_FILTER_3[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 
 };
 
-const unsigned short BAND_PASS_FILTER_4[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_4[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     //f0-0.5  ~ f0+0.5
@@ -248,7 +248,7 @@ const unsigned short BAND_PASS_FILTER_4[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 
 };
 
-const unsigned short BAND_PASS_FILTER_5[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_5[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
 //f0-0.5  ~ f0+0.5
@@ -305,10 +305,10 @@ const unsigned short BAND_PASS_FILTER_5[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 	{1,-5,-12,-19,-29,-40,-52,-65,-78,-91,-103,-114,-122,-127,-129,-125,-117,-104,-85,-62,-33,-1,34,71,108,146,181,212,239,260,275,283},//20---CenterFreq = 1.4MHz
 	{-10,-12,-19,-27,-36,-47,-58,-70,-82,-94,-104,-112,-118,-120,-119,-114,-103,-89,-69,-45,-17,15,49,84,120,155,188,217,243,262,276,283},//21---CenterFreq = 1.36MHz
 	{-19,-17,-24,-33,-42,-52,-63,-73,-84,-94,-102,-108,-112,-112,-109,-102,-90,-74,-54,-29,-1,29,62,96,130,163,194,222,245,264,276,283},//22---CenterFreq = 1.3MHz
-	{-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq = 
+	{-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq =
 	};
 
-const unsigned short BAND_PASS_FILTER_6[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_6[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     //f0-0.5  ~ f0+0.5
@@ -368,7 +368,7 @@ const unsigned short BAND_PASS_FILTER_6[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 	{-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23-
 };
 
-const unsigned short BAND_PASS_FILTER_7[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_7[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//0---CenterFreq = 30MHz
@@ -394,7 +394,7 @@ const unsigned short BAND_PASS_FILTER_7[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
     {1,-5,-12,-19,-29,-40,-52,-65,-78,-91,-103,-114,-122,-127,-129,-125,-117,-104,-85,-62,-33,-1,34,71,108,146,181,212,239,260,275,283},//20---CenterFreq = 1.4MHz
     {-10,-12,-19,-27,-36,-47,-58,-70,-82,-94,-104,-112,-118,-120,-119,-114,-103,-89,-69,-45,-17,15,49,84,120,155,188,217,243,262,276,283},//21---CenterFreq = 1.36MHz
     {-19,-17,-24,-33,-42,-52,-63,-73,-84,-94,-102,-108,-112,-112,-109,-102,-90,-74,-54,-29,-1,29,62,96,130,163,194,222,245,264,276,283},//22---CenterFreq = 1.3MHz
-    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq = 
+    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq =
 #endif
 //f0-0.5  ~ f0+0.5
 	//low pass + high pass
@@ -426,7 +426,7 @@ const unsigned short BAND_PASS_FILTER_7[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 
 };
 
-const unsigned short BAND_PASS_FILTER_8[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] = 
+const unsigned short BAND_PASS_FILTER_8[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
 {
 #if 0
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},//0---CenterFreq = 30MHz
@@ -452,7 +452,7 @@ const unsigned short BAND_PASS_FILTER_8[MAX_PULSE_NUM][BAND_PASS_FILTER_SIZE] =
     {1,-5,-12,-19,-29,-40,-52,-65,-78,-91,-103,-114,-122,-127,-129,-125,-117,-104,-85,-62,-33,-1,34,71,108,146,181,212,239,260,275,283},//20---CenterFreq = 1.4MHz
     {-10,-12,-19,-27,-36,-47,-58,-70,-82,-94,-104,-112,-118,-120,-119,-114,-103,-89,-69,-45,-17,15,49,84,120,155,188,217,243,262,276,283},//21---CenterFreq = 1.36MHz
     {-19,-17,-24,-33,-42,-52,-63,-73,-84,-94,-102,-108,-112,-112,-109,-102,-90,-74,-54,-29,-1,29,62,96,130,163,194,222,245,264,276,283},//22---CenterFreq = 1.3MHz
-    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq = 
+    {-28,-22,-29,-37,-46,-55,-65,-75,-84,-92,-99,-103,-105,-103,-98,-90,-77,-60,-39,-15,13,43,74,107,139,171,200,226,248,265,277,283}//23---CenterFreq =
 #endif
 #if 0
 //f0-0.5  ~ f0+0.5

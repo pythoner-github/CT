@@ -2,8 +2,8 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: MeasureCalc.cpp
- * @brief: do somthing measure used when measuring 
- * 
+ * @brief: do somthing measure used when measuring
+ *
  * version: V1.0
  * date: 2009-7-9
  * @author: zhanglei
@@ -96,7 +96,7 @@ double MeasureCalc::DCalcINTEGRALTrack(vector<POINT> track)
     double area1=0.0;
 
     for(unsigned int i = 0;i<(track.size()-1); i++)
-    { 
+    {
         double time = fabs((track[i+1].x -track[i].x)*scale);
         double vel = fabs((baseLine-track[i+1].y)*scale1);
 
@@ -117,7 +117,7 @@ double MeasureCalc::D2CalcAreaTrack(POINT p1, POINT p2, POINT start)
 }
 
 double MeasureCalc::D2CalcAreaDot(POINT p1, POINT p2, POINT start)
-{    	
+{
 	double scale = GetScale2D(p1);
 	double area;
 	area = (scale * (p2.y + p1.y - 2 * start.y) / 2.0) * (scale * (p2.x - p1.x)) / 100.0;
@@ -143,9 +143,9 @@ double MeasureCalc::D2CalcEllipse(POINT long_axis_start, POINT long_axis_end, PO
 	double scale = GetScale2D(long_axis_start);
 	pox = (la_start_tmpx + la_end_tmpx) / 2.0;
 	poy = (la_start_tmpy + la_end_tmpy) / 2.0;
-	long_axis = scale * sqrt((la_end_tmpx - la_start_tmpx)*(la_end_tmpx - la_start_tmpx) + 
+	long_axis = scale * sqrt((la_end_tmpx - la_start_tmpx)*(la_end_tmpx - la_start_tmpx) +
 			(la_end_tmpy - la_start_tmpy)*(la_end_tmpy - la_start_tmpy)) / 2.0;
-	short_axis = scale * sqrt((sa_start_tmpy - poy)*(sa_start_tmpy - poy) + 
+	short_axis = scale * sqrt((sa_start_tmpy - poy)*(sa_start_tmpy - poy) +
 			(sa_start_tmpx - pox)*(sa_start_tmpx - pox)) ;
 	if (sign == 1)
 	{
@@ -175,7 +175,7 @@ double MeasureCalc::D2CalcEllipse(POINT long_axis_start, POINT long_axis_end, PO
 
 
 double MeasureCalc::D2CalcAreaRec(POINT p1, POINT p2)
-{    	
+{
 	double area;
 	double scale = GetScale2D(p1);
 	area = (double)( abs(p2.x - p1.x) * scale * abs(p2.y - p1.y) * scale / 100.0 );
@@ -183,18 +183,18 @@ double MeasureCalc::D2CalcAreaRec(POINT p1, POINT p2)
 }
 
 double MeasureCalc::CalcVol(POINT long_axis_start, POINT long_axis_end, POINT short_axis_start, double dist)
-{	
+{
     double long_axis, short_axis, z_axis;
     double center_x, center_y;
     center_x = (double)(long_axis_start.x + long_axis_end.x)/ 2.0;
     center_y = (double)(long_axis_start.y + long_axis_end.y)/ 2.0;
 
     double scale = GetScale2D(long_axis_start);
-    
+
     long_axis = scale * sqrt((double)((long_axis_end.x - long_axis_start.x)*(long_axis_end.x - long_axis_start.x)) + (double)((long_axis_end.y - long_axis_start.y)*(long_axis_end.y - long_axis_start.y)))/2.0;
 
     short_axis = scale * sqrt((double)((short_axis_start.x - center_x)*(short_axis_start.x - center_x)) + (double)((short_axis_start.y - center_y)*(short_axis_start.y - center_y)));
-    z_axis = dist / 2; 
+    z_axis = dist / 2;
     double vol = (double)4/(double)3 *PI * long_axis * short_axis * z_axis / 100.0;
 
     return vol;
@@ -264,9 +264,9 @@ double MeasureCalc::D2CalcAngle(POINT vertex, POINT left, POINT right)
     if ((fabs(length1) > ZERO) && (fabs(length2) > ZERO))
         cos_angle = (double)(length1_squ + length2_squ - length3_squ) / (2.0 * length1 * length2);
     else if ((length1 == 0)&&(length2 != 0))
-        cos_angle = (double) ((right.x - vertex.x) / length2); //2012.09.07 lihuamei 
+        cos_angle = (double) ((right.x - vertex.x) / length2); //2012.09.07 lihuamei
     else if ((length2 == 0) && (length1 != 0))
-        cos_angle = (double) ((left.x - vertex.x) / length1); //2012.09.07 lihuamei 
+        cos_angle = (double) ((left.x - vertex.x) / length1); //2012.09.07 lihuamei
     else
         cos_angle = 1;
     if (cos_angle > 1)
@@ -355,7 +355,7 @@ double MeasureCalc::MCalcLvTei(double dist)//M模式Teicholz方法计算左心�
 	else
 		vol = 0.0;
 
-	return vol;	
+	return vol;
 }
 
 double MeasureCalc::CalcEf(double edv, double esv)
@@ -437,7 +437,7 @@ double MeasureCalc::MCalcSlope(POINT p1, POINT p2)
 	double result = 0.0;
 	if (dx == 0)
 		result = 0;
-	else 
+	else
 		result = fabs((scale_depth * (double)dy / 10.0) / (scale_time * (double)dx));
 
 	return result;
@@ -507,7 +507,7 @@ double MeasureCalc::DCalcAccel(POINT p1, POINT p2)
 double MeasureCalc::DCalcTraceAutoOther(char buf[], vector<POINT> vec, POINT ps, POINT ed)
 {
 	int baseLine = ImgPw::GetInstance()->GetBaseLineForCalc();
-	POINT psPoint, edPoint; 
+	POINT psPoint, edPoint;
 	double psv=0.0, edv=0.0, sd=0.0, ri=0.0, tamax=0.0, pi=0.0, time=0.0, hr=0.0, pgmax=0.0, pgmean=0.0;
 	int vecSize;
 	TraceItem TraceCalcItem;
@@ -600,11 +600,11 @@ double MeasureCalc::DCalcTraceAutoOther(char buf[], vector<POINT> vec, POINT ps,
     g_calcPwStatus = true;
 	return 0.0;
 }
-//calc trace according to ps and ed 
+//calc trace according to ps and ed
 double MeasureCalc::DCalcTraceOther(char buf[], vector<POINT> vec, POINT ps, POINT ed)
 {
 	int baseLine = ImgPw::GetInstance()->GetBaseLineForCalc();
-	POINT psPoint, edPoint; 
+	POINT psPoint, edPoint;
 	double psv=0.0, edv=0.0, sd=0.0, ri=0.0, tamax=0.0, pi=0.0, time=0.0, hr=0.0, pgmax=0.0, pgmean=0.0;
 	int vecSize;
 	TraceItem TraceCalcItem;
@@ -702,7 +702,7 @@ double MeasureCalc::DCalcTraceOther(char buf[], vector<POINT> vec, POINT ps, POI
 double MeasureCalc::DCalcTraceAuto(char buf[], vector<POINT> vec, POINT &ps, POINT &ed, int auto_manual)
 {
 	int baseLine = ImgPw::GetInstance()->GetBaseLineForCalc();
-	POINT psPoint, edPoint; 
+	POINT psPoint, edPoint;
 	double psv=0.0, edv=0.0, sd=0.0, ri=0.0, tamax=0.0, pi=0.0, time=0.0, hr=0.0, pgmax=0.0, pgmean=0.0;
 	int vecSize;
 	TraceItem TraceCalcItem;
@@ -777,7 +777,7 @@ double MeasureCalc::DCalcTraceAuto(char buf[], vector<POINT> vec, POINT &ps, POI
 double MeasureCalc::DCalcTrace(char buf[], vector<POINT> vec, POINT &ps, POINT &ed, int auto_manual)
 {
 	int baseLine = ImgPw::GetInstance()->GetBaseLineForCalc();
-	POINT psPoint, edPoint; 
+	POINT psPoint, edPoint;
     psPoint.y = edPoint.y = baseLine;
     psPoint.x = edPoint.y = 0;
 	double psv=0.0, edv=0.0, sd=0.0, ri=0.0, tamax=0.0, pi=0.0, time=0.0, hr=0.0, pgmax=0.0, pgmean=0.0;
@@ -869,7 +869,7 @@ double MeasureCalc::DCalcTrace(char buf[], vector<POINT> vec, POINT &ps, POINT &
 
 	draw.DrawTraceTag(ps, FALSE);
 	draw.DrawTraceTag(ed, FALSE);
-    
+
     g_calcPwStatus = true;
 
 	return 0.0;
@@ -951,7 +951,7 @@ bool MeasureCalc::GetPsEdInVec(vector<POINT> vec, POINT &psP, POINT &edP, int ba
 void MeasureCalc::DCalcPI(vector<POINT> vec, POINT &ps, POINT &ed, double &psValue, double &edValue, double &tamaxValue, double &piValue)
 {
 	int baseLine = ImgPw::GetInstance()->GetBaseLineForCalc();
-	POINT psPoint, edPoint; 
+	POINT psPoint, edPoint;
 	int vecSize;
 
 	vecSize = vec.size();
@@ -1075,7 +1075,7 @@ double MeasureCalc::DCalcPGmean(vector<POINT> vec)
 		PGmean = 0.0;
 
 	return PGmean;
-} 
+}
 
 ///> private
 /*
@@ -1108,9 +1108,9 @@ bool MeasureCalc::GetVmean2FromTrace(vector<POINT> vec, int baseLine, int &vmean
 
 	if (sizeVec == 0)
 		return FALSE;
-	else if (sizeVec == 1)	
+	else if (sizeVec == 1)
 	{
-		vmean2 = (vec[0].y - baseLine) * (vec[0].y - baseLine);	
+		vmean2 = (vec[0].y - baseLine) * (vec[0].y - baseLine);
 		return TRUE;
 	}
 
@@ -1129,10 +1129,10 @@ bool MeasureCalc::GetVmean2FromTrace(vector<POINT> vec, int baseLine, int &vmean
 		*(vel + i) = (vec[i].y + vec[i+1].y) / 2;
 		xInterval = abs(vec[i+1].x - vec[i].x);
 		v = *(vel + i) - baseLine;
-		vmean2 += v * v * xInterval;	
+		vmean2 += v * v * xInterval;
 		count += xInterval;
 	}
-	vmean2 = vmean2 / count;	
+	vmean2 = vmean2 / count;
 	free(vel);
 	return TRUE;
 }
@@ -1153,8 +1153,8 @@ bool MeasureCalc::GetVmeanFromTrace(vector<POINT> vec, int baseLine, int &vmean)
 		return FALSE;
 	else if (sizeVec == 1)
 	{
-		//vmean = (vec[0].y - baseLine);	
-		vmean = ( baseLine - vec[0].y);	
+		//vmean = (vec[0].y - baseLine);
+		vmean = ( baseLine - vec[0].y);
 		return TRUE;
 	}
 
@@ -1176,7 +1176,7 @@ bool MeasureCalc::GetVmeanFromTrace(vector<POINT> vec, int baseLine, int &vmean)
 		vmean += v * xInterval;
 		count += xInterval;
 	}
-	vmean = vmean / count;	
+	vmean = vmean / count;
 	free(vel);
 	return TRUE;
 }
@@ -1185,4 +1185,3 @@ int MeasureCalc::GetHRCycleNum()
 {
 	return 2;
 }
-

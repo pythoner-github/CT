@@ -55,7 +55,7 @@ CdBurn* CdBurn::GetInstance()
 static gboolean TimeoutHintDialog(gpointer data)
 {
     ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewCD::GetInstance()->GetWindow()), _((char*)data));
-    
+
     return FALSE;
 }
 
@@ -189,7 +189,7 @@ gboolean CdBurn::MakeIso()
 	{
 		PRINTF("last_track_addr = %lld, next_writable_addr = %lld\n", info.last_track_addr, info.next_writable_addr);
 		if(info.last_track_addr < info.next_writable_addr && info.next_writable_addr)
-			cmdline = g_strdup_printf("/usr/bin/mkisofs -r -J -o %s -C %lld,%lld -M %s -graft-points -path-list %s", 
+			cmdline = g_strdup_printf("/usr/bin/mkisofs -r -J -o %s -C %lld,%lld -M %s -graft-points -path-list %s",
 					ISOPATH, info.last_track_addr, info.next_writable_addr, info.device.c_str(), m_listPath.c_str());
 		else
 			return FALSE;
@@ -206,8 +206,8 @@ gboolean CdBurn::MakeIso()
 //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
 	GError *error = NULL;
-	status = g_spawn_async_with_pipes(NULL, cmd, NULL, 
-			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD), 
+	status = g_spawn_async_with_pipes(NULL, cmd, NULL,
+			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
 			NULL, NULL, &pid, NULL, &g_out, &g_err, &error);
 	m_pidMkIso = pid;
 	g_strfreev(cmd);
@@ -217,7 +217,7 @@ gboolean CdBurn::MakeIso()
 		perror("g_spawn_async_with_pipes");
 		return FALSE;
 	}
-	
+
 	m_cont = 1;
 
 	com = g_io_channel_unix_new(g_out);
@@ -251,7 +251,7 @@ gboolean CdBurn::MakeIso()
 	g_source_remove(event);
 
 	g_io_channel_shutdown(comerr, FALSE, NULL);
-	g_io_channel_unref(comerr);  
+	g_io_channel_unref(comerr);
 	g_io_channel_shutdown(com, FALSE, NULL);
 	g_io_channel_unref(com);
 	g_spawn_close_pid(pid);
@@ -265,9 +265,9 @@ gboolean CdBurn::MakeIsoCallback(GIOChannel *source, GIOCondition condition)
 	gchar *buffer = NULL, *f;
 	GIOStatus status;
 
-	if (condition == G_IO_HUP || condition == G_IO_ERR) 
+	if (condition == G_IO_HUP || condition == G_IO_ERR)
 	{
-		//Check whether where is the process of mkiso 
+		//Check whether where is the process of mkiso
 		if(kill(m_pidMkIso, 0) < 0)
 		{
 			//if the process is not exist, return FALSE(remove the iochannel source)
@@ -292,7 +292,7 @@ gboolean CdBurn::MakeIsoCallback(GIOChannel *source, GIOCondition condition)
 		buffer[3] = 0;
 		f = buffer;
 
-		while (*f==' ' || *f==9) f++;	
+		while (*f==' ' || *f==9) f++;
 		PRINTF("mkisofs progress: %s\n", f);
 
 #if 0
@@ -310,14 +310,14 @@ gboolean CdBurn::MakeIsoCallback(GIOChannel *source, GIOCondition condition)
 	else if(strstr(buffer, MKISOFS_ERROR) && !strstr(buffer, MKISOFS_IGNORE))	//error with mkisofs
 	{
 		m_cont = 0;
-		if (!strstr(buffer, MKISOFS_NOSPACE)) 
+		if (!strstr(buffer, MKISOFS_NOSPACE))
 		{
 			PRINTF("Not enough free disk space to create iso image!\n");
 			g_free(buffer);
 			return FALSE;
 		}
 	}
-	else if(!strncmp(buffer, MKISOFS_OK, strlen(MKISOFS_OK))) 
+	else if(!strncmp(buffer, MKISOFS_OK, strlen(MKISOFS_OK)))
 	{
 		m_cont = 0;
 		PRINTF("mkisofs progress: 100%%\n");
@@ -345,7 +345,7 @@ gboolean CdBurn::BurnCD(const char *device)
 	GIOChannel *comerr, *com;
 
 	cmdline = g_strdup_printf("/usr/bin/cdrecord -v dev=%s -multi -eject %s", device, ISOPATH);
-	
+
 	status = g_shell_parse_argv(cmdline, &arg, &cmd, NULL);
 	g_free(cmdline);
 	if(status == FALSE)
@@ -355,8 +355,8 @@ gboolean CdBurn::BurnCD(const char *device)
 	}
 //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
-	status = g_spawn_async_with_pipes(NULL, cmd, NULL, 
-			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD), 
+	status = g_spawn_async_with_pipes(NULL, cmd, NULL,
+			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
 			NULL, NULL, &pid, NULL, &g_out, &g_err, NULL);
 	m_pidBurn = pid;
 	g_strfreev(cmd);
@@ -365,7 +365,7 @@ gboolean CdBurn::BurnCD(const char *device)
 		PRINTF("BurnCD error: g_spawn_async_with_pipes\n");
 		return FALSE;
 	}
-	
+
 	m_cont = 1;
 
 	com = g_io_channel_unix_new(g_out);
@@ -399,7 +399,7 @@ gboolean CdBurn::BurnCD(const char *device)
 	g_source_remove(event);
 
 	g_io_channel_shutdown(comerr, FALSE, NULL);
-	g_io_channel_unref(comerr);  
+	g_io_channel_unref(comerr);
 	g_io_channel_shutdown(com, FALSE, NULL);
 	g_io_channel_unref(com);
 	g_spawn_close_pid(pid);
@@ -413,7 +413,7 @@ gboolean CdBurn::BurnCDCallback(GIOChannel *source, GIOCondition condition)
 	gchar *buffer = NULL;
 	GIOStatus status;
 
-	if (condition == G_IO_HUP || condition == G_IO_ERR) 
+	if (condition == G_IO_HUP || condition == G_IO_ERR)
 	{
 		//Check whether where is the process of burn
 		if(kill(m_pidBurn, 0) < 0)
@@ -461,8 +461,8 @@ gboolean CdBurn::BurnDVD(gboolean is_blank, const char *device)
 	}
 //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
-	status = g_spawn_async_with_pipes(NULL, cmd, NULL, 
-			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD), 
+	status = g_spawn_async_with_pipes(NULL, cmd, NULL,
+			(GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
 			NULL, NULL, &pid, NULL, &g_out, &g_err, NULL);
 	m_pidBurn = pid;
 	g_strfreev(cmd);
@@ -471,7 +471,7 @@ gboolean CdBurn::BurnDVD(gboolean is_blank, const char *device)
 		PRINTF("BurnDVD error: g_spawn_async_with_pipes\n");
 		return FALSE;
 	}
-	
+
 	m_cont = 1;
 
 	com = g_io_channel_unix_new(g_out);
@@ -505,7 +505,7 @@ gboolean CdBurn::BurnDVD(gboolean is_blank, const char *device)
 	g_source_remove(event);
 
 	g_io_channel_shutdown(comerr, FALSE, NULL);
-	g_io_channel_unref(comerr);  
+	g_io_channel_unref(comerr);
 	g_io_channel_shutdown(com, FALSE, NULL);
 	g_io_channel_unref(com);
 	g_spawn_close_pid(pid);
@@ -519,7 +519,7 @@ gboolean CdBurn::BurnDVDCallback(GIOChannel *source, GIOCondition condition)
 	gchar *buffer = NULL;
 	GIOStatus status;
 
-	if (condition == G_IO_HUP || condition == G_IO_ERR) 
+	if (condition == G_IO_HUP || condition == G_IO_ERR)
 	{
 		//Check whether where is the process of burn
 		if(kill(m_pidBurn, 0) < 0)
@@ -543,4 +543,3 @@ gboolean CdBurn::BurnDVDCallback(GIOChannel *source, GIOCondition condition)
 
 	return TRUE;
 }
-

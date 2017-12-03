@@ -40,4 +40,3 @@ string m_selectedDevice;
 };
 static gboolean WorklistConnectTimeout(gpointer data);
 #endif
-

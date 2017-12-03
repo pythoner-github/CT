@@ -3,8 +3,8 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: UpdateMeasure.cpp
- * @brief: update display of measure result  
- * 
+ * @brief: update display of measure result
+ *
  * version: V1.0
  * date: 2009-7-9
  * @author: zhanglei
@@ -69,7 +69,7 @@ void UpdateMeasure::UpdateResultForChgFont(void)
         measure_line_max = 10;
     }
     int lines = CountMeasureLines();
-    if (lines > measure_line_max) 
+    if (lines > measure_line_max)
     {
         while (lines > measure_line_max) {
             m_dequeResult.pop_front();
@@ -79,7 +79,7 @@ void UpdateMeasure::UpdateResultForChgFont(void)
     RefreshResult();
 #else
     int lines = CountMeasureLines();
-    if (lines > MEASURE_RES_LINES_MAX) 
+    if (lines > MEASURE_RES_LINES_MAX)
     {
         while (lines > MEASURE_RES_LINES_MAX) {
             m_dequeResult.pop_front();
@@ -238,7 +238,7 @@ void UpdateMeasure::D2Dist(double length, ResultAttr& attr, bool inMeasure)
     string units;
     double coeffi = 1.0;
     MeasureMan::GetInstance()->GetMeasureUnit( coeffi, units, CM);
-    
+
     sprintf(buf, "%s= %3.2f%s", _("dist"), length*coeffi, units.c_str());
     string result = buf;
     if (inMeasure == true)
@@ -269,7 +269,7 @@ void UpdateMeasure::DIntegralArea(double integralarea, ResultAttr& attr, bool in
 void UpdateMeasure::CatHighCalc(const CalcResultInfo *calcInfo, int *calcOrder, double dataMea[], char buf[], int meaLen)
 {
 	char buf_tmp[30];
-	
+
 	//printf("************=========*********calcOrder= %d, CatHighCalc: %s, item= %d\n", (*calcOrder)+meaLen, calcInfo->title, calcInfo->item);
 
 	if ((int)dataMea[(*calcOrder)+meaLen] != INVALID_VAL)
@@ -341,7 +341,7 @@ void UpdateMeasure::GenDisplaySingle(const SingleItemInfo *info, double data[], 
         goto display;
 
 	singleCalcInfo = (CalcInfoP *)(info->ptrCalcInfo);
-	
+
 	i = 0;
 	CalcInfoArray *hCalc;
 	while ((*singleCalcInfo)[i] != NULL)
@@ -405,7 +405,7 @@ void UpdateMeasure::GenDisplaySingle(const SingleItemInfo *info, double data[], 
 				strcat(buf, units.c_str());
             }
 		}
-			
+
 		calcOrder++;
 		if ((*singleCalcInfo)[i]->ptrHCalcInfo != NULL)//用计算值计算出来的计算值
 		{
@@ -421,11 +421,11 @@ void UpdateMeasure::GenDisplaySingle(const SingleItemInfo *info, double data[], 
 	}
 
 display:
-	
+
 	string result = buf;
 	if (inMeasure == true)
 		UpdateResult(result, attr.cursorType, attr.curColor);
-	else 
+	else
 	{
 		AddResult(result, attr.cursorType, attr.confirmColor);
 		PutResult();
@@ -453,7 +453,7 @@ void UpdateMeasure::GenDisplayMulti(const MultiItemInfo *info, double dataMea[],
 	    sprintf(buf, "%s", _(info->itemTitle));
 	    strcat(buf, ":\n");
 	}
-	
+
 	for (i=0; i<MEA_MULTI; i++)
 	{
 		if (((info->titleUnit)[i].title[0] != '\0') && (dataMea[i] != INVALID_VAL))
@@ -471,7 +471,7 @@ void UpdateMeasure::GenDisplayMulti(const MultiItemInfo *info, double dataMea[],
 				strcat(buf, "\n");
 		}
 	}
-	
+
 	if (info->ptrCalcInfo == NULL)
 		goto display;
 
@@ -531,7 +531,7 @@ void UpdateMeasure::D2Hip(double angle1, double angle2, ResultAttr& attr, bool i
 	if ((angle2==INVALID_VAL) && (inMeasure==true))
 	{
 		sprintf(buf, "α= %3.0f˚", angle1);
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
@@ -578,7 +578,7 @@ void UpdateMeasure::D2Hip(double angle1, double angle2, ResultAttr& attr, bool i
 	if ((-0.0001<angle2) && (angle2<0.0001) && (inMeasure==true))
 	{
 		sprintf(buf, "α= %3.2f˚", angle1);
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
@@ -598,7 +598,7 @@ void UpdateMeasure::D2Hip(double angle1, double angle2, ResultAttr& attr, bool i
 	else
 		sprintf(buf, "α= %3.2f˚\nβ= %3.2f˚\nType= XXX", angle1, angle2);
 
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -665,7 +665,7 @@ void UpdateMeasure::D2AreaRec(double area, ResultAttr& attr, bool inMeasure)
 	    AddResult(result, attr.cursorType, attr.confirmColor);
 	    PutResult();
 	}
-	return; //for test    
+	return; //for test
 }
 
 void UpdateMeasure::D2Vol3Axis(char *name, double axis_x, double axis_y, double axis_z, double vol, ResultAttr& attr, bool inMeasure)
@@ -691,7 +691,7 @@ void UpdateMeasure::D2Vol3Axis(char *name, double axis_x, double axis_y, double 
 	    sprintf(buf_tmp, "%3.2f%s", axis_x*coeffi, units.c_str());
 	    strcat(buf, buf_tmp);
 	}
-	result = buf; 
+	result = buf;
 	UpdateResult(result, attr.cursorType, attr.curColor);
 	return;
     }
@@ -705,7 +705,7 @@ void UpdateMeasure::D2Vol3Axis(char *name, double axis_x, double axis_y, double 
 	    sprintf(buf_tmp, "%3.2f%s\ny= %3.2f%s", axis_x*coeffi, units.c_str(),  axis_y*coeffi, units.c_str());
 	    strcat(buf, buf_tmp);
 	}
-	result = buf; 
+	result = buf;
 	UpdateResult(result, attr.cursorType, attr.curColor);
 	return;
     }
@@ -719,7 +719,7 @@ void UpdateMeasure::D2Vol3Axis(char *name, double axis_x, double axis_y, double 
 	strcat(buf, buf_tmp);
 
     }
-    result = buf; 
+    result = buf;
 
     if (inMeasure == true)
 	UpdateResult(result, attr.cursorType, attr.curColor);
@@ -738,7 +738,7 @@ void UpdateMeasure::D2VolEllipse1(double vol, ResultAttr& attr, bool inMeasure)
     double coeffi_vol = 1.0;
     MeasureMan::GetInstance()->GetMeasureUnit( coeffi_vol, unit_vol, CM3);
 	sprintf(buf, "%s= %3.2f%s", _("vol"), vol*coeffi_vol, unit_vol.c_str());
-	string result = buf; 
+	string result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -766,14 +766,14 @@ void UpdateMeasure::D2VolEllipse2(double area, double dist, double vol, ResultAt
     if (((-0.0001<dist) && (dist<0.0001)) && ((-0.0001<vol) && (vol<0.0001)) && (inMeasure==true))
     {
         sprintf(buf, "%s= %3.2f%s", _("area"), area*coeffi_area, unit_area.c_str());
-        result = buf; 
+        result = buf;
         UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
 
 	sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f%s", _("area"), area*coeffi_area, unit_area.c_str(), _("dist"), dist*coeffi, unit.c_str(),  _("vol"), vol*coeffi_vol, unit_vol.c_str());
 	//sprintf(buf, "area= %3.2fcm²\ndist= %3.2fcm\nvol= %3.2fcm³", area, dist, vol);
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -795,7 +795,7 @@ void UpdateMeasure::D2VolSpheroid(double radius, double vol, ResultAttr& attr, b
     MeasureMan::GetInstance()->GetMeasureUnit( coeffi_vol, unit_vol, CM3);
 
     sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s", _("radius"), radius*coeffi, unit.c_str(), _("vol"), vol*coeffi_vol, unit_vol.c_str());
-    string result = buf; 
+    string result = buf;
 
     if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -817,7 +817,7 @@ void UpdateMeasure::D2Angle3Dot(double dist_left, double dist_right, double angl
     if (dist_right==INVALID_VAL && inMeasure==true)
 	{
 	    sprintf(buf, "%s= %3.2f%s",_("dist1"), dist_left*coeffi, unit.c_str());
-	    result = buf; 
+	    result = buf;
 	    UpdateResult(result);
 	    return;
 	}
@@ -859,7 +859,7 @@ void UpdateMeasure::D2RatioDist(double dist1, double dist2, double ratio, Result
     if (((-0.0001<dist2) && (dist2<0.0001)) && ((-0.0001<ratio) && (ratio<0.0001)) && (inMeasure==true))
 	{
 		sprintf(buf, "%s= %3.2f%s", _("dist1"), dist1*coeffi, unit.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
         return;
     }
@@ -872,7 +872,7 @@ void UpdateMeasure::D2RatioDist(double dist1, double dist2, double ratio, Result
     {
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("dist1"), dist1*coeffi, unit.c_str(), _("dist2"), dist2*coeffi, unit.c_str(), _("ratio"), ratio);
     }
-    result = buf; 
+    result = buf;
 
     if (inMeasure == true)
         UpdateResult(result, attr.cursorType, attr.curColor);
@@ -891,11 +891,11 @@ void UpdateMeasure::D2RatioDistPeri(double dist, double perimeter, double ratio,
     string unit;
     double coeffi = 1.0;
     MeasureMan::GetInstance()->GetMeasureUnit( coeffi, unit, CM);
-    
+
     if (((-0.0001<perimeter) && (perimeter<0.0001)) && ((-0.0001<ratio) && (ratio<0.0001)) && (inMeasure==true))
 	{
 		sprintf(buf, "%s= %3.2f%s", _("dist"), dist*coeffi, unit.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
         return;
     }
@@ -907,7 +907,7 @@ void UpdateMeasure::D2RatioDistPeri(double dist, double perimeter, double ratio,
     {
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("dist"), dist*coeffi, unit.c_str(),  _("peri"), perimeter*coeffi, unit.c_str(), _("ratio"), ratio);
     }
-    result = buf; 
+    result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -930,7 +930,7 @@ void UpdateMeasure::D2AngustyDist(double dist1, double dist2, double angusty, Re
 	if (((-0.0001<dist2) && (dist2<0.0001)) && ((-0.0001<angusty) && (angusty<0.0001)) && (inMeasure==true))
 	{
 	    sprintf(buf, "%s= %3.2f%s", _("dist1"), dist1*coeffi, unit.c_str());
-	    result = buf; 
+	    result = buf;
 	    UpdateResult(result, attr.cursorType, attr.curColor);
 	    return;
 	}
@@ -945,7 +945,7 @@ void UpdateMeasure::D2AngustyDist(double dist1, double dist2, double angusty, Re
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("dist1"),dist1*coeffi, unit.c_str(),  _("dist2"), dist2*coeffi, unit.c_str(), _("angusty"), angusty);
     }
     //sprintf(buf, "dist1= %3.2fcm\ndist2= %3.2fcm\nangusty= %3.2f", dist1, dist2, angusty);
-    result = buf; 
+    result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -974,7 +974,7 @@ void UpdateMeasure::D2RatioArea(double area1, double area2, double ratio, Result
 	{
 		sprintf(buf, "%s= %3.2f%s", _("area1"), area1*coeffi, unit.c_str());
 		//sprintf(buf, "area1= %3.2fcm²", area1);
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
@@ -987,7 +987,7 @@ void UpdateMeasure::D2RatioArea(double area1, double area2, double ratio, Result
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("area1"), area1*coeffi, unit.c_str(), _("area2"), area2*coeffi, unit.c_str(), _("ratio"), ratio);
     }
     //sprintf(buf, "area1= %3.2fcm²\narea2= %3.2fcm²\nratio= %3.2f", _("area1"), area1, _("area2"), area2, _("ratio"), ratio);
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1011,7 +1011,7 @@ void UpdateMeasure::D2AngustyArea(double area1, double area2, double angusty, Re
 	{
 		//sprintf(buf, "area1= %3.2fcm²", area1);
 		sprintf(buf, "%s= %3.2f%s", _("area1"), area1*coeffi, unit.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
         return;
     }
@@ -1024,7 +1024,7 @@ void UpdateMeasure::D2AngustyArea(double area1, double area2, double angusty, Re
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("area1"), area1*coeffi, unit.c_str(), _("area2"), area2*coeffi, unit.c_str(), _("angusty"), angusty);
     }
     //sprintf(buf, "area1= %3.2fcm²\narea2= %3.2fcm²\nangusty= %3.2f", area1, area2, angusty);
-    result = buf; 
+    result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1047,7 +1047,7 @@ void UpdateMeasure::D2RatioVol(double vol1, double vol2, double ratio, ResultAtt
 	if (((-0.0001<vol2) && (vol2<0.0001)) && ((-0.0001<ratio) && (ratio<0.0001)) && (inMeasure==true))
 	{
 		sprintf(buf, "%s= %3.2f%s", _("vol1"), vol1*coeffi, unit.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
@@ -1061,7 +1061,7 @@ void UpdateMeasure::D2RatioVol(double vol1, double vol2, double ratio, ResultAtt
         sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("vol1"), vol1*coeffi, unit.c_str(), _("vol2"), vol2*coeffi, unit.c_str(), _("ratio"), ratio);
     }
     //sprintf(buf, "vol1= %3.2fcm³\nvol2= %3.2fcm³\nratio= %3.2f", vol1, vol2, ratio);
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 		UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1081,7 +1081,7 @@ void UpdateMeasure::D2RatioAngle(double angle1, double angle2, double ratio, Res
 	if (((-0.0001<angle2) && (angle2<0.0001)) && ((-0.0001<ratio) && (ratio<0.0001)) && (inMeasure==true))
 	{
 		sprintf(buf, "%s= %3.2f˚", _("angle1"), angle1);
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
@@ -1094,7 +1094,7 @@ void UpdateMeasure::D2RatioAngle(double angle1, double angle2, double ratio, Res
     {
         sprintf(buf, "%s= %3.2f˚\n%s= %3.2f˚\n%s= %3.2f", _("angle1"), angle1, _("angle2"), angle2, _("ratio"), ratio);
     }
-    result = buf; 
+    result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1120,13 +1120,13 @@ void UpdateMeasure::MEF(double lvidd, double lvids, double lvvd, double lvvs, do
 	if ((((unsigned int)lvids == INVALID_VAL)) && (inMeasure==true))
 	{
 		sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s", _("LVIDd"), lvidd*coeffi, unit.c_str(), _("EDV"), lvvd*coeffi_vol, unit_vol.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
 
 	sprintf(buf, "%s= %3.2f%s\n%s=%3.2f%s\n%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f%%", _("LVIDd"), lvidd*coeffi, unit.c_str(), _("LVODs"), lvids*coeffi, unit.c_str(), _("EDV"), lvvd*coeffi_vol, unit_vol.c_str(), _("ESV"), lvvs*coeffi_vol, unit_vol.c_str(), _("EF"), ef);
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1172,7 +1172,7 @@ void UpdateMeasure::MVel(double vel, ResultAttr& attr, bool inMeasure)
 	    PutResult();
 	}
 
-	return;   	
+	return;
 }
 void UpdateMeasure::MDepth(double depth, ResultAttr& attr, bool inMeasure)
 {
@@ -1248,7 +1248,7 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 			strcat(buf, buf_tmp);
 
 // 		}
-// 		result = buf; 
+// 		result = buf;
 // 		UpdateResult(result);
 // 		return;
 // 	}
@@ -1263,7 +1263,7 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 		strcat(buf, buf_tmp);
 
 // 	}
-// 	result = buf; 
+// 	result = buf;
 
 // 	if (inMeasure == true)
 // 		UpdateResult(result);
@@ -1293,7 +1293,7 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 			sprintf(buf_tmp, "%3.2fcm/s", ps);
 // 			strcat(buf, buf_tmp);
 // 		}
-// 		result = buf; 
+// 		result = buf;
 // 		UpdateResult(result);
 // 		return;
 // 	}
@@ -1307,7 +1307,7 @@ void UpdateMeasure::MSlope(double slope, ResultAttr& attr, bool inMeasure)
 // 		sprintf(buf_tmp, "PS= %3.2fcm/s, ED= %3.2fcm/s, RI= %3.2f", ps, ed, ri);
 // 		strcat(buf, buf_tmp);
 // 	}
-// 	result = buf; 
+// 	result = buf;
 
 // 	if (inMeasure == true)
 // 		UpdateResult(result);
@@ -1356,7 +1356,7 @@ bool UpdateMeasure::DTrace(char buf[], ResultAttr& attr, bool inMeasure)
 	    AddResult(result, attr.cursorType, attr.confirmColor);
 	    PutResult();
 	}
-	return true; 
+	return true;
 }
 
 bool UpdateMeasure::DTraceAdjust(char buf[], ResultAttr& attr, bool inMeasure)
@@ -1376,7 +1376,7 @@ bool UpdateMeasure::DTraceAdjust(char buf[], ResultAttr& attr, bool inMeasure)
 	    AddResult(result, attr.cursorType, attr.confirmColor);
 	    PutResult();
 	}
-    return true; 
+    return true;
 }
 
 void UpdateMeasure::DSD(double ps, double ed, double sd, ResultAttr& attr, bool inMeasure)
@@ -1390,13 +1390,13 @@ void UpdateMeasure::DSD(double ps, double ed, double sd, ResultAttr& attr, bool 
 	if (ed==INVALID_VAL && inMeasure==true)
 	{
 		sprintf(buf, "%s= %3.2f%s", _("PS"), ps*coeffi, unit.c_str());
-		result = buf; 
+		result = buf;
 		UpdateResult(result, attr.cursorType, attr.curColor);
 		return;
 	}
 
 	sprintf(buf, "%s= %3.2f%s\n%s= %3.2f%s\n%s= %3.2f", _("PS"), ps*coeffi, unit.c_str(), _("ED"), ed*coeffi, unit.c_str(), _("S/D"), sd);
-	result = buf; 
+	result = buf;
 
 	if (inMeasure == true)
 	    UpdateResult(result, attr.cursorType, attr.curColor);
@@ -1425,7 +1425,7 @@ void UpdateMeasure::DSD(double ps, double ed, double sd, ResultAttr& attr, bool 
 // 			sprintf(buf_tmp, "%3.2fcm/s", ps);
 // 			strcat(buf, buf_tmp);
 // 		}
-// 		result = buf; 
+// 		result = buf;
 // 		UpdateResult(result);
 // 		return;
 // 	}
@@ -1439,7 +1439,7 @@ void UpdateMeasure::DSD(double ps, double ed, double sd, ResultAttr& attr, bool 
 // 		sprintf(buf_tmp, "PS= %3.2fcm/s, ED= %3.2fcm/s, RI= %3.2f, SD= %3.2f", ps, ed, ri, sd);
 // 		strcat(buf, buf_tmp);
 // 	}
-// 	result = buf; 
+// 	result = buf;
 
 // 	if (inMeasure == true)
 // 		UpdateResult(result);
@@ -1558,12 +1558,12 @@ void UpdateMeasure::IMTResult(SIMTPARA imt_para, ResultAttr& attr, bool update)
   switch(curType)
   {
       case D2_IMT_ABOVE :
-          snprintf(buf, 300, "%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2f \n%s= %3.2fmm", 
+          snprintf(buf, 300, "%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2f \n%s= %3.2fmm",
                   _("IMT-Above MAX "), imt_para.imt_max*scale[0], _("IMT-Above MIN "), imt_para.imt_min*scale[0], _("IMT-Above STD "), imt_para.imt_std*scale[0], _("IMT-Above MEAN "), imt_para.imt_mean*scale[0],
                   _("IMT-Above QUALITY "), imt_para.imt_quality,  _("IMT-Above LENGTH "), imt_para.imt_length*scale[0]);
           break;
       case D2_IMT_BELOW :
-          snprintf(buf, 300, "%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2f \n%s= %3.2fmm", 
+          snprintf(buf, 300, "%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2fmm\n%s= %3.2f \n%s= %3.2fmm",
                   _("IMT-Below MAX "), imt_para.imt_max*scale[0], _("IMT-Below MIN "), imt_para.imt_min*scale[0], _("IMT-Below STD "), imt_para.imt_std*scale[0], _("IMT-Below MEAN "), imt_para.imt_mean*scale[0],
                   _("IMT-Below QUALITY "), imt_para.imt_quality,  _("IMT-Below LENGTH "), imt_para.imt_length*scale[0]);
           break;
@@ -1572,7 +1572,7 @@ void UpdateMeasure::IMTResult(SIMTPARA imt_para, ResultAttr& attr, bool update)
     if (update)
         UpdateResult(result, attr.cursorType, attr.curColor);
     else
-    {    
+    {
         AddResult(result, attr.cursorType, attr.confirmColor);
         PutResult();
     }

@@ -12,10 +12,10 @@
 class DicomServerSetting
 {
     public:
-        
+
         static DicomServerSetting* GetInstance();
         GtkWidget* CreateDicomWindow(GtkWidget *parent);
-        
+
         enum{
             COL_DEVICE,
             COL_IP,
@@ -31,7 +31,7 @@ class DicomServerSetting
         ~DicomServerSetting();
 
         static DicomServerSetting* m_ptrInstance;
-        
+
         //server
         GtkWidget *m_entry_device;
         GtkWidget *m_entry_ip;
@@ -43,19 +43,19 @@ class DicomServerSetting
         void ButtonPingClicked(GtkButton *button);
         void ButtonAddClicked(GtkButton *button);
         void ButtonDeleteClicked(GtkButton *button);
-        
+
         static void HandleButtonPingClicked(GtkButton *button, DicomServerSetting *data)
         {
             if (data)
                 data->ButtonPingClicked(button);
         }
-        
+
         static void HandleButtonAddClicked(GtkButton *button, DicomServerSetting *data)
         {
             if (data)
                 data->ButtonAddClicked(button);
         }
-        
+
         static void HandleButtonDeleteClicked(GtkButton *button, DicomServerSetting *data)
         {
             if (data)

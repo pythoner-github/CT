@@ -43,8 +43,8 @@ private:
     GtkWidget *m_labelGlobalZoom;
     GtkWidget *m_labelPIP;
     GtkWidget *m_label4B;
-    GtkWidget *m_labelEFOV;    
-    
+    GtkWidget *m_labelEFOV;
+
     CusSpin spin_rotate;
     CusSpin spin_frame;
     CusSpin spin_line;
@@ -62,7 +62,7 @@ private:
     static CusSpin::CusSpinItem item_gamma;
     static CusSpin::CusSpinItem item_chroma;
     static CusSpin::CusSpinItem item_imgEhn;
-	
+
     static void ChgRotate(EKnobOper oper);
     static void ChgFrame(EKnobOper oper);
     static void ChgLine(EKnobOper oper);
@@ -77,7 +77,7 @@ private:
     void BtnReject(GtkButton *button);
     void BtnGlobalZoom(GtkButton *button);
     void ForeachWidget(GtkWidget *widget);
-    
+
 //signal connect
     static void HandleChkPolarity(GtkButton *button, Menu2D *data) { data->ChkPolarity(button); }
     static void HandleChkRestric(GtkButton *button, Menu2D *data) { data->ChkNoiseReject(button); }

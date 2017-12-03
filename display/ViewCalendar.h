@@ -15,7 +15,7 @@ class ViewCalendar:public FakeXEvent
 		enum CalendarType{START, END};
 
 		void CreateWindow(GtkWidget *parent, CalendarType flag, AbsCalendarOpr* opr);
-		
+
 	private:
         ViewCalendar();
         static ViewCalendar* m_ptrInstance;
@@ -23,10 +23,10 @@ class ViewCalendar:public FakeXEvent
 		GtkWidget *m_calendar;
 		CalendarType m_flag;
 		AbsCalendarOpr* m_opr;
-		
+
 		void DestroyEvent(GtkWidget *widget);
 		void CalendarDaySelectedDoubleClick(GtkCalendar *calendar);
-		
+
 		// signal connect
 		static void HandleDestroyEvent(GtkWidget *widget, ViewCalendar *data) { data->DestroyEvent(widget); }
 		static void HandleCalendarDaySelectedDoubleClick(GtkCalendar *calendar, ViewCalendar *data) { data->CalendarDaySelectedDoubleClick(calendar); }

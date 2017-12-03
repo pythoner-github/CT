@@ -11,7 +11,7 @@ class ViewPatSearch:public FakeXEvent
 public:
     ~ViewPatSearch();
     static ViewPatSearch* GetInstance();
-    
+
     void CreateWindow(GtkWindow *parent, const std::vector<Database::NewPatSearchResult>& result);
     void DestroyWindow(void);
 private:
@@ -47,7 +47,7 @@ private:
 	EXAMTYPE_COL,
 	N_COLUMNS
     };
-#endif 
+#endif
 // signal handle
     gboolean WindowDeleteEvent(GtkWidget *widget, GdkEvent *event);
     void BtnOkClicked(GtkButton *button);

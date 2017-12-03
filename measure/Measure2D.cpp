@@ -2,8 +2,8 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: Measure2D.cpp
- * @brief: measure in 2D scan mode 
- * 
+ * @brief: measure in 2D scan mode
+ *
  * version: V1.0
  * date: 2009-7-9
  * @author: zhanglei
@@ -182,7 +182,7 @@ void D2MeasureDistDot::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -204,7 +204,7 @@ void D2MeasureDistDot::MouseMove(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawDotLine(m_p1, m_tempP, TRUE); // modify:绘制当前线
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist = m_calc.D2CalcDist(m_p1, m_tempP);
 			m_ptrMan->SingleMeaDataMan(m_dist, m_itemInfo, allData, NOT_SAVE);
@@ -218,7 +218,7 @@ void D2MeasureDistDot::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureDistDot::Change()
 {
 	if (m_step == 1)
@@ -248,16 +248,16 @@ void D2MeasureDistDot::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawDotLine(m_p1, m_tempP, true);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -303,7 +303,7 @@ void D2MeasureDistLine::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
@@ -339,7 +339,7 @@ void D2MeasureDistLine::PressLeft(POINT p)
 				vec.push_back(m_p1);
 				vec.push_back(m_tempP);
 				m_ptrMan->AddNew(DIST_LINE, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-				
+
                 m_ptrMan->SingleMeaDataMan(m_dist, m_itemInfo, allData, SAVE);
 				m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
 
@@ -409,7 +409,7 @@ void D2MeasureDistLine::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -429,7 +429,7 @@ void D2MeasureDistLine::MouseMove(POINT p)
 			m_tan = (m_tempP.y==m_p1.y) ? 1000.0 : ((double)(m_p1.x - m_tempP.x) / (double)(m_tempP.y - m_p1.y));
 			m_draw.DrawTanBeeline(m_p1, m_tan, TRUE);
 			m_draw.DrawTanBeeline(m_tempP, m_tan, TRUE);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist = m_calc.D2CalcDist(m_p1, m_tempP);
 			m_update.D2Dist(m_dist, attr, true);
@@ -467,9 +467,9 @@ void D2MeasureDistLine::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
@@ -478,7 +478,7 @@ void D2MeasureDistLine::Esc()
 			m_draw.DrawLine(m_p1, m_tempP, TRUE);
 			m_draw.DrawTanBeeline(m_p1, m_tan, TRUE);
 			m_draw.DrawTanBeeline(m_tempP, m_tan, TRUE);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -490,7 +490,7 @@ D2MeasureLengthTrack::D2MeasureLengthTrack(const SingleItemInfo *ptrSingleItemIn
 	m_itemInfo = ptrSingleItemInfo;
 
 	m_ptrMan = MeasureMan::GetInstance();
-	
+
     Init();
 
 }
@@ -532,7 +532,7 @@ void D2MeasureLengthTrack::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_p1 = m_tempP;
-			m_line_tempP = m_tempP;	
+			m_line_tempP = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
 			m_length = (double)0;
@@ -648,7 +648,7 @@ void D2MeasureLengthTrack::MouseMove(POINT p)
 			{
 				m_draw.DrawCursor(m_tempP);
 			}
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_isDraw = TRUE;
 			break;
@@ -672,7 +672,7 @@ void D2MeasureLengthTrack::MouseMove(POINT p)
 			}
 			m_tempP = p;
 			m_draw.DrawCursor(p);
-            m_isDraw = TRUE;	
+            m_isDraw = TRUE;
             m_trackTemp.clear();
 			break;
 		default:
@@ -690,7 +690,7 @@ void D2MeasureLengthTrack::Value(EKnobOper opr)
     int size_track_temp = m_trackTemp.size();
 
     if(opr == ADD)
-    {//redraw 
+    {//redraw
         if((size_track > 0) && (size_track_temp > 0))
         {
             if (m_isDraw)
@@ -760,7 +760,7 @@ void D2MeasureLengthTrack::Value(EKnobOper opr)
         return;
     }
 
-    m_isDraw = TRUE;	
+    m_isDraw = TRUE;
 }
 
 void D2MeasureLengthTrack::Change()
@@ -775,9 +775,9 @@ void D2MeasureLengthTrack::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		int i;
 		int vec_size;
@@ -789,7 +789,7 @@ void D2MeasureLengthTrack::Esc()
 			vec_size = m_track.size() - 1;
 			for(i=0; i<vec_size; i++)
 				m_draw.DrawTraceLine(m_track[i], m_track[i+1], TRUE);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 	m_track.clear();
@@ -932,7 +932,7 @@ void D2MeasureLengthDot::PressRight(POINT p)
 			m_length = INVALID_VAL;
 
 			m_update.ClearMeasure();
-			HintArea::GetInstance()->ClearHint();	
+			HintArea::GetInstance()->ClearHint();
 			break;
 
 		default:
@@ -946,7 +946,7 @@ void D2MeasureLengthDot::MouseMove(POINT p)
 		m_draw.DrawCursor(m_tempP);
 	}
 
-	m_tempP = p;		
+	m_tempP = p;
 	m_draw.DrawCursor(m_tempP);
     m_isDraw = TRUE;
 }
@@ -960,7 +960,7 @@ void D2MeasureLengthDot::Esc()
 			m_draw.DrawCursor(m_tempP);
 		}
 	}
-	else 
+	else
 	{
 		int i;
 		int vec_size;
@@ -971,9 +971,9 @@ void D2MeasureLengthDot::Esc()
 			m_draw.DrawCursor(m_tempP);
 			for(i=0; i<vec_size; i++)
 				m_draw.DrawCursor(m_dot[i], FALSE);
-		}		
+		}
 		m_update.ClearMeasure();
-		HintArea::GetInstance()->ClearHint();	
+		HintArea::GetInstance()->ClearHint();
 	}
 }
 
@@ -991,7 +991,7 @@ void D2MeasureLengthDot::Change()
 
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
-			m_isDraw = TRUE;//TRUE;=======be careful	
+			m_isDraw = TRUE;//TRUE;=======be careful
 			break;
 		default:
 break;
@@ -1048,10 +1048,10 @@ void D2MeasureAreaTrack::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_p1 = m_tempP;
-			m_line_tempP = m_tempP;	
+			m_line_tempP = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
-			
+
 			m_perimeter = (double)0;
 			m_area = (double)0;
 
@@ -1096,11 +1096,11 @@ void D2MeasureAreaTrack::PressLeft(POINT p)
 
 			m_ptrMan->AddNew(AREA_TRACK, m_draw.GetCursorType(), m_track, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
 			double resultTmp;
-			resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : m_area;	
+			resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : m_area;
 			m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, SAVE);
-			
+
             m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
-		
+
 			//begin new track length measure
 			m_draw.ChangeCursorType(); // 更改鼠标类型
 			Init();
@@ -1179,7 +1179,7 @@ void D2MeasureAreaTrack::MouseMove(POINT p)
 			{
 				m_draw.DrawCursor(m_tempP);
 			}
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_isDraw = TRUE;
 			break;
@@ -1201,9 +1201,9 @@ void D2MeasureAreaTrack::MouseMove(POINT p)
 				m_area += m_calc.D2CalcAreaTrack(m_line_tempP, m_tempP, m_p1);
 
 				double resultTmp;
-				resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;	
+				resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;
 				m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
-				
+
 				if (m_itemInfo->meaType == PERI_TRACK)
 					m_update.GenDisplaySingle(m_itemInfo, allData, attr, true, 1);
 				else
@@ -1213,7 +1213,7 @@ void D2MeasureAreaTrack::MouseMove(POINT p)
 				m_track.push_back(m_line_tempP);
 				m_mouse_count = 0;
 			}
-            m_isDraw = TRUE;	
+            m_isDraw = TRUE;
             m_trackTemp.clear();
 
 			break;
@@ -1234,7 +1234,7 @@ void D2MeasureAreaTrack::Value(EKnobOper opr)
 	double allData[SINGLE_MAX + 1];
 
     if(opr == ADD)
-    {//redraw 
+    {//redraw
         if((size_track > 0) && (size_track_temp > 0))
         {
             if (m_isDraw)
@@ -1247,7 +1247,7 @@ void D2MeasureAreaTrack::Value(EKnobOper opr)
             m_perimeter += m_calc.D2CalcLenTrack(m_track[size_track - 1], m_tempP);
             m_area += m_calc.D2CalcAreaTrack(m_track[size_track - 1], m_tempP, m_p1);
             double resultTmp;
-            resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;	
+            resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;
             m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
 
             if (m_itemInfo->meaType == PERI_TRACK)
@@ -1303,7 +1303,7 @@ void D2MeasureAreaTrack::Value(EKnobOper opr)
             m_perimeter -= m_calc.D2CalcLenTrack(m_track[size_track - 1], m_tempP);
             m_area -= m_calc.D2CalcAreaTrack(m_track[size_track - 1], m_tempP, m_p1);
             double resultTmp;
-            resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;	
+            resultTmp = (m_itemInfo->meaType == PERI_TRACK) ? m_perimeter : (double)INVALID_VAL;
             m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
 
             if (m_itemInfo->meaType == PERI_TRACK)
@@ -1321,7 +1321,7 @@ void D2MeasureAreaTrack::Value(EKnobOper opr)
         return;
     }
 
-    m_isDraw = TRUE;	
+    m_isDraw = TRUE;
 }
 
 void D2MeasureAreaTrack::Change()
@@ -1336,9 +1336,9 @@ void D2MeasureAreaTrack::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		int i;
 		int vec_size;
@@ -1350,7 +1350,7 @@ void D2MeasureAreaTrack::Esc()
 			vec_size = m_track.size() - 1;
 			for(i=0; i<vec_size; i++)
 				m_draw.DrawTraceLine(m_track[i], m_track[i+1], TRUE);
-		}		
+		}
 	}
 	m_track.clear();
     m_trackTemp.clear();
@@ -1400,17 +1400,17 @@ void D2MeasureSimpson::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
-	
+
 	switch(m_step)
 	{
         case 0: // first
@@ -1424,10 +1424,10 @@ void D2MeasureSimpson::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_p1 = m_tempP;
-			m_line_tempP = m_tempP;	
+			m_line_tempP = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
-			
+
 			m_length = (double)0;
 			m_area = (double)0;
 
@@ -1465,7 +1465,7 @@ void D2MeasureSimpson::PressLeft(POINT p)
 
 			m_lenStart.x = (m_p1.x + m_line_tempP.x) / 2;
 			m_lenStart.y = (m_p1.y + m_line_tempP.y) / 2;
-			
+
 			m_lenPosi = m_track.size() / 2;
 			m_tempP = m_track[m_lenPosi];
 			m_draw.DrawCursor(m_tempP);
@@ -1480,7 +1480,7 @@ void D2MeasureSimpson::PressLeft(POINT p)
 			m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
 			m_step = 2;
-			
+
 			m_direct = (abs(m_directX) < abs(m_directY)) ? 1 : 0;
             m_trackTemp.clear();
             HintArea::GetInstance()->ClearHint();
@@ -1498,12 +1498,12 @@ void D2MeasureSimpson::PressLeft(POINT p)
 			m_draw.DrawLine(m_lenStart, m_tempP, FALSE);
 			diamSquSum = DiamLine(m_lenStart, m_tempP, m_lenPosi, FALSE);
 			m_track.push_back(m_track[m_lenPosi]);
-			
+
 			dataMea[0] = m_area;
 			dataMea[1] = m_length;
 			dataMea[2] = m_vol;
 			m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, SAVE);
-			
+
 			m_ptrMan->AddNew(SIMPSONS, m_draw.GetCursorType(), m_track, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, false, unit_coeffi);
 
@@ -1627,15 +1627,15 @@ void D2MeasureSimpson::MouseMove(POINT p)
 	double allData[MULTI_MAX];
 	int i;
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 	switch(m_step)
@@ -1645,7 +1645,7 @@ void D2MeasureSimpson::MouseMove(POINT p)
 			{
 				m_draw.DrawCursor(m_tempP);
 			}
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_isDraw = TRUE;
 			break;
@@ -1683,7 +1683,7 @@ void D2MeasureSimpson::MouseMove(POINT p)
 				m_mouse_count = 0;
 			}
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
             m_trackTemp.clear();
 			break;
 
@@ -1728,11 +1728,11 @@ void D2MeasureSimpson::MouseMove(POINT p)
 				m_lenPosi++;
 			else if((direcSign == -1)&&(m_lenPosi > 1))
 				m_lenPosi--;
-		*/	
+		*/
 			m_tempP = m_track[m_lenPosi];
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lenStart, m_tempP, TRUE);
-			
+
 			diamSquSum = DiamLine(m_lenStart, m_tempP, m_lenPosi, TRUE);
 			m_length = m_calc.D2CalcDist(m_lenStart, m_tempP);
 			m_vol = m_calc.D2CalcSimpson(m_length, diamSquSum);
@@ -1741,11 +1741,11 @@ void D2MeasureSimpson::MouseMove(POINT p)
 			dataMea[2] = m_vol;
 			m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-			
+
 			m_draw.SetCursor(m_tempP);
 			m_isDraw = TRUE;
-			break;	
-			
+			break;
+
 		default:
 			break;
 	}
@@ -1761,24 +1761,24 @@ void D2MeasureSimpson::Value(EKnobOper opr)
     int size_track = m_track.size();
     int size_track_temp = m_trackTemp.size();
     //printf("size_track=%d  size_track_temp=%d\n", size_track, size_track_temp);
-    
+
     int unit_coeffi[MEA_MULTI];
 	double allData[MULTI_MAX];
 	int i;
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 
     if(opr == ADD)
-    {//redraw 
+    {//redraw
         if((size_track > 0) && (size_track_temp > 0))
         {
             if (m_isDraw)
@@ -1822,7 +1822,7 @@ void D2MeasureSimpson::Value(EKnobOper opr)
                 m_draw.DrawCursor(m_tempP);
             }
         }
-        else 
+        else
             return;
 
         if(size_track > 0)
@@ -1831,7 +1831,7 @@ void D2MeasureSimpson::Value(EKnobOper opr)
             m_trackTemp.push_back(m_tempP);
             m_track.pop_back();
             size_track = m_track.size();
-            
+
             if (m_tempP.x > m_track[size_track - 1].x)
                 m_directX++;
             else if (m_tempP.x < m_track[size_track - 1].x)
@@ -1868,7 +1868,7 @@ void D2MeasureSimpson::Value(EKnobOper opr)
         m_line_tempP = m_tempP;
 
         m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-        m_isDraw = TRUE;	
+        m_isDraw = TRUE;
     }
     else
     {
@@ -1924,7 +1924,7 @@ int D2MeasureSimpson::DiamLine(POINT lenStart, POINT lenEnd, int lenEndPosi, boo
 			tmpBeh = (tempPosi1 == 0) ? lenStart : m_track[tempPosi1 - 1];
 			tempX2 = (double)tmpBeh.x;
 			tempY2 = diamCenterY + diamSlope * (tempX2 - diamCenterX);
-			
+
 			if(tempPosi1 == 0)
 				break;
 		}
@@ -1934,7 +1934,7 @@ int D2MeasureSimpson::DiamLine(POINT lenStart, POINT lenEnd, int lenEndPosi, boo
 		y1 = (double)tmpFront.y;
 		x2 = (double)tmpBeh.x;
 		y2 = (double)tmpBeh.y;
-		
+
 		temp = ((y0-y2)*x1 - (y0-y1)*x2 + diamSlope*x0*(x2-x1)) / (diamSlope*(x2-x1)+y1-y2);
 		diamEP1.x = (int)temp;
 		diamEP1.y = (int)(diamSlope * (temp - x0) + y0);
@@ -1955,7 +1955,7 @@ int D2MeasureSimpson::DiamLine(POINT lenStart, POINT lenEnd, int lenEndPosi, boo
 			tmpBeh = (tempPosi2 == vecSize - 1) ? lenStart : m_track[tempPosi2 + 1];
 			tempX2 = (double)tmpBeh.x;
 			tempY2 = diamCenterY + diamSlope * (tempX2 - diamCenterX);
-			
+
 			if(tempPosi2 == vecSize - 1)
 				break;
 		}
@@ -1965,14 +1965,14 @@ int D2MeasureSimpson::DiamLine(POINT lenStart, POINT lenEnd, int lenEndPosi, boo
 		y1 = (double)tmpFront.y;
 		x2 = (double)tmpBeh.x;
 		y2 = (double)tmpBeh.y;
-		
+
 		temp = ((y0-y2)*x1 - (y0-y1)*x2 + diamSlope*x0*(x2-x1)) / (diamSlope*(x2-x1)+y1-y2);
 		diamEP2.x = (int)temp;
 		diamEP2.y = (int)(diamSlope * (temp - x0) + y0);
-		
+
 		m_draw.DrawLine(diamEP1, diamEP2, isCur);
 		diamSquSum += m_calc.D2CalcSquDist(diamEP1, diamEP2);
-		
+
 		if (isCur == FALSE)
 		{
 			m_track.push_back(diamEP1);
@@ -2004,7 +2004,7 @@ int D2MeasureSimpson::LenEnd(POINT mousePoint, int vecPosi)
 		else
 			xySign = 0;
 	}
-	
+
 	xySign = 1;
 	if (xySign == 1)
 	{
@@ -2068,9 +2068,9 @@ void D2MeasureSimpson::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else if (m_step == 1) 
+	else if (m_step == 1)
 	{
 		int i;
 		int vec_size;
@@ -2082,7 +2082,7 @@ void D2MeasureSimpson::Esc()
 			vec_size = m_track.size() - 1;
 			for(i=0; i<vec_size; i++)
 				m_draw.DrawLine(m_track[i], m_track[i+1], TRUE);
-		}		
+		}
 	}
 	else
 	{
@@ -2150,17 +2150,17 @@ void D2MeasureAL::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
-	
+
 	switch(m_step)
 	{
 		case 0: // first
@@ -2174,10 +2174,10 @@ void D2MeasureAL::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_p1 = m_tempP;
-			m_line_tempP = m_tempP;	
+			m_line_tempP = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
-			
+
 			m_length = (double)0;
 			m_area = (double)0;
 
@@ -2215,7 +2215,7 @@ void D2MeasureAL::PressLeft(POINT p)
 
 			m_lenStart.x = (m_p1.x + m_line_tempP.x) / 2;
 			m_lenStart.y = (m_p1.y + m_line_tempP.y) / 2;
-			
+
 			m_tempP = m_lenStart;
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lenStart, m_tempP, TRUE);
@@ -2243,12 +2243,12 @@ void D2MeasureAL::PressLeft(POINT p)
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawLine(m_lenStart, m_tempP, FALSE);
 			m_track.push_back(m_tempP);
-			
+
 			dataMea[0] = m_area;
 			dataMea[1] = m_length;
 			dataMea[2] = m_vol;
 			m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, SAVE);
-			
+
 			m_ptrMan->AddNew(AL, m_draw.GetCursorType(), m_track, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, false, unit_coeffi);
 
@@ -2334,7 +2334,7 @@ void D2MeasureAL::PressRight(POINT p)
 				m_draw.DrawLine(m_track[0], m_track[size - 1], FALSE);
 		//		m_draw.DrawLine(m_line_tempP, m_p1);
 				m_track.clear();
-                m_trackTemp.clear(); 
+                m_trackTemp.clear();
 
 				m_isDraw = TRUE;
 				m_step = 0;
@@ -2365,15 +2365,15 @@ void D2MeasureAL::MouseMove(POINT p)
 	double allData[MULTI_MAX];
 	int i;
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 	switch(m_step)
@@ -2383,7 +2383,7 @@ void D2MeasureAL::MouseMove(POINT p)
 			{
 				m_draw.DrawCursor(m_tempP);
 			}
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_isDraw = TRUE;
 			break;
@@ -2408,7 +2408,7 @@ void D2MeasureAL::MouseMove(POINT p)
 				m_mouse_count = 0;
 			}
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
             m_trackTemp.clear();
 			break;
 
@@ -2422,7 +2422,7 @@ void D2MeasureAL::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawLine(m_lenStart, m_tempP, TRUE);
-			
+
 			m_length = m_calc.D2CalcDist(m_lenStart, m_tempP);
 			m_vol = m_calc.D2CalcAL(m_length, m_area);
 			dataMea[0] = m_area;
@@ -2430,10 +2430,10 @@ void D2MeasureAL::MouseMove(POINT p)
 			dataMea[2] = m_vol;
 			m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-			
+
 			m_isDraw = TRUE;
-			break;	
-			
+			break;
+
 		default:
 			break;
 	}
@@ -2449,24 +2449,24 @@ void D2MeasureAL::Value(EKnobOper opr)
     int size_track = m_track.size();
     int size_track_temp = m_trackTemp.size();
     PRINTF("size_track=%d  size_track_temp=%d\n", size_track, size_track_temp);
-    
+
     int unit_coeffi[MEA_MULTI];
 	double allData[MULTI_MAX];
 	int i;
 
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 
     if(opr == ADD)
-    {//redraw 
+    {//redraw
         if((size_track > 0) && (size_track_temp > 0))
         {
             if (m_isDraw)
@@ -2488,7 +2488,7 @@ void D2MeasureAL::Value(EKnobOper opr)
                 m_draw.DrawCursor(m_tempP);
             }
 
-            m_isDraw = TRUE;	
+            m_isDraw = TRUE;
         }
         else
             return;
@@ -2502,7 +2502,7 @@ void D2MeasureAL::Value(EKnobOper opr)
                 m_draw.DrawCursor(m_tempP);
             }
         }
-        else 
+        else
             return;
 
         if(size_track > 0)
@@ -2537,7 +2537,7 @@ void D2MeasureAL::Value(EKnobOper opr)
         m_line_tempP = m_tempP;
 
         m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
-        m_isDraw = TRUE;	
+        m_isDraw = TRUE;
     }
     else
     {
@@ -2557,9 +2557,9 @@ void D2MeasureAL::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else if (m_step == 1) 
+	else if (m_step == 1)
 	{
 		int i;
 		int vec_size;
@@ -2571,7 +2571,7 @@ void D2MeasureAL::Esc()
 			vec_size = m_track.size() - 1;
 			for(i=0; i<vec_size; i++)
                 m_draw.DrawLine(m_track[i], m_track[i+1], TRUE);
-        }		
+        }
 	}
 	else
 	{
@@ -2639,7 +2639,7 @@ void D2MeasureAreaDot::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_p1 = m_tempP;
-			m_dot_tempP = m_tempP;	
+			m_dot_tempP = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawCursor(m_tempP);
 
@@ -2654,7 +2654,7 @@ void D2MeasureAreaDot::PressLeft(POINT p)
 
 		case 1:
 			HintArea::GetInstance()->ClearHint();
-			
+
 			if (m_isDraw)
 			{
 				m_draw.DrawCursor(m_tempP);
@@ -2743,7 +2743,7 @@ void D2MeasureAreaDot::MouseMove(POINT p)
 		m_draw.DrawCursor(m_tempP);
 	}
 
-	m_tempP = p;		
+	m_tempP = p;
 	m_draw.DrawCursor(p);
 	m_isDraw = TRUE;
 }
@@ -2755,9 +2755,9 @@ void D2MeasureAreaDot::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		int i;
 		int vec_size;
@@ -2768,9 +2768,9 @@ void D2MeasureAreaDot::Esc()
 			m_draw.DrawCursor(m_tempP);
 			for(i=0; i<vec_size; i++)
 				m_draw.DrawCursor(m_dot[i], FALSE);
-		}		
+		}
 		m_update.ClearMeasure();
-		HintArea::GetInstance()->ClearHint();	
+		HintArea::GetInstance()->ClearHint();
 	}
 }
 
@@ -2788,7 +2788,7 @@ void D2MeasureAreaDot::Change()
 
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_dot_tempP = m_tempP;
-			m_isDraw = FALSE;//TRUE;=======be careful	
+			m_isDraw = FALSE;//TRUE;=======be careful
 			break;
 
 		default:
@@ -2837,7 +2837,7 @@ void D2MeasureAreaRec::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -2877,7 +2877,7 @@ void D2MeasureAreaRec::PressLeft(POINT p)
 			tempP.y = m_p1.y;
 			m_draw.DrawLine(m_p1, tempP, FALSE);
 			m_draw.DrawLine(tempP, m_tempP, FALSE);
-			
+
 			// save measure result
 			vec.clear();
 			vec.push_back(m_p1);
@@ -2963,7 +2963,7 @@ void D2MeasureAreaRec::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -2994,7 +2994,7 @@ void D2MeasureAreaRec::MouseMove(POINT p)
 			m_draw.DrawLine(m_p1, tempP, TRUE);
 			m_draw.DrawLine(tempP, p, TRUE);
 
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_area = m_calc.D2CalcAreaRec(m_p1, p);
 			m_update.D2AreaRec(m_area, attr);
@@ -3031,9 +3031,9 @@ void D2MeasureAreaRec::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		POINT p12, p21;
 
@@ -3050,7 +3050,7 @@ void D2MeasureAreaRec::Esc()
 			m_draw.DrawLine(m_p1, p21, TRUE);
 			m_draw.DrawLine(p12, m_tempP, TRUE);
 			m_draw.DrawLine(p21, m_tempP, TRUE);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -3109,12 +3109,12 @@ void D2MeasureVol3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_x_start = m_p1;	
+			m_x_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawDotLine(m_p1, m_tempP, TRUE);
-			m_x_end = m_tempP;	
+			m_x_end = m_tempP;
 			m_step = 1;
 			m_isDraw = TRUE;
 
@@ -3149,7 +3149,7 @@ void D2MeasureVol3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_y_start = m_p1;	
+			m_y_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -3189,7 +3189,7 @@ void D2MeasureVol3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_z_start = m_p1;	
+			m_z_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -3224,7 +3224,7 @@ void D2MeasureVol3Axis::PressLeft(POINT p)
 				vec.push_back(m_z_start);
 				vec.push_back(m_z_end);
 				m_ptrMan->AddNew(VOL_3AXIS, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-			
+
                 m_ptrMan->SingleMeaDataMan(m_vol, m_itemInfo, allData, SAVE);
                 //m_update.GenDisplaySingle(m_itemInfo, allData, attr, false, 1);
 
@@ -3370,7 +3370,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3385,7 +3385,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, TRUE);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_x_len = m_calc.D2CalcDist(m_p1, p);
 			m_update.D2Vol3Axis(m_name, m_x_len, m_y_len, m_z_len, m_vol, attr);
@@ -3397,7 +3397,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3423,7 +3423,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3438,7 +3438,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, TRUE);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_z_len = m_calc.D2CalcDist(m_p1, p);
 			m_vol = PI * m_x_len * m_y_len * m_z_len / 6.0;
@@ -3452,7 +3452,7 @@ void D2MeasureVol3Axis::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureVol3Axis::Change()
 {
 	if (m_step == 1)
@@ -3617,13 +3617,13 @@ void D2MeasureSac3Axis::PressLeft(POINT p)
 	attr.curColor = m_draw.GetCurColor();
     attr.confirmColor = m_draw.GetConfirmColor();
     int i;
-    for(i=0; i<MULTI_MAX; i++) 
+    for(i=0; i<MULTI_MAX; i++)
 	{
 		 if(i < MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
 
-    for(i=0; i<MEA_MULTI; i++) 
+    for(i=0; i<MEA_MULTI; i++)
     {
         unit_coeffi[i] = 1;
     }
@@ -3639,12 +3639,12 @@ void D2MeasureSac3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_x_start = m_p1;	
+			m_x_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawDotLine(m_p1, m_tempP, TRUE);
-			m_x_end = m_tempP;	
+			m_x_end = m_tempP;
 			m_step = 1;
 			m_isDraw = TRUE;
 
@@ -3676,7 +3676,7 @@ void D2MeasureSac3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_y_start = m_p1;	
+			m_y_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -3715,7 +3715,7 @@ void D2MeasureSac3Axis::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_p1 = m_tempP;
-			m_z_start = m_p1;	
+			m_z_start = m_p1;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -3884,22 +3884,22 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 	double dataMea[MEA_MULTI];
 	int unit_coeffi[MEA_MULTI];
 	double allData[MULTI_MAX];
-    
+
     UpdateMeasure::ResultAttr attr;
     attr.cursorType = m_draw.GetOrderNumber();
     attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
 
 	int i;
-	for(i=0; i<MULTI_MAX; i++) 
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
-	unit_coeffi[2] = 1;	
-	unit_coeffi[3] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
+	unit_coeffi[2] = 1;
+	unit_coeffi[3] = 1;
 	for(i=4; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 	switch(m_step)
@@ -3910,7 +3910,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3925,7 +3925,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, TRUE);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			dataMea[0] = m_x_len = m_calc.D2CalcDist(m_p1, p);
             m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
@@ -3938,7 +3938,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3955,7 +3955,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 			m_draw.DrawDotLine(m_p1, p, TRUE);
 			m_isDraw = TRUE;
 
-			dataMea[0] = m_x_len; 
+			dataMea[0] = m_x_len;
 			dataMea[1] = m_y_len = m_calc.D2CalcDist(m_p1, p);
             m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
             m_update.GenDisplayMulti(m_itemInfo, allData, attr, true, unit_coeffi);
@@ -3966,7 +3966,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -3981,9 +3981,9 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, TRUE);
-			m_isDraw = TRUE;	
-			
-            dataMea[0] = m_x_len; 
+			m_isDraw = TRUE;
+
+            dataMea[0] = m_x_len;
 			dataMea[1] = m_y_len;
 			dataMea[2] = m_z_len = m_calc.D2CalcDist(m_p1, p);
             m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, NOT_SAVE);
@@ -3997,7 +3997,7 @@ void D2MeasureSac3Axis::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureSac3Axis::Change()
 {
 	if (m_step == 1)
@@ -4161,7 +4161,7 @@ void D2MeasureSac3Axis::Esc()
 // 				m_draw.DrawCursor(m_tempP);
 // 			}
 // 			m_draw.DrawCursor(m_tempP, FALSE);
-// 			m_s_start = m_l_end = m_l_start = m_tempP;	
+// 			m_s_start = m_l_end = m_l_start = m_tempP;
 // 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start);
 // 			m_step = 1;
 // 			m_isDraw = TRUE;
@@ -4173,7 +4173,7 @@ void D2MeasureSac3Axis::Esc()
 // 			{
 // 				m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start);
 // 			}
-// 			m_l_end = m_tempP; 
+// 			m_l_end = m_tempP;
 // 			m_s_start = CycleVertex(m_l_start, m_l_end);
 // 			m_tempP = m_s_start;
 // 			m_draw.SetCursor(m_s_start);
@@ -4277,7 +4277,7 @@ void D2MeasureSac3Axis::Esc()
 // 				m_draw.DrawCursor(m_tempP);
 // 			}
 
-// 			m_tempP = p;		
+// 			m_tempP = p;
 // 			m_draw.DrawCursor(p);
 // 			m_isDraw = TRUE;
 // 			break;
@@ -4291,7 +4291,7 @@ void D2MeasureSac3Axis::Esc()
 // 			m_l_end = p;
 // 			m_s_start = CycleVertex(m_l_start, m_l_end);
 // 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start);
-// 			m_isDraw = TRUE;	
+// 			m_isDraw = TRUE;
 
 // 			CalcResult();
 // 			if(m_method==0)
@@ -4314,9 +4314,9 @@ void D2MeasureSac3Axis::Esc()
 // 			{
 // 				m_s_start.x += (p.x - m_tempP.x);
 // 				if ((m_l_start.y - m_l_end.y) != 0)
-// 					m_s_start.y = ((double)m_l_start.y+(double)m_l_end.y) / 2.0 + 
-// 						((double)m_s_start.x - ((double)m_l_start.x+(double)m_l_end.x) / 2.0) * 
-// 						(((double)m_l_end.x-(double)m_l_start.x) / 
+// 					m_s_start.y = ((double)m_l_start.y+(double)m_l_end.y) / 2.0 +
+// 						((double)m_s_start.x - ((double)m_l_start.x+(double)m_l_end.x) / 2.0) *
+// 						(((double)m_l_end.x-(double)m_l_start.x) /
 // 						 ((double)m_l_start.y-(double)m_l_end.y));
 // 			}
 // 			else
@@ -4324,15 +4324,15 @@ void D2MeasureSac3Axis::Esc()
 // 				m_s_start.y += (p.y - m_tempP.y);
 // 				if ((m_l_start.x - m_l_end.x) != 0)
 // 					m_s_start.x = ((double)m_l_start.x+(double)m_l_end.x) / 2.0 +
-// 						((double)m_s_start.y - ((double)m_l_start.y+(double)m_l_end.y) / 2.0) * 
-// 						(((double)m_l_end.y - (double)m_l_start.y) / 
+// 						((double)m_s_start.y - ((double)m_l_start.y+(double)m_l_end.y) / 2.0) *
+// 						(((double)m_l_end.y - (double)m_l_start.y) /
 // 						 ((double)m_l_start.x -(double)m_l_end.x));
 // 			}
 
 // 			m_tempP = m_s_start;
 // 			m_draw.SetCursor(m_tempP);
 // 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start);
-// 			m_isDraw = TRUE;	
+// 			m_isDraw = TRUE;
 
 // 			CalcResult();
 // 			if(m_method==0)
@@ -4351,7 +4351,7 @@ void D2MeasureSac3Axis::Esc()
 
 // /*
 //  * @brief Change current moveable point between p1 and p2
-//  */ 
+//  */
 // void D2MeasureVolEllipse1::Change()
 // {
 // 	if (m_step == 1)
@@ -4390,13 +4390,13 @@ void D2MeasureSac3Axis::Esc()
 // 	double center_x, center_y;
 // 	double scale = Img2D::GetInstance()->GetScale2D();
 
-// 	long_axis = scale * sqrt((double)((m_l_end.x-m_l_start.x) * (m_l_end.x-m_l_start.x)) + 
+// 	long_axis = scale * sqrt((double)((m_l_end.x-m_l_start.x) * (m_l_end.x-m_l_start.x)) +
 // 			(double)((m_l_end.y-m_l_start.y)*(m_l_end.y-m_l_start.y)));
 
 // 	center_x = (double)(m_l_start.x + m_l_end.x) / 2.0;
 // 	center_y = (double)(m_l_start.y + m_l_end.y) / 2.0;
 
-// 	short_axis = scale * sqrt((double)((m_s_start.x-center_x) * (m_s_start.x-center_x)) + 
+// 	short_axis = scale * sqrt((double)((m_s_start.x-center_x) * (m_s_start.x-center_x)) +
 // 			(double)((m_s_start.y-center_y)*(m_s_start.y-center_y))) * 2.0;
 
 // 	m_vol = PI * long_axis * short_axis * short_axis / 6.0;
@@ -4416,7 +4416,7 @@ D2MeasureVolEllipse1::D2MeasureVolEllipse1(const SingleItemInfo *ptrSingleItemIn
 {
 	m_item = ptrSingleItemInfo->item;
 	m_itemInfo = ptrSingleItemInfo;
-	
+
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -4457,7 +4457,7 @@ void D2MeasureVolEllipse1::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_s_start = m_l_end = m_l_start = m_tempP;	
+			m_s_start = m_l_end = m_l_start = m_tempP;
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			m_step = 1;
 			m_isDraw = FALSE;
@@ -4470,7 +4470,7 @@ void D2MeasureVolEllipse1::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP, FALSE);
 			    m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			}
-			m_l_end = m_tempP; 
+			m_l_end = m_tempP;
 			m_s_start = CycleVertex(m_l_start, m_l_end);
 			m_tempP = m_s_start;
 			x0 = (m_l_start.x + m_l_end.x) / 2;
@@ -4505,7 +4505,7 @@ void D2MeasureVolEllipse1::PressLeft(POINT p)
 			}
 			m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, true, unit_coeffi);
-			
+
 			m_step = 2;
 			break;
 
@@ -4635,7 +4635,7 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -4652,7 +4652,7 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			m_isDraw = TRUE;
-			
+
 			if (m_itemInfo->meaType == AREA_ELLIPSE)//面积
 			{
 				m_area = m_calc.D2CalcEllipse(m_l_start, m_l_end, m_s_start, 1);
@@ -4692,7 +4692,7 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 			x0 = (m_l_start.x + m_l_end.x) / 2;
 			y0 = (m_l_start.y + m_l_end.y) / 2;
 
-			if (abs(offsetX) > abs(offsetY) && offsetX < 0) 
+			if (abs(offsetX) > abs(offsetY) && offsetX < 0)
 				m_SA_P += m;
 			else if ((abs(offsetX) > abs(offsetY)) && (offsetX > 0))
 				m_SA_P -= m;
@@ -4702,8 +4702,8 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 				m_SA_P -= m;
 
 			if(m_l_start.x == m_l_end.x)
-			{       
-				m_s_start.x = x0 + m_SA_P / 2;  
+			{
+				m_s_start.x = x0 + m_SA_P / 2;
 				m_s_start.y = y0;
 			}
 			else
@@ -4711,15 +4711,15 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 				k = (m_l_end.y - m_l_start.y) / (double)(m_l_end.x - m_l_start.x);
 				temp = 2 * sqrt(k * k + 1);
 
-				m_s_start.x = x0 + k * m_SA_P / temp; 
+				m_s_start.x = x0 + k * m_SA_P / temp;
 				m_s_start.y = y0 - m_SA_P / temp;
 			}
 
 			m_tempP = m_s_start;
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
-			m_isDraw = TRUE;	
-			
+			m_isDraw = TRUE;
+
 			if (m_itemInfo->meaType == AREA_ELLIPSE)//面积
 			{
 				m_area = m_calc.D2CalcEllipse(m_l_start, m_l_end, m_s_start, 1);
@@ -4748,7 +4748,7 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 			}
 			m_ptrMan->SingleMeaDataMan(resultTmp, m_itemInfo, allData, NOT_SAVE);
 			m_update.GenDisplaySingle(m_itemInfo, allData, attr, true, unit_coeffi);
-		
+
 			break;
 		default:
 			break;
@@ -4757,7 +4757,7 @@ void D2MeasureVolEllipse1::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureVolEllipse1::Change()
 {
 	if (m_step == 1)
@@ -4838,13 +4838,13 @@ void D2MeasureVolEllipse1::Esc()
    double center_x, center_y;
    double scale = Img2D::GetInstance()->GetScale2D();
 
-   long_axis = scale * sqrt((double)((m_l_end.x-m_l_start.x) * (m_l_end.x-m_l_start.x)) + 
+   long_axis = scale * sqrt((double)((m_l_end.x-m_l_start.x) * (m_l_end.x-m_l_start.x)) +
    (double)((m_l_end.y-m_l_start.y)*(m_l_end.y-m_l_start.y)));
 
    center_x = (double)(m_l_start.x + m_l_end.x) / 2.0;
    center_y = (double)(m_l_start.y + m_l_end.y) / 2.0;
 
-   short_axis = scale * sqrt((double)((m_s_start.x-center_x) * (m_s_start.x-center_x)) + 
+   short_axis = scale * sqrt((double)((m_s_start.x-center_x) * (m_s_start.x-center_x)) +
    (double)((m_s_start.y-center_y)*(m_s_start.y-center_y))) * 2.0;
 
    m_vol = PI * long_axis * short_axis * short_axis / 6.0;
@@ -4879,7 +4879,7 @@ void D2MeasureVolEllipse2::Init()
 }
 
 void D2MeasureVolEllipse2::PressLeft(POINT p)
-{	
+{
 	vector<POINT> vec;
 
 	UpdateMeasure::ResultAttr attr;
@@ -4903,7 +4903,7 @@ void D2MeasureVolEllipse2::PressLeft(POINT p)
 			m_s_start = m_l_end = m_l_start = m_tempP;
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			m_step = 1;
-			m_isDraw = FALSE; 
+			m_isDraw = FALSE;
 			break;
 
 		case 1:
@@ -4912,7 +4912,7 @@ void D2MeasureVolEllipse2::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			    m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			}
-			m_l_end = m_tempP; 
+			m_l_end = m_tempP;
 			m_s_start = CycleVertex(m_l_start, m_l_end);
 			m_tempP = m_s_start;
 			x0 = (m_l_start.x + m_l_end.x) / 2;
@@ -4947,7 +4947,7 @@ void D2MeasureVolEllipse2::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawDotLine(m_p1, m_tempP, true);
 
@@ -5088,7 +5088,7 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -5122,7 +5122,7 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 			x0 = (m_l_start.x + m_l_end.x) / 2;
 			y0 = (m_l_start.y + m_l_end.y) / 2;
 
-			if (abs(offsetX) > abs(offsetY) && offsetX < 0) 
+			if (abs(offsetX) > abs(offsetY) && offsetX < 0)
 				m_SA_P += m;
 			else if ((abs(offsetX) > abs(offsetY)) && (offsetX > 0))
 				m_SA_P -= m;
@@ -5132,8 +5132,8 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 				m_SA_P -= m;
 
 			if(m_l_start.x == m_l_end.x)
-			{       
-				m_s_start.x = x0 + m_SA_P / 2;  
+			{
+				m_s_start.x = x0 + m_SA_P / 2;
 				m_s_start.y = y0;
 			}
 			else
@@ -5141,7 +5141,7 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 				k = (m_l_end.y - m_l_start.y) / (double)(m_l_end.x - m_l_start.x);
 				temp = 2 * sqrt(k * k + 1);
 
-				m_s_start.x = x0 + k * m_SA_P / temp; 
+				m_s_start.x = x0 + k * m_SA_P / temp;
 				m_s_start.y = y0 - m_SA_P / temp;
 			}
 
@@ -5160,8 +5160,8 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
-			m_p1 = p;		
+			m_tempP = p;
+			m_p1 = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -5176,7 +5176,7 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, true);
-            m_isDraw = TRUE;	
+            m_isDraw = TRUE;
 
             m_dist = m_calc.D2CalcDist(m_p1, m_tempP);
             m_vol = m_calc.CalcVol(m_l_start, m_l_end, m_s_start, m_dist);
@@ -5189,7 +5189,7 @@ void D2MeasureVolEllipse2::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureVolEllipse2::Change()
 {
 	if (m_step == 1)
@@ -5304,14 +5304,14 @@ void D2MeasureVolSpheroid::PressLeft(POINT p)
 	attr.cursorType = m_draw.GetOrderNumber();
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
-	
-	for(i=0; i<MULTI_MAX; i++) 
+
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
 	for(i=2; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 	switch(m_step)
@@ -5322,7 +5322,7 @@ void D2MeasureVolSpheroid::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;	
+			m_p1 = m_tempP;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP);
@@ -5414,19 +5414,19 @@ void D2MeasureVolSpheroid::MouseMove(POINT p)
 	int unit_coeffi[MEA_MULTI];
 	double allData[MULTI_MAX];
 	int i;
-	
+
 	UpdateMeasure::ResultAttr attr;
 	attr.cursorType = m_draw.GetOrderNumber();
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
-	
-	for(i=0; i<MULTI_MAX; i++) 
+
+	for(i=0; i<MULTI_MAX; i++)
 	{
 		if (i<MEA_MULTI) dataMea[i] = INVALID_VAL;
 		allData[i] = INVALID_VAL;
 	}
-	unit_coeffi[0] = 1;	
-	unit_coeffi[1] = 1;	
+	unit_coeffi[0] = 1;
+	unit_coeffi[1] = 1;
 	for(i=2; i<MEA_MULTI; i++) {unit_coeffi[i] = 1;}
 
 	switch(m_step)
@@ -5437,7 +5437,7 @@ void D2MeasureVolSpheroid::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -5452,7 +5452,7 @@ void D2MeasureVolSpheroid::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawDotLine(m_p1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_diam = m_calc.D2CalcDist(m_p1, m_tempP);
 			m_vol = PI * m_diam * m_diam * m_diam / 6.0;
@@ -5469,7 +5469,7 @@ void D2MeasureVolSpheroid::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureVolSpheroid::Change()
 {
 	if (m_step == 1)
@@ -5491,22 +5491,22 @@ void D2MeasureVolSpheroid::Change()
 }
 
 void D2MeasureVolSpheroid::Esc()
-{	
+{
 	if (m_step == 0)
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawDotLine(m_p1, m_tempP, true);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -5515,7 +5515,7 @@ void D2MeasureVolSpheroid::Esc()
 D2MeasureAngleSingle::D2MeasureAngleSingle(const SingleItemInfo *ptrSingleItemInfo)
 {
 	m_itemInfo = ptrSingleItemInfo;
-	
+
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -5562,14 +5562,14 @@ void D2MeasureAngleSingle::PressLeft(POINT p)
 			if (m_isDraw)
 			{
 				m_draw.DrawCursor(m_tempP, true);
-				m_draw.DrawLine(m_vertex, m_tempP, true);	
+				m_draw.DrawLine(m_vertex, m_tempP, true);
 			}
 
 			m_draw.DrawCursor(m_tempP, false);
 			m_draw.DrawLine(m_vertex, m_tempP, false);
 
 			m_left = m_tempP;
-			m_tempP = m_vertex;	
+			m_tempP = m_vertex;
 			m_step = 2;
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP, true);
@@ -5583,11 +5583,11 @@ void D2MeasureAngleSingle::PressLeft(POINT p)
 				if (m_isDraw)
 				{
 					m_draw.DrawCursor(m_tempP);
-					m_draw.DrawLine(m_vertex, m_tempP, true);	
+					m_draw.DrawLine(m_vertex, m_tempP, true);
 				}
 
 				m_draw.DrawCursor(m_tempP, false);
-				m_draw.DrawLine(m_vertex, m_tempP, false);	
+				m_draw.DrawLine(m_vertex, m_tempP, false);
 
 				m_right = m_tempP;
 
@@ -5691,7 +5691,7 @@ void D2MeasureAngleSingle::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -5708,7 +5708,7 @@ void D2MeasureAngleSingle::MouseMove(POINT p)
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex, m_tempP, true);
 
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			break;
 
 		case 2:
@@ -5722,7 +5722,7 @@ void D2MeasureAngleSingle::MouseMove(POINT p)
 			m_right = p;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex, m_tempP, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_angle = m_calc.D2CalcAngle(m_vertex, m_left, p);
 			m_ptrMan->SingleMeaDataMan(m_angle, m_itemInfo, allData, NOT_SAVE);
@@ -5736,7 +5736,7 @@ void D2MeasureAngleSingle::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureAngleSingle::Change()
 {
 	if (m_step == 1)
@@ -5809,7 +5809,7 @@ D2MeasureAngle::D2MeasureAngle(int method,const SingleItemInfo *ptrSingleItemInf
     m_item = ptrSingleItemInfo->item;
 	m_itemInfo = ptrSingleItemInfo;
 
-	m_method = method;    
+	m_method = method;
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -5869,7 +5869,7 @@ void D2MeasureAngle::PressLeft(POINT p)
 			{
 			    if (m_method==0) {
 				m_draw.DrawCursor(m_tempP, true);
-				m_draw.DrawLine(m_vertex, m_tempP, true);	
+				m_draw.DrawLine(m_vertex, m_tempP, true);
 			    }
 			    else
                 {
@@ -5886,7 +5886,7 @@ void D2MeasureAngle::PressLeft(POINT p)
 			}
 
 			m_left = m_tempP;
-			m_tempP = m_vertex;	
+			m_tempP = m_vertex;
             m_right = m_vertex;
 			m_right.x = m_vertex.x + 1;
 			m_step = 2;
@@ -5915,7 +5915,7 @@ void D2MeasureAngle::PressLeft(POINT p)
 				{
 				    if (m_method==0) {
 					m_draw.DrawCursor(m_tempP);
-					m_draw.DrawLine(m_vertex, m_tempP, true);	
+					m_draw.DrawLine(m_vertex, m_tempP, true);
 				    }
 				    else {
 					m_draw.DrawDotBeeline(m_vertex, m_tempP, true);
@@ -5925,7 +5925,7 @@ void D2MeasureAngle::PressLeft(POINT p)
 
 				if (m_method==0) {
 				    m_draw.DrawCursor(m_tempP, false);
-				    m_draw.DrawLine(m_vertex, m_tempP, false);	
+				    m_draw.DrawLine(m_vertex, m_tempP, false);
 				}
 				else {
 				    m_draw.DrawDotBeeline(m_vertex, m_tempP, false);
@@ -5947,7 +5947,7 @@ void D2MeasureAngle::PressLeft(POINT p)
 				    m_ptrMan->AddNew(ANGLE_3DOT, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
 				else
 				    m_ptrMan->AddNew(ANGLE_2LINE, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-				
+
 				if (m_method==0)
                 {
                     //  m_update.D2Angle3Dot(m_dist_l, m_dist_r, m_angle, attr, false);
@@ -6070,7 +6070,7 @@ void D2MeasureAngle::MouseMove(POINT p)
 			    m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -6097,7 +6097,7 @@ void D2MeasureAngle::MouseMove(POINT p)
 			else
 			    m_draw.DrawDotBeeline(m_vertex, m_tempP, true);
 
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist_l = m_calc.D2CalcDist(m_vertex, p);
 			if (m_method==0)
@@ -6131,7 +6131,7 @@ void D2MeasureAngle::MouseMove(POINT p)
 			    m_draw.DrawDotBeeline(m_vertex, m_tempP, true);
 				m_draw.DrawAngleArc(m_vertex, m_left, m_right, true);
             }
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			m_dist_r = m_calc.D2CalcDist(m_vertex, p);
 			m_angle = m_calc.D2CalcAngle(m_vertex, m_left, p);
 			if (m_method==0)
@@ -6147,7 +6147,7 @@ void D2MeasureAngle::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureAngle::Change()
 {
 	if (m_step == 1)
@@ -6300,10 +6300,10 @@ void D2MeasureHip::PressLeft(POINT p)
 		dataMea[i] = INVALID_VAL;
 
 	if (m_isDraw)
-		m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);	
+		m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);
 	vec = m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, false);
 	//printf("%s-%s: Confirm line (%d,%d) to (%d,%d)\n", __FILE__, __FUNCTION__, vec[0].x, vec[0].y, vec[1].x, vec[1].y);
-	
+
 	switch(m_step)
 	{
 		case 0:
@@ -6321,7 +6321,7 @@ void D2MeasureHip::PressLeft(POINT p)
 			m_update.D2Hip(m_alpha, m_beta, attr);
 			m_draw.DrawOrderNumber(m_bl_p2, m_draw.GetOrderNumber());
 			break;
-		
+
 		case 1:
 			m_rl_p1 = vec[0];
 			m_rl_p2 = vec[1];
@@ -6344,7 +6344,7 @@ void D2MeasureHip::PressLeft(POINT p)
 				m_il_p2 = vec[1];
 				m_ilRecord.point = m_tempP;
 				m_update.D2Hip(m_alpha, m_beta, attr, false);
-				
+
 				// save measure result
 				dataMea[0] = m_alpha;
 				dataMea[1] = m_beta;
@@ -6357,11 +6357,11 @@ void D2MeasureHip::PressLeft(POINT p)
 				vec.push_back(m_il_p1);
 				vec.push_back(m_il_p2);
 				m_ptrMan->AddNew(HIP, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-				
+
                 //begin new dist measure
 				m_draw.ChangeCursorType();
                 Init();
-                
+
                 // change pointer
                 ChangePointerWhenMeasure();
 
@@ -6432,11 +6432,11 @@ void D2MeasureHip::MouseMove(POINT p)
 	if (m_isDraw)
 		m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);
 
-	m_tempP = p;		
+	m_tempP = p;
 	m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);
 	m_isDraw = TRUE;
 
-	if(m_step == 1) 
+	if(m_step == 1)
 	{
 		while(m_rlRecord.angle >= 360)
 			m_rlRecord.angle -= 360;
@@ -6447,7 +6447,7 @@ void D2MeasureHip::MouseMove(POINT p)
 		m_alpha = m_calc.D2CalcHipAlpha(m_blRecord.angle, m_rlRecord.angle);
 		m_update.D2Hip(m_alpha, m_beta, attr);
 	}
-	else if(m_step == 2) 
+	else if(m_step == 2)
 	{
 		while(m_ilRecord.angle >= 360)
 			m_ilRecord.angle -= 360;
@@ -6477,9 +6477,9 @@ void D2MeasureHip::Value(EKnobOper opr)
 	{
 		m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);
 	}
-	if (m_step == 0) 
+	if (m_step == 0)
 	{
-		m_blRecord.angle += dir; 
+		m_blRecord.angle += dir;
 		while(m_blRecord.angle >= 360)
 			m_blRecord.angle -= 360;
 		while(m_blRecord.angle < 0)
@@ -6487,9 +6487,9 @@ void D2MeasureHip::Value(EKnobOper opr)
 		m_theta = m_blRecord.angle * PI / 180.0;
 		//printf("%s-%s: angle=%.2f, theta=%.2f\n", __FILE__, __FUNCTION__, m_blRecord.angle, m_theta);
 	}
-	else if(m_step == 1) 
+	else if(m_step == 1)
 	{
-		m_rlRecord.angle += dir; 
+		m_rlRecord.angle += dir;
 		while(m_rlRecord.angle >= 360)
 			m_rlRecord.angle -= 360;
 		while(m_rlRecord.angle < 0)
@@ -6500,9 +6500,9 @@ void D2MeasureHip::Value(EKnobOper opr)
 		m_alpha = m_calc.D2CalcHipAlpha(m_blRecord.angle, m_rlRecord.angle);
 		m_update.D2Hip(m_alpha, m_beta, attr);
 	}
-	else 
+	else
 	{
-		m_ilRecord.angle += dir; 
+		m_ilRecord.angle += dir;
 		while(m_ilRecord.angle >= 360)
 			m_ilRecord.angle -= 360;
 		while(m_ilRecord.angle < 0)
@@ -6520,7 +6520,7 @@ void D2MeasureHip::Value(EKnobOper opr)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureHip::Change()
 {
 
@@ -6537,7 +6537,7 @@ void D2MeasureHip::Esc()
 	{
 		if(m_isDraw)
 			m_draw.DrawTanLineSegment(m_tempP, m_theta, m_len, true);
-		
+
 		m_theta = m_blRecord.angle * PI / 180;
 		m_draw.DrawTanLineSegment(m_blRecord.point, m_theta, m_len, false);
 		m_draw.DrawOrderNumber(m_bl_p2, m_draw.GetOrderNumber());
@@ -6621,7 +6621,7 @@ void D2MeasureRatioDistDot::PressLeft(POINT p)
 			}
 			m_draw.DrawCursor(m_tempP, false);
 			m_draw.DrawDotLine(m_dist1_start, m_tempP, false);
-			m_dist1_end = m_tempP;	
+			m_dist1_end = m_tempP;
 			m_tempP = m_draw.DrawInitialCursor();
 			m_draw.SetCursor(m_tempP);
 			m_isDraw = TRUE;
@@ -6636,7 +6636,7 @@ void D2MeasureRatioDistDot::PressLeft(POINT p)
 			    m_draw.DrawCursor(m_tempP, true);
 			}
 			m_draw.DrawCursor(m_tempP, false);
-			m_dist2_start = m_tempP;	
+			m_dist2_start = m_tempP;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP, true);
@@ -6652,7 +6652,7 @@ void D2MeasureRatioDistDot::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 				m_draw.DrawDotLine(m_dist2_start, m_tempP, true);
 			}
-			m_dist2_end = m_tempP;	
+			m_dist2_end = m_tempP;
 			m_draw.DrawCursor(m_tempP, FALSE);
 			m_draw.DrawDotLine(m_dist2_start, m_tempP, false);
 
@@ -6717,7 +6717,7 @@ void D2MeasureRatioDistDot::PressRight(POINT p)
 			m_dist1 = INVALID_VAL;
 			m_dist2 = INVALID_VAL;
 			m_ratio = INVALID_VAL;
-			m_angusty = INVALID_VAL; 
+			m_angusty = INVALID_VAL;
 			//清除正在测量的结果
 			m_update.ClearMeasure();
 			break;
@@ -6797,7 +6797,7 @@ void D2MeasureRatioDistDot::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawDotLine(m_dist1_start, m_tempP, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist1 = m_calc.D2CalcDist(m_dist1_start, m_tempP);
 			if (m_method==0)//距离狭窄比
@@ -6826,7 +6826,7 @@ void D2MeasureRatioDistDot::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawDotLine(m_dist2_start, m_tempP, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist2 = m_calc.D2CalcDist(m_dist2_start, m_tempP);
 			m_ratio = m_calc.CalcRatio(m_dist1, m_dist2);
@@ -6844,7 +6844,7 @@ void D2MeasureRatioDistDot::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureRatioDistDot::Change()
 {
 	if (m_step == 1)
@@ -6888,19 +6888,19 @@ void D2MeasureRatioDistDot::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else if (m_step == 1) 
+	else if (m_step == 1)
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_dist1_start, FALSE);
 			m_draw.DrawDotLine(m_dist1_start, m_tempP, true);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
-	else if (m_step == 2) 
+	else if (m_step == 2)
 	{
 		if (m_isDraw)
 		{
@@ -6909,10 +6909,10 @@ void D2MeasureRatioDistDot::Esc()
 			m_draw.DrawDotLine(m_dist1_start, m_dist1_end);
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawOrderNumber(m_dist1_end, m_draw.GetOrderNumber());
-		}		
+		}
 		m_update.ClearMeasure();
 	}
-	else if (m_step == 3) 
+	else if (m_step == 3)
 	{
 		if (m_isDraw)
 		{
@@ -6924,7 +6924,7 @@ void D2MeasureRatioDistDot::Esc()
 			m_draw.DrawCursor(m_dist2_start, FALSE);
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawDotLine(m_dist2_start, m_tempP, true);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -6970,12 +6970,12 @@ void D2MeasureRatioDistPeri::PressLeft(POINT p)
 			    m_draw.DrawCursor(m_tempP, true);
 			}
 			m_draw.DrawCursor(m_tempP, false);
-			m_dist_start = m_tempP;	
+			m_dist_start = m_tempP;
 			m_tempP = m_draw.CalcNextP(m_tempP, 0);
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawDotLine(m_dist_start, m_tempP, true);
-			m_dist_end = m_tempP;	
+			m_dist_end = m_tempP;
 
 			m_step = 1;
 			m_isDraw = TRUE;
@@ -7004,7 +7004,7 @@ void D2MeasureRatioDistPeri::PressLeft(POINT p)
 			    m_draw.DrawCursor(m_tempP, true);
 			}
 			m_draw.DrawCursor(m_tempP, false);
-			m_s_start = m_l_end = m_l_start = m_tempP;	
+			m_s_start = m_l_end = m_l_start = m_tempP;
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			m_step = 3;
 			m_isDraw = TRUE;
@@ -7015,7 +7015,7 @@ void D2MeasureRatioDistPeri::PressLeft(POINT p)
 			{
 			    m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			}
-			m_l_end = m_tempP; 
+			m_l_end = m_tempP;
 			m_s_start = CycleVertex(m_l_start, m_l_end);
 			m_tempP = m_s_start;
 			m_draw.SetCursor(m_s_start);
@@ -7165,7 +7165,7 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 			}
 
 			m_tempP = p;
-			m_dist_start = m_tempP;		
+			m_dist_start = m_tempP;
 			m_draw.DrawCursor(m_tempP, true);
 			m_isDraw = TRUE;
 			break;
@@ -7178,10 +7178,10 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 			}
 
 			m_tempP = p;
-			m_dist_end = m_tempP;		
+			m_dist_end = m_tempP;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawDotLine(m_dist_start, m_tempP, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_dist = m_calc.D2CalcDist(m_dist_start, m_dist_end);
 			//		m_update.D2RatioDist(dist, (double)0, (double)0);
@@ -7195,7 +7195,7 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 			}
 
 			m_tempP = p;
-			m_l_start = m_tempP;		
+			m_l_start = m_tempP;
 			m_draw.DrawCursor(p, true);
 			m_isDraw = TRUE;
 			break;
@@ -7210,7 +7210,7 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 			m_l_end = p;
 			m_s_start = CycleVertex(m_l_start, m_l_end);
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_perimeter = m_calc.D2CalcEllipse(m_l_start, m_l_end, m_s_start, 2);//计算面积
 			m_ratio = m_dist / m_perimeter;
@@ -7223,14 +7223,14 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 			    m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
 			}
 
-			//	double theta, pox, poy, 
+			//	double theta, pox, poy,
 			if (abs(p.x-m_tempP.x) >= abs(p.y-m_tempP.y))
 			{
 				m_s_start.x += (p.x - m_tempP.x);
 				if ((m_l_start.y - m_l_end.y) != 0)
-					m_s_start.y = ((double)m_l_start.y+(double)m_l_end.y) / 2.0 + 
-						((double)m_s_start.x - ((double)m_l_start.x+(double)m_l_end.x) / 2.0) * 
-						(((double)m_l_end.x-(double)m_l_start.x) / 
+					m_s_start.y = ((double)m_l_start.y+(double)m_l_end.y) / 2.0 +
+						((double)m_s_start.x - ((double)m_l_start.x+(double)m_l_end.x) / 2.0) *
+						(((double)m_l_end.x-(double)m_l_start.x) /
 						 ((double)m_l_start.y-(double)m_l_end.y));
 			}
 			else
@@ -7238,15 +7238,15 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 				m_s_start.y += (p.y - m_tempP.y);
 				if ((m_l_start.x - m_l_end.x) != 0)
 					m_s_start.x = ((double)m_l_start.x+(double)m_l_end.x) / 2.0 +
-						((double)m_s_start.y - ((double)m_l_start.y+(double)m_l_end.y) / 2.0) * 
-						(((double)m_l_end.y - (double)m_l_start.y) / 
+						((double)m_s_start.y - ((double)m_l_start.y+(double)m_l_end.y) / 2.0) *
+						(((double)m_l_end.y - (double)m_l_start.y) /
 						 ((double)m_l_start.x -(double)m_l_end.x));
 			}
 
 			m_tempP = m_s_start;
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawEllipse(m_l_start, m_l_end, m_s_start, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_perimeter = m_calc.D2CalcEllipse(m_l_start, m_l_end, m_s_start, 2);//计算面积
 			if(m_perimeter>ZERO)
@@ -7261,7 +7261,7 @@ void D2MeasureRatioDistPeri::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureRatioDistPeri::Change()
 {
     if (m_step == 1) {
@@ -7383,7 +7383,7 @@ void D2MeasureRatioArea::PressLeft(POINT p)
 			{
 			    m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
 			}
-			m_l1_end = m_tempP; 
+			m_l1_end = m_tempP;
 			m_s1_start = CycleVertex(m_l1_start, m_l1_end);
 			m_tempP = m_s1_start;
 			m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
@@ -7451,7 +7451,7 @@ void D2MeasureRatioArea::PressLeft(POINT p)
 			{
 			    m_draw.DrawEllipse(m_l2_start, m_l2_end, m_s2_start, true);
 			}
-			m_l2_end = m_tempP; 
+			m_l2_end = m_tempP;
 			m_s2_start = CycleVertex(m_l2_start, m_l2_end);
 			m_tempP = m_s2_start;
 			m_draw.SetCursor(m_s2_start);
@@ -7526,7 +7526,7 @@ void D2MeasureRatioArea::PressLeft(POINT p)
 			vec.push_back(m_l2_end);
 			vec.push_back(m_s2_start);
 			m_ptrMan->AddNew(RATIO_AREA, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-			
+
 			if (m_method == 0)
             {
                // m_update.D2AngustyArea(m_area1, m_area2, m_angusty, attr, false);
@@ -7553,7 +7553,7 @@ void D2MeasureRatioArea::PressLeft(POINT p)
 
 			//begin new dist measure
 			m_step = 0;
-			m_tempP = m_draw.DrawInitialCursor();	
+			m_tempP = m_draw.DrawInitialCursor();
 			m_l1_start = m_tempP;
 			m_l1_end = m_tempP;
 			m_s1_start = m_tempP;
@@ -7678,7 +7678,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP);
 			m_isDraw = TRUE;
 			break;
@@ -7693,7 +7693,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			m_l1_end = p;
 			m_s1_start = CycleVertex(m_l1_start, m_l1_end);
 			m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			if (m_method==2)
 			{
@@ -7716,14 +7716,14 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			{
 			    m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
 			}
-			//	double theta, pox, poy, 
+			//	double theta, pox, poy,
 			if (abs(p.x-m_tempP.x) >= abs(p.y-m_tempP.y))
 			{
 				m_s1_start.x += (p.x - m_tempP.x);
 				if ((m_l1_start.y - m_l1_end.y) != 0)
-					m_s1_start.y = ((double)m_l1_start.y+(double)m_l1_end.y) / 2.0 + 
-						((double)m_s1_start.x - ((double)m_l1_start.x+(double)m_l1_end.x) / 2.0) * 
-						(((double)m_l1_end.x-(double)m_l1_start.x) / 
+					m_s1_start.y = ((double)m_l1_start.y+(double)m_l1_end.y) / 2.0 +
+						((double)m_s1_start.x - ((double)m_l1_start.x+(double)m_l1_end.x) / 2.0) *
+						(((double)m_l1_end.x-(double)m_l1_start.x) /
 						 ((double)m_l1_start.y-(double)m_l1_end.y));
 			}
 			else
@@ -7731,8 +7731,8 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 				m_s1_start.y += (p.y - m_tempP.y);
 				if ((m_l1_start.x - m_l1_end.x) != 0)
 					m_s1_start.x = ((double)m_l1_start.x+(double)m_l1_end.x) / 2.0 +
-						((double)m_s1_start.y - ((double)m_l1_start.y+(double)m_l1_end.y) / 2.0) * 
-						(((double)m_l1_end.y - (double)m_l1_start.y) / 
+						((double)m_s1_start.y - ((double)m_l1_start.y+(double)m_l1_end.y) / 2.0) *
+						(((double)m_l1_end.y - (double)m_l1_start.y) /
 						 ((double)m_l1_start.x -(double)m_l1_end.x));
 			}
 
@@ -7741,7 +7741,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
 			//	m_draw.DrawCursor(p);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			if (m_method==2)
 			{
@@ -7765,7 +7765,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			    m_draw.DrawCursor(m_tempP, true);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(m_tempP, true);
 			m_isDraw = TRUE;
 			break;
@@ -7780,7 +7780,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			m_l2_end = p;
 			m_s2_start = CycleVertex(m_l2_start, m_l2_end);
 			m_draw.DrawEllipse(m_l2_start, m_l2_end, m_s2_start, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			if (m_method==2)
 			{
@@ -7814,14 +7814,14 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			    m_draw.DrawEllipse(m_l2_start, m_l2_end, m_s2_start, true);
 			}
 
-			//	double theta, pox, poy, 
+			//	double theta, pox, poy,
 			if (abs(p.x-m_tempP.x) >= abs(p.y-m_tempP.y))
 			{
 				m_s2_start.x += (p.x - m_tempP.x);
 				if ((m_l2_start.y - m_l2_end.y) != 0)
-					m_s2_start.y = ((double)m_l2_start.y+(double)m_l2_end.y) / 2.0 + 
-						((double)m_s2_start.x - ((double)m_l2_start.x+(double)m_l2_end.x) / 2.0) * 
-						(((double)m_l2_end.x-(double)m_l2_start.x) / 
+					m_s2_start.y = ((double)m_l2_start.y+(double)m_l2_end.y) / 2.0 +
+						((double)m_s2_start.x - ((double)m_l2_start.x+(double)m_l2_end.x) / 2.0) *
+						(((double)m_l2_end.x-(double)m_l2_start.x) /
 						 ((double)m_l2_start.y-(double)m_l2_end.y));
 			}
 			else
@@ -7829,8 +7829,8 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 				m_s2_start.y += (p.y - m_tempP.y);
 				if ((m_l2_start.x - m_l2_end.x) != 0)
 					m_s2_start.x = ((double)m_l2_start.x+(double)m_l2_end.x) / 2.0 +
-						((double)m_s2_start.y - ((double)m_l2_start.y+(double)m_l2_end.y) / 2.0) * 
-						(((double)m_l2_end.y - (double)m_l2_start.y) / 
+						((double)m_s2_start.y - ((double)m_l2_start.y+(double)m_l2_end.y) / 2.0) *
+						(((double)m_l2_end.y - (double)m_l2_start.y) /
 						 ((double)m_l2_start.x -(double)m_l2_end.x));
 			}
 
@@ -7838,7 +7838,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 			m_tempP = m_s2_start;
 			m_draw.SetCursor(m_tempP);
 			m_draw.DrawEllipse(m_l2_start, m_l2_end, m_s2_start, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			if (m_method==2)
 			{
@@ -7874,7 +7874,7 @@ void D2MeasureRatioArea::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureRatioArea::Change()
 {
 	POINT p1;
@@ -7926,9 +7926,9 @@ void D2MeasureRatioArea::Esc()
 			m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, false);
 			m_draw.DrawOrderNumber(m_s1_start, m_draw.GetOrderNumber());
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else if((m_step == 1) || (m_step == 2))  
+	else if((m_step == 1) || (m_step == 2))
 	{
 		if (m_isDraw)
 		{
@@ -7936,9 +7936,9 @@ void D2MeasureRatioArea::Esc()
 			//	m_draw.DrawCursor(m_l1_end);
 			//	m_draw.DrawCursor(m_s1_start);
 			m_draw.DrawEllipse(m_l1_start, m_l1_end, m_s1_start, true);
-		}		
+		}
 	}
-	else if((m_step == 4) || (m_step == 5))  
+	else if((m_step == 4) || (m_step == 5))
 	{
 		if (m_isDraw)
 		{
@@ -7949,17 +7949,17 @@ void D2MeasureRatioArea::Esc()
 			//	m_draw.DrawCursor(m_l2_end);
 			//	m_draw.DrawCursor(m_s2_start);
 			m_draw.DrawEllipse(m_l2_start, m_l2_end, m_s2_start, true);
-		}		
+		}
 	}
 	m_update.ClearMeasure();
 }
 
 //角度比例、髋关节
 D2MeasureRatioAngle::D2MeasureRatioAngle(const MultiItemInfo *ptrMultiItemInfo)
-{	
+{
 //	m_item = ptrMultiItemInfo->item;
 	m_itemInfo = ptrMultiItemInfo;
-	
+
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -7989,10 +7989,10 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 	attr.cursorType = m_draw.GetOrderNumber();
 	attr.curColor = m_draw.GetCurColor();
 	attr.confirmColor = m_draw.GetConfirmColor();
-	
+
 	for (i=0; i<MEA_MULTI; i++)
 		dataMea[i] = INVALID_VAL;
-	
+
 	switch(m_step)
 	{
 		case 0: // first
@@ -8017,7 +8017,7 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 			m_draw.DrawCursor(m_tempP, false);
 			    m_draw.DrawLine(m_vertex1, m_tempP, false);
 			m_left1 = m_tempP;
-			m_tempP = m_vertex1;	
+			m_tempP = m_vertex1;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex1, m_tempP, true);
 			m_step = 2;
@@ -8064,12 +8064,12 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 			if (m_isDraw)
 			{
 			    m_draw.DrawCursor(m_tempP, true);
-			    m_draw.DrawLine(m_vertex2, m_tempP, true);	
+			    m_draw.DrawLine(m_vertex2, m_tempP, true);
 			}
 			m_draw.DrawCursor(m_tempP, false);
 			m_draw.DrawLine(m_vertex2, m_tempP, false);
 			m_left2 = m_tempP;
-			m_tempP = m_vertex2;	
+			m_tempP = m_vertex2;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex2, m_tempP, true);
 			m_step = 5;
@@ -8100,7 +8100,7 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 				dataMea[1] = m_angle2;
 				m_ptrMan->MultiMeaDataMan(dataMea, m_itemInfo, allData, SAVE);
 			}
-			
+
 			// save measure result
 			vector<POINT> vec;
 			vec.clear();
@@ -8114,7 +8114,7 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 				m_ptrMan->AddNew(RATIO_ANGLE, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
 			else
 				m_ptrMan->AddNew(HIP, m_draw.GetCursorType(), vec, m_draw.GetCursorSize(), m_draw.GetConfirmColor());
-			
+
 			if (m_itemInfo->meaType == RATIO_ANGLE)
 			{
 				m_update.D2RatioAngle(m_angle1, m_angle2, m_ratio, attr, false);
@@ -8264,7 +8264,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -8280,7 +8280,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_left1 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			break;
 
 		case 2:
@@ -8294,7 +8294,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_right1 = p;
 			m_draw.DrawCursor(p, true);
 			m_draw.DrawLine(m_vertex1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_angle1 = m_calc.D2CalcAngle(m_vertex1, m_left1, p);
 			dataMea[0] = m_angle1;
@@ -8310,7 +8310,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -8326,7 +8326,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_left2 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex2, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			break;
 
 		case 5:
@@ -8340,7 +8340,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_right2 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex2, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_angle2 = m_calc.D2CalcAngle(m_vertex2, m_left2, p);
 			if (m_itemInfo->meaType == RATIO_ANGLE)
@@ -8363,7 +8363,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureRatioAngle::Change()
 {
 	if (m_step == 1)
@@ -8515,7 +8515,7 @@ void D2MeasureRatioAngle::Esc()
 #if 0
 ///> 角度比例测量-三点法
 D2MeasureRatioAngle::D2MeasureRatioAngle()
-{	
+{
 	m_ptrMan = MeasureMan::GetInstance();
 	Init();
 }
@@ -8566,7 +8566,7 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 			m_draw.DrawCursor(m_tempP, false);
 			    m_draw.DrawLine(m_vertex1, m_tempP, false);
 			m_left1 = m_tempP;
-			m_tempP = m_vertex1;	
+			m_tempP = m_vertex1;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex1, m_tempP, true);
 			m_step = 2;
@@ -8607,12 +8607,12 @@ void D2MeasureRatioAngle::PressLeft(POINT p)
 			if (m_isDraw)
 			{
 			    m_draw.DrawCursor(m_tempP, true);
-			    m_draw.DrawLine(m_vertex2, m_tempP, true);	
+			    m_draw.DrawLine(m_vertex2, m_tempP, true);
 			}
 			m_draw.DrawCursor(m_tempP, false);
 			m_draw.DrawLine(m_vertex2, m_tempP, false);
 			m_left2 = m_tempP;
-			m_tempP = m_vertex2;	
+			m_tempP = m_vertex2;
 			m_draw.DrawCursor(m_tempP, true);
 			m_draw.DrawLine(m_vertex2, m_tempP, true);
 			m_step = 5;
@@ -8778,7 +8778,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -8794,7 +8794,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_left1 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			break;
 
 		case 2:
@@ -8808,7 +8808,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_right1 = p;
 			m_draw.DrawCursor(p, true);
 			m_draw.DrawLine(m_vertex1, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_angle1 = m_calc.D2CalcAngle(m_vertex1, m_left1, p);
 			m_update.D2RatioAngle(m_angle1, 0, 0, attr);
@@ -8820,7 +8820,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -8836,7 +8836,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_left2 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex2, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 			break;
 
 		case 5:
@@ -8850,7 +8850,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 			m_right2 = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_vertex2, p, true);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			m_angle2 = m_calc.D2CalcAngle(m_vertex2, m_left2, p);
 			if(m_angle2 >ZERO)
@@ -8865,7 +8865,7 @@ void D2MeasureRatioAngle::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureRatioAngle::Change()
 {
 	if (m_step == 1)
@@ -9044,7 +9044,7 @@ void D2MeasureHistogram::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-		    m_p1 = m_tempP;	
+		    m_p1 = m_tempP;
 			m_area_start = m_p1;
 
 			m_step = 1;
@@ -9140,13 +9140,13 @@ void D2MeasureHistogram::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
 
 		case 1:
-		
+
             if (m_isDraw)
 			{
 				m_draw.DrawCursor(m_tempP);
@@ -9171,7 +9171,7 @@ void D2MeasureHistogram::MouseMove(POINT p)
 			tempP.y = m_p1.y;
 			m_draw.DrawLine(m_p1, tempP);
 			m_draw.DrawLine(tempP, p);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 		//	double area;
 		//	area = m_calc.D2CalcAreaRec(m_p1, p);
@@ -9184,7 +9184,7 @@ void D2MeasureHistogram::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureHistogram::Change()
 {
 	if (m_step == 1)
@@ -9211,9 +9211,9 @@ void D2MeasureHistogram::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		POINT p12, p21;
 
@@ -9230,7 +9230,7 @@ void D2MeasureHistogram::Esc()
 			m_draw.DrawLine(m_p1, p21);
 			m_draw.DrawLine(p12, m_tempP);
 			m_draw.DrawLine(p21, m_tempP);
-		}		
+		}
 	}
 }
 
@@ -9264,7 +9264,7 @@ void D2MeasureProfile::PressLeft(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 			m_draw.DrawCursor(m_tempP, FALSE);
-			m_p1 = m_tempP;;	
+			m_p1 = m_tempP;;
 			m_start = m_p1;
 
 			m_step = 1;
@@ -9336,7 +9336,7 @@ void D2MeasureProfile::MouseMove(POINT p)
 				m_draw.DrawCursor(m_tempP);
 			}
 
-			m_tempP = p;		
+			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_isDraw = TRUE;
 			break;
@@ -9351,7 +9351,7 @@ void D2MeasureProfile::MouseMove(POINT p)
 			m_tempP = p;
 			m_draw.DrawCursor(p);
 			m_draw.DrawLine(m_p1, p);
-			m_isDraw = TRUE;	
+			m_isDraw = TRUE;
 
 			double dist;
 			dist = m_calc.D2CalcDist(m_p1, p);
@@ -9363,7 +9363,7 @@ void D2MeasureProfile::MouseMove(POINT p)
 
 /*
  * @brief Change current moveable point between p1 and p2
- */ 
+ */
 void D2MeasureProfile::Change()
 {
 	if (m_step == 1)
@@ -9477,16 +9477,16 @@ void D2MeasureProfile::Esc()
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
-		}		
+		}
 	}
-	else 
+	else
 	{
 		if (m_isDraw)
 		{
 			m_draw.DrawCursor(m_tempP);
 			m_draw.DrawCursor(m_p1, FALSE);
 			m_draw.DrawLine(m_p1, m_tempP);
-		}		
+		}
 		m_update.ClearMeasure();
 	}
 }
@@ -9552,7 +9552,7 @@ void D2MeasureIMT::Init()
 
 void D2MeasureIMT::PressLeft(POINT p)
 {
-    UpdateMeasure::ResultAttr attr; 
+    UpdateMeasure::ResultAttr attr;
     attr.cursorType = m_draw.GetOrderNumber();
     attr.curColor = m_draw.GetCurColor();
     attr.confirmColor = m_draw.GetConfirmColor();
@@ -9569,7 +9569,7 @@ void D2MeasureIMT::PressLeft(POINT p)
                 m_draw.DrawCursor(m_tempP);
             }
             m_draw.DrawCursor(m_tempP, FALSE);
-            m_p1 = m_tempP;	
+            m_p1 = m_tempP;
 
             m_tempP = m_draw.CalcNextP(m_tempP, 0);
             m_draw.SetCursor(m_tempP);
@@ -9591,7 +9591,7 @@ void D2MeasureIMT::PressLeft(POINT p)
                 m_draw.DrawCursor(m_p1, FALSE);
                 m_draw.DrawIMTBox(m_p1, m_tempP, TRUE);
 
- 
+
                 if (m_p1.x < m_tempP.x)
                 {
                     start.x = m_p1.x;
@@ -9614,16 +9614,16 @@ void D2MeasureIMT::PressLeft(POINT p)
                 }
                 m_p1_old = start;
                 m_tempP_old = end;
-                
+
                 int w = m_p1.x-m_tempP.x;
                 w = w>0?w:-w;
                 int h = m_p1.y-m_tempP.y;
                 h = h>0?h:-h;
                 roi_width = w;
                 roi_height = h;
-                
+
                 PRINTF("*******w h start.x start.y end.x end.y********%d %d %d %d %d %d\n",w,h,start.x,start.y,end.x,end.y);
-    
+
                 CDrawIMT::GetInstance()->GetWH(w, h);
                 CDrawIMT::GetInstance()->GetArea(start, end);
                 CDrawIMT::GetInstance()->GetResultAttr(attr);
@@ -9656,7 +9656,7 @@ void D2MeasureIMT::PressLeft(POINT p)
     }
 }
 
-void D2MeasureIMT::PressRight(POINT p) //press undo 
+void D2MeasureIMT::PressRight(POINT p) //press undo
 {
 /**
  * liahuamei
@@ -9732,7 +9732,7 @@ void D2MeasureIMT::PressRight(POINT p) //press undo
             m_step = 0;
 
             m_draw.DrawIMTBox(m_p1_old, m_tempP_old, FALSE);
-            
+
             //remove timer
             if (ModeStatus::IsUnFreezeMode())
                 CDrawIMT::GetInstance()->RemoveTimer();
@@ -9765,7 +9765,7 @@ void D2MeasureIMT::MouseMove(POINT p)
                 m_draw.DrawCursor(m_tempP);
             }
 
-            m_tempP = p;		
+            m_tempP = p;
             m_draw.DrawCursor(p);
             m_isDraw = TRUE;
             break;
@@ -9780,7 +9780,7 @@ void D2MeasureIMT::MouseMove(POINT p)
             m_tempP = p;
             m_draw.DrawCursor(m_tempP);
             m_draw.DrawIMTBox(m_p1, m_tempP, TRUE);
-            m_isDraw = TRUE;	 
+            m_isDraw = TRUE;
             m_RealIMTStatus = FALSE;
             CDrawIMT::GetInstance()->GetRealIMTStatus(m_RealIMTStatus);
             break;
@@ -9808,7 +9808,7 @@ void D2MeasureIMT::Change()
         m_p1 = m_tempP;
         m_tempP = p1;
         m_draw.SetCursor(m_tempP);
-    }        
+    }
     m_RealIMTStatus = FALSE;
     CDrawIMT::GetInstance()->GetRealIMTStatus(m_RealIMTStatus);
 
@@ -9817,15 +9817,15 @@ void D2MeasureIMT::Change()
 
 void D2MeasureIMT::Esc() //press point and other keyboard
 {
-   
+
  if (m_step == 0)
     {
         if (m_isDraw)
         {
             m_draw.DrawCursor(m_tempP);
-        }	
-        m_draw.DrawIMTBox(m_p1_old, m_tempP_old, FALSE);  
-        
+        }
+        m_draw.DrawIMTBox(m_p1_old, m_tempP_old, FALSE);
+
         m_RealIMTStatus = FALSE;
         CDrawIMT::GetInstance()->GetRealIMTStatus(m_RealIMTStatus);
         CDrawIMT::GetInstance()->ClearInAdventIMT();
@@ -9836,13 +9836,13 @@ void D2MeasureIMT::Esc() //press point and other keyboard
         m_update.ClearMeasure(); //擦除冻结时最后一帧的结果
 
     }
-    else 
+    else
     {
         if (m_isDraw)
         {
             m_draw.DrawCursor(m_tempP);
             m_draw.DrawCursor(m_p1, FALSE);
-        }		
+        }
         CDrawIMT::GetInstance()->ClearInAdventIMT();
 
         //clear roi recentage

@@ -861,7 +861,7 @@ int Printfunctions::SaveOptions(char *printername, int onlyglobal)
 
 	if(onlyglobal == 0) {
 		strncat(printpath, iprintername, (size_t)MAXPATH);
-        
+
 		file = fopen(printpath, "wr");
 		if(file == (FILE*)NULL)
 		{

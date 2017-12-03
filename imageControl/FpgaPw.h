@@ -1,5 +1,5 @@
 #ifndef __FPGAPW_H__
-#define __FPGAPW_H__	
+#define __FPGAPW_H__
 
 #include "DefHal.h"
 #include "AbsUltraInterface.h"
@@ -9,27 +9,27 @@ class FpgaPw
 	public:
 
 	int SendNoise(INT16 data);
-	
+
 	int SendDyn(INT16 data);
 
     int SendGainCw(INT16 dataCw);
 
 	int SendBaseLine(INT16 data);
-	
+
 	int SendLogRank(INT16 data);
-	
+
 	int SendWfFc(INT32U *filter, INT32U size);
-	
+
 	int SendSampleBegin(INT16 data);
-	
+
 	int SendSampleEnd(INT16 data);
-	
+
 	int SendScanLine(INT16 data);
 
 	int SendSpectrumSpeed(INT16 data);
 
 	int SendSoundVolume(INT16 index);
-	
+
 	int SendSoundFilter(INT16U *filter, INT32U size);
 
 	int SendSpectrumInvert(INT32U num);
@@ -39,7 +39,7 @@ class FpgaPw
 	int SendHPRF(bool on);
 
 	int SendMBP(INT16U index);
-	
+
 	int SendSoundIntpCoef(INT16U *value, INT32U size);
 
 	int SendSoundIntpNum(INT32U value);
@@ -47,15 +47,15 @@ class FpgaPw
 	int SendSoundStatus(INT16 data);
 
 	int SendHPRFEmitNum(INT16 data);
-	
+
 	int SendPwSample(INT32 sample);
-	
+
 	int SendPwRGBSampleDots(INT32 sample);
-	
+
 	int SendPwRGBSampleCoef(INT16U *table, INT32U size);
 
 	int SendPwSoundStopDot(INT32 dots);
-	
+
 	int SendPwImgCtrl(bool on);
 
 	int SendPwImgCtrlPara(INT32U offLineNum);
@@ -82,8 +82,8 @@ class FpgaPw
 		WALL_FILTER_DATA=42,
 		PW_RGB_SAMPLE_COEF=44,
 	};
-	
-	struct FpgaAddrVariablePw 
+
+	struct FpgaAddrVariablePw
 	{
 		INT32U m_pwCombinedAddr;
 		INT32U m_pwCombinedData;
@@ -93,7 +93,7 @@ class FpgaPw
 	};
 	static struct FpgaAddrVariablePw fpgaPw;
 	static AbsUltraInterface* m_ptrInterface;
-	
+
 	int SendPwCombined(INT16U clearAddr, INT16U pwData);
 	int SendCwCombined(INT16U clearAddr, INT16U cwData);
 };

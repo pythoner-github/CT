@@ -16,7 +16,7 @@
 MultiFuncBodyMark* MultiFuncBodyMark::m_ptrThis = NULL;
 enum EKnobBodymark {BDMK_BODYSIZE, BDMK_PROBECOLOR};
 #if (defined (EMP_322) || defined(EMP_313))
-KnobMenu::KnobItem KnobBodymarkMenu[6] = 
+KnobMenu::KnobItem KnobBodymarkMenu[6] =
 {
 	{_("BodyMark Size"), "", MIN, MultiFuncBodyMark::SetBodyMarkSize, MultiFuncBodyMark::PressSetBodyMarkSize},
 	{_("ProbeMark Color"), "", MIN, MultiFuncBodyMark::SetProbeMarkColor, MultiFuncBodyMark::PressSetProbeMarkColor},
@@ -26,7 +26,7 @@ KnobMenu::KnobItem KnobBodymarkMenu[6] =
 	{"", "", ERROR, NULL, NULL}
 };
 #elif (defined(EMP_460) || defined(EMP_355))
-KnobMenu::KnobItem KnobBodymarkMenu[5] = 
+KnobMenu::KnobItem KnobBodymarkMenu[5] =
 {
 	{_("BodyMark Size"), "", MIN, MultiFuncBodyMark::SetBodyMarkSize, NULL},
 	{_("ProbeMark Color"), "", MIN, MultiFuncBodyMark::SetProbeMarkColor, NULL},
@@ -35,7 +35,7 @@ KnobMenu::KnobItem KnobBodymarkMenu[5] =
 	{"", "", ERROR, NULL, NULL}
 };
 #else
-KnobMenu::KnobItem KnobBodymarkMenu[5] = 
+KnobMenu::KnobItem KnobBodymarkMenu[5] =
 {
 	{_("BodyMark Size"), "", MIN, MultiFuncBodyMark::SetBodyMarkSize, NULL},
 	{_("ProbeMark Color"), "", MIN, MultiFuncBodyMark::SetProbeMarkColor, NULL},
@@ -70,7 +70,7 @@ MultiFuncBodyMark::MultiFuncBodyMark()
 	m_probePosOffset.x = BDMK_W / 2;
 	m_probePosOffset.y = BDMK_H / 2;
 	m_ptrBodyMark  = NULL;
-	//m_ptrBodyMark = new BodyMark(m_bodyPos, m_probePos);	
+	//m_ptrBodyMark = new BodyMark(m_bodyPos, m_probePos);
 	for(int i=0; i<4; i++)
 	{
 		m_bodyPos[i].x = IMG_W - BDMK_W * BDMK_MAX_SCALE;
@@ -87,7 +87,7 @@ MultiFuncBodyMark::MultiFuncBodyMark()
 
 	// update view
 	CUpdateBodyMark::EnterBodyMark();
-		
+
     m_bodyOpr = IDEL;
     m_ptrThis = this;
     KnobBodyMarkCreate();
@@ -121,14 +121,14 @@ void MultiFuncBodyMark::SetNewBodyMark(GdkPixbuf* pixbuf)
 }
 // event
 void MultiFuncBodyMark::KeyEvent(unsigned char keyValue)
-{	
+{
     if (m_ptrBodyMark == NULL)
-		m_ptrBodyMark = new BodyMark(m_bodyPos[m_active], m_probePos[m_active]);	
+		m_ptrBodyMark = new BodyMark(m_bodyPos[m_active], m_probePos[m_active]);
 	switch(keyValue)
 	{
 #if not defined(EMP_322)
 #if not defined(EMP_313)
-		case KEY_UPDATE: 
+		case KEY_UPDATE:
 			if (m_bodyOpr == MOVE_PROBE)
 			{
 				EndMoveProbeMark();
@@ -221,8 +221,8 @@ void MultiFuncBodyMark::KeyEvent(unsigned char keyValue)
 void MultiFuncBodyMark::KnobEvent(unsigned char keyValue, unsigned char offset)
 {
     if (m_ptrBodyMark == NULL)
-		m_ptrBodyMark = new BodyMark(m_bodyPos[m_active], m_probePos[m_active]);	
-	
+		m_ptrBodyMark = new BodyMark(m_bodyPos[m_active], m_probePos[m_active]);
+
     CKnobEvent ke;
 	switch(keyValue)
 	{
@@ -263,7 +263,7 @@ void MultiFuncBodyMark::MouseEvent(char offsetX, char offsetY)
 	}
 	else if ((m_bodyOpr == IDEL) || (m_bodyOpr == ADD))
 	{
-		FakeXEvent::MouseEvent(offsetX, offsetY);	
+		FakeXEvent::MouseEvent(offsetX, offsetY);
 	}
 }
 
@@ -333,12 +333,12 @@ POINT MultiFuncBodyMark::GetPointBody(int offsetX, int offsetY)
 	int w, h;
 	GetBodyMarkSize(w, h);
 
-	if (((m_bodyPos[m_active].x + offsetX) > m_bodyPosRange.x) && 
+	if (((m_bodyPos[m_active].x + offsetX) > m_bodyPosRange.x) &&
 		((m_bodyPos[m_active].x + offsetX) <= m_bodyPosRange.x + m_bodyPosRange.width - w))
 		m_bodyPos[m_active].x += offsetX;
 
 	offsetY = -offsetY;
-	if (((m_bodyPos[m_active].y + offsetY) > m_bodyPosRange.y) && 
+	if (((m_bodyPos[m_active].y + offsetY) > m_bodyPosRange.y) &&
 		((m_bodyPos[m_active].y + offsetY) <= m_bodyPosRange.y + m_bodyPosRange.height - h))
 		m_bodyPos[m_active].y += offsetY;
 
@@ -349,14 +349,14 @@ void MultiFuncBodyMark::EndMoveProbeMark()
 {
 	m_ptrThis->m_bodyOpr = ADD;
 
-	// display system cursor 
+	// display system cursor
 	InvisibleCursor(FALSE);
 }
 void MultiFuncBodyMark::EndMoveBodyMark()
 {
 	m_ptrThis->m_bodyOpr = ADD;
 
-	// display system cursor 
+	// display system cursor
 	InvisibleCursor(FALSE);
 
 	if (m_ptrBodyMark != NULL)
@@ -366,7 +366,7 @@ void MultiFuncBodyMark::UndoMoveBodyMark()
 {
 	m_ptrThis->m_bodyOpr = ADD;
 
-	// display system cursor 
+	// display system cursor
 	InvisibleCursor(FALSE);
 
 	if (m_ptrBodyMark != NULL)
@@ -390,7 +390,7 @@ void MultiFuncBodyMark::Esc()
 		m_ptrBodyMark = NULL;
 	}
 #endif
-	
+
 	CUpdateBodyMark::ExitBodyMark();
 }
 
@@ -398,9 +398,9 @@ void MultiFuncBodyMark::Hide()
 {
 	m_bodyOpr = IDEL;
 
-	// display system cursor 
+	// display system cursor
 	InvisibleCursor(FALSE);
-	
+
 	m_ptrBodyMark->HideBodyMark();
 }
 
@@ -497,7 +497,7 @@ void MultiFuncBodyMark::AddNewBodyMark(GdkPixbuf* pixbuf)
 		//Single B Mode
 		else
 		{
-			m_active = 0; 
+			m_active = 0;
 			m_bodyPos[m_active].x = IMG_W - BDMK_W * BDMK_MAX_SCALE;
 			m_bodyPos[m_active].y = IMG_H - BDMK_H * BDMK_MAX_SCALE;
 			m_bodyPosRange.x = 0;
@@ -522,7 +522,7 @@ void MultiFuncBodyMark::BeginMoveProbeMark()
 	{
 		m_ptrThis->m_bodyOpr = MOVE_PROBE;
 
-		// hide system cursor 
+		// hide system cursor
 		InvisibleCursor(TRUE);
 	}
 }
@@ -530,7 +530,7 @@ void MultiFuncBodyMark::BeginMoveProbeMark()
 void MultiFuncBodyMark::GetBodyMarkSize(int &w, int &h)
 {
 	double scale = m_ptrBodyMark->GetBodyMarkScale();
-	
+
 	w = BDMK_W * scale;
 	h = BDMK_H * scale;
 }
@@ -644,7 +644,7 @@ EKnobReturn MultiFuncBodyMark::SetBodyMarkSize(EKnobOper opr)
 			default:
                 return ERROR;
 				break;
-		}	
+		}
 
 		double scale = m_ptrThis->m_ptrBodyMark->GetBodyMarkScale();
 		int x = IMG_AREA_X + IMAGE_X + m_ptrThis->m_bodyPos[m_ptrThis->m_active].x + BDMK_W * scale / 2;
@@ -658,7 +658,7 @@ EKnobReturn MultiFuncBodyMark::SetBodyMarkSize(EKnobOper opr)
 
 		ret = GetKnobRetBodyMarkSize(size);
 
-		if (size < (int)sizeof(bodyMarkSizeName)) 
+		if (size < (int)sizeof(bodyMarkSizeName))
 			KnobMenu::GetInstance()->SetValue(BDMK_BODYSIZE, (char *)(bodyMarkSizeName[size]), ret);
 	}
 
@@ -678,7 +678,7 @@ EKnobReturn MultiFuncBodyMark::PressSetProbeMarkColor(void)
             return ERROR;
         }
 
-        BodyMark::COLOR color = m_ptrThis->m_ptrBodyMark->GetProbeMarkColor();	
+        BodyMark::COLOR color = m_ptrThis->m_ptrBodyMark->GetProbeMarkColor();
         temp = color;
         if(temp < BodyMark::BLUE)
         {
@@ -729,7 +729,7 @@ EKnobReturn MultiFuncBodyMark::SetProbeMarkColor(EKnobOper opr)
 		}
 
 		BodyMark::COLOR color = m_ptrThis->m_ptrBodyMark->GetProbeMarkColor();
-	
+
 		temp = color;
 
 		switch(opr)
@@ -755,7 +755,7 @@ EKnobReturn MultiFuncBodyMark::SetProbeMarkColor(EKnobOper opr)
 			default:
                 return ERROR;
 				break;
-		}	
+		}
 
 		ret = GetKnobRetProbeMarkColor(color);
 
@@ -763,7 +763,7 @@ EKnobReturn MultiFuncBodyMark::SetProbeMarkColor(EKnobOper opr)
 		sys.SetBodyMarkColor(color);
 		sys.SyncFile();
 
-		if (color < (int)sizeof(bodyMarkColorName)) 
+		if (color < (int)sizeof(bodyMarkColorName))
 			KnobMenu::GetInstance()->SetValue(BDMK_PROBECOLOR, (char *)(bodyMarkColorName[color]), ret);
 	}
 
@@ -774,7 +774,7 @@ EKnobReturn MultiFuncBodyMark::SetProbeMarkColor(EKnobOper opr)
 EKnobReturn MultiFuncBodyMark::GetKnobRetBodyMarkSize(BodyMark::SIZE size)
 {
 	EKnobReturn ret = ERROR;
-	
+
 	if(size == BodyMark::SMALL)
 		ret = MIN;
 	else if(size == BodyMark::BIG)

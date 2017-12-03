@@ -35,7 +35,7 @@ FormatPw::FormatPw()
 
 	m_ptrDsc = DscMan::GetInstance();
 	m_ptrDscPara = m_ptrDsc->GetDscPara();
-	
+
 	m_ptrImg = ImgPw::GetInstance();
 	m_ptrReplay = Replay::GetInstance();
 
@@ -63,38 +63,38 @@ void FormatPw::ChangeFormat(enum EFormatPw format)
 			// set replay area number
 			m_ptrReplay->SetAreaNum(1);
 			break;
-			
+
 		case BP11_UD:
 			// set replay area number
 			m_ptrDscPara->dcaPWDisplayFormat = 1;
 			m_ptrReplay->SetAreaNum(2);
 			break;
-		
+
 		case BP21_UD:
 			// set replay area number
 			m_ptrDscPara->dcaPWDisplayFormat = 3;
 			m_ptrReplay->SetAreaNum(2);
 			break;
-			
+
 		case BP12_UD:
 			// set replay area number
 			m_ptrDscPara->dcaPWDisplayFormat = 2;
 			m_ptrReplay->SetAreaNum(2);
 			break;
-		
+
 		case BP11_LR:
 			// set replay area number
 			m_ptrDscPara->dcaPWDisplayFormat = 4;
 			m_ptrReplay->SetAreaNum(2);
 			break;
-				
+
 		default:
 			m_ptrDscPara->dcaPWDisplayFormat = 1;
 			// set replay area number
 			m_ptrReplay->SetAreaNum(1);
 			break;
    }
-	
+
     // send image dots to dsc and fpga
 	m_pwDots = m_ptrDsc->GetDsc()->GetPWHeight();
 	int dots = m_pwDots;
@@ -139,4 +139,3 @@ FormatPw::EFormatPw FormatPw::GetFormat()
     else
         return m_format;
 }
-

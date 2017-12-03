@@ -55,7 +55,7 @@ CAuthorize::CAuthorize() : m_timeoutIdUkey(0)
 {
 }
 
-CAuthorize::~CAuthorize() 
+CAuthorize::~CAuthorize()
 {
 }
 
@@ -97,7 +97,7 @@ void CAuthorize::Excute(int argc, char *argv[])
 			setenv("LANG", "es_ES.UTF-8", 1);
 			setenv("LANGUAGE", "es_ES:ES", 1);
 		}
-	
+
 		else if (FR == index_lang)
 		{
 			setenv("LANG", "fr_FR.UTF-8", 1);
@@ -145,10 +145,10 @@ void CAuthorize::AddTimeout()
 gboolean CAuthorize::CallbackUKey(gpointer data)
 {
 	CAuthorize *pClass = (CAuthorize *)data;
-	
+
     SysGeneralSetting sysGS;
     int index_fid = sysGS.GetFID();
-    
+
     int status = pClass->CheckAuthorize(index_fid);
 
     //int status = pClass->CheckAuthorize(FEATURE);
@@ -261,4 +261,3 @@ int CAuthorize::CheckAuthorize(unsigned int feature)
 
 	return -3;
 }
-

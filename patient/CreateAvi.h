@@ -1,5 +1,5 @@
-#ifndef CREATE_AVI_H 
-#define CREATE_AVI_H 
+#ifndef CREATE_AVI_H
+#define CREATE_AVI_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,7 +24,7 @@ bool ReadAvi(FILE *fs, unsigned char* buf, unsigned int spec_frame, int width, i
 bool read_avifile_width(FILE *file, int& WIDTH);
 bool read_avifile_height(FILE *file, int& HEIGHT);
 bool read_avifile_frames(FILE *file, int& NumberOfFrames);
-bool read_avifile_framerate(FILE *file, int& FRAMERATE);  
+bool read_avifile_framerate(FILE *file, int& FRAMERATE);
 bool get_avifile_info(FILE *file,int& WIDTH,int& HEIGHT,int& NumberOfFrames,int& FRAMERATE);
 
 #endif

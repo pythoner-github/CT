@@ -3,15 +3,15 @@
  *
  *       Filename:  MeasureSetting.h
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  18/4/2016
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  zhang jingxia 
- *        Company:  
+ *         Author:  zhang jingxia
+ *        Company:
  *
  * =====================================================================================
  */
@@ -114,7 +114,7 @@ class MeasureSetting
                 data->ButtonSelectAllCalcClicked(button);
         }
 
-              
+
         static void HandleButtonBackOneClicked(GtkButton *button, MeasureSetting *data)
         {
             if (data)
@@ -138,7 +138,7 @@ class MeasureSetting
                 data->ButtonUpClicked(button);
         }
 
-      
+
         static void HandleButtonDefaultClicked(GtkButton *button, MeasureSetting *data)
         {
             if (data)

@@ -14,9 +14,9 @@ DicomSend::DicomSend()
 }
 void DicomSend::destroyItem()
 {
-	int i, total; 
+	int i, total;
 
-	
+
 	//gtk_widget_destroy(m_menu);
 	total = m_vecItem.size();
 	for(i=0; i<total; i++)
@@ -26,13 +26,13 @@ void DicomSend::destroyItem()
 }
 DicomSend::~DicomSend()
 {
-	int i, total; 
+	int i, total;
 	if(NULL != m_pInstance)
 	{
-		delete m_pInstance; 
+		delete m_pInstance;
 
 	}
-	
+
 	gtk_widget_destroy(m_menu);
 	total = m_vecItem.size();
 	for(i=0; i<total; i++)
@@ -77,7 +77,7 @@ int size =0;
 size = 20;
     GtkWidget *button = gtk_button_new();
     gtk_widget_set_size_request (button, 120*SCALE_WIDTH, (70-size)*SCALE_HEIGHT);
- 
+
     GtkWidget *alignment = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_container_add (GTK_CONTAINER (button), alignment);
 
@@ -86,7 +86,7 @@ size = 20;
     gtk_box_pack_start (GTK_BOX (hbox), icon_image, FALSE, FALSE, 0);
 	if (label)
 	    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
-    
+
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
     gtk_widget_show_all(button);
 
@@ -99,23 +99,22 @@ void DicomSend::createPopup(char *label,HandleMenuItemCDActivate_t HandleMenuIte
 	g_signal_connect(G_OBJECT (m_itemFlash), "activate", G_CALLBACK(HandleMenuItemFlashActivate), this);
 	gtk_widget_show(m_itemFlash);
 	m_vecItem.push_back(m_itemFlash);
-	
+
 
 }
 int DicomSend::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 {
 	if (event->type == GDK_BUTTON_PRESS) {
-		GdkEventButton *bevent = (GdkEventButton *) event; 
+		GdkEventButton *bevent = (GdkEventButton *) event;
 		gtk_menu_popup (GTK_MENU (m_menu), NULL, NULL, NULL, NULL,
 				bevent->button, bevent->time);
-		
+
 		return TRUE;
 	}
 	return FALSE;
 }
- int DicomSend::HandleDicomBtnExportEvent(GtkWidget *widget, GdkEvent *event, DicomSend *data) 
-{ 
+ int DicomSend::HandleDicomBtnExportEvent(GtkWidget *widget, GdkEvent *event, DicomSend *data)
+{
 	return DicomSend::GetInstance()->BtnExportEvent(widget, event);
  }
-
 

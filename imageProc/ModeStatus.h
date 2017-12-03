@@ -20,7 +20,7 @@ class ModeStatus
 
 		ModeStatus(){}
 		~ModeStatus(){}
-		
+
 		ScanMode::EScanMode GetScanMode();
 		FreezeMode::EFreezeMode GetFreezeMode();
 		Format2D::EFormat2D GetFormat2D();
@@ -87,10 +87,10 @@ class ModeStatus
 		static bool IsEFOVMode();
 
         // measure
-        static bool IsMeasure2DMode(); 
-        static bool IsMeasureMMode(); 
-        static bool IsMeasureDMode(); 
-        
+        static bool IsMeasure2DMode();
+        static bool IsMeasureMMode();
+        static bool IsMeasureDMode();
+
         static bool IsAllSpectrumImgMode();
 
 		// Knob type

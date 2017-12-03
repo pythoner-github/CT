@@ -47,24 +47,24 @@ KnobMenu::KnobItem KnobMMenu[5] = {
     {_("【Chroma】"), "", MIN, MChgChroma, MPressChroma},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
-};	
+};
 KnobMenu::KnobItem KnobAnatomicMMenu[5] = {
 	{_("Freq."), "", MIN, MChgFreq, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
-};	
+};
 #endif
 
 void KnobMCreate()
 {
-    KnobMenu::GetInstance()->SetItem(KnobMMenu, sizeof(KnobMMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::M);   
+    KnobMenu::GetInstance()->SetItem(KnobMMenu, sizeof(KnobMMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::M);
 }
 
 void KnobAnatomicMCreate()
 {
-    KnobMenu::GetInstance()->SetItem(KnobAnatomicMMenu, sizeof(KnobAnatomicMMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::ANATOMIC_M);   
+    KnobMenu::GetInstance()->SetItem(KnobAnatomicMMenu, sizeof(KnobAnatomicMMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::ANATOMIC_M);
 }
 
 ///> knob menu need to be sync
@@ -85,7 +85,7 @@ void SyncKnobM(EKnobM type, const char* s, EKnobReturn status, bool draw)
 
 ///> callback function
 EKnobReturn MChgFreq(EKnobOper oper)
-{	
+{
 	EKnobReturn ret;
     bool status = Img2D::GetInstance()->GetStatusTHI();
     //printf("status:%d\n", status);
@@ -157,4 +157,3 @@ EKnobReturn MPressChgSoundPower(void)
     return ret;
 
 }
-

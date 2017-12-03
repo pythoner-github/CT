@@ -1,4 +1,4 @@
-#ifndef USER_DEFINE_KEY_H_ 
+#ifndef USER_DEFINE_KEY_H_
 #define USER_DEFINE_KEY_H_
 
 #include <string>
@@ -7,7 +7,7 @@ using std::string;
 /*
  * @brief manage user define key
  */
-class UserDefineKey 
+class UserDefineKey
 {
 	public:
 		UserDefineKey();

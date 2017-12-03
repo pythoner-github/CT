@@ -3,8 +3,8 @@
 #include "gui_func.h"
 #include "gui_global.h"
 #include "Def.h"
-#include "MenuProjectMode.h"  
-#include "ViewSuperuser.h"    
+#include "MenuProjectMode.h"
+#include "ViewSuperuser.h"
 
 HintArea* HintArea::m_ptrInstance = NULL;
 
@@ -23,9 +23,9 @@ HintArea::HintArea(void)
 }
 
 HintArea::~HintArea()
-{ 
-    if (m_ptrInstance != NULL) 
-    	delete m_ptrInstance; 
+{
+    if (m_ptrInstance != NULL)
+    	delete m_ptrInstance;
 }
 
 gboolean HandleClearHint(gpointer data)
@@ -51,18 +51,18 @@ void HintArea::UpdateHint(const char *text, int timeout)
         g_menuProjectMode.AddMessage(text);
     }
     else
-#endif   
+#endif
  {
         ClearHint();
         char font_desc[100];
         int width, height;
-        PangoLayout *layout = gtk_widget_create_pango_layout(m_hintArea, text);  
+        PangoLayout *layout = gtk_widget_create_pango_layout(m_hintArea, text);
         pango_layout_get_pixel_size(layout, &width, &height);
         sprintf(font_desc, "%s, 13", FONT_STRING);
         PangoFontDescription *font = pango_font_description_from_string(font_desc);
         //printf("font width: %d\n", width);
         if (width > 645)
-        {    
+        {
             DrawString(text, 5, 0, g_white, font);
         }
         else
@@ -138,7 +138,7 @@ void HintArea::DrawString(const char *str, int x, int y, GdkColor *color, PangoF
     int width, height;
 
     GdkGC *gc = gdk_gc_new(m_pixmapHint);
-    PangoLayout *layout = gtk_widget_create_pango_layout(m_hintArea, str); 
+    PangoLayout *layout = gtk_widget_create_pango_layout(m_hintArea, str);
     if (font)
     	pango_layout_set_font_description(layout, font);
     pango_layout_set_alignment(layout, PANGO_ALIGN_LEFT);
@@ -173,4 +173,3 @@ void HintArea::UpdateHintArea(void)
         gtk_widget_queue_draw(m_hintArea);
     }
 }
-

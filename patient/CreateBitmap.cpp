@@ -81,13 +81,13 @@ bool ReadBitmap24(const char* path, unsigned char* buf, int width, int height)
 {
 	FILE *fs = fopen(path, "rb");
 	unsigned int size = width * height * 3;
-	
+
 	if(!fs)
 	{
 		perror("fopen error:");
 		return false;
 	}
-	
+
 	if(fseek(fs, 14+sizeof(BITMAPINFOHEADER), SEEK_SET) < 0)
 	{
 		perror("fseek error:");

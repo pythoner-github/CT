@@ -38,7 +38,7 @@ int I2CInterface::I2CWrite( unsigned char addr, int len ,unsigned char buf[])
     ioctl_data.msgs[0].len = len + 1;
     ioctl_data.msgs[0].buf = buf;
 
-    ret = ioctl(m_fd, I2C_RDWR, (unsigned long)&ioctl_data); 
+    ret = ioctl(m_fd, I2C_RDWR, (unsigned long)&ioctl_data);
 
     //free(ioctl_data.msgs);
 
@@ -57,7 +57,7 @@ int I2CInterface::I2CRead( unsigned char addr, unsigned char reg, int len, unsig
     ioctl_data.msgs[0].addr = addr;
     ioctl_data.msgs[0].flags = 0;//read_write
     ioctl_data.msgs[0].len = 1;
-    ioctl_data.msgs[0].buf = &tmp_reg; 
+    ioctl_data.msgs[0].buf = &tmp_reg;
     //ioctl_data.msgs[0].buf = (unsigned char*)malloc(1);
     //ioctl_data.msgs[0].buf[0] = reg;
 
@@ -66,7 +66,7 @@ int I2CInterface::I2CRead( unsigned char addr, unsigned char reg, int len, unsig
     ioctl_data.msgs[1].len = 1;
     ioctl_data.msgs[1].buf = buffer;
 
-    ret = ioctl(m_fd, I2C_RDWR, (unsigned long)&ioctl_data); 
+    ret = ioctl(m_fd, I2C_RDWR, (unsigned long)&ioctl_data);
 
     //free(ioctl_data.msgs[0].buf);
     //free(ioctl_data.msgs);

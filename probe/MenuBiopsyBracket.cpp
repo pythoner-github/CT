@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "MenuBiopsyBracket.h"	
+#include "MenuBiopsyBracket.h"
 #include "gui_func.h"
 #include "gui_global.h"
 #include "MenuArea.h"
@@ -57,7 +57,7 @@ void MenuBiopsyBracket::Show(void)
 	doBtnEvent(1, 1);//fake btn press
 	doBtnEvent(1, 0);//fake btn unpress
 	SetMenuBiopsyCursorYRange(110,250);//SetMenuBiopsyCursorYRange(110,150);//2016.08.26
-	
+
 	ModeStatus ms;
     if (ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B) && ms.IsUnFreezeMode())
     {
@@ -115,6 +115,5 @@ void MenuBiopsyBracket::UpdateMenuBiopsyBracket(void)
 
 	}
 }
-
 
 

@@ -43,7 +43,7 @@ public:
     void GenDisplayMulti(const MultiItemInfo *info, double dataMea[], ResultAttr& attr, bool inMeasure, int unit_coeffi[]);
     void D2Hip(double angle1, double angle2, ResultAttr& attr, bool inMeasure=true);
 
-    void D2Dist(double length, ResultAttr& attr, bool inMeasure); 
+    void D2Dist(double length, ResultAttr& attr, bool inMeasure);
 
     void D2LenTrack(double length, ResultAttr& attr, bool inMeasure=true);
     //    void D2AreaTrack(double perimeter, double area, ResultAttr& attr, bool inMeasure=true);

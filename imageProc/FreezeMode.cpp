@@ -84,7 +84,7 @@ void FreezeMode::PressFreeze()
  */
 void FreezeMode::PressUnFreeze()
 {
-	if (m_unFreezeForbidStatus) 
+	if (m_unFreezeForbidStatus)
 		return;
     // exit read mode
     Replay::GetInstance()->ExitReadSnap();
@@ -139,7 +139,7 @@ EKnobReturn FreezeMode::ChangeAutoReplay()
 		m_ptrReplay->AutoReplayEnd();
 	}
 
-	return (PRESS);	
+	return (PRESS);
 }
 
 void FreezeMode::EnterAutoReplayView()
@@ -177,13 +177,13 @@ void FreezeMode::EnterReplayMode()
 {
 	///> prepare for replay
 	MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::REPLAY);
-	m_ptrReplay->PrepareForReplay();	
+	m_ptrReplay->PrepareForReplay();
 }
 
 void FreezeMode::ExitReplayMode()
 {
 	// clear current image's replay images
-	m_ptrReplay->PrepareForEndReplay();	
+	m_ptrReplay->PrepareForEndReplay();
 	MultiFuncUndo();
 }
 void FreezeMode::ExitAutoReplay()
@@ -213,8 +213,8 @@ void FreezeMode::Freeze()
 	///> send to imaging system
 	IoCtrl io;
 	io.Freeze();
-    ImgPw::GetInstance()->OnCwImgCtrl(FALSE); //控制CW图像的实时与冻结。 
-	
+    ImgPw::GetInstance()->OnCwImgCtrl(FALSE); //控制CW图像的实时与冻结。
+
 	// update icon
 	ViewIcon::GetInstance()->Replay(TRUE);
     Update2D::SetCineRemoveImg(3);
@@ -248,11 +248,11 @@ void FreezeMode::UnFreeze()
                 int date_format = sys.GetDateFormat();
                 sys.GetHospital(m_hospitalname);
                 UpdateHospitalandpart(date_format, m_hospitalname.c_str());
-                system_save = false; 
-            } 
+                system_save = false;
+            }
             review_pic = false;
         }
-        ImgPw::GetInstance()->OnCwImgCtrl(TRUE); //控制CW图像的实时与冻结。 
+        ImgPw::GetInstance()->OnCwImgCtrl(TRUE); //控制CW图像的实时与冻结。
 
         // update
         ViewIcon::GetInstance()->Replay(FALSE);
@@ -262,13 +262,13 @@ void FreezeMode::UnFreeze()
 }
 void FreezeMode::UpdateHospitalandpart(int date_format, const char *hospital_name)
 {
-	
+
 		TopArea::GetInstance()->SetDateFormat(date_format);
 
     g_patientInfo.UpdateTopArea();
 
 	TopArea::GetInstance()->UpdateHospitalName(hospital_name);
-  
+
 	ExamItem exam;
     char str_path[256];
     sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -276,7 +276,7 @@ void FreezeMode::UpdateHospitalandpart(int date_format, const char *hospital_nam
     bool userFlag = exam.ReadUserItemFlag(&ini);
     string userItemName = exam.ReadDefaultProbeDefaultItemName(&ini);
     if(userFlag)
-    { 
+    {
         TopArea::GetInstance()->UpdateCheckPart(_(userItemName.c_str()));
     }
     else
@@ -322,11 +322,11 @@ void FreezeMode::UnFreezeEFOV()
 	///> darken freeze lamp
 	m_freezeMode = UNFREEZE;
 	g_keyInterface.CtrlLight(FALSE, LIGHT_FREEZE);
-	
+
 	///> send to imaging system
 	IoCtrl io;
 	io.Unfreeze();
-	
+
 	Replay::GetInstance()->EFOVAutoReviewEnd();
 	ScanMode::GetInstance()->EnterEFOVPrepare();
 }

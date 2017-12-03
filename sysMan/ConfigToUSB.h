@@ -38,7 +38,7 @@ private:
 
 	vector<string> m_vecPath;
 
-    GtkWidget* create_treeview(gint type);	
+    GtkWidget* create_treeview(gint type);
     GtkTreeModel* create_root_model(void);
 	void UpdateRootModel(void);
 	void UpdateBranchModel(gint rows);
@@ -56,7 +56,7 @@ private:
 	void ToggleData(GtkCellRendererToggle *cell, gchar *path_str);
 	void RootSelectionChanged(GtkTreeSelection *selection);
 
-	//signal connect 
+	//signal connect
     static gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, ConfigToUSB* data) { return data->WindowDeleteEvent(widget, event); }
     static void on_data_toggled(GtkCellRendererToggle *cell, gchar *path_str, ConfigToUSB* data) { data->ToggleData(cell, path_str); }
     static void on_root_selection_changed(GtkTreeSelection *selction, ConfigToUSB* data) { data->RootSelectionChanged(selction); }

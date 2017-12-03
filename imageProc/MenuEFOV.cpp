@@ -52,7 +52,7 @@ GtkWidget* MenuEFOV::Create(void)
 
     m_fixedPrepare = gtk_fixed_new();
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_fixedPrepare, 0, 1, 0, 5);
-  
+
     m_labelPress = create_label("", 100, 30, g_lightGray, NULL);
     gtk_misc_set_alignment (GTK_MISC (m_labelPress), 0.1, 0.5);
     gtk_fixed_put(GTK_FIXED(m_fixedPrepare), m_labelPress, 5, 0);
@@ -108,7 +108,7 @@ GtkWidget *image_update2 = create_pixmap("./res/icon/update.png");
 //    gtk_widget_set_usize(m_table, WIDTH_2D_MENU, HEIGHT_2D_MENU);
     return m_table;
 }
-    
+
 void MenuEFOV::UpdateLabel(void)
 {
     gtk_label_set_markup(GTK_LABEL(m_labelPress), _(" <b>Press</b>"));

@@ -8,7 +8,7 @@
 class D4FuncMan
 {
     public:
-        ~D4FuncMan(); 
+        ~D4FuncMan();
         static D4FuncMan* GetInstance();
 
         void GetPara(SUIS4DPARA &Para);
@@ -30,13 +30,13 @@ class D4FuncMan
         SUIS4DPARA m_Para4d;
 
         bool m_d4_mode;
-     
+
         unsigned char *m_yBits;
         unsigned int m_lineNo_bak;
         unsigned char *m_pD4bits;
         unsigned char m_frameNum;
         unsigned char m_reverseFlag;
-        DSCCONTROLATTRIBUTES* m_ptrDscpara; 
+        DSCCONTROLATTRIBUTES* m_ptrDscpara;
 
     private:
         D4FuncMan();
@@ -50,7 +50,6 @@ class D4FuncMan
         void GetDepth();
 
         ///> extern member
-        static D4FuncMan* m_ptrInstance;	
+        static D4FuncMan* m_ptrInstance;
 };
-       
 

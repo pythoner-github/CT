@@ -36,166 +36,166 @@ void MeaResult::InitResultInfo(void)
 	for (i=0; i<SECTION_END-SECTION_START; i++)
 	{
 		SecResultInfo[i].secOrder = SECTION_END;
-		SecResultInfo[i].genStart = CALC_END; 
-		SecResultInfo[i].genEnd = CALC_END; 
-		SecResultInfo[i].singleStart = CALC_END; 
-		SecResultInfo[i].multiStart = CALC_END; 
-		SecResultInfo[i].calcStart = CALC_END; 
-		SecResultInfo[i].singleEnd = CALC_END; 
-		SecResultInfo[i].multiStart = CALC_END; 
-		SecResultInfo[i].calcStart = CALC_END; 
+		SecResultInfo[i].genStart = CALC_END;
+		SecResultInfo[i].genEnd = CALC_END;
+		SecResultInfo[i].singleStart = CALC_END;
+		SecResultInfo[i].multiStart = CALC_END;
+		SecResultInfo[i].calcStart = CALC_END;
+		SecResultInfo[i].singleEnd = CALC_END;
+		SecResultInfo[i].multiStart = CALC_END;
+		SecResultInfo[i].calcStart = CALC_END;
 		SecResultInfo[i].ptrSingleResult = NULL;
 		SecResultInfo[i].ptrMultiResult = NULL;
 		SecResultInfo[i].ptrCalcResult = NULL;
 	}
 
 	SecResultInfo[ABDO_M].secOrder = ABDO_M;
-	SecResultInfo[ABDO_M].singleStart = ABD_MEA_START; 
-	SecResultInfo[ABDO_M].multiStart = ABD_MULTI_START; 
-	SecResultInfo[ABDO_M].calcStart = ABD_CALC_START; 
-	SecResultInfo[ABDO_M].singleEnd = ABD_MEA_END; 
-	SecResultInfo[ABDO_M].multiEnd = ABD_MULTI_END; 
-	SecResultInfo[ABDO_M].calcEnd = ABD_CALC_END; 
-	SecResultInfo[ABDO_M].genStart = ABD_MEA_START; 
-	SecResultInfo[ABDO_M].genEnd = ABD_MEA_END; 
+	SecResultInfo[ABDO_M].singleStart = ABD_MEA_START;
+	SecResultInfo[ABDO_M].multiStart = ABD_MULTI_START;
+	SecResultInfo[ABDO_M].calcStart = ABD_CALC_START;
+	SecResultInfo[ABDO_M].singleEnd = ABD_MEA_END;
+	SecResultInfo[ABDO_M].multiEnd = ABD_MULTI_END;
+	SecResultInfo[ABDO_M].calcEnd = ABD_CALC_END;
+	SecResultInfo[ABDO_M].genStart = ABD_MEA_START;
+	SecResultInfo[ABDO_M].genEnd = ABD_MEA_END;
 	SecResultInfo[ABDO_M].ptrSingleResult = (SingleResult)(&MeaResultAbd);
 	SecResultInfo[ABDO_M].ptrMultiResult = (MultiResult)(&AbdResultMulti);
 	SecResultInfo[ABDO_M].ptrCalcResult = (CalcResult)(&CalcResultAbd);
 
 	SecResultInfo[ADULT_M].secOrder = ADULT_M;
-	SecResultInfo[ADULT_M].singleStart = ADULT_MEA_START; 
-	SecResultInfo[ADULT_M].multiStart = ADULT_MULTI_START; 
-	SecResultInfo[ADULT_M].calcStart = ADULT_CALC_START; 
-	SecResultInfo[ADULT_M].singleEnd = ADULT_MEA_END; 
-	SecResultInfo[ADULT_M].multiEnd = ADULT_MULTI_END; 
-	SecResultInfo[ADULT_M].calcEnd = ADULT_CALC_END; 
-	SecResultInfo[ADULT_M].genStart = ADULT_MEA_START; 
-	SecResultInfo[ADULT_M].genEnd = ADULT_MEA_END; 
+	SecResultInfo[ADULT_M].singleStart = ADULT_MEA_START;
+	SecResultInfo[ADULT_M].multiStart = ADULT_MULTI_START;
+	SecResultInfo[ADULT_M].calcStart = ADULT_CALC_START;
+	SecResultInfo[ADULT_M].singleEnd = ADULT_MEA_END;
+	SecResultInfo[ADULT_M].multiEnd = ADULT_MULTI_END;
+	SecResultInfo[ADULT_M].calcEnd = ADULT_CALC_END;
+	SecResultInfo[ADULT_M].genStart = ADULT_MEA_START;
+	SecResultInfo[ADULT_M].genEnd = ADULT_MEA_END;
 	SecResultInfo[ADULT_M].ptrSingleResult = (SingleResult)(&MeaResultAdult);
 	SecResultInfo[ADULT_M].ptrMultiResult = (MultiResult)(&AdultResultMulti);
 	SecResultInfo[ADULT_M].ptrCalcResult = (CalcResult)(&CalcResultAdult);
 
 	SecResultInfo[UR_M].secOrder = UR_M;
-	SecResultInfo[UR_M].singleStart = UR_MEA_START; 
-	SecResultInfo[UR_M].multiStart = UR_MULTI_START; 
-	SecResultInfo[UR_M].calcStart = UR_CALC_START; 
-	SecResultInfo[UR_M].singleEnd = UR_MEA_END; 
-	SecResultInfo[UR_M].multiEnd = UR_MULTI_END; 
-	SecResultInfo[UR_M].calcEnd = UR_CALC_END; 
-	SecResultInfo[UR_M].genStart = UR_MEA_START; 
-	SecResultInfo[UR_M].genEnd = UR_MEA_END; 
+	SecResultInfo[UR_M].singleStart = UR_MEA_START;
+	SecResultInfo[UR_M].multiStart = UR_MULTI_START;
+	SecResultInfo[UR_M].calcStart = UR_CALC_START;
+	SecResultInfo[UR_M].singleEnd = UR_MEA_END;
+	SecResultInfo[UR_M].multiEnd = UR_MULTI_END;
+	SecResultInfo[UR_M].calcEnd = UR_CALC_END;
+	SecResultInfo[UR_M].genStart = UR_MEA_START;
+	SecResultInfo[UR_M].genEnd = UR_MEA_END;
 	SecResultInfo[UR_M].ptrSingleResult = (SingleResult)(&MeaResultUR);
 	SecResultInfo[UR_M].ptrMultiResult = (MultiResult)(&URResultMulti);
 	SecResultInfo[UR_M].ptrCalcResult = (CalcResult)(&CalcResultUR);
 
 	SecResultInfo[OB_M].secOrder = OB_M;
-	SecResultInfo[OB_M].singleStart = OB_MEA_START; 
-	SecResultInfo[OB_M].multiStart = OB_MULTI_START; 
-	SecResultInfo[OB_M].calcStart = OB_CALC_START; 
-	SecResultInfo[OB_M].singleEnd = OB_MEA_END; 
-	SecResultInfo[OB_M].multiEnd = OB_MULTI_END; 
-	SecResultInfo[OB_M].calcEnd = OB_CALC_END; 
-	SecResultInfo[OB_M].genStart = OB_MEA_START; 
-	SecResultInfo[OB_M].genEnd = OB_MEA_END; 
+	SecResultInfo[OB_M].singleStart = OB_MEA_START;
+	SecResultInfo[OB_M].multiStart = OB_MULTI_START;
+	SecResultInfo[OB_M].calcStart = OB_CALC_START;
+	SecResultInfo[OB_M].singleEnd = OB_MEA_END;
+	SecResultInfo[OB_M].multiEnd = OB_MULTI_END;
+	SecResultInfo[OB_M].calcEnd = OB_CALC_END;
+	SecResultInfo[OB_M].genStart = OB_MEA_START;
+	SecResultInfo[OB_M].genEnd = OB_MEA_END;
 	SecResultInfo[OB_M].ptrSingleResult = (SingleResult)(&MeaResultOB1);
 	SecResultInfo[OB_M].ptrMultiResult = (MultiResult)(&OBResultMulti1);
 	SecResultInfo[OB_M].ptrCalcResult = (CalcResult)(&CalcResultOB1);
 
 	SecResultInfo[GYN_M].secOrder = GYN_M;
-	SecResultInfo[GYN_M].singleStart = GYN_MEA_START; 
-	SecResultInfo[GYN_M].multiStart = GYN_MULTI_START; 
-	SecResultInfo[GYN_M].calcStart = GYN_CALC_START; 
-	SecResultInfo[GYN_M].singleEnd = GYN_MEA_END; 
-	SecResultInfo[GYN_M].multiEnd = GYN_MULTI_END; 
-	SecResultInfo[GYN_M].calcEnd = GYN_CALC_END; 
-	SecResultInfo[GYN_M].genStart = GYN_MEA_START; 
-	SecResultInfo[GYN_M].genEnd = GYN_MEA_END; 
+	SecResultInfo[GYN_M].singleStart = GYN_MEA_START;
+	SecResultInfo[GYN_M].multiStart = GYN_MULTI_START;
+	SecResultInfo[GYN_M].calcStart = GYN_CALC_START;
+	SecResultInfo[GYN_M].singleEnd = GYN_MEA_END;
+	SecResultInfo[GYN_M].multiEnd = GYN_MULTI_END;
+	SecResultInfo[GYN_M].calcEnd = GYN_CALC_END;
+	SecResultInfo[GYN_M].genStart = GYN_MEA_START;
+	SecResultInfo[GYN_M].genEnd = GYN_MEA_END;
 	SecResultInfo[GYN_M].ptrSingleResult = (SingleResult)(&MeaResultGYN);
 	SecResultInfo[GYN_M].ptrMultiResult = (MultiResult)(&GYNResultMulti);
 	SecResultInfo[GYN_M].ptrCalcResult = (CalcResult)(&CalcResultGYN);
 
 	SecResultInfo[SP_M].secOrder = SP_M;
-	SecResultInfo[SP_M].singleStart = SP_MEA_START; 
-	SecResultInfo[SP_M].multiStart = SP_MULTI_START; 
-	SecResultInfo[SP_M].calcStart = SP_CALC_START; 
-	SecResultInfo[SP_M].singleEnd = SP_MEA_END; 
-	SecResultInfo[SP_M].multiEnd = SP_MULTI_END; 
-	SecResultInfo[SP_M].calcEnd = SP_CALC_END; 
-	SecResultInfo[SP_M].genStart = SP_MEA_START; 
-	SecResultInfo[SP_M].genEnd = SP_MEA_END; 
+	SecResultInfo[SP_M].singleStart = SP_MEA_START;
+	SecResultInfo[SP_M].multiStart = SP_MULTI_START;
+	SecResultInfo[SP_M].calcStart = SP_CALC_START;
+	SecResultInfo[SP_M].singleEnd = SP_MEA_END;
+	SecResultInfo[SP_M].multiEnd = SP_MULTI_END;
+	SecResultInfo[SP_M].calcEnd = SP_CALC_END;
+	SecResultInfo[SP_M].genStart = SP_MEA_START;
+	SecResultInfo[SP_M].genEnd = SP_MEA_END;
 	SecResultInfo[SP_M].ptrSingleResult = (SingleResult)(&MeaResultSP);
 	SecResultInfo[SP_M].ptrMultiResult = (MultiResult)(&SPResultMulti);
 	SecResultInfo[SP_M].ptrCalcResult = (CalcResult)(&CalcResultSP);
 #ifdef EMP_322
 #else
 	SecResultInfo[VS_M].secOrder = VS_M;
-	SecResultInfo[VS_M].singleStart = VS_MEA_START; 
-	SecResultInfo[VS_M].multiStart = VS_MULTI_START; 
-	SecResultInfo[VS_M].calcStart = VS_CALC_START; 
-	SecResultInfo[VS_M].singleEnd = VS_MEA_END; 
+	SecResultInfo[VS_M].singleStart = VS_MEA_START;
+	SecResultInfo[VS_M].multiStart = VS_MULTI_START;
+	SecResultInfo[VS_M].calcStart = VS_CALC_START;
+	SecResultInfo[VS_M].singleEnd = VS_MEA_END;
 	SecResultInfo[VS_M].multiEnd = VS_MULTI_END;
-	SecResultInfo[VS_M].calcEnd = VS_CALC_END; 
-	SecResultInfo[VS_M].genStart = VS_MEA_START; 
-	SecResultInfo[VS_M].genEnd = VS_MEA_END; 
+	SecResultInfo[VS_M].calcEnd = VS_CALC_END;
+	SecResultInfo[VS_M].genStart = VS_MEA_START;
+	SecResultInfo[VS_M].genEnd = VS_MEA_END;
 	SecResultInfo[VS_M].ptrSingleResult = (SingleResult)(&MeaResultVS);
 	SecResultInfo[VS_M].ptrMultiResult = (MultiResult)(&VSResultMulti);
 	SecResultInfo[VS_M].ptrCalcResult = (CalcResult)(&CalcResultVS);
 #endif
 	SecResultInfo[FETAL_M].secOrder = FETAL_M;
-	SecResultInfo[FETAL_M].singleStart = FETAL_MEA_START; 
-	SecResultInfo[FETAL_M].multiStart = FETAL_MULTI_START; 
-	SecResultInfo[FETAL_M].calcStart = FETAL_CALC_START; 
-	SecResultInfo[FETAL_M].singleEnd = FETAL_MEA_END; 
-	SecResultInfo[FETAL_M].multiEnd = FETAL_MULTI_END; 
-	SecResultInfo[FETAL_M].calcEnd = FETAL_CALC_END; 
-	SecResultInfo[FETAL_M].genStart = FETAL_MEA_START; 
-	SecResultInfo[FETAL_M].genEnd = FETAL_MEA_END; 
+	SecResultInfo[FETAL_M].singleStart = FETAL_MEA_START;
+	SecResultInfo[FETAL_M].multiStart = FETAL_MULTI_START;
+	SecResultInfo[FETAL_M].calcStart = FETAL_CALC_START;
+	SecResultInfo[FETAL_M].singleEnd = FETAL_MEA_END;
+	SecResultInfo[FETAL_M].multiEnd = FETAL_MULTI_END;
+	SecResultInfo[FETAL_M].calcEnd = FETAL_CALC_END;
+	SecResultInfo[FETAL_M].genStart = FETAL_MEA_START;
+	SecResultInfo[FETAL_M].genEnd = FETAL_MEA_END;
 	SecResultInfo[FETAL_M].ptrSingleResult = (SingleResult)(&MeaResultFetal);
 	SecResultInfo[FETAL_M].ptrMultiResult = (MultiResult)(&FetalResultMulti);
 	SecResultInfo[FETAL_M].ptrCalcResult = (CalcResult)(&CalcResultFetal);
 #ifdef EMP_322
 #else
 	SecResultInfo[TCD_M].secOrder = TCD_M;
-	SecResultInfo[TCD_M].singleStart =  TCD_MEA_START; 
-	SecResultInfo[TCD_M].multiStart = TCD_MULTI_START; 
-	SecResultInfo[TCD_M].calcStart = TCD_CALC_START; 
-	SecResultInfo[TCD_M].singleEnd =  TCD_MEA_END; 
+	SecResultInfo[TCD_M].singleStart =  TCD_MEA_START;
+	SecResultInfo[TCD_M].multiStart = TCD_MULTI_START;
+	SecResultInfo[TCD_M].calcStart = TCD_CALC_START;
+	SecResultInfo[TCD_M].singleEnd =  TCD_MEA_END;
 	SecResultInfo[TCD_M].multiEnd = TCD_MULTI_END;
-	SecResultInfo[TCD_M].calcEnd = TCD_CALC_END; 
-	SecResultInfo[TCD_M].genStart = TCD_MEA_START; 
-	SecResultInfo[TCD_M].genEnd = TCD_MEA_END; 
+	SecResultInfo[TCD_M].calcEnd = TCD_CALC_END;
+	SecResultInfo[TCD_M].genStart = TCD_MEA_START;
+	SecResultInfo[TCD_M].genEnd = TCD_MEA_END;
 	SecResultInfo[TCD_M].ptrSingleResult = (SingleResult)(&MeaResultTCD);
 	SecResultInfo[TCD_M].ptrMultiResult = (MultiResult)(&TCDResultMulti);
 	SecResultInfo[TCD_M].ptrCalcResult = (CalcResult)(&CalcResultTCD);
 #endif
 	SecResultInfo[ORTHO_M].secOrder = ORTHO_M;
-	SecResultInfo[ORTHO_M].singleStart = ORTHO_MEA_START; 
-	SecResultInfo[ORTHO_M].multiStart = ORTHO_MULTI_START; 
-	SecResultInfo[ORTHO_M].calcStart = ORTHO_CALC_START; 
-	SecResultInfo[ORTHO_M].singleEnd = ORTHO_MEA_END; 
+	SecResultInfo[ORTHO_M].singleStart = ORTHO_MEA_START;
+	SecResultInfo[ORTHO_M].multiStart = ORTHO_MULTI_START;
+	SecResultInfo[ORTHO_M].calcStart = ORTHO_CALC_START;
+	SecResultInfo[ORTHO_M].singleEnd = ORTHO_MEA_END;
 	SecResultInfo[ORTHO_M].multiEnd = ORTHO_MULTI_END;
-	SecResultInfo[ORTHO_M].calcEnd = ORTHO_CALC_END; 
-	SecResultInfo[ORTHO_M].genStart = ORTHO_MEA_START; 
-	SecResultInfo[ORTHO_M].genEnd = ORTHO_MEA_END; 
+	SecResultInfo[ORTHO_M].calcEnd = ORTHO_CALC_END;
+	SecResultInfo[ORTHO_M].genStart = ORTHO_MEA_START;
+	SecResultInfo[ORTHO_M].genEnd = ORTHO_MEA_END;
 	SecResultInfo[ORTHO_M].ptrSingleResult = (SingleResult)(&MeaResultOrtho);
 	SecResultInfo[ORTHO_M].ptrMultiResult = (MultiResult)(&OrthoResultMulti);
 	SecResultInfo[ORTHO_M].ptrCalcResult = (CalcResult)(&CalcResultOrtho);
-    
+
     SecResultInfo[USER_M].secOrder = USER_M;
-	SecResultInfo[USER_M].singleStart = USER_START; 
-//	SecResultInfo[ORTHO_M].multiStart = ORTHO_MULTI_START; 
-//	SecResultInfo[ORTHO_M].calcStart = ORTHO_CALC_START; 
-	SecResultInfo[USER_M].singleEnd = USER_END; 
+	SecResultInfo[USER_M].singleStart = USER_START;
+//	SecResultInfo[ORTHO_M].multiStart = ORTHO_MULTI_START;
+//	SecResultInfo[ORTHO_M].calcStart = ORTHO_CALC_START;
+	SecResultInfo[USER_M].singleEnd = USER_END;
 //	SecResultInfo[ORTHO_M].multiEnd = ORTHO_MULTI_END;
-//	SecResultInfo[ORTHO_M].calcEnd = ORTHO_CALC_END; 
-	SecResultInfo[USER_M].genStart = USER_START; 
-	SecResultInfo[USER_M].genEnd = USER_END; 
+//	SecResultInfo[ORTHO_M].calcEnd = ORTHO_CALC_END;
+	SecResultInfo[USER_M].genStart = USER_START;
+	SecResultInfo[USER_M].genEnd = USER_END;
 	SecResultInfo[USER_M].ptrSingleResult = (SingleResult)(&MeaResultUser);
 //	SecResultInfo[ORTHO_M].ptrMultiResult = (MultiResult)(&OrthoResultMulti);
 //	SecResultInfo[ORTHO_M].ptrCalcResult = (CalcResult)(&CalcResultOrtho);
 //添加 动物超 TD
 #ifdef VET
-//hlx 
+//hlx
 	SecResultInfo[TD_M].secOrder = TD_M;
 	SecResultInfo[TD_M].singleStart = TD_MEA_START;
 	SecResultInfo[TD_M].multiStart = TD_MULTI_START;
@@ -210,7 +210,7 @@ void MeaResult::InitResultInfo(void)
 	SecResultInfo[TD_M].ptrCalcResult = (CalcResult)(&CalcResultTD);
 
 //添加 动物超 ANOB
-//hlx 
+//hlx
 	SecResultInfo[ANOB_M].secOrder = ANOB_M;
 	SecResultInfo[ANOB_M].singleStart = ANOB_MEA_START;
 	SecResultInfo[ANOB_M].multiStart = ANOB_MULTI_START;
@@ -240,7 +240,7 @@ int MeaResult::SetLastValue(const double value[], const int item, const int valu
 	ResultMulti *ptrResultMulti = NULL;
 	double (*ptrResultSingle)[MEA_TIMES] = NULL;
 	int i, j;
-	
+
 	if (item < BASIC_MEA_END)
 		return MEA_SUCCESS;
 
@@ -300,12 +300,12 @@ int MeaResult::GetLastValue(const int item, double value[MEA_MULTI], int obFetal
 	int multiVolume;
 	int section;
 	int i;
-	
+
 	sign = ItemLabel(item, &item_tmp, &ptrResultMulti, &ptrResultSingle, NULL, &multiVolume, &section, obFetal);
 
 	if (sign == MEA_FAIL)
 		return sign;
-	
+
 	if ( ((int)(*(ptrResultSingle + item_tmp))[MEA_TIMES - 1] != INVALID_VAL) || ((int)(*(ptrResultSingle + item_tmp))[0] == MULTI_SIGN) )//两个测量值的或单个的有数据
 	{
         if ( (int)(*(ptrResultSingle + item_tmp))[0] == MULTI_SIGN )//多个测量值的
@@ -319,7 +319,7 @@ int MeaResult::GetLastValue(const int item, double value[MEA_MULTI], int obFetal
 
 			for(i=0; i<MEA_MULTI; i++)
 			{
-				value[i] = (*(ptrResultMulti + position)).result[MEA_TIMES * (i+1) - 1]; 
+				value[i] = (*(ptrResultMulti + position)).result[MEA_TIMES * (i+1) - 1];
 			}
 			return MEA_SUCCESS;
 		}
@@ -370,7 +370,7 @@ int MeaResult::GetAllValue(const int item, double value[MEA_MULTI][MEA_TIMES], i
 			{
 				for (j=0; j<MEA_TIMES; j++)
 				{
-					value[i][j] = (*(ptrResultMulti + position)).result[MEA_TIMES * i + j]; 
+					value[i][j] = (*(ptrResultMulti + position)).result[MEA_TIMES * i + j];
 				}
 			}
 			return MEA_SUCCESS;
@@ -435,7 +435,7 @@ int MeaResult::GetMeanValue(const int item, double value[MEA_MULTI], int obFetal
 				{
 					if ((*(ptrResultMulti + position)).result[MEA_TIMES * (i+1) - 1 - j] != INVALID_VAL)
 					{
-						value[i] += (*(ptrResultMulti + position)).result[MEA_TIMES * (i+1) - 1 - j]; 
+						value[i] += (*(ptrResultMulti + position)).result[MEA_TIMES * (i+1) - 1 - j];
 						if (i==1) counter++;//第0个位置放计算的测量值（如RI），故测量值从第1个位置开始
 					}
 				}
@@ -450,7 +450,7 @@ int MeaResult::GetMeanValue(const int item, double value[MEA_MULTI], int obFetal
 
 			for(j=0; j<MEA_TIMES; j++)
 			{
-				if ((*(ptrResultSingle + item_tmp))[MEA_TIMES - 1 - j] != INVALID_VAL) 
+				if ((*(ptrResultSingle + item_tmp))[MEA_TIMES - 1 - j] != INVALID_VAL)
 				{
 					value[0] += (*(ptrResultSingle + item_tmp))[MEA_TIMES - 1 - j];
 					counter++;
@@ -462,7 +462,7 @@ int MeaResult::GetMeanValue(const int item, double value[MEA_MULTI], int obFetal
 			if (counter == 0) return MEA_FAIL;//没有数据
 
 			value[0] /= counter;
-			for (i=1; i<MEA_MULTI; i++) value[i] = INVALID_VAL; 
+			for (i=1; i<MEA_MULTI; i++) value[i] = INVALID_VAL;
 			return MEA_SUCCESS;
 		}
 	}
@@ -482,7 +482,7 @@ int MeaResult::GetValue(const int item, double value[MEA_MULTI], double allValue
 	{
 		SysMeasurementSetting sys;
 		int method = sys.GetReportResult();//获取报告中是使用平均值还是最后值
-		
+
 		if (method == 0)//最后值
 			return(GetLastValue(item, value, obFetal));
 		else//平均值
@@ -521,7 +521,7 @@ SecSingleResult MeaResult::GetSecSingleValue(int section, int obFetal)
 			return (SecSingleResult)MeaResultOB2;
 	}
 	else if (section < SECTION_END)
-		return SecResultInfo[section].ptrSingleResult;	
+		return SecResultInfo[section].ptrSingleResult;
 	else
 		return NULL;
 }
@@ -544,7 +544,7 @@ SecMultiResult MeaResult::GetSecMultiValue(int section, int obFetal)
 			return (SecMultiResult)(MeaResultOB2);
 	}
 	else if (section < SECTION_END)
-		return SecResultInfo[section].ptrMultiResult;	
+		return SecResultInfo[section].ptrMultiResult;
 	else
 		return NULL;
 }
@@ -567,7 +567,7 @@ SecCalcResult MeaResult::GetSecCalcValue(int section, int obFetal)
 			return (SecCalcResult)(MeaResultOB2);
 	}
 	else if (section < SECTION_END)
-		return SecResultInfo[section].ptrCalcResult;	
+		return SecResultInfo[section].ptrCalcResult;
 	else
 		return NULL;
 }
@@ -599,7 +599,7 @@ int MeaResult::CalcSetValue(const double value[CALC_RESULT_CLASSES], const int c
 		if ((calcItem<ANOB_CALC_START)||(calcItem>ANOB_CALC_END)) return MEA_ERROR;
 		CalcResultAnOB[calcItem - ANOB_CALC_START][0] = value[0];
 		CalcResultAnOB[calcItem - ANOB_CALC_START][1] = value[1];
-		return MEA_SUCCESS;	
+		return MEA_SUCCESS;
 	}
 #endif
 	else if (section < SECTION_END)
@@ -673,7 +673,7 @@ int MeaResult::CalcGetLastValue(double *value, const int calcItem, const int sec
   	}
 
 
-    //hlx 
+    //hlx
 #ifdef VET
 	else if (section == ANOB_M)
 	{
@@ -762,7 +762,7 @@ int MeaResult::CalcGetAgwLastValue(double value[], const int fetalOrder)
 #else
 	if (fetalOrder == 0)
 	{
-		if ((int)CalcResultOB1Agw[0][0] == INVALID_VAL) 
+		if ((int)CalcResultOB1Agw[0][0] == INVALID_VAL)
 			return MEA_FAIL;
 		else
 		{
@@ -772,7 +772,7 @@ int MeaResult::CalcGetAgwLastValue(double value[], const int fetalOrder)
 	}
 	else
 	{
-		if ((int)CalcResultOB2Agw[0][0] == INVALID_VAL) 
+		if ((int)CalcResultOB2Agw[0][0] == INVALID_VAL)
 			return MEA_FAIL;
 		else
 		{
@@ -799,7 +799,7 @@ int MeaResult::CalcGetAgwMeanValue(double value[], const int fetalOrder)
 #else
 	if (fetalOrder == 0)
 	{
-		if ((int)CalcResultOB1Agw[0][1] == INVALID_VAL) 
+		if ((int)CalcResultOB1Agw[0][1] == INVALID_VAL)
 			return MEA_FAIL;
 		else
 		{
@@ -809,7 +809,7 @@ int MeaResult::CalcGetAgwMeanValue(double value[], const int fetalOrder)
 	}
 	else
 	{
-		if ((int)CalcResultOB2Agw[0][1] == INVALID_VAL) 
+		if ((int)CalcResultOB2Agw[0][1] == INVALID_VAL)
 			return MEA_FAIL;
 		else
 		{
@@ -848,7 +848,7 @@ int MeaResult::CalcGetTDLastValue(float *value)
 	if (ret == MEA_FAIL)
 	{
 		*value = (float)INVALID_VAL;
-		return MEA_FAIL;	
+		return MEA_FAIL;
 	}
 	totalarea += val[0];
 
@@ -856,7 +856,7 @@ int MeaResult::CalcGetTDLastValue(float *value)
 	if (ret == MEA_FAIL)
 	{
 		*value = (float)INVALID_VAL;
-		return MEA_FAIL;		
+		return MEA_FAIL;
 	}
 	affectarea += val[0];
 
@@ -880,7 +880,7 @@ int MeaResult::CalcGetTDLastValue(float *value)
 			affectarea += val[0];
 		}
 	}
-	
+
 	*value = 100 * affectarea / totalarea;
 
 	return MEA_SUCCESS;
@@ -923,7 +923,7 @@ int MeaResult::CalcGetTDLastValue(double *total_area, double *affect_area, doubl
             *affect_area = (double)INVALID_VAL;
             return MEA_FAIL;
         }
-	
+
 	*value = 100 * affectarea / totalarea;
         *total_area = totalarea;
         *affect_area = affectarea;
@@ -947,7 +947,7 @@ int MeaResult::CalcGetTDMeanValue(float *value)
 	if (ret == MEA_FAIL)
 	{
 		*value = (float)INVALID_VAL;
-		return MEA_FAIL;	
+		return MEA_FAIL;
 	}
 	totalarea += val[0];
 
@@ -955,7 +955,7 @@ int MeaResult::CalcGetTDMeanValue(float *value)
 	if (ret == MEA_FAIL)
 	{
 		*value = (float)INVALID_VAL;
-		return MEA_FAIL;		
+		return MEA_FAIL;
 	}
 	affectarea += val[0];
 
@@ -979,7 +979,7 @@ int MeaResult::CalcGetTDMeanValue(float *value)
 			affectarea += val[0];
 		}
 	}
-	
+
 	*value = 100 * affectarea / totalarea;
 
 	return MEA_SUCCESS;
@@ -1020,7 +1020,7 @@ int MeaResult::CalcGetTDMeanValue(double *total_area, double *affect_area, doubl
             *affect_area = (double)INVALID_VAL;
             return MEA_FAIL;
         }
-	
+
 	*value = 100 * affectarea / totalarea;
         *total_area = totalarea;
         *affect_area = affectarea;
@@ -1160,7 +1160,7 @@ int MeaResult::ItemLabel(const int item, int *item_tmp, ResultMulti **ptrResultM
 
 //	if (item_tmp != NULL)
 //		*item_tmp = item - SecResultInfo[*section].genStart;
-	
+
 	if (*section != OB_M)
 	{
 		if (ptrResultSingle != NULL)
@@ -1261,7 +1261,7 @@ int MeaResult::ItemLabelSingle(const int item, int *item_tmp, float (**ptrResult
 int MeaResult::ItemLabelMulti(const int item, int *item_tmp, ResultMulti **ptrResultMulti, int *volume, int *section, int obFetal)
 {
 	int i;
-	
+
 	for (i=0; i<SECTION_END-SECTION_START; i++)
 	{
 		if ((item >= SecResultInfo[i].multiStart) && (item < SecResultInfo[i].multiEnd))
@@ -1308,7 +1308,7 @@ int MeaResult::ItemLabelMulti(const int item, int *item_tmp, ResultMulti **ptrRe
 int MeaResult::ItemLabelCalc(const int item, int *section)
 {
 	int i;
-	
+
 	for (i=0; i<SECTION_END-SECTION_START; i++)
 	{
 		if ((item >= SecResultInfo[i].calcStart) && (item < SecResultInfo[i].calcEnd))
@@ -1356,10 +1356,10 @@ void MeaResult::AbdInit(void)
 		CalcResultAbd[i][1] = (double)INVALID_VAL;
 	}
 
-	int offset;	
+	int offset;
 	for (i=0; i<ABD_MULTI_END - ABD_MULTI_START; i++)
 	{
-		if ( AbdoMultiInfo[i].multiItem == i + ABD_MULTI_START ) 
+		if ( AbdoMultiInfo[i].multiItem == i + ABD_MULTI_START )
 			InitSign(MeaResultAbd[AbdoMultiInfo[i].item-ABD_MEA_START], i);
 		else
 		{
@@ -1393,7 +1393,7 @@ void MeaResult::AdultInit(void)
 			AdultResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<ADULT_CALC_END - ADULT_CALC_START; i++)
 	{
 		CalcResultAdult[i][0] = (double)INVALID_VAL;
@@ -1437,7 +1437,7 @@ void MeaResult::URInit(void)
 			URResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<UR_CALC_END - UR_CALC_START; i++)
 	{
 		CalcResultUR[i][0] = (double)INVALID_VAL;
@@ -1445,7 +1445,7 @@ void MeaResult::URInit(void)
 	}
 	for (i=0; i<UR_MULTI_END - UR_MULTI_START; i++)
 	{
-		if (URMultiInfo[i].multiItem == i + UR_MULTI_START) 
+		if (URMultiInfo[i].multiItem == i + UR_MULTI_START)
 			InitSign(MeaResultUR[URMultiInfo[i].item-UR_MEA_START], i);
 		else
 		{
@@ -1467,7 +1467,7 @@ void MeaResult::OBInit(void)
 {
 	int i, j;
 	int offset;
-	
+
 	for (j=0; j<MEA_TIMES; j++)
 	{
 		for (i=0; i<OB_MEA_END - OB_MEA_START; i++)
@@ -1485,7 +1485,7 @@ void MeaResult::OBInit(void)
 			OBResultMulti2[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<OB_CALC_END - OB_CALC_START; i++)
 	{
 		CalcResultOB1[i][0] = (double)INVALID_VAL;
@@ -1493,10 +1493,10 @@ void MeaResult::OBInit(void)
 		CalcResultOB2[i][0] = (double)INVALID_VAL;
 		CalcResultOB2[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<OB_MULTI_END - OB_MULTI_START; i++)
 	{
-		if ( OBMultiInfo[i].multiItem == i + OB_MULTI_START) 
+		if ( OBMultiInfo[i].multiItem == i + OB_MULTI_START)
 		{
 			InitSign(MeaResultOB1[OBMultiInfo[i].item-OB_MEA_START], i);
 			InitSign(MeaResultOB2[OBMultiInfo[i].item-OB_MEA_START], i);
@@ -1546,16 +1546,16 @@ void MeaResult::GYNInit(void)
 			GYNResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<GYN_CALC_END - GYN_CALC_START; i++)
 	{
 		CalcResultGYN[i][0] = (double)INVALID_VAL;
 		CalcResultGYN[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<GYN_MULTI_END - GYN_MULTI_START; i++)
 	{
-		if ( GYNMultiInfo[i].multiItem == i + GYN_MULTI_START) 
+		if ( GYNMultiInfo[i].multiItem == i + GYN_MULTI_START)
 			InitSign(MeaResultGYN[GYNMultiInfo[i].item-GYN_MEA_START], i);
 		else
 		{
@@ -1590,16 +1590,16 @@ void MeaResult::SPInit(void)
 			SPResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<SP_CALC_END - SP_CALC_START; i++)
 	{
 		CalcResultSP[i][0] = (double)INVALID_VAL;
 		CalcResultSP[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<SP_MULTI_END - SP_MULTI_START; i++)
 	{
-		if ( SPMultiInfo[i].multiItem == i + SP_MULTI_START) 
+		if ( SPMultiInfo[i].multiItem == i + SP_MULTI_START)
 			InitSign(MeaResultSP[SPMultiInfo[i].item-SP_MEA_START], i);
 		else
 		{
@@ -1633,16 +1633,16 @@ void MeaResult::VSInit(void)
 			VSResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<VS_CALC_END - VS_CALC_START; i++)
 	{
 		CalcResultVS[i][0] = (double)INVALID_VAL;
 		CalcResultVS[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<VS_MULTI_END - VS_MULTI_START; i++)
 	{
-		if ( VSMultiInfo[i].multiItem == i + VS_MULTI_START) 
+		if ( VSMultiInfo[i].multiItem == i + VS_MULTI_START)
 			InitSign(MeaResultVS[VSMultiInfo[i].item-VS_MEA_START], i);
 		else
 		{
@@ -1672,16 +1672,16 @@ void MeaResult::FetalInit(void)
 			FetalResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<FETAL_CALC_END - FETAL_CALC_START; i++)
 	{
 		CalcResultFetal[i][0] = (double)INVALID_VAL;
 		CalcResultFetal[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<FETAL_MULTI_END - FETAL_MULTI_START; i++)
 	{
-		if ( FetalMultiInfo[i].multiItem == i + FETAL_MULTI_START) 
+		if ( FetalMultiInfo[i].multiItem == i + FETAL_MULTI_START)
 			InitSign(MeaResultFetal[FetalMultiInfo[i].item-FETAL_MEA_START], i);
 		else
 		{
@@ -1715,16 +1715,16 @@ void MeaResult::TCDInit(void)
 			TCDResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<TCD_CALC_END - TCD_CALC_START; i++)
 	{
 		CalcResultTCD[i][0] = (double)INVALID_VAL;
 		CalcResultTCD[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<TCD_MULTI_END - TCD_MULTI_START; i++)
 	{
-		if ( TCDMultiInfo[i].multiItem == i + TCD_MULTI_START) 
+		if ( TCDMultiInfo[i].multiItem == i + TCD_MULTI_START)
 			InitSign(MeaResultTCD[TCDMultiInfo[i].item-TCD_MEA_START], i);
 		else
 		{
@@ -1755,16 +1755,16 @@ void MeaResult::OrthoInit(void)
 			OrthoResultMulti[i].result[j] = (double)INVALID_VAL;
 		}
 	}
-	
+
 	for (i=0; i<ORTHO_CALC_END - ORTHO_CALC_START; i++)
 	{
 		CalcResultOrtho[i][0] = (double)INVALID_VAL;
 		CalcResultOrtho[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<ORTHO_MULTI_END - ORTHO_MULTI_START; i++)
 	{
-		if ( OrthoMultiInfo[i].multiItem == i + ORTHO_MULTI_START) 
+		if ( OrthoMultiInfo[i].multiItem == i + ORTHO_MULTI_START)
 			InitSign(MeaResultOrtho[OrthoMultiInfo[i].item-ORTHO_MEA_START], i);
 		else
 		{
@@ -1788,17 +1788,17 @@ void MeaResult::TDInit(void)
 		{
 			MeaResultTD[i][j] = (double)INVALID_VAL;
 		}
-	}	
+	}
 
 	for (i=0; i<TD_CALC_END - TD_CALC_START; i++)
 	{
 		CalcResultTD[i][0] = (double)INVALID_VAL;
 		CalcResultTD[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<TD_MULTI_END - TD_MULTI_START; i++)
 	{
-		if ( TDMultiInfo[i].multiItem == i + TD_MULTI_START) 
+		if ( TDMultiInfo[i].multiItem == i + TD_MULTI_START)
 			InitSign(MeaResultTD[TDMultiInfo[i].item-TD_MEA_START], i);
 		else
 		{
@@ -1810,7 +1810,7 @@ void MeaResult::TDInit(void)
 }
 
 //添加 动物超 产科
-//hlx 
+//hlx
 void MeaResult::AnOBInit(void)
 {
 	int i, j;
@@ -1822,17 +1822,17 @@ void MeaResult::AnOBInit(void)
 		{
 			MeaResultAnOB[i][j] = (double)INVALID_VAL;
 		}
-	}	
+	}
 
 	for (i=0; i<ANOB_CALC_END - ANOB_CALC_START; i++)
 	{
 		CalcResultAnOB[i][0] = (double)INVALID_VAL;
 		CalcResultAnOB[i][1] = (double)INVALID_VAL;
 	}
-	
+
 	for (i=0; i<ANOB_MULTI_END - ANOB_MULTI_START; i++)
 	{
-		if ( AnOBMultiInfo[i].multiItem == i + ANOB_MULTI_START) 
+		if ( AnOBMultiInfo[i].multiItem == i + ANOB_MULTI_START)
 			InitSign(MeaResultAnOB[AnOBMultiInfo[i].item-ANOB_MEA_START], i);
 		else
 		{
@@ -1858,7 +1858,7 @@ void MeaResult::UserInit(void)
 		}
 	}
 
-  	
+
 #if 0
 	for (j=0; j<MEA_TIMES_MULTI; j++)
 	{
@@ -1874,10 +1874,10 @@ void MeaResult::UserInit(void)
 		CalcResultAbd[i][1] = (float)INVALID_VAL;
 	}
 
-	int offset;	
+	int offset;
 	for (i=0; i<ABD_MULTI_END - ABD_MULTI_START; i++)
 	{
-		if ( AbdoMultiInfo[i].multiItem == i + ABD_MULTI_START ) 
+		if ( AbdoMultiInfo[i].multiItem == i + ABD_MULTI_START )
 			InitSign(MeaResultAbd[AbdoMultiInfo[i].item-ABD_MEA_START], i);
 		else
 		{
@@ -2141,8 +2141,8 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
 			}
             return(-1);
             break;
-       
- 
+
+
 
 //hlx
 #ifdef VET
@@ -2160,7 +2160,7 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
 				{
 					if (i>0)i--;
 				}
-				else 
+				else
 					return i;
 				//if (item != TDMultiInfo[i].item)
 				if (item != TDInfo[i].item)
@@ -2198,7 +2198,7 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
 			return (-1);
 			break;
 
-#endif 
+#endif
         case USER_M:
             itemTmp = item-USER_START ;
 			i = j = itemTmp;
@@ -2495,7 +2495,7 @@ int MeaResult::FindDoubleMeaInfo(int section, int multiItem)
 				{
 					if (i>0)i--;
 				}
-				else 
+				else
 					return i;
 				if (multiItem != TDMultiInfo[i].multiItem)
 				{
@@ -2512,4 +2512,3 @@ int MeaResult::FindDoubleMeaInfo(int section, int multiItem)
 	}
 	return(-1);
 }
-

@@ -27,7 +27,7 @@
 bool updateoffsound=false;
 extern int soundstatus;
 int tempoffsound=0;
-///>global 
+///>global
 void OverturnMouseOpr(int &offsetX, int &offsetY)
 {
 	bool lrStatus = ImgProc2D::GetInstance()->GetLRStatus();
@@ -80,7 +80,7 @@ void MultiFuncNone::KeyDown()
 
 void MultiFuncNone::Update()
 {
-    MultiFuncUndo();    
+    MultiFuncUndo();
     MultiFuncFactory::EMultiFunc type = MultiFuncFactory::GetInstance()->GetMultiFuncType();
     if (type != MultiFuncFactory::NONE)
     {
@@ -91,7 +91,7 @@ void MultiFuncNone::Update()
 
 void MultiFuncNone::Value(EKnobOper opr)
 {
-    MultiFuncUndo();    
+    MultiFuncUndo();
     MultiFuncFactory::EMultiFunc type = MultiFuncFactory::GetInstance()->GetMultiFuncType();
     if (type != MultiFuncFactory::NONE)
     {
@@ -105,14 +105,14 @@ void MultiFuncNone::Undo()
     //if (MenuArea::GetInstance()->GetMenuType() == MenuArea::MEASURE)
         MeasureFactory::GetInstance()->UndoLastMeasure();
 }
-///> Replay 
+///> Replay
 extern AbsMeasure* g_ptrAbsMeasure;
 
 void MultiFuncReplay::Update()
 {
     ModeStatus Modestatus;
     FreezeMode::EFreezeMode mode = Modestatus.GetFreezeMode();
-    ScanMode::EScanMode scanMode = ScanMode::GetInstance()->GetScanMode(); 
+    ScanMode::EScanMode scanMode = ScanMode::GetInstance()->GetScanMode();
     if((mode == FreezeMode::FREEZE || mode == FreezeMode::REPLAY) && (scanMode == ScanMode::PW || scanMode == ScanMode::PWCFM || scanMode == ScanMode::PWPDI))
     {
         MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::MEASURE);
@@ -129,7 +129,7 @@ void MultiFuncReplay::Update()
         g_ptrAbsMeasure = new DMeasureManualAuto();
     }
 #if 0
-    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode(); 
+    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
     if (mode == ScanMode::PW)
     {
         MultiFuncPw multi;
@@ -151,7 +151,7 @@ void MultiFuncReplay::Update()
 void MultiFuncReplay::Mouse(int offsetX, int offsetY)
 {
     if(ViewSuperuser::GetInstance()->GetDemoStatus())return;//demo mode do nothing and exit!!
-    
+
 	if (m_count < 4) // to control switch beteen auto-replay and manual-replayy
 	{
 		m_count ++;
@@ -162,7 +162,7 @@ void MultiFuncReplay::Mouse(int offsetX, int offsetY)
 
 		if (offsetX > 0)
 		{
-          // delete auto-replay 
+          // delete auto-replay
 
 			//if (abs(offsetX) > 2)
 		//	{
@@ -223,14 +223,14 @@ void MultiFuncMInit::KeyLeft()
 {
 	int offsetX = -1;
 	int offsetY = 0;
-	
+
 	Mouse(offsetX, offsetY);
 }
 void MultiFuncMInit::KeyRight()
 {
 	int offsetX = 1;
 	int offsetY = 0;
-	
+
 	Mouse(offsetX, offsetY);
 }
 ///> M
@@ -242,7 +242,7 @@ void MultiFuncM::Mouse(int offsetX, int offsetY)
 
 	if ((mode == ScanMode::M) && (format == FormatM::M_TOTAL))
 		return;
-	
+
 	OverturnMouseOpr(offsetX, offsetY);
 	Img2D::GetInstance()->ChangeMLine(offsetX, offsetY);
 }
@@ -349,7 +349,7 @@ void MultiFuncPw::Mouse(int offsetX, int offsetY)
 
 	if (ModeStatus::IsSpectrumImgMode() && (format == FormatPw::P_TOTAL))
 		return;
-    
+
   	OverturnMouseOpr(offsetX, offsetY);
 	ImgPw::GetInstance()->ChangePwSV(offsetX, offsetY);
 }
@@ -381,7 +381,7 @@ void MultiFuncPw::KeyDown()
 
 	Mouse(offsetX, offsetY);
 }
-///> cfm 
+///> cfm
 void MultiFuncCfm::Do()
 {
 	bool changeSize = ImgCfm::GetInstance()->GetBoxStatus();
@@ -390,7 +390,7 @@ void MultiFuncCfm::Do()
 void MultiFuncCfm::Mouse(int offsetX, int offsetY)
 {
 	OverturnMouseOpr(offsetX, offsetY);
-    
+
     //redraw center line
     KeyCenterLine key;
     key.Execute();
@@ -447,7 +447,7 @@ void MultiFuncPwCfmInit::Do()
 		m_change ++;
 	else
 		m_change = 0;
-	
+
 	if ((m_change == 1) || (m_change == 2))
 		ImgCfm::GetInstance()->SetBoxStatus(m_change-1);
 	else
@@ -478,7 +478,7 @@ void MultiFuncPwCfmInit::Mouse(int offsetX, int offsetY)
 	if ((ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode()) &&
 			formatPw == FormatPw::P_TOTAL)
 		return;
-  
+
     OverturnMouseOpr(offsetX, offsetY);
 
     //redraw center line
@@ -550,7 +550,7 @@ void MultiFuncPwCfm::Update()
 }
 
 ///> pw+pdi init
-void MultiFuncPwPdiInit::Update()  
+void MultiFuncPwPdiInit::Update()
 {
 	ScanMode::GetInstance()->UpdatePwPdiFromInit();
 }
@@ -610,14 +610,14 @@ void MultiFuncAnatomicM::KeyLeft()
 	int offsetX = -1;
 	int offsetY = 0;
 
-	Mouse(offsetX, offsetY);	
+	Mouse(offsetX, offsetY);
 }
 void MultiFuncAnatomicM::KeyRight()
 {
 	int offsetX = 1;
 	int offsetY = 0;
 
-	Mouse(offsetX, offsetY);	
+	Mouse(offsetX, offsetY);
 }
 
 void MultiFuncEFOV::Update()
@@ -675,7 +675,7 @@ void MultiFuncEFOV::KeyLeft()
 	int offsetX = -1;
 	int offsetY = 0;
 
-	Mouse(offsetX, offsetY);	
+	Mouse(offsetX, offsetY);
 }
 
 void MultiFuncEFOV::KeyRight()
@@ -683,7 +683,7 @@ void MultiFuncEFOV::KeyRight()
 	int offsetX = 1;
 	int offsetY = 0;
 
-	Mouse(offsetX, offsetY);	
+	Mouse(offsetX, offsetY);
 }
 
 ////> cw init
@@ -803,7 +803,7 @@ void MultiFuncCwCfmInit::Do()
 		m_change ++;
 	else
 		m_change = 0;
-	
+
 	if ((m_change == 1) || (m_change == 2))
 		ImgCfm::GetInstance()->SetBoxStatus(m_change-1);
 	else
@@ -849,7 +849,7 @@ void MultiFuncCwCfmInit::Mouse(int offsetX, int offsetY)
 		bool udStatus = ImgProc2D::GetInstance()->GetUDStatus();
 
 		ImgCfm::GetInstance()->ChangeBoxSize(offsetX, offsetY, lrStatus, udStatus);
-		
+
 		// Change Tis
 		ChangeTis();
 	}
@@ -900,7 +900,7 @@ void MultiFuncCwCfm::Update()
 }
 
 ///> cw+pdi init
-void MultiFuncCwPdiInit::Update()  
+void MultiFuncCwPdiInit::Update()
 {
     /*
      if(soundstatus)

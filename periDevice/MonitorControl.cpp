@@ -110,4 +110,3 @@ int MonitorControl::DisplayWrite1(unsigned char reg)
 
     return i2c.I2CWrite(VIDEO_ADDR1, 1, buffer);
 }
-

@@ -85,7 +85,7 @@ void ViewPPDSelect::CreateWindow(GtkWindow *parent)
 
     g_keyInterface.Push(this);
     SetSystemCursorToCenter();
-   
+
     return ;
 }
 
@@ -107,7 +107,7 @@ gboolean ViewPPDSelect::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
 void ViewPPDSelect::KeyEvent(unsigned char keyValue)
 {
     FakeXEvent::KeyEvent(keyValue);
-    
+
     switch(keyValue) {
     case KEY_ESC:
 	BtnCancelClicked(NULL);
@@ -149,7 +149,7 @@ GtkWidget* ViewPPDSelect::create_treeview(void)
 
     GtkCellRenderer *render;
     GtkTreeViewColumn *col;
-    
+
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
 

@@ -14,7 +14,7 @@ public:
     int I2CRead(unsigned char addr, unsigned char reg,int len, unsigned char buf[]);
 
 private:
-    HCGOS hCgos;  
+    HCGOS hCgos;
 
 };
 

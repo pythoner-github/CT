@@ -344,7 +344,7 @@ void h264_parser_parse( h264_t *h, nal_t *nal, int *pb_nal_start )
             /* skip i_offset_for_top_to_bottom_field */
             bs_read_se( &s );
             /* read i_num_ref_frames_in_poc_cycle */
-            i_cycle = bs_read_ue( &s ); 
+            i_cycle = bs_read_ue( &s );
             if( i_cycle > 256 ) i_cycle = 256;
             while( i_cycle > 0 )
             {
@@ -518,7 +518,7 @@ void avi_write_header( avi_t *a )
 {
     avi_write_fourcc( a, "RIFF" );
     avi_write_uint32( a, a->i_riff > 0 ? a->i_riff - 8 : 0xFFFFFFFF );
-    
+
     avi_write_fourcc( a, "AVI " );
 
     avi_write_fourcc( a, "LIST" );
@@ -724,7 +724,7 @@ static int x264_param_init( x264_param_t * param ,video_info_t* info)
     param->i_width         = info->width;
     param->i_height       = info->height;
     param->i_fps_num       = info->frame_rate;
-    */   
+    */
     x264_param_default_preset(param,"veryfast","zerolatency");
     //param->rc.f_rf_constant= 0 ;
     param->i_threads =1;
@@ -747,7 +747,7 @@ static int x264_param_init( x264_param_t * param ,video_info_t* info)
 }
 
 //编一帧图片
-//返回一帧大小  
+//返回一帧大小
 static int encode_frame( x264_t* encoder, x264_picture_t* pic_in, FILE* tmp )
 {
     x264_picture_t pic_out;
@@ -759,7 +759,7 @@ static int encode_frame( x264_t* encoder, x264_picture_t* pic_in, FILE* tmp )
 
     if ( i_frame_size > 0 )
     {
-        //do some thing for save:from nal[0].p_payload 
+        //do some thing for save:from nal[0].p_payload
         //                        to   file
         //                        size i_frame_size
         if ( fwrite( nal[0].p_payload, i_frame_size, 1, tmp) )
@@ -788,23 +788,23 @@ static int encode( x264_param_t* param, video_info_t *info )
 
     x264_picture_alloc( &pic_in, X264_CSP_I420 , info->width, info->height );
 
-    struct SwsContext* convertCtx = sws_getContext( info->width, 
-                                                    info->height , 
-                                                    PIX_FMT_RGB24, 
-                                                    info->width, 
-                                                    info->height, 
-                                                    PIX_FMT_YUV420P, 
-                                                    SWS_FAST_BILINEAR, 
+    struct SwsContext* convertCtx = sws_getContext( info->width,
+                                                    info->height ,
+                                                    PIX_FMT_RGB24,
+                                                    info->width,
+                                                    info->height,
+                                                    PIX_FMT_YUV420P,
+                                                    SWS_FAST_BILINEAR,
                                                     NULL, NULL, NULL);
-    
+
     //each frame
     for (frame = 0; frame < info->frame_total; frame++)
     {
-        //取一帧图片        
+        //取一帧图片
         data[0] = info->data[frame];
         //数据转换RGB2YUV420
         //av_image_fill_pointers(data, PIX_FMT_RGB24,info->height, info->data[frame],&srcstride);
-        sws_scale(convertCtx, (const uint8_t* const*)data, &srcstride, 0, info->height, pic_in.img.plane, pic_in.img.i_stride );  
+        sws_scale(convertCtx, (const uint8_t* const*)data, &srcstride, 0, info->height, pic_in.img.plane, pic_in.img.i_stride );
         //编一帧图片
         encode_frame( encoder, &pic_in, info->tmp);
     }
@@ -825,7 +825,7 @@ static int encode( x264_param_t* param, video_info_t *info )
 //
 //
 /////////////////////////
-int CreateAviEncode( unsigned char* inputdata[], FILE * outputfile, 
+int CreateAviEncode( unsigned char* inputdata[], FILE * outputfile,
                      int WIDTH, int HEIGHT, int frame_total, int frame_rate)
 {
     x264_param_t param;
@@ -833,9 +833,9 @@ int CreateAviEncode( unsigned char* inputdata[], FILE * outputfile,
     FILE * tmp;
 
     tmp = fopen("./tmp.264","w+");
-    
+
     video_info.width       = WIDTH;
-    video_info.height      = HEIGHT; 
+    video_info.height      = HEIGHT;
     video_info.frame_total = frame_total;
     video_info.frame_rate  = frame_rate;
     video_info.data        = inputdata;
@@ -847,7 +847,7 @@ int CreateAviEncode( unsigned char* inputdata[], FILE * outputfile,
     int c= a+b;
     printf("a:%d, b:%d, a+b=c:%d\n", a, b, c);
     //参数设置
-    x264_param_init( &param, &video_info); 
+    x264_param_init( &param, &video_info);
     int sub = b - a;
     printf("sub:%d\n", sub);
     //编码
@@ -876,7 +876,7 @@ static int open_codec_context(int* stream_idx, AVFormatContext *fmt_ctx, enum AV
     ret = av_find_best_stream(fmt_ctx, type, -1, -1, NULL, 0);
     if (ret < 0)
     {
-        PRINTF("Could not find %s stream in input file \n", 
+        PRINTF("Could not find %s stream in input file \n",
                 av_get_media_type_string(type));
         return ret;
     }
@@ -959,13 +959,13 @@ bool ReadAviData(const char *src_filename, uint8_t *buf,int frame_total, int wid
     {
         video_stream = fmt_ctx->streams[video_stream_idx];
         video_dec_ctx = video_stream->codec;
-          
+
         /* allocate image where the decoded image will be put */
        // video_dst_bufsize = av_image_alloc(video_dst_data, video_dst_linesize,
        //                      video_dec_ctx->width, video_dec_ctx->height,
          //                    video_dec_ctx->pix_fmt, 1);
     }
-    
+
     frame = avcodec_alloc_frame();
     frame_rgb = avcodec_alloc_frame();
     if ( (frame == NULL) || (frame_rgb == NULL) )
@@ -984,12 +984,12 @@ bool ReadAviData(const char *src_filename, uint8_t *buf,int frame_total, int wid
         //exit(1);
         ret = -1;
         goto end;
-    } 
+    }
     avpicture_fill( (AVPicture*)frame_rgb, rgb_buf , PIX_FMT_RGB24, video_dec_ctx->width, video_dec_ctx->height);
     //设置图像转换上下文/
     sws_ctx = sws_getContext( video_dec_ctx->width, video_dec_ctx->height, video_dec_ctx->pix_fmt,
                               video_dec_ctx->width, video_dec_ctx->height, PIX_FMT_RGB24,
-                              SWS_BICUBIC, NULL, NULL, NULL); 
+                              SWS_BICUBIC, NULL, NULL, NULL);
 
     av_init_packet(&pkt);
     pkt.data = NULL;
@@ -1025,18 +1025,18 @@ bool ReadAviData(const char *src_filename, uint8_t *buf,int frame_total, int wid
                if (frame_total == 0)
                {
                    //save the data
-                   memcpy(buf, frame_rgb->data[0], picture_size);                 
+                   memcpy(buf, frame_rgb->data[0], picture_size);
                    av_free_packet(&pkt);
                    break;
                }
                else
                {
-                   //save_to_replay(frame_rgb->data[0], video_dec_ctx->width, video_dec_ctx->height); 
-                   ptrFunc(frame_rgb->data[0], video_dec_ctx->width, video_dec_ctx->height); 
+                   //save_to_replay(frame_rgb->data[0], video_dec_ctx->width, video_dec_ctx->height);
+                   ptrFunc(frame_rgb->data[0], video_dec_ctx->width, video_dec_ctx->height);
                }
            }
         }
-       // if (i == 10)break;        
+       // if (i == 10)break;
         av_free_packet(&pkt);
     }
 
@@ -1060,7 +1060,7 @@ end:
     {
         avcodec_close(video_dec_ctx);
     }
-    
+
 	if (rgb_buf)
 	{
 		av_free(rgb_buf);
@@ -1070,7 +1070,7 @@ end:
 	{
 		avformat_close_input(&fmt_ctx);
 	}
-   
+
     if (ret<0)
     {
         return false;
@@ -1080,7 +1080,6 @@ end:
         return true;
     }
 }
-
 
 
 

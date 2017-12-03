@@ -32,8 +32,8 @@ ViewPrintSetting::ViewPrintSetting(void)
 
 ViewPrintSetting::~ViewPrintSetting(void)
 {
-    if (m_ptrInstance != NULL) 
-	delete m_ptrInstance; 
+    if (m_ptrInstance != NULL)
+	delete m_ptrInstance;
 }
 
 bool ViewPrintSetting::SonyURI(void)

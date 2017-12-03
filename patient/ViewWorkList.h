@@ -15,7 +15,7 @@ class PatDetail:public FakeXEvent
         ~PatDetail();
 
         //static PatDetail* GetInstance();
-        
+
         GtkWidget* CreatePatDetailWin(GtkWidget *parent);
         void DestroyPatDetailWin(void);
         GtkWidget *GetWindow(){return m_window_detail;}
@@ -40,7 +40,7 @@ class PatDetail:public FakeXEvent
         GtkWidget *m_entry_weight;
         GtkWidget *m_entry_address;
         GtkWidget *m_textview_comment;
-        
+
         void ButtonQuitClicked(GtkButton *button);
        // KeyEvent(unsigned char keyValue);
 
@@ -67,18 +67,18 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
             COL_NAME,
             COL_Gender,
             COL_ACCESSION_NUMBER,
-            COL_BIRTH_DATE, 
+            COL_BIRTH_DATE,
             COL_EXAM_DESCRIPTION,
             NUM_COLS
         };
-        
+
         GtkWidget *m_win_parent;
         static ViewWorkList* GetInstance();
 
         vector<DCMWORKLISTELEMENT> m_query;
         GtkWidget* CreateWorkListWin(GtkWidget *parent);
         GtkWidget *GetWindow(){return m_window;}
-        
+
         int GetDateFormat(){return m_dateFormat;};
         void GetAndDisplayPatientRecord();
         void DestroyWin(void);
@@ -145,11 +145,11 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
 
         void StartDateInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
         void StartDateDelete(GtkEditable *editable, gint start_pos, gint end_pos);
-    
+
         void StartCalendarPress(GtkWidget *widget, GdkEventButton *event);
         void EndCalendarPress(GtkWidget *widget, GdkEventButton *event);
 
-        
+
        // KeyEvent(unsigned char keyValue);
         //signal
         static void on_entry_insert_start_date(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewWorkList *data)
@@ -195,9 +195,9 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
                 data->CloseWindow(window);
         }
 
-	
+
         static void HandleStartCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewWorkList *data) { data->StartCalendarPress(widget, event); }
-        
+
         static void HandleEndCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewWorkList *data) { data->EndCalendarPress(widget, event); }
 
         void KeyEvent(unsigned char keyValue);

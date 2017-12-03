@@ -484,4 +484,3 @@ void Printgeneral::ButtonWantCollateCheck(GtkWidget * button,  GtkWidget *widget
 {
 	WantCollateCheck(widget);
 }
-

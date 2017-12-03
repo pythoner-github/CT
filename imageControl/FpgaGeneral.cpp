@@ -39,16 +39,16 @@ void  CFpgaGeneral::AD9273ControlInit(void) //9273初始化
 
 	SpiControlSetting(0x0f, 0x00, 0x18);		//chip_port_config
 	Update();
-	
+
 	ResetControl();
 	Update();
 
 	SpiControlSetting(0x0f, 0x00, 0x18);		//chip_port_config
 	Update();
-	
+
 	RunChip();
 	Update();
-	
+
 	SetIndex();
 	Update();
 
@@ -56,12 +56,12 @@ void  CFpgaGeneral::AD9273ControlInit(void) //9273初始化
 	    SpiControlSetting(0x0f, 0x18, 0x40);		//FLEX_VREF  //外部参考
     else
         SpiControlSetting(0x0f, 0x18, 0x00);		//FLEX_VREF	//内部参考	0x00---0.625V		0x03---1.0V 		0x01---0.75V		0x10---0.875V
-																
+
 	Update();
 
-	//SpiControlSetting(0x0f, 0x11, 0x0E);		  //FLEX_GAIN     //PGA Gain(Bit3 Bit2: 00---21dB     01---24dB   10---27dB   11---30dB), 
-	SpiControlSetting(0x0f, 0x11, 0x0A);		  //FLEX_GAIN     //PGA Gain(Bit3 Bit2: 00---21dB     01---24dB   10---27dB   11---30dB), 
-	                                //              //LNA Gain(Bit1 Bit0: 00---15.6dB   01---17.9dB 10---21.3dB)   
+	//SpiControlSetting(0x0f, 0x11, 0x0E);		  //FLEX_GAIN     //PGA Gain(Bit3 Bit2: 00---21dB     01---24dB   10---27dB   11---30dB),
+	SpiControlSetting(0x0f, 0x11, 0x0A);		  //FLEX_GAIN     //PGA Gain(Bit3 Bit2: 00---21dB     01---24dB   10---27dB   11---30dB),
+	                                //              //LNA Gain(Bit1 Bit0: 00---15.6dB   01---17.9dB 10---21.3dB)
                                     //              0x0E
     Update();
 
@@ -124,30 +124,30 @@ void  CFpgaGeneral::AD9273ControlInit(void) //9273初始化
 
     //AD9273_TestIO(TRUE);
     ct.End();
-	
+
 }
 
 void CFpgaGeneral::AD5805ControlInit() //5805 init
 {
 //soft reset  S_RST   0X00----0X0001
-    SpiControlSetting(0xff,0x00, 0x0001); 
-      
-    //init 
+    SpiControlSetting(0xff,0x00, 0x0001);
+
+    //init
     //0X01----0X0010
     SpiControlSetting(0xff,0x01, 0x0010);
-     
+
     //0XD1----0X0140
     SpiControlSetting(0xff,0xd1, 0x0140);
-     
+
     //0XDA----0X0001
     SpiControlSetting(0xff,0xda, 0x0001);
-     
+
     //0XE1----0X0020
     SpiControlSetting(0xff,0xe1, 0x0020);
-     
+
     //0X02----0X0080
     SpiControlSetting(0xff,0x02, 0x0080);
-     
+
     //0X01----0X0000
     SpiControlSetting(0xff,0x01, 0x0000);
 
@@ -156,13 +156,13 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
 
     //vca_unreset RES_VCA 0X03----0X0000
     SpiControlSetting(0xff,0x03, 0x0000);
-     
-    //vca_regester1  set   VCA_SDATA[15:0]   
+
+    //vca_regester1  set   VCA_SDATA[15:0]
     //0X16----16'B0000_0000_0010_0011
     //BIE15-8:USE FOR CW DOPPLER MODE, SET AS 0
     //BIT7-6:PGA GAIN, 00=20DB,01=25DB,10=27DB;11=30DB
     //BIT5:MODE,1=TGC MODE,0=CW DOPPLER MODE
-    //BIT4:CL, 0= CLAMPS THE OUTPUT SIGNAL AT APPROSIMATELY -1.4DB BELOW THE FULL-SCALE OF 2Vpp(DEFAULT),1=CLAMP TRANSPARENT(DISABLE) 
+    //BIT4:CL, 0= CLAMPS THE OUTPUT SIGNAL AT APPROSIMATELY -1.4DB BELOW THE FULL-SCALE OF 2Vpp(DEFAULT),1=CLAMP TRANSPARENT(DISABLE)
     //BIE3:LOW-PASS FILTER BANDWIDTH,0=15MHz,1=10MHz
     //BIE2:PWR,1=POWER-DOWN MODE ENABLE,0=PD DISABLE(DEFAULT)
     //SpiControlSetting(0xff,0x16, 0xfff3);
@@ -175,16 +175,16 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //OX17----0X0000
     //SpiControlSetting(0xff,0x17, 0xffff);
     SpiControlSetting(0xff,0x17, 0x0000);
-     
+
 
 
     //vca register3 set VCA_SDATA[39-32]  USE FOR CW MODE, SET AS O
     //0X18----0X0000
    // SpiControlSetting(0xff,0x18, 0x00ff);
     SpiControlSetting(0xff,0x18, 0x0000);
-     
 
-    //POWER DOWN MODE SET  
+
+    //POWER DOWN MODE SET
     //0X0F----0X0000   16'B0000_0***_****_****
     //BIT15-11  USELESS, SET AS 0
     //BIT10-8: PDN_PIN_CFG, 100=USE FOR HARDWARE PARTIAL POWERDOWN MODE,
@@ -193,37 +193,37 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //001=USE FOR SOFTWARE PARTIAL POWERDOWN MODE
     //BIT7-0: CHANNEL 8-1 SELECT, 1=SELECT, THEN THE CHANNEL IN POWERDOWN MODE, 0=DON'T SELECT
     SpiControlSetting(0xff,0x0f, 0x0000);
-     
+
 
 
     //lvds current drive   0x11----0x0000
 	SpiControlSetting(0xff,0x11, 0x0000);		//from new g30
     //SpiControlSetting(0xff,0x11, 0x0600);
-     
 
-    
+
+
     //enable internal termination  0x12----0x0000
     SpiControlSetting(0xff,0x12, 0x0000);	//from new g30
-    //SpiControlSetting(0xff,0x12, 0x4700); 
+    //SpiControlSetting(0xff,0x12, 0x4700);
 
     //channel-specific, low-frequency noise suppression mode enable  0x14----0x0000
    // SpiControlSetting(0xff,0x14, 0x00ff);
     SpiControlSetting(0xff,0x14, 0x0000);
-     
-    
+
+
 
     //test mode register  BITS_CUSTOM1[9:0]    16'B1100_1000_1111
     //0X26----16'B00_1000_1111_0000_00
     SpiControlSetting(0xff,0x26, 0x23c0);
     //SpiControlSetting(0xff,0x26, 0x5540);
-     
-    
+
+
     //test mode register BITS_CUSTOM2[9:0]   16'B1100_1000_1111
     //0X27----16'B00_1000_1111_0000_00
     SpiControlSetting(0xff,0x27,0x23c0);
     //SpiControlSetting(0xff,0x27,0xAA80);
-     
-    
+
+
     //test mode1    SET 16'B0000_0000_0000_1111
     //0x25----16'b0000_0000_0***_****
     //bit1-0: BITS_CUSTOM1[11:10], SET AS 11
@@ -232,17 +232,17 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     SpiControlSetting(0xff,0x25, 0x000f);	//正常工作
 	//SpiControlSetting(0xff,0x25, 0x001f);
 	//SpiControlSetting(0xff,0x25, 0x0029);
-     
-    
+
+
     //TEST MODE2    SET 16'B0000_0000_0000_0000
     //0X45----16'B0000_0000_0000_00**
     //BIT1-0:00=TEST MODE OFF, 01= PAT_DESKEW,test data = 12'b0101_0101_0101,
     //10=PAT_SYNC,test data = 12'b1111_1100_0000
     //SpiControlSetting(0xff,0x45, 0x0000);
-     
-    
+
+
     //program gain channel 1
-    //0x2a----16'b****_****_****_****; 
+    //0x2a----16'b****_****_****_****;
     //bit15-12: channel 1
     //bit11-8:channel 2
     //bit7-4:channel 3
@@ -250,7 +250,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //0000=0 db(default), 0001=1db,0010=2db,0011=3db,0100=4db,0101=5db,0110=6db,0111=7db,1000=8db,1001=9db,1010=10db,1011=11db,1100=12db, other=do not use
 #ifdef EMP_355
 	SpiControlSetting(0xff,0x2a,0x8888);	//from new g30
-#else    
+#else
  	SpiControlSetting(0xff,0x2a, 0x0000);
 #endif
     //SpiControlSetting(0xff,0x2a, 0x6666);
@@ -258,7 +258,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
    // SpiControlSetting(0xff,0x2a,0xcccc);
    //SpiControlSetting(0xff,0x2a,0x6666);
 
-     
+
 
 
     //program gain channel 2
@@ -270,7 +270,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //0000=0 db(default), 0001=1db,0010=2db,0011=3db,0100=4db,0101=5db,0110=6db,0111=7db,1000=8db,1001=9db,1010=10db,1011=11db,1100=12db, other=do not use
 #ifdef EMP_355
     SpiControlSetting(0xff,0x2b,0x8888);	//from new g30
-#else   
+#else
    SpiControlSetting(0xff,0x2b, 0x0000);
 #endif
    // SpiControlSetting(0xff,0x2b, 0x6666);
@@ -286,15 +286,15 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //16'b1000_0000_1100_0101
 //    SpiControlSetting(0xff,0x42,0x8085);
 //    SpiControlSetting(0xff,0x42,0x80a5);
-    
+
     //SpiControlSetting(0xff,0x0142,0x80c5);//chip1
-     
+
    // SpiControlSetting(0xff,0x0242,0x80c5);//80c5  > 80e5 //chip2
-     
+
     //SpiControlSetting(0xff,0x0342,0x80c5);//chip3
-     
+
    // SpiControlSetting(0xff,0x0442,0x80c5);//chip4
-    
+
 //  SpiControlSetting(0xff,0x42,0x80c5); //chip1-2-3-4
 //
 //    SpiControlSetting(0xff,0x42,0x80e5);
@@ -306,7 +306,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
  	  SpiControlSetting(0x03, 0x42, 0x8085 | (2<<5));	//F11B, ab 片 相位2
       SpiControlSetting(0x0C, 0x42, 0x8085 | (1<<5));	//F11B, cd 片 相位1
 #endif
-   
+
     //other setting
     //0x46----16'b10*0_0010_000*_**00  set 16'b1000_0010_0000_0100
     //bit13,bit4:control whether the LCLK rising or falling edge comes in the middle of the data window when operating in SDR output mode.11=falling,01=rising(default)
@@ -316,7 +316,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //bie2:BTC_MODE,0=straight offset binary(default),1=binary two's complement
      SpiControlSetting(0xff,0x46,0x820c);
     // SpiControlSetting(0xff,0x46,0x8208);
-	// SpiControlSetting(0xff,0x0F,0x0200); 
+	// SpiControlSetting(0xff,0x0F,0x0200);
 
 }
 
@@ -347,15 +347,15 @@ void  CFpgaGeneral::Update(void)
 
 void  CFpgaGeneral::SetIndex(void)
 {
-	SpiControlSetting(0x0f, 0x04, 0x0f);	
+	SpiControlSetting(0x0f, 0x04, 0x0f);
 	SpiControlSetting(0x0f, 0x05, 0x0f);
-	
+
 }
 
 void  CFpgaGeneral::AD9273_TestIO(bool TYPE)
 {
 	if(TYPE==true)
-	{	
+	{
 	//	SpiControlSetting(0x0f, 0x0d, 0x00);		//TEST_IO	on		Middle scale, 100000 000000
 	//	SpiControlSetting(0x0f, 0x0d, 0x49);		//TEST_IO	on		1010 1010 1010
 	//	SpiControlSetting(0x0f, 0x0d, 0x4A);		//TEST_IO	on		0000 0011 1111
@@ -368,7 +368,7 @@ void  CFpgaGeneral::AD9273_TestIO(bool TYPE)
 	{
 		SpiControlSetting(0x0f, 0x0d, 0x00);		//TEST_IO	off
 		Update();
-	}	
+	}
 }
 
 void CFpgaGeneral::AD9273_Test(unsigned char regaddr,unsigned char data)
@@ -380,7 +380,7 @@ void CFpgaGeneral::AD9273_Test(unsigned char regaddr,unsigned char data)
 //void  CFpgaGeneral::AdjustOutputPhase(U32 ChipCs, U32 PhaseValue)
 void  CFpgaGeneral::AdjustOutputPhase(unsigned char chipcs, unsigned char phasevalue)
 {
-	SpiControlSetting(chipcs, 0x16, phasevalue);	
+	SpiControlSetting(chipcs, 0x16, phasevalue);
 	Update();
 }
 
@@ -423,7 +423,7 @@ void  CFpgaGeneral::AD9273_TestChNo(U32 ChipNo, U32 ChNoInChip)
 	unsigned char paraLen;
     unsigned int data = 0;
 	dataType = 1;
-	paraLen = 1;	
+	paraLen = 1;
     unsigned int *buf;
 	buf = &data;
 
@@ -437,12 +437,12 @@ void  CFpgaGeneral::AD9273_TestChNo(U32 ChipNo, U32 ChNoInChip)
 }
 
 //	探头座选择(继电器切换)
-//	
+//
 //	SocketNo---0：选第1个探头座；1：选第2个探头座
-//	
+//
 void  CFpgaGeneral::ProbeSocketSel(U32 SocketNo)
 {
- 
+
 	//venreq(0xBA,0x03);
 
 //	#define COMAddrFPGAAddrA	58
@@ -470,9 +470,9 @@ unsigned char* CFpgaGeneral::venreq(unsigned char VendorReq,unsigned short ReqVa
 	bResult = FALSE;
 	nBytes = 0;
 	VENDOR_OR_CLASS_REQUEST_CONTROL	myRequest;
-    short bufferSize = 64; 
+    short bufferSize = 64;
 	memset(VENbuffertemp, 0, bufferSize);
-	
+
     // Open the driver
     if (bOpenDriver (&hDevice, pcDriverName) != TRUE)
 	{
@@ -486,8 +486,8 @@ unsigned char* CFpgaGeneral::venreq(unsigned char VendorReq,unsigned short ReqVa
 
     myRequest.requestType=2; // vendor specific request type (2)
     myRequest.recepient=0; // recepient is device (0)
-				
-	if (hDevice != NULL) 
+
+	if (hDevice != NULL)
 	{
 		bResult = DeviceIoControl (hDevice,
 			IOCTL_EZUSB_VENDOR_OR_CLASS_REQUEST,
@@ -499,7 +499,7 @@ unsigned char* CFpgaGeneral::venreq(unsigned char VendorReq,unsigned short ReqVa
 			NULL);
 		CloseHandle (hDevice);
 		hDevice=NULL;
-     }/* if valid driver handle */       
+     }/* if valid driver handle */
 #endif
 	 return VENbuffertemp;
 }

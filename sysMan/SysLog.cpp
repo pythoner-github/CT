@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: SysLog.cpp
- * @brief: Print system info to file log/sys.log, and this file will be save when power off 
+ * @brief: Print system info to file log/sys.log, and this file will be save when power off
  * and clear when power on.
  *
  * version: V1.0

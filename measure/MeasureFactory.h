@@ -24,7 +24,7 @@ class MeasureFactory
 
 	private:
 		MeasureFactory();
-		
+
 		static MeasureFactory* m_ptrInstance;
 		//EMeasureFactory m_type;
 		int m_type;

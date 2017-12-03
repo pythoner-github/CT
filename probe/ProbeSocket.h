@@ -11,8 +11,8 @@ using std::vector;
 
 ///> total number of probe
 #if defined(EMP_360)
-//static const int NUM_PROBE = 6; 
-static const int NUM_PROBE = 7; 
+//static const int NUM_PROBE = 6;
+static const int NUM_PROBE = 7;
 #elif defined(EMP_161)
 static const int NUM_PROBE = 5; //4; ///< total number of probe
 #elif (defined(EMP_322) || defined(EMP_313))
@@ -46,7 +46,7 @@ class ProbeSocket
 		{
 			int emit; // real freq * 20
 			int receive; //real freq * 20
-		};		
+		};
 
 		struct ProbePara
 		{
@@ -60,17 +60,17 @@ class ProbeSocket
             int widthPhase; ///< width of phase probe, only used for phase probe //mm
 			int depth; ///< max depth of probe. //mm
 			int freqRange[2];
-			vector<FreqPair> vecFreqRange; ///< range of frequency*20			
+			vector<FreqPair> vecFreqRange; ///< range of frequency*20
 			int freqDop[MAX_DOP_FREQ]; ///< range of frequency*20
 			int volumeR; ///< scan radius of volume probe, unit:realR * 100
 			int volumeAngle; ///< scan angle of volume probe, unit:realAngle * 100
 			int thiFreq[MAX_HARMONIC_FREQ]; ///< range of harmonic frequency*20
             char factoryFlag[4];//vender,for example "EMP"
 		};
-		
+
 		static const int MAX_2D_FREQ = 10;
 		static const int FREQ2D_SUM[NUM_PROBE];
-		static FreqPair FREQ2D[NUM_PROBE][MAX_2D_FREQ];		
+		static FreqPair FREQ2D[NUM_PROBE][MAX_2D_FREQ];
         static const int BAND_PASS_FILTER_FC_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC];
         static const int BAND_PASS_FILTER_FC1_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC];
 #ifdef EMP_355
@@ -90,7 +90,7 @@ class ProbeSocket
 
 		///>constructure
 		ProbeSocket(int socketAddr, int cmdRead)
-			:m_socketAddr(socketAddr), m_cmdRead(cmdRead) 
+			:m_socketAddr(socketAddr), m_cmdRead(cmdRead)
 		{
 		}
 
@@ -110,7 +110,7 @@ class ProbeSocket
 	private:
 		static const int PARA_LEN = 64;
 		//static const int PARA_LEN = 30;
-		
+
 		int m_socketAddr;
 		int m_cmdRead;
 		ProbePara m_para;

@@ -131,11 +131,11 @@ void ScreenSaver::ExitScreenSaver()
     //if (g_d4Mode)
     {
         int count;
-        int len = 2; 
+        int len = 2;
         unsigned char keyValue[3];
 
         keyValue[0] = SCREENSAVER;
-        
+
         count = write(g_uis4d_ri.GetFifoId(), keyValue, len);
         //printf("count=%d, len=%d,keyValue=%s.\n", count, len, keyValue);
 
@@ -143,7 +143,7 @@ void ScreenSaver::ExitScreenSaver()
         {
             perror("Failed to write FIFO: ");
             return;
-        }  
+        }
     }
 #endif
 }
@@ -170,9 +170,9 @@ void ScreenSaver::BlackScreen()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen), 
+			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
 			  CWOverrideRedirect | CWBackPixel, &wa);
-    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy); 
+    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
 	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
@@ -265,8 +265,8 @@ void ScreenSaver::DrawHintMessage()
 	int j = rand() % (DisplayHeight(m_dpy, screen)-50);
 
 	XClearWindow(m_dpy, m_win);
-	XftDrawStringUtf8 (xftDraw, &xftColor, xftFont, 
-			i < 100 ? 100 : i, 
+	XftDrawStringUtf8 (xftDraw, &xftColor, xftFont,
+			i < 100 ? 100 : i,
 			j < 50 ? 50 : j,
 			(XftChar8 *)(_(string)), strlen (_(string)));
 //	PRINTF("random num %d %d\n", i, j);
@@ -301,9 +301,9 @@ void ScreenSaver::BlackScreen2()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen), 
+			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
 			  CWOverrideRedirect | CWBackPixel, &wa);
-    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy); 
+    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
 	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
@@ -315,8 +315,8 @@ void ScreenSaver::BlackScreen2()
 	Colormap colormap;
     XColor white;
 	GC gc;
-   
-    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy); 
+
+    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy);
 	gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
     colormap = DefaultColormap(m_dpy, screen);
     XAllocColor(m_dpy, colormap, &white);
@@ -339,7 +339,7 @@ void ScreenSaver::BlackScreen2()
     }
     //printf("display(%d, %d)\n", DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen));
 	XFlush(m_dpy);
-    
+
     m_state = TRUE;
 }
 
@@ -394,9 +394,9 @@ void ScreenSaver::BlackScreen3()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen), 
+			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
 			  CWOverrideRedirect | CWBackPixel, &wa);
-    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy); 
+    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
 	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
@@ -409,8 +409,8 @@ void ScreenSaver::BlackScreen3()
 	Colormap colormap;
     XColor white;
 	GC gc;
-   
-    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy); 
+
+    XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy);
 	gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
     colormap = DefaultColormap(m_dpy, screen);
     XAllocColor(m_dpy, colormap, &white);
@@ -418,7 +418,7 @@ void ScreenSaver::BlackScreen3()
 
     //XDrawRectangle(m_dpy, m_win, gc, 0, 0, DisplayWidth(m_dpy, screen) - 1, DisplayHeight(m_dpy, screen) - 1);
     XDrawRectangle(m_dpy, m_win, gc, 0, 0, 1023, 767);
-    
+
     int  x = 0, y = 0, width = 50;
     for(x=10; x+width<1023;)
     {

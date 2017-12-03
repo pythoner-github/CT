@@ -6,7 +6,7 @@
 class SysDicomSetting
 {
 public:
-	
+
     SysDicomSetting();
     ~SysDicomSetting();
 
@@ -48,5 +48,4 @@ private:
 };
 
 #endif
-
 

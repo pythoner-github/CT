@@ -6,11 +6,11 @@ enum ELightValue
 {
     LIGHT_CHROMA = 8,
     LIGHT_FREQ = 9,
-    LIGHT_AUTO = 10, 
+    LIGHT_AUTO = 10,
     LIGHT_FREEZE = 11,
     LIGHT_UPDOWN = 14,
     LIGHT_ZOOM = 13,
-    LIGHT_LEFTRIGHT = 12, 
+    LIGHT_LEFTRIGHT = 12,
     LIGHT_FOCUS = 15,
     LIGHT_CALC = 16,
     LIGHT_MEASURE = 17,
@@ -26,7 +26,7 @@ enum ELightValue
     LIGHT_BODYMARK = 27,
     LIGHT_CAPSLOCK = 28,
     LIGHT_SYSTEM = 29,
-    LIGHT_DEPTH = 30, //reserve 
+    LIGHT_DEPTH = 30, //reserve
 };
 #elif defined (EMP_313)
 enum ELightValue
@@ -44,7 +44,7 @@ enum ELightValue
     LIGHT_M = 1,
     LIGHT_BB = 2,
     LIGHT_D2 = 3,
-    LIGHT_DEPTH = 10, 
+    LIGHT_DEPTH = 10,
     LIGHT_FREEZE = 20,
     LIGHT_AUTO = 22,
     LIGHT_4B = 25,
@@ -78,8 +78,8 @@ enum ELightValue
     LIGHT_FOCUS = 0x17,
     LIGHT_ZOOM = 0x19,
     LIGHT_POINTER = 0x1A,
-    LIGHT_MEASURE = 0x1B,	
-   
+    LIGHT_MEASURE = 0x1B,
+
     LIGHT_MENU = 11,
 	LIGHT_AUTO = 13,
 };
@@ -101,7 +101,7 @@ enum ELightValue
 	LIGHT_PW = 19,
 	LIGHT_CFM = 20,
 	LIGHT_D2 = 21,
-	LIGHT_AUTO = 22, 
+	LIGHT_AUTO = 22,
 	LIGHT_LEFTRIGHT = 23, //not used now
 };
 #endif

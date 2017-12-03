@@ -20,8 +20,8 @@ class NoteArea:public FakeXEvent
 			string str;
 			gdouble x;
 			gdouble y;
-			guint size; //font size 
-			string color; 
+			guint size; //font size
+			string color;
 		};
 
 		struct TextItem
@@ -53,7 +53,7 @@ class NoteArea:public FakeXEvent
 		GtkWidget* m_entry;
 		GooCanvasItem *m_itemImage;
 		GooCanvasItem *m_itemEntry;
-		GList* m_listItem; 
+		GList* m_listItem;
 		GooCanvasItem *m_itemDrag;
 		GooCanvasItem *m_itemSel;
 		guint m_state;

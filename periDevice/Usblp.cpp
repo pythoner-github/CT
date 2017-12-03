@@ -28,7 +28,7 @@
 #define IMAGE_WIDTH 400
 #define IMAGE_HEIGHT 288
 #define BITMAP_OFFSET 4
-#define FONT_DOT_RATIO(font_size) font_size*5   
+#define FONT_DOT_RATIO(font_size) font_size*5
 #define PRINT_START_X 10
 #define PRINT_START_Y 10
 #define A_BITMAP_LEN ((FONT_DOT_RATIO(font_size))*(FONT_DOT_RATIO(font_size))+10)// ((FONT_DOT_RATIO(font_size)+1)*(FONT_DOT_RATIO(font_size)+1)+10)
@@ -42,47 +42,47 @@ int utf8_to_unicode(const char* chars, int len, unsigned short *result, int len_
 	unsigned short uc=0;
 	int need=0, i, p=0;
 
-	for (i=0; i<len; i++) 
+	for (i=0; i<len; i++)
 	{
 		unsigned char ch = chars[i];
-		if (need) 
+		if (need)
 		{
-			if ( (ch&0xc0) == 0x80 ) 
+			if ( (ch&0xc0) == 0x80 )
 			{
 				uc = (uc << 6) | (ch & 0x3f);
 				need--;
-				if ( !need ) 
+				if ( !need )
 				{
 					if(p >= (len_out -1))
 						break;
 					result[p++] = uc;
 				}
-			} 
-			else 
+			}
+			else
 			{
 				result [p++] = 0xfffd;
 				need = 0;
 			}
-		} 
-		else 
+		}
+		else
 		{
-			if ( ch < 128 ) 
+			if ( ch < 128 )
 			{
 				result[p++] = ch;
-			} 
-			else if ( (ch&0xe0) == 0xc0 ) 
+			}
+			else if ( (ch&0xe0) == 0xc0 )
 			{
 				uc = ch &0x1f;
 				need = 1;
-			} 
-			else if ( (ch&0xf0) == 0xe0 ) 
+			}
+			else if ( (ch&0xf0) == 0xe0 )
 			{
 				uc = ch &0x0f;
 				need = 2;
 			}
 		}
 	}
-	
+
 	return p;
 }
 
@@ -102,7 +102,7 @@ int cn_to_unicode_puppy(unsigned char *gb_text, unsigned short *unicode_text)
 	int len = 0;
 	int i;
 	int unicode_len = 18;
-	gchar *utf8_text; 
+	gchar *utf8_text;
 
 	len = strlen((char *)gb_text);
 	unicode_len = len;
@@ -115,7 +115,7 @@ int cn_to_unicode_puppy(unsigned char *gb_text, unsigned short *unicode_text)
 	g_free( utf8_text );
 
 	return len;
-}	
+}
 
 void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bitmap_point, int font_size)
 {
@@ -124,7 +124,7 @@ void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bit
     FT_Face pFTFace = NULL;
     FT_Error error = 0;
     int glyph_index = 0;
-    FT_GlyphSlot slot = 0;	
+    FT_GlyphSlot slot = 0;
 	int a_bitmap_len;
 
 	//make a character into ImageBuffer
@@ -144,7 +144,7 @@ void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bit
 		PRINTF("the fonts file is not exist!\n");
 		return;
 	}
-	
+
 	if(error){
 		perror("font success or fail donot know!\n");
 		return;
@@ -156,7 +156,7 @@ void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bit
 		return;
 	}
 	a_bitmap_len = A_BITMAP_LEN;
-	
+
 	for(n=0; n<len; n++){
 		glyph_index = FT_Get_Char_Index(pFTFace,*(unicode_text+n));
 		error = FT_Load_Glyph(pFTFace, glyph_index, FT_LOAD_DEFAULT);
@@ -165,22 +165,22 @@ void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bit
 			return;
 		}
 		error = FT_Render_Glyph(pFTFace->glyph, FT_RENDER_MODE_NORMAL);
-		
+
 		if(error){
 			perror("render glyph error!\n");
 			return;
 		}
 		else{
 			slot = pFTFace->glyph;
-				
+
 			for (i=0; i<slot->bitmap.rows; i++){
 				for (j=0; j<slot->bitmap.width; j++){
-					*(bitmap_point+n*a_bitmap_len+i*FONT_DOT_RATIO(font_size)+j+BITMAP_OFFSET) = 
+					*(bitmap_point+n*a_bitmap_len+i*FONT_DOT_RATIO(font_size)+j+BITMAP_OFFSET) =
                                           ((255 - slot->bitmap.buffer[i*(slot->bitmap.width)+j])>220)?
 						255 : (255 - slot->bitmap.buffer[i*(slot->bitmap.width)+j]);
 				}
 			}
-					
+
 			*(bitmap_point + n * a_bitmap_len) = slot->bitmap.width;
 			*(bitmap_point + n * a_bitmap_len + 1) = slot->bitmap.rows;
 			if ((*(unicode_text+n) == 19968)||(*(unicode_text+n)==45))
@@ -189,9 +189,9 @@ void unicode_to_bitmap(unsigned short *unicode_text, int len, unsigned char *bit
                                 ||(*(unicode_text+n)==8216)||(*(unicode_text+n)==8217))
 				*(bitmap_point + n * a_bitmap_len + 1) = slot->bitmap.rows + FONT_DOT_RATIO(font_size)/2;
 		}
-		
+
 	}
-	
+
 	FT_Done_Face(pFTFace);
 	pFTFace = NULL;
 	FT_Done_FreeType(pFTLib);
@@ -202,12 +202,12 @@ int bitmap_to_report_buffer(unsigned char *buffer, unsigned char *bitmap, int le
 {
 	int n, i, j, k = 0;
 	int width, rows;
-	int char_height = 0;//char_height also use as char width,if char width!=char height,cannot use as char width 
+	int char_height = 0;//char_height also use as char width,if char width!=char height,cannot use as char width
 	int char_start_x, char_start_y;
 	unsigned char *report_buffer = NULL;
 	int end_y;
 	int sign = 0;
-	
+
 	report_buffer = buffer;
 
 	char_height = FONT_DOT_RATIO(font_size);
@@ -218,8 +218,8 @@ int bitmap_to_report_buffer(unsigned char *buffer, unsigned char *bitmap, int le
 	for (n=0; n<len; n++){
 		width = *(bitmap + n*A_BITMAP_LEN);
 		rows = *(bitmap+ n*A_BITMAP_LEN + 1);
-		
-		char_start_y = position_y + k* char_height + char_height - rows;	
+
+		char_start_y = position_y + k* char_height + char_height - rows;
 
 		if (char_start_y > position_y_limit)
 		{
@@ -234,16 +234,16 @@ int bitmap_to_report_buffer(unsigned char *buffer, unsigned char *bitmap, int le
 				*(report_buffer + (char_start_y+i)*REPORT_WIDTH_BYTES + (char_start_x + j) * BYTES_PER_PIXEL + 1) = *(bitmap + A_BITMAP_LEN*n + char_height*i+j + BITMAP_OFFSET);
 				*(report_buffer + (char_start_y+i)*REPORT_WIDTH_BYTES + (char_start_x + j) * BYTES_PER_PIXEL + 2) = *(bitmap + A_BITMAP_LEN*n + char_height*i+j + BITMAP_OFFSET);
 			}
-			
+
 		char_start_x += width+2;
 		if (char_start_x > (REPORT_WIDTH-30)){
 			k++;
 			char_start_x = PRINT_START_X;
 		}
 	}
-	
+
 	end_y = (sign == 0) ? (char_start_y + char_height) : char_start_y;
-	return (end_y);	
+	return (end_y);
 }
 
 void gb_to_report_buffer(unsigned char *buffer, char *gb_string, int font_size, int position_x, int position_y, int position_y_limit)
@@ -257,7 +257,7 @@ void gb_to_report_buffer(unsigned char *buffer, char *gb_string, int font_size, 
 	int len, gb_len;
 	int i, j;
 	int enter_num = 1;
-	int position_x_tmp, position_y_tmp; 
+	int position_x_tmp, position_y_tmp;
 
 	position_x_tmp = position_x;
 	position_y_tmp = position_y;
@@ -279,7 +279,7 @@ void gb_to_report_buffer(unsigned char *buffer, char *gb_string, int font_size, 
 			i++;
 		}
 	}
-	
+
 	for (j=0; j<enter_num; j++)
 	{
 		for (i=0; i<1203; i++)
@@ -332,21 +332,21 @@ void strings_link(unsigned char *string1, unsigned char *string2, unsigned char 
 {
 	int i;
 	int len1, len2;
-	
+
 
 	len1 = strlen((char *)string1);
 	for (i=0; i<len1; i++){
 		*(string + i) = *(string1 + i);
 	}
 	*(string + len1) = 0x20;
-	
+
 	len2 = strlen((char *)string2);
 	for (i=0; i<len2; i++){
 		*(string + len1 + i + 1) = *(string2 + i);
 	}
-	
+
 	*(string + len1 + len2 + 1) = '\0';
-	*(string + len1 + len2 + 2) = '\0';	
+	*(string + len1 + len2 + 2) = '\0';
 }
 
 void BitmapToReportBuffer(FT_Bitmap* bitmap, unsigned char *report_buffer, int x, int y)
@@ -519,7 +519,7 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
     }
 #endif
 
-	
+
 	offset_y1 = head_y + 90;
 	offset_y2 = offset_y1 + 40;
 	offset_y3 = offset_y2 + 35;
@@ -527,18 +527,18 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 	offset_y5 = offset_y4 + 400;
 	offset_y6 = offset_y5 + 355;
 	offset_y7 = offset_y6 + 195;
-	
+
 	int microOffset = 10;
-	int fontSize = 28;	
+	int fontSize = 28;
 	ReportItemToBitmap(report_head[language], report_buffer, head_x, head_y+microOffset, fontSize);
-	
-	fontSize = 14;	
+
+	fontSize = 14;
 	string_buffer = strcat( hospital[language], (char *)Item.hospital );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x1, offset_y1+microOffset, fontSize);
 
 	string_buffer = strcat( diag_date[language], (char *)Item.diag_date );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x5, offset_y1+microOffset, fontSize);
-	
+
 	string_buffer = strcat( id[language], (char *)Item.id );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x1, offset_y2+microOffset, fontSize);
 
@@ -561,7 +561,7 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 #endif
 
 
-	
+
 	string_buffer = strcat( sex[language], (char *)Item.sex );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x1, offset_y3+microOffset, fontSize);
 #ifdef VET
@@ -571,7 +571,7 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 	string_buffer = strcat( age[language], (char *)Item.age );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x3, offset_y3+microOffset, fontSize);
 #endif
-	
+
 
 	string_buffer = strcat( section[language], (char *)Item.section );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x4, offset_y3+microOffset, fontSize);
@@ -579,11 +579,11 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 	int ulIdeaH;
 	ReportItemToBitmap(ul_idea[language], report_buffer, offset_x1, offset_y5+microOffset, fontSize);
 	ulIdeaH = ReportItemToBitmap(Item.ul_idea, report_buffer, offset_x1+40, offset_y5+30+microOffset, fontSize);
-	
+
 //	offset_y6 = offset_y5 + 30 + ulIdeaH + microOffset;
 	ReportItemToBitmap(comment[language], report_buffer, offset_x1, offset_y6+microOffset, fontSize);
 	ReportItemToBitmap(Item.comment, report_buffer, offset_x1+40, offset_y6+30+microOffset, fontSize);
-	
+
 	string_buffer = strcat( diag_doctor[language], (char *)Item.diag_doctor );
 	ReportItemToBitmap(string_buffer, report_buffer, offset_x1, offset_y7+microOffset, fontSize);
 
@@ -598,7 +598,7 @@ void report_to_bitmap(struct print_re_item Item, unsigned char *report_buffer, i
 
 	if (Item.image_data[0] == NULL)
 		goto ImageEnd;
-	
+
 	if (Item.image_data[1] == NULL)
 	{
 		offset_xi[0] = 250;
@@ -645,7 +645,7 @@ ImageEnd:
 			*(report_buffer + (i-1)*REPORT_WIDTH_BYTES + j + BMP_HEAD_LEN) =  tmp[j];
 		}
 	}
-	
+
 	for (i=0; i<BMP_HEAD_LEN; i++)
 	{
 		*(report_buffer + i) = bmp_head[i];
@@ -677,7 +677,7 @@ int print_report( int size_x, int size_y, gint8 language)
 #endif
 
 	PatientInfo::Info report_info;
-	g_patientInfo.GetInfo(report_info); 
+	g_patientInfo.GetInfo(report_info);
 	strcpy(id, report_info.p.id.c_str());
 #ifdef VET
 	sprintf(name, "%s", report_info.p.animal_name.c_str());
@@ -726,7 +726,7 @@ int print_report( int size_x, int size_y, gint8 language)
 	TopArea::GetInstance()->GetCheckPart(part);
 	strcpy(section, part.c_str());
 //	PRINTF("exam type is %s\n", section);
-	
+
 	char dayTmp[4], monthTmp[4], yearTmp[6];
 	itoa(report_info.e.examDate.day, dayTmp, 4);
 	if (strlen(dayTmp)==1){dayTmp[2]='\0', dayTmp[1] = dayTmp[0]; dayTmp[0] = '0';}
@@ -742,7 +742,7 @@ int print_report( int size_x, int size_y, gint8 language)
 		sprintf(diag_date, "%s-%s-%s", dayTmp, monthTmp, yearTmp);
 	else
 		sprintf(diag_date, "%s-%s-%s", yearTmp, monthTmp, dayTmp);
-	
+
 	string hospital;
 	SysGeneralSetting get_hospital;
 	get_hospital.GetHospital(hospital);
@@ -754,7 +754,7 @@ int print_report( int size_x, int size_y, gint8 language)
 	snprintf(comment, sizeof(comment), ViewReport::GetInstance()->GetComments());
 //	strncpy(ul_idea, ViewReport::GetInstance()->GetIndication(), 1000-1);
 //	strncpy(comment, ViewReport::GetInstance()->GetComments(), 1000-1);
-	
+
 	struct print_re_item item;
     memset(&item, 0, sizeof(item));
 
@@ -852,7 +852,6 @@ int print_report( int size_x, int size_y, gint8 language)
 #endif
 	return(0);
 }
-
 
 
 

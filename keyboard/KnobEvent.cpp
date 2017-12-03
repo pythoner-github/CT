@@ -5,7 +5,7 @@
 #include "ViewSuperuser.h"
 void CKnobEvent::KnobEvent(unsigned char keyValue, unsigned char offset)
 {
-	KnobMenu* ptrKnob = KnobMenu::GetInstance(); 
+	KnobMenu* ptrKnob = KnobMenu::GetInstance();
 
 	switch (keyValue)
 	{
@@ -32,10 +32,10 @@ void CKnobEvent::KnobEvent(unsigned char keyValue, unsigned char offset)
 void CKnobEvent::FEvent(unsigned char keyValue)
 {
 
-	KnobMenu* ptrKnob = KnobMenu::GetInstance(); 
+	KnobMenu* ptrKnob = KnobMenu::GetInstance();
 
 #ifdef EMP_PROJECT
-	KnobProjectMode* ptrKnobProjectMode = KnobProjectMode::GetInstance(); 
+	KnobProjectMode* ptrKnobProjectMode = KnobProjectMode::GetInstance();
 
 #if (defined(EMP_460) || defined(EMP_355))
 	switch (keyValue)
@@ -55,49 +55,49 @@ void CKnobEvent::FEvent(unsigned char keyValue)
 		case KEY_F2ADD: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob2_Screw(1);
-                    else                        
+                    else
 			ptrKnob->Knob2_Screw(1);
 			break;
 		case KEY_F2SUB: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob2_Screw(0);
-                    else                        
+                    else
 			ptrKnob->Knob2_Screw(0);
 			break;
 		case KEY_F3ADD: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob3_Screw(1);
-                    else                        
+                    else
 			ptrKnob->Knob3_Screw(1);
 			break;
 		case KEY_F3SUB: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob3_Screw(0);
-                    else                        
+                    else
 			ptrKnob->Knob3_Screw(0);
 			break;
 		case KEY_F4ADD: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob4_Screw(1);
-                    else                        
+                    else
 			ptrKnob->Knob4_Screw(1);
 			break;
 		case KEY_F4SUB: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob4_Screw(0);
-                    else                        
+                    else
 			ptrKnob->Knob4_Screw(0);
 			break;
 		case KEY_F5ADD: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob5_Screw(1);
-                    else                        
+                    else
 			ptrKnob->Knob5_Screw(1);
 			break;
 		case KEY_F5SUB: //F2
                     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&ptrKnobProjectMode->GetKnobStatus())
                         ptrKnobProjectMode->Knob5_Screw(0);
-                    else                        
+                    else
 			ptrKnob->Knob5_Screw(0);
 			break;
 	}
@@ -136,7 +136,7 @@ void CKnobEvent::FEvent(unsigned char keyValue)
 			case KEY_F5SUB: //F2
 				ptrKnob->Knob5_Screw(0);
 				break;
-		}		
+		}
 #endif
 #endif
 }

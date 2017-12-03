@@ -7,4 +7,3 @@ EKnobReturn PIPZoom(EKnobOper oper);//画中画放大
 
 EKnobReturn GrayTransport(EKnobOper oper);//灰度转换
 
-

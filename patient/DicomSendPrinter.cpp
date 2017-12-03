@@ -52,7 +52,7 @@ GtkWidget* DicomSendPrinter::CreateItem(GtkWidget **button, GtkWidget **checkBut
     gtk_box_pack_start (GTK_BOX (vbox), *button, FALSE, FALSE, 0);
     gtk_widget_set_size_request (*button, (SNAP_W+10)*SCALE_WIDTH, -1);
     g_signal_connect(G_OBJECT(*button), "clicked", G_CALLBACK(HandleSnapImgClicked), this);
-    gtk_button_set_relief (GTK_BUTTON (*button), GTK_RELIEF_NONE);	
+    gtk_button_set_relief (GTK_BUTTON (*button), GTK_RELIEF_NONE);
     g_object_set_data(G_OBJECT(*button), "id", id);
 
     return vbox;
@@ -110,7 +110,7 @@ GtkWidget* DicomSendPrinter::GetWindow(void)
 {
     if (GTK_IS_WIDGET(m_window))
         return m_window;
-    else 
+    else
 
         return NULL;
 }
@@ -149,7 +149,7 @@ void DicomSendPrinter::BtnExitClicked()
         g_keyInterface.Pop();
         m_window = NULL;
 	}
-  
+
 
 
 }
@@ -281,7 +281,7 @@ void DicomSendPrinter::CreateWindow(vector<string> examID,Format format,FilmSize
     g_signal_connect(G_OBJECT(btnNextPat), "clicked", G_CALLBACK(HandleBtnNextPatClicked), this);
 
     image = gtk_image_new_from_stock ("gtk-go-forward", GTK_ICON_SIZE_BUTTON);
-    gtk_container_add (GTK_CONTAINER (btnNextPat), image);	
+    gtk_container_add (GTK_CONTAINER (btnNextPat), image);
 
     hboxPatInfo = gtk_hbox_new (TRUE, 0);
     gtk_fixed_put(GTK_FIXED (fixedPat), hboxPatInfo, 145*SCALE_WIDTH, 0*SCALE_HEIGHT);
@@ -336,7 +336,7 @@ void DicomSendPrinter::CreateWindow(vector<string> examID,Format format,FilmSize
 #endif
     //labelPatSel = gtk_label_new (_("<b>Patient</b>"));
     gtk_frame_set_label_widget (GTK_FRAME (framePatSel), labelPatSel);
-    gtk_label_set_use_markup (GTK_LABEL (labelPatSel), TRUE);	
+    gtk_label_set_use_markup (GTK_LABEL (labelPatSel), TRUE);
 
     PrintSetting= gtk_button_new_with_mnemonic(_("Print Config"));
     gtk_fixed_put(GTK_FIXED(fixed), PrintSetting, 20*SCALE_WIDTH, 20*SCALE_HEIGHT);
@@ -437,7 +437,7 @@ void DicomSendPrinter::CreateWindow(vector<string> examID,Format format,FilmSize
 
     SysGeneralSetting sysGeneralSetting;
 
-    // show 
+    // show
     g_keyInterface.Push(this);
     gtk_widget_show_all(m_window);
 
@@ -450,7 +450,7 @@ void DicomSendPrinter::CreateWindow(vector<string> examID,Format format,FilmSize
     SetSystemCursorToCenter();
     //init
     //m_curPat = 0;
-    PRINTF("==============================%s,%d,%d\n",m_vecExamID[m_curPat].c_str(),m_curPat,m_vecExamID.size());	
+    PRINTF("==============================%s,%d,%d\n",m_vecExamID[m_curPat].c_str(),m_curPat,m_vecExamID.size());
     UpdateCurPat(m_vecExamID[m_curPat], m_curPat, m_vecExamID.size(), false);
 
     getMultiple(IN10XIN12,orientation);
@@ -721,14 +721,14 @@ void DicomSendPrinter::UpdateSnapColor()
 {
     for(int i=0; i<(SNAP_COL * SNAP_ROW); i++)
     {
-        gtk_widget_modify_bg(m_btnSnap[i], GTK_STATE_NORMAL, g_deepGray); 
-        gtk_widget_modify_bg(m_btnSnap[i], GTK_STATE_PRELIGHT, g_deepGray); 
+        gtk_widget_modify_bg(m_btnSnap[i], GTK_STATE_NORMAL, g_deepGray);
+        gtk_widget_modify_bg(m_btnSnap[i], GTK_STATE_PRELIGHT, g_deepGray);
     }
 
     if(m_idShowed/(SNAP_COL * SNAP_ROW) == m_curImgPage)
     {
-        gtk_widget_modify_bg(m_btnSnap[m_idShowed%(SNAP_COL * SNAP_ROW)], GTK_STATE_NORMAL, g_white); 
-        gtk_widget_modify_bg(m_btnSnap[m_idShowed%(SNAP_COL * SNAP_ROW)], GTK_STATE_PRELIGHT, g_white); 
+        gtk_widget_modify_bg(m_btnSnap[m_idShowed%(SNAP_COL * SNAP_ROW)], GTK_STATE_NORMAL, g_white);
+        gtk_widget_modify_bg(m_btnSnap[m_idShowed%(SNAP_COL * SNAP_ROW)], GTK_STATE_PRELIGHT, g_white);
     }
 }
 
@@ -801,7 +801,7 @@ void DicomSendPrinter::UpdateCurPat(string examID, int curPat, int totalPat, boo
     // update image area(display snap)
     int size = m_vecFileName.size();
     int temp = size / (SNAP_COL * SNAP_ROW);
-    m_maxImgPage = (size % (SNAP_COL * SNAP_ROW)) == 0? temp : (temp+1); 	
+    m_maxImgPage = (size % (SNAP_COL * SNAP_ROW)) == 0? temp : (temp+1);
     if(!cur)
         m_curImgPage =  0;
 
@@ -881,7 +881,7 @@ void DicomSendPrinter::DestroyDrawData()
     size = m_rectangleInfo.size();
 
     for(i = 0;i < size;i++)
-    {		
+    {
         g_object_unref(m_rectangleInfo[i].gc);
         m_rectangleInfo[i].gc = NULL;
 
@@ -995,7 +995,7 @@ void DicomSendPrinter::UpdateImg(void)
     int size = m_vecFileName.size();
     ImgMan::ImgItem imgItem;
     GtkWidget *image;
-    GdkPixbuf *pixbuf = NULL;	
+    GdkPixbuf *pixbuf = NULL;
     gchar buf[20];
 
     // display current pageinfo
@@ -1064,7 +1064,7 @@ void DicomSendPrinter::BtnSnapImgClicked(GtkButton* button)
     //get button pressed
     id += m_curImgPage * (SNAP_COL * SNAP_ROW);
     m_idShowed = id;//
-    // display large image 
+    // display large image
     PRINTF("!!!!name = %s\n",m_vecFileName[id].c_str());
 
     m_ImageInfo[m_index].index = m_index;
@@ -1237,7 +1237,7 @@ void DicomSendPrinter::HandleAllFormatArea(Format format,areaImgInfo_t positionS
                     InitRectangle();
                 }
             }
-            break; 
+            break;
 
         case THREEXFOUR:
             {
@@ -1339,7 +1339,7 @@ void DicomSendPrinter::DrawAreaExpose(GtkWidget *widget, GdkEventExpose *event)
         {
             if (m_drawImgInfo[i].imgPixBuf != NULL)
             {
-                gdk_draw_pixbuf(widget->window, 
+                gdk_draw_pixbuf(widget->window,
                         widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
                         m_drawImgInfo[i].imgPixBuf,
                         0, 0,
@@ -1351,7 +1351,7 @@ void DicomSendPrinter::DrawAreaExpose(GtkWidget *widget, GdkEventExpose *event)
         }
     }
 
-    size = m_rectangleInfo.size();	
+    size = m_rectangleInfo.size();
     if(size != 0)
     {
         for(i = 0;i < size;i++)

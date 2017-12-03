@@ -322,7 +322,7 @@ void GetAge(int year, int mon, int day, string &age)
 
     if (CalcAge(year, mon, day, iAge, ageUnit))
         GenAgeStr(iAge, ageUnit, age);
-    else 
+    else
         GenAgeStr(0, 0, age);
 }
 
@@ -349,7 +349,7 @@ void GenAgeStr(int age, int ageUnit, string &strAge)
 
 void GetSexString(int iSex, string &sSex)
 {
-	switch (iSex) 
+	switch (iSex)
 	{
 #ifdef VET
 		case 0:
@@ -505,7 +505,7 @@ GtkWidget* create_button_icon(GtkWidget *label, GtkWidget *icon_image)
         size = 0;
     GtkWidget *button = gtk_button_new();
     gtk_widget_set_size_request (button, 120, 70-size);
- 
+
     GtkWidget *alignment = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_container_add (GTK_CONTAINER (button), alignment);
 
@@ -514,7 +514,7 @@ GtkWidget* create_button_icon(GtkWidget *label, GtkWidget *icon_image)
     gtk_box_pack_start (GTK_BOX (hbox), icon_image, FALSE, FALSE, 0);
 	if (label)
 	    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
-    
+
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
     gtk_widget_show_all(button);
 
@@ -535,7 +535,7 @@ GtkWidget* create_button_icon_only(GtkWidget *icon_image, guint width, guint hei
 		gtk_container_add(GTK_CONTAINER(button), icon_image);
 	if (color)
 		gtk_widget_modify_bg(button, GTK_STATE_NORMAL, color);
-    
+
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
     gtk_widget_show_all(button);
 
@@ -583,8 +583,8 @@ GtkWidget* create_combo_box_with_text(const int width, const int height, const v
 
 #if 0
 PangoLayout * create_pango_text(GtkWidget *widget,
-				const char *text, 
-				int width, 
+				const char *text,
+				int width,
 				PangoFontDescription *font,
 				const GdkColor* const color)
 {
@@ -676,7 +676,7 @@ void doBtnEvent(const unsigned int button, int is_press)
     unsigned long delay = 0;
     if (is_press)
 	XTestFakeButtonEvent(display, button, True, delay);
-    else 
+    else
 	XTestFakeButtonEvent(display, button, False, delay);
     XCloseDisplay(display);
 }
@@ -699,7 +699,7 @@ void SetSystemCursor(int x, int y)
 }
 void ResetIfOutOfRange(void)
 {
-    if ((g_sysCursor.x > MENU_AREA_W) || (g_sysCursor.y > MENU_AREA_H))   
+    if ((g_sysCursor.x > MENU_AREA_W) || (g_sysCursor.y > MENU_AREA_H))
         SetSystemCursor(SYSCURSOR_X, SYSCUROSR_Y);
 }
 
@@ -757,7 +757,7 @@ void fakeXMotionEventMenu(int &x0, int &y0, int offsetX, int offsetY)
    //Mouse x direction Move
    if (((x0+offsetX) > x_start) && (x0+offsetX) < (x_start + MENU_AREA_W))
 	   x0 += offsetX;
-   
+
    if (((y0-offsetY) > y_start) && ((y0-offsetY) < (y_start + MENU_AREA_H)))
 	   y0 -= offsetY;
 
@@ -817,7 +817,7 @@ void fakeXMotionEventMenuBiopsy(int offsetX, int offsetY)//2016.08.24
    //Mouse x direction Move
    if (((x0+offsetX) > x_start) && (x0+offsetX) < (x_start + MENU_AREA_W))
 	   x0 += offsetX;
-   
+
   /* if (((y0-offsetY) > y_start) && ((y0-offsetY) < (y_start + 100)))
 	   y0 -= offsetY;*/
    if (((y0-offsetY) > g_cursorRangeY0) && ((y0-offsetY) < g_cursorRangeY1))
@@ -1654,12 +1654,12 @@ gboolean FakePunctuation(unsigned char key)
             case 0xF2:			// [ caps + syb
                 doKeyEvent(34, 1); doKeyEvent(34, 0); return TRUE;
             case 0x5D:			// ]
-            case 0xF3:			// ] caps + syb  
+            case 0xF3:			// ] caps + syb
                 doKeyEvent(35, 1); doKeyEvent(35, 0); return TRUE;
             case 0x3B:			// ;
                 doKeyEvent(47, 1); doKeyEvent(47, 0); return TRUE;
             case 0x27:			// '单引号
-            case 0xF6:			// '单引号 caps + syb  
+            case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(48, 1); doKeyEvent(48, 0); return TRUE;
             case 0x2F:			// /
             case 0xF9:			// / caps + syb
@@ -1689,7 +1689,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(50, 1); doKeyEvent(35, 1);
                 doKeyEvent(35, 0); doKeyEvent(50, 0); return TRUE;
             case 0x3A:			// :
-            case 0xF5:			// : caps + syb  
+            case 0xF5:			// : caps + syb
                 doKeyEvent(50, 1); doKeyEvent(47, 1);
                 doKeyEvent(47, 0); doKeyEvent(50, 0); return TRUE;
             case 0x22:			// "
@@ -1707,7 +1707,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(22, 1); doKeyEvent(22, 0); return TRUE;
             case 0xA0:			// Delete
                 doKeyEvent(119, 1); doKeyEvent(119, 0); return TRUE;
-            case 0x20:			// space 
+            case 0x20:			// space
                 doKeyEvent(65, 1); doKeyEvent(65, 0); return TRUE;
             case 0x0D:			// enter
                 doKeyEvent(36, 1); doKeyEvent(36, 0); return TRUE;
@@ -1717,9 +1717,9 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(111, 1); doKeyEvent(111, 0); return TRUE;
             case 0x19:			// down
                 doKeyEvent(116, 1); doKeyEvent(116, 0); return TRUE;
-            case 0x1A:			// right 
+            case 0x1A:			// right
                 doKeyEvent(114, 1); doKeyEvent(114, 0); return TRUE;
-            case 0x1B:			// left 
+            case 0x1B:			// left
                 doKeyEvent(113, 1); doKeyEvent(113, 0); return TRUE;
             case 0xAD:			// malesymbol
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
@@ -1740,8 +1740,8 @@ gboolean FakePunctuation(unsigned char key)
     }
     else if(DE == language)
     {
-    
-    
+
+
  switch (key) {
             case 0x21:			// !
                 doKeyEvent(50, 1); doKeyEvent(10, 1);
@@ -1792,13 +1792,13 @@ gboolean FakePunctuation(unsigned char key)
             //case 0xF2:			// [ caps + syb
                 doKeyEvent(34, 1); doKeyEvent(34, 0); return TRUE;
             case 0x5D:			// ]
-            case 0xF3:			// ] caps + syb  
+            case 0xF3:			// ] caps + syb
                 doKeyEvent(35, 1); doKeyEvent(35, 0); return TRUE;
             case 0x3B:			// ;
-           // case 0xF5:			// : caps + syb  
+           // case 0xF5:			// : caps + syb
                 doKeyEvent(47, 1); doKeyEvent(47, 0); return TRUE;
             case 0x27:			// '单引号
-           // case 0xF6:			// '单引号 caps + syb  
+           // case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(48, 1); doKeyEvent(48, 0); return TRUE;
             case 0x2F:			// /
             case 0xF9:			// / caps + syb
@@ -1833,7 +1833,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(50, 1); doKeyEvent(47, 1);
                 doKeyEvent(47, 0); doKeyEvent(50, 0); return TRUE;
             case 0x22:			// "
-            case 0xF6:			// '单引号 caps + syb  
+            case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(50, 1); doKeyEvent(48, 1);
                 doKeyEvent(48, 0); doKeyEvent(50, 0); return TRUE;
             case 0x3F:			// ?
@@ -1848,7 +1848,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(22, 1); doKeyEvent(22, 0); return TRUE;
             case 0xA0:			// Delete
                 doKeyEvent(119, 1); doKeyEvent(119, 0); return TRUE;
-            case 0x20:			// space 
+            case 0x20:			// space
                 doKeyEvent(65, 1); doKeyEvent(65, 0); return TRUE;
             case 0x0D:			// enter
                 doKeyEvent(36, 1); doKeyEvent(36, 0); return TRUE;
@@ -1858,9 +1858,9 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(111, 1); doKeyEvent(111, 0); return TRUE;
             case 0x19:			// down
                 doKeyEvent(116, 1); doKeyEvent(116, 0); return TRUE;
-            case 0x1A:			// right 
+            case 0x1A:			// right
                 doKeyEvent(114, 1); doKeyEvent(114, 0); return TRUE;
-            case 0x1B:			// left 
+            case 0x1B:			// left
                 doKeyEvent(113, 1); doKeyEvent(113, 0); return TRUE;
             case 0xAD:			// malesymbol
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
@@ -1884,8 +1884,8 @@ gboolean FakePunctuation(unsigned char key)
     }
     else if(RU == language)
     {
-    
-    
+
+
  switch (key) {
             case 0x21:			// !
                 doKeyEvent(50, 1); doKeyEvent(10, 1);
@@ -1936,13 +1936,13 @@ gboolean FakePunctuation(unsigned char key)
           //  case 0xF2:			// [ caps + syb
                 doKeyEvent(34, 1); doKeyEvent(34, 0); return TRUE;
             case 0x5D:			// ]
-          //  case 0xF3:			// ] caps + syb  
+          //  case 0xF3:			// ] caps + syb
                 doKeyEvent(35, 1); doKeyEvent(35, 0); return TRUE;
             case 0x3B:			// ;
-          //  case 0xF5:			// : caps + syb  
+          //  case 0xF5:			// : caps + syb
                 doKeyEvent(47, 1); doKeyEvent(47, 0); return TRUE;
             case 0x27:			// '单引号
-          //  case 0xF6:			// '单引号 caps + syb  
+          //  case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(48, 1); doKeyEvent(48, 0); return TRUE;
             case 0x2F:			// /
             case 0xF9:			// / caps + syb
@@ -1972,15 +1972,15 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(50, 1); doKeyEvent(34, 1);
                 doKeyEvent(34, 0); doKeyEvent(50, 0); return TRUE;
             case 0x7D:			// }
-             case 0xF3:			// ] caps + syb  
+             case 0xF3:			// ] caps + syb
                 doKeyEvent(50, 1); doKeyEvent(35, 1);
                 doKeyEvent(35, 0); doKeyEvent(50, 0); return TRUE;
             case 0x3A:			// :
-              case 0xF5:			// : caps + syb  
+              case 0xF5:			// : caps + syb
                 doKeyEvent(50, 1); doKeyEvent(47, 1);
                 doKeyEvent(47, 0); doKeyEvent(50, 0); return TRUE;
             case 0x22:			// "
-            case 0xF6:			// '单引号 caps + syb  
+            case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(50, 1); doKeyEvent(48, 1);
                 doKeyEvent(48, 0); doKeyEvent(50, 0); return TRUE;
             case 0x3F:			// ?
@@ -1995,7 +1995,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(22, 1); doKeyEvent(22, 0); return TRUE;
             case 0xA0:			// Delete
                 doKeyEvent(119, 1); doKeyEvent(119, 0); return TRUE;
-            case 0x20:			// space 
+            case 0x20:			// space
                 doKeyEvent(65, 1); doKeyEvent(65, 0); return TRUE;
             case 0x0D:			// enter
                 doKeyEvent(36, 1); doKeyEvent(36, 0); return TRUE;
@@ -2005,9 +2005,9 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(111, 1); doKeyEvent(111, 0); return TRUE;
             case 0x19:			// down
                 doKeyEvent(116, 1); doKeyEvent(116, 0); return TRUE;
-            case 0x1A:			// right 
+            case 0x1A:			// right
                 doKeyEvent(114, 1); doKeyEvent(114, 0); return TRUE;
-            case 0x1B:			// left 
+            case 0x1B:			// left
                 doKeyEvent(113, 1); doKeyEvent(113, 0); return TRUE;
             case 0xAD:			// malesymbol
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
@@ -2081,13 +2081,13 @@ gboolean FakePunctuation(unsigned char key)
             case 0xF2:			// [ caps + syb
                 doKeyEvent(34, 1); doKeyEvent(34, 0); return TRUE;
             case 0x5D:			// ]
-            case 0xF3:			// ] caps + syb  
+            case 0xF3:			// ] caps + syb
                 doKeyEvent(35, 1); doKeyEvent(35, 0); return TRUE;
             case 0x3B:			// ;
-            case 0xF5:			// ; caps + syb  
+            case 0xF5:			// ; caps + syb
                 doKeyEvent(47, 1); doKeyEvent(47, 0); return TRUE;
             case 0x27:			// '单引号
-            case 0xF6:			// '单引号 caps + syb  
+            case 0xF6:			// '单引号 caps + syb
                 doKeyEvent(48, 1); doKeyEvent(48, 0); return TRUE;
             case 0x2F:			// /
             case 0xF9:			// / caps + syb
@@ -2134,7 +2134,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(22, 1); doKeyEvent(22, 0); return TRUE;
             case 0xA0:			// Delete
                 doKeyEvent(119, 1); doKeyEvent(119, 0); return TRUE;
-            case 0x20:			// space 
+            case 0x20:			// space
                 doKeyEvent(65, 1); doKeyEvent(65, 0); return TRUE;
             case 0x0D:			// enter
                 doKeyEvent(36, 1); doKeyEvent(36, 0); return TRUE;
@@ -2144,9 +2144,9 @@ gboolean FakePunctuation(unsigned char key)
                 doKeyEvent(111, 1); doKeyEvent(111, 0); return TRUE;
             case 0x19:			// down
                 doKeyEvent(116, 1); doKeyEvent(116, 0); return TRUE;
-            case 0x1A:			// right 
+            case 0x1A:			// right
                 doKeyEvent(114, 1); doKeyEvent(114, 0); return TRUE;
-            case 0x1B:			// left 
+            case 0x1B:			// left
                 doKeyEvent(113, 1); doKeyEvent(113, 0); return TRUE;
             case 0xAD:			// malesymbol
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
@@ -2288,7 +2288,7 @@ void XRemapKey(Display *display, int old_keycode, KeySym new_keysym)
 		XChangeKeyboardMapping(display, old_keycode, 1, &new_keysym, 1);
 }
 
-void ChangeKeymap() 
+void ChangeKeymap()
 {
 	Display *display = getXDisplay();
 

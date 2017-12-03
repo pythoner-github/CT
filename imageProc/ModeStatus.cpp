@@ -4,16 +4,16 @@
 
 bool ModeStatus::IsD2Mode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
-	if (mode == ScanMode::D2) 
+	if (mode == ScanMode::D2)
 		return TRUE;
 	else
 		return FALSE;
 }
 bool ModeStatus::IsMMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::M) || (mode == ScanMode::M_INIT))
 		return TRUE;
 	else
@@ -22,7 +22,7 @@ bool ModeStatus::IsMMode()
 
 bool ModeStatus::IsSpectrumMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PW_INIT) || (mode == ScanMode::PW) || (mode == ScanMode::PW_SIMULT)
             || (mode == ScanMode::CW_INIT) || (mode == ScanMode::CW))
@@ -32,7 +32,7 @@ bool ModeStatus::IsSpectrumMode()
 }
 bool ModeStatus::IsColorMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI) || (mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D))
 		return TRUE;
 	else
@@ -40,7 +40,7 @@ bool ModeStatus::IsColorMode()
 }
 bool ModeStatus::IsPureColorMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI))
 		return TRUE;
 	else
@@ -48,9 +48,9 @@ bool ModeStatus::IsPureColorMode()
 }
 bool ModeStatus::IsSpectrumColorMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if ((mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) 
-            || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if ((mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT)
+            || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT)
             || (mode == ScanMode::CWCFM_INIT) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI_INIT) || (mode == ScanMode::CWPDI))
 		return TRUE;
 	else
@@ -59,7 +59,7 @@ bool ModeStatus::IsSpectrumColorMode()
 
 bool ModeStatus::IsColorVS2DMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::CFM_VS_2D))
 		return TRUE;
 	else
@@ -67,10 +67,10 @@ bool ModeStatus::IsColorVS2DMode()
 }
 bool ModeStatus::IsPwMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
-	if ((mode == ScanMode::PW) || (mode == ScanMode::PW_INIT) || (mode == ScanMode::PW_SIMULT) 
-			|| (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) 
+	if ((mode == ScanMode::PW) || (mode == ScanMode::PW_INIT) || (mode == ScanMode::PW_SIMULT)
+			|| (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT)
 			|| (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT))
 		return TRUE;
 	else
@@ -78,7 +78,7 @@ bool ModeStatus::IsPwMode()
 }
 bool ModeStatus::IsCFMMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::CFM) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT)
             || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWCFM_INIT))
@@ -89,7 +89,7 @@ bool ModeStatus::IsCFMMode()
 
 bool ModeStatus::IsPDIMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PDI) || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT))
 		return TRUE;
@@ -99,7 +99,7 @@ bool ModeStatus::IsPDIMode()
 
 bool ModeStatus::IsSpectrumSimult()
 {
-    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if (mode == ScanMode::PW_SIMULT)
 		return TRUE;
@@ -108,7 +108,7 @@ bool ModeStatus::IsSpectrumSimult()
 }
 bool ModeStatus::IsSpectrumColorSimult()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
 		return TRUE;
@@ -118,7 +118,7 @@ bool ModeStatus::IsSpectrumColorSimult()
 
 bool ModeStatus::IsPWMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PW_INIT) || (mode == ScanMode::PW) || (mode == ScanMode::PW_SIMULT))
 		return TRUE;
@@ -127,26 +127,26 @@ bool ModeStatus::IsPWMode()
 }
 bool ModeStatus::IsPWColorMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if ((mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) 
-            || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT)) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if ((mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT)
+            || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT))
 		return TRUE;
 	else
 		return FALSE;
 }
 bool ModeStatus::IsCWMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::CW_INIT) || (mode == ScanMode::CW))
 		return TRUE;
 	else
 		return FALSE;
-}    
+}
 bool ModeStatus::IsCWColorMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if ((mode == ScanMode::CWCFM_INIT) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI_INIT) || (mode == ScanMode::CWPDI)) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if ((mode == ScanMode::CWCFM_INIT) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI_INIT) || (mode == ScanMode::CWPDI))
 		return TRUE;
 	else
 		return FALSE;
@@ -154,7 +154,7 @@ bool ModeStatus::IsCWColorMode()
 
 bool ModeStatus::IsNormalMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D)|| (mode == ScanMode::ANATOMIC_M))
 		return FALSE;
@@ -164,7 +164,7 @@ bool ModeStatus::IsNormalMode()
 
 bool ModeStatus::IsAnatomicMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if (mode == ScanMode::ANATOMIC_M)
 		return TRUE;
@@ -174,7 +174,7 @@ bool ModeStatus::IsAnatomicMode()
 
 bool ModeStatus::IsCFMCompareMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if (mode == ScanMode::CFM_VS_2D)
 		return TRUE;
@@ -184,7 +184,7 @@ bool ModeStatus::IsCFMCompareMode()
 
 bool ModeStatus::IsPDICompareMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if (mode == ScanMode::PDI_VS_2D)
 		return TRUE;
@@ -195,8 +195,8 @@ bool ModeStatus::IsPDICompareMode()
 
 bool ModeStatus::IsSimultMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-    
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+
     if ((mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
         return TRUE;
     else
@@ -249,50 +249,50 @@ bool ModeStatus::IsReplayMode()
 
 bool ModeStatus::IsD2ImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::D2) || (mode == ScanMode::M_INIT) || (mode == ScanMode::PW_INIT) || (mode == ScanMode::CW_INIT))
 			return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 bool ModeStatus::IsMImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::M) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::M)
 			return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 bool ModeStatus::IsSpectrumImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PW) || (mode == ScanMode::CW) || (mode == ScanMode::PW_SIMULT))
 		return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 bool ModeStatus::IsCwImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if (mode == ScanMode::CW)
 		return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 bool ModeStatus::IsColorImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWPDI_INIT) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWPDI_INIT)
             || (mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D))
 		return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 bool ModeStatus::IsSpectrumColorImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT)
 	    ||(mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI))
 		return TRUE;
@@ -303,8 +303,8 @@ bool ModeStatus::IsSpectrumColorImgMode()
 #if 0
 bool ModeStatus::IsPWPDIImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::PWPDI) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::PWPDI)
 		return TRUE;
 	else
 		return FALSE;
@@ -313,8 +313,8 @@ bool ModeStatus::IsPWPDIImgMode()
 
 bool ModeStatus::IsPWImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if ((mode == ScanMode::PW) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if ((mode == ScanMode::PW) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI)
 		|| (mode == ScanMode::PWPDI_SIMULT) || (mode == ScanMode::PW_SIMULT))
 		return TRUE;
 	else
@@ -323,34 +323,34 @@ bool ModeStatus::IsPWImgMode()
 
 bool ModeStatus::IsCWImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
-	if ((mode == ScanMode::CW) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI)) 
+	if ((mode == ScanMode::CW) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI))
 		return TRUE;
 	else
-		return FALSE;	
-}    
+		return FALSE;
+}
 bool ModeStatus::IsPWColorImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT))
 		return TRUE;
 	else
 		return FALSE;
-}    
+}
 bool ModeStatus::IsCWColorImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI))
 		return TRUE;
 	else
 		return FALSE;
-}    
+}
 
 bool ModeStatus::IsPWCFMImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::PWCFM) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::PWCFM)
 		return TRUE;
 	else
 		return FALSE;
@@ -358,8 +358,8 @@ bool ModeStatus::IsPWCFMImgMode()
 
 bool ModeStatus::IsPWPDIImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::PWPDI) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::PWPDI)
 		return TRUE;
 	else
 		return FALSE;
@@ -367,26 +367,26 @@ bool ModeStatus::IsPWPDIImgMode()
 
 bool ModeStatus::IsCWCFMImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::CWCFM) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::CWCFM)
 		return TRUE;
 	else
 		return FALSE;
-}    
+}
 bool ModeStatus::IsCWPDIImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
-	if (mode == ScanMode::CWPDI) 
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+	if (mode == ScanMode::CWPDI)
 		return TRUE;
 	else
 		return FALSE;
 }
 bool ModeStatus::IsColorPDIMode()
 {
-    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
     if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI))
         return TRUE;
-    else 
+    else
         return FALSE;
 }
 bool ModeStatus::IsCFMImgMode()
@@ -406,17 +406,17 @@ bool ModeStatus::IsPDIImgMode()
 
 bool ModeStatus::IsNormalSpectrumImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
 	if ((mode == ScanMode::PW) || (mode == ScanMode::CW))
 		return TRUE;
 	else
-		return FALSE;	
+		return FALSE;
 }
 
 bool ModeStatus::IsNormalSpectrumColorImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 	if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWPDI))
 		return TRUE;
 	else
@@ -434,7 +434,7 @@ bool ModeStatus::IsEFOVMode()
 
 bool ModeStatus::IsMeasure2DMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
     ModeStatus ms;
     int pwImg = ms.GetPwCurImg();
 
@@ -447,9 +447,9 @@ bool ModeStatus::IsMeasure2DMode()
         return TRUE;
 
 }
-bool ModeStatus::IsMeasureMMode() 
+bool ModeStatus::IsMeasureMMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
     if ((mode == ScanMode::M) || (mode == ScanMode::ANATOMIC_M))
         return TRUE;
@@ -458,7 +458,7 @@ bool ModeStatus::IsMeasureMMode()
 }
 bool ModeStatus::IsMeasureDMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
     ModeStatus ms;
     int pwImg = ms.GetPwCurImg();
@@ -471,10 +471,10 @@ bool ModeStatus::IsMeasureDMode()
 }
 bool ModeStatus::IsAllSpectrumImgMode()
 {
-	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+	ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
     if (((mode == ScanMode::PW) || (mode == ScanMode::CW) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWPDI)|| (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI) || (mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT)
-            ||(mode == ScanMode::PWPDI_SIMULT)) 
+            ||(mode == ScanMode::PWPDI_SIMULT))
             )
         return TRUE;
     else

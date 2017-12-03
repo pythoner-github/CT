@@ -52,4 +52,3 @@ EKnobReturn CfmChgGainGate(EKnobOper oper);
 EKnobReturn CfmChgScanLines(EKnobOper oper);
 
 #endif
-

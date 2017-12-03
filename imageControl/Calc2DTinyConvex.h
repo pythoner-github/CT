@@ -10,7 +10,7 @@ class Calc2DTinyConvex: public Calc2DConvex
 		~Calc2DTinyConvex();
 
         void CalcDefaultDemodFd();
-		virtual void CalcEmitDelay(); 
+		virtual void CalcEmitDelay();
 		virtual void CalcFocPos();
 		virtual void CalcFilter();
 		virtual void CalcFilterFreqCompound(int order);
@@ -24,4 +24,3 @@ class Calc2DTinyConvex: public Calc2DConvex
 		static const int EMIT_CH_NUM[20]; ///< control calculating emit delay
 };
 #endif
-

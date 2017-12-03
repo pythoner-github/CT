@@ -7,10 +7,10 @@
 #include "KeyDef.h"
 #include "./sysMan/SysGeneralSetting.h"
 CLicenseDialog *CLicenseDialog::m_ptrInstance = NULL;
-const char *g_warnInfo[3] = 
+const char *g_warnInfo[3] =
 {
-	N_("Not inserted Ukey, please insert Ukey and click button 'OK' to try again.\nClick button 'Close' to power off."), 
-	N_("The Ukey has expired, please power off and update license file for Ukey."), 
+	N_("Not inserted Ukey, please insert Ukey and click button 'OK' to try again.\nClick button 'Close' to power off."),
+	N_("The Ukey has expired, please power off and update license file for Ukey."),
 	N_("Not authorize, please contact vendor.")
 };
 
@@ -136,7 +136,7 @@ void CLicenseDialog::ButtonCloseClicked(GtkButton *button, gpointer data)
 
 void CLicenseDialog::KeyEvent(unsigned char keyValue)
 {
-	switch(keyValue) 
+	switch(keyValue)
 	{
 		case KEY_SET:
 			FakeMouseButton(keyValue);

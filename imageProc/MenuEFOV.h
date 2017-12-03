@@ -14,7 +14,7 @@ public:
     void ShowReview(void);
 
     GtkWidget *Create(void);
-    
+
     void UpdateLabel(void);
 private:
     GtkWidget *m_table;

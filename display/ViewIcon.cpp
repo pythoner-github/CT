@@ -8,10 +8,10 @@
 
 namespace {
 const char* ScanIconPath[5] = {
-    "res/icon/scan-00.png", 
-    "res/icon/scan-25.png", 
-    "res/icon/scan-50.png", 
-    "res/icon/scan-75.png", 
+    "res/icon/scan-00.png",
+    "res/icon/scan-25.png",
+    "res/icon/scan-50.png",
+    "res/icon/scan-75.png",
     "res/icon/scan-100.png",
 };
 
@@ -26,13 +26,13 @@ const char* SoundIconPath[2] = {
 };
 
 const char* ChargeIconPath[7] = {
-    "res/icon/charge0.jpg", 
-    "res/icon/charge1.jpg", 
-    "res/icon/charge2.jpg", 
-    "res/icon/charge3.jpg", 
-    "res/icon/charge4.jpg", 
-    "res/icon/charge5.jpg", 
-    "res/icon/charge.jpg", 
+    "res/icon/charge0.jpg",
+    "res/icon/charge1.jpg",
+    "res/icon/charge2.jpg",
+    "res/icon/charge3.jpg",
+    "res/icon/charge4.jpg",
+    "res/icon/charge5.jpg",
+    "res/icon/charge.jpg",
 };
 
 const char* ReplayIconPath = "res/icon/replay.png";
@@ -184,7 +184,7 @@ void ViewIcon::Udisk(bool on)
         sprintf(path, "%s/%s", CFG_RES_PATH, FlashIconPath);
         gtk_image_set_from_file(GTK_IMAGE(m_udisk), path);
     }
-    else 
+    else
         gtk_image_set_from_file(GTK_IMAGE(m_udisk), NULL);
 }
 
@@ -195,7 +195,7 @@ void ViewIcon::Cdrom(bool on)
         sprintf(path, "%s/%s", CFG_RES_PATH, CdromIconPath);
         gtk_image_set_from_file(GTK_IMAGE(m_cdrom), path);
     }
-    else 
+    else
         gtk_image_set_from_file(GTK_IMAGE(m_cdrom), NULL);
 
 }
@@ -208,44 +208,44 @@ void ViewIcon::Printer(bool on)
         sprintf(path, "%s/%s", CFG_RES_PATH, PrinterIconPath);
         gtk_image_set_from_file(GTK_IMAGE(m_printer), path);
     }
-    else 
+    else
         gtk_image_set_from_file(GTK_IMAGE(m_printer), NULL);
 #endif
 }
 
 void ViewIcon::Charge(int data)
-{   
+{
     char path[256];
-    int value = 80 / 4;       
-    int count = 0;           
-    if (data < 10)          
+    int value = 80 / 4;
+    int count = 0;
+    if (data < 10)
         count = 0;
-    else if (data > 90)    
-        count = 5;        
+    else if (data > 90)
+        count = 5;
     else
-        count = 1 + (data - 10) / value;      
-    PRINTF("--count =%d\n", count);          
-    switch (count) {                        
+        count = 1 + (data - 10) / value;
+    PRINTF("--count =%d\n", count);
+    switch (count) {
         case 0:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[0]);     
-            break;                                                      
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[0]);
+            break;
         case 1:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[1]);   
-            break;                                                    
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[1]);
+            break;
         case 2:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[2]); 
-            break;                                                  
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[2]);
+            break;
         case 3:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[3]);   
-            break;                                                    
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[3]);
+            break;
         case 4:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[4]); 
-            break;                                                  
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[4]);
+            break;
         case 5:
-            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[5]); 
-            break;   
+            sprintf(path, "%s/%s", CFG_RES_PATH, ChargeIconPath[5]);
+            break;
 
-    }           
+    }
 
     gtk_image_set_from_file(GTK_IMAGE(m_charge), path);
 }
@@ -253,7 +253,7 @@ void ViewIcon::Charge(int data)
 void ViewIcon::UpdateCharge()
 {
     Battery battery;
-    Charge(battery.GetCapacity());   
+    Charge(battery.GetCapacity());
 }
 
 
@@ -270,5 +270,4 @@ void ViewIcon::InitCharge()
     UpdateCharge();
     g_timeout_add( 6000, CallBackUpdateCharge, this );
 }
-
 

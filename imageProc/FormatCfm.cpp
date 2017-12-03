@@ -29,7 +29,7 @@ FormatCfm::FormatCfm()
 	m_ptrUpdate = ptrGcm->GetUpdateCfm();
 
 	m_ptrDsc = DscMan::GetInstance();
-	m_ptrDscPara = m_ptrDsc->GetDscPara(); 
+	m_ptrDscPara = m_ptrDsc->GetDscPara();
 
 	m_ptrReplay = Replay::GetInstance();
 	m_ptrImg = ImgCfm::GetInstance();
@@ -69,7 +69,7 @@ void FormatCfm::ChangeFormat(enum EFormatCfm format)
 	}
 
 	m_ptrImg->SetBoxStatus(false);
-		
+
 	///> update view
 	m_ptrUpdate->ChangeFormatCfm(m_format);
 }
@@ -122,7 +122,7 @@ int FormatCfm::SwitchBB(void)
         m_curB = Format2D::GetInstance()->SwitchBB();
 
         ///> update
-        m_ptrUpdate->ChangeCurrentImgBB(m_curB);    
+        m_ptrUpdate->ChangeCurrentImgBB(m_curB);
     }
     else
     {
@@ -147,7 +147,7 @@ int FormatCfm::SwitchB4()
 {
     //对冻结和非冻结下切换进行不同处理 zjx
     if (ModeStatus::IsUnFreezeMode())
-    {	
+    {
         m_ptrImg->SetBoxStatus(false);
         m_curB = Format2D::GetInstance()->SwitchB4();
 
@@ -169,4 +169,3 @@ FormatCfm::EFormatCfm FormatCfm::GetFormat()
     else
         return m_format;
 }
-

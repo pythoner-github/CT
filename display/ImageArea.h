@@ -10,7 +10,7 @@
 #define MEASURE_RES_LINES_MAX 13
 
 //#define MEASURE_RES_AREA_W 400
-//#define MEASURE_RES_AREA_H 272 //MEASURE_RES_LINES_MAX * MeasureResult_H 
+//#define MEASURE_RES_AREA_H 272 //MEASURE_RES_LINES_MAX * MeasureResult_H
 //#define MEASURE_RES_AREA_X 5
 //#define MEASURE_RES_AREA_Y (IMG_AREA_H-MEASURE_RES_AREA_H)
 
@@ -48,7 +48,7 @@ class ImageArea
 public:
     ~ImageArea();
     static ImageArea* GetInstance();
-    
+
     // enum DotSize{LARGE, MID, SMALL};
 
     enum DrawArea{SYMBOL, SPECTRA, PARA, PIXMAP, IMT};
@@ -129,7 +129,7 @@ public:
 
     // void DrawDashLine(int x1, int y1, int x2, int y2, bool draw, const GdkColor* const color);
     // void DrawMeasureDashLine(GdkFunction mode, const GdkColor* const color, int x1, int y1, int x2, int y2, DotSize size=MID);
-   
+
     void DrawDashLine(DrawAttr &attr, const GdkColor* const color, int x1, int y1, int x2, int y2, bool update=true, int distance=10);
     void DrawDashLine(DrawAttr &attr, const GdkColor* const color, int x1, int y1, int x2, int y2, int size, bool update=true);
 
@@ -162,7 +162,7 @@ public:
     void DrawString(GdkGC *gc, int x, int y, const char *str);
 	void DrawString(const char *str, int x, int y, const GdkColor* const color=g_white);
     void DrawString(const char *str, int x, int y, const GdkColor* const color, bool xorMode);
- 
+
     void DrawStringFps(const char *str, int x, int y, const GdkColor* const color=g_white);
 
     void DrawBodyMark(int x, int y, GdkPixbuf* pixbuf, double scale, guint colorIndex, guint index);
@@ -180,8 +180,8 @@ public:
 
     void AddTimeOutFps();
     void DelTimeOutFps();
-    void ClearUpdateCounts(); 
-    
+    void ClearUpdateCounts();
+
     gboolean UpdateFps();
     static void SetCineRemoveImg(int count);
 
@@ -207,7 +207,7 @@ private:
     static ImageArea* m_ptrInstance;
 
     static GtkWidget *m_imageDA;
-    
+
     PangoFontDescription *m_baseFont;
 
 	GdkPixbuf *m_imgPixbuf;
@@ -217,10 +217,10 @@ private:
 	//static unsigned char m_bitsImg[IMAGE_W*IMAGE_H*IMG_BPP];
 	//used for mix when in EFOV
 	static unsigned char m_bitsEFOV[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
-	//the last frame replay data 
+	//the last frame replay data
 	static unsigned char m_bitsLastReplay[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
 	//used for mix when in freeze mode
-	static unsigned char m_bitsReplayMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP]; 
+	static unsigned char m_bitsReplayMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
 	//used for mix when in unfreeze mode
 	static unsigned char m_bitsMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
     static unsigned char m_bitsIMT[IMG_AREA_W*IMG_AREA_H*3];//hlx

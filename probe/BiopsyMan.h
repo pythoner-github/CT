@@ -16,12 +16,12 @@ public:
 	vector<string> GetBioBracketTypesOfCurProbe(void);
     vector<string> GetBioAngleTypesOfDefaultBioBracket(void);
 	vector<string> GetBioAngleTypesOfcurBioBracket(void);
-	
+
 	int GetBioBracketTypeNumOfCurProbe(void);//2016.08.31
 
 	string GetCurBioBracketType(void);
 	void SetCurBioBracketType(string bioBracketType);
-	
+
 	string GetCurBioAngleType(void);
 	void SetCurBioAngleType(string angleType);
 
@@ -62,4 +62,4 @@ private:
 
 };
 
-#endif 
+#endif

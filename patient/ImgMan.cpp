@@ -59,9 +59,9 @@ ImgMan::~ImgMan()
 
 /*
  * @brief Check and save the config file by image file
- *        If the config file can not save, the image file also can not to save 
+ *        If the config file can not save, the image file also can not to save
  * @param absPath: the absolute path of the image file where to save
- * 
+ *
  * @retval 0: success to save the config file
  *         1: failed to save the config file, it is existed
  */
@@ -93,7 +93,7 @@ unsigned char ImgMan::SaveIniFile(const char *absPath)
  * @param no: user id
  * @param filename: file name without suffix (eg: 200907011200)
  * @param filepath: file path (eg: STORE_PATH)
- * 
+ *
  * @retval 0: success
  *		   1: no enough space
  *		   2: filename existed
@@ -126,7 +126,7 @@ unsigned char ImgMan::SaveSnap(unsigned int no, const char* filename, const char
     string s(filename);
     char imgFileNameTmp[256];
     sprintf(imgFileNameTmp,"%s",filename);
-	PRINTF("m_format = %d\n", m_Format);	
+	PRINTF("m_format = %d\n", m_Format);
 	switch(m_Format)
 	{
 		case FRM:	//for measure
@@ -270,9 +270,9 @@ unsigned char ImgMan::SaveSnapForRetrieve(unsigned int no, const char* filename,
  *
  * @retval 0: success
  *		   1: error with CheckFileName
- *		   2: error with delete image file 
- *		   3: error with delete image ini file 
- *		   4: error with delete image frm file 
+ *		   2: error with delete image file
+ *		   3: error with delete image ini file
+ *		   4: error with delete image frm file
  */
 unsigned char ImgMan::DeleteSnap(unsigned int no, const char* filename, const char* filepath)
 {
@@ -286,7 +286,7 @@ unsigned char ImgMan::DeleteSnap(unsigned int no, const char* filename, const ch
 
 	GetIniFilePath(absPath, absIniPath);
 	GetFrmFilePath(absPath, absFrmPath);
-		
+
 	if(unlink(absPath))
 	{
 		perror("Delete Image File Error:");
@@ -302,7 +302,7 @@ unsigned char ImgMan::DeleteSnap(unsigned int no, const char* filename, const ch
 		perror("Delete Image Frm File Error:");
 		return 3;
 	}
-	
+
 	return 0;
 }
 
@@ -332,7 +332,7 @@ unsigned char ImgMan::DeleteSnap(const char* absPath)
 		perror("Delete Image Frm File Error:");
 		return 4;
 	}
-	
+
 	return 0;
 }
 
@@ -376,7 +376,7 @@ unsigned char ImgMan::LoadSnap(unsigned int no, const char* filepath, vector<str
 	{
 		PRINTF("%s: the dir is null!\n", __FUNCTION__);
 		g_dir_close(dir);
-		return 2; 
+		return 2;
 	}
 
 	while(name != NULL)
@@ -399,7 +399,7 @@ unsigned char ImgMan::LoadSnap(unsigned int no, const char* filepath, vector<str
 				g_free(path);
 			}
 #endif
-		}	
+		}
 		name = g_dir_read_name(dir);
 	}
 
@@ -441,7 +441,7 @@ unsigned char ImgMan::LoadSnap(const char* filepath, vector<string> *vec)
 	{
 		PRINTF("%s: the dir is null!\n", __FUNCTION__);
 		g_dir_close(dir);
-		return 2; 
+		return 2;
 	}
 
 	while(name != NULL)
@@ -460,7 +460,7 @@ unsigned char ImgMan::LoadSnap(const char* filepath, vector<string> *vec)
 			{
 				unlink(filepath);
 			}
-		}	
+		}
 		name = g_dir_read_name(dir);
 	}
 
@@ -476,7 +476,7 @@ unsigned char ImgMan::LoadSnap(const char* filepath, vector<string> *vec)
  * @param filename: file name without suffix (eg: 200907011200)
  * @param filepath: file path (eg: STORE_PATH)
  * @param item(out): ImgItem
- * 
+ *
  * @retval 0: success
  *		   1: file not existed
  *		   2: failed to read the file, or the file is damaged
@@ -488,12 +488,12 @@ unsigned char ImgMan::ReadSnap(unsigned int no, const char* filename, const char
 	char absPath[256];
 	char absIniPath[256];
 	int len = strlen(filename);
-	
+
 	//check the file name
 	sprintf(absPath, "%s/%d/%s", filepath, no, filename);
 	if(CheckFileName(absPath) != 1)
 		return 1;
-	
+
 	// check the suffix of filename
 	for(i=0; i<len; i++)
 	{
@@ -530,11 +530,11 @@ unsigned char ImgMan::ReadSnap(unsigned int no, const char* filename, const char
 			return 2;
 		else
 		{
-			item->pixbuf = gdk_pixbuf_new_from_data(buf, 
-					GDK_COLORSPACE_RGB, 
-					false, 8, 
-					item->width, item->height, 
-					item->width*3, 
+			item->pixbuf = gdk_pixbuf_new_from_data(buf,
+					GDK_COLORSPACE_RGB,
+					false, 8,
+					item->width, item->height,
+					item->width*3,
 					NULL, NULL);
 		}
 	}
@@ -548,9 +548,9 @@ unsigned char ImgMan::ReadSnap(unsigned int no, const char* filename, const char
  *
  * @param absPath: absolute path of file
  * @param item(out): ImgItem
- * 
+ *
  * @retval 0: success
- *		   1: file not existed 
+ *		   1: file not existed
  *		   2: failed to read the file, or the file is damaged
  */
 unsigned char ImgMan::ReadSnap(const char* absPath, struct ImgItem* item)
@@ -563,7 +563,7 @@ unsigned char ImgMan::ReadSnap(const char* absPath, struct ImgItem* item)
 	//check the file name
 	if(CheckFileName(absPath) != 1)
 		return 1;
-	
+
 	// check the suffix of filename
 	int len = strlen(basename);
 	for(i=0; i<len; i++)
@@ -603,11 +603,11 @@ unsigned char ImgMan::ReadSnap(const char* absPath, struct ImgItem* item)
 			return 2;
 		else
 		{
-			GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(buf, 
-					GDK_COLORSPACE_RGB, 
-					false, 8, 
-					item->width, item->height, 
-					item->width*3, 
+			GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(buf,
+					GDK_COLORSPACE_RGB,
+					false, 8,
+					item->width, item->height,
+					item->width*3,
 					NULL, NULL);
 			item->pixbuf = gdk_pixbuf_copy(pixbuf);
 			g_object_unref(pixbuf);
@@ -732,9 +732,9 @@ void ImgMan::WriteConfigPara(ImgItem *ptrItem, IniFile* ptrIni, string section)
 /*
  * @brief read image information from ini file
  *
- * @param ptrItem: the information will be read 
+ * @param ptrItem: the information will be read
  * @param section: item name
- * @param ptrIni: which file will be read 
+ * @param ptrIni: which file will be read
  */
 void ImgMan::ReadConfigPara(ImgItem *ptrItem, IniFile* ptrIni, string section)
 {
@@ -780,10 +780,10 @@ DCMIMAGEELEMENT ImgMan::GetImageElement(void)
     PRINTF("imgFilename=%s",Img.imgFilename.c_str());
     PRINTF("imgcalibration.left=%d",Img.imgCalibrationRegion.left);
     PRINTF("imgcalibration.top=%d",Img.imgCalibrationRegion.top);
-    PRINTF("imgcalibration.right=%d",Img.imgCalibrationRegion.right); 
+    PRINTF("imgcalibration.right=%d",Img.imgCalibrationRegion.right);
     PRINTF("imgcalibration.bottom=%d",Img.imgCalibrationRegion.bottom);
     PRINTF("imgscale=%f",Img.imgScale);
     PRINTF("imgstudypart=%s",Img.imgStudyPart.c_str());
- 
+
  return Img;
 }

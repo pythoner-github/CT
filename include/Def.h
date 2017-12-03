@@ -7,7 +7,7 @@
 #include <cassert>
 
 /*
- * machine selection, one of three must be defined, 
+ * machine selection, one of three must be defined,
  * otherwise machine type is set to EMP-340
  * you can defined it in Makefile
  */
@@ -29,7 +29,7 @@
 
 #define PI 3.1415926
 #define SOUND_SPEED 1.54 //km/s
-#define ZERO 0.00000001 
+#define ZERO 0.00000001
 
 ///> output debug info
 #ifdef DEBUG
@@ -56,7 +56,7 @@
 #define BDMK_PROBE_MAX_SCALE 1.2
 
 #define BYTES_DOT 3	//每个像素点用3个字节表示
-#define USERCONFIG_LEN 50  
+#define USERCONFIG_LEN 50
 #define FONT_STRING "WenQuanYi Zen Hei, medium"
 
 #define DCMDB_DIR "./res"
@@ -79,8 +79,8 @@
 #define UPGRADE_SRC_PATH "/mnt/udisk/upgrade"
 #define OB_CUSTOM_PATH "res/config/CustomOB.txt"
 #define CALC_TMP_DATA_PATH "./res/config/tmp_data/"
-//#define USERCONFIG_PARENT_PATH  "res/config/"  
-//#define USERCONFIG_PATH      "./res/config/userconfig/"  
+//#define USERCONFIG_PARENT_PATH  "res/config/"
+//#define USERCONFIG_PATH      "./res/config/userconfig/"
 //
 //read select item after open machine before selected item
 
@@ -88,8 +88,8 @@
 ///> system config file
 #if defined(EMP_360)
 #define SYS_SETTING_FILE "res/config-360/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-360/"  
-#define USERCONFIG_PATH      "./res/config-360/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-360/"
+#define USERCONFIG_PATH      "./res/config-360/userconfig/"
 #define USER_PATH  "./res/config-360/username"
 #define KB_CAL_SETTING_FILE "res/config-360/KbCalcSetting.ini"
 #define STORE_ITEM_PATH "res/config-360/SelectProbeItem.ini"
@@ -107,8 +107,8 @@
 #define DEFAULT_SETTING_FILE "res/config-360/DefaultBiopsySetting.ini"
 #elif defined(EMP_161)
 #define SYS_SETTING_FILE "res/config-161/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-161/"  
-#define USERCONFIG_PATH      "./res/config-161/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-161/"
+#define USERCONFIG_PATH      "./res/config-161/userconfig/"
 #define USER_PATH  "./res/config-161/username"
 #define KB_CAL_SETTING_FILE "res/config-161/KbCalcSetting.ini"
 #define STORE_ITEM_PATH "res/config-161/SelectProbeItem.ini"
@@ -126,8 +126,8 @@
 #define DEFAULT_SETTING_FILE "res/config-161/DefaultBiopsySetting.ini"
 #elif defined(EMP_440)
 #define SYS_SETTING_FILE "res/config-440/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-440/"  
-#define USERCONFIG_PATH      "./res/config-440/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-440/"
+#define USERCONFIG_PATH      "./res/config-440/userconfig/"
 #define USER_PATH  "./res/config-440/username"
 #define KB_CAL_SETTING_FILE "res/config-440/KbCalcSetting.ini"
 #define STORE_ITEM_PATH "res/config-440/SelectProbeItem.ini"
@@ -143,10 +143,10 @@
 #define MEASURE_FILE "res/config-440/measuresetting/DSMeasureSetting.ini"
 #define BIOPSY_SETTING_FILE "res/config-440/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-440/DefaultBiopsySetting.ini"
-#elif defined(EMP_322) 
+#elif defined(EMP_322)
 #define SYS_SETTING_FILE "res/config-322/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-322/"  
-#define USERCONFIG_PATH      "./res/config-322/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-322/"
+#define USERCONFIG_PATH      "./res/config-322/userconfig/"
 #define USER_PATH  "./res/config-322/username"
 #define KB_CAL_SETTING_FILE "res/config-322/KbCalcSetting.ini"
 #define STORE_ITEM_PATH "res/config-322/SelectProbeItem.ini"
@@ -164,8 +164,8 @@
 #define DEFAULT_SETTING_FILE "res/config-322/DefaultBiopsySetting.ini"
 #elif defined(EMP_313)
 #define SYS_SETTING_FILE "res/config-313/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-313/"   
-#define USERCONFIG_PATH      "./res/config-313/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-313/"
+#define USERCONFIG_PATH      "./res/config-313/userconfig/"
 #define USER_PATH  "./res/config-313/username"
 #define KB_CAL_SETTING_FILE "res/config-313/KbCalcSetting.ini"
 #define STORE_ITEM_PATH "res/config-313/SelectProbeItem.ini"
@@ -181,8 +181,8 @@
 
 #elif defined(EMP_430)
 #define SYS_SETTING_FILE "res/config-430/SysSetting.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-430/"   
-#define USERCONFIG_PATH      "./res/config-430/userconfig/"  
+#define USERCONFIG_PARENT_PATH  "res/config-430/"
+#define USERCONFIG_PATH      "./res/config-430/userconfig/"
 #define USER_PATH  "./res/config-430/username"
 #define KB_CAL_SETTING_FILE "res/config-430/KbCalcSetting.ini"
 #define STORE_DEFAULT_ITEM_PATH "res/config-430/DefaultProbeItem.ini"
@@ -210,17 +210,17 @@
 #define COMMENT_FILE "res/config-355/vet/VetCommentSetting.ini"
 #define CALC_FILE "res/config-355/vet/calcsetting/VetDSCalcSetting.ini"
 #define STORE_DEFAULT_ITEM_PATH "res/config-355/vet/VetDefaultProbeItem.ini"
-#define USERCONFIG_PARENT_PATH  "res/config-355/vet/"   
+#define USERCONFIG_PARENT_PATH  "res/config-355/vet/"
 #define COMMENT_PATH "res/config-355/vet/commentsetting/"
 #define CALC_PATH "res/config-355/vet/calcsetting/"
 #define DEFAULT_CALC_FILE "res/config-355/vet/VetDefaultCalcSetting.ini"
 #define COMMENT_COPY "res/config-355/vet/VetDefaultComment.ini"
-#define USERCONFIG_PATH      "./res/config-355/vet/userconfig/"  
+#define USERCONFIG_PATH      "./res/config-355/vet/userconfig/"
 #define MEASURE_PATH "res/config-355/vet/measuresetting/"
 #define DEFAULT_MEASURE_FILE "res/config-355/vet/VetDefaultMeasureSetting.ini"
 #define MEASURE_FILE "res/config-355/vet/measuresetting/VetDSMeasureSetting.ini"
 #else
-#define USERCONFIG_PARENT_PATH  "res/config-355/"  
+#define USERCONFIG_PARENT_PATH  "res/config-355/"
 #define STORE_DEFAULT_ITEM_PATH "res/config-355/DefaultProbeItem.ini"
 #define COMMENT_FILE "res/config-355/CommentSetting.ini"
 #define CALC_FILE "res/config-355/calcsetting/DSCalcSetting.ini"
@@ -228,7 +228,7 @@
 #define CALC_PATH "res/config-355/calcsetting/"
 #define DEFAULT_CALC_FILE "res/config-355/DefaultCalcSetting.ini"
 #define COMMENT_COPY "res/config-355/DefaultComment.ini"
-#define USERCONFIG_PATH      "./res/config-355/userconfig/"  
+#define USERCONFIG_PATH      "./res/config-355/userconfig/"
 #define DEFAULT_MEASURE_FILE "res/config-355/DefaultMeasureSetting.ini"
 #define MEASURE_PATH "res/config-355/measuresetting/"
 #define MEASURE_FILE "res/config-355/measuresetting/DSMeasureSetting.ini"
@@ -244,7 +244,7 @@
 #define COMMENT_FILE "res/config/vet/VetCommentSetting.ini"
 #define CALC_FILE "res/config/vet/calcsetting/VetDSCalcSetting.ini"
 #define STORE_DEFAULT_ITEM_PATH "res/config/vet/VetDefaultProbeItem.ini"
-#define USERCONFIG_PARENT_PATH  "res/config/vet/"   
+#define USERCONFIG_PARENT_PATH  "res/config/vet/"
 #define COMMENT_PATH "res/config/vet/commentsetting/"
 #define CALC_PATH "res/config/vet/calcsetting/"
 #define DEFAULT_CALC_FILE "res/config/vet/VetDefaultCalcSetting.ini"
@@ -252,9 +252,9 @@
 #define DEFAULT_MEASURE_FILE "res/config/vet/VetDefaultMeasureSetting.ini"
 #define MEASURE_FILE "res/config/vet/measuresetting/VetDSMeasureSetting.ini"
 #define COMMENT_COPY "res/config/vet/VetDefaultComment.ini"
-#define USERCONFIG_PATH      "./res/config/vet/userconfig/"  
+#define USERCONFIG_PATH      "./res/config/vet/userconfig/"
 #else
-#define USERCONFIG_PARENT_PATH  "res/config/"  
+#define USERCONFIG_PARENT_PATH  "res/config/"
 #define STORE_DEFAULT_ITEM_PATH "res/config/DefaultProbeItem.ini"
 #define COMMENT_FILE "res/config/CommentSetting.ini"
 #define CALC_FILE "res/config/calcsetting/DSCalcSetting.ini"
@@ -262,7 +262,7 @@
 #define CALC_PATH "res/config/calcsetting/"
 #define DEFAULT_CALC_FILE "res/config/DefaultCalcSetting.ini"
 #define COMMENT_COPY "res/config/DefaultComment.ini"
-#define USERCONFIG_PATH      "./res/config/userconfig/"  
+#define USERCONFIG_PATH      "./res/config/userconfig/"
 #define DEFAULT_MEASURE_FILE "res/config/DefaultMeasureSetting.ini"
 #define MEASURE_PATH "res/config/measuresetting/"
 #define MEASURE_FILE "res/config/measuresetting/DSMeasureSetting.ini"
@@ -289,7 +289,7 @@ enum EStudy{ABD, OB, GYN, UR, CAR, SP, VES, ORT, EXTRA};
 #endif
 //enum EStudy{ABD, OB, GYN, UR, CAR, SP, VES, ORT, EXTRA};
 #endif
-typedef struct tagPOINT 
+typedef struct tagPOINT
 {
 	int x;
 	int y;
@@ -297,8 +297,8 @@ typedef struct tagPOINT
 
 /* The RGBTRIPLE structure describes a color consisting of relative intensities of red, green, and blue.
 */
-typedef struct tagRGBTRIPLE 
-{ 
+typedef struct tagRGBTRIPLE
+{
   unsigned char rgbtRed;			//!< Specifies the intensity of red in the color.
   unsigned char rgbtGreen;			//!< Specifies the intensity of green in the color.
   unsigned char rgbtBlue;			//!< Specifies the intensity of blue in the color.
@@ -308,6 +308,6 @@ typedef EKnobReturn (*pKeyFunc)(EKnobOper);
 //#define FEATURE 9101
 #define FEATURE 13004
 
-extern char user_configure[USERCONFIG_LEN]; 
+extern char user_configure[USERCONFIG_LEN];
 
 #endif

@@ -30,7 +30,7 @@ public:
 	void UpdateAngleMenuItem(void);
 
 private:
-   
+
     GtkWidget *m_vboxBioVerify;
 	GtkWidget *m_labelBioBracketType;
 
@@ -77,7 +77,7 @@ private:
 		((MenuBiopsyVerify*)user_data)->MenuItemEnhanceActivate(GTK_MENU_ITEM(widget));
 		return TRUE;
 	}
-	
+
     static gboolean HandleMenuItemAngleButtonRelease(GtkWidget *widget,GdkEvent *event,gpointer user_data)
 	{
 		return TRUE;

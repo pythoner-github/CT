@@ -55,15 +55,15 @@ class PeripheralMan
 		void AddWatch();
 		void RemoveWatch();
 
-		bool CheckDiscCondition(); 
-		bool CheckDiscState(); 
+		bool CheckDiscCondition();
+		bool CheckDiscState();
 		bool CheckDiscInfo();
 		bool CheckUSBInfo();
 		bool GetDiscInfo(DiscInfo *info);
 		bool GetUSBInfo(StorageInfo *info);
 		void GetDiscSessionInfo(gint64 *last, gint64 *next);
 
-		bool GetPrinterDev(char* device); 
+		bool GetPrinterDev(char* device);
 
 		bool CheckUsbStorageState();
 		bool MountUsbStorage();
@@ -72,7 +72,7 @@ class PeripheralMan
 		void LoadUsblp();
 		void UnLoadUsblp();
 
-		//private callback 
+		//private callback
 		void DevAdded(LibHalContext *ctx, const char *udi);
 		void DevRemoved(LibHalContext *ctx, const char *udi);
 		bool GetCdMediaInfoCallback(GIOChannel *source, GIOCondition condition);

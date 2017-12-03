@@ -24,7 +24,7 @@ public:
 	enum SIZE{ SMALL, MID, BIG };
 	enum SHAPE{ SIMPLEARROW, HOLLOWARROW };
 	enum { DIRECTION_MAX = 24 };
-	enum DIRECTION{ DI0, DI1, DI2, DI3, DI4, DI5, DI6, DI7, DI8, DI9, DI10, DI11, DI12, DI13, 
+	enum DIRECTION{ DI0, DI1, DI2, DI3, DI4, DI5, DI6, DI7, DI8, DI9, DI10, DI11, DI12, DI13,
 	DI14, DI15, DI16, DI17, DI18, DI19, DI20, DI21, DI22, DI23 };
 
 	void SetArrowPos(POINT pos);
@@ -33,15 +33,15 @@ public:
 	void SetArrowSize(SIZE size);
 	void SetArrowColor(COLOR color);
     bool ArrowListEmpty(void);
-	 
+
 
 	POINT GetArrowPos();
 	DIRECTION GetArrowDir();
 	SHAPE GetArrowShape();
 	SIZE GetArrowSize();
 	COLOR GetArrowColor();
-	 
-	
+
+
 	virtual bool Add();
 	virtual bool Delete();
 	virtual bool DeleteAll();
@@ -57,7 +57,7 @@ protected:
 	static COLOR m_curColor;
 	static SHAPE m_curShape;
 	POINT m_curPos;
-	DIRECTION m_curDir;	
+	DIRECTION m_curDir;
 
 	CAbsUpdateArrow &m_updateArrow;
 

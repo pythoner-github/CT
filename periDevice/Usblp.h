@@ -21,7 +21,7 @@
 struct print_re_item{
 	char *id;
 	char *name;
-//hlx 
+//hlx
 #ifdef VET
 	char *species;
 	char *owner;

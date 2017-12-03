@@ -1,4 +1,4 @@
-#include <unistd.h>  
+#include <unistd.h>
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include "UserSelect.h"
@@ -13,7 +13,7 @@
 const char* listname[] = {};
 #define LIST_COUNT (sizeof(listname)/sizeof(listname[0]))
 
-UserSelect* UserSelect::m_ptrInstance = NULL; 
+UserSelect* UserSelect::m_ptrInstance = NULL;
 
 UserSelect::~UserSelect()
 {
@@ -27,7 +27,7 @@ UserSelect::~UserSelect()
 UserSelect::UserSelect()
 {
     active_user_id = 0;
-  // strcpy(cur_username,"System Default"); 
+  // strcpy(cur_username,"System Default");
 }
 
 UserSelect* UserSelect:: GetInstance()
@@ -58,7 +58,7 @@ void UserSelect::set_active_user(GtkWidget * widget, gint num)
 {
     gtk_combo_box_set_active(GTK_COMBO_BOX(widget), num);
 
-} 
+}
 
 int UserSelect::compare_with_current_user(char *username)
 {
@@ -219,11 +219,11 @@ void UserSelect::create_userdefault_dir(void)
 */
 bool UserSelect::creat_username_db(const char *db_dbname)
 {
-    if(access(db_dbname, F_OK)) 
+    if(access(db_dbname, F_OK))
     {
         sqlite3 *db = 0;
         int max_count = LIST_COUNT;
-        if (sqlite3_open(db_dbname, &db) != SQLITE_OK) 
+        if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
         {
             PRINTF("Open Database Error!\n");
             return false;
@@ -241,7 +241,7 @@ bool UserSelect::creat_username_db(const char *db_dbname)
             strcat(buffer, buf);
         }
         strcat(buffer, "COMMIT;\n");
-        if (sqlite3_exec(db, buffer, 0, 0, &errmsg) != SQLITE_OK) 
+        if (sqlite3_exec(db, buffer, 0, 0, &errmsg) != SQLITE_OK)
         {
             PRINTF("Init Database Error: %s\n", sqlite3_errmsg(db));
             sqlite3_free(errmsg);
@@ -265,16 +265,16 @@ bool UserSelect::read_username_db(const char *db_dbname,  GtkWidget* widget)
     sqlite3 *db = 0;
     int t = 0;
 
-    if (sqlite3_open(db_dbname, &db) != SQLITE_OK) 
+    if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
     {
         PRINTF("Open Database Error!\n");
-        return false; 
+        return false;
     }
 
     sqlite3_stmt *stmt_f1 = NULL;
     sprintf(buf, "SELECT DISTINCT username FROM userlist;");
 
-    if(sqlite3_prepare(db, buf, strlen(buf), &stmt_f1, 0) != SQLITE_OK) 
+    if(sqlite3_prepare(db, buf, strlen(buf), &stmt_f1, 0) != SQLITE_OK)
     {
         PRINTF("DISTINCT :%s\n", sqlite3_errmsg(db));
         return false;
@@ -289,12 +289,12 @@ bool UserSelect::read_username_db(const char *db_dbname,  GtkWidget* widget)
             gtk_combo_box_append_text (GTK_COMBO_BOX (widget), name);
             count++;
             if (strcmp(name, cur_username) == 0)
-            {  
+            {
                 save_active_user_id(count);
             }
         }
-    }   
-    sqlite3_finalize(stmt_f1);    
+    }
+    sqlite3_finalize(stmt_f1);
     sqlite3_close(db);
 
     return true;
@@ -307,7 +307,7 @@ bool UserSelect::insert_username_db(const char *db_dbname, const char *record)
     char buf[1024];
 
 
-    if (sqlite3_open(db_dbname, &db) != SQLITE_OK) 
+    if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
     {
         PRINTF("Open Database Error!\n");
         return false;
@@ -316,7 +316,7 @@ bool UserSelect::insert_username_db(const char *db_dbname, const char *record)
     memset(buf, 0, sizeof(buf));
     sprintf(buf, "INSERT INTO \"userlist\" VALUES('%s');\n", record);
 
-    if (sqlite3_exec(db, buf, 0, 0, &errmsg) != SQLITE_OK) 
+    if (sqlite3_exec(db, buf, 0, 0, &errmsg) != SQLITE_OK)
     {
         PRINTF("insert Database Error: %s\n", sqlite3_errmsg(db));
         sqlite3_free(errmsg);
@@ -333,7 +333,7 @@ bool UserSelect::delete_username_db(const char *db_dbname, const char *record)
     char *errmsg = NULL;
     char buf[1024];
 
-    if (sqlite3_open(db_dbname, &db) != SQLITE_OK) 
+    if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
     {
         PRINTF("Open Database Error!\n");
         return false;
@@ -342,7 +342,7 @@ bool UserSelect::delete_username_db(const char *db_dbname, const char *record)
     memset(buf, 0, sizeof(buf));
     sprintf(buf, "DELETE FROM userlist WHERE username = '%s';\n", record);
 
-    if (sqlite3_exec(db, buf, 0, 0, &errmsg) != SQLITE_OK) 
+    if (sqlite3_exec(db, buf, 0, 0, &errmsg) != SQLITE_OK)
     {
         PRINTF("delete Database Error: %s\n", sqlite3_errmsg(db));
         sqlite3_free(errmsg);
@@ -360,19 +360,19 @@ bool UserSelect::username_unique_db(const char *db_dbname, const char *record)
     char buf[1024];
     sqlite3 *db = 0;
 
-    if (sqlite3_open(db_dbname, &db) != SQLITE_OK) 
+    if (sqlite3_open(db_dbname, &db) != SQLITE_OK)
     {
         PRINTF("Open Database Error!\n");
         return false;
     }
 
     sprintf(buf, "SELECT COUNT(*) AS num_result FROM userlist WHERE username LIKE '%s';\n", record);
-    if (sqlite3_prepare(db, buf, strlen(buf), &stmt, 0) != SQLITE_OK) 
+    if (sqlite3_prepare(db, buf, strlen(buf), &stmt, 0) != SQLITE_OK)
     {
         PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(db));
         return false;
     }
-    while (sqlite3_step(stmt) != SQLITE_DONE) 
+    while (sqlite3_step(stmt) != SQLITE_DONE)
     {
         if (strcmp(sqlite3_column_name(stmt, 0), "num_result") == 0)
             result = sqlite3_column_int(stmt, 0);
@@ -409,13 +409,13 @@ void UserSelect::write_username(GtkWidget* widget, const char *db_dbname, const 
     }
 
 }
-#if 0             
+#if 0
 /*********************************use regular file to record username ago**************************
  * *******************************in order to delete username change to user db*******************/
 void UserSelect::open_username(void)
 {
     //printf("open username\n");
-    if(access(USER_PATH, F_OK))        
+    if(access(USER_PATH, F_OK))
         fp_user = fopen(USER_PATH, "w+");
     else
         fp_user = fopen(USER_PATH, "a+");
@@ -490,7 +490,7 @@ void UserSelect::read_username(GtkWidget* widget)
             }
         }
 
-        if (*name != '\0' && *name != '\n') 
+        if (*name != '\0' && *name != '\n')
             gtk_combo_box_append_text (GTK_COMBO_BOX (widget), name);
     }
 
@@ -519,7 +519,7 @@ void UserSelect::create_userconfig_dir(void)
 void UserSelect::write_username(GtkWidget* widget, const char *name)
 {
     if (CompareName(name) == 0)
-    { 
+    {
         gtk_combo_box_append_text(GTK_COMBO_BOX (widget), name);
         fprintf(fp_user, "%s\n", name);
         char path[256];
@@ -568,7 +568,7 @@ int  UserSelect::CompareName(const char *name)
 
         //printf("local P->name:%s, name:%s\n",(P->name), name);
         if(strcmp(P->name, name) == 0)
-            return -1;	 		
+            return -1;
         r = P->next;
     }
 

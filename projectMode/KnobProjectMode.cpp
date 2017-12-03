@@ -66,7 +66,7 @@ EKnobReturn D2ChgProbeAngle(EKnobOper oper)
 
 
 
-#if 0 
+#if 0
 EKnobReturn D2ChgBPWSimult(EKnobOper oper)
 {
 	//ProjectCalc2D::GetInstance()->ChangeBandPassW(oper);
@@ -92,7 +92,7 @@ EKnobReturn D2ChgEmission(EKnobOper oper)
 
 KnobProjectMode::KnobItem KnobProjectMode::KnobProjectMenu[KNOB_MENU_SIZE] =  //KnobProjectMode::KNOB_NUM*3
 {
-    {_("Demod Section"), "", FALSE, MIN, D2ChgDemodSection, D2PressChgDemodParaPrintf}, 
+    {_("Demod Section"), "", FALSE, MIN, D2ChgDemodSection, D2PressChgDemodParaPrintf},
     {_("BandPass FC"), "", FALSE, MIN, D2ChgBandPassFc, NULL},
     {_("TxFNum"), "", FALSE, MIN, D2ChgTxFNum, NULL},
     {_("WpScale"), "", FALSE, MIN, D2ChgWpScale, NULL},
@@ -105,8 +105,8 @@ KnobProjectMode::KnobItem KnobProjectMode::KnobProjectMenu[KNOB_MENU_SIZE] =  //
 //    {_("BandPass WinFunc"), "", FALSE, MIN, D2ChgBandPassWindowFunc, NULL},
   //  {_("LowPass WinFunc"), "", FALSE, MIN, D2ChgLowPassWindowFunc, NULL},
    // {_("Emission"), "", FALSE, MIN, D2ChgEmission, NULL},
-    //{"", "", FALSE, ERROR, NULL, NULL},	
-    {"", "", FALSE, ERROR, NULL, NULL},	
+    //{"", "", FALSE, ERROR, NULL, NULL},
+    {"", "", FALSE, ERROR, NULL, NULL},
 };
 
 
@@ -137,10 +137,10 @@ KnobProjectMode::KnobProjectMode(void)
 }
 
 KnobProjectMode::~KnobProjectMode()
-{ 
-    if (m_ptrInstance != NULL) 
+{
+    if (m_ptrInstance != NULL)
     {
-        delete m_ptrInstance; 
+        delete m_ptrInstance;
         m_ptrInstance = NULL;
     }
 }
@@ -175,7 +175,7 @@ GtkWidget * KnobProjectMode::Create(void)
     GTK_WIDGET_UNSET_FLAGS (btn_left, GTK_CAN_FOCUS);
     gtk_widget_modify_bg(btn_left, GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(btn_left, GTK_STATE_ACTIVE, g_deep);
-    gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);    
+    gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);
 
     m_labelKnob[0] = create_label("knob1", 0, 22, g_lightGray, NULL);
     gtk_label_set_justify(GTK_LABEL(m_labelKnob[0]), GTK_JUSTIFY_CENTER);
@@ -241,7 +241,7 @@ GtkWidget * KnobProjectMode::Create(void)
    	gtk_widget_modify_bg(btn_right, GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(btn_right, GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
-    
+
     SetItem(KnobProjectMenu, sizeof(KnobProjectMenu)/sizeof(KnobProjectMenu[0]), TEST);
     return m_tableKnob;
 }
@@ -317,7 +317,7 @@ void KnobProjectMode::Refresh(void)
             if(strcmp( m_KnobItem[m_CurLevel * KNOB_NUM + i].name, "Simult") == 0)
                 gtk_widget_modify_fg(m_labelKnob[i], GTK_STATE_NORMAL, g_deepGray);
         }
-#endif 
+#endif
     }
 }
 
@@ -328,14 +328,14 @@ void KnobProjectMode::Display(KnobItem item, char *buf)
     	sprintf(buf, " ");
         return ;
     }
-    if (item.status == MIN) 
+    if (item.status == MIN)
     {
         if (strcmp(item.value, ""))
             sprintf(buf, "%s\n◁ %s ▶",  _(item.name),  _(item.value));
         else
             sprintf(buf, "%s\n◁ %s ▶", _(item.name),  item.value);
     }
-    else if (item.status == MAX) 
+    else if (item.status == MAX)
     {
         if (strcmp(item.value, ""))
             sprintf(buf, "%s\n◀ %s ▷", _(item.name),  _(item.value));
@@ -349,14 +349,14 @@ void KnobProjectMode::Display(KnobItem item, char *buf)
         else
             sprintf(buf, "%s\n◀ %s ▶", _(item.name),  item.value);
     }
-    else if (item.status == PRESS) 
+    else if (item.status == PRESS)
     {
         if (strcmp(item.value, ""))
             sprintf(buf, "%s\n【 %s 】", _(item.name),  _(item.value));
         else
             sprintf(buf, "%s\n【 %s 】", _(item.name),  item.value);
     }
-    else if (item.status == ERROR) 
+    else if (item.status == ERROR)
     {
         if (strcmp(item.value, ""))
             sprintf(buf, "<span color='#505050'>%s\n %s </span>",_(item.name), _(item.value));
@@ -374,7 +374,7 @@ void KnobProjectMode::Update(void)
         gtk_label_set_markup(GTK_LABEL(m_labelKnob[i]), buf);
     }
 
-    if (m_CurLevel == 0 && m_MaxLevel == 0) 
+    if (m_CurLevel == 0 && m_MaxLevel == 0)
     {
         gtk_label_set_text(GTK_LABEL(m_labelLeft), "");
         if(GetKnobStatus())
@@ -386,8 +386,8 @@ void KnobProjectMode::Update(void)
             gtk_label_set_text(GTK_LABEL(m_labelRight), "");
         }
     }
-    else if (m_CurLevel == 0 && m_MaxLevel > 0) 
-    
+    else if (m_CurLevel == 0 && m_MaxLevel > 0)
+
     {
         gtk_label_set_text(GTK_LABEL(m_labelLeft), "");
         if(GetKnobStatus())
@@ -399,7 +399,7 @@ void KnobProjectMode::Update(void)
         	gtk_label_set_text(GTK_LABEL(m_labelRight), ">>");
     	}
     }
-    else if (m_CurLevel > 0 && m_CurLevel == m_MaxLevel) 
+    else if (m_CurLevel > 0 && m_CurLevel == m_MaxLevel)
     {
         gtk_label_set_text(GTK_LABEL(m_labelLeft), "<<");
         if(GetKnobStatus())
@@ -411,7 +411,7 @@ void KnobProjectMode::Update(void)
     		gtk_label_set_text(GTK_LABEL(m_labelRight), "");
     	}
     }
-    else if (m_CurLevel > 0 && m_CurLevel < m_MaxLevel) 
+    else if (m_CurLevel > 0 && m_CurLevel < m_MaxLevel)
     {
     	gtk_label_set_text(GTK_LABEL(m_labelLeft), "<<");
         if(GetKnobStatus())
@@ -442,11 +442,11 @@ void KnobProjectMode::Knob1_Screw(int cw)
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
 	return ;
 
-    if (cw == 1) 
+    if (cw == 1)
     {
     	(*(m_KnobItem[index].pf))(ADD);
     }
-    else if (cw == 0) 
+    else if (cw == 0)
     {
     	(*(m_KnobItem[index].pf))(SUB);
     }
@@ -579,7 +579,7 @@ void KnobProjectMode::ShowKnob(void)
 
 void KnobProjectMode::EnableKnob(bool enable)
 {
-    m_enable = enable; 
+    m_enable = enable;
     Update();
 }
 

@@ -54,33 +54,33 @@ gboolean PrintScreen::ScreenShotToFile()
 	window = gdk_screen_get_root_window(screen);
 
     int src_x, src_y, width, height;
-    SysGeneralSetting *sysGeneralSetting = new SysGeneralSetting;    
+    SysGeneralSetting *sysGeneralSetting = new SysGeneralSetting;
     int tvout_format = sysGeneralSetting->GetVideoFormat();
     delete sysGeneralSetting;
 
-    switch (tvout_format) 
+    switch (tvout_format)
     {
         case 0:
-            src_x = 0; 
-            src_y = 0; 
-            width = SCREEN_WIDTH; 
+            src_x = 0;
+            src_y = 0;
+            width = SCREEN_WIDTH;
             height = SCREEN_HEIGHT;
             break;
         case 1:
-            src_x = KNOB_X; 
-            src_y = 0; 
-            width = TOP_AREA_W; 
+            src_x = KNOB_X;
+            src_y = 0;
+            width = TOP_AREA_W;
             height = KNOB_Y;
             break;
         case 2:
-            src_x = KNOB_X; 
-            src_y = TOP_AREA_H; 
-            width = TOP_AREA_W; 
+            src_x = KNOB_X;
+            src_y = TOP_AREA_H;
+            width = TOP_AREA_W;
             height = KNOB_Y - TOP_AREA_H;
             break;
     }
-	screen_pixbuf = gdk_pixbuf_get_from_drawable(NULL, 
-			window, 
+	screen_pixbuf = gdk_pixbuf_get_from_drawable(NULL,
+			window,
 			gdk_colormap_get_system(),
 			src_x, src_y, 0, 0, width, height);
 

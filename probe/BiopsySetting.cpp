@@ -10,7 +10,7 @@ BiopsySetting::BiopsySetting()
 }
 BiopsySetting:: ~BiopsySetting()
 {
-	 if (m_ptrIni != NULL) 
+	 if (m_ptrIni != NULL)
 	 {
 		delete m_ptrIni;
 		m_ptrIni = NULL;
@@ -48,7 +48,7 @@ string BiopsySetting::GetDefaultAngleType(const string bioBracketType)
 {
 	return m_ptrIni->ReadString(bioBracketType.c_str(),"DefaultAngleType");
 }
-   
+
 int BiopsySetting::GetBioBracketAngleNum(const string bioBracketType)
 {
 	return m_ptrIni->ReadInt(bioBracketType.c_str(),"Num");
@@ -98,5 +98,4 @@ void BiopsySetting::SetBiopsyAngleValueOfAngleType(const string bioBracketTypeAn
 {
 	m_ptrIni->WriteDouble(bioBracketTypeAngle.c_str(),"BiopsyAngle",value);
 }
-
 

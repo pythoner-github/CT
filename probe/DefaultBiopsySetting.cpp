@@ -10,7 +10,7 @@ DefaultBiopsySetting::DefaultBiopsySetting()
 }
 DefaultBiopsySetting:: ~DefaultBiopsySetting()
 {
-	 if (m_ptrIni != NULL) 
+	 if (m_ptrIni != NULL)
 	 {
 		delete m_ptrIni;
 		m_ptrIni = NULL;
@@ -35,4 +35,3 @@ double  DefaultBiopsySetting::GetBiopsyAngleValueOfAngleType(const string bioBra
 {
 	return (m_ptrIni->ReadDouble(bioBracketTypeAngle.c_str(),"BiopsyAngle"));
 }
-

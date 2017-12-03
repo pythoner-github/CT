@@ -23,4 +23,3 @@ int Battery::GetCapacity(void)
     }
     return buffer;
 }
-

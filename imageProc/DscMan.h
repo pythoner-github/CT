@@ -15,7 +15,7 @@ class DscMan
 
 		~DscMan();
 		static DscMan* GetInstance();
-		
+
 		void SendDataToDsc(const unsigned char *pData);
 
 		// DSC para
@@ -24,8 +24,8 @@ class DscMan
 		CDSC* GetDsc();
 
 		// pthread comunication
-		bool GetWriteLock(); 
-		bool ReadWriteUnlock(); 		
+		bool GetWriteLock();
+		bool ReadWriteUnlock();
 
 		// replay resource lock
 		bool GetReplayWriteLock();
@@ -52,10 +52,10 @@ class DscMan
 		pthread_mutex_t m_pthreadLock1;
 		pthread_mutex_t m_pthreadLock2;
 #endif
-		// replay 
+		// replay
 		bool m_replayLockIsCreate; // if or not the lock is create.
 		pthread_mutex_t m_replayLock;
-		
+
 		void InitDscPara();
 };
 

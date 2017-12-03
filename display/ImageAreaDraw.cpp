@@ -118,7 +118,7 @@ extern bool g_calcPwStatus;
     //    strcpy(m_pwScaleUnit, "cm/s");
         m_pwUnit = CMPS;
         m_cfmUnit = CMPS;
-        
+
         m_graySize = 0;
 
         m_magnifier.x = 0;
@@ -264,14 +264,14 @@ void ImageAreaDraw::Update(void)
     m_inLZMode = Zoom::GetInstance()->GetLocalZoomStatus();
     if (m_inLZMode)
     {
-        Zoom::GetInstance()->GetScanLineRange(m_LZLineRange); 
-        Zoom::GetInstance()->GetScanDotRange(m_LZDotRange); 
-        Zoom::GetInstance()->GetLocalZoomScale(m_LZScale); 
+        Zoom::GetInstance()->GetScanLineRange(m_LZLineRange);
+        Zoom::GetInstance()->GetScanDotRange(m_LZDotRange);
+        Zoom::GetInstance()->GetLocalZoomScale(m_LZScale);
         m_LZDotBeginDepth = Zoom::GetInstance()->GetScanDotBeginDepth();
 
 		int probeR = m_probeR + m_LZDotBeginDepth;
         double scanAngle = m_probeWidth/2 * PI / 180 * (m_LZLineRange[1] - m_LZLineRange[0]) / (m_probeLines - 1);
-		
+
 		//calculate ScaleY Spacing of the top image
 		if (m_probeType == 'L' || m_probeType == 'l')
 			m_scaleYSpacing = 0;
@@ -573,7 +573,7 @@ void ImageAreaDraw::ChangeFormat2D(Format2D::EFormat2D format, int curB, double 
             pointScaleY.x = IMAGE_X + IMAGE_W/2 - SCALE_W;
             if (UDStatus)
                 pointScaleY.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / ratio2D;
-            else 
+            else
                 pointScaleY.y = IMAGE_Y + m_scaleYSpacing / ratio2D;
             m_pointScaleY.push_back(pointScaleY);
 
@@ -783,7 +783,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
             m_pointFocus.x = IMAGE_X + IMAGE_W - 5;
             if (m_UDStatus)
                 m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
-            else 
+            else
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
             //scale Y M
@@ -863,7 +863,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
                 m_pointScaleYM.y = IMAGE_Y + IMAGE_H/2;
             m_heightScaleYM = IMAGE_H/2;
 
-            // Scale X M 
+            // Scale X M
             m_pointScaleXM.x = IMAGE_X;
             m_pointScaleXM.y = IMAGE_Y + IMAGE_H;
             m_widthScaleXM = IMAGE_W;
@@ -932,7 +932,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
                 m_pointScaleYM.y = IMAGE_Y + IMAGE_H/3*2;
             m_heightScaleYM = IMAGE_H/3.0;
 
-            // Scale X M 
+            // Scale X M
             m_pointScaleXM.x = IMAGE_X;
             m_pointScaleXM.y = IMAGE_Y + IMAGE_H;
             m_widthScaleXM = IMAGE_W;
@@ -1142,7 +1142,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
                 m_pointScaleYM.y = IMAGE_Y + IMAGE_H/2;
             m_heightScaleYM = IMAGE_H/2;
 
-            // Scale X M 
+            // Scale X M
             m_pointScaleXM.x = IMAGE_X;
             m_pointScaleXM.y = IMAGE_Y + IMAGE_H;
             m_widthScaleXM = IMAGE_W;
@@ -1202,7 +1202,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
                 m_pointScaleYM.y = IMAGE_Y + IMAGE_H/3*2;
             m_heightScaleYM = IMAGE_H/3.0;
 
-            // Scale X M 
+            // Scale X M
             m_pointScaleXM.x = IMAGE_X;
             m_pointScaleXM.y = IMAGE_Y + IMAGE_H;
             m_widthScaleXM = IMAGE_W;
@@ -1380,7 +1380,7 @@ void ImageAreaDraw::ChangeFormatMInit(void)
     m_pointFocus.x = IMAGE_X + IMAGE_W - 5;
     if (m_UDStatus)
         m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
-    else 
+    else
         m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
     // BM line
@@ -1533,20 +1533,20 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
             m_heightClearScaleY = IMAGE_H/3.0*2.0;
 
             // focus
-            m_pointFocus.x = IMAGE_X + IMAGE_W - IMAGE_W/4 + 50- 5; // -- To be confirmed -- 
+            m_pointFocus.x = IMAGE_X + IMAGE_W - IMAGE_W/4 + 50- 5; // -- To be confirmed --
             if (m_UDStatus)
                 m_pointFocus.y = IMAGE_Y + IMAGE_H/3.0*2.0 - m_scaleYSpacing / m_ratio2D;
-            else 
+            else
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
-            // sample volumn 
+            // sample volumn
             m_drawSV = true;
             m_pointPw.x = IMAGE_W/2;
             if (m_UDStatus)
                 m_pointPw.y = IMAGE_H/3.0*2.0;
             else
                 m_pointPw.y = 0;
-            m_heightImgPw = IMAGE_H / 3.0 * 2.0; 
+            m_heightImgPw = IMAGE_H / 3.0 * 2.0;
             m_widthImgPw = IMAGE_W / 3.0 *2.0;
             m_zoomRatioPw = 2.0/3.0;
 
@@ -1609,7 +1609,7 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
             // sample volumn
-            m_drawSV = true; 
+            m_drawSV = true;
             m_pointPw.x = IMAGE_W/2;
             if (m_UDStatus)
                 m_pointPw.y = IMAGE_H/3.0;
@@ -1751,7 +1751,7 @@ void ImageAreaDraw::ChangeFormatPwInit(void)
     m_pointFocus.x = IMAGE_X + IMAGE_W - 5;
     if (m_UDStatus)
         m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
-    else 
+    else
         m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
     // sample volumn
@@ -1819,7 +1819,7 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
             m_pointFocus.x = IMAGE_X + IMAGE_W - 5;
             if (UDStatus)
                 m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / ratio2D;
-            else 
+            else
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / ratio2D;
 
             // cfm Box
@@ -1895,7 +1895,7 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
             pointScaleY.x = IMAGE_X + IMAGE_W;
             if (UDStatus)
                 pointScaleY.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / ratio2D;
-            else 
+            else
                 pointScaleY.y = IMAGE_Y + m_scaleYSpacing / ratio2D;
             m_pointScaleY.push_back(pointScaleY);
 
@@ -2269,13 +2269,13 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
             m_heightClearScaleY = IMAGE_H/3.0*2.0;
 
             // focus
-            m_pointFocus.x = IMAGE_X + IMAGE_W - IMAGE_W/4 + 50- 5; // -- To be confirmed -- 
+            m_pointFocus.x = IMAGE_X + IMAGE_W - IMAGE_W/4 + 50- 5; // -- To be confirmed --
             if (m_UDStatus)
                 m_pointFocus.y = IMAGE_Y + IMAGE_H/3.0*2.0 - m_scaleYSpacing / m_ratio2D;
-            else 
+            else
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
-            // sample volumn 
+            // sample volumn
             m_drawSV = true;
             m_pointPw.x = IMAGE_W/2;
             if (m_UDStatus)
@@ -2283,7 +2283,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
             else
                 m_pointPw.y = 0;
             m_widthImgPw = IMAGE_W / 3.0 * 2.0;
-            m_heightImgPw = IMAGE_H / 3.0 * 2.0; 
+            m_heightImgPw = IMAGE_H / 3.0 * 2.0;
             m_zoomRatioPw = 2.0/3.0;
 
             // scale Y pw
@@ -2353,7 +2353,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
                 m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
 
             // sample volumn
-            m_drawSV = true; 
+            m_drawSV = true;
             m_pointPw.x = IMAGE_W/2;
             if (m_UDStatus)
                 m_pointPw.y = IMAGE_H/3.0;
@@ -2533,7 +2533,7 @@ void ImageAreaDraw::ChangeFormatColorVs2D(void)
     pointScaleY.x = IMAGE_X + IMAGE_W;
     if (m_UDStatus)
         pointScaleY.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
-    else 
+    else
         pointScaleY.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
     m_pointScaleY.push_back(pointScaleY);
 
@@ -2598,16 +2598,16 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
             break;
     }
 
-    if (((scanMode == ScanMode::M) && (formatM == FormatM::BM11_UD)) 
-            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM11_UD)) 
-            || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP11_UD)) 
-            || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP11_UD)) 
-            || ((scanMode == ScanMode::PWCFM) && (formatPw == FormatPw::BP11_UD)) 
+    if (((scanMode == ScanMode::M) && (formatM == FormatM::BM11_UD))
+            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM11_UD))
+            || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP11_UD))
+            || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP11_UD))
+            || ((scanMode == ScanMode::PWCFM) && (formatPw == FormatPw::BP11_UD))
             || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::BP11_UD))
-            || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::BP11_UD)) 
+            || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::BP11_UD))
             || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::BP11_UD))
             || ((scanMode == ScanMode::CW) && (formatPw == FormatPw::BP11_UD))
-            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP11_UD)) 
+            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP11_UD))
             || ((scanMode == ScanMode::CWPDI) && (formatPw == FormatPw::BP11_UD))){
         up = IMAGE_H/2;
         down = IMAGE_H-1;
@@ -2615,15 +2615,15 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
         right = IMAGE_W-1;
     }
     else if (((scanMode == ScanMode::M) && (formatM == FormatM::BM21_UD))
-            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM21_UD)) 
-            || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP21_UD)) 
-            || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP21_UD)) 
-            || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::BP21_UD)) 
+            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM21_UD))
+            || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP21_UD))
+            || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP21_UD))
+            || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::BP21_UD))
             || ((scanMode == ScanMode::PWCFM) && (formatPw == FormatPw::BP21_UD))
-            || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::BP21_UD)) 
+            || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::BP21_UD))
             || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::BP21_UD))
             || ((scanMode == ScanMode::CW) && (formatPw == FormatPw::BP21_UD))
-            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP21_UD)) 
+            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP21_UD))
             || ((scanMode == ScanMode::CWPDI) && (formatPw == FormatPw::BP21_UD)) ) {
         up = (IMAGE_H / 3.0) * 2.0;
         down = IMAGE_H-1;
@@ -2631,7 +2631,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
         right = IMAGE_W-1;
     }
     else if (((scanMode == ScanMode::M) && (formatM == FormatM::BM12_UD))
-            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM12_UD)) 
+            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM12_UD))
             || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP12_UD))
             || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP12_UD))
             || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::BP12_UD))
@@ -2639,7 +2639,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
             || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::BP12_UD))
             || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::BP12_UD))
             || ((scanMode == ScanMode::CW) && (formatPw == FormatPw::BP12_UD))
-            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP12_UD)) 
+            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP12_UD))
             || ((scanMode == ScanMode::CWPDI) && (formatPw == FormatPw::BP12_UD)) ) {
         up = IMAGE_H/3.0;
         down = IMAGE_H-1;
@@ -2647,7 +2647,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
         right = IMAGE_W-1;
     }
     else if (((scanMode == ScanMode::M) && (formatM == FormatM::BM11_LR))
-            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM11_LR)) 
+            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::BM11_LR))
             || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::BP11_LR))
             || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::BP11_LR))
             || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::BP11_LR))
@@ -2655,7 +2655,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
             || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::BP11_LR))
             || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::BP11_LR))
             || ((scanMode == ScanMode::CW) && (formatPw == FormatPw::BP11_LR))
-            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP11_LR)) 
+            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::BP11_LR))
             || ((scanMode == ScanMode::CWPDI) && (formatPw == FormatPw::BP11_LR)) ) {
         up = 0;
         down = IMAGE_H-1;
@@ -2663,7 +2663,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
         right = IMAGE_W-1;
     }
     else if (((scanMode == ScanMode::M) && (formatM == FormatM::M_TOTAL))
-            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::M_TOTAL)) 
+            || ((scanMode == ScanMode::ANATOMIC_M) && (formatM == FormatM::M_TOTAL))
             || ((scanMode == ScanMode::PW) && (formatPw == FormatPw::P_TOTAL))
             || ((scanMode == ScanMode::PW_SIMULT) && (formatPw == FormatPw::P_TOTAL))
             || ((scanMode == ScanMode::PWCFM_SIMULT) && (formatPw == FormatPw::P_TOTAL))
@@ -2671,7 +2671,7 @@ void ImageAreaDraw::GetBoundary(int &up, int &down, int &left, int &right)
             || ((scanMode == ScanMode::PWPDI_SIMULT) && (formatPw == FormatPw::P_TOTAL))
             || ((scanMode == ScanMode::PWPDI) && (formatPw == FormatPw::P_TOTAL))
             || ((scanMode == ScanMode::CW) && (formatPw == FormatPw::P_TOTAL))
-            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::P_TOTAL)) 
+            || ((scanMode == ScanMode::CWCFM) && (formatPw == FormatPw::P_TOTAL))
             || ((scanMode == ScanMode::CWPDI) && (formatPw == FormatPw::P_TOTAL))) {
         up = 0;
         down = IMAGE_H-1;
@@ -2687,7 +2687,7 @@ int ImageAreaDraw::GetPointPos(int x, int y)
     Format2D::EFormat2D format_2d = Format2D::B;
     FormatCfm::EFormatCfm format_cfm = FormatCfm::B;
 
-    if (scan_mode == ScanMode::D2) 
+    if (scan_mode == ScanMode::D2)
         format_2d = modeStatus.GetFormat2D();
     else if (scan_mode == ScanMode::CFM || scan_mode == ScanMode::PDI)
         format_cfm = modeStatus.GetFormatCfm();
@@ -2941,7 +2941,7 @@ void ImageAreaDraw::DrawScanDirection(bool update)
     m_prePointSD[m_curB].x = xPos;
     m_prePointSD[m_curB].y = yPos;
     // 用ScanDirection记录翻转，以供SetScaleYFreeze使用
-    m_prePointSD[m_curB].LRStatus = m_LRStatus; 
+    m_prePointSD[m_curB].LRStatus = m_LRStatus;
     m_prePointSD[m_curB].UDStatus = m_UDStatus;
     m_drawSD[m_curB] = true;
     if (update)
@@ -3079,7 +3079,7 @@ void ImageAreaDraw::DrawScaleY(bool update)
                 DrawVScaleY(true, m_curB);
             else if (m_rotate == 270)
                 DrawHScaleY(false);
-            else 
+            else
                 DrawVScaleY(false, m_curB);
         } else {
             if (m_rotate == 90)
@@ -3088,7 +3088,7 @@ void ImageAreaDraw::DrawScaleY(bool update)
                 DrawVScaleY(false, m_curB);
             else if (m_rotate == 270)
                 DrawHScaleY(true);
-            else 
+            else
                 DrawVScaleY(true, m_curB);
         }
     } else {
@@ -3355,7 +3355,7 @@ void ImageAreaDraw::ClearTGCLine(bool update)
     attr.area = ImageArea::PARA;
     attr.mode.cvDraw = true;
 
-    m_ptrImg->DrawRectangle(attr, g_black, x, y, TGC_W, IMAGE_H, true, update);    
+    m_ptrImg->DrawRectangle(attr, g_black, x, y, TGC_W, IMAGE_H, true, update);
 }
 
 // 跟穿刺线的实现方法一致
@@ -3572,7 +3572,7 @@ void ImageAreaDraw::DrawBiopsyLine(double xDist, double  yDist, bool update)
 		return;
 	}
 	//-------------------------------------------------------------------------------------------------------//
-	
+
     if (m_drawBiopsy)
         BiopsyLine(m_preBiopsy.xDist, m_preBiopsy.yDist, m_preBiopsy.LRStatus, m_preBiopsy.UDStatus, m_preBiopsy.rotate, false);
     BiopsyLine(xDist, yDist, m_LRStatus, m_UDStatus, m_rotate, true);
@@ -3593,7 +3593,7 @@ void ImageAreaDraw::DrawBiopsyLine(double xDist, double  yDist, bool update)
 		return;
 	}
     if (m_drawBiopsyDouble)
-    {  
+    {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_preBiopsyDouble0.LRStatus, m_preBiopsyDouble0.UDStatus, m_preBiopsyDouble0.rotate, false);
         BiopsyLine(m_preBiopsyDouble1.xDist, m_preBiopsyDouble1.yDist, m_preBiopsyDouble1.LRStatus, m_preBiopsyDouble1.UDStatus, m_preBiopsyDouble1.rotate, false);
 
@@ -3625,7 +3625,7 @@ void ImageAreaDraw::DrawBiopsyDoubleLine(double xDist0, double yDist0, double xD
 		return;
 	}
     if (m_drawBiopsyDouble)
-    {  
+    {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_preBiopsyDouble0.LRStatus, m_preBiopsyDouble0.UDStatus, m_preBiopsyDouble0.rotate, false);
         BiopsyLine(m_preBiopsyDouble1.xDist, m_preBiopsyDouble1.yDist, m_preBiopsyDouble1.LRStatus, m_preBiopsyDouble1.UDStatus, m_preBiopsyDouble1.rotate, false);
 
@@ -3792,7 +3792,7 @@ void ImageAreaDraw::BiopsyLine(int xDist, int yDist, bool LRStatus, bool UDStatu
         if(tempLine < (double)boundUp) {
             endp1.x = start.x + (int)((double)(boundUp-start.y) / tanLine);
             endp1.y = boundUp;
-        } else {  
+        } else {
             endp1.x = start.x + (int)((double)(boundDown-start.y) / tanLine);
             endp1.y = boundDown;
         }
@@ -3961,7 +3961,7 @@ void ImageAreaDraw::BiopsyLine(double xDist, double yDist, bool LRStatus, bool U
         if(tempLine < (double)boundUp) {
             endp1.x = start.x + (int)((double)(boundUp-start.y) / tanLine);
             endp1.y = boundUp;
-        } else {  
+        } else {
             endp1.x = start.x + (int)((double)(boundDown-start.y) / tanLine);
             endp1.y = boundDown;
         }
@@ -4175,7 +4175,7 @@ void ImageAreaDraw::GridM(double ratioX, double ratioY, GdkPoint pointScaleYM, b
             int y;
             if (m_UDStatus)
                 y = pointScaleYM.y - IMAGE_Y - (int)j/ratioY;
-            else 
+            else
                 y = pointScaleYM.y - IMAGE_Y + (int)j/ratioY;
             m_ptrImg->DrawPoint(attr, g_green, x, y, false);
         }
@@ -4214,7 +4214,7 @@ void ImageAreaDraw::DrawSV(int curPwLine, int dotBegin, int dotEnd, vector<int> 
             curPwLine = m_curBox.lineBegin;
         else if (curPwLine > m_curBox.lineEnd)
             curPwLine = m_curBox.lineEnd;
-        
+
         //set curPwLine to 4 ,if not then pw line is out of cfm box when its value is less than 2.
         if (curPwLine <=2)
             curPwLine = 4;
@@ -4302,7 +4302,7 @@ void ImageAreaDraw::DrawSVCW(int curPwLine, int dotPos, bool update)
 
     // clear
     if (m_SVDraw)
-        SampleVolumn(m_preSV.pwLine, m_preSV.dotBegin, m_preSV.dotEnd, m_preSV.HPRFEmitPos, m_preSV.LRStatus, m_preSV.UDStatus, m_preSV.pointPw, true, false);  
+        SampleVolumn(m_preSV.pwLine, m_preSV.dotBegin, m_preSV.dotEnd, m_preSV.HPRFEmitPos, m_preSV.LRStatus, m_preSV.UDStatus, m_preSV.pointPw, true, false);
     // draw
     SampleVolumn(curPwLine, dotPos, dotPos, vecTemp, m_LRStatus, m_UDStatus, m_pointPw, true, true);
     m_preSV.pwLine = curPwLine;
@@ -4385,7 +4385,7 @@ void ImageAreaDraw::DrawScaleYPw(bool update)
     attr.area = ImageArea::PARA;
     attr.mode.cvDraw = true;
     const float kMaxVel = 500.0; // 大于kMaxVel时转换单位
-   
+
     int BoundUp, BoundDown;
     int pwHeight = (m_pwMaxVel / m_ratioYPw);
    // double pwHeight =(double)m_pwMaxVel / (double)m_ratioYPw;
@@ -4411,7 +4411,7 @@ void ImageAreaDraw::DrawScaleYPw(bool update)
     PwBaseline(baseline.x - IMAGE_X, baseline.y - IMAGE_Y, color); // baseline 画在spectra区域上
 
     PRINTF("Bound(%d, %d) baseLine.y=%d\n", BoundUp, BoundDown, baseline.y);
-    
+
     if (m_pwCurLevel == 0)
     {
         int detalUpY, detalDownY;
@@ -4430,7 +4430,7 @@ void ImageAreaDraw::DrawScaleYPw(bool update)
     if (m_pwUnit == CMPS) {
         if (m_pwMaxVel > kMaxVel)
             m_ptrImg->DrawString("m/s", m_pointScaleYPw.x + m_widthScaleYPw+SCALE_W/2, baseline.y-hChar);
-        else 
+        else
             m_ptrImg->DrawString("cm/s", m_pointScaleYPw.x + m_widthScaleYPw+SCALE_W/2, baseline.y-hChar);
     }
     else if (m_pwUnit == KHZ) {
@@ -4440,12 +4440,12 @@ void ImageAreaDraw::DrawScaleYPw(bool update)
     int x = m_pointScaleYPw.x;
 
 #if 0
-    if(m_preScanModel==CW) 
+    if(m_preScanModel==CW)
 #endif
 
     char scaleValue[10];
     int ValuePerScale = PwScaleCalc(m_pwMaxVel / m_pwMaxLevel);
-   
+
     if (ValuePerScale < 0)
         return ;
 
@@ -4629,7 +4629,7 @@ void ImageAreaDraw::DrawPwTraceAuto(bool auto_calc, const Image::AutoTracePara* 
 
     if (traceStatus) {
         m_ptrImg->ClearTrace();
-        draw.PwTrace(para->vecTrace); 
+        draw.PwTrace(para->vecTrace);
         if (auto_calc) {
             if (para->vecMaxTrace.size() > 1) {
                 int cycleBegin, cycleEnd;
@@ -4702,7 +4702,7 @@ void ImageAreaDraw::DrawPwTraceAuto(bool auto_calc, const Image::AutoTracePara* 
                 draw.DrawTraceTag(m_psP, FALSE);
                 draw.DrawTraceTag(m_edP, FALSE);
             }}
-        else 
+        else
             m_psP.x = m_edP.x = 0; //draw tag to black
     }
 }
@@ -4726,7 +4726,7 @@ void ImageAreaDraw::DrawPwTrace(bool auto_calc, const Image::AutoTracePara* para
 
     if (traceStatus) {
         m_ptrImg->ClearTrace();
-        draw.PwTrace(para->vecTrace); 
+        draw.PwTrace(para->vecTrace);
         if (auto_calc) {
             if (para->vecMaxTrace.size() > 1) {
                 int cycleBegin, cycleEnd;
@@ -4796,7 +4796,7 @@ void ImageAreaDraw::ClearAutoCalcPara(bool auto_calc)
     UpdateMeasure::ResultAttr attr;
 
     attr.cursorType = draw.GetCursorType();
-    attr.curColor = 5; 
+    attr.curColor = 5;
     attr.confirmColor = draw.GetConfirmColor();
     if(m_autoPara != NULL)
     {
@@ -4887,18 +4887,18 @@ void ImageAreaDraw::DrawTraceTag(const Image::AutoTracePara* para, POINT &cycSta
             ed = edP;
             // save measure result
             MeasureMan::GetInstance()->AddNew(MEASURE_TRACK_AUTO, attr.cursorType, validTrace, draw.GetCursorSize(), attr.confirmColor);
-            //pop edP 
+            //pop edP
             validTrace.pop_back();
             //pop psP
             validTrace.pop_back();
-            
+
             m_ptrImg->ClearTrace();
             if(psP.x != 0 && edP.x != 0)
             {
                 draw.DrawTraceTag(psP, FALSE);
                 draw.DrawTraceTag(edP, FALSE);
             }
-            draw.PwTrace(validTrace); 
+            draw.PwTrace(validTrace);
             draw.DrawVLine(cycEnd, false);
             update.DTrace(buf, attr, false);
         }
@@ -4977,7 +4977,7 @@ void ImageAreaDraw::DrawVelScaleRange(void)
 
     ImageAreaPara::GetInstance()->FillRectangle(x-10,0,GRAYSCALE_W + COLORSCALE_W, 20);
     m_ptrImg->DrawString(RangeMax, x-10, 0, g_white);
-    
+
     ImageAreaPara::GetInstance()->FillRectangle(x-15, y +COLORSCALE_H +5, GRAYSCALE_W+COLORSCALE_W+10, 20+30);
     m_ptrImg->DrawString(RangeMin, x-15, y+COLORSCALE_H+5, g_white);
 }
@@ -5129,7 +5129,7 @@ void ImageAreaDraw::ReDrawCfmBox(bool update)
         m_ptrImg->UpdateImgArea();
 }
 
-// 当冻结后切换图像然后解冻后box应该用冻结前的最后box  zjx 
+// 当冻结后切换图像然后解冻后box应该用冻结前的最后box  zjx
 void ImageAreaDraw::SetCfmBoxFreeze(int preB)
 {
     if (m_formatCfm == FormatCfm::B)
@@ -5361,14 +5361,14 @@ void ImageAreaDraw::DrawGrayTransCurve(unsigned char *CurveValue, unsigned char 
 
     // clean
     m_ptrImg->DrawRectangle(attr, g_black, startX-3, startY-maxvalue-3, maxvalue+10, maxvalue+10, true, false);
-  
+
     int index(0);
     index = ImgProc2D::GetInstance()->GetGrayTranIndex();
     char buf[16];
     sprintf(buf, "C%d", index);
     int posX = startX -3 + (maxvalue + 10)/2;
     int posY = startY - maxvalue -3;
-   
+
     GdkGC *gc = m_ptrImg->GetPixmapDC(g_white, GDK_COPY);
     for(i=0; i<maxvalue; i+=((i==0)?(dis*2-1):(dis*2))) {
         m_ptrImg->DrawPixmapLine(gc, startX, startY-i, startX+maxvalue-1, startY-i);
@@ -5639,10 +5639,10 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
         double angle2;
 
         if (UDStatus && !LRStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 90 + theta2 * 180 / PI;
                 angle2 = 90 + theta1 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 90 - theta2 * 180 / PI;
                 angle2 = 90 - theta1 * 180 / PI;
             } else {
@@ -5650,10 +5650,10 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
                 angle2 = 90 + theta1 * 180 / PI;
             }
         } else if (LRStatus && !UDStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 270 + theta2 * 180 / PI;
                 angle2 = 270 + theta1 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 270 - theta2 * 180 / PI;
                 angle2 = 270 - theta1 * 180 / PI;
             } else {
@@ -5661,10 +5661,10 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
                 angle2 = 270 + theta1 * 180 / PI;
             }
         } else if (UDStatus && LRStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 90 - theta1 * 180 / PI;
                 angle2 = 90 - theta2 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 90 + theta1 * 180 / PI;
                 angle2 = 90 + theta2 * 180 / PI;
             } else {
@@ -5672,10 +5672,10 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
                 angle2 = 90 + theta2 * 180 / PI;
             }
         } else {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 270 - theta1 * 180 / PI;
                 angle2 = 270 - theta2 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 270 + theta1 * 180 / PI;
                 angle2 = 270 + theta2 * 180 / PI;
             } else {
@@ -5936,7 +5936,7 @@ void ImageAreaDraw::BMLine(int curBMLine, bool LRStatus, bool UDStatus, GdkPoint
             halfAngle = scanAngle / 2;
             probeRadius =  m_probeR / m_ratio2D;
         }
-        
+
         if (totalLines % 2 == 0)
         {
             theta = delta * ((curBMLine < halfLines) ? (halfLines - curBMLine) : (curBMLine - halfLines - 1)); //奇偶问题
@@ -6113,7 +6113,7 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
         double cosineSteer = cos(steerAngle);
         double tangentSteer = tan(steerAngle);
         double xSteerOffset[2], ySteerOffset[2];
-        xSteerOffset[0] = sineSteer * svBegin; 
+        xSteerOffset[0] = sineSteer * svBegin;
         ySteerOffset[0] = cosineSteer * svBegin;
         xSteerOffset[1] = sineSteer * svEnd;
         ySteerOffset[1] = cosineSteer * svEnd;
@@ -6325,7 +6325,7 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
         double offset_y3 = cosineTheta * (probeRadius + svBegin) - tmpLen;
         double offset_x4 = sineTheta * (probeRadius + svEnd);
         double offset_y4 = cosineTheta * (probeRadius + svEnd) - tmpLen;
-		PRINTF("offset x1=%.2f, y1=%.2f, x2=%.2f, y2=%.2f, x3=%.2f, y3=%.2f, x4=%.2f, y4=%.2f\n", 
+		PRINTF("offset x1=%.2f, y1=%.2f, x2=%.2f, y2=%.2f, x3=%.2f, y3=%.2f, x4=%.2f, y4=%.2f\n",
 				offset_x1, offset_y1, offset_x2, offset_y2, offset_x3, offset_y3, offset_x4, offset_y4);
 
         double xOffsetSeg = cosineTheta * (svWidth / 2);
@@ -6719,7 +6719,7 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
         if (!UDStatus && point2.y > boundDown)
             point2.y = boundDown;
 
-    }	
+    }
     ImageArea::DrawAttr attr;
     attr.area = ImageArea::SYMBOL;
     attr.mode.cvDraw = draw;
@@ -6928,10 +6928,10 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
         double angle2;
 
         if (UDStatus && !LRStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 90 + theta2 * 180 / PI;
                 angle2 = 90 + theta1 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 90 - theta2 * 180 / PI;
                 angle2 = 90 - theta1 * 180 / PI;
             } else {
@@ -6939,10 +6939,10 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
                 angle2 = 90 + theta1 * 180 / PI;
             }
         } else if (LRStatus && !UDStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 270 + theta2 * 180 / PI;
                 angle2 = 270 + theta1 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 270 - theta2 * 180 / PI;
                 angle2 = 270 - theta1 * 180 / PI;
             } else {
@@ -6950,10 +6950,10 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
                 angle2 = 270 + theta1 * 180 / PI;
             }
         } else if (UDStatus && LRStatus) {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 90 - theta1 * 180 / PI;
                 angle2 = 90 - theta2 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 90 + theta1 * 180 / PI;
                 angle2 = 90 + theta2 * 180 / PI;
             } else {
@@ -6962,10 +6962,10 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
             }
 
         } else {
-            if (lineBegin < halfLines && lineEnd < halfLines) { 
+            if (lineBegin < halfLines && lineEnd < halfLines) {
                 angle1 = 270 - theta1 * 180 / PI;
                 angle2 = 270 - theta2 * 180 / PI;
-            } else if (lineBegin > halfLines && lineEnd > halfLines) { 
+            } else if (lineBegin > halfLines && lineEnd > halfLines) {
                 angle1 = 270 + theta1 * 180 / PI;
                 angle2 = 270 + theta2 * 180 / PI;
             } else {
@@ -7096,7 +7096,7 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
 void ImageAreaDraw::DrawEFOVZoomMiniatureBox(int start_x,  int start_y, int end_x, int end_y)
 {
     if (m_drawEFOVZoomMiniature)
-        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y, 
+        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y,
                 m_EFOVZoomMiniatureBox[1].x, m_EFOVZoomMiniatureBox[1].y, false);
     EFOVZoomMiniatureBox(start_x, start_y, end_x, end_y, true);
     m_EFOVZoomMiniatureBox[0].x = start_x;
@@ -7109,7 +7109,7 @@ void ImageAreaDraw::DrawEFOVZoomMiniatureBox(int start_x,  int start_y, int end_
 void ImageAreaDraw::ReDrawEFOVZoomMiniatureBox(void)
 {
     if (!m_drawEFOVZoomMiniature)
-        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y, 
+        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y,
                 m_EFOVZoomMiniatureBox[1].x, m_EFOVZoomMiniatureBox[1].y, true);
     m_drawEFOVZoomMiniature = true;
 }
@@ -7117,7 +7117,7 @@ void ImageAreaDraw::ReDrawEFOVZoomMiniatureBox(void)
 void ImageAreaDraw::ClearEFOVZoomMiniatureBox(void)
 {
     if (m_drawEFOVZoomMiniature)
-        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y, 
+        EFOVZoomMiniatureBox(m_EFOVZoomMiniatureBox[0].x, m_EFOVZoomMiniatureBox[0].y,
                 m_EFOVZoomMiniatureBox[1].x, m_EFOVZoomMiniatureBox[1].y, false);
     m_drawEFOVZoomMiniature = false;
 }
@@ -7366,7 +7366,7 @@ void ImageAreaDraw::DrawEFOVScaleX(void)
     const int width = (IMAGE_W + 100) * ratio;
     //printf("scale x ratio = %.2f\n", ratio);
 
-    EFOVScaleX(scale_x, scale_y, width, ratio);    
+    EFOVScaleX(scale_x, scale_y, width, ratio);
 
     // const int scale_x = IMAGE_X + IMAGE_W + 80;
     // const int scale_y = 0;

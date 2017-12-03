@@ -893,4 +893,3 @@ void Printer::LoadFirmware(const string uri)
     }
 }
 
-

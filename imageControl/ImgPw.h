@@ -1,4 +1,4 @@
-#ifndef IMG_PW_H	
+#ifndef IMG_PW_H
 #define IMG_PW_H
 
 #include "CalcPw.h"
@@ -23,16 +23,16 @@ class ImgPw
         static const float INTERVAL = 50000.0;
 		static const int MAX_ANGLE = 85;
 
-		//temp 
+		//temp
 		static const double SV_CORRECT_DIST = 3.6;//-0.8;
-		
+
 		~ImgPw();
 
 		static ImgPw* GetInstance();
 
 		void SetCalcPw(CalcPw* calc);
-		void InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);		
-		void InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);		
+		void InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);
+		void InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem);
 		void GetCurPara(ExamItem::ParaItem* ptrParaItem);
 
 		void EnterPw();
@@ -41,7 +41,7 @@ class ImgPw
         // sample volume
 		void ResetSv(); ///< reset sample volume
 		void ResetSvAccordingColor(); ///< reset sample volume
-		void ReSendSv(); 
+		void ReSendSv();
 		void ClearSv();
 		void ReDrawSv();
 		bool ChangePwSV(int offsetX, int offsetY);
@@ -91,18 +91,18 @@ class ImgPw
 		double GetScaleVelKHz(); ///< (KHz)/pixel
 		double GetMaxVelKHz(); ///< KHz
 		int GetPwDots();
-		int GetColorFreq(); 
-		int GetNameColorFreq(); 
+		int GetColorFreq();
+		int GetNameColorFreq();
 		double GetSvSamplePos(); //unit:mm
 		bool GetHPRFStatus();
 		bool GetSimut3Status(void) { return m_simult3; }
 		bool GetSimut2Status(void) { return m_simult2; }
-		int GetBaseLineForCalc(); 
+		int GetBaseLineForCalc();
         int GetRealSpectrumSpeed();
         int GetRealPRF(); // unit: hz
         void CalcPwInfoDot(int posDot, int svLen, int &dotBegin, int &dotEnd, int &dotSvLen);
         int GetSteerAngle(int &currentAngle);
-    
+
 
 		// for test
 		EKnobReturn ChangeSoundFilter(EKnobOper oper);
@@ -138,10 +138,10 @@ class ImgPw
         static const int MAX_GAIN_PW = 300;
         static const int FOC_LOW_TIME = 60;//20;//60;
 #elif defined EMP_355
-		static const int MAX_GAIN_PW = 400; 
+		static const int MAX_GAIN_PW = 400;
         static const int FOC_LOW_TIME = 20;
 #else
-		static const int MAX_GAIN_PW = 1084; 
+		static const int MAX_GAIN_PW = 1084;
         static const int FOC_LOW_TIME = 20;
 #endif
 		//static const int MAX_SOUND_VOLUME = 53;//63;
@@ -152,11 +152,11 @@ class ImgPw
 		static const int SV_POS_PRF[2][POS_PRF_SUM];
 		static const int DYNAMIC_RANGE[2];
 		static const int MAX_LOG = 511;
-		static const unsigned int WALL_FILTER[MAX_WALL_FILTER][7]; 
+		static const unsigned int WALL_FILTER[MAX_WALL_FILTER][7];
 		static const int MAX_SIMULT2_PRF_INDEX = 10;
-		static const unsigned int SIMULT2_PRF[MAX_SIMULT2_PRF_INDEX]; // unit:hz		
+		static const unsigned int SIMULT2_PRF[MAX_SIMULT2_PRF_INDEX]; // unit:hz
 		static const int MAX_SIMULT3_PRF_INDEX = 10;
-		static const unsigned int SIMULT3_PRF[MAX_SIMULT3_PRF_INDEX]; // unit:hz		
+		static const unsigned int SIMULT3_PRF[MAX_SIMULT3_PRF_INDEX]; // unit:hz
       	static const int MAX_STEER = 7;
 		static const int STEER_ANGLE[MAX_STEER];
         static const float PW_FOCUS[3];
@@ -235,7 +235,7 @@ class ImgPw
 
 		static ImgPw* m_ptrInstance;
 		AbsUpdatePw* m_ptrUpdate;
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;		
+		DSCCONTROLATTRIBUTES* m_ptrDscPara;
 		CalcPw* m_ptrCalc;
 		CalcPw::CalcPara m_calcPara;
 		Img2D* m_ptrImg2D;
@@ -244,7 +244,7 @@ class ImgPw
 		int m_tGainPw;
 		bool m_HPRF; ///< status high pulse repeat freq, TRUE is on, FALSE is off
 		int m_pwLine; ///< pw line
-		int m_svPos; ///< position of sample volume in dot on pw line  
+		int m_svPos; ///< position of sample volume in dot on pw line
         int m_svPosBefore; ///< position of sample volume before correct in dot
 		int m_svLen; ///< length of sample volume, = real * 10, unit: mm
 		int m_tgc[8]; ///< 8 tgc
@@ -255,7 +255,7 @@ class ImgPw
 		int m_PRFIndex; ///< index of PRF value
 		int m_PRFIndexBak; ///< bak when HPRF switch in on and off
         int m_PRFIndexTempBak; ///< prf index's bak, used when hprf'S prf index is changed
-		int m_baselineIndex; ///< 
+		int m_baselineIndex; ///<
 		int m_baseline; ///< baseline's real position, relative to (y start of spectrum + spectrum / 2)
 		int m_wallFilterIndex; ///< index of wall filter file
 		int m_dynamicRangeIndex; ///< index of spectrum dynamic range
@@ -263,7 +263,7 @@ class ImgPw
 		int m_soundVolumeIndex; ///< index of sound volume value
 		bool m_soundStatus;	///< status of sound, 0:off, 1:no
 		int m_soundFilterIndex; ///<
-		int m_log; ///< log value 
+		int m_log; ///< log value
 		bool m_invert;
 		int m_grayMap;
 		int m_noiseThreshould;
@@ -274,7 +274,7 @@ class ImgPw
 		double m_scaleTime; ///< s/pixel
 		double m_scaleVel; ///< (mm/s)/pixel
 
-		int m_freq[ProbeSocket::MAX_DOP_FREQ]; ///< real doppler freq * 20 
+		int m_freq[ProbeSocket::MAX_DOP_FREQ]; ///< real doppler freq * 20
 		int m_freqSum; ///< doppler freq sum of current probe
 		double m_depthToSample;
 		int m_maxPRFIndex;

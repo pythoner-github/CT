@@ -53,7 +53,7 @@ void KeyValueOpr::ListLighten() //for debug
 
 /*****************************
  * @brief 检查灯点亮或熄灭
- * 
+ *
  * @para lightValue light value to be check
  * @retval on true-亮灯, false-灭灯
  * **************************/
@@ -93,7 +93,7 @@ void KeyValueOpr::RemoveLighten(unsigned char lightValue)
 
 /*****************************
  * @brief 控制灯,点亮或熄灭
- * 
+ *
  * @para on true-亮灯, false-灭灯
  * @para lightValue light value to be control
  * **************************/
@@ -198,8 +198,8 @@ void KeyValueOpr::SendKeyValue( unsigned char *keyValue )
     switch(keyValue[0])
     {
         ///接收到TGC发送给vector底窗口即主窗口
-        case 0x07:		
-            if ((keyValue[2]>=0xA1)&&(keyValue[2]<=0xA9))		
+        case 0x07:
+            if ((keyValue[2]>=0xA1)&&(keyValue[2]<=0xA9))
                {
 #ifdef TRANSDUCER
                    WinOprStack[0]->SliderEvent(keyValue[1], keyValue[2]);
@@ -209,7 +209,7 @@ void KeyValueOpr::SendKeyValue( unsigned char *keyValue )
                         Img2D::GetInstance()->ChangeTransducer(Transducer);
                    }
 
-#else					
+#else
  					WinOprStack[0]->SliderEvent(keyValue[1], keyValue[2]);
 #endif
                }
@@ -287,10 +287,10 @@ gboolean GetKeyValue(GIOChannel *source, GIOCondition condition, gpointer data)
 	int lenTotal = 0;
 	unsigned char recvbuf[3];
 	KeyValueOpr *pKeyInterface;
-	
+
 	timeout.tv_sec = 5;			// timeout = 5 second.
 	timeout.tv_usec = 0;
-	
+
 	for( i=0; i<3; i++ )
 	{
 		recvbuf[i] = 0;
@@ -343,10 +343,10 @@ void *KeyboardOversee( void *pKeyInterface, bool isHandShake)
 {
 	portinfo_t portinfo = { '0', 19200, '8', '0', '0', '0', '0', '0', '1', 0 };
 
-	s_fdcom = PortOpen( &portinfo ); 
+	s_fdcom = PortOpen( &portinfo );
 	if(s_fdcom < 0)
 	{
-		exit(EXIT_FAILURE);	
+		exit(EXIT_FAILURE);
 	}
 
 	PRINTF("s_fdcom= %d\n", s_fdcom );
@@ -364,7 +364,7 @@ void *KeyboardOversee( void *pKeyInterface, bool isHandShake)
 
 	//键盘监视
 	UartOversee( s_fdcom, pKeyInterface );
-	
+
 	return NULL;
 }
 
@@ -379,9 +379,8 @@ void KeyboardSound(bool value)
     unsigned char soundValue;
     if (value)
 	soundValue = KEY_SOUND_ON;
-    else 
+    else
 	soundValue = KEY_SOUND_OFF;
-	
+
     PortSend(s_fdcom, &soundValue, 1);
 }
-

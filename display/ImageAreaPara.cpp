@@ -25,7 +25,7 @@ char * ImageAreaPara::Level[2] = {
     _("Low"),
     //_("MID"),
     _("High")
-};	
+};
 
 #ifdef EMP_355
 extern bool g_printProcessFps;
@@ -33,7 +33,7 @@ extern bool g_printProcessFps;
 
 ImageAreaPara::ImageAreaPara()
 {
-    m_ptrImg = ImageArea::GetInstance();	
+    m_ptrImg = ImageArea::GetInstance();
     memset(m_bufText, 0, sizeof (m_bufText));
     memset(m_freq, 0, sizeof (m_freq));
     memset(m_freqDoppler, 0, sizeof (m_freqDoppler));
@@ -124,19 +124,19 @@ void ImageAreaPara::UpdateGenFps(int receiveFps, int processFps, bool draw)
     m_fpsForReplay = receiveFps;
 
     ModeStatus s;
-    if (ModeStatus::IsUnFreezeMode()) 
+    if (ModeStatus::IsUnFreezeMode())
     {
 
-	//去掉1帧的波动。    
+	//去掉1帧的波动。
 	if ((m_fps < m_fpsBak -2) || (m_fps > m_fpsBak +2))
-	{       
+	{
 	    m_fpsBak = m_fps;
 	    if (draw)
 		DrawGeneralPara();
 	}
     }
     else
-    { 
+    {
         m_fps = 0;
         //draw when freeze mode
         sprintf(m_bufText, " %3dfps", m_fps);
@@ -144,7 +144,7 @@ void ImageAreaPara::UpdateGenFps(int receiveFps, int processFps, bool draw)
     }
 
     if (g_printProcessFps)
-    { 
+    {
         int fps = processFps;
         FormatM::EFormatM formatM = s.GetFormatM();
         FormatPw::EFormatPw formatPw = s.GetFormatPw();
@@ -186,7 +186,7 @@ void ImageAreaPara::UpdateGenFps(int data, bool draw)
     FormatPw::EFormatPw formatPw = s.GetFormatPw();
     int curPwImg = s.GetPwCurImg();
 
-    if (ModeStatus::IsUnFreezeMode()) 
+    if (ModeStatus::IsUnFreezeMode())
     {
         if (ModeStatus::IsSpectrumSimult() || ModeStatus::IsSpectrumColorSimult())
         {
@@ -214,11 +214,11 @@ void ImageAreaPara::UpdateGenFps(int data, bool draw)
                 m_fps = 0;
             }
         }
-        
+
         //去掉1帧的波动。
         if ((m_fps >= m_fpsBak -2) && (m_fps <= m_fpsBak +2))
             return;
-        
+
         if ((m_fps > 70) || (m_fps < 0))
             m_fps = 70;
         m_fpsBak = m_fps;
@@ -344,7 +344,7 @@ void ImageAreaPara::UpdatePwSVPos(double data, bool draw)
 void ImageAreaPara::UpdatePwHPRFStatus(bool on, bool draw)
 {
     m_HPRFStatus = on;
-    if (draw) 
+    if (draw)
         DrawPwGen2Para();
 }
 
@@ -505,7 +505,7 @@ void ImageAreaPara::Draw2DPara()
 
     FillRectangle(x, y, m_eareWs, m_eareH);
     m_ptrImg->DrawString("<b><span underline=\"low\" >2D</span></b>", x, y);
-	
+
     FillRectangle(x, y+20, m_eareWl, m_eareH);
     sprintf(m_bufText, "%dG %ddB %dMBP %s", m_gain2D, m_dynamicRange, m_mbp, m_tsi.c_str());
     m_ptrImg->DrawString(m_bufText, x, y+20);
@@ -617,7 +617,7 @@ void ImageAreaPara::DrawCwPara()
 
     FillRectangle(x, y, m_eareWs, m_eareH);
     m_ptrImg->DrawString("<b><span underline=\"low\" >CW</span></b>", x, y);
-	
+
     FillRectangle(x, y+20, m_eareWl, m_eareH);
     sprintf(m_bufText, "GC%d %.1fcm %dKHz %dHz %d°", m_gainCw, m_svPosCw/10, (int)m_PRFCw, m_wfCw, m_angleCw);
     m_ptrImg->DrawString(m_bufText, x, y+20);
@@ -636,7 +636,7 @@ void ImageAreaPara::DrawCfmPara()
     FillRectangle(x, y+20, m_eareWl, m_eareH);
     sprintf(m_bufText, "%dG %.2fKHz WF%d %dP %dS", m_gainCfm, m_prfCfm/(float)1000, m_wfCfm, m_persistCfm, m_sensitiveCfm);
     m_ptrImg->DrawString(m_bufText, x, y+20);
-    
+
     FillRectangle(x, y+20+20, m_eareWl, m_eareH);
     sprintf(m_bufText, "%s",m_freqDoppler);
     m_ptrImg->DrawString(m_bufText, x, y+40);
@@ -669,14 +669,14 @@ void ImageAreaPara::DrawTransducer(void)
      sprintf( strbuffer, "-0.1");
      m_ptrImg->DrawString(strbuffer, x + width + 2+3, y-9+2, g_white);
      sprintf(strbuffer, "-0.0%d%dMPa", (int)m_transducer/10, (int)m_transducer%10);
-     m_ptrImg->DrawString(strbuffer, x, y + height + 2, g_white);	
+     m_ptrImg->DrawString(strbuffer, x, y + height + 2, g_white);
 
      m_ptrImg->DrawTransducerResult(x, y, width, height, m_transducer);
 }
 
 void ImageAreaPara::ReDrawTransducer(void)
 {
-    
+
     DrawTransducer();
 #if 0
     int width = 26, height = 100;
@@ -692,5 +692,4 @@ void ImageAreaPara::FillRectangle(int x, int y, int w, int h)
 {
     m_ptrImg->DrawRectangle(m_attr, g_black, x, y, w, h, true, false);
 }
-
 

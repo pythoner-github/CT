@@ -20,8 +20,8 @@ void OverturnMouseOpr(int &offsetX, int &offsetY);
 
 extern MenuPW g_menuPW;
 /*
- * @brief none 
- */ 
+ * @brief none
+ */
 class MultiFuncNone: public AbsMultiFunc
 {
     public:
@@ -38,7 +38,7 @@ class MultiFuncNone: public AbsMultiFunc
 
 /*
  * @brief Replay
- */ 
+ */
 class MultiFuncReplay: public AbsMultiFunc
 {
     public:
@@ -139,14 +139,14 @@ class MultiFuncPwCfmInit: public AbsMultiFunc
 		void KeyRight();
 		void KeyUp();
 		void KeyDown();
-		void Value(EKnobOper oper); 
+		void Value(EKnobOper oper);
 
 	private:
 		char m_change; ///< 0-SV; 1-BOX pos; 2-BOX size
 };
 
 /*
- * @brief pw+cfm 
+ * @brief pw+cfm
  */
 class MultiFuncPwCfm: public MultiFuncPwCfmInit
 {
@@ -155,7 +155,7 @@ class MultiFuncPwCfm: public MultiFuncPwCfmInit
 };
 
 /*
- * @brief pw+pdi init 
+ * @brief pw+pdi init
  */
 class MultiFuncPwPdiInit: public MultiFuncPwCfmInit
 {
@@ -165,7 +165,7 @@ class MultiFuncPwPdiInit: public MultiFuncPwCfmInit
 };
 
 /*
- * @brief pw+pdi 
+ * @brief pw+pdi
  */
 class MultiFuncPwPdi: public MultiFuncPwCfmInit
 {
@@ -189,8 +189,8 @@ class MultiFuncAnatomicM: public AbsMultiFunc
 		{
 		}
 
-		void Mouse(int offsetX, int offsetY); 
-		void Do(); 
+		void Mouse(int offsetX, int offsetY);
+		void Do();
 		void KeyUp();
 		void KeyDown();
 		void KeyLeft();
@@ -214,8 +214,8 @@ class MultiFuncEFOV: public AbsMultiFunc
 		}
 
 		void Update();
-		void Mouse(int offsetX, int offsetY); 
-		void Undo(); 
+		void Mouse(int offsetX, int offsetY);
+		void Undo();
         void Do();
 		void KeyLeft();
 		void KeyRight();
@@ -285,7 +285,7 @@ class MultiFuncCwCfmInit: public AbsMultiFunc
 };
 
 /*
- * @brief cw+cfm 
+ * @brief cw+cfm
  */
 class MultiFuncCwCfm: public MultiFuncCwCfmInit
 {
@@ -295,7 +295,7 @@ class MultiFuncCwCfm: public MultiFuncCwCfmInit
 };
 
 /*
- * @brief cw+pdi init 
+ * @brief cw+pdi init
  */
 class MultiFuncCwPdiInit: public MultiFuncCwCfmInit
 {
@@ -305,7 +305,7 @@ class MultiFuncCwPdiInit: public MultiFuncCwCfmInit
 };
 
 /*
- * @brief cw+pdi 
+ * @brief cw+pdi
  */
 class MultiFuncCwPdi: public MultiFuncCwCfmInit
 {  private:

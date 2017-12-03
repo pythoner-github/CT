@@ -123,7 +123,7 @@ bool read_avifile_width(FILE *file, int& WIDTH)
 	{
 		perror("fread error:");
 		return false;
-	}   
+	}
 
     WIDTH = tmp[0];
     return true;
@@ -144,7 +144,7 @@ bool read_avifile_height(FILE *file, int& HEIGHT)
 	{
 		perror("fread error:");
 		return false;
-	}   
+	}
 
     HEIGHT = tmp[0];
     return true;
@@ -165,7 +165,7 @@ bool read_avifile_frames(FILE *file, int& NumberOfFrames)
 	{
 		perror("fread error:");
 		return false;
-	}   
+	}
 
     NumberOfFrames = tmp[0];
     return true;
@@ -186,12 +186,12 @@ bool read_avifile_framerate(FILE *file, int& FRAMERATE)
 	{
 		perror("fread error:");
 		return false;
-	}   
+	}
 
     FRAMERATE = (int)( 1000000.0 / (double)tmp[0] );
     return true;
 }
-    
+
 bool get_avifile_info(FILE *file,int& WIDTH,int& HEIGHT,int& NumberOfFrames,int& FRAMERATE)
 {
     read_avifile_width(file, WIDTH);
@@ -428,7 +428,7 @@ void CreateAvi(unsigned char* inputfile[], FILE* outputfile, int WIDTH, int HEIG
 #endif
 #if 1
 			for(k=0;k<WIDTH;k++)
-			{	
+			{
 				emit_1_byte(cinfo, (int)(cinfo->inbuffer)[3*k+2]);
 				emit_1_byte(cinfo, (int)(cinfo->inbuffer)[3*k+1]);
 				emit_1_byte(cinfo, (int)(cinfo->inbuffer)[3*k]);
@@ -472,7 +472,7 @@ bool ReadAvi(FILE *fs, unsigned char* buf, unsigned int spec_frame, int width, i
 		else
 		{
 			for(int k=0; k<width; k++)
-			{	
+			{
 				*(ptr+3*k) = row_buf[3*k+2];
 				*(ptr+3*k+1) = row_buf[3*k+1];
 				*(ptr+3*k+2) = row_buf[3*k];
@@ -488,4 +488,3 @@ bool ReadAvi(FILE *fs, unsigned char* buf, unsigned int spec_frame, int width, i
 	}
 	return true;
 }
-

@@ -32,9 +32,9 @@ ViewWorkList::ViewWorkList()
 {
     SysGeneralSetting sys;
     m_dateFormat = sys.GetDateFormat();
-    
-       
-    m_timeout = 0; 
+
+
+    m_timeout = 0;
     selectedIndex = 0;
 
 }
@@ -65,13 +65,13 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     GtkWidget *label_accession;
     GtkWidget *label_request;
     GtkWidget *label_date;
-    GtkWidget *label_to; 
-    GtkWidget *button_query; 
+    GtkWidget *label_to;
+    GtkWidget *button_query;
     GtkWidget *button_clear;
     GtkWidget *image_new_exam;
     GtkWidget *label_new_exam;
     GtkWidget *button_new_exam;
-    
+
     GtkWidget *image_detail;
     GtkWidget *label_detail;
     GtkWidget *button_detail;
@@ -79,7 +79,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     GtkWidget *image_quit;
     GtkWidget *label_quit;
     GtkWidget *button_quit;
-    
+
     GtkWidget *image_transfer;
     GtkWidget *label_transfer;
     GtkWidget *button_transfer;
@@ -121,9 +121,9 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
 
 #ifdef VET
 	 label_ID = gtk_label_new (_("ID :"));
-#else 
+#else
     label_ID = gtk_label_new (_("Patient ID :"));
-#endif    
+#endif
 	gtk_widget_show (label_ID);
     gtk_fixed_put (GTK_FIXED (fixed), label_ID, 10-10, 8);
     gtk_label_set_use_markup (GTK_LABEL (label_ID), TRUE);
@@ -203,7 +203,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
    gtk_widget_set_size_request (m_entry_request, 200+50-100, 30);
 #else
     gtk_widget_set_size_request (m_entry_request, 200-100, 30);
-  #endif 
+  #endif
     gtk_entry_set_max_length (GTK_ENTRY (m_entry_request), 15);
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_request), 9679);
 
@@ -215,7 +215,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
   	gtk_widget_set_size_request (label_date, 130+40, 30);
 //#else
   //  gtk_widget_set_size_request (label_date, 130, 30);
-//#endif  
+//#endif
   	gtk_misc_set_alignment (GTK_MISC (label_date), 0.9, 0.5);
 
     m_entry_date1 = gtk_entry_new ();
@@ -231,7 +231,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_editable_set_editable(GTK_EDITABLE(m_entry_date1),false);
     //g_signal_connect(G_OBJECT(m_entry_date1), "insert_text", G_CALLBACK(on_entry_insert_start_date), this);
    // g_signal_connect(G_OBJECT(m_entry_date2), "delete_text", G_CALLBACK(on_entry_delete_start_date), this);
-    
+
     img_start_calendar = gtk_image_new_from_file ("./res/icon/Calendar.png");
     gtk_widget_show (img_start_calendar);
     eventbox_start_calendar = gtk_event_box_new ();
@@ -242,9 +242,9 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
  	gtk_fixed_put (GTK_FIXED (fixed), eventbox_start_calendar, 230+30+10, 82);
 //#else
   //  gtk_fixed_put (GTK_FIXED (fixed), eventbox_start_calendar, 230-10, 82);
-//#endif   
+//#endif
  	g_signal_connect (G_OBJECT(eventbox_start_calendar), "button_press_event", G_CALLBACK(HandleStartCalendarPress), this);
-    
+
     label_to = gtk_label_new (_("To :"));
     gtk_widget_show (label_to);
 //#ifdef VET
@@ -357,7 +357,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_widget_set_size_request (button_quit, 85+30, 35+20);
     g_signal_connect(button_quit, "clicked", G_CALLBACK(HandleButtonQuitClicked), this);
     m_fixed =fixed;
-    
+
     gtk_widget_show_all(window_worklist);
 
     m_window = window_worklist;
@@ -373,7 +373,7 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
-    
+
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
 	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
@@ -399,7 +399,7 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Name"), renderer, "text", COL_NAME, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Gender"), renderer, "text", COL_Gender, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -409,13 +409,13 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("Accession Number"), renderer, "text", COL_ACCESSION_NUMBER, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
     g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
-    
+
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Birth Date"), renderer, "text", COL_BIRTH_DATE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
-    
+
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Exam Description"), renderer, "text", COL_EXAM_DESCRIPTION, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
@@ -424,7 +424,7 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     model = create_worklist_model();
     if (model != NULL)
 		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
-    g_object_unref (model); 
+    g_object_unref (model);
 
 	return treeview;
 }
@@ -433,13 +433,13 @@ GtkTreeModel* ViewWorkList::create_worklist_model()
 {
     GtkListStore *store;
 
-    store = gtk_list_store_new(NUM_COLS, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
+    store = gtk_list_store_new(NUM_COLS,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
 			G_TYPE_STRING);
 
 	return GTK_TREE_MODEL (store);
@@ -577,14 +577,14 @@ int StartExam(gpointer data)
         ViewNewPat::GetInstance()->ClearStudyInfo();
         // clear desctiption and comment
         ViewReport::GetInstance()->ClearIndicationandComments();
-        //clear screen 
+        //clear screen
         KeyClearScreen kcs;
         kcs.Execute();
-#if 0	
+#if 0
         if (GTK_IS_WIDGET(ViewNewPat::GetInstance()->GetWindow())) {
             if (ViewNewPat::GetInstance()->GetClearStatus())
                 ViewNewPat::GetInstance()->ClearData();
-            else 
+            else
                 ViewNewPat::GetInstance()->ClearExamData();
         }
 #endif
@@ -600,11 +600,11 @@ int StartExam(gpointer data)
                     GetCurrentDateTime(Year, Month, Day, Hour, Minute, Second);
 
                     string year, mon, day, studyEndDate;
-                    ChangeDateFormatToString(Year, Month, Day, year, mon, day); 
+                    ChangeDateFormatToString(Year, Month, Day, year, mon, day);
                     studyEndDate = year+mon+day;
 
                     string hour, min, sec, studyEndTime;
-                    ChangeTimeFormatToString(Hour, Minute, Second, hour, min, sec); 
+                    ChangeTimeFormatToString(Hour, Minute, Second, hour, min, sec);
                     studyEndTime = hour + min + sec;
 
                     CDCMMan::GetMe()->EndMPPS(studyEndDate,studyEndTime);
@@ -651,14 +651,14 @@ int StartExam(gpointer data)
 	} else {
           if (GTK_IS_WIDGET(ViewWorkList::GetInstance()->GetWindow())) {
 			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewWorkList::GetInstance()->GetWindow()), ViewDialog::ERROR, _(errmsg.c_str()), NULL);
-        } 
+        }
 
     }
 	return 0;
 }
 int InserInfo(gpointer data)
 {
-    ViewWorkList::GetInstance()->InserPatInfo(); 
+    ViewWorkList::GetInstance()->InserPatInfo();
     return 0;
 }
 void ViewWorkList::InserPatInfo()
@@ -689,12 +689,12 @@ void ViewWorkList::ButtonQueryClicked(GtkButton *button)
     GtkTreeModel *model;
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     gtk_list_store_clear(GTK_LIST_STORE(model));
-    
+
     LoadPatientInfo();
-    
+
     int num;
     char record_str[256];
-    num = m_query.size(); 
+    num = m_query.size();
 
     //get the number of the patient record
     sprintf(record_str,"%d %s",num,_("record is found"));
@@ -720,14 +720,14 @@ void ViewWorkList::ButtonNewExamClicked(GtkButton *button)
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     if(gtk_tree_selection_get_selected(selection,NULL,&iter))
-    { 
+    {
         GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
         char *path_string = gtk_tree_path_to_string(path);
         int path_num = atoi(path_string);
         selectedIndex = path_num;
        // printf("----%s %s %s %s\n",m_query[path_num].wlPatientID.c_str(),m_query[path_num].wlPatientName.c_str(),m_query[path_num].wlPatientBirthDate.c_str(),m_query[path_num].wlPatientSex.c_str());
 
-        
+
         if (g_patientInfo.GetExist()) {
             // end exam
             //KeyStartExam kee;
@@ -735,16 +735,16 @@ void ViewWorkList::ButtonNewExamClicked(GtkButton *button)
             //Archive
             ArchiveWorkListPatInfo(true);
 
-        } 
+        }
         //printf("----%s %s %s %s\n",m_query[selectedIndex].wlPatientID.c_str(),m_query[selectedIndex].wlPatientName.c_str(),m_query[selectedIndex].wlPatientBirthDate.c_str(),m_query[selectedIndex].wlPatientSex.c_str());
         else
             ImportPatInfo();
-       
+
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No patient is selected!"),
                 NULL);
      }
@@ -754,8 +754,8 @@ void ViewWorkList::ImportPatInfo()
 {
     if(CDCMMan::GetMe()->IsExistedWorklistStudy(m_query[selectedIndex]))
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("The exam record  has exsited, please select other record again!"),
                 NULL);
         return;
@@ -802,7 +802,7 @@ void ViewWorkList::ChangePersonNameFormat(string wlPersonName, string &firstName
 void ViewWorkList::ChangePersonNameFormatForShow(string wlPersonName, string &name)
 {
 	string firstName, lastName, midName;
-	
+
 	ChangePersonNameFormat(wlPersonName, firstName, lastName, midName);
 	SysGeneralSetting sgs;
 	 int lang = sgs.GetLanguage();
@@ -817,13 +817,13 @@ void ViewWorkList::GetSelectedPatInfo()
 {
     PatientInfo::Info info;
     g_patientInfo.GetInfo(info);
-    
+
     char str[25]="\0";
     char buf[20]="\0";
     sprintf(buf,"%s",m_query[selectedIndex].wlPatientSex.c_str());
-    
+
     info.p.id = m_query[selectedIndex].wlPatientID;
-    
+
 	PatientInfo::Name patientName;
 	ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
 	info.p.name.last = patientName.last;
@@ -863,9 +863,9 @@ void ViewWorkList::GetSelectedPatInfo()
     sprintf(birth_year,"%c%c%c%c",birth_date[0],birth_date[1],birth_date[2],birth_date[3]);
     sprintf(birth_month,"%c%c",birth_date[4],birth_date[5]);
     sprintf(birth_day,"%c%c",birth_date[6],birth_date[7]);
-    info.p.birthDate.year =atoi(birth_year); 
-    info.p.birthDate.month =atoi(birth_month); 
-    info.p.birthDate.day =atoi(birth_day); 
+    info.p.birthDate.year =atoi(birth_year);
+    info.p.birthDate.month =atoi(birth_month);
+    info.p.birthDate.day =atoi(birth_day);
     info.p.address = m_query[selectedIndex].wlPatientAddress;
 
     //Size
@@ -901,8 +901,8 @@ void ViewWorkList::GetSelectedPatInfo()
     Database db;
     db.GetExamIDNext(info.e.examNum);
 
-    CDCMMan::GetMe()->EditStudyInfo(EditStudyInfo(info)); 
-            //MPPS 
+    CDCMMan::GetMe()->EditStudyInfo(EditStudyInfo(info));
+            //MPPS
             if(!g_patientInfo.GetExist())
             {
                 SysDicomSetting sysDicomSetting;
@@ -934,7 +934,7 @@ void ViewWorkList::ButtonDetailClicked(GtkButton *button)
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     if(gtk_tree_selection_get_selected(selection,NULL,&iter))
-    { 
+    {
         GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
         char *path_string = gtk_tree_path_to_string(path);
         int path_num = atoi(path_string);
@@ -955,16 +955,16 @@ void ViewWorkList::ButtonDetailClicked(GtkButton *button)
     else
     {
 #ifdef VET
- 		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+ 		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No animal is selected!"),
                 NULL);
 #else
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No patient is selected!"),
                 NULL);
-#endif     
+#endif
    return;
     }
 }
@@ -985,7 +985,7 @@ void ViewWorkList::ButtonTransferClicked(GtkButton *button)
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     if(gtk_tree_selection_get_selected(selection,NULL,&iter))
-    { 
+    {
         GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
         char *path_string = gtk_tree_path_to_string(path);
         int path_num = atoi(path_string);
@@ -993,8 +993,8 @@ void ViewWorkList::ButtonTransferClicked(GtkButton *button)
         //printf("----%s %s %s %s\n",m_query[path_num].wlPatientID.c_str(),m_query[path_num].wlPatientName.c_str(),m_query[path_num].wlPatientBirthDate.c_str(),m_query[path_num].wlPatientSex.c_str());
         if(CDCMMan::GetMe()->IsExistedWorklistStudy(m_query[path_num]))
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("The exam record  has exsited, please select other record again!"),
                     NULL);
             return;
@@ -1013,8 +1013,8 @@ void ViewWorkList::ButtonTransferClicked(GtkButton *button)
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                ViewDialog::INFO,
                 _("No patient is selected!"),
                 NULL);
       return;
@@ -1143,7 +1143,7 @@ void ViewWorkList::DisplayPatientRecord()
                 COL_BIRTH_DATE,birthDate_buf,
                 COL_EXAM_DESCRIPTION,m_query[i].wlStudyDescription.c_str(),
                 -1);
-        gtk_tree_model_iter_next(model, &iter); 
+        gtk_tree_model_iter_next(model, &iter);
     }
     //m_query.clear();
 
@@ -1153,7 +1153,7 @@ gboolean UpdateAutoQuery(gpointer data)
 {
 	ViewWorkList *tmp;
 	tmp = (ViewWorkList *)data;
-	tmp->GetAndDisplayPatientRecord(); 
+	tmp->GetAndDisplayPatientRecord();
 	return TRUE;
 }
 
@@ -1162,7 +1162,7 @@ void ViewWorkList::AutoQuery()
 
     if(m_autoQueryFlag)
     {
-#if 0   
+#if 0
     if(!(CDCMMan::GetMe()->TestLinkDefaultWorklist()))
     {
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewNewPat::GetInstance()->GetWindow()), ViewDialog::ERROR, _("Test Link is failed"), NULL);
@@ -1194,9 +1194,9 @@ void ViewWorkList::GetAndDisplayPatientRecord()
 {
     m_query.clear();
     LoadPatientInfo();
-   
+
     char record_str[256]="\0";
-    int num = m_query.size(); 
+    int num = m_query.size();
     //get the number of the paitient record
     sprintf(record_str,"%d %s",num,_("record is found"));
     gtk_label_set_text(GTK_LABEL(m_label_record),record_str);
@@ -1328,7 +1328,7 @@ void ViewWorkList::GetAndDisplayPatientRecord()
                 COL_BIRTH_DATE,birthDate_buf,
                 COL_EXAM_DESCRIPTION,m_query[i].wlStudyDescription.c_str(),
                 -1);
-        gtk_tree_model_iter_next(model, &iter); 
+        gtk_tree_model_iter_next(model, &iter);
     }
 
 }
@@ -1355,12 +1355,12 @@ DCMMPPSELEMENT ViewWorkList::GetMPPSElement(PatientInfo::Info &info)
     ms.msScheduledProcedureStepID = m_query[selectedIndex].wlScheduledProcedureStepID;
 
     string year, mon, day, studyDate;
-    ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day); 
+    ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day);
     studyDate = year+mon+day;
     ms.msStudyStartDate = studyDate;
 
     string hour, min, sec, studyTime;
-    ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec); 
+    ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec);
     studyTime = hour + min + sec;
     ms.msStudyStartTime = studyTime;
 
@@ -1382,14 +1382,14 @@ DCMSTUDYELEMENT ViewWorkList::EditStudyInfo(PatientInfo::Info &info)
     st.stAccessionNumber = m_query[selectedIndex].wlAccessionNumber;
     st.stStudyDoctor = m_query[selectedIndex].wlStudyDoctor;
     st.stStudyDescription = m_query[selectedIndex].wlStudyDescription;
-    
+
     string year, mon, day, studyDate;
-    ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day); 
+    ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day);
     studyDate = year+mon+day;
     st.stStudyDate =studyDate;
-    
+
     string hour, min, sec, studyTime;
-    ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec); 
+    ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec);
     studyTime = hour + min + sec;
     st.stStudyTime = studyTime;
 
@@ -1414,7 +1414,7 @@ DCMSTUDYELEMENT ViewWorkList::EditStudyInfo(PatientInfo::Info &info)
     //st.stStudyDate =(string)studyDate;
     //st.stStudyTime = (string)studyTime;
     st.stFactoryName = "EMP";
-    st.stHospital = hospital; 
+    st.stHospital = hospital;
     st.stMechineType = machine;
     st.stMechineSN ="";
     st.stStudyNo = atoi(info.e.examNum.c_str());
@@ -1594,7 +1594,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ID), 9679);
     gtk_editable_set_editable(GTK_EDITABLE(m_entry_ID),false);
     //gtk_widget_set_sensitive(m_entry_ID,false);
-    
+
 #ifdef VET
  	label_name = gtk_label_new (_("Animal Name:"));
 #else
@@ -1655,7 +1655,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_birth_date), 9679);
     gtk_editable_set_editable(GTK_EDITABLE(m_entry_birth_date),false);
     //gtk_widget_set_sensitive(m_entry_birth_date,false);
-    
+
     label_age = gtk_label_new (_("Age:"));
     gtk_widget_show (label_age);
     gtk_fixed_put (GTK_FIXED (fixed), label_age, 200-20, 45);
@@ -1671,7 +1671,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_age), 9679);
     gtk_editable_set_editable(GTK_EDITABLE(m_entry_age),false);
     //gtk_widget_set_sensitive(m_entry_age,false);
-  
+
     label_request = gtk_label_new (_("Requested Procedure ID :"));
     gtk_widget_show (label_request);
     gtk_fixed_put (GTK_FIXED (fixed), label_request, 420+10, 45);
@@ -1719,7 +1719,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_date), 9679);
     gtk_editable_set_editable(GTK_EDITABLE(m_entry_date),false);
    // gtk_widget_set_sensitive(m_entry_date,false);
-    
+
     label_doctor = gtk_label_new (_("Diagnostician :"));
     gtk_widget_show (label_doctor);
     gtk_fixed_put (GTK_FIXED (fixed), label_doctor, 450, 82);
@@ -1803,7 +1803,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_container_add (GTK_CONTAINER (scrolledwindow_comment), m_textview_comment);
     gtk_text_view_set_editable(GTK_TEXT_VIEW (m_textview_comment),false);
    // gtk_widget_set_sensitive(m_textview_comment,false);
-    
+
     image_quit = gtk_image_new_from_stock ("gtk-quit", GTK_ICON_SIZE_BUTTON);
     label_quit = gtk_label_new_with_mnemonic (_("Exit"));
     button_quit = create_button_icon(label_quit, image_quit);
@@ -1813,7 +1813,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     g_signal_connect(button_quit, "clicked", G_CALLBACK(HandleButtonQuitClicked), this);
 
     gtk_widget_show_all(window_detail);
-    
+
     m_window_detail = window_detail;
     g_keyInterface.Push(this);
     SetSystemCursorToCenter();
@@ -1833,11 +1833,11 @@ void PatDetail::InsertPatDetail(const char *ID,const char *name,string birthDate
 #endif
     int date_pos = 0;
 
-           
+
     gtk_entry_set_text(GTK_ENTRY(m_entry_ID),ID);
     gtk_entry_set_text(GTK_ENTRY(m_entry_name),name);
     gtk_entry_set_text(GTK_ENTRY(m_entry_accession),accessionNumber);
- 
+
     //birthDate
     if(strlen(birthDate.c_str())!=0)
     {
@@ -1886,7 +1886,7 @@ void PatDetail::InsertPatDetail(const char *ID,const char *name,string birthDate
 
         sprintf(tmp,"%d",atoi(str));
         strcat(buf,tmp);
-        
+
         char str_tmp[100]="\0";
         int age_len = strlen(age.c_str());
         sprintf(str_tmp,"%c",age[age_len-1]);
@@ -1899,7 +1899,7 @@ void PatDetail::InsertPatDetail(const char *ID,const char *name,string birthDate
 
         gtk_entry_set_text(GTK_ENTRY(m_entry_age),buf);
     }
-    
+
     gtk_entry_set_text(GTK_ENTRY(m_entry_request),requestedID);
 
     //sex
@@ -1958,9 +1958,9 @@ void PatDetail::InsertPatDetail(const char *ID,const char *name,string birthDate
            }
 
         gtk_entry_set_text(GTK_ENTRY(m_entry_date), buf);
-       
+
     }
-   
+
     gtk_entry_set_text(GTK_ENTRY(m_entry_doctor),doctor);
 
     char sizeT[256];
@@ -2012,7 +2012,7 @@ void PatDetail::ClearData()
     gtk_entry_set_text(GTK_ENTRY(m_entry_stature),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_weight),"");
     gtk_entry_set_text(GTK_ENTRY(m_entry_address),"");
-    
+
     GtkTextBuffer *buffer;
     buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(m_textview_comment));
     gtk_text_buffer_set_text(buffer, "", -1);

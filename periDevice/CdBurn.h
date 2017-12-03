@@ -34,4 +34,3 @@ class CdBurn
 };
 
 #endif
-

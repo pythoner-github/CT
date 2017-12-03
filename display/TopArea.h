@@ -10,7 +10,7 @@
 /*
  *      Logo |    Hospital        |  Probe     |  TIS |  Time
  *           |                    |            |      |
- *    -------------------------------------------------------------- 
+ *    --------------------------------------------------------------
  *	  0      P1                   P2           P3     P4          844
  */
 #define TOP_AREA_P1 130
@@ -70,7 +70,7 @@ private:
     GdkPixmap *m_pixmapTopBak;
     bool m_inReadImg;
     guint m_timeout;
-   
+
     char m_probeType_old[30];
     char m_probeType[30];
     char m_freq[30];

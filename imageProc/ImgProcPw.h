@@ -20,7 +20,7 @@ class ImgProcPw
 
 		EKnobReturn ChangeTimeSmooth(EKnobOper oper);
 		void ChangeTimeMark(bool on);
-		
+
 		bool GetTraceStatus();
 		bool GetDscTraceStatus();
         void SetDscTraceStatus(bool status);

@@ -5,7 +5,7 @@ class AbsFpgaReceive
 {
 	public:
 
-	
+
 	/**
 	* @brief service routine only used to receive data from usb device
 	*/
@@ -15,4 +15,4 @@ class AbsFpgaReceive
 
 
 
-#endif 
+#endif

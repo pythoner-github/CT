@@ -75,4 +75,3 @@ void SysNoteSetting::DefaultFactory(void)
 }
 
 
-

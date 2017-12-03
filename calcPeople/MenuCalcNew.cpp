@@ -11,9 +11,9 @@
 #include "CalcSetting.h"
 #include "SysCalculateSetting.h"
 #include "MeaCalcFun.h"
-#include "MenuProjectMode.h"  
-#include "MenuArea.h"       
-#include "ViewSuperuser.h"  
+#include "MenuProjectMode.h"
+#include "MenuArea.h"
+#include "ViewSuperuser.h"
 
 static void MeasureFunc(int type)
 {
@@ -285,7 +285,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, FETAL_TV_DE_EXC_MM, MEA_M, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, FETAL_TV_DE_SLOPE_MM, MEA_M, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, FETAL_TV_EF_SLOPE_MM, MEA_M, TEXT_ONLY, true, {MeasureFunc}},
-    {NULL, FETAL_TV_AC_INTERVAL_MM, MEA_M, TEXT_ONLY, true, {MeasureFunc}},	
+    {NULL, FETAL_TV_AC_INTERVAL_MM, MEA_M, TEXT_ONLY, true, {MeasureFunc}},
 	{NULL, FETAL_PLACENTA, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, FETAL_UM_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, FETAL_UM_V, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
@@ -692,7 +692,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, SP_R_TESTIS_H, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
 #ifndef EMP_322
     {NULL, SP_R_TESTIS_ARTERY, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
-#endif 
+#endif
     {NULL, SP_TES_L_LESION1_VOL, MEA_2D, TEXT_ONLY, true, {ExpandChildMenu}},
     {NULL, SP_TES_L_LESION1_L, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_TES_L_LESION1_W, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
@@ -1047,7 +1047,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
 MenuCalcNew g_menuCalc;
 int MenuCalcNew::m_fetalOrder = 0;
 
-MenuCalcNew::MenuCalcNew() 
+MenuCalcNew::MenuCalcNew()
     : m_sizeDefaultItems(0), m_examItem("AdultAbdo"), m_scanMode(ScanMode::D2), m_completeMeasureFlag(NULL), m_isExistedOBItem(false)
 {
     m_sizeDefaultItems = sizeof(g_calcAllDefaultItem) / sizeof(GUIMenuNew);
@@ -1157,7 +1157,7 @@ GtkWidget * MenuCalcNew::Create()
     gtk_container_add (GTK_CONTAINER (m_scrolledWindow), m_treeView);
     gtk_table_attach_defaults(GTK_TABLE(m_table), m_scrolledWindow, 0, 6, 1, 18);
     gtk_widget_modify_bg(m_scrolledWindow, GTK_STATE_NORMAL, g_deep);
-	
+
 	return m_table;
 }
 
@@ -1337,7 +1337,7 @@ EMeasureMode MenuCalcNew::GetMeasureModeFromMeasureType(int measureType)
 		case LENGTH_TRACK:
 		case LENGTH_DOT:
 		case PERI_TRACK:
-		case PERI_ELLIPSE: 
+		case PERI_ELLIPSE:
 		case AREA_TRACK:
 		case AREA_DOT:
 		case AREA_REC:
@@ -1349,8 +1349,8 @@ EMeasureMode MenuCalcNew::GetMeasureModeFromMeasureType(int measureType)
 		case SIMPSONS:
 		case AL:
 		case ANGLE_3DOT:
-		case ANGLE_2LINE: 
-		case ANGUSTY_DIST_DOT: 
+		case ANGLE_2LINE:
+		case ANGUSTY_DIST_DOT:
 		case RATIO_DIST_DOT:
 		case ANGUSTY_AREA:
 		case RATIO_AREA:
@@ -1359,7 +1359,7 @@ EMeasureMode MenuCalcNew::GetMeasureModeFromMeasureType(int measureType)
 		case RATIO_ANGLE:
 		case HIP:
 		case PROFILE:
-		case HISTOGRAM: 
+		case HISTOGRAM:
 		case SAC_3AXIS:
 			measureMode = MEA_2D;
 			break;
@@ -1408,7 +1408,7 @@ int MenuCalcNew::GetUnitItemFromMeasureType(int measureType)
 		case LENGTH_TRACK:
 		case LENGTH_DOT:
 		case PERI_TRACK:
-		case PERI_ELLIPSE: 
+		case PERI_ELLIPSE:
 		case DEPTH_DIST_M:
 		case INTEGRAL_TRACK:
 			unitItem = 0;  //CM
@@ -1446,17 +1446,17 @@ int MenuCalcNew::GetUnitItemFromMeasureType(int measureType)
 			unitItem = 4; //CM3
 			break;
 		case ANGLE_3DOT:
-		case ANGLE_2LINE: 
+		case ANGLE_2LINE:
 			unitItem = 9; //ANG
 			break;
-		case ANGUSTY_DIST_DOT: 
+		case ANGUSTY_DIST_DOT:
 		case RATIO_DIST_DOT:
 		case ANGUSTY_AREA:
 		case RATIO_AREA:
 		case RATIO_D_P:
 		case RATIO_VOL:
 		case PROFILE:
-		case HISTOGRAM: 
+		case HISTOGRAM:
 		case PI_D:
 		case MEASURE_TRACK:
 		case MEASURE_TRACK_AUTO:
@@ -1602,7 +1602,7 @@ EMeasureMode MenuCalcNew::GetMeasureMode(ScanMode::EScanMode mode)
 void MenuCalcNew::UpdateCurrentScanModeCalcItems(ScanMode::EScanMode mode)
 {
 	EMeasureMode meaMode = GetMeasureMode(mode);
-	
+
 	m_vecCurScanModeCalcItem.clear();
 	for (int i = 0; i < (int)m_vecCurExamItemCalcItem.size(); i++)
 	{

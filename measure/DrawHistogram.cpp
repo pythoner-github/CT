@@ -19,7 +19,7 @@ DrawHistogram::DrawHistogram()
 }
 
 DrawHistogram::~DrawHistogram()
-{	
+{
     	if (m_ptrInstance != NULL)
 		delete m_ptrInstance;
 }
@@ -106,7 +106,7 @@ void DrawHistogram::DrawCoorOrigin(void)
 
 void DrawHistogram::ClearHistogramData(void)
 {
-    int i;	
+    int i;
 
     for (i=0; i<256; i++)
         m_sum[i]=0;
@@ -120,7 +120,7 @@ void DrawHistogram::ClearHistogramImage(void)
     POINT tmp1, tmp2;
     int temp;
     int i;
-	
+
     for (i=0; i<256; i++) {
         temp = (int)m_sum[i];
         if (temp != 0) {
@@ -178,11 +178,11 @@ void DrawHistogram::HistogramDraw(unsigned char *image_p)
 		{
 			color = (unsigned char)(0.2989*(*field_p) + 0.587*(*(field_p+1)) + 0.1141*(*(field_p+2)));//彩色直方图公式
 			m_sum[color]++;
-			field_p += BYTES_DOT;	
+			field_p += BYTES_DOT;
 		}
 		field_p += (IMG_W - width) * BYTES_DOT;
 	}
-	
+
 	int m;
 	for (i=0; i<256; i++)
 	{
@@ -214,6 +214,6 @@ void DrawHistogram::HistogramDraw(unsigned char *image_p)
 		}
 		m_sum[i] = temp;
 	}
-        
+
         g_object_unref(gc);
 }

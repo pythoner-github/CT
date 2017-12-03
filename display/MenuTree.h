@@ -13,7 +13,7 @@ enum RendererType
 };
 
 enum EMeasureMode { MEA_2D, MEA_D, MEA_M, MEA_UNKNOWN };
-enum EMeasureSequenceType { MEA_SEQ_NONE, MEA_SEQ_REPEAT, MEA_SEQ_NEXT }; 
+enum EMeasureSequenceType { MEA_SEQ_NONE, MEA_SEQ_REPEAT, MEA_SEQ_NEXT };
 
 //typedef void (*pFuncNone)(void);
 typedef void (*pFuncNone)(int);
@@ -31,7 +31,7 @@ union PtrFunc
 struct GUIMenu
 {
     const char *name;
-    int etype; 
+    int etype;
     RendererType type;
     bool value;
     PtrFunc pf;
@@ -41,7 +41,7 @@ struct GUIMenu
 struct GUIMenuNew
 {
     const char *name;
-    int etype; 
+    int etype;
 	EMeasureMode mode;
     RendererType type;
     bool value;
@@ -130,20 +130,20 @@ private:
         data->TreeViewCollapse(treeview, iter, path);
     }
     static bool HandleTreeViewExpandBefore(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path, TreeMenu *data)
-    { 
+    {
         return data->TreeViewTestRowExpandBefore(treeview, iter, path);
     }
 
-    static gboolean HandleTreeViewClicked(GtkWidget *widget, GdkEventButton *event, TreeMenu *data) 
-	{ 
-		return data->TreeViewClicked(widget, event); 
+    static gboolean HandleTreeViewClicked(GtkWidget *widget, GdkEventButton *event, TreeMenu *data)
+	{
+		return data->TreeViewClicked(widget, event);
 	}
 
 	static gboolean HandleTreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event, TreeMenu *data)
 	{
 		return data->TreeViewMouseMove(widget, event);
 	}
-	
+
 	static gboolean HandleTreeViewTooltip(GtkWidget  *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip, TreeMenu *data)
 	{
 		return data->TreeViewTooltip(widget, x, y, keyboard_mode, tooltip);

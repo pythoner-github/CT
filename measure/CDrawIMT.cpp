@@ -2,7 +2,7 @@
  * Copyritht @ 2012 Shenzhen Emperor Electronic Co. ,Ltd.
  *
  * @file: CDrawIMT.cpp
- * @brief: Draw IMT measure in the roi area 
+ * @brief: Draw IMT measure in the roi area
  *
  * version: V1.0
  * @author: lihuamei
@@ -23,7 +23,7 @@
 
 
 CIMT *m_ptrImt = CIMT::GetInstance();
-     
+
 CDrawIMT* CDrawIMT::m_ptrInstance = NULL;
 gboolean IMTCallBack(gpointer data)
 {
@@ -80,7 +80,7 @@ CDrawIMT::~CDrawIMT()
 
 }
 /**
- * function description: Get the witdth and height of the roi rectangle. 
+ * function description: Get the witdth and height of the roi rectangle.
  * param w :the width of the roi rectangle.
  * param h: the height of the roi rectangle.
  * return : null
@@ -94,7 +94,7 @@ void CDrawIMT::GetWH(int& w, int& h)
 }
 
 /**
- * function description: Get the start and end point of the roi rectangle. 
+ * function description: Get the start and end point of the roi rectangle.
  * param area_start :the start point of the roi rectangle.
  * param end_point: the end point of the roi rectangle.
  * return : null
@@ -157,7 +157,7 @@ void CDrawIMT::RemoveTimer(void)
             return;
         }
         g_imtTimer = 0;
-    } 
+    }
     if (pRoiPre)
     {
         delete [] pRoiPre;
@@ -181,7 +181,7 @@ void CDrawIMT::GetResultAttr(UpdateMeasure::ResultAttr& attr)
  * return : null
  */
 void CDrawIMT::UpdateIMT(void)
-{ 
+{
     ModeStatus ms;
     if ((Replay::GetInstance()->GetNextImgForIMT()) == NULL)
     {
@@ -189,16 +189,16 @@ void CDrawIMT::UpdateIMT(void)
         return;
     }
     if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
-    {  
+    {
         for (unsigned int i = 0; i < roi_w; i++)
         {
             for (unsigned int j = 0; j < roi_h; j++)
             {
                 pRoi[i*roi_h+j] = *(ImageArea::m_bitsImg + (m_area_start.y+j)*IMAGE_W*3 + (m_area_start.x+i)*3 + 0);
                 pRoiPre[i*roi_h+j] = *(ImageArea::m_TpbitsIMT + (m_area_start.y+j)*IMAGE_W*3 + (m_area_start.x+i)*3 + 0);
-                // pRoi[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetLastImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 + 
+                // pRoi[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetLastImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 +
                 //                (m_area_start.x+i+IMAGE_X)*3/4 + 0);
-                //pRoiPre[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetNextLastImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 + 
+                //pRoiPre[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetNextLastImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 +
                 //                (m_area_start.x+i+IMAGE_X)*3/4 + 0);
             }
         }
@@ -209,7 +209,7 @@ void CDrawIMT::UpdateIMT(void)
         {
             for (unsigned int j = 0; j < roi_h; j++)
             {
-                pRoi[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetSelectImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 + 
+                pRoi[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetSelectImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 +
                         (m_area_start.x+i+IMAGE_X)*3/4 + 0);
                 pRoiPre[i*roi_h+j] =(unsigned char )*(Replay::GetInstance()->GetSelectNextImgForIMT()+ (m_area_start.y+j+IMAGE_Y)*IMG_AREA_W*3/4 +
                         (m_area_start.x+i+IMAGE_X)*3/4 + 0);
@@ -237,7 +237,7 @@ void CDrawIMT::UpdateIMT(void)
         m_draw.DrawIMTIntima(m_area_start, pAdventitia, roi_w*roi_h, TRUE);
         m_draw.DrawIMTAdvent(m_area_start,pIntima, roi_w*roi_h, TRUE);
     }
-     
+
     SIMTPARA imt_para;
     imt_para.imt_max = 0.0;	             // IMT MAX
     imt_para.imt_min = 0.0;		        // IMT MIN
@@ -245,7 +245,7 @@ void CDrawIMT::UpdateIMT(void)
     imt_para.imt_mean = 0.0;		  // IMT 平均值
     imt_para.imt_length = 0.0;	     // IMT 测量长度
     imt_para.imt_quality = 0.0;	 	// IMT 品质因子
-    
+
      CIMT::GetInstance()->AnalyseData(imt_para, pRoi, pRoiPre, pIntima, pAdventitia, roi_w);
 
     //显示结果
@@ -258,7 +258,7 @@ void CDrawIMT::UpdateIMT(void)
  * return : null
  */
 void CDrawIMT::ClearInAdventIMT(void)
-{  
+{
     ModeStatus ms;
     if (ms.GetFreezeMode() != FreezeMode::UNFREEZE)
         m_draw.DrawIMTBox(m_area_start, m_area_end, FALSE);
@@ -315,9 +315,8 @@ void CDrawIMT::SetInAdventIMTMem(void)
     {
         delete [] pAdventitia;
         pAdventitia = NULL;
-    } 
+    }
     pAdventitia = new unsigned int [roi_w*roi_h];
-    memset(pAdventitia, 0, roi_w*roi_h*sizeof(unsigned int)); 
+    memset(pAdventitia, 0, roi_w*roi_h*sizeof(unsigned int));
 }
-
 

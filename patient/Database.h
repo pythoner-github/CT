@@ -25,7 +25,7 @@ public:
 	string birthMonth;
 	string birthDay;
 	string age; //range(0-999) sample 10
-	string ageUnit; //range(0,1,2 means Y/M/D), sample 0 
+	string ageUnit; //range(0,1,2 means Y/M/D), sample 0
 	string examDateStartYear;
 	string examDateStartMonth;
 	string examDateStartDay;
@@ -44,7 +44,7 @@ public:
 	string birthMonth;
 	string birthDay;
 	string age; //range(0-999) sample 10
-	string ageUnit; //range(0,1,2 means Y/M/D), sample 0 
+	string ageUnit; //range(0,1,2 means Y/M/D), sample 0
 	string examDateStartYear;
 	string examDateStartMonth;
 	string examDateStartDay;
@@ -66,7 +66,7 @@ public:
 	string examDate;
 	string examID;
 	string examType;
-	string examDoctor; // to be finshed 
+	string examDoctor; // to be finshed
     };
 #else
     struct NewPatSearchResult{
@@ -78,7 +78,7 @@ public:
 	string examDate;
 	string examID;
 	string examType;
-	string examDoctor; // to be finshed 
+	string examDoctor; // to be finshed
     };
 #endif
     bool OpenDB(void);
@@ -94,7 +94,7 @@ public:
     bool DoctorSearch(vector<std::string> *result);
 #ifdef VET
     bool OwnerNameSearch(vector<string> *result);
-#endif 
+#endif
     void GetPatInfo(const char *patID, PatientInfo::Patient &pat_info);
     void GetPatExamInfo(const char *examID, PatientInfo::Info &info);
     bool NewPatSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>& result);
@@ -109,8 +109,8 @@ private:
     static sqlite3* m_db;
     void GetBirthRange(string age, string ageUnit, string &begin, string &end);
     void GetFormatForSQL(std::string &name, std::string &birthdate, std::string &examdate);
-    
-    bool m_langCN; 
+
+    bool m_langCN;
     int m_dateFormat;
 // call back function
 };

@@ -49,9 +49,9 @@ GtkWidget* create_button_icon_only(GtkWidget *icon_image, guint width, guint hei
 GtkWidget* create_combobox(guint width, guint height, const char *layouttype, GtkTreeModel *treemodel);
 GtkWidget* create_combo_box_with_text(const int width, const int height, const std::vector<std::string> text);
 GtkWidget* create_pixmap(const gchar *filename);
-PangoLayout * create_pango_text(GtkWidget *widget, 
-				const char *text, 
-				int width, 
+PangoLayout * create_pango_text(GtkWidget *widget,
+				const char *text,
+				int width,
 				PangoFontDescription *font,
 				const GdkColor* const color);
 
@@ -70,7 +70,7 @@ void fakeXMotionEventScreen(int &x0, int &y0, int offsetX, int offsetY);
 void SetMenuBiopsyCursorYRange(int y0,int y1);//2016.08.25
 void fakeXMotionEventMenuBiopsy(int offsetX, int offsetY);//2016.08.24
 
-void FakeEscKey(void); 
+void FakeEscKey(void);
 gboolean FakeMouseButton(unsigned char key);
 gboolean FakeNumKey(unsigned char key);
 gboolean FakeAlphabet(unsigned char key);

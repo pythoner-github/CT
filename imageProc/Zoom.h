@@ -67,13 +67,13 @@ class Zoom
 		bool m_PIPCtrl;
 		int m_PIPScale;
 		POINT m_PIPPos;
-		
+
 		bool m_localCtrl;
 		int m_localLineBegin;
 		int m_localLineEnd;
 		int m_localDotBegin;
 		int m_localDotEnd;
-        double m_localScale;        
+        double m_localScale;
         guint m_timeout;
 
 		void SetGlobalInfo(POINT p, int scaleIndex);

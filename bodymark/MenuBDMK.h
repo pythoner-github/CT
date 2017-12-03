@@ -47,17 +47,17 @@ class MenuBDMK
 		gint SortFileName(gconstpointer p1, gconstpointer p2);
 		char* GetBdmkPath(const char *item);
 
-		static gint HandleSortFileName(gconstpointer p1, gconstpointer p2, MenuBDMK *data) 
+		static gint HandleSortFileName(gconstpointer p1, gconstpointer p2, MenuBDMK *data)
 		{ return (data->SortFileName(p1, p2)); }
 
         gchar* GetFilePath(int study);
-		//signal handle 
+		//signal handle
 		void StudyChanged(GtkComboBox *combobox);
 		void BDMKClicked(GtkButton *button);
 		void HideClicked(GtkButton *button);
 		void LeftClicked(GtkButton *button);
 		void RightClicked(GtkButton *button);
-		
+
 		//signal connect
 		static void HandleStudyChanged(GtkComboBox *combobox, MenuBDMK *data) { data->StudyChanged(combobox); }
 		static void HandleBDMKClicked(GtkButton *button, MenuBDMK *data) { data->BDMKClicked(button); }

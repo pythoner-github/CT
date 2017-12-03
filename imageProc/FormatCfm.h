@@ -24,15 +24,15 @@ class FormatCfm
 		int SwitchBB(void);
 		int SwitchB4();
 		int SwitchB4ForFreeze(int curB, int lastRealB);
-		
+
 		EFormatCfm GetFormat();
 
         // special measure
         void SetFormatForSnap(EFormatCfm format) { m_formatSnap = format; }
-	
+
 	private:
 		FormatCfm();
-		
+
 		static FormatCfm* m_ptrInstance;
 
 		DscMan* m_ptrDsc;
@@ -44,7 +44,7 @@ class FormatCfm
 
 		EFormatCfm m_format; ///< current cfm format
 		int m_curB; ///< curent B image. BB(0-left, 1-right), 2B(0-upleft, 1-upright, 2-downleft, 3-downright)
-		EFormatCfm m_formatSnap; 
+		EFormatCfm m_formatSnap;
 };
 
 #endif

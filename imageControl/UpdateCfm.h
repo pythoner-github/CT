@@ -15,7 +15,7 @@ public:
     UpdateCfm();
     ~UpdateCfm() {}
 
-	void SetBoxStatus(bool changeSize); 
+	void SetBoxStatus(bool changeSize);
     void Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd);
     void BoxClear();
     void BoxReDraw();
@@ -49,16 +49,16 @@ public:
     void EnterPdi(void);
 	void EnterCfmVs2D(void);
     void ChangeFormatCfm(int format);
-    void ChangeCurrentImgBB(int current); 
-	
+    void ChangeCurrentImgBB(int current);
+
     /*
      * @brief change current image in 4B format
      *
      * @para current B
      *  0-lu, 1-ru, 2-ld, 3-rd in 4B('l'=left, 'r'=right, 'u'=up, 'd'=down)
      */
-    void ChangeCurrentImg4B(int current); 
-    void ChangeCurrentImg4BForFreeze(int current); 
+    void ChangeCurrentImg4B(int current);
+    void ChangeCurrentImg4BForFreeze(int current);
 
 	void ColorTable(unsigned char table[][4], int len, int width, int bitDepth);
 

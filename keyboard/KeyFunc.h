@@ -19,18 +19,18 @@ class KeyPowerOff: public AbsCommand
 	public:
 		bool Execute();
 };
-      
+
 class KeyTSI: public AbsCommand
 {
 	public:
 		bool Execute();
-	
+
     private:
 		bool Do();
 		bool Undo();
 		static int keyNum ;
 };
-        
+
 class KeyAutoOptimize: public AbsCommand
 {
 	public:
@@ -141,13 +141,13 @@ class KeyDepth: public AbsCommand
 class KeyFreq: public AbsCommand
 {
 	public:
-		bool Execute(); 
+		bool Execute();
 };
 
 class KeyChroma: public AbsCommand
 {
 	public:
-		bool Execute(); 
+		bool Execute();
 };
 
 class KeyClearScreen: public AbsCommand

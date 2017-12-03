@@ -60,7 +60,7 @@ class MenuCalcNew
 		static void HandleFetal2Pressed(GtkButton *widget, MenuCalcNew *data)
 		{ data->Fetal2Pressed(widget); }
 
-		vector<GUIMenuNew> m_vecAllCalcItem; 
+		vector<GUIMenuNew> m_vecAllCalcItem;
 		vector<GUIMenuNew> m_vecCurExamItemCalcItem;
 		vector<GUIMenuNew> m_vecCurScanModeCalcItem;
 		int m_sizeDefaultItems;

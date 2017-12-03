@@ -21,7 +21,7 @@ class AbsUpdate2D
     virtual void ExamItem(int index) = 0;
 
 	/*
-	 * @brief update view when freq is changed 
+	 * @brief update view when freq is changed
 	 *
 	 * @para freq freq = realFreq * 20, unit:Mhz
 	 */
@@ -49,12 +49,12 @@ class AbsUpdate2D
 	 * @para tgcSize size of tgc data
 	 */
 	virtual void TgcCurve(unsigned char* tgc, int tgcSize) = 0;
-	
+
 	/*
 	 * @brief update 2d and m total gain when total gain is changed
 	 */
     virtual void Gain2D(int total) = 0;
-    
+
 	virtual void GainM(int total) = 0;
 
 #ifdef TRANSDUCER
@@ -88,27 +88,27 @@ class AbsUpdate2D
 	/*
 	 * @brief update view when sound power if changed
 	 *
-	 * @power (percent of power), display power% 
+	 * @power (percent of power), display power%
 	 */
 	virtual void SoundPower(int power, EKnobReturn status) = 0;
 
 	/*
 	 * @brief update view when harmonic status is changed
 	 *
-	 * @para on status of harmonic, 
+	 * @para on status of harmonic,
 	 *  on=TURE harmonic is on
 	 *  on=FALSE harmonic is off
 	 */
     virtual void Harmonic(bool on, EKnobReturn status) = 0;
-    
+
     virtual void  HarmonicStatus(bool on, EKnobReturn status) = 0;
-  
+
     virtual void  HarmonicFreq(int harFreq, EKnobReturn status) = 0;
-	
+
     virtual void MBP(int mbp, EKnobReturn status) = 0;
 
 	virtual void Tsi(const char *data, EKnobReturn status) = 0;
-	 
+
 	virtual void Agc(int index, EKnobReturn status) = 0;
 	/*
 	 * @brief update view when edge enhancement is changed
@@ -153,7 +153,7 @@ class AbsUpdate2D
 	virtual void Enter2DImg(bool update = false) = 0;
 
     virtual void UpdateEFOVZoomScale(void) = 0;
-	virtual void EFOVZoom(float scale, EKnobReturn status) = 0; 
+	virtual void EFOVZoom(float scale, EKnobReturn status) = 0;
 	virtual void EFOVRotate(int angle, EKnobReturn status) = 0;
     virtual void EnterEFOVPrepare(void) = 0;
     virtual void EnterEFOVCapture(void) = 0;
@@ -165,10 +165,10 @@ class AbsUpdate2D
 	virtual void ClearEFOVZoomBox(void) = 0;
 	virtual void EFOVViewBox(POINT up_left, POINT down_left, POINT up_right, POINT down_right) = 0;
 	virtual void ClearEFOVViewBox(void) = 0;
-	virtual void EFOVReplay(bool on, EKnobReturn status) = 0; 
+	virtual void EFOVReplay(bool on, EKnobReturn status) = 0;
         virtual void ClearEFOVImg(void) = 0;
 	/*
-	 * @brief update view when enter M mode 
+	 * @brief update view when enter M mode
 	 */
 	virtual void EnterMMode() = 0;
 	virtual void EnterMImg() = 0;
@@ -186,8 +186,8 @@ class AbsUpdate2D
 	 * @brief change format of 2D
 	 *
 	 * @para 0-B, 1-BB, 2-4B
-	 */ 
-    virtual void ChangeFormat2D(int format) = 0; 
+	 */
+    virtual void ChangeFormat2D(int format) = 0;
 
 	/*
 	 * @brief change current image in BB format
@@ -195,34 +195,34 @@ class AbsUpdate2D
 	 * @para current B
 	 *  0-left, 1-right in BB
 	 */
-	virtual void ChangeCurrentImgBB(int current) = 0; 
-	
+	virtual void ChangeCurrentImgBB(int current) = 0;
+
 	/*
 	 * @brief change current image in 4B format
 	 *
 	 * @para current B
 	 *  0-lu, 1-ru, 2-ld, 3-rd in 4B('l'=left, 'r'=right, 'u'=up, 'd'=down)
 	 */
-	virtual void ChangeCurrentImg4B(int current) = 0; 
+	virtual void ChangeCurrentImg4B(int current) = 0;
 
 	/*
 	 * @brief change display format of M to "format"
 	 *
-	 * @para format 0-total M, 
-	 *		1-up B dowm M 1:1, 
-	 *		2-up B right M 2:1, 
-	 *		3-up B down M 1:2, 
-	 *		4-left B right M 1:1,  
+	 * @para format 0-total M,
+	 *		1-up B dowm M 1:1,
+	 *		2-up B right M 2:1,
+	 *		3-up B down M 1:2,
+	 *		4-left B right M 1:1,
 	 */
-	virtual void ChangeFormatM(int format) = 0; 
+	virtual void ChangeFormatM(int format) = 0;
 
 	virtual void LeftRight(bool on) = 0;
-	
+
 	virtual void UpDown(bool on) = 0;
 
 	//virtual void Polarity(bool on) = 0;
     virtual void Polarity(bool on, EKnobReturn status) = 0;
-	
+
 	/*
 	 * @brief change noise reject status
 	 *
@@ -237,11 +237,11 @@ class AbsUpdate2D
 	virtual void LineAver(int data, EKnobReturn status) = 0;
 
 	virtual void Smooth(int data, EKnobReturn status) = 0;
-	
+
 	virtual void Gamma(int data, EKnobReturn status) = 0;
 
 	virtual void Chroma(const char* data, EKnobReturn status) = 0;
-	
+
 	virtual void ImgEhn(int data, EKnobReturn status) = 0;
 
     virtual void CompoundSpace(int angle, EKnobReturn status) = 0;
@@ -255,11 +255,11 @@ class AbsUpdate2D
 
 	// M
 	virtual void TimeMarkM(bool on) = 0;
-	
+
 	virtual void EnhanceM(int data, EKnobReturn status) = 0;
-	
+
 	virtual void SmoothM(int data, EKnobReturn status) = 0;
-	
+
 	virtual void TIS(float data) = 0;
 
 	//zoom
@@ -276,7 +276,7 @@ class AbsUpdate2D
 	virtual void ClearPIPMagnifier() = 0;
 
 	virtual void PIPBox(POINT p1, POINT p2) = 0;
-	
+
 	virtual void ClearPIPBox() = 0;
 
 	virtual void EnterLocalZoom(void) = 0;
@@ -295,7 +295,7 @@ class AbsUpdate2D
 	 * @brief display gray trans curve and adjustable point
 	 *
 	 * @para colorTable: pointer pointed to curve data
-	 * @para size: size of curve data 
+	 * @para size: size of curve data
 	 * @para curPointX: current adjustable point
 	 * @para curPointY: value of current adjustable point
 	 * @para maxPoint: max sum of adjustable points
@@ -306,9 +306,8 @@ class AbsUpdate2D
 
 	virtual void BWColorTable(RGBTRIPLE *table, int size) = 0;
 
-    virtual void AutoOptimize(bool on) = 0;    
+    virtual void AutoOptimize(bool on) = 0;
 
     virtual void ScanLines(int scanLinesIndex, EKnobReturn status) = 0;
 };
 #endif
-

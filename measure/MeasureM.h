@@ -13,20 +13,20 @@ class MMeasureTime: public AbsMeasure
 public:
     MMeasureTime(const SingleItemInfo *ptrSingleItemInfo);
     ~MMeasureTime();
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);
     void MouseMove(POINT p);
     void Change();
     void Esc();
-    
+
 private:
     MeasureCalc m_calc;
     MeasureDraw m_draw;
     UpdateMeasure m_update;
     MeasureMan * m_ptrMan;
-    
+
     int m_step;
     int m_method;
     bool m_isDraw;
@@ -43,7 +43,7 @@ class MMeasureVel: public AbsMeasure
 public:
     MMeasureVel(const SingleItemInfo *ptrSingleItemInfo);
     ~MMeasureVel();
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);
@@ -72,7 +72,7 @@ class MMeasureDistSlope: public AbsMeasure
 public:
     MMeasureDistSlope(const MultiItemInfo *ptrMultiItemInfo);
     ~MMeasureDistSlope();
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);
@@ -102,7 +102,7 @@ class MMeasureDepth: public AbsMeasure
 public:
     MMeasureDepth(const SingleItemInfo *ptrSingleItemInfo);
     ~MMeasureDepth();
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);
@@ -130,7 +130,7 @@ class MMeasureHR: public AbsMeasure
 public:
     MMeasureHR();
     ~MMeasureHR() {};
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);
@@ -195,7 +195,7 @@ class MMeasureSlope: public AbsMeasure
 public:
     MMeasureSlope();
     ~MMeasureSlope() {};
-    
+
     void Init();
     void PressLeft(POINT p);
     void PressRight(POINT p);

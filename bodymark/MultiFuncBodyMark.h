@@ -50,8 +50,8 @@ class MultiFuncBodyMark: public FakeXEvent, public AbsMultiFunc
 		void UndoMoveBodyMark();
 		void Esc();
 		void Hide(); // hide bodymark
-		bool Clicked(); 
-		bool DClicked(); 
+		bool Clicked();
+		bool DClicked();
 
 		void AddNewBodyMark(GdkPixbuf* pixbuf);
 		void BeginMoveProbeMark();

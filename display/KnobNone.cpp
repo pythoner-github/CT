@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: KnobNone.cpp
- * @brief: knob in no knob func 
+ * @brief: knob in no knob func
  *
  * version: V1.0
  * date: 2009-11-30
@@ -28,7 +28,7 @@ KnobMenu::KnobItem KnobNoneMenu[6] = {
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
-};	
+};
 #else
 KnobMenu::KnobItem KnobNoneMenu[5] = {
 	{"", "", ERROR, NULL, NULL},
@@ -36,11 +36,11 @@ KnobMenu::KnobItem KnobNoneMenu[5] = {
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
-};	
+};
 #endif
 void KnobNoneCreate()
 {
-    KnobMenu::GetInstance()->SetItem(KnobNoneMenu, sizeof(KnobNoneMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::NONE);   
+    KnobMenu::GetInstance()->SetItem(KnobNoneMenu, sizeof(KnobNoneMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::NONE);
 }
 
 
@@ -115,5 +115,4 @@ void KnobUndo()
 			KnobReplayCreate();
     }
 }
-
 

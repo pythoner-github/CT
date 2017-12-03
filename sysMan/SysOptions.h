@@ -6,7 +6,7 @@
 class SysOptions
 {
 public:
-	
+
     SysOptions();
     ~SysOptions();
 
@@ -19,7 +19,7 @@ public:
     // param 0-on 1-off
     int GetKeyboardSound(void);
     // param 0-bmp 1-jpeg 2-emp
-    int GetImageFormat(void); 
+    int GetImageFormat(void);
     // param 0-harddisk 1-udisk
     int GetDisplayFormatM(void);
     // 0-total 1-ud_11 2-ud_21 3-ud_12 4-lr_11
@@ -41,7 +41,7 @@ public:
     void SetCenterLine(int centerLine);
     void SetTI(int TI);
     void SetKeyboardSound(int keyboardSound);
-    void SetImageFormat(int imageFormat); 
+    void SetImageFormat(int imageFormat);
     void SetDisplayFormatM(int dispalyFormat);
     void SetDisplayFormatPW(int dispalyFormat);
     // 0-total 1-ud_11 2-ud_21 3-ud_12 4-lr_11

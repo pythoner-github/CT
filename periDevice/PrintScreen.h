@@ -13,7 +13,7 @@ class PrintScreen
 		gboolean PrintP2();
 		gboolean PrintP3();
 		gboolean ScreenShotToFile();
-	
+
 	private:
 
 };

@@ -25,5 +25,5 @@ int BtnExportEvent(GtkWidget *widget, GdkEvent *event);
 GtkWidget *m_itemFlash;
 GtkWidget *m_menu;
 };
- 
+
 #endif

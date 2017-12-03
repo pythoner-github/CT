@@ -43,7 +43,7 @@ class GlobalClassMan
 		Calc2D* m_ptrCalc2D;
 		CalcPw m_calcPw;
 		CalcCfm m_calcCfm;
-		
+
 		KeyValueOpr m_keyOpr;
 };
 

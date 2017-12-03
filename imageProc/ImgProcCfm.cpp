@@ -15,7 +15,7 @@ ImgProcCfm::ImgProcCfm()
 {
 	m_threshold = 0;
 	m_thresholdBak = 0;
-	m_persist = 0;	
+	m_persist = 0;
 	m_reject = 0;
 	m_smooth = 0;
 	m_artifact = 0;
@@ -116,11 +116,11 @@ void ImgProcCfm::Init(ExamItem::ParaColor* color)
 	m_threshold = MAX_THRESHOLD - 1;
 	SetThreshold(m_threshold, MAX);
 	m_colorHide = FALSE;
-  
+
 	//background hide
 	m_backgroundHide = FALSE;
 	m_ptrUpdate->BackgroundHide(m_backgroundHide);
-	
+
 	//2d+cfm
 	m_cfmCompare = FALSE;
 	m_ptrUpdate->CfmCompare(FALSE);
@@ -239,10 +239,10 @@ EKnobReturn ImgProcCfm::ChangeReject(EKnobOper oper)
 		ret = MIN;
 	else
 		ret = OK;
-	
+
 	SetReject(m_reject, ret);
 
-	return ret;	
+	return ret;
 }
 EKnobReturn ImgProcCfm::ChangeSmooth(EKnobOper oper)
 {
@@ -263,7 +263,7 @@ EKnobReturn ImgProcCfm::ChangeSmooth(EKnobOper oper)
 
 	SetSmooth(m_smooth, ret);
 
-	return ret;	
+	return ret;
 }
 EKnobReturn ImgProcCfm::ChangeArtifact(EKnobOper oper)
 {
@@ -290,7 +290,7 @@ EKnobReturn ImgProcCfm::ChangeArtifact(EKnobOper oper)
 
 	SetArtifact(m_artifact, ret);
 
-	return ret;	
+	return ret;
 }
 
 ///> private

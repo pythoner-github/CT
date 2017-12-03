@@ -34,8 +34,8 @@ public:
 
     void Gain2D(int total);
 
-#ifdef TRANSDUCER  
-    void Transducer(int transducer); 
+#ifdef TRANSDUCER
+    void Transducer(int transducer);
 #endif
 
 	void GainM(int total);
@@ -61,7 +61,7 @@ public:
 	void Tsi(const char* data, EKnobReturn status);
 
 	void Agc(int index, EKnobReturn status);
-    
+
 	void EdgeEnhance(int edgeIndex, EKnobReturn status);
 
 	void Steer(int angle, EKnobReturn status);
@@ -82,7 +82,7 @@ public:
     void Enter2DImg(bool update = false);
 // EFOV
     void UpdateEFOVZoomScale(void);
-	void EFOVZoom(float scale, EKnobReturn status); 
+	void EFOVZoom(float scale, EKnobReturn status);
 	void EFOVRotate(int angle, EKnobReturn status);
     void EnterEFOVPrepare(void);
     void EnterEFOVCapture(void);
@@ -94,7 +94,7 @@ public:
 	void ClearEFOVZoomBox(void);
 	void EFOVViewBox(POINT up_left, POINT down_left, POINT up_right, POINT down_right);
 	void ClearEFOVViewBox(void);
-	void EFOVReplay(bool on, EKnobReturn status); 
+	void EFOVReplay(bool on, EKnobReturn status);
         void ClearEFOVImg();
 
     void EnterMMode(void); ///< enter M mode
@@ -109,13 +109,13 @@ public:
     void ChangeFormat2D(int format);
 
     void ChangeCurrentImgBB(int current);
-	
+
     void ChangeCurrentImg4B(int current);
 
     void ChangeFormatM(int format);
 
 	void LeftRight(bool on);
-	
+
 	void UpDown(bool on);
 
 	//void Polarity(bool on);
@@ -136,20 +136,20 @@ public:
 	void Chroma(const char* data, EKnobReturn status);
 
 	void ImgEhn(int data, EKnobReturn status);
-	
+
     void CompoundSpace(int angle, EKnobReturn status);
 
 	void CompoundFreq(bool on, EKnobReturn status);
 
     void TpView(int index, EKnobReturn status);
- 
-    void EFVI(bool on, EKnobReturn status); 
-    
+
+    void EFVI(bool on, EKnobReturn status);
+
     // M
     void TimeMarkM(bool on);
-	
+
 	void EnhanceM(int data, EKnobReturn status);
-	
+
 	void SmoothM(int data, EKnobReturn status);
 
 	void TIS(float data);
@@ -164,7 +164,7 @@ public:
 	void ClearMoveFlag();
 
 	void PIPMagnifier(POINT p);
-	
+
 	void ClearPIPMagnifier();
 
 	void PIPBox(POINT p1, POINT p2);
@@ -191,7 +191,7 @@ public:
 
     static void CopyImgDataToReplay(void);
 
-    void AutoOptimize(bool on);    
+    void AutoOptimize(bool on);
 
 private:
     ImageAreaPara *m_ptrImgPara;

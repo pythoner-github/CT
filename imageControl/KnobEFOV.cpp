@@ -9,7 +9,7 @@
 #include "../display/MenuArea.h"
 #include "../patient/VideoMan.h"
 #include "ViewMain.h"
-#include <stdlib.h> 
+#include <stdlib.h>
 #include "../imageProc/KnobReplay.h"
 
 extern const char * EFOVROISizeName[3];

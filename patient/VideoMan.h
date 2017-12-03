@@ -28,7 +28,7 @@ class VideoMan: public FileMan
 		struct VideoItem
 		{
 			///> basic info for saving to file
-			char path[256];	///< the video file name (only use for get the file path when read video and the file format is emp or avi) 
+			char path[256];	///< the video file name (only use for get the file path when read video and the file format is emp or avi)
 			VideoFormat format;	///< the type of the video (output)
 			unsigned char *data;	///< frame data (output)
 
@@ -37,8 +37,8 @@ class VideoMan: public FileMan
 			int frames;	///< total number of frames
 			int frame_rate;	///< the frame rate when playing, eg: 4
 			///> extend info for config file
-			int width;	///< width of frame 
-			int height;	///< height of frame 
+			int width;	///< width of frame
+			int height;	///< height of frame
 		//	unsigned int depthL;	///< if BB mode, express the probe depth of left image, if B mode, express the current probe depth
 		//	unsigned int depthR;	///< if BB mode, express the probe depth of right image, if B mode, no effect
 		};
@@ -92,12 +92,11 @@ class VideoMan: public FileMan
 		static const string SECTION;
 
 		int m_Format;
-		int m_Storage;	
-		int m_NameMode;	
+		int m_Storage;
+		int m_NameMode;
         string m_videoFileName;
 
         DCMIMAGEELEMENT GetImageElement(void);
 };
 
 #endif //__VIDEOMAN_H__
-

@@ -71,7 +71,7 @@ void ConfigToUSB::CreateWindow(GtkWindow *parent)
     modelRoot = create_root_model();
     if (modelRoot != NULL)
         gtk_tree_view_set_model (GTK_TREE_VIEW(m_treeRoot), modelRoot);
-    g_object_unref (modelRoot); 
+    g_object_unref (modelRoot);
 
     swBranch = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (swBranch);
@@ -84,7 +84,7 @@ void ConfigToUSB::CreateWindow(GtkWindow *parent)
     gtk_widget_show (m_treeBranch);
     gtk_container_add (GTK_CONTAINER (swBranch), m_treeBranch);
 
-  
+
     GtkWidget *imageOK = gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
     GtkWidget *labelOK = gtk_label_new_with_mnemonic (_("OK"));
     btnOK = create_button_icon(labelOK, imageOK);
@@ -165,11 +165,11 @@ static void progress_callback(goffset current, goffset total, gpointer data)
     //	PRINTF("prac = %f\n", prac);
     if(prac >= 0 && prac <= 1.0)
     {
-        gdk_threads_enter();	
+        gdk_threads_enter();
         ViewDialog::GetInstance()->SetProgressBar(prac);
         while(gtk_events_pending())
             gtk_main_iteration();
-        gdk_threads_leave();	
+        gdk_threads_leave();
     }
     else
         PRINTF("fraction out of range!\n");
@@ -188,9 +188,9 @@ static gboolean LoadSelectedData(gpointer data)
 
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return FALSE;
     }
@@ -198,9 +198,9 @@ static gboolean LoadSelectedData(gpointer data)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return FALSE;
         }
@@ -290,17 +290,17 @@ static gboolean LoadSelectedData(gpointer data)
     if(!cond)
     {
         sprintf(result, _("Success to export to USB storage."));
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::INFO,
-                result, 
+                result,
                 NULL);
 
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::INFO,
-                result, 
+                result,
                 NULL);
     }
 
@@ -322,8 +322,8 @@ void ConfigToUSB::BtnOKClicked(GtkButton *button)
         g_timeout_add(1000, LoadSelectedData, NULL);
 
         //	PRINTF("Load From U disk!\n");
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::PRG_CANCEL, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::PRG_CANCEL,
                 _("Please wait, sending data to USB storage..."),
                 CancelLoadUSB);
     }
@@ -343,10 +343,10 @@ GtkWidget* ConfigToUSB::create_treeview(gint type)
     GtkTreeViewColumn *col;
 
     treeview = gtk_tree_view_new ();
-    g_object_set(G_OBJECT(treeview), 
-            "enable-search", FALSE, 
-            "headers-visible", FALSE, 
-            "rules-hint", TRUE, 
+    g_object_set(G_OBJECT(treeview),
+            "enable-search", FALSE,
+            "headers-visible", FALSE,
+            "rules-hint", TRUE,
             NULL);
 
     render = gtk_cell_renderer_toggle_new();
@@ -464,7 +464,7 @@ void ConfigToUSB::UpdateRootModel(void)
             continue;
         //	if(ent->d_type==DT_DIR)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, USERCONFIG_PARENT_PATH, ent->d_name, NULL);
-        //export file of default dir or  userconfig dir 
+        //export file of default dir or  userconfig dir
         if(g_file_test(tmpPath, G_FILE_TEST_IS_DIR) && ((strcmp(ent->d_name, "userconfig") == 0) || (strcmp(ent->d_name, "default") == 0)))
         {
             //	PRINTF("DIR: %s\n", ent->d_name);

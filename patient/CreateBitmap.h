@@ -1,5 +1,5 @@
 #ifndef CREATE_BITMAP_H
-#define CREATE_BITMAP_H 
+#define CREATE_BITMAP_H
 
 #include <stdio.h>
 #include <stdlib.h>

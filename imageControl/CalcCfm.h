@@ -3,7 +3,7 @@
 
 #include "FpgaCfm.h"
 #include "Colormap.h"
-#include <opencv/cxcore.hpp>  
+#include <opencv/cxcore.hpp>
 using namespace cv;
 
 class CalcCfm
@@ -14,7 +14,7 @@ class CalcCfm
 			double soundSpeed;
 			int freq;
 		};
-		enum {COLOR_LENGTH = COLOR_GRADE, COLOR_WIDTH = 16, COLOR_DEPTH = COLOR_NUM, VAR_DEPTH = 7}; 
+		enum {COLOR_LENGTH = COLOR_GRADE, COLOR_WIDTH = 16, COLOR_DEPTH = COLOR_NUM, VAR_DEPTH = 7};
 
 		CalcCfm();
 		~CalcCfm();
@@ -43,7 +43,7 @@ class CalcCfm
 		int CalcClusterSize(int prf, int depth, double soundSpeed, int mbp, int &tDepth);
 		// emit delay
 		// receive delay
-		
+
 		void CalcSwitchPdi(bool dir);
         void CalcLowFilter(float fccur);
 

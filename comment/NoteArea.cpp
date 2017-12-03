@@ -46,9 +46,9 @@ NoteArea::NoteArea(void)
 }
 
 NoteArea::~NoteArea()
-{ 
-	if (m_ptrInstance != NULL) 
-		delete m_ptrInstance; 
+{
+	if (m_ptrInstance != NULL)
+		delete m_ptrInstance;
 }
 
 GtkWidget* NoteArea::CreateEntry(PangoFontDescription *font, GdkColor *color)
@@ -105,7 +105,7 @@ void NoteArea::SetNewText(const char *text)
 	// set system cusor
 	SetSystemCursor(m_sysCursor.x, m_sysCursor.y);
 
-	// enter drag state 
+	// enter drag state
 	StartDrag(item);
 }
 
@@ -147,7 +147,7 @@ void NoteArea::Enter()
 
     g_keyInterface.Push(this);
 
-    GdkCursor *cursor = CustomCursor(); 
+    GdkCursor *cursor = CustomCursor();
     //GdkCursor *cursor = gdk_cursor_new(GDK_XTERM);
 	gdk_window_set_cursor(m_canvas->window, cursor);
 	gdk_cursor_unref(cursor);
@@ -267,7 +267,7 @@ void NoteArea::KeyEvent(unsigned char keyValue)
                         gtk_main_iteration();
                     gdk_threads_leave();
                     Show();
-                    GdkCursor *cursor = CustomCursor(); 
+                    GdkCursor *cursor = CustomCursor();
                     //GdkCursor *cursor = gdk_cursor_new(GDK_XTERM);
                     gdk_window_set_cursor(m_canvas->window, cursor);
                     gdk_cursor_unref(cursor);
@@ -329,12 +329,12 @@ void NoteArea::MouseEvent(char offsetX, char offsetY)
 {
 	if (m_state == SELECT)
 	{
-		fakeXMotionEventMenu(m_menuCursor.x, m_menuCursor.y, offsetX, offsetY);	
+		fakeXMotionEventMenu(m_menuCursor.x, m_menuCursor.y, offsetX, offsetY);
 	}
 	else
 	{
-		fakeXMotionEventImage(m_sysCursor.x, m_sysCursor.y, offsetX, offsetY);	
-        
+		fakeXMotionEventImage(m_sysCursor.x, m_sysCursor.y, offsetX, offsetY);
+
         if(m_state == EDITING)
         {
             EndEdit();
@@ -350,7 +350,7 @@ void NoteArea::PressCursor(void)
 		m_menuCursor.x = SYSCURSOR_X;
 		m_menuCursor.y = SYSCUROSR_Y;
 		SetSystemCursor(m_menuCursor.x, m_menuCursor.y);
-		g_menuNote.Focus();	
+		g_menuNote.Focus();
 	}
 	else if(m_state == SELECT)
 	{
@@ -384,7 +384,7 @@ void NoteArea::Hide(void)
 	GdkColor *color;
 	if(g_list_length(m_listItem) > 0)
 	{
-		GList *list = g_list_first(m_listItem);	
+		GList *list = g_list_first(m_listItem);
 		while(list)
 		{
 			info = (TextInfo)((TextItem*)list->data)->info;
@@ -465,7 +465,7 @@ void NoteArea::ListAllTextItem(GList *list)
 	if(g_list_length(list) > 0)
 	{
 		PRINTF("length = %d\n", g_list_length(list));
-		list = g_list_first(list);	
+		list = g_list_first(list);
 		while(list)
 		{
 			PRINTF("string=%s\n", ((TextInfo)((TextItem*)list->data)->info).str.c_str());
@@ -480,7 +480,7 @@ void NoteArea::DeleteAllTextItem(void)
 {
 	if(g_list_length(m_listItem) > 0)
 	{
-		m_listItem = g_list_first(m_listItem);	
+		m_listItem = g_list_first(m_listItem);
 		while(m_listItem)
 		{
 			goo_canvas_item_remove((GooCanvasItem*)((TextItem*)m_listItem->data)->item);
@@ -493,7 +493,7 @@ void NoteArea::DeleteAllTextItem(void)
 
 void NoteArea::DeleteFirstTextItem(void)
 {
-	GList *list = g_list_first(m_listItem);	
+	GList *list = g_list_first(m_listItem);
 	if(list)
 	{
 		goo_canvas_item_remove((GooCanvasItem*)((TextItem*)list->data)->item);
@@ -505,7 +505,7 @@ void NoteArea::DeleteFirstTextItem(void)
 
 void NoteArea::DeleteLastTextItem(void)
 {
-	GList *list = g_list_last(m_listItem);	
+	GList *list = g_list_last(m_listItem);
 	if(list)
 	{
 		goo_canvas_item_remove((GooCanvasItem*)((TextItem*)list->data)->item);
@@ -550,25 +550,25 @@ void NoteArea::GetNoteSetting()
 
 	switch(sns.GetFontColor())
 	{
-		case 0:	
+		case 0:
 			m_color = g_red;
-			m_strColor = "red";		
+			m_strColor = "red";
 			break;
-		case 1:	
+		case 1:
 			m_color = g_green;
-			m_strColor = "lime";	
+			m_strColor = "lime";
 			break;
-		case 2:	
+		case 2:
 			m_color = g_blue;
-			m_strColor = "blue";	
+			m_strColor = "blue";
 			break;
-		case 3:	
+		case 3:
 			m_color = g_white;
-			m_strColor = "white";	
+			m_strColor = "white";
 			break;
-		default:	
+		default:
 			m_color = g_red;
-			m_strColor = "red";	
+			m_strColor = "red";
 			break;
 	}
 	PRINTF("m_strColor = %s\n", m_strColor.c_str());
@@ -716,8 +716,8 @@ gboolean NoteArea::TextItemButtonPress(GooCanvasItem *item,
                     NULL);
 
             GdkCursor *cursor = gdk_cursor_new(GDK_HAND1);
-            goo_canvas_pointer_grab (GOO_CANVAS(m_canvas), item, 
-                    GdkEventMask(GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK), 
+            goo_canvas_pointer_grab (GOO_CANVAS(m_canvas), item,
+                    GdkEventMask(GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK),
                     cursor, event->time);
             gdk_cursor_unref(cursor);
 
@@ -741,8 +741,8 @@ gboolean NoteArea::TextItemButtonPress(GooCanvasItem *item,
                             NULL);
 
                     GdkCursor *cursor = gdk_cursor_new(GDK_HAND1);
-                    goo_canvas_pointer_grab (GOO_CANVAS(m_canvas), item, 
-                            GdkEventMask(GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK), 
+                    goo_canvas_pointer_grab (GOO_CANVAS(m_canvas), item,
+                            GdkEventMask(GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK),
                             cursor, event->time);
                     gdk_cursor_unref(cursor);
 
@@ -824,7 +824,7 @@ gboolean NoteArea::TextItemButtonPress(GooCanvasItem *item,
 }
 
 /*
- * @brief handle move the draged GooCanvasItemText 
+ * @brief handle move the draged GooCanvasItemText
  */
 gboolean NoteArea::TextItemMotionNotify(GooCanvasItem *item,
 		GooCanvasItem *target_item,
@@ -943,13 +943,13 @@ void NoteArea::StartEdit(gdouble x, gdouble y)
 
         }
     }
-    m_itemEntry = goo_canvas_widget_new(root, 
-            m_entry, 
-            x, y, 
+    m_itemEntry = goo_canvas_widget_new(root,
+            m_entry,
+            x, y,
             -1, -1,
             NULL);
     gtk_widget_grab_focus(m_entry);
-    //gtk_widget_show(m_itemEntry); 
+    //gtk_widget_show(m_itemEntry);
     m_state = EDITING;
     //	goo_canvas_item_raise(m_itemEntry, m_itemImage);
 }

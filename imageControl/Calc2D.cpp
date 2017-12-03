@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: Calc2D.cpp
- * @brief: abstract class, in charge of 2D imaging calculation  
+ * @brief: abstract class, in charge of 2D imaging calculation
  *
  * version: V1.0
  * date: 2009-5-11
@@ -23,7 +23,7 @@
 ///> dynamic range
 const int Calc2D::DYNAMIC_DATA[MAX_DYNAMIC_INDEX] = {197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197};
 const Calc2D::LogPair Calc2D::m_logPara[MAX_DYNAMIC_INDEX] = {
-	{40, 25}, {45, 24}, {50, 23}, {55, 18}, {60, 16}, {65, 12}, {70, 8}, {78, 2}, 
+	{40, 25}, {45, 24}, {50, 23}, {55, 18}, {60, 16}, {65, 12}, {70, 8}, {78, 2},
 	{80, 0}, {82, -2}, {85, -4}, {88, -6}, {90, -7}, {93, -8}, {96, -9}, {100, -10}};
 
 ///> tgc
@@ -33,166 +33,166 @@ const int Calc2D::TGC_CTL_DEFAULT[4] = {90,140,12,60};
 //A60 tgc curve
 const int Calc2D::TGC_FIEXD_35C60E[TGC_DOTS] = {
 //black-white
-	30, 32, 35, 38, 41, 43, 46, 49, 
-	52, 54, 57, 60, 62, 65, 68, 70, 
-	73, 75, 78, 80, 83, 85, 88, 90, 
-	93, 95, 97, 100, 102, 104, 107, 109, 
-	111, 113, 116, 118, 120, 122, 124, 126, 
-	128, 130, 132, 134, 136, 138, 140, 142, 
-	144, 146, 148, 150, 151, 153, 155, 157, 
-	158, 160, 162, 163, 165, 166, 168, 170, 
-	171, 173, 174, 176, 177, 178, 180, 181, 
-	183, 184, 185, 186, 188, 189, 190, 191, 
-	193, 194, 195, 196, 197, 198, 199, 200, 
-	202, 203, 204, 205, 206, 206, 207, 208, 
-	209, 210, 211, 212, 213, 214, 214, 215, 
-	216, 217, 217, 218, 219, 220, 220, 221, 
-	222, 222, 223, 224, 224, 225, 226, 226, 
-	227, 227, 228, 228, 229, 229, 230, 230, 
-	231, 231, 232, 232, 233, 233, 234, 234, 
-	235, 235, 236, 236, 236, 237, 237, 238, 
-	238, 238, 239, 239, 239, 240, 240, 241, 
-	241, 241, 242, 242, 242, 243, 243, 243, 
-	243, 244, 244, 244, 245, 245, 245, 246, 
-	246, 246, 246, 247, 247, 247, 247, 248, 
-	248, 248, 249, 249, 249, 249, 250, 250, 
-	250, 250, 251, 251, 251, 251, 251, 252, 
-	252, 252, 252, 252, 253, 253, 253, 253, 
-	253, 254, 254, 254, 254, 254, 254, 255, 
-	255, 255, 255, 255, 255, 255, 255, 255, 
-	255, 255, 256, 256, 256, 256, 256, 256, 
-	256, 256, 256, 255, 255, 255, 255, 255, 
-	255, 255, 255, 255, 255, 255, 255, 255                             
+	30, 32, 35, 38, 41, 43, 46, 49,
+	52, 54, 57, 60, 62, 65, 68, 70,
+	73, 75, 78, 80, 83, 85, 88, 90,
+	93, 95, 97, 100, 102, 104, 107, 109,
+	111, 113, 116, 118, 120, 122, 124, 126,
+	128, 130, 132, 134, 136, 138, 140, 142,
+	144, 146, 148, 150, 151, 153, 155, 157,
+	158, 160, 162, 163, 165, 166, 168, 170,
+	171, 173, 174, 176, 177, 178, 180, 181,
+	183, 184, 185, 186, 188, 189, 190, 191,
+	193, 194, 195, 196, 197, 198, 199, 200,
+	202, 203, 204, 205, 206, 206, 207, 208,
+	209, 210, 211, 212, 213, 214, 214, 215,
+	216, 217, 217, 218, 219, 220, 220, 221,
+	222, 222, 223, 224, 224, 225, 226, 226,
+	227, 227, 228, 228, 229, 229, 230, 230,
+	231, 231, 232, 232, 233, 233, 234, 234,
+	235, 235, 236, 236, 236, 237, 237, 238,
+	238, 238, 239, 239, 239, 240, 240, 241,
+	241, 241, 242, 242, 242, 243, 243, 243,
+	243, 244, 244, 244, 245, 245, 245, 246,
+	246, 246, 246, 247, 247, 247, 247, 248,
+	248, 248, 249, 249, 249, 249, 250, 250,
+	250, 250, 251, 251, 251, 251, 251, 252,
+	252, 252, 252, 252, 253, 253, 253, 253,
+	253, 254, 254, 254, 254, 254, 254, 255,
+	255, 255, 255, 255, 255, 255, 255, 255,
+	255, 255, 256, 256, 256, 256, 256, 256,
+	256, 256, 256, 255, 255, 255, 255, 255,
+	255, 255, 255, 255, 255, 255, 255, 255
 };
 //高频微凸
 const int Calc2D::TGC_FIEXD_65C15D[TGC_DOTS] = {
-    65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 86, 88, 90, 92, 94, 96, 98, 
-    100, 102, 103, 105, 107, 109, 111, 112, 114, 116, 118, 119, 121, 123, 125, 
-    126, 128, 130, 131, 133, 134, 136, 138, 139, 141, 142, 144, 146, 147, 149, 
-    150, 152, 153, 155, 156, 158, 159, 160, 162, 163, 165, 166, 167, 169, 170, 
-    171, 173, 174, 175, 177, 178, 179, 180, 182, 183, 184, 185, 186, 187, 189, 
-    190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 
-    205, 206, 207, 208, 209, 210, 211, 212, 213, 213, 214, 215, 216, 217, 217, 
-    218, 219, 220, 221, 221, 222, 223, 223, 224, 225, 225, 226, 227, 227, 228, 
-    229, 229, 230, 230, 231, 231, 232, 233, 233, 234, 234, 235, 235, 236, 236, 
-    236, 237, 237, 238, 238, 239, 239, 239, 240, 240, 241, 241, 241, 242, 242, 
-    242, 243, 243, 243, 244, 244, 244, 244, 245, 245, 245, 246, 246, 246, 246, 
-    247, 247, 247, 247, 247, 248, 248, 248, 248, 248, 249, 249, 249, 249, 249, 
-    249, 250, 250, 250, 250, 250, 250, 251, 251, 251, 251, 251, 251, 251, 252, 
-    252, 252, 252, 252, 252, 252, 252, 253, 253, 253, 253, 253, 253, 253, 254, 
-    254, 254, 254, 254, 254, 254, 255, 255, 255, 255, 255, 255, 256, 256, 256, 
+    65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 86, 88, 90, 92, 94, 96, 98,
+    100, 102, 103, 105, 107, 109, 111, 112, 114, 116, 118, 119, 121, 123, 125,
+    126, 128, 130, 131, 133, 134, 136, 138, 139, 141, 142, 144, 146, 147, 149,
+    150, 152, 153, 155, 156, 158, 159, 160, 162, 163, 165, 166, 167, 169, 170,
+    171, 173, 174, 175, 177, 178, 179, 180, 182, 183, 184, 185, 186, 187, 189,
+    190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204,
+    205, 206, 207, 208, 209, 210, 211, 212, 213, 213, 214, 215, 216, 217, 217,
+    218, 219, 220, 221, 221, 222, 223, 223, 224, 225, 225, 226, 227, 227, 228,
+    229, 229, 230, 230, 231, 231, 232, 233, 233, 234, 234, 235, 235, 236, 236,
+    236, 237, 237, 238, 238, 239, 239, 239, 240, 240, 241, 241, 241, 242, 242,
+    242, 243, 243, 243, 244, 244, 244, 244, 245, 245, 245, 246, 246, 246, 246,
+    247, 247, 247, 247, 247, 248, 248, 248, 248, 248, 249, 249, 249, 249, 249,
+    249, 250, 250, 250, 250, 250, 250, 251, 251, 251, 251, 251, 251, 251, 252,
+    252, 252, 252, 252, 252, 252, 252, 253, 253, 253, 253, 253, 253, 253, 254,
+    254, 254, 254, 254, 254, 254, 255, 255, 255, 255, 255, 255, 256, 256, 256,
     256, 256, 257, 257, 257, 257, 258, 258, 258, 258, 259, 259
-}; 
+};
 //线阵
 //#ifdef EMP_430
 const int Calc2D::TGC_FIEXD_65L40E[TGC_DOTS] = {
-	84, 90, 95, 100, 106, 111, 115, 115, 
-	115, 115, 115, 115, 115, 115, 115, 116, 
-	117, 121, 124, 127, 131, 134, 137, 140, 
-	143, 145, 148, 150, 153, 155, 158, 160, 
-	162, 164, 166, 168, 170, 172, 173, 175, 
-	177, 178, 180, 181, 182, 184, 185, 186, 
-	187, 189, 190, 191, 192, 192, 193, 194, 
-	195, 196, 197, 197, 198, 199, 199, 200, 
-	200, 201, 201, 202, 202, 202, 203, 203, 
-	204, 204, 204, 204, 205, 205, 205, 205, 
-	206, 206, 206, 206, 206, 206, 206, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 208, 208, 
-	208, 208, 208, 208, 208, 208, 208, 208, 
-	208, 208, 208, 208, 208, 208, 208, 208, 
-	208, 208, 208, 208, 209, 209, 209, 209, 
-	209, 209, 209, 209, 209, 209, 209, 210, 
-	210, 210, 210, 210, 210, 210, 210, 211, 
-	211, 211, 211, 211, 211, 211, 211, 212, 
-	212, 212, 212, 212, 212, 212, 212, 213, 
-	213, 213, 213, 213, 213, 213, 214, 214, 
-	214, 214, 214, 214, 214, 214, 215, 215, 
-	215, 215, 215, 215, 215, 215, 215, 215, 
-	216, 216, 216, 216, 216, 216, 216, 216, 
-	216, 216, 216, 216, 216, 217, 217, 217, 
-	217, 217, 217, 217, 217, 217, 217, 217, 
-	217, 217, 217, 217, 217, 217, 217, 217, 
+	84, 90, 95, 100, 106, 111, 115, 115,
+	115, 115, 115, 115, 115, 115, 115, 116,
+	117, 121, 124, 127, 131, 134, 137, 140,
+	143, 145, 148, 150, 153, 155, 158, 160,
+	162, 164, 166, 168, 170, 172, 173, 175,
+	177, 178, 180, 181, 182, 184, 185, 186,
+	187, 189, 190, 191, 192, 192, 193, 194,
+	195, 196, 197, 197, 198, 199, 199, 200,
+	200, 201, 201, 202, 202, 202, 203, 203,
+	204, 204, 204, 204, 205, 205, 205, 205,
+	206, 206, 206, 206, 206, 206, 206, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 208, 208,
+	208, 208, 208, 208, 208, 208, 208, 208,
+	208, 208, 208, 208, 208, 208, 208, 208,
+	208, 208, 208, 208, 209, 209, 209, 209,
+	209, 209, 209, 209, 209, 209, 209, 210,
+	210, 210, 210, 210, 210, 210, 210, 211,
+	211, 211, 211, 211, 211, 211, 211, 212,
+	212, 212, 212, 212, 212, 212, 212, 213,
+	213, 213, 213, 213, 213, 213, 214, 214,
+	214, 214, 214, 214, 214, 214, 215, 215,
+	215, 215, 215, 215, 215, 215, 215, 215,
+	216, 216, 216, 216, 216, 216, 216, 216,
+	216, 216, 216, 216, 216, 217, 217, 217,
+	217, 217, 217, 217, 217, 217, 217, 217,
+	217, 217, 217, 217, 217, 217, 217, 217,
 	217, 217, 217, 218, 218, 218, 218, 218
-}; 
+};
 /*
 #else
 const int Calc2D::TGC_FIEXD_65L40E[TGC_DOTS] = {
 
-	44, 50, 55, 60, 66, 71, 75, 80, 
-	85, 89, 94, 98, 102, 106, 110, 114, 
-	117, 121, 124, 127, 131, 134, 137, 140, 
-	143, 145, 148, 150, 153, 155, 158, 160, 
-	162, 164, 166, 168, 170, 172, 173, 175, 
-	177, 178, 180, 181, 182, 184, 185, 186, 
-	187, 189, 190, 191, 192, 192, 193, 194, 
-	195, 196, 197, 197, 198, 199, 199, 200, 
-	200, 201, 201, 202, 202, 202, 203, 203, 
-	204, 204, 204, 204, 205, 205, 205, 205, 
-	206, 206, 206, 206, 206, 206, 206, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 207, 207, 
-	207, 207, 207, 207, 207, 207, 208, 208, 
-	208, 208, 208, 208, 208, 208, 208, 208, 
-	208, 208, 208, 208, 208, 208, 208, 208, 
-	208, 208, 208, 208, 209, 209, 209, 209, 
-	209, 209, 209, 209, 209, 209, 209, 210, 
-	210, 210, 210, 210, 210, 210, 210, 211, 
-	211, 211, 211, 211, 211, 211, 211, 212, 
-	212, 212, 212, 212, 212, 212, 212, 213, 
-	213, 213, 213, 213, 213, 213, 214, 214, 
-	214, 214, 214, 214, 214, 214, 215, 215, 
-	215, 215, 215, 215, 215, 215, 215, 215, 
-	216, 216, 216, 216, 216, 216, 216, 216, 
-	216, 216, 216, 216, 216, 217, 217, 217, 
-	217, 217, 217, 217, 217, 217, 217, 217, 
-	217, 217, 217, 217, 217, 217, 217, 217, 
+	44, 50, 55, 60, 66, 71, 75, 80,
+	85, 89, 94, 98, 102, 106, 110, 114,
+	117, 121, 124, 127, 131, 134, 137, 140,
+	143, 145, 148, 150, 153, 155, 158, 160,
+	162, 164, 166, 168, 170, 172, 173, 175,
+	177, 178, 180, 181, 182, 184, 185, 186,
+	187, 189, 190, 191, 192, 192, 193, 194,
+	195, 196, 197, 197, 198, 199, 199, 200,
+	200, 201, 201, 202, 202, 202, 203, 203,
+	204, 204, 204, 204, 205, 205, 205, 205,
+	206, 206, 206, 206, 206, 206, 206, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 207, 207,
+	207, 207, 207, 207, 207, 207, 208, 208,
+	208, 208, 208, 208, 208, 208, 208, 208,
+	208, 208, 208, 208, 208, 208, 208, 208,
+	208, 208, 208, 208, 209, 209, 209, 209,
+	209, 209, 209, 209, 209, 209, 209, 210,
+	210, 210, 210, 210, 210, 210, 210, 211,
+	211, 211, 211, 211, 211, 211, 211, 212,
+	212, 212, 212, 212, 212, 212, 212, 213,
+	213, 213, 213, 213, 213, 213, 214, 214,
+	214, 214, 214, 214, 214, 214, 215, 215,
+	215, 215, 215, 215, 215, 215, 215, 215,
+	216, 216, 216, 216, 216, 216, 216, 216,
+	216, 216, 216, 216, 216, 217, 217, 217,
+	217, 217, 217, 217, 217, 217, 217, 217,
+	217, 217, 217, 217, 217, 217, 217, 217,
 	217, 217, 217, 218, 218, 218, 218, 218
-}; 
+};
 #endif
 */
 //腔体
 const int Calc2D::TGC_FIEXD_TV[TGC_DOTS] = {
-    44, 50, 55, 60, 66, 71, 75, 80, 
-    85, 89, 94, 98, 102, 106, 110, 114, 
-    117, 121, 124, 127, 131, 134, 137, 140, 
-    143, 145, 148, 150, 153, 155, 158, 160, 
-    162, 164, 166, 168, 170, 172, 173, 175, 
-    177, 178, 180, 181, 182, 184, 185, 186, 
-    187, 189, 190, 191, 192, 192, 193, 194, 
-    195, 196, 197, 197, 198, 199, 199, 200, 
-    200, 201, 201, 202, 202, 202, 203, 203, 
-    204, 204, 204, 204, 205, 205, 205, 205, 
-    206, 206, 206, 206, 206, 206, 206, 207, 
-    207, 207, 207, 207, 207, 207, 207, 207, 
-    207, 207, 207, 207, 207, 207, 207, 207, 
-    207, 207, 207, 207, 207, 207, 207, 207, 
-    207, 207, 207, 207, 207, 207, 208, 208, 
-    208, 208, 208, 208, 208, 208, 208, 208, 
-    208, 208, 208, 208, 208, 208, 208, 208, 
-    208, 208, 208, 208, 209, 209, 209, 209, 
-    209, 209, 209, 209, 209, 209, 209, 210, 
-    210, 210, 210, 210, 210, 210, 210, 211, 
-    211, 211, 211, 211, 211, 211, 211, 212, 
-    212, 212, 212, 212, 212, 212, 212, 213, 
-    213, 213, 213, 213, 213, 213, 214, 214, 
-    214, 214, 214, 214, 214, 214, 215, 215, 
-    215, 215, 215, 215, 215, 215, 215, 215, 
-    216, 216, 216, 216, 216, 216, 216, 216, 
-    216, 216, 216, 216, 216, 217, 217, 217, 
-    217, 217, 217, 217, 217, 217, 217, 217, 
-    217, 217, 217, 217, 217, 217, 217, 217, 
+    44, 50, 55, 60, 66, 71, 75, 80,
+    85, 89, 94, 98, 102, 106, 110, 114,
+    117, 121, 124, 127, 131, 134, 137, 140,
+    143, 145, 148, 150, 153, 155, 158, 160,
+    162, 164, 166, 168, 170, 172, 173, 175,
+    177, 178, 180, 181, 182, 184, 185, 186,
+    187, 189, 190, 191, 192, 192, 193, 194,
+    195, 196, 197, 197, 198, 199, 199, 200,
+    200, 201, 201, 202, 202, 202, 203, 203,
+    204, 204, 204, 204, 205, 205, 205, 205,
+    206, 206, 206, 206, 206, 206, 206, 207,
+    207, 207, 207, 207, 207, 207, 207, 207,
+    207, 207, 207, 207, 207, 207, 207, 207,
+    207, 207, 207, 207, 207, 207, 207, 207,
+    207, 207, 207, 207, 207, 207, 208, 208,
+    208, 208, 208, 208, 208, 208, 208, 208,
+    208, 208, 208, 208, 208, 208, 208, 208,
+    208, 208, 208, 208, 209, 209, 209, 209,
+    209, 209, 209, 209, 209, 209, 209, 210,
+    210, 210, 210, 210, 210, 210, 210, 211,
+    211, 211, 211, 211, 211, 211, 211, 212,
+    212, 212, 212, 212, 212, 212, 212, 213,
+    213, 213, 213, 213, 213, 213, 214, 214,
+    214, 214, 214, 214, 214, 214, 215, 215,
+    215, 215, 215, 215, 215, 215, 215, 215,
+    216, 216, 216, 216, 216, 216, 216, 216,
+    216, 216, 216, 216, 216, 217, 217, 217,
+    217, 217, 217, 217, 217, 217, 217, 217,
+    217, 217, 217, 217, 217, 217, 217, 217,
     217, 217, 217, 218, 218, 218, 218, 218
 
-}; 
+};
 #endif
 ///> focus delay
-const int Calc2D::APERTURE_SPAN_C[12] = {18, 24, 32, 40, 48, 56, 64, 80, 128, 156, 200, 320}; 
-//{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 64, 320}; //{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 46, 64};    //{36, 42, 48, 56, 64, 64, 64, 64, 64, 64, 64, 64};//{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 46, 64};		 
-const int Calc2D::APERTURE_SPAN_L[12] = {40,48,	64,	80,	96,	128,	196,	256,	400,	512,	1024,	2048};		 
+const int Calc2D::APERTURE_SPAN_C[12] = {18, 24, 32, 40, 48, 56, 64, 80, 128, 156, 200, 320};
+//{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 64, 320}; //{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 46, 64};    //{36, 42, 48, 56, 64, 64, 64, 64, 64, 64, 64, 64};//{6, 12, 14, 18, 22, 26, 30, 34, 38, 42, 46, 64};
+const int Calc2D::APERTURE_SPAN_L[12] = {40,48,	64,	80,	96,	128,	196,	256,	400,	512,	1024,	2048};
 const int Calc2D::EMIT_CH_NUM_C[20] =	{6, 8, 10, 12, 14, 16, 18,	20, 22,	24,	26,	30,	34,	38,	42,	48,	56,	64,	64,	64};
 //{14,16, 18, 24, 30, 34, 38,	46, 50,	58,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};//{20,22, 24, 26, 30, 34, 38,	46, 50,	58,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
 
@@ -250,13 +250,13 @@ const unsigned char Calc2D::m_filterMatch_harmonic_8[30720] = //480*32*2
 };
 const short Calc2D::m_bp_compensation[32] =
 {
-36, 13, -14, -45, -38, -8, 66, 76, 5, -156, -182, 13, 368, 441, 18, -694, -913, -198, 1050, 1588, 612, -1290, -2349, -1264, 1270, 3010, 2047, -924, -3381, -2755, 265,3539 
+36, 13, -14, -45, -38, -8, 66, 76, 5, -156, -182, 13, 368, 441, 18, -694, -913, -198, 1050, 1588, 612, -1290, -2349, -1264, 1270, 3010, 2047, -924, -3381, -2755, 265,3539
 };
 
 bool Calc2D::m_singleAperture = FALSE;
 
 
-FpgaCtrl2D Calc2D::m_fpga; 
+FpgaCtrl2D Calc2D::m_fpga;
 //=========================================================
 Calc2D::Calc2D()
 {
@@ -299,7 +299,7 @@ void Calc2D::GetScanRange(int range[2])
 }
 
 /*
- * @brief get valid scan range of image, different from GetScanRange when probe is linear(especially when image width 
+ * @brief get valid scan range of image, different from GetScanRange when probe is linear(especially when image width
  * is out of display area).
  *
  * @para range[2][out] display scan range returned
@@ -339,7 +339,7 @@ void Calc2D::CalcSample()
 #endif
     //printf("######################calc sample: depthDots = %d", depthDots);
 	int sampleAperture = (int)(speed * SAMPLE_NUM * DOTS_64 / 2 / FREQ / depth + 0.5);	//60MHz采样频率64点, 变迹
-    
+
 	///> send sample128 and sample60
 	m_fpga.SendSample48m(sample60);
 	m_fpga.SendSampleApertureBW(sampleAperture);
@@ -347,7 +347,7 @@ void Calc2D::CalcSample()
 }
 
 /*
- * @brief calc max period 
+ * @brief calc max period
  */
 int Calc2D::CalcMaxPeriod()
 {
@@ -360,7 +360,7 @@ int Calc2D::CalcMaxPeriod()
 	///> send max period(note: add 15 to cut light ring on the bottom of image)
     //在5的基础上加到10，因为相控阵边缘扫描线各阵元最大延迟差大于一般的探头。
     //取出所有fifo数据需要更长的时间。
-    maxPeriod += 10; 
+    maxPeriod += 10;
     //solve the problem that there are sever lines in the 52mm when change the depth to 54 mm.
     //lhm 2013.10.15
     maxPeriod +=20;
@@ -391,13 +391,13 @@ void Calc2D::CalcScanRange()
 	int lines = m_calcPara->probeLines;
 	int index = m_calcPara->angleIndex;
 	int indexMax = m_calcPara->angleIndexMax;
-    
+
     //printf("lines:%d\n", lines);
     PRINTF("index:%d indexMax:%d\n", index, indexMax);
 
 	///> "/2*2" assure scanRange[0] is even, "3/4 * " is to enlarge angle
-	m_scanRange[0] =(int)(lines* (3/(float)4 * index / (indexMax * 2))) / 2*2; 
-	//m_scanRange[0] = (lines* (3/(float)4 * index / (indexMax * 2)) / 2*2); 
+	m_scanRange[0] =(int)(lines* (3/(float)4 * index / (indexMax * 2))) / 2*2;
+	//m_scanRange[0] = (lines* (3/(float)4 * index / (indexMax * 2)) / 2*2);
     m_scanRange[1] = (lines - 1) - m_scanRange[0];
 
     PRINTF("scanRange(%d, %d)\n", m_scanRange[0], m_scanRange[1]);
@@ -421,12 +421,12 @@ float Calc2D::CalcRealScanAngle()
 
             angleTotal = m_projectCalcPara->probeAngle / 100;
         }
-        else	
+        else
             angleTotal = m_calcPara->probeWidth/100;
 #else
 		angleTotal = m_calcPara->probeWidth/100;
 #endif
-  
+
   }
 	float angle  = angleTotal * (m_scanRange[1] - m_scanRange[0] + 1) / lines;
 
@@ -482,12 +482,12 @@ void Calc2D::CalcFreqCompoundCoef(void)
 	int coef1;
 	int coef2;
 	unsigned short value[512];
-	
+
 	for(int i = 0; i < 512; i++)
-	{	
-		coef0 = 8;					
-		coef1 = 6 + 6*(i-256)/512;	
-		coef2 = 6 - 6*(i-256)/512;	
+	{
+		coef0 = 8;
+		coef1 = 6 + 6*(i-256)/512;
+		coef2 = 6 - 6*(i-256)/512;
 		value[i]   =   (coef0 + (coef1<<5) + (coef2<<10));
 	}
 
@@ -534,12 +534,12 @@ void Calc2D::CalcEmitDelay()
 	int focSum = m_calcPara->focSum;
     int size = sizeof(EMIT_CH_NUM_C) / sizeof(int);
 	bool compound = m_calcPara->compoundSpaceCtrl || m_calcPara->compoundFreqCtrl;
-	
+
 	int i;
 	for (i = 0; i < focSum; i ++)
 	{
 		CEmitDelay(i, EMIT_CH_NUM_C, size, compound);
-	}	
+	}
 
 	CEmitDelayPw((float)m_calcPara->focPos[0], EMIT_CH_NUM_C, size);
 }
@@ -578,9 +578,9 @@ void Calc2D::CalcTgc(int gain, int tgcY[],AbsUpdate2D* ptrUpdate, int section)
 {
 	///> calc
     if ((section == 0) || (section == 1))
-        Tgc(TGC_X, gain, tgcY, TGC_CTL_DEFAULT, ptrUpdate, section);	
+        Tgc(TGC_X, gain, tgcY, TGC_CTL_DEFAULT, ptrUpdate, section);
     else
-        TgcColor(TGC_X, gain, tgcY, TGC_CTL_DEFAULT, ptrUpdate, section);	
+        TgcColor(TGC_X, gain, tgcY, TGC_CTL_DEFAULT, ptrUpdate, section);
 }
 
 void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
@@ -637,12 +637,12 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
                 tgc = m_tgcFlexibel[(i - delayDot) * TGC_DOTS / dots];
 #endif
             }
-            
+
             value = min + (max - min) * tgc / 255;
             if (value > max)
                 value = max;
             digitalTgc[i] = value;
-        }  
+        }
 
 #ifdef EMP_430
         //解决tgc在调节的时候突变太大，导致有黑白条问题。
@@ -651,7 +651,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
 
         for (int i = 0; i < 10; i++)
             digitalTgcTemp[i] = digitalTgc[i];
-      
+
         for(int i = 10; i < dots -10; i++)
         {
             sum = 0;
@@ -659,7 +659,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
                 sum += digitalTgc[i + j];
             digitalTgcTemp[i] = sum/20;
         }
-                
+
         for (int i = 0; i < dots - 10; i++)
         {
             digitalTgc[i] = digitalTgcTemp[i];
@@ -690,7 +690,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
           for (int i = 0; i < size; i ++)
           {
               digitalTgc[i] = value; //500
-          }        
+          }
       }
 #else
 #if (defined(EMP_340) || defined(EMP_355) || defined(EMP_322))
@@ -704,7 +704,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
         for (int i = 0; i < size; i ++)
         {
             digitalTgc[i] = value; //500
-        }        
+        }
 #endif
         m_fpga.SendTgcDigitalPw(digitalTgc, size);
         m_fpga.SendTgcDigitalCyclePw(cycle);
@@ -747,8 +747,8 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
 
 void Calc2D::CalcFocPos()
 {
-	int start = 0; 
-	
+	int start = 0;
+
 	FocChange(start);
 
     ///> 2D pulse number according to last focus pos
@@ -779,7 +779,7 @@ void Calc2D::CalcFocPos()
 	m_fpga.Send2DPulseNum(2);
 #endif
 
-	CalcEmitDelay();	
+	CalcEmitDelay();
 }
 
 bool Calc2D::CalcFocPulse()
@@ -804,7 +804,7 @@ void Calc2D::CalcFocPulseFreqCompound(int order)
 	int power = m_calcPara->power;
 	PRINTF("++++++++++++++++CALC FOC PULSE: emit = %d\n", freq);
 
-	FocPulseFreqCompound(power, freq, order);	
+	FocPulseFreqCompound(power, freq, order);
 }
 
 /*
@@ -821,15 +821,15 @@ void Calc2D::CalcLog()
 		value = 3.2;
 	else if ((freq >= 75) && (freq <= 85))
 		value = 3.0;
-	else 
+	else
 		value = 2.8;
 
 	Log(value);
-	
+
 }
 
 /*
- * @brief calc image y start offset dot in portrait direction 
+ * @brief calc image y start offset dot in portrait direction
  *
  * @retval y start offset of image, unit:mm
  */
@@ -853,7 +853,7 @@ float Calc2D::CalcImgStartDepth()
 	float r = m_calcPara->probeR /100;
 	double theta = m_calcPara->probeWidth / 100 / 2 * PI / 180;
 #endif
-	float offset = r * (1 - cos(theta)); 
+	float offset = r * (1 - cos(theta));
 
 	return offset;
 }
@@ -893,7 +893,7 @@ float Calc2D::GetCfmTis(int dopFreq, float focPos, int prfIndex, int powerIndex,
 
 /*
  * @brief find Tis in spectrum mode, if input is out of range, it will be cut to the nearest one
- * 
+ *
  * @para[in] dopFreq (real color doppler frequency) * 20, unit(MHZ)
  * @para[in] prfIndex index of PRF, range(0-14)
  */
@@ -936,7 +936,7 @@ void Calc2D::CalcExtendedImaging(bool on)
  * @para tgcY[9] [0]-[8] is value of tgc in each section. [9] is the total gain
  * @para fixedTgcControl [0]-[3] is the value to control calculating fixed tgc curve.
  */
-void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section) 
+void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section)
 {
 #ifdef EMP_430
 	int tgcFixedTemp[TGC_DOTS];
@@ -962,7 +962,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
            for (int i = 0; i < TGC_DOTS; i++)
                 tgcFixedTemp[i] = TGC_FIEXD_65C15D[i];
             break;
-        
+
         case 'l':
         case 'L':
             for (int i = 0; i < TGC_DOTS; i++)
@@ -982,7 +982,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
         default:
             for (int i = 0; i < TGC_DOTS; i++)
                 tgcFixedTemp[i] = TGC_FIEXD_35C60E[i];
-            break;			
+            break;
     }
 #endif
 
@@ -999,7 +999,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
     const int MAX = 128;
     int A = 90; //x=0
     int B = 200; //x=7
-    float k = B - A; 
+    float k = B - A;
     float weighting = 0;;
     int x;
     float theta;
@@ -1024,25 +1024,25 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
     {
 #if 0
         // fixed tgc
-        if((x/scale > c) && (x/scale<TGC_DOTS)) 
+        if((x/scale > c) && (x/scale<TGC_DOTS))
             k0 = ((float)(255 - b)) / a * x / scale + b;
         else
             k0 = ((float)(255 - b) * c / a + b - d) / c * x / scale + d;
 #else
-        if((x > c) && (x < TGC_DOTS)) 
+        if((x > c) && (x < TGC_DOTS))
             k0 = ((float)(255 - b)) / a * x + b;
         else
             k0 = ((float)(255 - b) * c / a + b - d) / c * x + d;
 #endif
-		if (k0>255) 
+		if (k0>255)
 		  k0 = 255;
-		
+
 		tgcFixed[x] = k0;
 
         //adjustable tgc
         if(x < tgcX[0])
             tempTgc = tgcY[0];
-        else if (x < (tgcX[0] + tgcX[1]) / 2) 
+        else if (x < (tgcX[0] + tgcX[1]) / 2)
         {
             if(tgcY[1] == tgcY[0])
             {
@@ -1053,9 +1053,9 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = 400.0 * (float)(tgcY[1] - tgcY[0]) / ((tgcX[1] - tgcX[0]) * (tgcX[1] - tgcX[0]));
                 tempTgc = (x - tgcX[0]) *  (x - tgcX[0]) * temp / 200.0 + tgcY[0];
             }
-        }					
+        }
         else if (x  <  tgcX[1])
-        {		
+        {
             if(tgcY[1] == tgcY[0])
             {
                 tempTgc = tgcY[0];
@@ -1065,8 +1065,8 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = (-400.0) * (float)(tgcY[1] - tgcY[0]) / ((tgcX[1] - tgcX[0]) * (tgcX[1] - tgcX[0]));
                 tempTgc = (x - tgcX[1]) * (x - tgcX[1]) * temp / 200.0 + tgcY[1];
             }
-        }					
-        else if (x < (tgcX[1] + tgcX[2]) / 2) 
+        }
+        else if (x < (tgcX[1] + tgcX[2]) / 2)
         {
             if(tgcY[2] == tgcY[1])
             {
@@ -1077,9 +1077,9 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = 400.0 * (float)(tgcY[2] - tgcY[1]) / ((tgcX[2] - tgcX[1]) * (tgcX[2] - tgcX[1]));
                 tempTgc = (x - tgcX[1]) * (x - tgcX[1]) * temp / 200.0 + tgcY[1];
             }
-        }						
+        }
         else if (x  <  tgcX[2])
-        {		
+        {
             if(tgcY[2] == tgcY[1])
             {
                 tempTgc = tgcY[1];
@@ -1091,7 +1091,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
             }
         }
 
-        else if (x  <  (tgcX[2] + tgcX[3]) / 2) 
+        else if (x  <  (tgcX[2] + tgcX[3]) / 2)
         {
             if(tgcY[3] == tgcY[2])
             {
@@ -1102,9 +1102,9 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = 400.0 * (float)(tgcY[3] - tgcY[2]) / ((tgcX[3] - tgcX[2]) * (tgcX[3] - tgcX[2]));
                 tempTgc = (x - tgcX[2]) * (x - tgcX[2]) * temp / 200.0 + tgcY[2];
             }
-        }						
+        }
         else if (x  <  tgcX[3])
-        {		
+        {
             if(tgcY[3] == tgcY[2])
             {
                 tempTgc = tgcY[2];
@@ -1115,7 +1115,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 tempTgc = (x - tgcX[3]) * (x - tgcX[3]) * temp / 200.0 + tgcY[3];
             }
         }
-        else if (x  <  (tgcX[3] + tgcX[4]) / 2) 
+        else if (x  <  (tgcX[3] + tgcX[4]) / 2)
         {
             if(tgcY[4] == tgcY[3])
             {
@@ -1123,12 +1123,12 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
             }
             else
             {
-                temp = 400.0 * (float)(tgcY[4] - tgcY[3]) / ((tgcX[4] - tgcX[3]) * (tgcX[4] - tgcX[3]));				
+                temp = 400.0 * (float)(tgcY[4] - tgcY[3]) / ((tgcX[4] - tgcX[3]) * (tgcX[4] - tgcX[3]));
                 tempTgc = (x - tgcX[3]) * (x - tgcX[3]) * temp / 200.0 + tgcY[3];
             }
-        }						
+        }
         else if (x  <  tgcX[4])
-        {		
+        {
             if(tgcY[4] == tgcY[3])
             {
                 tempTgc = tgcY[3];
@@ -1139,7 +1139,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 tempTgc = (x - tgcX[4]) * (x - tgcX[4]) * temp / 200.0 + tgcY[4];
             }
         }
-        else if (x  <  (tgcX[4] + tgcX[5]) / 2) 
+        else if (x  <  (tgcX[4] + tgcX[5]) / 2)
         {
             if(tgcY[5]==tgcY[4])
             {
@@ -1147,23 +1147,23 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
             }
             else
             {
-                temp = 400.0 * (float)(tgcY[5] - tgcY[4]) / ((tgcX[5] - tgcX[4]) * (tgcX[5] - tgcX[4]));		
+                temp = 400.0 * (float)(tgcY[5] - tgcY[4]) / ((tgcX[5] - tgcX[4]) * (tgcX[5] - tgcX[4]));
                 tempTgc = (x - tgcX[4]) * (x - tgcX[4]) * temp / 200.0 + tgcY[4];
             }
-        }						
+        }
         else if (x  <  tgcX[5])
-        {		
+        {
             if(tgcY[5] == tgcY[4])
             {
                 tempTgc = tgcY[4];
             }
             else
             {
-                temp = (-400.0) * (float)(tgcY[5] - tgcY[4]) / ((tgcX[5] - tgcX[4]) * (tgcX[5] - tgcX[4]));		
+                temp = (-400.0) * (float)(tgcY[5] - tgcY[4]) / ((tgcX[5] - tgcX[4]) * (tgcX[5] - tgcX[4]));
                 tempTgc = (x - tgcX[5]) * (x - tgcX[5]) * temp / 200.0 + tgcY[5];
             }
         }
-        else if (x  <  (tgcX[5] + tgcX[6]) / 2) 
+        else if (x  <  (tgcX[5] + tgcX[6]) / 2)
         {
             if(tgcY[6] == tgcY[5])
             {
@@ -1171,12 +1171,12 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
             }
             else
             {
-                temp = 400.0 * (float)(tgcY[6] - tgcY[5]) / ((tgcX[6] - tgcX[5]) * (tgcX[6] - tgcX[5]));		
+                temp = 400.0 * (float)(tgcY[6] - tgcY[5]) / ((tgcX[6] - tgcX[5]) * (tgcX[6] - tgcX[5]));
                 tempTgc = (x - tgcX[5]) * (x - tgcX[5]) * temp / 200.0 + tgcY[5];
             }
-        }						
+        }
         else if (x  <  tgcX[6])
-        {		
+        {
             if(tgcY[6] == tgcY[5])
             {
                 tempTgc = tgcY[5];
@@ -1187,7 +1187,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 tempTgc = (x - tgcX[6]) * (x - tgcX[6]) * temp / 200.0 + tgcY[6];
             }
         }
-        else if (x  <  (tgcX[6] + tgcX[7]) / 2) 
+        else if (x  <  (tgcX[6] + tgcX[7]) / 2)
         {
             if(tgcY[7] == tgcY[6])
             {
@@ -1198,9 +1198,9 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = 400.0 * (float)(tgcY[7] - tgcY[6]) / ((tgcX[7] - tgcX[6]) * (tgcX[7] - tgcX[6]));
                 tempTgc = (x - tgcX[6]) * (x - tgcX[6]) * temp / 200.0 + tgcY[6];
             }
-        }						
+        }
         else if (x  <  tgcX[7])
-        {		
+        {
             if(tgcY[7] == tgcY[6])
             {
                 tempTgc = tgcY[6];
@@ -1210,8 +1210,8 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
                 temp = (-400.0) * (float)(tgcY[7] - tgcY[6]) / ((tgcX[7] - tgcX[6]) * (tgcX[7] - tgcX[6]));
                 tempTgc = (x - tgcX[7]) * (x - tgcX[7]) * temp / 200.0 + tgcY[7];
             }
-        }				
-        else 
+        }
+        else
         {
             tempTgc =  tgcY[7];
         }
@@ -1220,14 +1220,14 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
         tgcYAll =  gain * tempTgc / 255.0;
 
         if(x == 0)
-        { 
-            temp1 = tgcYAll;	
-            temp2 = tgcYAll; 
+        {
+            temp1 = tgcYAll;
+            temp2 = tgcYAll;
         }
 
         tempTgc = (temp1 + temp2 + tgcYAll) / 3.0;
 
-        temp2 = temp1; 
+        temp2 = temp1;
         temp1 = tempTgc;
         if (tempTgc > 255)
             tempTgc = 255;
@@ -1236,7 +1236,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
 
         tgcFlexibel[x] = (int)tempTgc;
         m_tgcFlexibel[x] = (int)tempTgc;
-    }   
+    }
 
     // total tgc
     memset(m_tgcTotal2D, 0, TGC_DOTS+TGC_EXTRA_DOTS);
@@ -1306,11 +1306,11 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
 #endif
 
     // send tgc
-    if (section == 0) //2D 
+    if (section == 0) //2D
         m_fpga.SendTgc2D(m_tgcTotal2D, TGC_DOTS+TGC_EXTRA_DOTS);
     else if (section == 1) //M
         m_fpga.SendTgcPw(m_tgcTotal2D, TGC_DOTS+TGC_EXTRA_DOTS);
- 
+
     // display tgc curve
     if (ptrUpdate != NULL)
         ptrUpdate->TgcCurve(m_tgcTotal2D, size);
@@ -1323,12 +1323,12 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
  * @para tgcY[9] [0]-[8] is value of tgc in each section. [9] is the total gain
  * @para fixedTgcControl [0]-[3] is the value to control calculating fixed tgc curve.
  */
-void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section) 
+void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section)
 {
 #ifdef EMP_430
     int smoothNum = 20;
 	int tgcFixedTemp[TGC_DOTS];
-    
+
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     char probeType = 'C';
@@ -1354,7 +1354,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
            for (int i = 0; i < TGC_DOTS; i++)
                 tgcFixedTemp[i] = TGC_FIEXD_65C15D[i];
             break;
-        
+
         case 'l':
         case 'L':
             adjustValue = 1.0;//1.4;
@@ -1376,7 +1376,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
         default:
             for (int i = 0; i < TGC_DOTS; i++)
                 tgcFixedTemp[i] = TGC_FIEXD_35C60E[i];
-            break;			
+            break;
     }
 #endif
 	int tgcFixed[TGC_DOTS];
@@ -1387,7 +1387,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
     const int MAX = 128;
     int A = 90; //x=0
     int B = 200; //x=7
-    float k = B - A; 
+    float k = B - A;
     float weighting = 0;;
     int x;
     float theta;
@@ -1417,12 +1417,12 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
         tgcFlexibel[x] = gain;
 #ifndef EMP_430
 // fixed tgc
-        if(x > c) 
+        if(x > c)
             k0 = ((float)(255 - b)) / a * x + b;
         else
-            k0 = ((float)(255 - b) * c / a + b - d) / c * x + d; 
+            k0 = ((float)(255 - b) * c / a + b - d) / c * x + d;
 
-		if (k0>255) 
+		if (k0>255)
 		  k0 = 255;
 		tgcFixed[x] = k0;
 #endif
@@ -1446,7 +1446,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
 
         y = x * scale;
         tempTotal = (unsigned int) (((float)tgcFlexibel[y] * tgcFixedTemp[x1] * adjustValue)/255);
-       
+
         if (tempTotal > 220)
             tempTotal = 220;
         else if(tempTotal < 0)
@@ -1460,7 +1460,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
 
         m_tgcTotal2D[x] = tempTotal;
     }
-    
+
     unsigned char digitalTgcTemp[TGC_DOTS];
     int sum = 0;
 
@@ -1474,7 +1474,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
             sum += m_tgcTotal2D[i + j];
         digitalTgcTemp[i] = sum/20;
     }
-    
+
     for (int i = TGC_DOTS - 10; i < TGC_DOTS; i++)
     {
         digitalTgcTemp[i] = m_tgcTotal2D[i];
@@ -1544,7 +1544,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
  *
  * @para start start offset of the first focus
  */
-void Calc2D::FocChange(int start) 
+void Calc2D::FocChange(int start)
 {
 	///> para needed by calc
 	int focusSum = m_calcPara->focSum;
@@ -1559,17 +1559,17 @@ void Calc2D::FocChange(int start)
 	///>
 	int value = depthDots + 4;// + 20; //+20 to avoid the ring at the bottom of image
 	int focusBegin[4];
-	int focusEnd[4];	
+	int focusEnd[4];
 	int offset = start;
-	
+
 	focusBegin[0] = 0 + offset;
 	focusEnd[focusSum - 1] = value + offset;
-	
+
 	double scale = (float)depth / depthDots;
 
 	for (int i = 1; i < focusSum; i ++)
 	{
-		focusEnd[i-1] = focusBegin[i] 
+		focusEnd[i-1] = focusBegin[i]
 			= (unsigned int)((focusPos[i] + focusPos[i-1]) / (scale * 2)) + offset;
 	}
 
@@ -1578,7 +1578,7 @@ void Calc2D::FocChange(int start)
 }
 
 /*
- * @brief calculate log curve of given value "value". 
+ * @brief calculate log curve of given value "value".
  *
  * @para value parameter to calculate log curve.
  */
@@ -1586,10 +1586,10 @@ void Calc2D::Log(float dynamicRange, float gain, int size, unsigned char *pLogCu
 {
 	float D = 20.0 * (256.0 - 2.0) / (float)dynamicRange;
     float G = 256.0 -1- D * (log10(32767) - (float)gain / 20.0);
-     
+
     double spect_max = 32767.0 * pow(10, -(gain) / 20.0);
     double spect_min = 32767.0 * pow(10, -(gain + dynamicRange) / 20.0);
-      
+
     for (int i = 0; i < size; i++)
     {
         if (i <= spect_min)
@@ -1615,14 +1615,14 @@ void Calc2D::Log(float dynamicRange, float gain, int size, unsigned char *pLogCu
 void Calc2D::Log(double value, int size, unsigned char *pLogCurveBuf)
 {
 	int i;
-	const int COMPARE =	8192 * 2; //8192;	
+	const int COMPARE =	8192 * 2; //8192;
 	int j,temp;
 
 	for(i = 0; i < size; i++)
 	{
 		j=i*12/4;
 		if(j<COMPARE)
-		{	
+		{
 			temp = (unsigned char)((255 / value) * (log(j / ((COMPARE-1) / (pow(10, value) - 1)) + 1) / log(10)));
 			if(temp>255)	temp = 255;
 			pLogCurveBuf[i] = temp;
@@ -1653,7 +1653,7 @@ void Calc2D::Log(double value)
 void Calc2D::CEmitDelay(int focusIndex, const int CH_NUM[], int size, bool compound)
 {
 	float steer = 0.0;
-	float focPos = (float)m_calcPara->focPos[focusIndex]; 
+	float focPos = (float)m_calcPara->focPos[focusIndex];
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {
         if (focusIndex == 0)
@@ -1711,7 +1711,7 @@ void Calc2D::CEmitDelayPw(float focPos, const int CH_NUM[], int size)
         CEmitDelayCalc(focPos, CH_NUM, size, delay);
         m_fpga.SendEmitDelayEvenPW(delay, APERTURE_HALF * 2, 0, 0);
         m_fpga.SendEmitDelayOddPW(delay, APERTURE_HALF * 2, 0, 0);
-#endif   
+#endif
     }
 }
 
@@ -1746,7 +1746,7 @@ void Calc2D::CEmitDelayCfm(float focPos, const int CH_NUM[], int size)
  * @brief calc receive delay of convex and TV, for black-white
  */
 void Calc2D::CReceiveDelay(bool compound)
-{	
+{
     // calc control parameter
     CCalcReceiveDelayCtrlParam(compound);
 
@@ -1755,7 +1755,7 @@ void Calc2D::CReceiveDelay(bool compound)
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {
         int  delayAn[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's an
-        short delayBn[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+        short delayBn[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's Bn
         CReceiveDelayCalcExtended(delayAn, delayBn);
         m_fpga.SendReceiveDelayAn((short*)delayAn, sizeof(delayAn) / sizeof(short));
         m_fpga.SendReceiveDelayBn(delayBn, sizeof(delayBn) / sizeof(short));
@@ -1763,7 +1763,7 @@ void Calc2D::CReceiveDelay(bool compound)
     else
     {
         int  delayAn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's an
-        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn
         steer = 0.0;
         CReceiveDelayCalc(steer, delayAn, delayBn);
 #if 0
@@ -1779,7 +1779,7 @@ void Calc2D::CReceiveDelay(bool compound)
 		// compound1
 
         int  delayAn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's an
-        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn
 
         steer = 0 - m_calcPara->compoundAngle * PI / 180.0;
         CReceiveDelayCalc(steer, delayAn, delayBn);
@@ -1871,33 +1871,33 @@ void Calc2D::CCalcReceiveDelayCtrlParam(bool compound)
     short focStartTime;
     short wrOffset;
     short startK;
-	
+
     // focus para BW
 	steer = 0.0;
-	CFocusParaCalc(steer, focStartTime, wrOffset, startK);    
-    m_fpga.SendPhaseFocStart(focStartTime);    
-    m_fpga.SendPhaseWrOffset(wrOffset);     
-    m_fpga.SendPhaseStartK(startK);    
+	CFocusParaCalc(steer, focStartTime, wrOffset, startK);
+    m_fpga.SendPhaseFocStart(focStartTime);
+    m_fpga.SendPhaseWrOffset(wrOffset);
+    m_fpga.SendPhaseStartK(startK);
 
 	// focus para color
-    m_fpga.SendPhaseFocStartColor(focStartTime);    
-    m_fpga.SendPhaseWrOffsetColor(wrOffset);    
-    m_fpga.SendPhaseStartKColor(startK);    
+    m_fpga.SendPhaseFocStartColor(focStartTime);
+    m_fpga.SendPhaseWrOffsetColor(wrOffset);
+    m_fpga.SendPhaseStartKColor(startK);
 
 	if (compound)
 	{
 		//compound focus para
 		steer = 0-m_calcPara->compoundAngle * PI / 180.0;
-        CFocusParaCalc(steer, focStartTime, wrOffset, startK);    
+        CFocusParaCalc(steer, focStartTime, wrOffset, startK);
 		m_fpga.SendSpaceCompound1FocStart(focStartTime);
 		m_fpga.SendSpaceCompound1WrOffset(wrOffset);
 		m_fpga.SendSpaceCompound1StartK(startK);
 
 		steer = m_calcPara->compoundAngle * PI / 180.0;
-        CFocusParaCalc(steer, focStartTime, wrOffset, startK);    
+        CFocusParaCalc(steer, focStartTime, wrOffset, startK);
 		m_fpga.SendSpaceCompound2FocStart(focStartTime);
 		m_fpga.SendSpaceCompound2WrOffset(wrOffset);
-		m_fpga.SendSpaceCompound2StartK(startK);	
+		m_fpga.SendSpaceCompound2StartK(startK);
 
         // new adder
 		steer = m_calcPara->compoundAngle * PI / 180.0;
@@ -1910,16 +1910,16 @@ void Calc2D::CCalcReceiveDelayCtrlParam(bool compound)
 		int adderForLine;
 		int adderForDot;
 		int startSamp;
-		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);		
+		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);
 		m_fpga.SendSpaceCompoundAdderLine(adderForLine);
 		m_fpga.SendSpaceCompoundAdderDot(adderForDot);
-		m_fpga.SendSpaceCompoundStartSamp(startSamp);	
+		m_fpga.SendSpaceCompoundStartSamp(startSamp);
 		m_fpga.SendSpaceCompound1AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound1AdderDot(adderForDot);
 		m_fpga.SendSpaceCompound1StartSamp(startSamp);
 		m_fpga.SendSpaceCompound2AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound2AdderDot(adderForDot);
-		m_fpga.SendSpaceCompound2StartSamp(startSamp);	
+		m_fpga.SendSpaceCompound2StartSamp(startSamp);
 
 		// coef
         CompoundRate();
@@ -1932,9 +1932,9 @@ void Calc2D::CCalcReceiveDelayCtrlParam(bool compound)
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::LEmitDelay(int focusIndex, const int CH_NUM[], int size, bool compound) 
+void Calc2D::LEmitDelay(int focusIndex, const int CH_NUM[], int size, bool compound)
 {
-	float focPos = (float)m_calcPara->focPos[focusIndex]; 
+	float focPos = (float)m_calcPara->focPos[focusIndex];
 	float steer = 0.0;
     unsigned short delay[APERTURE_HALF * 4]; ///< all emit delay
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
@@ -1954,7 +1954,7 @@ void Calc2D::LEmitDelay(int focusIndex, const int CH_NUM[], int size, bool compo
         m_fpga.SendEmitDelayEven(delay, APERTURE_HALF*2, focusIndex, APERTURE_HALF*2);
         m_fpga.SendEmitDelayOdd(delay+APERTURE_HALF*2, APERTURE_HALF*2, focusIndex, APERTURE_HALF*2);
     }
- 
+
 	if (compound)
 	{
 		// left
@@ -1975,7 +1975,7 @@ void Calc2D::LEmitDelay(int focusIndex, const int CH_NUM[], int size, bool compo
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::LEmitDelayPw(float focPos, const int CH_NUM[], int size) 
+void Calc2D::LEmitDelayPw(float focPos, const int CH_NUM[], int size)
 {
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {}
@@ -1995,7 +1995,7 @@ void Calc2D::LEmitDelayPw(float focPos, const int CH_NUM[], int size)
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::LEmitDelayCfm(float focPos, const int CH_NUM[], int size) 
+void Calc2D::LEmitDelayCfm(float focPos, const int CH_NUM[], int size)
 {
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {}
@@ -2005,7 +2005,7 @@ void Calc2D::LEmitDelayCfm(float focPos, const int CH_NUM[], int size)
         unsigned short delay[APERTURE_HALF * 4]; ///< all emit delay
         float steer = m_calcPara->steerAngleColor * PI / 180.0;
 
-        LEmitDelayCalc(focPos, steer, CH_NUM, size, delay);	
+        LEmitDelayCalc(focPos, steer, CH_NUM, size, delay);
         m_fpga.SendEmitDelayEvenCFM(delay, APERTURE_HALF * 2, 0, 0);
         m_fpga.SendEmitDelayOddCFM(delay + APERTURE_HALF*2, APERTURE_HALF * 2, 0, 0);
     }
@@ -2017,13 +2017,13 @@ void Calc2D::LReceiveDelay(bool compound)
 
     //BW receive delay
 	int  delayAn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's an
-	short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+	short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn
 
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {
         steer = 0.0;
         int  delayAnTp[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's an
-        short delayBnTp[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+        short delayBnTp[MAX_LINES * APERTURE_HALF * 2]; ///< save all MBP's Bn
         LReceiveDelayCalcExtended(steer, delayAnTp, delayBnTp);
         m_fpga.SendReceiveDelayAn((short*)delayAnTp, sizeof(delayAnTp) / sizeof(short));
         m_fpga.SendReceiveDelayBn(delayBnTp, sizeof(delayBnTp) / sizeof(short));
@@ -2059,8 +2059,8 @@ void Calc2D::LReceiveDelay(bool compound)
 	    m_fpga.SendReceiveDelayBnSpaceCompound2(delayBn, sizeof(delayBn) / sizeof(short));
 	}
 
-    // calc receive aperture 
-#ifdef EMP_430   
+    // calc receive aperture
+#ifdef EMP_430
  	LReceiveApertureU16(compound);
 #else
    	LReceiveAperture(compound);
@@ -2078,7 +2078,7 @@ void Calc2D::LReceiveDelayColor(bool compound)
 
         //BW receive delay
         int  delayAn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's an
-        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn 
+        short delayBn[MAX_MBP * APERTURE_HALF * 2]; ///< save all MBP's Bn
 
         steer = m_calcPara->steerAngleColor * PI / 180.0;
         LReceiveDelayCalc(steer, delayAn, delayBn);
@@ -2101,7 +2101,7 @@ void Calc2D::LReceiveDelayColor(bool compound)
             m_fpga.SendReceiveDelayBnSpaceCompound2(delayBn, sizeof(delayBn) / sizeof(short));
         }
 
-        // calc receive aperture 
+        // calc receive aperture
 #ifdef EMP_430
         LReceiveApertureU16(compound);
 #else
@@ -2174,21 +2174,21 @@ void Calc2D::LCalcReceiveDelayCtrlParam(bool compound)
 	float steer = 0.0;
 	short focStartTime;
 	short wrOffset;
-    short startK = 0; 
-	
+    short startK = 0;
+
 	//focus para BW
     steer = m_calcPara->steerAngle * PI / 180.0;
-	LFocusParaCalc(steer, focStartTime, wrOffset, startK);	
-    m_fpga.SendPhaseFocStart(focStartTime);    
-    m_fpga.SendPhaseWrOffset(wrOffset);    
-    m_fpga.SendPhaseStartK(startK);    
+	LFocusParaCalc(steer, focStartTime, wrOffset, startK);
+    m_fpga.SendPhaseFocStart(focStartTime);
+    m_fpga.SendPhaseWrOffset(wrOffset);
+    m_fpga.SendPhaseStartK(startK);
 
 	//focus para color
 	steer = m_calcPara->steerAngleColor * PI / 180.0;
-	LFocusParaCalc(steer, focStartTime, wrOffset, startK);	
-	m_fpga.SendPhaseFocStartColor(focStartTime);    
-    m_fpga.SendPhaseWrOffsetColor(wrOffset+20);    
-    m_fpga.SendPhaseStartKColor(startK);   
+	LFocusParaCalc(steer, focStartTime, wrOffset, startK);
+	m_fpga.SendPhaseFocStartColor(focStartTime);
+    m_fpga.SendPhaseWrOffsetColor(wrOffset+20);
+    m_fpga.SendPhaseStartKColor(startK);
 
 	if (compound)
 	{
@@ -2203,35 +2203,35 @@ void Calc2D::LCalcReceiveDelayCtrlParam(bool compound)
 		LFocusParaCalc(steer, focStartTime, wrOffset, startK);
 		m_fpga.SendSpaceCompound2FocStart(focStartTime);
 		m_fpga.SendSpaceCompound2WrOffset(wrOffset);
-		m_fpga.SendSpaceCompound2StartK(startK);	
+		m_fpga.SendSpaceCompound2StartK(startK);
 
 		// adder
 		int adderForLine;
 		int adderForDot;
 		int startSamp;
 		float angle = 0.0;
-		
+
 		//steer = 0.0;
         steer = m_calcPara->steerAngle * PI / 180.0;
 		angle = m_calcPara->compoundAngle * PI / 180.0;
-		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);		
+		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);
 		m_fpga.SendSpaceCompoundAdderLine(adderForLine);
 		m_fpga.SendSpaceCompoundAdderDot(adderForDot);
-		m_fpga.SendSpaceCompoundStartSamp(startSamp);	
+		m_fpga.SendSpaceCompoundStartSamp(startSamp);
 
 		steer = 0 - m_calcPara->compoundAngle * PI / 180.0;
 		angle = 0.0;
-		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);			
+		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);
 		m_fpga.SendSpaceCompound1AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound1AdderDot(adderForDot);
-		m_fpga.SendSpaceCompound1StartSamp(startSamp);		
+		m_fpga.SendSpaceCompound1StartSamp(startSamp);
 
 		steer = m_calcPara->compoundAngle * PI / 180.0;
 		angle = 0.0;
-		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);	
+		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);
 		m_fpga.SendSpaceCompound2AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound2AdderDot(adderForDot);
-		m_fpga.SendSpaceCompound2StartSamp(startSamp);			
+		m_fpga.SendSpaceCompound2StartSamp(startSamp);
 
         // new adder
 		steer = m_calcPara->compoundAngle * PI / 180.0;
@@ -2249,15 +2249,15 @@ void Calc2D::LCalcReceiveDelayCtrlParam(bool compound)
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::PEmitDelay(int focusIndex, const int CH_NUM[], int size) 
+void Calc2D::PEmitDelay(int focusIndex, const int CH_NUM[], int size)
 {
-	float focPos = (float)m_calcPara->focPos[focusIndex]; 
+	float focPos = (float)m_calcPara->focPos[focusIndex];
 	unsigned short delayEmitPhase[APERTURE_HALF * 2 * PHASELINE]; ///< all emit delay
     //PEmitDelayCalc(focPos, CH_NUM, size, delay);
 	PEmitDelayCalc(focPos, C_BW, CH_NUM, size, delayEmitPhase);
 
 /*
-    //test 2012-9-25    
+    //test 2012-9-25
     int i, j;
     for (i = 0; i < PHASELINE; i ++)
     {
@@ -2289,7 +2289,7 @@ void Calc2D::PEmitDelay(int focusIndex, const int CH_NUM[], int size)
         }
 
        m_fpga.SendEmitDelayEvenPW(delayEmitPhase, sizeof(delayEmitPhase) / sizeof (unsigned short), APERTURE_HALF*2*PHASELINE, 1);
-       
+
        //receive
        PReceiveDelayCalcCW(delayEmitPhase);
 
@@ -2313,9 +2313,9 @@ void Calc2D::ChangeChanelNum(int num)
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size) 
+void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size)
 {
- 	unsigned short delayEmitPhase[APERTURE_HALF * 2 * PHASELINE]; 
+ 	unsigned short delayEmitPhase[APERTURE_HALF * 2 * PHASELINE];
     //PEmitDelayCalc(focPos, CH_NUM, size, m_delayPhase);
     PEmitDelayCalc(focPos, C_PW, CH_NUM, size, m_delayPhase);
 
@@ -2325,7 +2325,7 @@ void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size)
     {
         PRINTF("-cw=%d, cwLine=%d\n", isCw, cwLine);
         //emit
-        memcpy(delayEmitPhase, m_delayPhase, APERTURE_HALF*2*PHASELINE*sizeof(unsigned short)); 
+        memcpy(delayEmitPhase, m_delayPhase, APERTURE_HALF*2*PHASELINE*sizeof(unsigned short));
         int i;
         int j;
         for (i = 0; i < PHASELINE; i ++)
@@ -2375,7 +2375,7 @@ void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size)
     {
         m_fpga.SendEmitDelayEvenPW(m_delayPhase, sizeof(m_delayPhase) / sizeof (unsigned short), APERTURE_HALF*2*PHASELINE, 1);
     }
- 
+
 }
 
 /*
@@ -2383,7 +2383,7 @@ void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size)
  *
  * @para focusIndex index of focus, range if (0 ~ FOC_MAX-1)代表第几个焦点
  */
-void Calc2D::PEmitDelayCfm(float focPos, const int CH_NUM[], int size) 
+void Calc2D::PEmitDelayCfm(float focPos, const int CH_NUM[], int size)
 {
 	unsigned short delay[APERTURE_HALF * 2 * PHASELINE]; ///< all emit delay
     PEmitDelayCalc(focPos, C_CFM, CH_NUM, size, delay);
@@ -2394,7 +2394,7 @@ void Calc2D::PReceiveDelay(bool compound)
 {
     //计算动态聚焦
 	int  delayAn[APERTURE_HALF * 2 * PHASELINE]; ///< save all MBP's an
-	short delayBn[APERTURE_HALF * 2 * PHASELINE]; ///< save all MBP's Bn 
+	short delayBn[APERTURE_HALF * 2 * PHASELINE]; ///< save all MBP's Bn
     PReceiveDelayCalc(delayAn, delayBn);
     m_fpga.SendReceiveDelayAn((short*)delayAn, sizeof(delayAn) / sizeof(short));
     m_fpga.SendReceiveDelayBn(delayBn, sizeof(delayBn) / sizeof(short));
@@ -2416,7 +2416,7 @@ void Calc2D::PReceiveAperture(bool compound)
     // calc control parameter
     PCalcReceiveDelayCtrlParam(compound);
 
-    // calc receive aperture 
+    // calc receive aperture
     unsigned char delayAperture[APERTURE_DOTS * APERTURE_HALF * 2]; ///< save all aperture value
     PReceiveApertureCalc(delayAperture);
     m_fpga.SendReceiveAperture(delayAperture, sizeof(delayAperture) / sizeof(unsigned char));
@@ -2430,7 +2430,7 @@ void Calc2D::PReceiveApertureU16(bool compound)
 
 	short delayAperture[APERTURE_DOTS * APERTURE_HALF * 2]; ///< save all aperture value
 
-    // calc receive aperture 
+    // calc receive aperture
     PReceiveApertureCalcU16(delayAperture);
     m_fpga.SendReceiveApertureU16(delayAperture, sizeof(delayAperture) / sizeof(short));
     m_fpga.SendReceiveApertureColorU16(delayAperture, sizeof(delayAperture) / sizeof(short));
@@ -2450,15 +2450,15 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
 #else
         probeWidth = m_calcPara->probeWidthPhase;
 #endif
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
  	float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));
 	float angle = probeAngle / (float)2 * PI / 180.0;
 	float speed = m_calcPara->soundSpeedTsi;
-		
+
 	// focus para BW
 	short startK = 0;
 	short wrOffset;
-	float focusBegin = 10;	
+	float focusBegin = 10;
     short focStartTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);
     if (fabs(angle) < ZERO)
         wrOffset = 10;
@@ -2468,14 +2468,14 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
 #else
        wrOffset = 10 + APERTURE_HALF * interval / sin(angle)  * (1.0 - cos(angle)) * 1000 / speed / (float)NS_PER_UNIT;
 #endif
-    m_fpga.SendPhaseFocStart(focStartTime);    
-    m_fpga.SendPhaseWrOffset(wrOffset);    
-    m_fpga.SendPhaseStartK(startK);    
+    m_fpga.SendPhaseFocStart(focStartTime);
+    m_fpga.SendPhaseWrOffset(wrOffset);
+    m_fpga.SendPhaseStartK(startK);
 
 	// focus para color
-    m_fpga.SendPhaseFocStartColor(focStartTime);    
-    m_fpga.SendPhaseWrOffsetColor(wrOffset);    
-    m_fpga.SendPhaseStartKColor(startK);    
+    m_fpga.SendPhaseFocStartColor(focStartTime);
+    m_fpga.SendPhaseWrOffsetColor(wrOffset);
+    m_fpga.SendPhaseStartKColor(startK);
 
 	if (compound)
 	{
@@ -2493,29 +2493,29 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
 		int startSamp;
 	    steer = 0.0;
 		float angle = 0.0;
-		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);			
+		CompoundParaCalc(steer, angle, adderForLine, adderForDot, startSamp);
 		m_fpga.SendSpaceCompoundAdderLine(adderForLine);
 		m_fpga.SendSpaceCompoundAdderDot(adderForDot);
-		m_fpga.SendSpaceCompoundStartSamp(startSamp);	
+		m_fpga.SendSpaceCompoundStartSamp(startSamp);
 		m_fpga.SendSpaceCompound1AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound1AdderDot(adderForDot);
 		m_fpga.SendSpaceCompound1StartSamp(startSamp);
 		m_fpga.SendSpaceCompound2AdderLine(adderForLine);
 		m_fpga.SendSpaceCompound2AdderDot(adderForDot);
-		m_fpga.SendSpaceCompound2StartSamp(startSamp);	
+		m_fpga.SendSpaceCompound2StartSamp(startSamp);
 
 		// coef
         CompoundRate();
 	}
-	
+
 }
 
 /*
  * @brief calc width of focus pulse, when freq compound(f0)
  *
- * @para power[in] percent of output power 
+ * @para power[in] percent of output power
  * @para freqEmit[in] emit freq * 20
- * 
+ *
  * @retval if focus pulse width is changed, TRUE-changed, FALSE-not changed
  */
 bool Calc2D::FocPulse(int power, int freqEmit)
@@ -2528,7 +2528,7 @@ bool Calc2D::FocPulse(int power, int freqEmit)
 	int pulseCycle = (int)(width + 0.5);
 	int pulseWidth = (width * power / (float)100 + 0.5);
     //m_pulseCycle = pulseCycle;
-	
+
 	if (pulseCycle == 0)
 		pulseCycle = 1;
 
@@ -2543,7 +2543,7 @@ bool Calc2D::FocPulse(int power, int freqEmit)
 
 	//send foc pulse
 	CalcWeightingEmit(pulseWidth);
-	
+
 	//send foc pulse for test
 #ifdef EMP_355
 	m_fpga.SendPulseWidthBak(pulseWidth);
@@ -2563,9 +2563,9 @@ bool Calc2D::FocPulse(int power, int freqEmit)
 
 /*
  * @brief calc pulse freq for freq compound
- * @para power[in] percent of output power 
+ * @para power[in] percent of output power
  * @para freqEmit[in] emit freq * 20
- * @para order[in] 
+ * @para order[in]
  *       order=1: f1
  * 		 order=2: f2
  */
@@ -2579,7 +2579,7 @@ int  Calc2D::FocPulseFreqCompound(int power, int freqEmit, int order)
 	int pulseCycle = (int)(width + 0.5);
 	int pulseWidth = (width * power / (float)100 + 0.5);
 	int ret = pulseCycle;
-	
+
 	if (pulseCycle == 0)
 		pulseCycle = 1;
 
@@ -2588,7 +2588,7 @@ int  Calc2D::FocPulseFreqCompound(int power, int freqEmit, int order)
 
 	//send foc pulse
 	m_fpga.SendPulseCycleFreqCompound(pulseCycle, order);
-	CalcWeightingEmitFreqCompound(pulseWidth, order);	
+	CalcWeightingEmitFreqCompound(pulseWidth, order);
 #ifdef EMP_355
 	m_fpga.SendPulseWidthFreqCompound(pulseWidth, order);
 #endif
@@ -2619,7 +2619,7 @@ void Calc2D::BandPassFilterSelect(int freqCompound)
 #if 1
         if (fcCur > 12)
             fcCur = 12;
-#else     
+#else
         fcCur = 10;
 #endif
 
@@ -2637,7 +2637,7 @@ void Calc2D::BandPassFilterSelect(int freqCompound)
 #endif
             if(i < 16)
             {
-                fcCur = float((m_fcBandPassFilter[1] - m_fcBandPassFilter[0]) / 15.0 * (float) i + m_fcBandPassFilter[0]); 
+                fcCur = float((m_fcBandPassFilter[1] - m_fcBandPassFilter[0]) / 15.0 * (float) i + m_fcBandPassFilter[0]);
                 if (fcCur > 12)
                     fcCur = 12;
                 segAddr = (12 - fcCur )*freqInterval;
@@ -2713,12 +2713,12 @@ void Calc2D::BandPassFilterSelect(int freqCompound)
     HintArea::GetInstance()->ClearHint();
     if(m_calcPara->harmonic)
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex); 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex);
     }
     else
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex); 
-    } 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex);
+    }
     HintArea::GetInstance()->UpdateHint(str_filter);
 #endif
     //printf("\n");
@@ -2779,7 +2779,7 @@ void Calc2D::BandPassFilterSelect_test(float freq[5], int freqDepth[5], int freq
             m_depthBandPassFilter[i] = freqDepth[i];
         }
     }
-    
+
     for(int i=0; i<FREQ_SECTION; i++)
     {
         fcCur = (float)(m_freqStep[i]*SAMPLE_FREQ)/((float)(1024*4));
@@ -2792,14 +2792,14 @@ void Calc2D::BandPassFilterSelect_test(float freq[5], int freqDepth[5], int freq
             if (temp < freqDepth[0])
                 fcCur = m_fcBandPassFilter[0];
             else if (temp < freqDepth[1])
-                fcCur = m_fcBandPassFilter[0] - (temp-freqDepth[0])*(m_fcBandPassFilter[0]-m_fcBandPassFilter[1])/(freqDepth[1]-freqDepth[0]);	
-            else if	(temp <freqDepth[2])		
+                fcCur = m_fcBandPassFilter[0] - (temp-freqDepth[0])*(m_fcBandPassFilter[0]-m_fcBandPassFilter[1])/(freqDepth[1]-freqDepth[0]);
+            else if	(temp <freqDepth[2])
                 fcCur = m_fcBandPassFilter[1] - (temp-freqDepth[1])*(m_fcBandPassFilter[1]-m_fcBandPassFilter[2])/(freqDepth[2]-freqDepth[1]);
-            else if	(temp <freqDepth[3])	
+            else if	(temp <freqDepth[3])
                 fcCur = m_fcBandPassFilter[2] - (temp-freqDepth[2])*(m_fcBandPassFilter[2]-m_fcBandPassFilter[3])/(freqDepth[3]-freqDepth[2]);
-            else if	(temp <freqDepth[4])	
+            else if	(temp <freqDepth[4])
                 fcCur = m_fcBandPassFilter[3] - (temp-freqDepth[3])*(m_fcBandPassFilter[3]-m_fcBandPassFilter[4])/(freqDepth[4]-freqDepth[3]);
-            else 	
+            else
                 fcCur = m_fcBandPassFilter[4];
         }
         else
@@ -2807,14 +2807,14 @@ void Calc2D::BandPassFilterSelect_test(float freq[5], int freqDepth[5], int freq
             if (temp < freqDepth[0])
                 fcCur = m_fcBandPassFilterBaseFreq[0];
             else if (temp < freqDepth[1])
-                fcCur = m_fcBandPassFilterBaseFreq[0] - (temp-freqDepth[0])*(m_fcBandPassFilterBaseFreq[0]-m_fcBandPassFilterBaseFreq[1])/(freqDepth[1]-freqDepth[0]);	
-            else if	(temp <freqDepth[2])		
+                fcCur = m_fcBandPassFilterBaseFreq[0] - (temp-freqDepth[0])*(m_fcBandPassFilterBaseFreq[0]-m_fcBandPassFilterBaseFreq[1])/(freqDepth[1]-freqDepth[0]);
+            else if	(temp <freqDepth[2])
                 fcCur = m_fcBandPassFilterBaseFreq[1] - (temp-freqDepth[1])*(m_fcBandPassFilterBaseFreq[1]-m_fcBandPassFilterBaseFreq[2])/(freqDepth[2]-freqDepth[1]);
-            else if	(temp <freqDepth[3])	
+            else if	(temp <freqDepth[3])
                 fcCur = m_fcBandPassFilterBaseFreq[2] - (temp-freqDepth[2])*(m_fcBandPassFilterBaseFreq[2]-m_fcBandPassFilterBaseFreq[3])/(freqDepth[3]-freqDepth[2]);
-            else if	(temp <freqDepth[4])	
+            else if	(temp <freqDepth[4])
                 fcCur = m_fcBandPassFilterBaseFreq[3] - (temp-freqDepth[3])*(m_fcBandPassFilterBaseFreq[3]-m_fcBandPassFilterBaseFreq[4])/(freqDepth[4]-freqDepth[3]);
-            else 	
+            else
                 fcCur = m_fcBandPassFilterBaseFreq[4];
         }
 
@@ -2866,12 +2866,12 @@ void Calc2D::BandPassFilterSelect_test(float freq[5], int freqDepth[5], int freq
     HintArea::GetInstance()->ClearHint();
     if(m_calcPara->harmonic)
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  ===fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex); 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  ===fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex);
     }
     else
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex); 
-    } 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex);
+    }
     HintArea::GetInstance()->UpdateHint(str_filter);
 #endif
 	///> clear and send high filter
@@ -2903,9 +2903,9 @@ void Calc2D::BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqD
 	int i, temp;
 	float w1, w2;
 
-	float bandPassFreq1[5]; 
-	float bandPassFreq2[5];    
-	
+	float bandPassFreq1[5];
+	float bandPassFreq2[5];
+
 
 	for(i = 0; i < 5; i++)
 	{
@@ -2937,24 +2937,24 @@ void Calc2D::BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqD
 		{
 			w1 = bandPassFreq1[0] - (temp-freqDepth[0])*(bandPassFreq1[0]-bandPassFreq1[1])/(freqDepth[1]-freqDepth[0]);
 			w2 = bandPassFreq2[0] - (temp-freqDepth[0])*(bandPassFreq2[0]-bandPassFreq2[1])/(freqDepth[1]-freqDepth[0]);
-		}	
-		else if	(temp <freqDepth[2])	
-		{	
+		}
+		else if	(temp <freqDepth[2])
+		{
 			w1 = bandPassFreq1[1] - (temp-freqDepth[1])*(bandPassFreq1[1]-bandPassFreq1[2])/(freqDepth[2]-freqDepth[1]);
 			w2 = bandPassFreq2[1] - (temp-freqDepth[1])*(bandPassFreq2[1]-bandPassFreq2[2])/(freqDepth[2]-freqDepth[1]);
 		}
 		else if	(temp <freqDepth[3])
-		{	
+		{
 			w1 = bandPassFreq1[2] - (temp-freqDepth[2])*(bandPassFreq1[2]-bandPassFreq1[3])/(freqDepth[3]-freqDepth[2]);
 			w2 = bandPassFreq2[2] - (temp-freqDepth[2])*(bandPassFreq2[2]-bandPassFreq2[3])/(freqDepth[3]-freqDepth[2]);
 		}
-		else if	(temp <freqDepth[4])	
+		else if	(temp <freqDepth[4])
 		{
 			w1 = bandPassFreq1[3] - (temp-freqDepth[3])*(bandPassFreq1[3]-bandPassFreq1[4])/(freqDepth[4]-freqDepth[3]);
 			w2 = bandPassFreq2[3] - (temp-freqDepth[3])*(bandPassFreq2[3]-bandPassFreq2[4])/(freqDepth[4]-freqDepth[3]);
 		}
-		else 
-		{	
+		else
+		{
 			w1 = bandPassFreq1[4];
 			w2 = bandPassFreq2[4];
 		}
@@ -2983,7 +2983,7 @@ void BandPassFilterFunction(unsigned short* h, float w0_in, float w1_in, int ord
 	M = order + 1;
 	w0 = w0_in / (fs / 2) * PI;
 	w1 = w1_in / (fs / 2) * PI;
-	
+
 	float *hd = new float[M];
 	memset(hd, 0, sizeof(hd));
 	float *hd0 = new float[M];
@@ -3063,13 +3063,13 @@ void BandPassFilterFunction(unsigned short* h, float w0_in, float w1_in, int ord
 	delete []hd1;
 	delete []w_win;
 	delete []coefVal;
-	
+
 }
 
 void Calc2D::LowPassFilterFunction(unsigned short* coef, float wc_in, int order, float fs, int windowType)
 {
 	int M, i;
-	float wc;	
+	float wc;
 	M = order + 1;
 	wc = wc_in / (fs / 2) * PI;
 
@@ -3284,12 +3284,12 @@ void Calc2D::DynamicDemod(float freq[5], int freqDepth[5], bool enableHarmonic)
     HintArea::GetInstance()->ClearHint();
     if(m_calcPara->harmonic)
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex); 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex);
     }
     else
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex); 
-    } 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex);
+    }
     HintArea::GetInstance()->UpdateHint(str_filter);
 #endif
     ///> send demod combined datas.
@@ -3329,14 +3329,14 @@ void Calc2D::DynamicDemod_test(float freq[5], int freqDepth[5], bool enableHarmo
     HintArea::GetInstance()->ClearHint();
     if(m_calcPara->harmonic)
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex); 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex);
     }
     else
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex); 
-    } 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex);
+    }
     HintArea::GetInstance()->UpdateHint(str_filter);
-#endif 
+#endif
     ///> send demod combined datas.
     m_fpga.SendDemodCombineBuf(freqStep, FREQ_SECTION);
 	m_fpga.SendDemodCombine(cycle);
@@ -3366,7 +3366,7 @@ void Calc2D::DynamicDemodFreqCompound(float freq[5], int freqDepth[5], bool enab
 	int cycle;
     unsigned short freqStep[FREQ_SECTION];
 	DynamicDemodCalc(freq, freqDepth, enableHarmonic, cycle, freqStep);
-	
+
 	///> send demod combined datas.
 	m_fpga.SendDemodBufFreqCompound(freqStep, FREQ_SECTION, order);
 }
@@ -3375,7 +3375,7 @@ void Calc2D::DynamicDemodFreqCompound(float freq[5], int freqDepth[5], bool enab
  *        每个频率有64段滤波参数，每段32个word，频率范围0～12Mhz分为480段可选参数库
  *
  * @para freqCompound[in] 0:normal freq, 1:compound freq1, 2:compound freq1
- * @note filter (0.25-12Mhz) is devide into 480 section, step is 0.25. depth(0-depthMax) is devide into 64 section. 63 section of detph is denoted 
+ * @note filter (0.25-12Mhz) is devide into 480 section, step is 0.25. depth(0-depthMax) is devide into 64 section. 63 section of detph is denoted
  *       to color doppler
  */
 void Calc2D::DynamicFilter(int freqCompound)
@@ -3390,7 +3390,7 @@ void Calc2D::DynamicFilter(int freqCompound)
 	for(int i=0; i<FREQ_SECTION; i++)
 	{
         fcCur = (float)(m_freqStep[i]*SAMPLE_FREQ)/((float)(1024*4))*2.0/4.0;
-        if (fcCur < 2.0) 
+        if (fcCur < 2.0)
             fcCur = 2.0;
         if (fcCur > 12)
             fcCur = 12;
@@ -3431,7 +3431,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     const int size = FREQ_SECTION*32* sizeof(unsigned short);
     unsigned char *ptrFilter = new unsigned char[size];
     int temp;
-    int depth = m_calcPara->depth;		
+    int depth = m_calcPara->depth;
     if(m_calcPara->harmonic)
     {
         for(int i = 0; i < 5; i++)
@@ -3454,7 +3454,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     {
         //fcCur = (float)(m_freqStep[i]/2.0*SAMPLE_FREQ)/((float)(1024*4))*2.0/4.0;
         //fcCur = (float)(m_freqStep[i]*SAMPLE_FREQ)/((float)(1024*4))*2.0/4.0;
-       // if (fcCur < 2.0) 
+       // if (fcCur < 2.0)
         //    fcCur = 2.0;
        // if (fcCur > 12)
        //     fcCur = 12;
@@ -3465,14 +3465,14 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
         if (temp < freqDepth[0])
             fcCur = m_fcDynamicFilter[0];
         else if (temp < freqDepth[1])
-            fcCur = m_fcDynamicFilter[0] - (temp-freqDepth[0])*(m_fcDynamicFilter[0]-m_fcDynamicFilter[1])/(freqDepth[1]-freqDepth[0]);	
-        else if	(temp <freqDepth[2])		
+            fcCur = m_fcDynamicFilter[0] - (temp-freqDepth[0])*(m_fcDynamicFilter[0]-m_fcDynamicFilter[1])/(freqDepth[1]-freqDepth[0]);
+        else if	(temp <freqDepth[2])
             fcCur = m_fcDynamicFilter[1] - (temp-freqDepth[1])*(m_fcDynamicFilter[1]-m_fcDynamicFilter[2])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             fcCur = m_fcDynamicFilter[2] - (temp-freqDepth[2])*(m_fcDynamicFilter[2]-m_fcDynamicFilter[3])/(freqDepth[3]-freqDepth[2]);
-        else if	(temp <freqDepth[4])	
+        else if	(temp <freqDepth[4])
             fcCur = m_fcDynamicFilter[3] - (temp-freqDepth[3])*(m_fcDynamicFilter[3]-m_fcDynamicFilter[4])/(freqDepth[4]-freqDepth[3]);
-        else	
+        else
             fcCur = m_fcDynamicFilter[4];
         }
         else
@@ -3480,18 +3480,18 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
             if (temp < freqDepth[0])
                 fcCur = m_fcDynamicFilterBaseFreq[0];
             else if (temp < freqDepth[1])
-                fcCur = m_fcDynamicFilterBaseFreq[0] - (temp-freqDepth[0])*(m_fcDynamicFilterBaseFreq[0]-m_fcDynamicFilterBaseFreq[1])/(freqDepth[1]-freqDepth[0]);	
-            else if	(temp <freqDepth[2])		
+                fcCur = m_fcDynamicFilterBaseFreq[0] - (temp-freqDepth[0])*(m_fcDynamicFilterBaseFreq[0]-m_fcDynamicFilterBaseFreq[1])/(freqDepth[1]-freqDepth[0]);
+            else if	(temp <freqDepth[2])
                 fcCur = m_fcDynamicFilterBaseFreq[1] - (temp-freqDepth[1])*(m_fcDynamicFilterBaseFreq[1]-m_fcDynamicFilterBaseFreq[2])/(freqDepth[2]-freqDepth[1]);
-            else if	(temp <freqDepth[3])	
+            else if	(temp <freqDepth[3])
                 fcCur = m_fcDynamicFilterBaseFreq[2] - (temp-freqDepth[2])*(m_fcDynamicFilterBaseFreq[2]-m_fcDynamicFilterBaseFreq[3])/(freqDepth[3]-freqDepth[2]);
-            else if	(temp <freqDepth[4])	
+            else if	(temp <freqDepth[4])
                 fcCur = m_fcDynamicFilterBaseFreq[3] - (temp-freqDepth[3])*(m_fcDynamicFilterBaseFreq[3]-m_fcDynamicFilterBaseFreq[4])/(freqDepth[4]-freqDepth[3]);
-            else	
+            else
                 fcCur = m_fcDynamicFilterBaseFreq[4];
         }
 
-        if (fcCur < 2.0) 
+        if (fcCur < 2.0)
             fcCur = 2.0;
         if (fcCur > 12)
             fcCur = 12;
@@ -3505,14 +3505,14 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     HintArea::GetInstance()->ClearHint();
     if(m_calcPara->harmonic)
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex); 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilter[0], m_fcBandPassFilter[1], m_fcBandPassFilter[2], m_fcBandPassFilter[3], m_fcBandPassFilter[4], m_dynamicDemodFd[0], m_dynamicDemodFd[1], m_dynamicDemodFd[2], m_dynamicDemodFd[3], m_dynamicDemodFd[4], m_fcDynamicFilter[0], m_fcDynamicFilter[1], m_fcDynamicFilter[2], m_fcDynamicFilter[3], m_fcDynamicFilter[4], m_bandPassFilterIndex);
     }
     else
     {
-        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex); 
-    } 
+        sprintf(str_filter, "=BP (%.1f, %.1f, %.1f, %.1f, %.1f)  =fd(%.1f, %.1f, %.1f, %.1f, %.1f)  =LP (%.1f, %.1f, %.1f, %.1f, %.1f) =the %d list", m_fcBandPassFilterBaseFreq[0], m_fcBandPassFilterBaseFreq[1], m_fcBandPassFilterBaseFreq[2], m_fcBandPassFilterBaseFreq[3], m_fcBandPassFilterBaseFreq[4], m_dynamicDemodFdBaseFreq[0], m_dynamicDemodFdBaseFreq[1], m_dynamicDemodFdBaseFreq[2], m_dynamicDemodFdBaseFreq[3], m_dynamicDemodFdBaseFreq[4], m_fcDynamicFilterBaseFreq[0], m_fcDynamicFilterBaseFreq[1], m_fcDynamicFilterBaseFreq[2], m_fcDynamicFilterBaseFreq[3], m_fcDynamicFilterBaseFreq[4], m_bandPassFilterIndex);
+    }
     HintArea::GetInstance()->UpdateHint(str_filter);
-#endif 
+#endif
     ///> clear and send dynamic to imaging system
     if (freqCompound == 0)
         m_fpga.SendFilter((unsigned short*)ptrFilter, size / sizeof(unsigned short));
@@ -3563,15 +3563,15 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     	float speed = SOUND_SPEED;
     	wp = sample_freq / 2.0 /(depth * 2.0 / speed * sample_freq / dots);
     	float scale = 1.0;
-    
+
    	 if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     	{
-        		scale = m_projectCalcPara->wpScale;	
+        		scale = m_projectCalcPara->wpScale;
     	}
     	wp = wp *scale;
 #endif
 
-	float lowPassFreq[5]; 
+	float lowPassFreq[5];
     if(m_calcPara->harmonic)
     {
         for(i = 0; i < 5; i++)
@@ -3590,7 +3590,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
 			lowPassFreq[i] = freq[i];
         }
 	}
-    
+
 	for(i = 0; i < FREQ_SECTION; i++)
 	{
 #ifndef EMP_PROJECT
@@ -3603,21 +3603,21 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
 		{
 			wp = lowPassFreq[0] - (temp-freqDepth[0])*(lowPassFreq[0]-lowPassFreq[1])/(freqDepth[1]-freqDepth[0]);
 
-		}	
-		else if	(temp <freqDepth[2])	
-		{	
+		}
+		else if	(temp <freqDepth[2])
+		{
 			wp = lowPassFreq[1] - (temp-freqDepth[1])*(lowPassFreq[1]-lowPassFreq[2])/(freqDepth[2]-freqDepth[1]);
 		}
 		else if	(temp <freqDepth[3])
-		{	
+		{
 			wp = lowPassFreq[2] - (temp-freqDepth[2])*(lowPassFreq[2]-lowPassFreq[3])/(freqDepth[3]-freqDepth[2]);
 		}
-		else if	(temp <freqDepth[4])	
+		else if	(temp <freqDepth[4])
 		{
 			wp = lowPassFreq[3] - (temp-freqDepth[3])*(lowPassFreq[3]-lowPassFreq[4])/(freqDepth[4]-freqDepth[3]);
 		}
-		else 
-		{	
+		else
+		{
 			wp = lowPassFreq[4];
 		}
 #endif
@@ -3678,10 +3678,10 @@ void Calc2D::CalcFilterChangeDepth()
     {
         DynamicDemod_test(m_dynamicDemodFdBaseFreq, m_depthDynamicDemod, m_enableHarmonic);
         //BandPassFilterSelect_test(m_fcBandPassFilterBaseFreq, m_depthBandPassFilter, 0);
-        BandPassFilterSelect_test(m_fcBandPassFilterBaseFreq1, m_fcBandPassFilterBaseFreq2, m_depthBandPassFilter, 0);		
+        BandPassFilterSelect_test(m_fcBandPassFilterBaseFreq1, m_fcBandPassFilterBaseFreq2, m_depthBandPassFilter, 0);
         DynamicFilter_test(m_fcDynamicFilterBaseFreq, m_depthDynamicFilter, 0);
     }
-	
+
 	for (int i = 0; i < 5; i++)
 	{
 		if (m_calcPara->harmonic)
@@ -3705,7 +3705,7 @@ void Calc2D::ExtendedImagingSampleC(void)
 #ifdef EMP_355
 	unsigned short sample60 = (int)(speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #else
-	unsigned short sample60 = (int)(INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);	
+	unsigned short sample60 = (int)(INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #endif
     for (int i = 0; i < SIZE; i ++)
     {
@@ -3744,16 +3744,16 @@ void Calc2D::ExtendedImagingSampleL(void)
     for (int lineNo = 0; lineNo < SIZE; lineNo++)
     {
         pos2center = 0 - widthHalf + ((MAX_LINES + lineNo - 1) % MAX_LINES) * probeWidth / (lines - 1);
-        
+
         if (fabs(m_calcPara->tpSteer) == ZERO)
-            steer = 0.0; 
+            steer = 0.0;
         else
             steer = atan(pos2center/oHeight);
 
 #ifdef EMP_355
-	    buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);	
+	    buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #else
-        buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);	
+        buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #endif
     }
 
@@ -3787,7 +3787,7 @@ int Calc2D::GetFocIndex(float focPos)
 	else if ((focPos > 11.0) && (focPos <= 12.4))
 		focIndex = 10;
 	else if (focPos > 12.4)
-		focIndex = 10;	
+		focIndex = 10;
 
 	return focIndex;
 }
@@ -3798,7 +3798,7 @@ int Calc2D::GetPowerIndex(int power)
 	if (powerIndex > 9)
 		powerIndex = 9;
 	else if (powerIndex < 0)
-		powerIndex = 0;	
+		powerIndex = 0;
 
 	return powerIndex;
 }
@@ -3869,7 +3869,7 @@ int Calc2D::GetCfmLinesIndex(int boxLineBegin, int boxLineEnd)
 		index = 6;
 	else if ((boxlines > 207) && (boxlines <= 237))
 		index = 7;
-	else if (boxlines > 237) 
+	else if (boxlines > 237)
 		index = 7;
 
 	return index;
@@ -3889,7 +3889,7 @@ int Calc2D::Get2DDepthIndex(int depthIndex)
 	if (depthIndex > 19)
 		depthIndex = 19;
 	else if (depthIndex < 0)
-		depthIndex = 0;	
+		depthIndex = 0;
 
 	return depthIndex;
 }
@@ -3898,7 +3898,7 @@ int Calc2D::GetPwPrfIndex(int prfIndex)
 	if (prfIndex > 14)
 		prfIndex = 14;
 	else if (prfIndex < 0)
-		prfIndex = 0;	
+		prfIndex = 0;
 
 	return prfIndex;
 }
@@ -3959,18 +3959,18 @@ if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
 	float focPos = probeFocPos;
 	int temp;
    //计算实际发射孔径
-	perAngle = ((float)probeWidth) / ((float)probeArray-1) * PI / 180.0;   
-	
+	perAngle = ((float)probeWidth) / ((float)probeArray-1) * PI / 180.0;
+
 #ifdef EMP_PROJECT
-    int sendChNum;	
+    int sendChNum;
     float F_num_Tx = 4.0;
 
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
-        
-            F_num_Tx =  m_projectCalcPara->txFNum;;	
 
-    } 
+            F_num_Tx =  m_projectCalcPara->txFNum;;
+
+    }
     else
     {
         if((int)probeR <= 30)
@@ -3979,11 +3979,11 @@ if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
             //	sendCh = (int)(4 * sqrt(1 + focPos * focPos / (5 * 5 + 1)));	//双曲线
             //	if(sendCh > APERTURE_HALF * 2)	sendCh = APERTURE_HALF * 2;
         }
-        else	
+        else
         {
             F_num_Tx = 8.0;
             //	sendChNum = (focPos + 1) / 10;
-            //	if(sendChNum > 19) 
+            //	if(sendChNum > 19)
             //		sendChNum = 19;
             //  ASSERT(sendChNum < size);
             //		sendCh = CH_NUM[sendChNum];
@@ -3996,18 +3996,18 @@ if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
 	float AptSize_mm = focPos / F_num_Tx;
 	int   AptSize_ele = AptSize_mm/probeR/perAngle;
 
-	sendCh = AptSize_ele;	
+	sendCh = AptSize_ele;
 #else
-int sendChNum;	
+int sendChNum;
 	if((int)probeR <= 30)
 	{
 		sendCh = (int)(4 * sqrt(1 + focPos * focPos / (5 * 5 + 1)));	//双曲线
 		if(sendCh > APERTURE_HALF * 2)	sendCh = APERTURE_HALF * 2;
 	}
-	else	
+	else
 	{
 		sendChNum = (focPos + 1) / 10;
-		if(sendChNum > 19) 
+		if(sendChNum > 19)
 			sendChNum = 19;
         ASSERT(sendChNum < size);
 		sendCh = CH_NUM[sendChNum];
@@ -4037,18 +4037,18 @@ int sendChNum;
 	for (int odd_even = 1; odd_even < 3; odd_even ++)
 	{
 		ofset2center = -0.25+odd_even*0.5;
-        if(mbp>1)	
-            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle); 
+        if(mbp>1)
+            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle);
         else
-            b = (float)(( APERTURE_HALF  - ofset2center)* perAngle); 
+            b = (float)(( APERTURE_HALF  - ofset2center)* perAngle);
 
         for( i = 0; i < APERTURE_HALF * 2; i++ )
         {
-            activeLength = sqrt((double)(4 * probeR * probeR * sin(b/2) * sin(b/2) 
-                        - 4 * probeR * focPos * sin(b/2) * sin(steer - b/2) 
-                        + focPos * focPos));	
-#ifdef EMP_355	
-            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+            activeLength = sqrt((double)(4 * probeR * probeR * sin(b/2) * sin(b/2)
+                        - 4 * probeR * focPos * sin(b/2) * sin(steer - b/2)
+                        + focPos * focPos));
+#ifdef EMP_355
+            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
  		    temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
@@ -4061,12 +4061,12 @@ int sendChNum;
 			temp += 160-40;
 #endif
 
-            if(temp < 0)	temp = 0;		
+            if(temp < 0)	temp = 0;
 #ifdef EMP_355
-            delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;	
+            delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 #else
             if(temp > 255)	temp = 255;
-            delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;	
+            delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;
 #endif
             b = b - perAngle;
         }
@@ -4076,7 +4076,7 @@ int sendChNum;
             delay[(odd_even-1)*APERTURE_HALF*2 + i] = 0;
             delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - i - 1] = 0;
         }
-    }	
+    }
 
 #if 0
    for (i = 0; i < APERTURE_HALF * 2; i ++)
@@ -4116,7 +4116,7 @@ void Calc2D::CReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
     probeWidth = m_calcPara->probeWidth;
 #endif
     probeR =(float) probeR /100.0;
-    int probeArray = m_calcPara->probeArray; 
+    int probeArray = m_calcPara->probeArray;
     perAngle = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1)) * PI / 180.0;
 
     int beamNo;
@@ -4126,7 +4126,7 @@ void Calc2D::CReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
     for (beamNo = 0; beamNo < MAX_MBP; beamNo ++)
     {
 		offsetToCenter = -0.25 + 0.5 * beamNo;
-        b = ( APERTURE_HALF - offsetToCenter) * perAngle;			
+        b = ( APERTURE_HALF - offsetToCenter) * perAngle;
 
         for (i = 0; i < APERTURE_HALF * 2; i ++)
         {
@@ -4160,19 +4160,19 @@ void Calc2D::CReceiveApertureCalcU16(float steerAngle,  short delayAperture[APER
 	int firstpeak = 8192;//255;
 	int span_no = 0;
 	float tempDepth,perAngle;
-	
+
 	scale = ((float)m_calcPara->depth / APERTURE_DOTS);
     float probeWidth;
 	 probeWidth = m_calcPara->probeWidth;
 	int probeArray = m_calcPara->probeArray;
-	perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;   
+	perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;
     const int MAX_SUM_VALUE = 8192*2;
 	float span;
     int sumEven, sumOdd, sum_half;
 	for( j = 0; j < endPix; j++ )
-	{		
+	{
 		tempDepth = ((float)j) * scale;
-		
+
 		span_no = tempDepth / 10;
 		if(span_no < 11)
 		{
@@ -4181,7 +4181,7 @@ void Calc2D::CReceiveApertureCalcU16(float steerAngle,  short delayAperture[APER
 		}
 		else
 		{
-			span = APERTURE_SPAN_C[11];	
+			span = APERTURE_SPAN_C[11];
 		}
 
         ProbeSocket::ProbePara para;
@@ -4226,7 +4226,7 @@ void Calc2D::CReceiveApertureCalcU16(float steerAngle,  short delayAperture[APER
 #if 0
             if (i%2)
                 delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumOdd;
-            else 
+            else
                 delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumEven;
 #endif
             delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumEven;
@@ -4235,7 +4235,7 @@ void Calc2D::CReceiveApertureCalcU16(float steerAngle,  short delayAperture[APER
         {
             //保存变迹
             delayAperture[APERTURE_HALF * 2 * j + i] = delayDb[i];
-        }	
+        }
     }
 }
 
@@ -4271,12 +4271,12 @@ void Calc2D::CReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
     }
 #else
     probeWidth = (float)m_calcPara->probeWidth;
-#endif	
+#endif
     int probeArray = m_calcPara->probeArray;
-    perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;   
+    perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;
     float span;
     for( j = 0; j < endPix; j++ )
-    {		
+    {
         tempDepth = ((float)j) * scale;
 
         span_no = tempDepth / 10;
@@ -4287,9 +4287,9 @@ void Calc2D::CReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 		}
 		else
 		{
-			span = APERTURE_SPAN_C[11];	
+			span = APERTURE_SPAN_C[11];
 		}
-		
+
 		for( i = 0; i < APERTURE_HALF*2; i++ )
 		{
 			//抛物线
@@ -4307,13 +4307,13 @@ void Calc2D::CReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 		{
 			//保存变迹
 			delayAperture[APERTURE_HALF * 2 * j + i] = delayDb[i];
-		}		
+		}
 	}
 }
 
 void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int size)
 {
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
     float probeWidth;
     float probeR;
 #ifdef EMP_PROJECT
@@ -4329,11 +4329,11 @@ void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
     }
 
 #else
-        probeWidth =(float) m_calcPara->probeWidth/100.0;  
+        probeWidth =(float) m_calcPara->probeWidth/100.0;
     probeR = m_calcPara->probeR;
 #endif
     int dots = m_calcPara->depthDots;
-    int depth = m_calcPara->depth;		
+    int depth = m_calcPara->depth;
     int lines = m_calcPara->probeLines;
 
     int correct = 0;
@@ -4358,7 +4358,7 @@ void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
     int dotaddrNormal;
     int dotaddrSteer;
     float theta;
-    int start = 0;//for compound 
+    int start = 0;//for compound
     for (int i = 0; i < size; i ++)
     {
         h = i * dotInterval;
@@ -4383,26 +4383,26 @@ void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
  */
 void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NUM[], int chSize, unsigned short delay[APERTURE_HALF * 4])
 {
-	int i;	
+	int i;
 	float activeMaxLength, activeLength, interval;
 	int sendCh = APERTURE_HALF * 2;
 	int noSendCh = 4;
 
 	///> extern para used in calc计算中使用的外部参数
-   float probeWidth; 
+   float probeWidth;
 #ifdef EMP_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
-    
+
         probeWidth = (float)m_projectCalcPara->probeAngle / 100.0;
     }
     else
     {
         probeWidth =(float) m_calcPara->probeWidth / 100.0;
-    }              
+    }
 #else
-        probeWidth =(float) m_calcPara->probeWidth / 100.0;  
-#endif 
+        probeWidth =(float) m_calcPara->probeWidth / 100.0;
+#endif
  	 int probeArray = m_calcPara->probeArray;
 	double speed = m_calcPara->soundSpeedTsi / 1000;
 	float steer = steerAngle;
@@ -4423,7 +4423,7 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
 
 	sendChNum = (focPos + 1) / 10;
 
-	if(sendChNum > 19) 		
+	if(sendChNum > 19)
 		sendChNum = 19;
 
 	if (sendChNum > (chSize - 1))
@@ -4433,7 +4433,7 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
 	}
 	else
 		sendCh = CH_NUM[sendChNum];
-    
+
     //sendCh *= 1.5;
     //if(sendCh>64)   sendCh = 64;
 
@@ -4448,29 +4448,29 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
 	for (int odd_even = 1; odd_even < 3; odd_even ++)
 	{
 		ofset2center = -0.25+odd_even*0.5;
-		
+
 		mbp  = m_calcPara->mbp;
-		if(mbp>1)	
-			b = (float)(( APERTURE_HALF  - 0.5 )*interval); 
+		if(mbp>1)
+			b = (float)(( APERTURE_HALF  - 0.5 )*interval);
 		else
-			b = (float)(( APERTURE_HALF  - ofset2center )*interval); 
+			b = (float)(( APERTURE_HALF  - ofset2center )*interval);
 
 		int offset_init_delay;
 #ifdef EMP_355
 		offset_init_delay = APERTURE_HALF * interval * sin(fabs(steer)) / speed / NS_PER_UNIT_EMIT / 2;
 #else
 		offset_init_delay = APERTURE_HALF * interval * sin(fabs(steer)) / speed / NS_PER_UNIT / 2;
-#endif	
+#endif
 	for( i =  0; i < APERTURE_HALF * 2;	i++ )
 		{
 			activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(steer) ) );
-#ifdef EMP_355			
-		temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+#ifdef EMP_355
+		temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
 		temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
 	       // temp += (160-40);
-		  
+
 #if (defined(EMP_340) || defined(EMP_322))
 		   temp += 180 - (int)(60 / (m_calcPara->freq.emit / 20.0)) * PULSE_NUM + offset_init_delay;
 #elif (defined(EMP_355))
@@ -4479,7 +4479,7 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
 		   temp += (160-40+offset_init_delay);
 #endif
 
-			if(temp < 0)	temp = 0;		
+			if(temp < 0)	temp = 0;
 #ifdef EMP_355
 			delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 #else
@@ -4509,7 +4509,7 @@ void Calc2D::LReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
 	float offsetToCenter = 0.0;
 	float b, interval, temp;
 	double speed = m_calcPara->soundSpeedTsi;
-    float probeWidth;	
+    float probeWidth;
 #ifdef EMP_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
@@ -4518,7 +4518,7 @@ void Calc2D::LReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
 #else
         probeWidth = m_calcPara->probeWidth;
 #endif
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
     interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));
 
     float steer = steerAngle;
@@ -4529,7 +4529,7 @@ void Calc2D::LReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
     for (beamNo = 0; beamNo < MAX_MBP; beamNo ++)
     {
 		offsetToCenter = -0.25 + 0.5 * beamNo;
-        b = ( APERTURE_HALF - offsetToCenter) * interval;			
+        b = ( APERTURE_HALF - offsetToCenter) * interval;
 
         for (i = 0; i < APERTURE_HALF * 2; i ++)
         {
@@ -4538,7 +4538,7 @@ void Calc2D::LReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
 
             temp =  -2.0 * ((float)FREQ/speed) * b * sin(steer);
             delayFBn[APERTURE_HALF*2-1-i] = (int)(temp + 0.5);
-            
+
             b = b - interval;
         }
 
@@ -4564,15 +4564,15 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 #else
         probeWidth= m_calcPara->probeWidth;
 #endif
-    int probeArray = m_calcPara->probeArray; 
-    float steer = steerAngle;	
+    int probeArray = m_calcPara->probeArray;
+    float steer = steerAngle;
     float interval = ((float)probeWidth / 100) / (float)(probeArray - 1);
     const int MAX_SUM_VALUE = 8192*2;
 	scale = ((float)m_calcPara->depth / APERTURE_DOTS); //mm/s
 	float span;
     int span_no;
 
-	//初始变迹 0~startPix-1	
+	//初始变迹 0~startPix-1
 	int aaa,bbb;
 	int   trackcenteroffset=0;
 	float tempdepth;
@@ -4582,14 +4582,14 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
     int sumEven = 0;
     int sumOdd = 0;
 	for( j = 0; j < endPix; j++ )
-	{	
+	{
         sumEven = 0;
         sumOdd = 0;
 		tempdepth = ((float)j+1) * scale;
 		trackcenteroffset = tempdepth*sin(steer) / interval /3;
 		if(trackcenteroffset>=31) trackcenteroffset = 31;
 		else if(trackcenteroffset<= (-31))	trackcenteroffset = -31;
-	
+
 		span_no = tempdepth / 10;
 		if(span_no < 11)
 		{
@@ -4598,7 +4598,7 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 		}
 		else
 		{
-			span = APERTURE_SPAN_L[11];	
+			span = APERTURE_SPAN_L[11];
 		}
         span = span*1.5;
         /*
@@ -4607,7 +4607,7 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 		span = span*4/3;
         */
 		if(span <=2) span = 2;
-        
+
 		for( i = 0; i < APERTURE_HALF*2; i++ )
 		{
 			temp = 255.0*exp(  ( 0- (i-(APERTURE_HALF -1-trackcenteroffset))*(i-(APERTURE_HALF -1-trackcenteroffset) )*4     )/(span*span));		//高斯函数
@@ -4637,7 +4637,7 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 #if 0
             if (i%2)
                 delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumOdd;
-            else 
+            else
                 delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumEven;
 #endif
             delayDb[i] = delayDb[i] * MAX_SUM_VALUE / sumEven;
@@ -4647,7 +4647,7 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 		{
 			//保存变迹
 			delayAperture[APERTURE_HALF * 2 * j + i] = delayDb[APERTURE_HALF * 2 - 1 - i];
-		}		
+		}
 	}
 }
 
@@ -4667,16 +4667,16 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
         probeWidth = m_calcPara->probeWidth;
 #else
         probeWidth = m_calcPara->probeWidth;
-#endif  
-  	int probeArray = m_calcPara->probeArray; 
-	float steer = steerAngle;	
+#endif
+  	int probeArray = m_calcPara->probeArray;
+	float steer = steerAngle;
 	float interval = ((float)probeWidth / 100) / (float)(probeArray - 1);
-	
+
 	scale = ((float)m_calcPara->depth / APERTURE_DOTS); //mm/s
 	float span;
     int span_no;
 
-	//初始变迹 0~startPix-1	
+	//初始变迹 0~startPix-1
 	int aaa,bbb;
 	int   trackcenteroffset=0;
 	float tempdepth;
@@ -4684,12 +4684,12 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 	aaa = 8;
 	bbb = 8;
 	for( j = 0; j < endPix; j++ )
-	{		
+	{
 		tempdepth = ((float)j+1) * scale;
 		trackcenteroffset = tempdepth*sin(steer) / interval /3;
 		if(trackcenteroffset>=31) trackcenteroffset = 31;
 		else if(trackcenteroffset<= (-31))	trackcenteroffset = -31;
-	
+
 		span_no = tempdepth / 10;
 		if(span_no < 11)
 		{
@@ -4698,9 +4698,9 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 		}
 		else
 		{
-			span = APERTURE_SPAN_L[11];	
+			span = APERTURE_SPAN_L[11];
 		}
-#ifdef EMP_355        
+#ifdef EMP_355
          ProbeSocket::ProbePara para;
 	ProbeMan::GetInstance()->GetCurProbe(para);
 	if (strcmp("55L60J",para.model)==0)
@@ -4710,7 +4710,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
              }
 	else
              {
-                span = span*1.5; 
+                span = span*1.5;
 		//printf("\n\n\nspan * = 0.3, %d\n\n\n",span);
              }
  #else
@@ -4722,7 +4722,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 		span = span*4/3;
         */
 		if(span <=2) span = 2;
-        
+
 		for( i = 0; i < APERTURE_HALF*2; i++ )
 		{
 			temp = 255.0*exp(  ( 0- (i-(APERTURE_HALF -1-trackcenteroffset))*(i-(APERTURE_HALF -1-trackcenteroffset) )*4     )/(span*span));		//高斯函数
@@ -4738,7 +4738,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 		{
 			//保存变迹
 			delayAperture[APERTURE_HALF * 2 * j + i] = delayDb[APERTURE_HALF * 2 - 1 - i];
-		}		
+		}
 	}
 }
 
@@ -4747,7 +4747,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
  *
  * @para probeFocPos[in], current focus position of probe
  * @para mode[in] image mode
- * @para CH_NUM[in] 
+ * @para CH_NUM[in]
  * @para chSize[in]
  */
 void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], int chSize, unsigned short delay[APERTURE_HALF * 2 * PHASELINE])
@@ -4761,7 +4761,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
 	float probeWidth;
 #ifdef EMP_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
-        probeWidth =(float) m_projectCalcPara->probeAngle /100.0;   
+        probeWidth =(float) m_projectCalcPara->probeAngle /100.0;
     else
         probeWidth =(float) m_calcPara->probeWidthPhase / 100.0;
 #else
@@ -4771,7 +4771,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
     int probeLines = m_calcPara->probeLines;
 	double speed = m_calcPara->soundSpeedTsi / 1000;
     float probeAngle;// = m_calcPara->probeWidth / 100.0;
-    
+
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {
         probeAngle = (float)m_calcPara->extendedAngle/100.0;
@@ -4794,17 +4794,17 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
    float F_num_Tx = 5.0;
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
-        
-            F_num_Tx =  m_projectCalcPara->txFNum;	
 
-    } 
+            F_num_Tx =  m_projectCalcPara->txFNum;
+
+    }
     float AptSize_mm = focPos / F_num_Tx;
     int   AptSize_ele = AptSize_mm/interval;
 
-    sendCh = AptSize_ele;	
+    sendCh = AptSize_ele;
     noSendCh = (APERTURE_HALF * 2 - sendCh) / 2;
 
-    int i;	
+    int i;
     for(i = 0; i < APERTURE_HALF*2*PHASELINE; i++)
     {
         delay[i] = 0;
@@ -4823,11 +4823,11 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
         for( i =  0; i < APERTURE_HALF * 2;	i++ )
         {
             activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(angle) ) );
-            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
             temp += 250;
 
-            if(temp < 0)	temp = 0;		
-            if(temp > 1000)	temp = 0;	
+            if(temp < 0)	temp = 0;
+            if(temp > 1000)	temp = 0;
 
             if((i<noSendCh) ||( i>(APERTURE_HALF*2-1-noSendCh)))
             {
@@ -4842,7 +4842,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
     }
 #else
 
-	int i;	
+	int i;
 	for(i = 0; i < APERTURE_HALF*2*PHASELINE; i++)
 	{
 		delay[i] = 0;
@@ -4867,14 +4867,14 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
         {
             activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(angle) ) );
 #ifdef EMP_355
-            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
-			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT ); 
+			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
             temp += 250;
 
-            if(temp < 0)	temp = 0;		
-            if(temp > 1000)	temp = 0;	
+            if(temp < 0)	temp = 0;
+            if(temp > 1000)	temp = 0;
 
             delay[j * APERTURE_HALF*2  + APERTURE_HALF * 2 - 1 - i] = temp;
             b = b - interval;
@@ -4895,14 +4895,14 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
             {
                 activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(angle) ) );
 #ifdef EMP_355
-                temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+                temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
 			    temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
                 temp += 250;
 
-                if(temp < 0)	temp = 0;		
-                if(temp > 1000)	temp = 0;	
+                if(temp < 0)	temp = 0;
+                if(temp > 1000)	temp = 0;
 
                 delay[j * APERTURE_HALF*2  + APERTURE_HALF * 2 - 1 - i] = temp;
                 //delay[j * APERTURE_HALF*2  + i] = temp;
@@ -4932,11 +4932,11 @@ void Calc2D::PReceiveDelayCalc(int An[APERTURE_HALF * 2 * PHASELINE], short Bn[A
 #else
         probeWidth =(float) m_calcPara->probeWidthPhase / 100.0;
 #endif
-	
- 	int probeArray = m_calcPara->probeArray; 
+
+ 	int probeArray = m_calcPara->probeArray;
 	    int probeLines = m_calcPara->probeLines;
     	int probeAngle;// = m_calcPara->probeWidth / 100.0;
-    
+
     if (m_calcPara->efviCtrl || m_calcPara->tpViewCtrl)
     {
         probeAngle = m_calcPara->extendedAngle/100;
@@ -4944,7 +4944,7 @@ void Calc2D::PReceiveDelayCalc(int An[APERTURE_HALF * 2 * PHASELINE], short Bn[A
     else
     {
         probeAngle = m_calcPara->probeWidth/100;
- 
+
     }
 
     interval = ((float)probeWidth) / ((float)(probeArray - 1));
@@ -4960,12 +4960,12 @@ void Calc2D::PReceiveDelayCalc(int An[APERTURE_HALF * 2 * PHASELINE], short Bn[A
         //An
 	//	offsetToCenter = -0.25 + 0.5 * beamNo;
 		offsetToCenter = 0.5;
-        b = ( APERTURE_HALF - offsetToCenter) * interval;			
+        b = ( APERTURE_HALF - offsetToCenter) * interval;
         for (i = 0; i < APERTURE_HALF * 2; i ++)
         {
             temp =  ((float)FREQ/speed) * b * ((float)FREQ/speed) * b;
             delayFAn[APERTURE_HALF*2-1-i] = (int)(temp + 0.5);
-            
+
             b = b - interval;
         }
         memcpy(An+beamNo*APERTURE_HALF*2, delayFAn, sizeof(delayFAn));
@@ -5005,15 +5005,15 @@ void Calc2D::PReceiveApertureCalc(unsigned char delayAperture[APERTURE_DOTS * AP
 #else
         probeWidth =(float) m_calcPara->probeWidthPhase;
 #endif
-    int probeArray = m_calcPara->probeArray; 
+    int probeArray = m_calcPara->probeArray;
 	float steer = 0.0; //m_calcPara->steerAngle * PI / 180.0;
-	
+
 	float interval = ((float)probeWidth / 100) / (float)(probeArray - 1);
-	
+
 	scale = ((float)m_calcPara->depth / APERTURE_DOTS); //mm/s
 	float span;
 
-	//初始变迹 0~startPix-1	
+	//初始变迹 0~startPix-1
 	int aaa,bbb;
 	int   trackcenteroffset=0;
 	float tempdepth;
@@ -5023,7 +5023,7 @@ void Calc2D::PReceiveApertureCalc(unsigned char delayAperture[APERTURE_DOTS * AP
     bool isCw = m_calcPara->modeCw;
 
     for( j = 0; j < endPix; j++ )
-	{		
+	{
 		tempdepth = ((float)j+1) * scale;
 		trackcenteroffset = tempdepth*sin(steer) / interval /3;
 		if(trackcenteroffset>=31) trackcenteroffset = 31;
@@ -5053,7 +5053,7 @@ void Calc2D::PReceiveApertureCalc(unsigned char delayAperture[APERTURE_DOTS * AP
 
 #if 0
         if(!isCw)
-        { 
+        {
             //the firt time is send aperture
             //test
             for (i = 0; i < APERTURE_HALF*2; i++)
@@ -5089,15 +5089,15 @@ void Calc2D::PReceiveApertureCalcU16(short delayAperture[APERTURE_DOTS * APERTUR
 #else
         probeWidth =(float) m_calcPara->probeWidthPhase;
 #endif
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
 	float steer = 0.0; //m_calcPara->steerAngle * PI / 180.0;
-	
+
 	float interval = ((float)probeWidth / 100) / (float)(probeArray - 1);
-	
+
 	scale = ((float)m_calcPara->depth / APERTURE_DOTS); //mm/s
 	float span;
 
-	//初始变迹 0~startPix-1	
+	//初始变迹 0~startPix-1
 	int aaa,bbb;
 	int   trackcenteroffset=0;
 	float tempdepth;
@@ -5108,7 +5108,7 @@ void Calc2D::PReceiveApertureCalcU16(short delayAperture[APERTURE_DOTS * APERTUR
 
     int sumDelay;
     for( j = 0; j < endPix; j++ )
-	{		
+	{
         sumDelay = 0;
 		tempdepth = ((float)j+1) * scale;
 		trackcenteroffset = tempdepth*sin(steer) / interval /3;
@@ -5146,7 +5146,7 @@ void Calc2D::PReceiveApertureCalcU16(short delayAperture[APERTURE_DOTS * APERTUR
 
 #if 0
         if(!isCw)
-        { 
+        {
             //the firt time is send aperture
             //test
             for (i = 0; i < APERTURE_HALF*2; i++)
@@ -5178,7 +5178,7 @@ void Calc2D::PReceiveDelayCalcCW(unsigned short delayEmit[APERTURE_HALF * 2 * PH
 
     // emit
     //memcpy(cwEmit, delay, APERTURE_PHASE*sizeof(unsigned short));
-    // send emit to fpga 
+    // send emit to fpga
 
     // receive
     memcpy(cwReceive, delay+8, APERTURE_PHASE*sizeof(unsigned short));
@@ -5224,7 +5224,7 @@ void Calc2D::PReceiveDelayCalcCW(unsigned short delayEmit[APERTURE_HALF * 2 * PH
         PRINTF("------calc clkNum cwReceive[%d]=%d  m_pulseCycle=%d  clkNum[%d]=%d\n", i, cwReceive[i],  m_pulseCycle, i, clkNum[i]);
     }
 
-    // send receive to fpga 
+    // send receive to fpga
     m_fpga.SendCWReceive(clkNum, APERTURE_PHASE);
 }
 
@@ -5241,7 +5241,7 @@ void Calc2D::WeightingEmit(int pulseWidth, int spanValue, unsigned char weightin
 	for (i = 0; i < APERTURE_HALF * 2; i ++)
 	{
 		value =  1.0 * exp(0 - (i - (APERTURE_HALF-1)) * (i - (APERTURE_HALF-1)) / (float)spanValue);		// L -- 200;  C -- 500
-		weightingValue[i] = pulseWidth * value + 0.4;			
+		weightingValue[i] = pulseWidth * value + 0.4;
 		//PRINTF("(((((((((((((((((((((((((((CALC2d: weighting emit %d = %d\n", i, weightingValue[i]);
 	}
 }
@@ -5266,11 +5266,11 @@ void Calc2D::CompoundParaCalc(const float steer, const float angle, int& line, i
 #else
         probeWidth= m_calcPara->probeWidth;
 #endif
-    int probeArray = m_calcPara->probeArray; 
+    int probeArray = m_calcPara->probeArray;
     int dots = m_calcPara->depthDots;
-    int depth = m_calcPara->depth;		
-    //float speed = m_calcPara->soundSpeedTsi;	
-    float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));	
+    int depth = m_calcPara->depth;
+    //float speed = m_calcPara->soundSpeedTsi;
+    float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));
     int correct = 0;
     if (steer < 0.0)
         correct = - 0.5;
@@ -5285,7 +5285,7 @@ void Calc2D::CompoundParaCalc(const float steer, const float angle, int& line, i
 	if (fabs(angle) < ZERO)
 		start = 0;
 	else
-		start = 1;//(APERTURE_HALF * interval / sin(fabs(angle)) * (1.0 - cos(fabs(angle))) * 1000 / speed / (float)NS_PER_UNIT + 10) / temp; 	
+		start = 1;//(APERTURE_HALF * interval / sin(fabs(angle)) * (1.0 - cos(fabs(angle))) * 1000 / speed / (float)NS_PER_UNIT + 10) / temp;
     PRINTF("--- line = %d, dot = %d, sampStart = %d\n", line, dot, start);
 }
 
@@ -5301,11 +5301,11 @@ void Calc2D::LCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
 #else
         probeWidth = m_calcPara->probeWidth;
 #endif
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
 	int dots = m_calcPara->depthDots;
-	int depth = m_calcPara->depth;		
-	//float speed = m_calcPara->soundSpeedTsi;	
-    float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));	
+	int depth = m_calcPara->depth;
+	//float speed = m_calcPara->soundSpeedTsi;
+    float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));
 
     int correct = 0;
     if (steer < 0.0)
@@ -5343,7 +5343,7 @@ void Calc2D::CFocusParaCalc(const float steer, short& startTime, short& wrOffset
 {
     const int FREQ = SAMPLE_FREQ; //mhz
 	float probeWidth;
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
 	float speed = m_calcPara->soundSpeedTsi;
     float probeR;
 #ifdef EMP_PROJECT
@@ -5363,8 +5363,8 @@ void Calc2D::CFocusParaCalc(const float steer, short& startTime, short& wrOffset
 #endif
     probeR = probeR /100.0;
     float focusBegin = 0;
-	
-    startTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);	
+
+    startTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);
 #ifdef EMP_355
     wrOffset = 10 + probeR * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT_RECIVE;
 #else
@@ -5389,15 +5389,15 @@ void Calc2D::LFocusParaCalc(const float steer, short& startTime, short& wrOffset
 #else
         probeWidth = m_calcPara->probeWidth;
 #endif
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
 	float speed = m_calcPara->soundSpeedTsi;
 	float interval = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1));
 	float focusBegin = interval * APERTURE_HALF * 1 * sin(fabs(steer)) + 0.3; //mm
-	
-    startTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);	
+
+    startTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);
     if (fabs(steer) < ZERO)
         wrOffset = 10;
-    else 
+    else
 #ifdef EMP_355
         wrOffset = 20 + APERTURE_HALF * interval / sin(fabs(steer))  * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT_RECIVE;
 #else
@@ -5411,7 +5411,7 @@ void Calc2D::LFocusParaCalc(const float steer, short& startTime, short& wrOffset
 void Calc2D::DynamicDemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmonic, int& cycleFilterChg, unsigned short sinStep[64])
 {
 	float speed = m_calcPara->soundSpeed;
-	int depth = m_calcPara->depth;		
+	int depth = m_calcPara->depth;
     int i;
     int temp;
     float freqDemod;
@@ -5420,42 +5420,42 @@ void Calc2D::DynamicDemodCalc_test(float freq[5], int freqDepth[5], bool enableH
         temp = i * depth / FREQ_SECTION;
 #if 0
         if (temp < freqDepth[0])
-            freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);	
-        else if	(temp <freqDepth[1])		
+            freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);
+        else if	(temp <freqDepth[1])
             freqDemod = freq[1] - (temp-freqDepth[0])*(freq[1]-freq[2])/(freqDepth[1]-freqDepth[0]);
-        else if	(temp <freqDepth[2])	
+        else if	(temp <freqDepth[2])
             freqDemod = freq[2] - (temp-freqDepth[1])*(freq[2]-freq[3])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             freqDemod = freq[3] - (temp-freqDepth[2])*(freq[3]-freq[4])/(freqDepth[3]-freqDepth[2]);
-        else	
+        else
             freqDemod = freq[4];
 #endif
-        
+
         if (temp < freqDepth[0])
             freqDemod = freq[0];
         else if (temp < freqDepth[1])
-            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);	
-        else if	(temp <freqDepth[2])		
+            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);
+        else if	(temp <freqDepth[2])
             freqDemod = freq[1] - (temp-freqDepth[1])*(freq[1]-freq[2])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             freqDemod = freq[2] - (temp-freqDepth[2])*(freq[2]-freq[3])/(freqDepth[3]-freqDepth[2]);
-        else if	(temp <freqDepth[4])	
+        else if	(temp <freqDepth[4])
             freqDemod = freq[3] - (temp-freqDepth[3])*(freq[3]-freq[4])/(freqDepth[4]-freqDepth[3]);
-        else	
+        else
             freqDemod = freq[4];
 
         sinStep[i] = 1024*4*freqDemod/SAMPLE_FREQ+0.5;
         m_freqStep[i] = sinStep[i];
     }
 
-	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;											
+	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;
 	if(cycleFilterChg > 511) cycleFilterChg = 511;
-	
+
 }
 void Calc2D::DynamicDemodCalc(float freq[5], int freqDepth[5], bool enableHarmonic, int& cycleFilterChg, unsigned short sinStep[64])
 {
 	float speed = m_calcPara->soundSpeed;
-	int depth = m_calcPara->depth;		
+	int depth = m_calcPara->depth;
 	int i;
 	int temp;
 	float freqDemod;
@@ -5482,14 +5482,14 @@ void Calc2D::DynamicDemodCalc(float freq[5], int freqDepth[5], bool enableHarmon
         {
             temp = i * depth / FREQ_SECTION;
             if (temp < freqDepth[0])
-                freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);	
-            else if	(temp <freqDepth[1])		
+                freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);
+            else if	(temp <freqDepth[1])
                 freqDemod = freq[1] - (temp-freqDepth[0])*(freq[1]-freq[2])/(freqDepth[1]-freqDepth[0]);
-            else if	(temp <freqDepth[2])	
+            else if	(temp <freqDepth[2])
                 freqDemod = freq[2] - (temp-freqDepth[1])*(freq[2]-freq[3])/(freqDepth[2]-freqDepth[1]);
-            else if	(temp <freqDepth[3])	
+            else if	(temp <freqDepth[3])
                 freqDemod = freq[3] - (temp-freqDepth[2])*(freq[3]-freq[4])/(freqDepth[3]-freqDepth[2]);
-            else	
+            else
                 freqDemod = freq[4];
 
             sinStep[i] = 1024*4*freqDemod/SAMPLE_FREQ+0.5;
@@ -5503,38 +5503,38 @@ void Calc2D::DynamicDemodCalc(float freq[5], int freqDepth[5], bool enableHarmon
     for (i = 0; i < FREQ_SECTION; i ++)
     {
         temp = i * depth / FREQ_SECTION;
-      
+
 #if 0
         if (temp < freqDepth[0])
-            freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);	
-        else if	(temp <freqDepth[1])		
+            freqDemod = freq[0] - (temp-0)*(freq[0]-freq[1])/(freqDepth[0]-0);
+        else if	(temp <freqDepth[1])
             freqDemod = freq[1] - (temp-freqDepth[0])*(freq[1]-freq[2])/(freqDepth[1]-freqDepth[0]);
-        else if	(temp <freqDepth[2])	
+        else if	(temp <freqDepth[2])
             freqDemod = freq[2] - (temp-freqDepth[1])*(freq[2]-freq[3])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             freqDemod = freq[3] - (temp-freqDepth[2])*(freq[3]-freq[4])/(freqDepth[3]-freqDepth[2]);
-        else	
+        else
             freqDemod = freq[4];
 #endif
 
         if (temp < freqDepth[0])
             freqDemod = freq[0];
         else if (temp < freqDepth[1])
-            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);	
-        else if	(temp <freqDepth[2])		
+            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);
+        else if	(temp <freqDepth[2])
             freqDemod = freq[1] - (temp-freqDepth[1])*(freq[1]-freq[2])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             freqDemod = freq[2] - (temp-freqDepth[2])*(freq[2]-freq[3])/(freqDepth[3]-freqDepth[2]);
-        else if	(temp <freqDepth[4])	
+        else if	(temp <freqDepth[4])
             freqDemod = freq[3] - (temp-freqDepth[3])*(freq[3]-freq[4])/(freqDepth[4]-freqDepth[3]);
-        else	
+        else
             freqDemod = freq[4];
 
         sinStep[i] = 1024*4*freqDemod/SAMPLE_FREQ+0.5;
         m_freqStep[i] = sinStep[i];
     }
 
-	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;											
+	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;
 	if(cycleFilterChg > 511) cycleFilterChg = 511;
 }
 
@@ -5570,20 +5570,20 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 	int temp;
 
    //计算实际发射孔径
-	perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;   
+	perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;
 
 #ifdef EMP_PROJECT
 
-	
-    int sendChNum;	
+
+    int sendChNum;
     float F_num_Tx = 5.0;
 
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
-        
-            F_num_Tx =  m_projectCalcPara->txFNum;;	
 
-    } 
+            F_num_Tx =  m_projectCalcPara->txFNum;;
+
+    }
     else
     {
         if((int)probeR <= 30)
@@ -5592,11 +5592,11 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
             //	sendCh = (int)(4 * sqrt(1 + focPos * focPos / (5 * 5 + 1)));	//双曲线
             //	if(sendCh > APERTURE_HALF * 2)	sendCh = APERTURE_HALF * 2;
         }
-        else	
+        else
         {
             F_num_Tx = 5.0;
             //	sendChNum = (focPos + 1) / 10;
-            //	if(sendChNum > 19) 
+            //	if(sendChNum > 19)
             //		sendChNum = 19;
             //  ASSERT(sendChNum < size);
             //		sendCh = CH_NUM[sendChNum];
@@ -5609,7 +5609,7 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 	float AptSize_mm = focPos / F_num_Tx;
 	int   AptSize_ele = AptSize_mm/probeR/perAngle;
 
-	sendCh = AptSize_ele;	
+	sendCh = AptSize_ele;
 	noSendCh = (APERTURE_HALF * 2 - sendCh) / 2;
 
     float extAngle = m_calcPara->extendedAngle / 100 * PI / 180;
@@ -5624,28 +5624,28 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 
         float b;
         int mbp = m_calcPara->mbp;
-        if(mbp>1)	
+        if(mbp>1)
         {
-            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle) - aptLineOffset; 
+            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle) - aptLineOffset;
         }
         else
         {
-            b = (float)(( APERTURE_HALF  - 0.25 )* perAngle) - aptLineOffset; 
+            b = (float)(( APERTURE_HALF  - 0.25 )* perAngle) - aptLineOffset;
         }
 
         activeMaxLength = focPos;
         for( i = 0; i < APERTURE_HALF * 2; i++ )
         {
-            activeLength = sqrt((double)(4 * probeR * (probeR + focPos) * sin(b/2) * sin(b/2) + focPos * focPos));		
-            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT ); 
+            activeLength = sqrt((double)(4 * probeR * (probeR + focPos) * sin(b/2) * sin(b/2) + focPos * focPos));
+            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
             temp += 100+160-40;
-            if(temp < 0)	temp = 0;		
+            if(temp < 0)	temp = 0;
             //if(temp > 255)	temp = 255;
 
             if ((lineNo % 2) == 1)
-                delayTemp[i] = (unsigned char)temp;	
+                delayTemp[i] = (unsigned char)temp;
             else
-                delayTemp[APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;	
+                delayTemp[APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;
 
             b = b - perAngle;
         }
@@ -5665,16 +5665,16 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 
 
 #else
-	int sendChNum;	
+	int sendChNum;
 	if((int)probeR <= 30)
 	{
 		sendCh = (int)(4 * sqrt(1 + focPos * focPos / (5 * 5 + 1)));	//双曲线
 		if(sendCh > APERTURE_HALF * 2)	sendCh = APERTURE_HALF * 2;
 	}
-	else	
+	else
 	{
 		sendChNum = (focPos + 1) / 10;
-		if(sendChNum > 19) 
+		if(sendChNum > 19)
 			sendChNum = 19;
         ASSERT(sendChNum < size);
 		sendCh = CH_NUM[sendChNum];
@@ -5694,32 +5694,32 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
 
         float b;
         int mbp = m_calcPara->mbp;
-        if(mbp>1)	
+        if(mbp>1)
         {
-            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle) - aptLineOffset; 
+            b = (float)(( APERTURE_HALF  - 0.5 )* perAngle) - aptLineOffset;
         }
         else
         {
-            b = (float)(( APERTURE_HALF  - 0.25 )* perAngle) - aptLineOffset; 
+            b = (float)(( APERTURE_HALF  - 0.25 )* perAngle) - aptLineOffset;
         }
 
         activeMaxLength = focPos;
         for( i = 0; i < APERTURE_HALF * 2; i++ )
         {
-            activeLength = sqrt((double)(4 * probeR * (probeR + focPos) * sin(b/2) * sin(b/2) + focPos * focPos));		
+            activeLength = sqrt((double)(4 * probeR * (probeR + focPos) * sin(b/2) * sin(b/2) + focPos * focPos));
 #ifdef EMP_355
-            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+            temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
             temp += 100+160-40;
-            if(temp < 0)	temp = 0;		
+            if(temp < 0)	temp = 0;
             //if(temp > 255)	temp = 255;
 
             if ((lineNo % 2) == 1)
-                delayTemp[i] = (unsigned char)temp;	
+                delayTemp[i] = (unsigned char)temp;
             else
-                delayTemp[APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;	
+                delayTemp[APERTURE_HALF * 2 - 1 - i] = (unsigned char)temp;
 
             b = b - perAngle;
         }
@@ -5761,9 +5761,9 @@ void Calc2D::CReceiveDelayCalcExtended(int An[MAX_LINES * APERTURE_HALF * 2], sh
 #else
          probeR = (float)m_calcPara->probeR;
          probeWidth = m_calcPara->probeWidth;
-#endif   
+#endif
   probeR = probeR /100.0;
-     int probeArray = m_calcPara->probeArray; 
+     int probeArray = m_calcPara->probeArray;
      perAngle = (((float)probeWidth) / 100.0) / ((float)(probeArray - 1)) * PI / 180.0;
 
     int lineNo;
@@ -5786,7 +5786,7 @@ void Calc2D::CReceiveDelayCalcExtended(int An[MAX_LINES * APERTURE_HALF * 2], sh
             offsetToCenter = 0.75;
         else
             offsetToCenter = 0.25;
-        b = ( APERTURE_HALF - offsetToCenter) * perAngle - aptLineOffset;			
+        b = ( APERTURE_HALF - offsetToCenter) * perAngle - aptLineOffset;
 
         for (i = 0; i < APERTURE_HALF * 2; i ++)
         {
@@ -5810,14 +5810,14 @@ void Calc2D::CReceiveDelayCalcExtended(int An[MAX_LINES * APERTURE_HALF * 2], sh
             {
                 PRINTF("receive An[%d] = %d, Bn = %d\n", i, An[lineNo*APERTURE_HALF*2+i], Bn[lineNo*APERTURE_HALF*2+i]);
             }
-        }        
+        }
 #endif
     }
 }
 
 void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const int CH_NUM[], int chSize, unsigned short delay[MAX_LINES * APERTURE_HALF * 4])
 {
-	int i;	
+	int i;
 	float activeMaxLength, activeLength, interval;
 	int sendCh = APERTURE_HALF * 2;
 	int noSendCh = 4;
@@ -5853,17 +5853,17 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
 
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
-        
-            F_num_Tx =  m_projectCalcPara->txFNum;;	
 
-    } 
+            F_num_Tx =  m_projectCalcPara->txFNum;;
+
+    }
 
 //	float F_num_Tx = 4.0;
     printf("tx_f_num = %3.2f\n", F_num_Tx);
 	float AptSize_mm = focPos / F_num_Tx;
 	int   AptSize_ele = AptSize_mm/interval;
 
-	sendCh = AptSize_ele;	
+	sendCh = AptSize_ele;
 
 	noSendCh = (APERTURE_HALF * 2 - sendCh) / 2;
 
@@ -5881,20 +5881,20 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
 	for (int lineNo = 0; lineNo < MAX_LINES; lineNo ++)
 	{
         pos2center = 0 - widthHalf + lineNo * probeWidth / (lines - 1);
-        
+
         if (fabs(angle) == ZERO)
-            tpSteer = 0.0; 
+            tpSteer = 0.0;
         else
             tpSteer = atan(pos2center/oHeight);
 
-        b = (float)(( APERTURE_HALF  - 0.5 )*interval); 
+        b = (float)(( APERTURE_HALF  - 0.5 )*interval);
 		for( i =  0; i < APERTURE_HALF * 2;	i++ )
 		{
 			activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(tpSteer) ) );
-			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT ); 
+			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 	        temp += 120;
 
-			if(temp < 0)	temp = 0;		
+			if(temp < 0)	temp = 0;
 			if(temp > 1000)	temp = 0;	//255;
 			delay[lineNo * APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 			b = b - interval;
@@ -5927,7 +5927,7 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
 
 	sendChNum = (focPos + 1) / 10;
 
-	if(sendChNum > 19) 		
+	if(sendChNum > 19)
 		sendChNum = 19;
 
 	if (sendChNum > (chSize - 1))
@@ -5953,24 +5953,24 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
 	for (int lineNo = 0; lineNo < MAX_LINES; lineNo ++)
 	{
         pos2center = 0 - widthHalf + lineNo * probeWidth / (lines - 1);
-        
+
         if (fabs(angle) == ZERO)
-            tpSteer = 0.0; 
+            tpSteer = 0.0;
         else
             tpSteer = atan(pos2center/oHeight);
 
-        b = (float)(( APERTURE_HALF  - 0.5 )*interval); 
+        b = (float)(( APERTURE_HALF  - 0.5 )*interval);
 		for( i =  0; i < APERTURE_HALF * 2;	i++ )
 		{
 			activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(tpSteer) ) );
 #ifdef EMP_355
-			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT ); 
+			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
 			temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
 	        temp += 120;
 
-			if(temp < 0)	temp = 0;		
+			if(temp < 0)	temp = 0;
 			if(temp > 1000)	temp = 0;	//255;
 			delay[lineNo * APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 			b = b - interval;
@@ -6004,7 +6004,7 @@ void Calc2D::LReceiveDelayCalcExtended(float steerAngle, int An[MAX_LINES * APER
 	double speed = m_calcPara->soundSpeedTsi;
 	float probeWidth;
         probeWidth =(float) m_calcPara->probeWidth/ 100.0;
-	int probeArray = m_calcPara->probeArray; 
+	int probeArray = m_calcPara->probeArray;
     interval = (((float)probeWidth)) / ((float)(probeArray - 1));
     int lineNo;
     int i;
@@ -6021,9 +6021,9 @@ void Calc2D::LReceiveDelayCalcExtended(float steerAngle, int An[MAX_LINES * APER
     for (lineNo = 0; lineNo < MAX_LINES; lineNo ++)
     {
         pos2center = 0 - widthHalf + ((MAX_LINES + lineNo - 1) % MAX_LINES) * probeWidth / (lines - 1);
-        
+
         if (fabs(m_calcPara->tpSteer) == ZERO)
-            tpSteer = 0.0; 
+            tpSteer = 0.0;
         else
             tpSteer = atan(pos2center/oHeight);
 
@@ -6032,7 +6032,7 @@ void Calc2D::LReceiveDelayCalcExtended(float steerAngle, int An[MAX_LINES * APER
         else
             offsetToCenter = 0.25;
 
-        b = ( APERTURE_HALF - offsetToCenter) * interval;			
+        b = ( APERTURE_HALF - offsetToCenter) * interval;
 
         for (i = 0; i < APERTURE_HALF * 2; i ++)
         {
@@ -6041,7 +6041,7 @@ void Calc2D::LReceiveDelayCalcExtended(float steerAngle, int An[MAX_LINES * APER
 
             temp =  -2.0 * ((float)FREQ/speed) * b * sin(tpSteer);
             delayFBn[APERTURE_HALF*2-1-i] = (int)(temp + 0.5);
-            
+
             b = b - interval;
         }
 
@@ -6058,7 +6058,7 @@ void Calc2D::CompoundRate(void)
     int compoundRate2=6;
     int compoundSubValue=12;
     int angle = m_calcPara->compoundAngle;
-    
+
     if (angle < 5)
     {
         compoundRate0=6;
@@ -6081,9 +6081,9 @@ void Calc2D::CompoundRate(void)
         compoundSubValue=6;
 
     }
-    m_fpga.SendSpaceCompoundCoef(compoundRate0);	
-    m_fpga.SendSpaceCompound1Coef(compoundRate1);	
-    m_fpga.SendSpaceCompound2Coef(compoundRate2);	
+    m_fpga.SendSpaceCompoundCoef(compoundRate0);
+    m_fpga.SendSpaceCompound1Coef(compoundRate1);
+    m_fpga.SendSpaceCompound2Coef(compoundRate2);
     m_fpga.SendSpaceCompoundBase(compoundSubValue);
 }
 

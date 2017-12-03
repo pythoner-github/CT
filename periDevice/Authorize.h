@@ -1,7 +1,7 @@
 /**
 * @brief Authorize.h：加密狗授权保护功能,只适用于SafeNet公司的Sentinel HASP
 
-* @author: hehao 
+* @author: hehao
 * @version: v1.0
 * @data: 2012.10.25
 */

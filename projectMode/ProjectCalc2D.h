@@ -47,8 +47,8 @@ class ProjectCalc2D
 		Calc2D* m_ptrCalc;
 		Calc2D::CalcPara m_calcPara;
 		Calc2D::ProjectCalcPara m_projectCalcPara;
-  
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;	
+
+		DSCCONTROLATTRIBUTES* m_ptrDscPara;
 		CDSC* m_ptrDsc;
 		static FpgaCtrl2D m_fpga;
         int m_probeIndex;

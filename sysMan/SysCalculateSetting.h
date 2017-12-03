@@ -26,7 +26,7 @@ extern OBSetting g_obSetting;
 class SysCalculateSetting
 {
 public:
-	
+
     SysCalculateSetting();
     ~SysCalculateSetting();
 

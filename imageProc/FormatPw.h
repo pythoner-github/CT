@@ -34,7 +34,7 @@ class FormatPw
 
 		DscMan* m_ptrDsc;
 		DSCCONTROLATTRIBUTES* m_ptrDscPara;
-		
+
 		AbsUpdatePw* m_ptrUpdate;
 		ImgPw* m_ptrImg;
 		Replay* m_ptrReplay;

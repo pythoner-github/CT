@@ -16,7 +16,7 @@ void CalcTime::Init()
 {
 	m_start.tv_sec = 0;
 	m_start.tv_usec = 0;
-	
+
 	m_end.tv_sec = 0;
 	m_end.tv_usec = 0;
 }
@@ -44,8 +44,7 @@ float CalcTime::End()
 	float timeUse;
     timeUse = (m_end.tv_sec - m_start.tv_sec)*1000000 + (m_end.tv_usec - m_start.tv_usec);
     PRINTF("Time use: %fus\n", timeUse);
-	
+
 	m_start = m_end;
 	return timeUse;
 }
-

@@ -33,16 +33,16 @@ Format2D::Format2D()
 	m_ptrUpdate = ptrGcm->GetUpdate2D();
 
 	m_ptrDsc = DscMan::GetInstance();
-	m_ptrDscPara = m_ptrDsc->GetDscPara(); 
+	m_ptrDscPara = m_ptrDsc->GetDscPara();
 
 	m_ptrImg = Img2D::GetInstance();
 	m_ptrReplay = Replay::GetInstance();
 
-	m_format = B; 
-	m_formatSnap = B; 
-	m_curB = 0; 
-	m_curRealB = m_curB; 
-	m_curRealB_bak = m_curRealB; 
+	m_format = B;
+	m_formatSnap = B;
+	m_curB = 0;
+	m_curRealB = m_curB;
+	m_curRealB_bak = m_curRealB;
 }
 Format2D::~Format2D()
 {
@@ -61,7 +61,7 @@ int Format2D::ChangeFormat(enum EFormat2D format)
 {
     PRINTF("--------change format B begin\n");
 	m_format = format;
-    
+
     // exit zoom
     MultiFuncFactory::EMultiFunc type = MultiFuncFactory::GetInstance()->GetMultiFuncType();
     if ((type == MultiFuncFactory::LOCAL_ZOOM) || (type == MultiFuncFactory::GLOBAL_ZOOM) || (type == MultiFuncFactory::PIP_ZOOM))
@@ -141,7 +141,7 @@ bool Format2D::SwitchBB(bool left, int &current)
         current = m_curB;
         return FALSE;
     }
-  
+
  // 在冻结下，若选中区域没有图像，则返回   zjx
     if(!unfreeze)
     {
@@ -151,28 +151,28 @@ bool Format2D::SwitchBB(bool left, int &current)
 
     switch (m_curB) {
         case 0:// left
-            m_curB = 1; 
+            m_curB = 1;
             //scale
             if (unfreeze) {
                 m_ptrImg->ChangeSeperateScale(1, 0);
                 m_curRealB = m_curB;
-            } 
+            }
             break;
 
     case 1:
-        m_curB = 0; 
+        m_curB = 0;
 
         //scale
         if (unfreeze) {
             m_ptrImg->ChangeSeperateScale(0, 1);
             m_curRealB = m_curB;
-        } 
+        }
         break;
 
     default:
         break;
     }
-   
+
     //send dsc
     m_ptrDsc->GetWriteLock();
     m_ptrDscPara->dcaBBFlag = m_curB;
@@ -212,7 +212,7 @@ int Format2D::SwitchBB(void)
     bool unfreeze = FALSE;
     if (ModeStatus::IsUnFreezeMode())
         unfreeze = TRUE;
-  
+
  // 在冻结下，若选中区域没有图像，则返回   zjx
     if(!unfreeze)
     {
@@ -222,7 +222,7 @@ int Format2D::SwitchBB(void)
 
     switch (m_curB) {
         case 0:// left
-            m_curB = 1; 
+            m_curB = 1;
 
             //scale
             if (unfreeze) {
@@ -232,19 +232,19 @@ int Format2D::SwitchBB(void)
             break;
 
     case 1:
-        m_curB = 0; 
+        m_curB = 0;
 
         //scale
         if (unfreeze) {
             m_ptrImg->ChangeSeperateScale(0, 1);
             m_curRealB = m_curB;
-        } 
+        }
         break;
 
     default:
         break;
     }
-    
+
     //send dsc
     m_ptrDsc->GetWriteLock();
     m_ptrDscPara->dcaBBFlag = m_curB;
@@ -261,7 +261,7 @@ int Format2D::SwitchBB(void)
 
     ///> update
     m_ptrUpdate->ChangeCurrentImgBB(m_curB);
-    
+
     return TRUE;
 }
 
@@ -269,7 +269,7 @@ int Format2D::SwitchBB(void)
 //在4B冻结下，当当前区域不等于冻结前最后区域时，解冻后进行区域切换zjx
 int Format2D::SwitchB4ForFreeze(int lastRealB)
 {
-    m_curB = lastRealB; 
+    m_curB = lastRealB;
     m_ptrImg->ChangeSeperateScale(m_curB, m_curRealB);
     m_curRealB_bak = m_curRealB;
     m_curRealB = m_curB;
@@ -306,7 +306,7 @@ int Format2D::SwitchB4()
             else
             {
                 m_curB = i;
-                break; 
+                break;
             }
         }
     }
@@ -314,7 +314,7 @@ int Format2D::SwitchB4()
     switch (m_curB)
     {
         case 0:
-            m_curB = 1; 
+            m_curB = 1;
 
             if (unfreeze)
             {
@@ -324,7 +324,7 @@ int Format2D::SwitchB4()
 			break;
 
 		case 1:
-			m_curB = 2; 
+			m_curB = 2;
 
 			if (unfreeze)
             {
@@ -334,7 +334,7 @@ int Format2D::SwitchB4()
 			break;
 
 		case 2:
-			m_curB = 3; 
+			m_curB = 3;
 			if (unfreeze)
             {
 				m_ptrImg->ChangeSeperateScale(3, 2);
@@ -343,8 +343,8 @@ int Format2D::SwitchB4()
 			break;
 
 		case 3:
-			m_curB = 0; 
-			
+			m_curB = 0;
+
 			if (unfreeze)
             {
 				m_ptrImg->ChangeSeperateScale(0, 3);
@@ -359,7 +359,7 @@ int Format2D::SwitchB4()
     //send to dsc
     m_ptrDsc->GetWriteLock();
     m_ptrDscPara->dcaB4Flag = m_curB;
-	
+
     DscMan::GetInstance()->GetDsc()->UpdateB4Flag();
     m_ptrDsc->ReadWriteUnlock();
 

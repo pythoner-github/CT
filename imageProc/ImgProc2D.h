@@ -61,7 +61,7 @@ class ImgProc2D
 		bool ChangeGrayReject(enum EKnobOper oper);
 		void DisplayGrayTrans(bool on);
 		void DisplayGrayReject(bool on);
-		
+
 		bool GetChromaStatus(); // return TRUE = on
 		bool GetLRStatus();
 		bool GetUDStatus();
@@ -106,7 +106,7 @@ class ImgProc2D
 
 		DSCCONTROLATTRIBUTES* m_ptrDscPara;
 		AbsUpdate2D* m_ptrUpdate;
-		
+
 		unsigned char* m_ptrColormap;
 
 		///> static const
@@ -120,7 +120,7 @@ class ImgProc2D
 		static const float m_zoomEFOVScale[MAX_EFOV_ZOOM_INDEX];
 	    bool m_biopsyEnhance;
 
-		bool m_LR;	
+		bool m_LR;
 		bool m_UD;
 		bool m_Polarity;
 		int m_Rotate; ///< 0~2
@@ -142,14 +142,14 @@ class ImgProc2D
 		int m_Chroma;	///< 0~5
 		int m_ChromaBak;	///< 0~5
 
-		unsigned char m_ColorTransTable[MAX_GRAY];	///< 0~255 
-		unsigned char m_ColorTable[MAX_GRAY];	///< 0~255 
+		unsigned char m_ColorTransTable[MAX_GRAY];	///< 0~255
+		unsigned char m_ColorTable[MAX_GRAY];	///< 0~255
 		unsigned char m_CurveBasePoint[MAX_TRANS_POINT];///< base point, used to adjust type of gray curve
         int m_CurrentPoint; ///< current point to be changed, among m_CurveBasePoint
-        int m_CurCurveIndex;  
+        int m_CurCurveIndex;
         int m_Gamma;	///< 0~7
 
-		///>  
+		///>
 		void CustomGammaChange(unsigned char* BaseValue, unsigned char* CurveValue);
 		void ChangeColormap();
 

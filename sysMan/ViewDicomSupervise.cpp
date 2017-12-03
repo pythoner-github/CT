@@ -49,7 +49,7 @@ void ViewDicomSupervise::DestroyWindow(void)
 
 void ViewDicomSupervise::Exit(void)
 {
-    g_keyInterface.Pop(); 
+    g_keyInterface.Pop();
 }
 
 gboolean ViewDicomSupervise::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
@@ -98,7 +98,7 @@ void ViewDicomSupervise::CreateWindow(void)
     gtk_fixed_put (GTK_FIXED (fixed), m_labelExport, 10, 155);
     gtk_label_set_use_markup (GTK_LABEL (m_labelExport), TRUE);
     gtk_widget_set_size_request (m_labelExport, 240, 33);
-    
+
     btnExport = gtk_button_new_with_mnemonic(_("Export License File"));
     gtk_fixed_put (GTK_FIXED (fixed), btnExport, 250, 155);
     gtk_widget_set_size_request (btnExport, 200, 35);
@@ -129,7 +129,7 @@ void ViewDicomSupervise::CreateWindow(void)
     gtk_fixed_put (GTK_FIXED (fixed), btnRegister, 300+45, 300);
     gtk_widget_set_size_request (btnRegister, 100, 35);
 	g_signal_connect (G_OBJECT(btnRegister), "clicked", G_CALLBACK(HandleBtnRegisterClicked), this);
-    
+
     hseparator2 = gtk_hseparator_new ();
     gtk_widget_show (hseparator2);
     gtk_fixed_put (GTK_FIXED (fixed), hseparator2, 8, 340);
@@ -139,7 +139,7 @@ void ViewDicomSupervise::CreateWindow(void)
     gtk_fixed_put (GTK_FIXED (fixed), btnExit, 300+45, 360);
     gtk_widget_set_size_request (btnExit, 100, 35);
 	g_signal_connect (G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
-    
+
     gtk_widget_show_all(m_window);
     window_register = m_window;
 
@@ -182,7 +182,7 @@ gboolean ViewDicomSupervise::IsAuthenValid(void)
 
 void ViewDicomSupervise::ConfirmAuthen(void)
 {
-    unsigned char info[AUTHEN_NUM+1]; 
+    unsigned char info[AUTHEN_NUM+1];
     int size = m_vecAuthenInfo.size();
     int i;
 
@@ -190,7 +190,7 @@ void ViewDicomSupervise::ConfirmAuthen(void)
     info[size] = '\0';
     for (i = 0; i < size; i ++)
     {
-        info[i] = m_vecAuthenInfo[i]; 
+        info[i] = m_vecAuthenInfo[i];
     }
 
     // clear
@@ -198,7 +198,7 @@ void ViewDicomSupervise::ConfirmAuthen(void)
 
     // compare
     if (strcmp((const char*)info, "icome") == 0)
-        CreateWindow();    
+        CreateWindow();
 }
 
 void ViewDicomSupervise::BtnExportClicked(GtkButton *button)
@@ -248,7 +248,7 @@ void ViewDicomSupervise::BtnRegisterClicked(GtkButton *button)
     if(CDCMRegister::GetMe()==NULL)
         return;
 
-    bool value =CDCMRegister::GetMe()->CheckAuthorize(registerKey); 
+    bool value =CDCMRegister::GetMe()->CheckAuthorize(registerKey);
     char info[256];
     if(value)
     {

@@ -9,11 +9,11 @@ class FreezeMode
 {
 	public:
         ///< freeze mode, REPLAY:冻结，曾经回放过，不论当前停在哪一帧; AUTOREPLAY：自动回放中，FREEZE：冻结，未曾回放过。
-		enum EFreezeMode{FREEZE, UNFREEZE, REPLAY, AUTOREPLAY}; 
+		enum EFreezeMode{FREEZE, UNFREEZE, REPLAY, AUTOREPLAY};
 
 		static FreezeMode* GetInstance();
 		~FreezeMode();
-		
+
 		void PressFreeze();
 		void PressUnFreeze();
 

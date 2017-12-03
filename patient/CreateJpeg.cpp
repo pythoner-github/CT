@@ -111,4 +111,3 @@ void CreateJpeg(unsigned char *image_buffer, FILE * outfile, int quality,int ima
   /* And we're done! */
 }
 
-

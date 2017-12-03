@@ -3,11 +3,11 @@
 
 #include "MeasureDef.h"
 
-typedef const double (*SecSingleResult)[][MEA_TIMES]; 
+typedef const double (*SecSingleResult)[][MEA_TIMES];
 typedef const ResultMulti (*SecMultiResult)[];
 typedef const double (*SecCalcResult)[][CALC_RESULT_CLASSES];
 
-typedef double (*SingleResult)[][MEA_TIMES]; 
+typedef double (*SingleResult)[][MEA_TIMES];
 typedef ResultMulti (*MultiResult)[];
 typedef double (*CalcResult)[][CALC_RESULT_CLASSES];
 
@@ -37,13 +37,13 @@ class MeaResult{
 
 	static MeaResult *GetInstance();
 
-/**************************测量***************************************/	
+/**************************测量***************************************/
 	//SetLastValue把最新测量得到的结果保存在MeaResult[][2]，以前的值依次往前挪
 	int SetLastValue(const double value[], const int item, const int valueNums);
-	
+
 	//获取MeaResult[][2]中的值，即最近测量的值
 	int GetLastValue(const int item, double value[MEA_MULTI], int obFetal=FETAL_BY_SET);
-	
+
 	//获取MeaResult[][]中所有值
 	int GetAllValue(const int item, double value[MEA_MULTI][MEA_TIMES], int obFetal=FETAL_BY_SET);
 
@@ -54,7 +54,7 @@ class MeaResult{
 	int GetValue(const int item, double value[MEA_MULTI], double allValue[MEA_MULTI][MEA_TIMES], const int sysValue, int obFetal=FETAL_BY_SET);
 
 
-/**************************计算***************************************/	
+/**************************计算***************************************/
 	int CalcSetValue(const double value[], const int calcItem, int section);
 	void CalcSetAgwValue(const double value[][CALC_RESULT_CLASSES]);
 	int CalcGetLastValue(double *value, const int item, int section, int obFetal=FETAL_BY_SET);
@@ -62,7 +62,7 @@ class MeaResult{
 	int CalcGetValue(double *value, const int calcItem, const int section, int obFetal=FETAL_BY_SET);
 	//获取平均胎龄(value[0])和平均预产期(value[1])
 	int CalcGetAgwValue(double value[], const int fetalOrder);//根据报告中最后值还是平均值的设置获得平均胎龄
-	
+
 	void CalcSetSPSA(double spsa);//存储SPSA的值
 	void CalcSetPSAD(double psad);//存储PSAD的值
 	void CalcGetSPSA(double &spsa, double &psad);//获得SPSA和PSAD的值
@@ -93,14 +93,14 @@ class MeaResult{
 
     private:
 	static MeaResult *m_ptrInstance;
-	
+
 	MeaResultInfo SecResultInfo[SECTION_END - SECTION_START];
 
 	int CalcGetAgwLastValue(double value[], const int fetalOrder);//获得最后值的平均胎龄
 	int CalcGetAgwMeanValue(double value[], const int fetalOrder);//获得平均值的平均胎龄
 
 	int EDCBFormula(int gpLen, int gw, int *EDCB);
-/**************************测量结果保存***************************************/	
+/**************************测量结果保存***************************************/
 	double MeaResultAbd[ABD_MEA_END-ABD_MEA_START][MEA_TIMES];
 	double MeaResultAdult[ADULT_MEA_END-ADULT_MEA_START][MEA_TIMES];
 	double MeaResultUR[UR_MEA_END-UR_MEA_START][MEA_TIMES];
@@ -139,7 +139,7 @@ class MeaResult{
 	//hlx
 	ResultMulti AnOBResultMulti[ANOB_MULTI_END-ANOB_MULTI_START];
 #endif
-/**************************计算结果保存***************************************/	
+/**************************计算结果保存***************************************/
 	double CalcResultAbd[ABD_CALC_END - ABD_CALC_START][CALC_RESULT_CLASSES];
 	double CalcResultAdult[ADULT_CALC_END - ADULT_CALC_START][CALC_RESULT_CLASSES];
 	double CalcResultUR[UR_CALC_END - UR_CALC_START][CALC_RESULT_CLASSES];
@@ -147,7 +147,7 @@ class MeaResult{
 	double CalcResultOB1[OB_CALC_END - OB_CALC_START][CALC_RESULT_CLASSES];//胎儿1
 	double CalcResultOB2[OB_CALC_END - OB_CALC_START][CALC_RESULT_CLASSES];//胎儿2
 	double CalcResultOB1Agw[2][CALC_RESULT_CLASSES];	//胎儿1平均孕周和平均预产期
-	double CalcResultOB2Agw[2][CALC_RESULT_CLASSES];	//胎儿2平均孕周和平均预产期	
+	double CalcResultOB2Agw[2][CALC_RESULT_CLASSES];	//胎儿2平均孕周和平均预产期
 	double CalcResultGYN[GYN_CALC_END - GYN_CALC_START][CALC_RESULT_CLASSES];
 	double CalcResultSP[SP_CALC_END - SP_CALC_START][CALC_RESULT_CLASSES];
 	double CalcResultVS[VS_CALC_END - VS_CALC_START][CALC_RESULT_CLASSES];
@@ -207,4 +207,3 @@ class MeaResult{
 };
 
 #endif
-

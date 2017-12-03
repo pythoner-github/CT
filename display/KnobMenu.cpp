@@ -59,9 +59,9 @@ GtkWidget * KnobMenu::Create(void)
    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob),m_btnKnob[0], 0, 3, 0, 1);
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[0], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_PRELIGHT, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_ACTIVE, g_deep); 
+   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_ACTIVE, g_deep);
    gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_INSENSITIVE, g_deepGray);
-  
+
    m_labelKnob[1] = create_label("knob2", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[1], GTK_STATE_PRELIGHT, g_lightGray);
    gtk_widget_modify_fg(m_labelKnob[1], GTK_STATE_ACTIVE, g_lightGray);
@@ -72,7 +72,7 @@ GtkWidget * KnobMenu::Create(void)
    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_ACTIVE, g_deep);
    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_INSENSITIVE, g_deepGray);
-  
+
    m_labelKnob[2] = create_label("knob3", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_PRELIGHT, g_lightGray);
    gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_ACTIVE, g_lightGray);
@@ -82,7 +82,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[2], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[3] = create_label("knob4", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_PRELIGHT, g_lightGray);
@@ -93,7 +93,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[3], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[4] = create_label("knob5", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_PRELIGHT, g_lightGray);
@@ -104,7 +104,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[4], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[5] = create_label("knob6", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[5], GTK_STATE_PRELIGHT, g_lightGray);
@@ -115,17 +115,17 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[5], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelRight = create_label("≫", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelRight, GTK_STATE_PRELIGHT, g_lightGray);
    gtk_widget_modify_fg(m_labelRight, GTK_STATE_ACTIVE, g_lightGray);
    GtkWidget *btn_right = create_button(m_labelRight, 0, 0, g_deep);
    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), btn_right, 10, 11, 0, 1);
-   GTK_WIDGET_UNSET_FLAGS (btn_right, GTK_CAN_FOCUS); 
+   GTK_WIDGET_UNSET_FLAGS (btn_right, GTK_CAN_FOCUS);
    gtk_widget_modify_bg(btn_right, GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(btn_right, GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
 
    gtk_widget_set_usize(m_tableKnob, WIDTH_KNOB_MENU, HEIGHT_KNOB_MENU);
 #elif defined (EMP_313)
@@ -140,7 +140,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (btn_left, GTK_CAN_FOCUS);
    gtk_widget_modify_bg(btn_left, GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(btn_left, GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[0] = create_label("knob1", 0, 0, g_lightGray, NULL);
    gtk_label_set_justify(GTK_LABEL(m_labelKnob[0]), GTK_JUSTIFY_CENTER);
@@ -150,8 +150,8 @@ GtkWidget * KnobMenu::Create(void)
    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob),m_btnKnob[0], 1, 4, 0, 1);
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[0], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_PRELIGHT, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_ACTIVE, g_deep); 
-   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_ACTIVE, g_deep);
+   gtk_widget_modify_bg(m_btnKnob[0], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[1] = create_label("knob2", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[1], GTK_STATE_PRELIGHT, g_lightGray);
@@ -162,7 +162,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[1], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[2] = create_label("knob3", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_PRELIGHT, g_lightGray);
@@ -173,7 +173,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[2], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[3] = create_label("knob4", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_PRELIGHT, g_lightGray);
@@ -184,7 +184,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[3], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[4] = create_label("knob5", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_PRELIGHT, g_lightGray);
@@ -195,7 +195,7 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[4], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelKnob[5] = create_label("knob6", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelKnob[5], GTK_STATE_PRELIGHT, g_lightGray);
@@ -206,22 +206,22 @@ GtkWidget * KnobMenu::Create(void)
    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[5], GTK_CAN_FOCUS);
    gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(m_btnKnob[5], GTK_STATE_INSENSITIVE, g_deepGray);
 
    m_labelRight = create_label("≫", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelRight, GTK_STATE_PRELIGHT, g_lightGray);
    gtk_widget_modify_fg(m_labelRight, GTK_STATE_ACTIVE, g_lightGray);
    GtkWidget *btn_right = create_button(m_labelRight, 0, 0, g_deep);
    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), btn_right, 19, 20, 0, 1);
-   GTK_WIDGET_UNSET_FLAGS (btn_right, GTK_CAN_FOCUS); 
+   GTK_WIDGET_UNSET_FLAGS (btn_right, GTK_CAN_FOCUS);
    gtk_widget_modify_bg(btn_right, GTK_STATE_PRELIGHT, g_deep);
    gtk_widget_modify_bg(btn_right, GTK_STATE_ACTIVE, g_deep);
-   gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);    
+   gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
 
 
     gtk_widget_set_usize(m_tableKnob, WIDTH_KNOB_MENU, HEIGHT_KNOB_MENU);
 #else
-  
+
     GtkWidget *m_tableKnob = gtk_table_new(1, 22, TRUE);
     m_labelLeft = create_label("≪", 0, 0, g_lightGray, NULL);
     gtk_widget_modify_fg(m_labelLeft, GTK_STATE_PRELIGHT, g_lightGray);
@@ -231,7 +231,7 @@ GtkWidget * KnobMenu::Create(void)
     GTK_WIDGET_UNSET_FLAGS (btn_left, GTK_CAN_FOCUS);
     gtk_widget_modify_bg(btn_left, GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(btn_left, GTK_STATE_ACTIVE, g_deep);
-    gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);    
+    gtk_widget_modify_bg(btn_left, GTK_STATE_INSENSITIVE, g_deepGray);
 
 
     m_labelKnob[0] = create_label("knob1", 0, 0, g_lightGray, NULL);
@@ -396,7 +396,7 @@ void KnobMenu::Display(KnobItem item, char *buf, const char *tmp)
             sprintf(buf, "%s\n%s\n◁  %s  ▶", _(item.name), tmp, _(item.value));
         else
             sprintf(buf, "%s\n%s\n◁  %s  ▶", _(item.name), tmp, item.value);
-    }  
+    }
 
     else if (item.status == MAX) {
         if (strcmp(item.value, ""))
@@ -783,4 +783,3 @@ void KnobMenu::Knob6_Press(void)
 
 	(*(m_KnobItem[index].pfPress))();
 }
-

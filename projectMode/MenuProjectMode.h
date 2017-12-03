@@ -24,7 +24,7 @@ class MenuProjectMode:public FakeXEvent
         void DeleteProjectMode(void);
         void DeleteProjectModeFun(void);
         void SelectProjectMode(GtkButton *button);
-        
+
     private:
         //signal handle
         void ModeClicked(GtkButton *button);
@@ -128,4 +128,3 @@ class ViewProjectMode:public FakeXEvent
 };
 #endif
 #endif //__MENU_PROJECT_MODE_H__
-

@@ -13,13 +13,13 @@ class IoCtrl
 
 		/**
 		* @brief on or off the high voltage
-		* 
+		*
 		* @param on_off  0-off 1-on
 		*/
 		int HighVoltage(INT8U onOff);
 
 		/**
-		* @brief switch the interface of probe 
+		* @brief switch the interface of probe
 		* @param addr addr of interface
 		*/
 		int SetInterface(INT8U addr);
@@ -35,7 +35,7 @@ class IoCtrl
 		int Unfreeze(void);
 
 		/**
-		* @brief read one probe(on pointed interface) parameter 
+		* @brief read one probe(on pointed interface) parameter
 		* @param readCmd command to read probe info
 		* @param rec_buf array to store parameter readed
 		* @param len data length
@@ -60,14 +60,14 @@ class IoCtrl
 		int BeginReadImage(void);
 
 		/**
-		* @brief write probe parameter 
+		* @brief write probe parameter
 		*/
 		int ProbeWrite(INT8U interfaces, INT8U *probeBuf, INT32U len);
 
 	private:
-		
+
 		static AbsUltraInterface* m_ptrInterface;
 };
 
 
-#endif 
+#endif

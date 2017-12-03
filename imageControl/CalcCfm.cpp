@@ -2,7 +2,7 @@
  * 2009, 深圳恩普电子技术有限公司
  *
  * @file: CalcPw.cpp
- * @brief: abstract class, in charge of cfm/pdi imaging calculation 
+ * @brief: abstract class, in charge of cfm/pdi imaging calculation
  *
  * version: V1.0
  * date: 2009-5-21
@@ -35,7 +35,7 @@ void CalcCfm::CalcBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
 	int dots = IMG_H * Calc2D::INIT_SCALE;
 #else
 	int dots = IMG_H;
-#endif	
+#endif
 	if (dotBegin > dots)
 		dotBegin = dots;
 	if (dotEnd > dots)
@@ -97,7 +97,7 @@ void CalcCfm::CalcColorGrayCfm(int colorCode, int baseline, int turbo, bool inve
 	unsigned char tempColorFpga[COLOR_DEPTH*COLOR_LENGTH]; //BGR 4*256
 	int tempColor[COLOR_DEPTH][COLOR_LENGTH]; //BGR 4*256
 	int i, j;
-	
+
 	// calc for send to fpga
 	for (i = 0; i < COLOR_LENGTH; i ++)
 	{
@@ -107,8 +107,8 @@ void CalcCfm::CalcColorGrayCfm(int colorCode, int baseline, int turbo, bool inve
 
 	m_fpga.SendColorBands((INT16 *)tempColorFpga, sizeof(tempColorFpga));
 
-	// calc for send to dsc(real color map) 
-	MakeCFMColormap(tempColor, baseline, colorCode, invert); 
+	// calc for send to dsc(real color map)
+	MakeCFMColormap(tempColor, baseline, colorCode, invert);
 	for (j = 0; j < COLOR_LENGTH; j ++)
 	{
 		for (i = 0; i < COLOR_WIDTH; i ++)
@@ -138,7 +138,7 @@ void CalcCfm::CalcColorGrayCfmVar(int colorCode, int baseline, int turbo, bool i
 
 	m_fpga.SendColorBands((INT16 *)tempColorFpga, sizeof(tempColorFpga));
 
-	// calc for send to dsc(real color map) 
+	// calc for send to dsc(real color map)
 	MakeCFMVarColormap(tempColorTurbo, baseline, colorCode);
 	double step = COLOR_LENGTH / VARIANCE_GRADE;
 	int temp = 0;
@@ -312,7 +312,7 @@ void CalcCfm::CalcProjectionInitialMatrix(Mat matFilter, int order, double* a, d
 		matFPower = matFPower * matF;
 	}
 
-	Mat matC = Mat::eye(packSize, packSize, CV_64FC1); 
+	Mat matC = Mat::eye(packSize, packSize, CV_64FC1);
 	matC = matC * d;
 	matFPower = Mat::eye(order, order, CV_64FC1);
 	Mat matTmp(1, 1, CV_64FC1, Scalar::all(0));
@@ -335,7 +335,7 @@ void CalcCfm::CalcProjectionInitialMatrix(Mat matFilter, int order, double* a, d
 }
 
 void CalcCfm::CalcPacketSize(int pktSize)
-{	
+{
 	///> send packet size
 	FpgaCtrl2D m_fpgaCtrl2D;
 	m_fpgaCtrl2D.SendPacketSize((INT8U)pktSize);
@@ -394,7 +394,7 @@ int CalcCfm::CalcClusterSize(int prf, int depth, double soundSpeed, int mbp, int
 {
 	int Tprf = 1000000 / prf; //us
 	tDepth = depth * 2 * 1000 / soundSpeed + 5 +  FOC_LOW_TIME;//20; //us note: 15us is the comsume of fpga pipeline, 20 is comsume of emiting prepare time.
-	
+
 	int maxValue = 100;
 	if (mbp <= 2)
 #ifdef EMP_430
@@ -442,7 +442,7 @@ void CalcCfm::CalcLowFilter(float fccur)
    // for(int i = 0; i < 32*2; i++)
    //     printf("%d, ", m_filterLowPass[filterAddr+i]);
     m_fpga.SendLowFilter((unsigned short*)ptrFilter, 32*2);
-    
+
     delete []ptrFilter;
 }
 
@@ -450,25 +450,25 @@ void CalcCfm::CalcLowFilter(float fccur)
 void CalcCfm::DemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmonic, int& cycleFilterChg, unsigned short sinStep[64])
 {
 	float speed = m_calcPara->soundSpeed;
-	int depth = m_calcPara->depth;		
+	int depth = m_calcPara->depth;
     int i;
     int temp;
     float freqDemod;
     for (i = 0; i < FREQ_SECTION; i ++)
     {
         temp = i * depth / FREQ_SECTION;
-        
+
         if (temp < freqDepth[0])
             freqDemod = freq[0];
         else if (temp < freqDepth[1])
-            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);	
-        else if	(temp <freqDepth[2])		
+            freqDemod = freq[0] - (temp-freqDepth[0])*(freq[0]-freq[1])/(freqDepth[1]-freqDepth[0]);
+        else if	(temp <freqDepth[2])
             freqDemod = freq[1] - (temp-freqDepth[1])*(freq[1]-freq[2])/(freqDepth[2]-freqDepth[1]);
-        else if	(temp <freqDepth[3])	
+        else if	(temp <freqDepth[3])
             freqDemod = freq[2] - (temp-freqDepth[2])*(freq[2]-freq[3])/(freqDepth[3]-freqDepth[2]);
-        else if	(temp <freqDepth[4])	
+        else if	(temp <freqDepth[4])
             freqDemod = freq[3] - (temp-freqDepth[3])*(freq[3]-freq[4])/(freqDepth[4]-freqDepth[3]);
-        else	
+        else
             freqDemod = freq[4];
 
 
@@ -476,8 +476,7 @@ void CalcCfm::DemodCalc_test(float freq[5], int freqDepth[5], bool enableHarmoni
         sinStep[i] = 1024*4*freqDemod/SAMPLE_FREQ+0.5;
     }
 
-	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;											
+	cycleFilterChg = depth*2*SAMPLE_FREQ/speed/64 + 0.5;
 	if(cycleFilterChg > 511) cycleFilterChg = 511;
 }
 #endif
-

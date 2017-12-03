@@ -25,7 +25,7 @@ public:
     void Hide(void);
     void Show(void);
     GtkWidget * Create(void);
-    
+
     void UpdateLabel(void);
 	//---------------------------------------------------//
 	void SetBiopsyBracketTypeLabel(string bioBracketType);
@@ -44,14 +44,14 @@ public:
 	void CloseBiopsyLine(void);//2016.09.18
 	//--------------------------------------------------//
 public:
-   static  bool m_isDraw; 
+   static  bool m_isDraw;
    static bool m_isDoubleLine;
 private:
     BiopsyLine * m_ptrBiopsy;
     ImageAreaDraw *m_ptrImgDraw;
 
     GtkWidget *m_vboxBiopsy;
-	GtkWidget *m_labelBioBracketType;      
+	GtkWidget *m_labelBioBracketType;
    // GtkWidget *m_menuBiopsy;
 //	GtkWidget *m_menuBarBiopsy;
 

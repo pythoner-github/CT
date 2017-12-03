@@ -30,7 +30,7 @@ class CDrawIMT
         void SetRoiMem(void);
         void SetInAdventIMTMem(void);
         void GetUpDownStatus(void);
-     
+
 
         unsigned int m_on_off;
         POINT m_area_start;

@@ -38,7 +38,7 @@ extern char user_configure[USERCONFIG_LEN];
 extern FILE *fp_user;
 
 int _system_(const char *cmd);
-        
+
 class ViewSystem : public FakeXEvent
 {
 public:
@@ -88,7 +88,7 @@ public:
 #endif
 #if 1 //add by jhuang
     bool CheckFlagFromReportTemplet(int id);
-#endif 
+#endif
     void UpdateUserItem(void);
 
 private:
@@ -98,7 +98,7 @@ private:
 	bool m_vgaInterl;
     GtkWidget *m_combobox_vga;
     //PItem m_itemIndex;
-   // vector<enum PItem> m_vecItemIndex[NUM_KB]; 
+   // vector<enum PItem> m_vecItemIndex[NUM_KB];
 
     enum {
 	PRT_BRAND,
@@ -132,7 +132,7 @@ private:
     GtkWidget *m_label_check_part;
     int m_save_or_new_flag;
     GtkWidget *m_window;
-    
+
     int m_current_note_page;
     // general
     GtkWidget *m_entry_hospital;
@@ -183,8 +183,8 @@ private:
     GtkWidget *m_radiobtn_ud_21_pw;
     GtkWidget *m_radiobtn_ud_12_pw;
     GtkWidget *m_radiobtn_lr_11_pw;
-    GtkWidget *m_radiobtn_bm; 
-    GtkWidget *m_radiobtn_bpw; 
+    GtkWidget *m_radiobtn_bm;
+    GtkWidget *m_radiobtn_bpw;
     int m_bmIndex;
     int m_bpwIndex;
 
@@ -215,7 +215,7 @@ private:
     GtkWidget *m_button_comment_down;
     GtkWidget *m_button_comment_delete_select;
 
-    //vector<string> vecItemComment; 
+    //vector<string> vecItemComment;
     vector<string> vecExamItem_comment;
  // measure
     GtkWidget *m_radiobutton_ml_on;
@@ -259,7 +259,7 @@ private:
     GtkWidget *m_combobox_unit_slope;
     GtkWidget *m_combobox_unit_accel;
     GtkWidget *m_combobox_unit_efw;
-    
+
     //calculate
     GtkWidget *m_obWindow;
     // GtkWidget *m_combobox_adult_2d_edv;
@@ -320,7 +320,7 @@ private:
     guint m_flag_notebook_coustomreport;
     guint m_flag_notebook_image;
     GtkWidget *m_entry_new_check_part;
-    
+
     ///> optional
     GtkWidget *m_treeOption ;
     GtkWidget *m_frameRegisterInfo;
@@ -332,7 +332,7 @@ private:
     bool StrCmpSectionString(int section, const char *string, int *language);
     bool StrCmpCustomString(const char *string, int *language);
     bool StrCmpTemplet1String(const char *string, int *language);
-    
+
     void InitReportVar(void);
     bool OpenDB(void);
     bool CloseDB(void);
@@ -341,7 +341,7 @@ private:
 
     void AddTempletBySection( sqlite3 *db);
     void BtnRecoveryClicked(GtkButton *button);
-    
+
     void ChkBtnClicked(GtkButton *button);
 
     GtkWidget *AddFrameByTitle(char *title, int section, int startid, int endid, int *h);
@@ -380,13 +380,13 @@ private:
 
     std::vector <string> GetUserGroup(void);
 #ifdef EMP_355
-   static void  on_combobox_video_changed(GtkComboBox *widget,ViewSystem *data) 
+   static void  on_combobox_video_changed(GtkComboBox *widget,ViewSystem *data)
    {data->BtnComboVideoChanged();}
 #endif
    ////>>>
-  static void  on_entry_user_item_insert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewSystem *data) 
+  static void  on_entry_user_item_insert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewSystem *data)
     { data->EntryItemInsert(cell, editable, path); }
-  ////>>>> 
+  ////>>>>
 
     static void on_entry_insert_custom_item(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
     { data->EntryItemLengthInsert(editable, new_text, new_text_length, position); }
@@ -420,8 +420,8 @@ private:
     bool UniqueItem(const char *sections, const char *templet = "%", const char *childsection = "%");
     GtkTreeIter InsertUnique(GtkTreeModel *model, GtkTreeIter *iter, const char *str);
     GtkTreeIter InsertUniqueComment(GtkTreeModel *model, const char *str);
-  
-  
+
+
     bool InitRecordFromShowArr(const char *childsection, int *start, int *end);
     bool ReadRecordFromDB(const char * sections, const char* templet, const char * childsection);
     void apply_report_setting(void);
@@ -447,7 +447,7 @@ private:
 
     //2014.07.29 lihuamei
     /*
-       static void on_entry_new_check_part(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data) 
+       static void on_entry_new_check_part(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
        { data->EntryNewCheckPartInsert(editable, new_text, new_text_length, position); }
        static gboolean HandleNewCheckPartFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewSystem *data)
        { data->NewCheckPartFocusOut(widget, event); return FALSE;}
@@ -472,7 +472,7 @@ private:
     //dicom
     GtkWidget *m_dicom_notebook;
     int  m_page_num ;
-    
+
     // key define
     bool m_p1Selected;
     GtkWidget *m_entry_function_p1;
@@ -499,14 +499,14 @@ private:
     GtkWidget *m_spinbutton_2d_gain;
     GtkWidget *m_combobox_agc;
     GtkWidget *m_combobox_edge_enh;
-    GtkWidget *m_combobox_steer; 
+    GtkWidget *m_combobox_steer;
     GtkWidget *m_combobox_focus_sum;
     GtkWidget *m_combobox_focus_pos;
     GtkWidget *m_combobox_depth;
     GtkWidget *m_combobox_chroma;
     GtkWidget *m_combobox_lr;
     GtkWidget *m_combobox_ud;
- 
+
   //comment
     GtkWidget *scrolledwindow_item_comment1;
     GtkWidget *scrolledwindow_item_comment;
@@ -561,7 +561,7 @@ private:
 	GtkWidget *button_edit_dept;
 	GtkWidget *button_return_dept;
     GtkWidget *button_get_current;
-    GtkWidget *button_default_image;	
+    GtkWidget *button_default_image;
 #endif
     GtkWidget* create_note_general(void);
     void init_general_setting(SysGeneralSetting* sysGeneralSetting);
@@ -609,7 +609,7 @@ private:
     GtkTreeModel* create_exam_item_model(std::vector<int> index);
     GtkTreeModel* create_item_comment_model(int index);
     GtkTreeModel* create_item_comment_model1();
-    
+
     int  DepartmentIndex();
     void create_exam_comment_model(std::vector<int> index);
     void  DepartmentName(char department[256], int index);
@@ -661,7 +661,7 @@ private:
   #ifdef VET
 #else
     void RadioP1Toggled(GtkToggleButton *togglebutton);
-#endif  
+#endif
     void RadioP2Toggled(GtkToggleButton *togglebutton);
     void TreeFuncChanged(GtkTreeSelection *selection);
     void ExamTypeChanged(GtkTreeSelection *selection);
@@ -670,7 +670,7 @@ private:
     void ExamCommentChanged(GtkComboBox *widget);
     void DepartmentCommentChanged(GtkComboBox *widget);
 
-    void UserChanged(GtkComboBox *widget);       
+    void UserChanged(GtkComboBox *widget);
     void BtnUpgradeClicked(GtkButton *button);
     void BtnImageDefaultClicked(GtkButton *button);
     void image_default_setting();
@@ -678,7 +678,7 @@ private:
     void BtnImageSaveClicked(GtkButton *button);
     void get_current_and_save_image_para(char *itemName);
     void BtnImageNewClicked(GtkButton *button);
-    void BtnImageExportToUSBClicked(GtkButton *button);       
+    void BtnImageExportToUSBClicked(GtkButton *button);
     void BtnImageImportFromUSBClicked(GtkButton *button);
     void BtnDeleteUserClicked(GtkButton *button);
     void ComboFocusSum(GtkComboBox *box);
@@ -691,7 +691,7 @@ private:
     void SpinbuttonInsertGain(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
 	void add_columns_comment(GtkTreeView *treeview);
 	void add_columns_comment1(GtkTreeView *treeview);
-   
+
 #ifdef VET
 	void add_columns(GtkTreeView *treeview);
 	void BtnImageEditClicked(GtkButton *button);
@@ -704,11 +704,11 @@ private:
     void SpecificTreeviewSelectionChanged(GtkTreeSelection *treeselection);
     void ModebmRadioToggled(GtkToggleButton *togglebutton);
     void ModebpwRadioToggled(GtkToggleButton *togglebutton);
-    void OnRadiobtnDisplay_total(GtkToggleButton *togglebutton); 
-    void OnRadiobtnDisplay_ud11(GtkToggleButton *togglebutton); 
-    void OnRadiobtnDisplay_ud21(GtkToggleButton *togglebutton); 
-    void OnRadiobtnDisplay_ud12(GtkToggleButton *togglebutton); 
-    void OnRadiobtnDisplay_lr11(GtkToggleButton *togglebutton); 
+    void OnRadiobtnDisplay_total(GtkToggleButton *togglebutton);
+    void OnRadiobtnDisplay_ud11(GtkToggleButton *togglebutton);
+    void OnRadiobtnDisplay_ud21(GtkToggleButton *togglebutton);
+    void OnRadiobtnDisplay_ud12(GtkToggleButton *togglebutton);
+    void OnRadiobtnDisplay_lr11(GtkToggleButton *togglebutton);
 
     void notebookChanged(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num);
     void DicomnotebookChanged(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num);
@@ -769,7 +769,7 @@ private:
     static void HandleTAmaxToggled(GtkToggleButton *togglebutton, ViewSystem *data) { data->ChkBtnTAmaxToggled(togglebutton); }
     static void HandlePIToggled(GtkToggleButton *togglebutton, ViewSystem *data) { data->ChkBtnPIToggled(togglebutton); }
     static void HandleHRToggled(GtkToggleButton *togglebutton, ViewSystem *data) { data->ChkBtnHRToggled(togglebutton); }
-  
+
     //static void HandleChkTotalToggled(GtkToggleButton *togglebutton, ViewSystem *data) { data->ChkBtnTotalToggled(togglebutton); }
 #ifdef VET
 #else
@@ -783,10 +783,10 @@ private:
     static void HandleProbeTypeChanged(GtkComboBox *widget, ViewSystem *data) {data->ProbeTypeChanged(widget); }
     static void HandleDepartmentCommentChanged(GtkComboBox *widget, ViewSystem *data) {data->DepartmentCommentChanged(widget); }
 
-    static void HandleUserChanged(GtkComboBox *widget, ViewSystem *data) {data->UserChanged(widget); }         
+    static void HandleUserChanged(GtkComboBox *widget, ViewSystem *data) {data->UserChanged(widget); }
     static void HandleExamTypeChanged(GtkTreeSelection *selection, ViewSystem *data) { data->ExamTypeChanged(selection); }
     static bool HandleExamTypeExpandBefore(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, ViewSystem *data)
-    { 
+    {
         return data->ExamTypeTestRowExpandBefore(tree_view, iter, path);
     }
     static void HandleExamDepartmentBtnClicked(GtkWidget *widget, GdkEventButton *event, ViewSystem *data) { data->BtnExamDepartmentClicked(widget, event); }
@@ -795,7 +795,7 @@ private:
     static void HandleImageBtnGetCurrent(GtkButton *button, ViewSystem *data) { data->BtnImageGetCurrentClicked(button); }
     static void HandleImageBtnSave(GtkButton *button, ViewSystem *data) { data->BtnImageSaveClicked(button); }
     static void HandleImageBtnNew(GtkButton *button, ViewSystem *data) { data->BtnImageNewClicked(button); }
-    static void HandleImageBtnExportToUSB(GtkButton *button, ViewSystem *data) { data->BtnImageExportToUSBClicked(button); }   
+    static void HandleImageBtnExportToUSB(GtkButton *button, ViewSystem *data) { data->BtnImageExportToUSBClicked(button); }
     static void HandleImageBtnImportFromUSB(GtkButton *button, ViewSystem *data) { data->BtnImageImportFromUSBClicked(button); }
     static void HandleImageBtnDeleteUser(GtkButton *button, ViewSystem *data) { data->BtnDeleteUserClicked(button); }
 
@@ -803,15 +803,15 @@ private:
     static void HandleComboPwPrf(GtkComboBox *box, ViewSystem *data) { data->ComboPwPrf(box); }
     static void HandleComboCfmPrf(GtkComboBox *box, ViewSystem *data) { data->ComboCfmPrf(box); }
     static void HandleComboCfmSensitivity(GtkComboBox *box, ViewSystem *data) { data->ComboSensitivity(box); }
-    static void on_spinbutton_insert_hour(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data) 
+    static void on_spinbutton_insert_hour(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
     { data->SpinbuttonInsertHour(editable, new_text, new_text_length, position); }
-    static void on_spinbutton_insert_time(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data) 
+    static void on_spinbutton_insert_time(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
     { data->SpinbuttonInsertTime(editable, new_text, new_text_length, position); }
-    static void on_spinbutton_insert_gain(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data) 
+    static void on_spinbutton_insert_gain(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
     { data->SpinbuttonInsertGain(editable, new_text, new_text_length, position); }
-    static void on_spinbutton_insert_angle(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data) 
+    static void on_spinbutton_insert_angle(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
     { data->SpinbuttonInsertAngle(editable, new_text, new_text_length, position); }
-    static gboolean on_spinbutton_output_angle(GtkSpinButton *spin, ViewSystem *data) 
+    static gboolean on_spinbutton_output_angle(GtkSpinButton *spin, ViewSystem *data)
     { return data->SpinbuttonOutputAngle(spin); }
 #ifdef VET
 	static void HandleImageBtnEditDept(GtkButton *button, ViewSystem *data) {data->BtnImageEditClicked(button);}
@@ -824,12 +824,12 @@ private:
     { data->CommonTreeviewSelectionChanged(treeselection); }
     static void on_specific_treeview_selection_changed(GtkTreeSelection *treeselection, ViewSystem *data)
     { data->SpecificTreeviewSelectionChanged(treeselection); }
-       
+
     static void on_button_ob_custom_clicked(GtkButton *button, ViewSystem *data) { data->BtnOBCustomClicked(button); }
-    
+
     static void on_modebm_radio_button_toggled(GtkToggleButton *togglebutton, ViewSystem *data) {data->ModebmRadioToggled(togglebutton); }
     static void on_modebpw_radio_button_toggled(GtkToggleButton *togglebutton, ViewSystem *data) {data->ModebpwRadioToggled(togglebutton); }
-    static void on_display_ud11_radio_button_toggled(GtkToggleButton *togglebutton, ViewSystem *data) 
+    static void on_display_ud11_radio_button_toggled(GtkToggleButton *togglebutton, ViewSystem *data)
     { data->OnRadiobtnDisplay_ud11(togglebutton); }
     static void on_display_ud21_radio_button_toggled(GtkToggleButton *togglebutton, ViewSystem *data)
     { data->OnRadiobtnDisplay_ud21(togglebutton); }
@@ -841,23 +841,23 @@ private:
     { data->OnRadiobtnDisplay_lr11(togglebutton); }
 
     static void on_entry_name_insert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
-    { data->EntryNameInsert(editable, new_text, new_text_length, position); }          
+    { data->EntryNameInsert(editable, new_text, new_text_length, position); }
 
     static gboolean HandleUserSelectFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewSystem *data)
     { data->UserSelectFocusOut(widget, event); return FALSE;}
 
 
-    static void on_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data) 
+    static void on_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data)
     { data->notebookChanged(notebook, page, page_num); }
-    
-    static void on_dicom_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data) 
+
+    static void on_dicom_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data)
     { data->DicomnotebookChanged(notebook, page, page_num); }
 
-    static void on_calc_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data) 
+    static void on_calc_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, ViewSystem *data)
     { data->CalcnotebookChanged(notebook, page, page_num); }
 
-    static void on_language_changed(GtkComboBox *widget, ViewSystem *data) {data->LanguageChanged(widget); }         
-    static void on_vga_changed(GtkComboBox *widget, ViewSystem *data) {data->VgaChanged(widget); }         
+    static void on_language_changed(GtkComboBox *widget, ViewSystem *data) {data->LanguageChanged(widget); }
+    static void on_vga_changed(GtkComboBox *widget, ViewSystem *data) {data->VgaChanged(widget); }
 
     static void HandleButtonSelectOneCommentClicked(GtkButton *button, ViewSystem *data)
     {
@@ -869,7 +869,7 @@ private:
         if (data)
             data->ButtonSelectAllCommentClicked(button);
     }
-  
+
   /*  static void HandleButtonEditClicked(GtkButton *button, CalcSetting *data)
     {
         if (data)
@@ -914,7 +914,7 @@ private:
     static void HandleMenuUninstallActivate(GtkMenuItem *menuitem, ViewSystem *data) { data->MenuUninstallActivate(menuitem); }
     static void HandleBtnExportClicked(GtkButton *widget, ViewSystem *data) { return data->BtnExportClicked(widget); }
     static void HandleBtnRegisterClicked(GtkButton *widget, ViewSystem *data) { return data->BtnRegisterClicked(widget); }
- 
+
 
 };
 
@@ -983,14 +983,14 @@ class ViewCustomOB: public FakeXEvent
         void EntryFracDigitInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
 
         static void changed_custom_ob(GtkComboBox *combobox, ViewCustomOB *data) { data->CustomSelectChanged(combobox); }
-        static void cell_editing_started_custom_ob(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewCustomOB *data) 
+        static void cell_editing_started_custom_ob(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewCustomOB *data)
         { data->CustomCellEditingStarted(cell, editable, path); }
-        static void cell_edited_custom_ob(GtkCellRenderer *cell, gchar *path_string, gchar *new_text, ViewCustomOB *data) 
+        static void cell_edited_custom_ob(GtkCellRenderer *cell, gchar *path_string, gchar *new_text, ViewCustomOB *data)
         { data->CustomCellEdited(cell, path_string, new_text); }
         static void on_entry_insert_custom_ob(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewCustomOB *data)
         { data->EntryFracDigitInsert(editable, new_text, new_text_length, position); }
 
- 
+
 
         //signal handle
         void BtnOBCustomClearClicked(GtkButton *button);

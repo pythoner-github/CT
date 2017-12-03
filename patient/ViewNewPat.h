@@ -80,7 +80,7 @@ private:
     GtkWidget *m_entryNameMid;
     GtkWidget *m_entryNameLast;
 #endif
-    
+
     GtkWidget *m_entryAge;
     GtkWidget *m_entryBirthYear;
     GtkWidget *m_entryBirthMonth;
@@ -121,7 +121,7 @@ private:
      int m_pat_name_first;
      int m_pat_name_middle;
      int m_pat_name_last;
-    
+
     bool m_flagMPPS;
     int m_date_format;
 
@@ -137,7 +137,7 @@ private:
     void BtnExamEndClicked(GtkButton *button);
     void BtnNewPatClicked(GtkButton *button);
     void BtnNewExamClicked(GtkButton *button);
-    
+
     void BtnWorkListClicked(GtkButton *button);
     void CommentInsert(GtkTextBuffer *textbuffer, GtkTextIter *location, gchar *text, gint len);
     const gchar* GetLMP(void);
@@ -178,18 +178,18 @@ private:
 #ifdef VET
     static void HandleOwnerNameChanged(GtkComboBox *combox_entry, ViewNewPat *data)
        { data->EntryOwnerNameChanged(combox_entry);}
-    static void HandleOwnerNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data) 
+    static void HandleOwnerNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
        { data->EntryOwnerNameInsert(editable, new_text, new_text_length, position);}
-    static void HandleOwnerNameDelete(GtkEditable *editable,gint start_pos, gint end_pos, ViewNewPat *data) 
+    static void HandleOwnerNameDelete(GtkEditable *editable,gint start_pos, gint end_pos, ViewNewPat *data)
        { data->EntryOwnerNameDelete(editable, start_pos, end_pos);}
 #endif
     static void on_button_worklist_clicked(GtkButton *button, ViewNewPat *data) { data->BtnWorkListClicked(button); }
 
-    static void on_entry_pat_id(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data) 
+    static void on_entry_pat_id(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
 	{ data->EntryAlNumInsert(editable, new_text, new_text_length, position); }
     static void on_entry_name_insert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
 	{ data->EntryNameInsert(editable, new_text, new_text_length, position); }
-    static void on_entry_age(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data) 
+    static void on_entry_age(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
 	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
     static gboolean HandlePatIDFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewNewPat *data)
 	{ data->PatIDFocusOut(widget, event); return FALSE;}
@@ -204,7 +204,7 @@ private:
 //	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
 
     static void on_textview_comment_insert(GtkTextBuffer *textbuffer, GtkTextIter *location, gchar *text, gint len, ViewNewPat *data)
-    { 
+    {
         data->CommentInsert(textbuffer, location, text, len);
     }
     static void on_entry_birth_date_year(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)

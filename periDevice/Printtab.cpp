@@ -433,4 +433,3 @@ void Printtab::ButtonConstButton(GtkWidget *button, GtkWidget *widget)
 {
 	ConstButton(widget);
 }
-

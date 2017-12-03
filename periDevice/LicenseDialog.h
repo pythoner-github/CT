@@ -1,7 +1,7 @@
 /**
 * @brief LicenseDialog.h : create a license dialog, offer the information of authorization to user.
 
-* @author: hehao 
+* @author: hehao
 * @version: v1.0
 * @data: 2012.10.25
 */

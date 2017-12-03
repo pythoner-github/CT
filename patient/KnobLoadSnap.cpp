@@ -13,7 +13,7 @@
 #include "KnobMenu.h"
 #include "Def.h"
 #include "MenuReview.h"
-	
+
 #if (defined (EMP_322) || defined(EMP_313))
 KnobMenu::KnobItem KnobLoadSnapMenu[6] = {
 	{N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
@@ -22,7 +22,7 @@ KnobMenu::KnobItem KnobLoadSnapMenu[6] = {
 	{N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL}
-};	
+};
 #else
 KnobMenu::KnobItem KnobLoadSnapMenu[5] = {
 	//{N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
@@ -32,11 +32,11 @@ KnobMenu::KnobItem KnobLoadSnapMenu[5] = {
 	{N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL}
-};	
+};
 #endif
 void KnobLoadSnapCreate()
 {
-    KnobMenu::GetInstance()->SetItem(KnobLoadSnapMenu, sizeof(KnobLoadSnapMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::SNAP);   
+    KnobMenu::GetInstance()->SetItem(KnobLoadSnapMenu, sizeof(KnobLoadSnapMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::SNAP);
 }
 ///> knob menu need to be sync
 void SyncKnobReview(EKnobReview type, const char* s, EKnobReturn status, bool update)

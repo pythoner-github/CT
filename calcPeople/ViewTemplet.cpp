@@ -290,7 +290,7 @@ void ViewTemplet::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, Gt
     str = gtk_tree_path_to_string(path);
     if (d_press)
     {
-        gtk_tree_view_collapse_row(tree_view, 
+        gtk_tree_view_collapse_row(tree_view,
                 gtk_tree_path_new_from_string(str));
         return;
     }
@@ -298,11 +298,11 @@ void ViewTemplet::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, Gt
     {
         PRINTF("pathaaaaa:%s %s\n", str, lastStr);
         if(strcmp(lastStr, ""))
-            gtk_tree_view_collapse_row(tree_view, 
+            gtk_tree_view_collapse_row(tree_view,
                    gtk_tree_path_new_from_string(lastStr));
         strcpy(lastStr, str);
     }
-   
+
     gtk_tree_view_expand_row(tree_view, path, FALSE);
 	gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
 	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
@@ -324,7 +324,7 @@ gboolean ViewTemplet::BtnTempletClicked(GtkWidget *widget, GdkEventButton *event
             GtkTreeSelection *selection;
             selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
 
-           
+
             if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
             {
                 GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
@@ -354,7 +354,7 @@ GtkTreeModel* ViewTemplet::CreateTreeModel(void)
     GtkTreeStore *store = gtk_tree_store_new(1, G_TYPE_STRING);
 
     gtk_tree_store_append(store, &m_topIter, NULL);
-    gtk_tree_store_set(store, &m_topIter, 
+    gtk_tree_store_set(store, &m_topIter,
 		       0, _("Ultrasonic"),
 		       -1);
 
@@ -362,7 +362,7 @@ GtkTreeModel* ViewTemplet::CreateTreeModel(void)
     sqlite3_stmt *stmt_f1=NULL;
     string sql_f1 = "SELECT DISTINCT f1 FROM templet";
     if (sqlite3_prepare(m_db_templet, sql_f1.c_str(), sql_f1.size(), &stmt_f1, 0) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
 	return NULL;
@@ -445,7 +445,7 @@ GtkTreeModel* ViewTemplet::CreateTreeModel(void)
 		}
 		sqlite3_finalize(stmt_f4);
 	    }
-	    sqlite3_finalize(stmt_f3);    
+	    sqlite3_finalize(stmt_f3);
 	}
 	sqlite3_finalize(stmt_f2);
     }
@@ -485,7 +485,7 @@ bool ViewTemplet::OpenDB(void)
         if (sqlite3_open(TEMPLET_EN_DB, &m_db_templet) != SQLITE_OK) {
             PRINTF("Database Open Error!\n");
             return false;
-        } 
+        }
     }
     return true;
 }
@@ -506,7 +506,7 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
     GtkTreeIter iter;
     //如果没有选中任何结点,直接返回
     if (gtk_tree_selection_get_selected(selection, &model, &iter) != TRUE)
-	return; 
+	return;
     //如果选中的结点不是叶子结点,设置indication和comment为空,返回
     if (gtk_tree_model_iter_has_child(model, &iter)) {
 	gtk_text_buffer_set_text(m_buffer_indication, "", -1);
@@ -564,7 +564,7 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
 
     OpenDB();
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
 	return;
@@ -576,7 +576,7 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
 	    comments.assign((const char *)sqlite3_column_text(stmt, 1));
     }
     sqlite3_finalize(stmt);
-    
+
     CloseDB();
 
     gtk_text_buffer_set_text(m_buffer_indication, indication.c_str(), -1);
@@ -592,7 +592,7 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Please select the father node before insert!"), NULL); //请先选择待插入结点的父结点
     	return;
     }
@@ -607,7 +607,7 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     	if (!UniqueItem(new_string)) {
 	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
     	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					      _("Please rename the New Item!"), NULL); //请重命名新增结点!
     	    return;
     	}
@@ -620,7 +620,7 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     	if (!UniqueItem(str, new_string)) {
     	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
     	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					      _("Please rename the New Item!"), NULL);
     	    return;
     	}
@@ -639,18 +639,18 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     	if (!UniqueItem(str0, str1, new_string)) {
     	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
     	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					      _("Please rename the New Item!"), NULL);
     	    return;
     	}
     	if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
-	    stream << "INSERT INTO templet VALUES('" 
-		   << str0 << "', '" 
-		   << str1 << "', '" 
+	    stream << "INSERT INTO templet VALUES('"
+		   << str0 << "', '"
+		   << str1 << "', '"
 		   << new_string << "', '', '', '')";
     	else
-	    stream << "UPDATE templet SET f3 = '" << new_string 
-		   << "' WHERE f1 = '" << str0 
+	    stream << "UPDATE templet SET f3 = '" << new_string
+		   << "' WHERE f1 = '" << str0
 		   << "' AND f2 = '" << str1 << "'";
     }
     else if (tree_depth == 4) {
@@ -665,24 +665,24 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     	if (!UniqueItem(str0, str1, str2, new_string)) {
     	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
     	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					      _("Please rename the New Item!"), NULL);
     	    return;
     	}
     	if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
-	    stream << "INSERT INTO templet VALUES('" 
-		   << str0 << "', '" 
-		   << str1 << "', '" 
-		   << str2 << "', '" 
+	    stream << "INSERT INTO templet VALUES('"
+		   << str0 << "', '"
+		   << str1 << "', '"
+		   << str2 << "', '"
 		   << new_string << "', '', '')";
     	else
-	    stream << "UPDATE templet SET f4 = '" << new_string 
-		   << "' WHERE f1 = '" << str0 
-		   << "' AND f2 = '" << str1 
+	    stream << "UPDATE templet SET f4 = '" << new_string
+		   << "' WHERE f1 = '" << str0
+		   << "' AND f2 = '" << str1
 		   << "' AND f3 = '" << str2 << "'";
     }
     else if (tree_depth == 5) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Insert failure! Already the leaf node!"), NULL);//插入失败!已经到达末结点!
     	return;
     }
@@ -691,7 +691,7 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     string sql = stream.str();
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Database error!"), NULL);//数据库操作失败!
     	PRINTF("INSERT or UPDATE error:%s!\n", errmsg);
     	return;
@@ -725,7 +725,7 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Please select one node to be save!"), NULL); //请先选择待删除的结点!
     	return;
     }
@@ -735,7 +735,7 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
     gtk_tree_path_free(path);
 
     if (tree_depth == 1) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Delete failure! Can not delete the root!"), NULL); //删除失败!不能删除根结点!
     	return;
     }
@@ -791,16 +791,16 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
 	gtk_tree_model_get(model, &parent3, 0, &str3, -1);
 	int nChild = gtk_tree_model_iter_n_children(model, &parent1);
 	if (nChild == 1)
-	    stream << "UPDATE templet SET f4 = '' " 
-		   << "WHERE f1 = '" 
-		   << str3 << "' AND f2 = '" 
+	    stream << "UPDATE templet SET f4 = '' "
+		   << "WHERE f1 = '"
+		   << str3 << "' AND f2 = '"
 		   << str2 << "' AND f3 = '"
 		   << str1 << "'";
 	else if (nChild > 1)
-	    stream << "DELETE FROM templet WHERE f1 = '" 
-		   << str3 << "' AND f2 = '" 
-		   << str2 << "' AND f3 = '" 
-		   << str1 << "' AND f4 = '" 
+	    stream << "DELETE FROM templet WHERE f1 = '"
+		   << str3 << "' AND f2 = '"
+		   << str2 << "' AND f3 = '"
+		   << str1 << "' AND f4 = '"
 		   << str0 << "'";
 	else {
 	    PRINTF("Delete Error!");
@@ -813,7 +813,7 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
 
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Database error!"), NULL);
     	PRINTF("DELETE ERROR:%s!\n", errmsg);
     	return;
@@ -848,7 +848,7 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Please select one node to be copy!"), NULL); //请先选择待复制的结点!
     	return;
     }
@@ -857,7 +857,7 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     gtk_tree_path_free (path);
 
     if (tree_depth == 1) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Copy failure! Can not copy the root!"), NULL); //复制失败!不能复制根结点
     	return;
     }
@@ -919,12 +919,12 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     }
 
     ostringstream stream;
-    stream << "SELECT * FROM templet WHERE f1 LIKE '" 
+    stream << "SELECT * FROM templet WHERE f1 LIKE '"
 	   << m_copyNode[0] << "' AND f2 LIKE '"
 	   << m_copyNode[1] << "' AND f3 LIKE '"
 	   << m_copyNode[2] << "' AND f4 LIKE '"
 	   << m_copyNode[3] << "'";
-    
+
     string sql = stream.str();
 
     char *errmsg = NULL;
@@ -933,14 +933,14 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     OpenDB();
     // 清空templet_copy数据库
     if (sqlite3_exec(m_db_templet, "DELETE FROM templet_copy", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("DELETE templet_copy ERROR:%s!\n", errmsg);
 	return;
     }
 
     if (sqlite3_exec(m_db_templet, "begin transaction", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
 	sqlite3_free(errmsg);
@@ -948,7 +948,7 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     }
 
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
 	return;
@@ -971,7 +971,7 @@ void ViewTemplet::CopyClicked(GtkButton *button)
 	       << indication << "', '" << comments << "')";
 	sql = stream.str();
 	if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					      _("Database error!"), NULL);//数据库操作失败!
 	    PRINTF("INSERT ERROR:%s!\n", errmsg);
 	    sqlite3_free(errmsg);
@@ -981,7 +981,7 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     }
     sqlite3_exec(m_db_templet, "commit transaction", 0, 0, 0);
     sqlite3_finalize(stmt);
-    
+
     CloseDB();
 
     //求结点的高度
@@ -1013,14 +1013,14 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     GtkTreeSelection *selected_node = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeView));
 
     // if (m_copyNode[0].empty()) {
-    // 	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    // 	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     // 					  _("Please copy the node before paste it!"), NULL);//请先复制结点!再进行粘贴
     // 	return;
     // }
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Please select one node to be paste!"), NULL);//请先选择待粘贴的结点!
     	return;
     }
@@ -1029,7 +1029,7 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     int tree_depth = gtk_tree_path_get_depth(path);
 
     if (m_nodeHeight >= 3 || tree_depth + m_nodeHeight > 4) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Can not paste it!"), NULL);//所选结点不能进行粘贴!
     	return;
     }
@@ -1037,7 +1037,7 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     gchar *strtmp;
     gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
     if (strcmp(strtmp, m_parentNode.c_str()) == 0) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Can not paste it in the same parent!"), NULL);//不能在同一父结点下进行粘贴!
     	return;
     }
@@ -1051,7 +1051,7 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     OpenDB();
 
     if (sqlite3_exec(m_db_templet, "begin transaction", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
 	sqlite3_free(errmsg);
@@ -1059,7 +1059,7 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     }
 
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
 					  _("Database error!"), NULL);//数据库操作失败!
 	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
 	return;
@@ -1293,7 +1293,7 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Please select one node to be save!"), NULL);//请先选择待保存的结点!
     	return;
     }
@@ -1302,7 +1302,7 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     gtk_tree_path_free (path);
 
     if (gtk_tree_model_iter_has_child(model, &iter)) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("Save failure! Please select leaf node!"), NULL);//保存失败!请选择末结点!
     	return;
     }
@@ -1318,13 +1318,13 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     char *text_comments = gtk_text_buffer_get_text(m_buffer_comments, &it2_start, &it2_end, FALSE);
 
     if (strlen(text_indication) > maxTextLen)	{
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("The indication is too long!"), NULL);//超声所见超出字数范围限制
     	return;
     }
 
     if (strlen(text_comments) > maxTextLen) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, 
+    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
     					  _("The comments are too long!"), NULL);//诊断意见超出字数范围限制
     	return;
     }
@@ -1368,7 +1368,7 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     	gtk_tree_model_iter_parent(model, &parent3, &parent2);
     	gtk_tree_model_get(model, &parent3, 0, &str_f1, -1);
 	stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
-	       << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2 
+	       << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2
 	       << "' AND f3 = '" << str_f3 << "' AND f4 = '" << str_f4 << "'";
     }
 
@@ -1390,10 +1390,10 @@ static int DefaultTemplet(gpointer data)
 
 void ViewTemplet::DefaultClicked(GtkButton *button)
 {
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                                      ViewDialog::QUESTION, 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                                      ViewDialog::QUESTION,
                                       _("Default Factory will remove all the users modified data!"), // 恢复出厂设置将删除所有用户修改的数据
-                                      DefaultTemplet); 
+                                      DefaultTemplet);
 }
 
 void ViewTemplet::ReturnClicked(GtkButton *button)
@@ -1469,9 +1469,9 @@ void ViewTemplet::CellRendererEdited(GtkCellRendererText *renderer, gchar *path_
     	gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
     	gtk_tree_model_get(model, &iter_parent1, 0, &str_tmp, -1);
 	str1 = str_tmp;
-	stream << "UPDATE templet SET f3 = '" << new_text 
-	       << "' WHERE f1 = '" << str1 
-	       << "' AND f2 = '" << str2 
+	stream << "UPDATE templet SET f3 = '" << new_text
+	       << "' WHERE f1 = '" << str1
+	       << "' AND f2 = '" << str2
 	       << "' AND f3 = '" << old_text << "'";
     	str3 = new_text;
     }
@@ -1489,9 +1489,9 @@ void ViewTemplet::CellRendererEdited(GtkCellRendererText *renderer, gchar *path_
     	gtk_tree_model_iter_parent(model, &iter_parent2, &iter_parent1);
     	gtk_tree_model_get(model, &iter_parent2, 0, &str_tmp, -1);
 	str1 = str_tmp;
-	stream << "UPDATE templet SET f4 = '" << new_text 
-	       << "' WHERE f1 = '" << str1 
-	       << "' AND f2 = '" << str2 
+	stream << "UPDATE templet SET f4 = '" << new_text
+	       << "' WHERE f1 = '" << str1
+	       << "' AND f2 = '" << str2
 	       << "' AND f3 = '" << str3
 	       << "' AND f4 = '" << old_text << "'";
     	str4 = new_text;
@@ -1581,7 +1581,7 @@ void ViewTemplet::InitTreeView(void)
 
 static int RestartTemplet(gpointer data)
 {
-    ViewTemplet::GetInstance()->DestroyWindow();    
+    ViewTemplet::GetInstance()->DestroyWindow();
     return 0;
 }
 
@@ -1592,7 +1592,7 @@ bool ViewTemplet::DefaultFactory(void)
     {
         if (remove(TEMPLET_CH_DB)) {
             PRINTF("Templet DefaultFactory rm error: %s\n", strerror(errno));
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
             return false;
         }
     }
@@ -1600,7 +1600,7 @@ bool ViewTemplet::DefaultFactory(void)
     {
         if (remove(TEMPLET_EN_DB)) {
             PRINTF("Templet DefaultFactory rm error: %s\n", strerror(errno));
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
             return false;
         }
     }
@@ -1616,14 +1616,14 @@ bool ViewTemplet::DefaultFactory(void)
     }
     if (fd < 0) {
         PRINTF("Templet DefaultFactory open error: %s\n", strerror(errno));
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
         return false;
     }
     char buffer[200*1024];      // 假设文件大小为200k
     memset(buffer, 0, sizeof(buffer));
     if (read(fd, buffer, sizeof(buffer)) < 0) {
         PRINTF("Templet DefaultFactory read error: %s\n", strerror(errno));
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
         close(fd);
         return false;
     }
@@ -1635,13 +1635,13 @@ bool ViewTemplet::DefaultFactory(void)
             sqlite3 *db = 0;
             if (sqlite3_open(TEMPLET_CH_DB, &db) != SQLITE_OK) {
                 PRINTF("Open Templet Database Error!\n");
-                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
                 close(fd);
                 return false;
             }
             char *errmsg = NULL;
             if (sqlite3_exec(db, buffer, 0, 0, &errmsg) != SQLITE_OK) {
-                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
                 PRINTF("Init Templet Error: %s\n", sqlite3_errmsg(db));
                 sqlite3_free(errmsg);
                 close(fd);
@@ -1650,16 +1650,16 @@ bool ViewTemplet::DefaultFactory(void)
             sqlite3_close(db);
             close(fd);
 
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Recovery succeed! Restart request!"), // 恢复数据成功，需要重新开启该功能
-                    RestartTemplet); 
+                    RestartTemplet);
 
             return true;
-        } 
+        }
         else {
             PRINTF("Access Templet File Error!\n");
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
             close(fd);
             return false;
         }
@@ -1672,13 +1672,13 @@ bool ViewTemplet::DefaultFactory(void)
             sqlite3 *db = 0;
             if (sqlite3_open(TEMPLET_EN_DB, &db) != SQLITE_OK) {
                 PRINTF("Open Templet Database Error!\n");
-                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
                 close(fd);
                 return false;
             }
             char *errmsg = NULL;
             if (sqlite3_exec(db, buffer, 0, 0, &errmsg) != SQLITE_OK) {
-                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+                ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
                 PRINTF("Init Templet Error: %s\n", sqlite3_errmsg(db));
                 sqlite3_free(errmsg);
                 close(fd);
@@ -1687,17 +1687,17 @@ bool ViewTemplet::DefaultFactory(void)
             sqlite3_close(db);
             close(fd);
 
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                    ViewDialog::INFO,
                     _("Recovery succeed! Restart request!"), // 恢复数据成功，需要重新开启该功能
-                    RestartTemplet); 
+                    RestartTemplet);
 
             return true;
-        } 
+        }
 
         else {
             PRINTF("Access Templet File Error!\n");
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL); 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Recovery failed!"), NULL);
             close(fd);
             return false;
         }

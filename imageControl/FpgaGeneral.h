@@ -5,7 +5,7 @@
 typedef unsigned long int U32, *PU32;
 
 #define  ADREFTYPE 0			//ADC 参考电压类型， 1： 外部参考， 0： 内部参考
-#define	TESTLVDSCHADDR		63		
+#define	TESTLVDSCHADDR		63
 #define  AdcCtrlAddr		44		//ADC 寄存器地址写入的FPGA地址
 #define  AdcCtrlData		45		//ADC 寄存器数据写入的FPGA地址
 #define COMAddrFPGAAddrA	58
@@ -33,7 +33,7 @@ class CFpgaGeneral
         void AD9273_TestIO(bool TYPE);
         void AD9273_TestChNo(U32 ChipNo, U32 ChNoInChip);
         void ProbeSocketSel(U32 SocketNo);
-      
+
         void AD9273_Test(unsigned char regaddr, unsigned char data);
         //void AD_PowerDown(void);
         //void AD_StandBy(void);
@@ -53,4 +53,3 @@ class CFpgaGeneral
 
 };
 #endif
-

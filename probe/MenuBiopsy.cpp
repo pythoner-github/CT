@@ -112,7 +112,7 @@ GtkWidget* MenuBiopsy::Create(void)
     gtk_box_pack_start(GTK_BOX(m_vboxBiopsy),menuBar0,false,false,0);
 
 	gtk_menu_bar_set_pack_direction(GTK_MENU_BAR(menuBar0),GTK_PACK_DIRECTION_TTB);
-  
+
 	UpdateLabel();
 
     return m_vboxBiopsy;
@@ -176,7 +176,7 @@ void  MenuBiopsy::SubMenuItemAngleActivate(GtkMenuItem *menuitem)
 
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(menuitem),true);
 	//-----------------------------------------------------//
-	
+
 	string text=gtk_menu_item_get_label(GTK_MENU_ITEM(menuitem));
 
 //	gtk_menu_item_set_label(GTK_MENU_ITEM(m_menuItemAngle),gtk_menu_item_get_label(GTK_MENU_ITEM(menuitem)));
@@ -186,7 +186,7 @@ void  MenuBiopsy::SubMenuItemAngleActivate(GtkMenuItem *menuitem)
 	{
 		m_isDraw=true;
 		BiopsyMan::GetInstance()->SetCurBioAngleType(text);//2016.08.09
-		m_ptrBiopsy->AngleSwitch(); 
+		m_ptrBiopsy->AngleSwitch();
 	}
 	else
 	{
@@ -293,7 +293,7 @@ void MenuBiopsy::UpdateSubMenuAngle(void)
 	{
 		if(size1>1)
 		{
-	
+
 			for(int j=0;j<size1;j++)
 			{
 				GtkWidget* menuItem=gtk_check_menu_item_new_with_label(_(vecAngleType[j].c_str()));//2016.09.05
@@ -316,7 +316,7 @@ void MenuBiopsy::UpdateSubMenuAngle(void)
 				gtk_menu_shell_append(GTK_MENU_SHELL(m_subMenuAngle),menuItem);
 				m_vecMenuItem.push_back(menuItem);//
 			}
-			
+
 			gtk_menu_item_set_submenu(GTK_MENU_ITEM(m_menuItemAngle),m_subMenuAngle);
 
 			//-------------------------------------------------------------------------//
@@ -341,7 +341,7 @@ void MenuBiopsy::UpdateSubMenuAngle(void)
 				SetAngleMenuItem(gtk_menu_item_get_label(GTK_MENU_ITEM(m_vecMenuItem[0])));//2016.09.22
 			}*/
 			//-----------------------------------------------------------------------------//
-		}	
+		}
 	}
 }
 
@@ -408,13 +408,13 @@ void MenuBiopsy::MenuItemAngleButtonRelease(GtkMenuItem *menuitem)
 
 			BiopsyMan::GetInstance()->SetCurBioAngleType(vecAngleType[0]);//2016.08.09
 
-			m_ptrBiopsy->AngleSwitch(); 
+			m_ptrBiopsy->AngleSwitch();
 		}
 
 		SetAngleMenuItem(angleOnOff);
 	}
 //----------------------------------------------------//
-		 
+
 }
 
 void MenuBiopsy::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int index)
@@ -432,12 +432,12 @@ void MenuBiopsy::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int index)
 	string text=gtk_menu_item_get_label(GTK_MENU_ITEM(menuitem));
 
 	gtk_menu_item_set_label(GTK_MENU_ITEM(m_menuItemAngle),text.c_str());
-	
+
 	/*if(index!=0)
 	{
 		m_isDraw=true;
 		BiopsyMan::GetInstance()->SetCurBioAngleType(m_vecAngleType[index-1]);
-		m_ptrBiopsy->AngleSwitch(); 
+		m_ptrBiopsy->AngleSwitch();
 	}
 	else
 	{
@@ -445,14 +445,14 @@ void MenuBiopsy::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int index)
 		m_ptrBiopsy->Clear();
 	}*/
 	BiopsyMan::GetInstance()->SetCurBioAngleType(m_vecAngleType[index]);
-	m_ptrBiopsy->AngleSwitch(); 
+	m_ptrBiopsy->AngleSwitch();
 
 	/*string noAngle="Angle None";
 	if(text.compare(noAngle)!=0)
 	{
 		m_isDraw=true;
 		BiopsyMan::GetInstance()->SetCurBioAngleType(text);//2016.08.09
-		m_ptrBiopsy->AngleSwitch(); 
+		m_ptrBiopsy->AngleSwitch();
 	}
 	else
 	{
@@ -466,4 +466,3 @@ void MenuBiopsy::SubMenuItemAngleButtonRelease(GtkMenuItem *menuitem,int index)
 //----------------------------------------------------------//
 
 }
-

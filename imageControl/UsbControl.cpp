@@ -72,7 +72,7 @@ int EzUsb::ReqIo(unsigned char request, int value, int len, unsigned char *buf)
 	control.value = value;
 	control.len = len;
 	control.buf = buf;
-	
+
 	ret = ioctl(m_fdEzUsb, EZUSB_IOC_REQUEST, &control);
 	if (ret < 0)
 	{
@@ -116,7 +116,7 @@ int EzUsb::WriteBufToProbe(unsigned char interfaces, unsigned int len, unsigned 
 	ptrBuf = (unsigned char*)malloc(dataLen);
 	memset(ptrBuf, 0, dataLen);
 
-	*(ptrBuf + 0) = interfaces; 
+	*(ptrBuf + 0) = interfaces;
 	*(ptrBuf + 1) = (unsigned char)len;
 	memcpy(ptrBuf + 2, buf, len);
 
@@ -128,7 +128,7 @@ int EzUsb::WriteBufToProbe(unsigned char interfaces, unsigned int len, unsigned 
 		PRINTF("bulk out probe:write error\n");
 		return (ERR_SYSCALL);
 	}
-	
+
 	free(ptrBuf);
 	return (SUCCESS);
 }
@@ -147,7 +147,7 @@ int EzUsb::ReadBufFromFpga(int len, unsigned char *buf)
 		PRINTF("Error is: %s\n", strerror(errno));
 		return (ERR_SYSCALL);
 	}
-	
+
 	return (SUCCESS);
 }
 
@@ -166,7 +166,7 @@ int EzUsb::WriteOneDataToFpga(INT32U addr, INT32U data)
 	INT32 ret;
 
 	dataType = BITS32;
-	paraLen = 1;	
+	paraLen = 1;
 	fpgaAddr = (unsigned char)addr;
 	buf = &data;
 
@@ -176,7 +176,7 @@ int EzUsb::WriteOneDataToFpga(INT32U addr, INT32U data)
 		PRINTF("fpga send one data error\n");
 		return (ERR_OP);
 	}
-	
+
 	return (SUCCESS);
 }
 
@@ -185,7 +185,7 @@ int EzUsb::WriteOneDataToFpga(INT32U addr, INT32U data)
 * @param addr fpga address
 * @param len data length
 * @param type bits type
-* @param send_buf[]  buf to send to fpga 
+* @param send_buf[]  buf to send to fpga
 */
 int EzUsb::WriteBufToFpga(INT32U addr, INT32U len, INT8U type, INT8U *sendBuf)
 {
@@ -196,27 +196,27 @@ int EzUsb::WriteBufToFpga(INT32U addr, INT32U len, INT8U type, INT8U *sendBuf)
 	INT32 ret;
 
 	if (type == BITS8)
-	{	
+	{
 		dataPkt = 255; //becuse bulkout's para len is "char" type
 	}
 	else
-	{	
+	{
 		dataPkt = 500;
 	}
 
 	PRINTF("fpga send buf: type = %d\n", type);
 	PRINTF("fpga send buf: len = %d\n", len);
-	
+
 	lenRemain = type * len;
 	lenCur = 0;
-	
+
 	while(lenRemain)
 	{
 		if (lenRemain > dataPkt)
 			lenPara = dataPkt;
 		else
 			lenPara = lenRemain;
-		
+
 		ret = BulkOut(type, (lenPara / type), addr, (sendBuf + lenCur));
 		if (ret != SUCCESS)
 
@@ -256,7 +256,7 @@ int EzUsb::BulkOut(unsigned char dataType, unsigned char dataLen, unsigned char 
 	memcpy(ptrBuf + 3, buf, dataType * dataLen);
     errno = 0;
 	ret = write(m_fdEzUsb, ptrBuf, len);
-    
+
 	if (ret < 0)
 	{
 		free(ptrBuf);

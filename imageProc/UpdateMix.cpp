@@ -8,7 +8,7 @@
 #include "KeyValueOpr.h"
 #include "LightDef.h"
 
-const char * Toggle_Mix[2] = 
+const char * Toggle_Mix[2] =
 {
 #if (defined(EMP_460) || defined(EMP_355))
     N_("Speed"),
@@ -113,29 +113,28 @@ void UpdateMix::ReplayCtrl(bool on)
 {
    // printf("ReplayCtrl value = %d\n",on);
     sprintf(m_str, "%s", Toggle_Mix[on]);
-	SyncKnobReplay(REPLAY_CTRL, m_str, PRESS);	
+	SyncKnobReplay(REPLAY_CTRL, m_str, PRESS);
 }
 #if (defined (EMP_322) || defined(EMP_313))
 void UpdateMix::SpeedCtrl(int indexSpeed)
 {
     sprintf(m_str, "%d", indexSpeed);
-    SyncKnobReplay(REPLAY_SPEED, m_str, PRESS);	
+    SyncKnobReplay(REPLAY_SPEED, m_str, PRESS);
 }
 #endif
 void UpdateMix::ReplayCtrl(bool on, int indexSpeed, EKnobReturn status)
 {
     sprintf(m_str, "%s: %d", Toggle_Mix[on], indexSpeed);
-	SyncKnobReplay(REPLAY_CTRL, m_str, status);	
+	SyncKnobReplay(REPLAY_CTRL, m_str, status);
 }
 
 void UpdateMix::ReplayTrimLeft(int data)
 {
 	sprintf(m_str, "%d", data);
-	SyncKnobReplay(REPLAY_TRIM_LEFT, m_str, PRESS);	
+	SyncKnobReplay(REPLAY_TRIM_LEFT, m_str, PRESS);
 }
 void UpdateMix::ReplayTrimRight(int data)
 {
 	sprintf(m_str, "%d", data);
-	SyncKnobReplay(REPLAY_TRIM_RIGHT, m_str, PRESS);	
+	SyncKnobReplay(REPLAY_TRIM_RIGHT, m_str, PRESS);
 }
-

@@ -59,7 +59,7 @@ static void HandleButtonPrintAddClicked(GtkButton *button, DicomPrint *data)
             }
             break;
         case E_ONLYWRITE:
-            {				
+            {
                 DicomPrint::GetInstance()->SetPrintConfiguration();
                 DicomPrint::GetInstance()->StateMachine(E_ONLYREAD);
             }
@@ -135,7 +135,7 @@ void DicomPrint::HandleStringInsertChar(char *src,char c,int position)
 	i = len;
 	while(i >= position)
 	{
-		
+
 		src[i+1] = src[i];
 		i--;
 	}
@@ -211,7 +211,7 @@ void DicomPrint::init_print_setting()
         char *path_string = gtk_tree_model_get_string_from_iter(model,&iter);
         int path_num = atoi(path_string);
 
-        exist = gtk_tree_model_iter_next(model, &iter); 
+        exist = gtk_tree_model_iter_next(model, &iter);
         gtk_combo_box_remove_text (GTK_COMBO_BOX (m_combobox_print_device),path_num);
     }
     device_index.clear();
@@ -237,16 +237,16 @@ bool DicomPrint::AddPrintConfiguration()
 {
     char *device;
     string temp;
-    DCMPRINTCONFIGELEMENT element;	
+    DCMPRINTCONFIGELEMENT element;
     const gchar *text;
 	const char *ae = gtk_entry_get_text(GTK_ENTRY(m_entry_print_AE));
     const char *port = gtk_entry_get_text(GTK_ENTRY(m_entry_print_port));
     device = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_combobox_print_device));
-	
+
     if(ae[0] == '\0' ||port[0] == '\0'||device[0] == '\0')
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("Device can not be empty!"),
                 NULL);
         return FALSE;
@@ -273,8 +273,8 @@ bool DicomPrint::AddPrintConfiguration()
 
     if(FALSE == (CDCMMan::GetMe()->AddPrintServiceConfiguration(device, element)))
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("Fail to add the device configuration!"),
                 NULL);
 
@@ -313,8 +313,8 @@ bool DicomPrint::SetPrintConfiguration()
     }
     else
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("ConfigurationInformation cant not be NULL!"),
                 NULL);
         return FALSE;
@@ -323,8 +323,8 @@ bool DicomPrint::SetPrintConfiguration()
 
     if(FALSE == (CDCMMan::GetMe()->SetPrintServiceConfiguration(device, element)))
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 _("Fail to update the device configuration!"),
                 NULL);
 
@@ -398,7 +398,7 @@ fixed = gtk_fixed_new ();
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = (100.0/1.25)*SCALE_WIDTH;
 	widgetInfo.entry_y = 0;
-	 widgetInfo.parent = fixed;	
+	 widgetInfo.parent = fixed;
 	createComboLabel(widgetInfo);
 m_combobox_print_device = m_combobox_device;
 g_signal_connect(G_OBJECT(m_combobox_print_device),"changed",G_CALLBACK(HandlePrintDeviceChanged),this);
@@ -414,7 +414,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Service Name :</b>"),50);
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = ((130.0+DISTANCE)/1.25)*SCALE_WIDTH;
 	widgetInfo.entry_y = 0;
-	 widgetInfo.parent = fixed;	
+	 widgetInfo.parent = fixed;
 
 	createEntryLabel(widgetInfo);
 m_entry_print_service_name   = m_entry_print_name;
@@ -428,7 +428,7 @@ strncpy(widgetInfo.labelTitle,_("<b>AE Title :</b>"),50);
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = ((160.0+DISTANCE+DISTANCE-60)/1.25)*SCALE_WIDTH;
 	widgetInfo.entry_y = 0;
-	 widgetInfo.parent = fixed;	
+	 widgetInfo.parent = fixed;
 
     createEntryLabel(widgetInfo);
     m_entry_print_AE   = m_entry_print_name;
@@ -443,7 +443,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Port :</b>"),50);
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = ((160.0+DISTANCE+DISTANCE-30+DISTANCE-60)/1.25)*SCALE_WIDTH;
 	widgetInfo.entry_y = 0;
-	 widgetInfo.parent = fixed;	
+	 widgetInfo.parent = fixed;
 
 	createEntryLabel(widgetInfo);
 	m_entry_print_port = m_entry_print_name;
@@ -495,7 +495,7 @@ frame_print_property = gtk_frame_new (NULL);
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = ((122.0+18)/1.25)*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0/1.33)*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxColor = m_combobox_device;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Grayscale");
@@ -510,7 +510,7 @@ frame_print_property = gtk_frame_new (NULL);
 	widgetInfo.entry_height = (30.0/1.33)*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+WIDTH-70)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0/1.33)*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxFormat = m_combobox_device;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 1x1");
@@ -518,7 +518,7 @@ frame_print_property = gtk_frame_new (NULL);
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 2x2");
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 2x3");
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 3x3");
-	
+
 	gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 3x4");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 3x5");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x4");
@@ -537,7 +537,7 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"STD 4x6");
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+2*WIDTH)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = 20.0/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxOrientation = m_combobox_device;
 
@@ -555,7 +555,7 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Landscape");
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (122.0+18)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+HEIGHT)/1.25*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxMagnification = m_combobox_device;
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Replicate");
@@ -573,7 +573,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Min Denisty :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+WIDTH-70)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 
 	createEntryLabel(widgetInfo);
 	g_signal_connect (G_OBJECT (m_entry_print_name), "insert-text", G_CALLBACK(HandleDigitsLimit), this);
@@ -588,7 +588,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Max Denisty :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+2*WIDTH)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 
 	createEntryLabel(widgetInfo);
 	g_signal_connect (G_OBJECT (m_entry_print_name), "insert-text", G_CALLBACK(HandleDigitsLimit), this);
@@ -603,7 +603,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Max Denisty :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (122.0+18)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+2*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxMediumType = m_combobox_device;
 
@@ -622,7 +622,7 @@ gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Blue Film");
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+WIDTH-70)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+2*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxFilmSize = m_combobox_device;
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"8INx10IN");
@@ -645,7 +645,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Destination :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+2*WIDTH)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+2*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxDestination = m_combobox_device;
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Magazine");
@@ -663,7 +663,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Prioritys :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (122.0+18)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+3*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"High");
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"Middle");
@@ -679,7 +679,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Copies :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+WIDTH-70)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+3*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createComboLabel(widgetInfo);
     m_comboBoxCopies = m_combobox_device;
 gtk_combo_box_append_text(GTK_COMBO_BOX(m_combobox_device),"1");
@@ -698,7 +698,7 @@ strncpy(widgetInfo.labelTitle,_("<b>Configuration Info :</b>"),50);
 	widgetInfo.entry_height = 30.0/1.33*SCALE_HEIGHT;
 	widgetInfo.entry_x = (120.0+2*WIDTH)/1.25*SCALE_WIDTH;
 	widgetInfo.entry_y = (20.0+3*HEIGHT)/1.33*SCALE_HEIGHT;
-	 widgetInfo.parent = fixed_print_property;	
+	 widgetInfo.parent = fixed_print_property;
 	createEntryLabel(widgetInfo);
 	//g_signal_connect (G_OBJECT (m_entry_worklist_name), "insert-text", G_CALLBACK(HandleCharacterLimit), this);
     m_EntryConfInfo = m_entry_print_name;
@@ -760,7 +760,7 @@ g_signal_connect(m_button_print_add, "clicked", G_CALLBACK(HandleButtonPrintDele
 g_signal_connect(m_button_print_add, "clicked", G_CALLBACK(HandleButtonPrintDefaultClicked), this);
 //==================Connect Test=======================
 	strncpy(buttonInfo.label,_("Connect Test"),50);
-	buttonInfo.x = (310.0+100)/1.25*SCALE_WIDTH;	
+	buttonInfo.x = (310.0+100)/1.25*SCALE_WIDTH;
 	buttonInfo.y = 100.0/1.33*SCALE_HEIGHT;
 	buttonInfo.width = 170.0/1.25*SCALE_WIDTH;
 	buttonInfo.height = 35.0/1.33*SCALE_HEIGHT;
@@ -769,7 +769,7 @@ g_signal_connect(m_button_print_add, "clicked", G_CALLBACK(HandleButtonPrintDefa
 	m_connect_button = m_button_print_add;
 g_signal_connect(m_button_print_add, "clicked", G_CALLBACK(HandleButtonPrintConnectClicked), this);
 SetPrintPropertyDefault();
-   
+
 	setListFreeze(FALSE);
     StateMachine(E_INIT);
 //init_worklist_setting();
@@ -810,7 +810,7 @@ void DicomPrint::GetSingleServiceAttribute(string device, string serviceName,str
             //printf("Add failed\n");
             return;
         }
-        exist = gtk_tree_model_iter_next(model, &iter); 
+        exist = gtk_tree_model_iter_next(model, &iter);
     }
     gtk_list_store_append(GTK_LIST_STORE(model), &iter);
     gtk_list_store_set(GTK_LIST_STORE(model), &iter,
@@ -822,7 +822,7 @@ void DicomPrint::GetSingleServiceAttribute(string device, string serviceName,str
             -1);
 
     gtk_tree_model_iter_next(model, &iter);
-}   
+}
 
 GtkWidget* DicomPrint::create_service_treeview()
 {
@@ -867,7 +867,7 @@ GtkWidget* DicomPrint::create_service_treeview()
     model = create_service_model();
     if (model != NULL)
         gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
-    g_object_unref (model); 
+    g_object_unref (model);
 
     return treeview;
 }
@@ -876,11 +876,11 @@ GtkTreeModel* DicomPrint::create_service_model()
 {
     GtkListStore *store;
 
-    store = gtk_list_store_new(NUM_COLS, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
+    store = gtk_list_store_new(NUM_COLS,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
             G_TYPE_STRING);
 
     return GTK_TREE_MODEL (store);
@@ -1100,4 +1100,3 @@ string DicomPrint::EntryGetTextMaxDensity()
     text = entry_get_text(GTK_ENTRY(m_entryMaxDensity));
     return text;
 }
-

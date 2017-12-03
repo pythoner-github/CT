@@ -12,7 +12,7 @@
 #define eps 0.000000001
 ImgProc2D* ImgProc2D::m_ptrInstance = NULL;
 
-const string ImgProc2D::CHROMA_TYPE[MAX_CHROMA] = 
+const string ImgProc2D::CHROMA_TYPE[MAX_CHROMA] =
 {
 	//_("Off"), _("Purple"), _("RedYellow"), _("Cyan"), _("Khaki"), _("Marron"), _("Yellow"), _("Golden")
 	N_("OFF"), ("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7")
@@ -25,7 +25,7 @@ const char * EFOVROISizeName[3] =
     _("Big"),
 };
 
-const int ImgProc2D::COLOR_MAP_CHROM[MAX_CHROMA] = 
+const int ImgProc2D::COLOR_MAP_CHROM[MAX_CHROMA] =
 {
 	GRAYMAP, SIEMENS_PURPLE, SIEMENS_HYACINTH, SIEMENS_CYANINE, SIEMENS_KHAKI, ROTBRAUM, HYACINTH, BLOND//, SIXCOLOR
 };
@@ -144,9 +144,9 @@ void ImgProc2D::ChangeNoiseReject(bool status)
 	SetNoiseReject(m_NoiseReject);
 }
 /*
- * @brief change angle of image rotation 
+ * @brief change angle of image rotation
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -181,7 +181,7 @@ enum EKnobReturn ImgProc2D::ChangeRotate(enum EKnobOper oper)
 /*
  * @brief change frame correlation level
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -193,7 +193,7 @@ enum EKnobReturn ImgProc2D::ChangeFrameAver(enum EKnobOper oper)
 		m_FrameAver --;
 	else
 		return ERROR;
-	
+
 	EKnobReturn ret;
 	if(m_FrameAver == (MAX_FRAME-1))
 	{
@@ -216,7 +216,7 @@ enum EKnobReturn ImgProc2D::ChangeFrameAver(enum EKnobOper oper)
 /*
  * @brief change line correlation level
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -228,7 +228,7 @@ enum EKnobReturn ImgProc2D::ChangeLineAver(enum EKnobOper oper)
 		m_LineAver --;
 	else
 		return ERROR;
-	
+
 	EKnobReturn ret;
 	if(m_LineAver == (MAX_LINE-1))
 	{
@@ -251,7 +251,7 @@ enum EKnobReturn ImgProc2D::ChangeLineAver(enum EKnobOper oper)
 /*
  * @brief change smooth
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -263,7 +263,7 @@ enum EKnobReturn ImgProc2D::ChangeSmooth(enum EKnobOper oper)
 		m_Smooth--;
 	else
 		return ERROR;
-	
+
 	EKnobReturn ret;
 	if(m_Smooth== (MAX_SMOOTH-1))
 	{
@@ -277,7 +277,7 @@ enum EKnobReturn ImgProc2D::ChangeSmooth(enum EKnobOper oper)
 	{
 		 ret = OK;
 	}
-	
+
 	//set Smooth to DSC
 	SetSmooth(m_Smooth, ret);
 	return ret;
@@ -289,8 +289,8 @@ enum EKnobReturn ImgProc2D::ChangeSmooth(enum EKnobOper oper)
  *
  * @param table: the colormap pointer
  * @param point: the element to the CurveBasePoint, range(0~8)
- * @param oper SUB or ADD 
- 
+ * @param oper SUB or ADD
+
  * @retval EKnobReturn (Attention: the return value is only meaningful to the current point)
  */
 bool ImgProc2D::ChangeGrayTransPointX(enum EKnobOper oper)
@@ -301,7 +301,7 @@ bool ImgProc2D::ChangeGrayTransPointX(enum EKnobOper oper)
 		m_CurrentPoint --;
 	else
 		return FALSE;
-	
+
 	m_ptrUpdate->GrayTrans(m_ColorTransTable, sizeof(m_ColorTransTable), m_CurrentPoint, m_CurveBasePoint, MAX_TRANS_POINT);
 
 	return TRUE;
@@ -316,9 +316,9 @@ bool ImgProc2D::ChangeGrayTransPointY(enum EKnobOper oper)
 	else
 		return FALSE;
 
-	CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);	
+	CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);
 	m_ptrUpdate->GrayTrans(m_ColorTransTable, sizeof(m_ColorTransTable), m_CurrentPoint, m_CurveBasePoint, MAX_TRANS_POINT);
-	
+
 	ChangeColormap();
 
 	return TRUE;
@@ -332,10 +332,10 @@ bool ImgProc2D::ResetGrayTrans()
         m_CurCurveIndex = 0;
 
     InitColorTable();
-    CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);	
+    CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);
     ChangeColormap();
     m_ptrUpdate->GrayTrans(m_ColorTransTable, sizeof(m_ColorTransTable), m_CurrentPoint, m_CurveBasePoint, MAX_TRANS_POINT);
-    
+
     return TRUE;
 }
 
@@ -345,9 +345,9 @@ bool ImgProc2D::ChangeGrayReject(enum EKnobOper oper)
 		m_RejectPoint ++;
 	else if(oper == SUB && m_RejectPoint > 0)
 		m_RejectPoint --;
-	else 
+	else
 		return FALSE;
-	
+
 	m_ptrUpdate->GrayReject(m_RejectPoint);
 
 	//set gamma to DSC
@@ -372,9 +372,9 @@ void ImgProc2D::DisplayGrayReject(bool on)
 		m_ptrUpdate->ClearGrayCurve();
 }
 /*
- * @brief change gamma 
+ * @brief change gamma
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -384,7 +384,7 @@ enum EKnobReturn ImgProc2D::ChangeGamma(enum EKnobOper oper)
 		m_Gamma ++;
 	else if(oper == SUB && m_Gamma > 0)
 		m_Gamma --;
-	else 
+	else
 		return ERROR;
 
 	//set gamma to DSC
@@ -398,7 +398,7 @@ enum EKnobReturn ImgProc2D::ChangeGamma(enum EKnobOper oper)
         UpdateDsc();
         ptrDscMan->ReadWriteUnlock();
     }
-	
+
     // update view
     EKnobReturn ret;
 	if(m_Gamma == MAX_GAMMA-1)
@@ -421,7 +421,7 @@ enum EKnobReturn ImgProc2D::ChangeGamma(enum EKnobOper oper)
 /*
  * @brief change chroma
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -458,12 +458,12 @@ enum EKnobReturn ImgProc2D::ChangeChroma(enum EKnobOper oper)
         m_Chroma --;
         m_ChromaBak = m_Chroma;
     }
-	else 
+	else
 		return ERROR;
 #endif
 	if (m_Chroma != 0) // chroma is on
 		ImgProcCfm::GetInstance()->SetThresholdOff();
-	
+
 	EKnobReturn ret;
 	if(m_Chroma == MAX_CHROMA-1)
 	{
@@ -541,7 +541,7 @@ enum EKnobReturn ImgProc2D::ChangeImgEhn(enum EKnobOper oper)
 		m_ImgEhn --;
 	else
 		return ERROR;
-	
+
 	EKnobReturn ret;
 	if(m_ImgEhn == (MAX_IMG_EHN-1))
 	{
@@ -577,11 +577,11 @@ void ImgProc2D::InitOptimize(ExamItem::Para2D* d2)
 	// UD
 	m_UD = d2->upDown;
 	SetUD(m_UD);
-	
+
 	// Polarity
 	m_Polarity = d2->polarity;
 	SetPolarity(m_Polarity);
-	
+
 	// noiseReject
 	m_NoiseReject = d2->noiseReject;
 	SetNoiseReject(m_NoiseReject);
@@ -595,7 +595,7 @@ void ImgProc2D::InitOptimize(ExamItem::Para2D* d2)
 	else
 		ret = OK;
 	SetRotate(m_Rotate, ret);
-	
+
 	// frameAver
 	m_FrameAver = d2->frameAver;
 	if(m_FrameAver == MAX_FRAME-1)
@@ -636,7 +636,7 @@ void ImgProc2D::InitOptimize(ExamItem::Para2D* d2)
 	else
 		ret = OK;
 	m_ptrUpdate->Chroma(CHROMA_TYPE[m_Chroma].c_str(), ret);
-	
+
 	// other
 	m_Gamma = d2->gamma; //4;
 	if(m_Gamma == (MAX_GAMMA - 1))
@@ -652,7 +652,7 @@ void ImgProc2D::InitOptimize(ExamItem::Para2D* d2)
     if (ptrDscMan != NULL)// update for gamma and chroma
     {
         ptrDscMan->GetWriteLock();
-        UpdateDsc(); 
+        UpdateDsc();
         ptrDscMan->ReadWriteUnlock();
     }
 
@@ -670,7 +670,7 @@ void ImgProc2D::InitOptimize(ExamItem::Para2D* d2)
     m_CurCurveIndex = d2->grayTransIndex;
 
 	InitColorTable();
-	CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);	
+	CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);
 	ChangeColormap();
 }
 
@@ -681,7 +681,7 @@ void ImgProc2D::Init(ExamItem::Para2D* d2)
     m_RejectPoint = 0;
     //m_CurCurveIndex = 1;
     //InitColorTable();
-    //CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);	
+    //CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);
 	//ChangeColormap();
 }
 
@@ -785,7 +785,7 @@ void ImgProc2D::SetNoiseReject(bool on)
 	m_ptrUpdate->NoiseReject(on);
 }
 /*
- * @brief set rotate angle to dsc 
+ * @brief set rotate angle to dsc
  */
 void ImgProc2D::SetRotate(int data, EKnobReturn ret)
 {
@@ -793,7 +793,7 @@ void ImgProc2D::SetRotate(int data, EKnobReturn ret)
     m_ptrUpdate->Rotate(Rotate[data], ret);
     m_Rotate = data;
 
-    Replay::GetInstance()->ClearCurReplayData(); 
+    Replay::GetInstance()->ClearCurReplayData();
 }
 
 //void ImgProc2D::SetFrameAverLevel(int level)
@@ -888,7 +888,7 @@ void ImgProc2D::SetSmooth(int data, EKnobReturn ret)
 
 /*
  * @brief calculate the curve value
- * @para BaseValue[in], select point's value 
+ * @para BaseValue[in], select point's value
  * @para CurveValue[ou], result curve
  */
 void ImgProc2D::CustomGammaChange (unsigned char* BaseValue, unsigned char* CurveValue)
@@ -986,8 +986,8 @@ void ImgProc2D::ChangeColormap()
     else
         k = (float)(255/pow(255,Gamma[m_Gamma]));
 
-    for(i=0; i<MAX_GRAY; i++)  
-    { 	
+    for(i=0; i<MAX_GRAY; i++)
+    {
         if(i==0)
         {
             m_ColorTable[i] = 0;
@@ -995,9 +995,9 @@ void ImgProc2D::ChangeColormap()
         else
         {
             if (m_biopsyEnhance)   //穿刺增强打开时，Gamma不同
-                m_ColorTable[i] = (i<=m_RejectPoint? 0:1) * (unsigned char)(k * pow(m_ColorTransTable[i],2.0)); 
+                m_ColorTable[i] = (i<=m_RejectPoint? 0:1) * (unsigned char)(k * pow(m_ColorTransTable[i],2.0));
             else
-                m_ColorTable[i] = (i<=m_RejectPoint? 0:1) * (unsigned char)(k * pow(m_ColorTransTable[i], Gamma[m_Gamma])); 
+                m_ColorTable[i] = (i<=m_RejectPoint? 0:1) * (unsigned char)(k * pow(m_ColorTransTable[i], Gamma[m_Gamma]));
         }
     }
 #if 0
@@ -1015,10 +1015,10 @@ void ImgProc2D::ChangeColormap()
 	RGBTRIPLE table[MAX_GRAY];
 	int chromaTable[COLOR_NUM][COLOR_GRADE];
 	MakePseudoColormap(chromaTable, COLOR_MAP_CHROM[data]);
-	for(i=0; i<MAX_GRAY; i++)  
+	for(i=0; i<MAX_GRAY; i++)
 	{
 		table[i].rgbtRed = chromaTable[0][m_ColorTable[i]];
-		table[i].rgbtGreen = chromaTable[1][m_ColorTable[i]]; 
+		table[i].rgbtGreen = chromaTable[1][m_ColorTable[i]];
 		table[i].rgbtBlue = chromaTable[2][m_ColorTable[i]];
     //    PRINTF("[%d] = %d\n", i, table[i].rgbtRed);
 	}
@@ -1065,12 +1065,12 @@ void ImgProc2D::InitColorTable()
         {
             //m_ColorTransTable[i] = i;
             gray_x1 = ((i - 127.5)/128.0) * ratio;
-            m_ColorTransTable[i] = (int) (128 * (((1 - exp(-gray_x1))/(1 + exp(-gray_x1)) ) * ((1 + exp(min))/(1 - exp(min))) + 1)); 
+            m_ColorTransTable[i] = (int) (128 * (((1 - exp(-gray_x1))/(1 + exp(-gray_x1)) ) * ((1 + exp(min))/(1 - exp(min))) + 1));
              if (m_ColorTransTable[i] > 255)
                 m_ColorTransTable[i] = 255;
         }
     }
-	
+
 	m_CurveBasePoint[0] = m_ColorTransTable[0];
 	//for(i=1; i<9; i++)
     for(i=1; i< 8; i++)
@@ -1079,7 +1079,7 @@ void ImgProc2D::InitColorTable()
 
     if (m_CurCurveIndex == 0)
     {
-        CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);	
+        CustomGammaChange(m_CurveBasePoint, m_ColorTransTable);
     }
 }
 
@@ -1137,9 +1137,9 @@ void ImgProc2D::UpdateDsc(void)
 }
 
 /*
- * @brief change angle of image rotation in mode EFOV 
+ * @brief change angle of image rotation in mode EFOV
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -1261,7 +1261,7 @@ enum EKnobReturn ImgProc2D::ChangeEFOVRotate(enum EKnobOper oper)
 }
 
 /*
- * @brief set rotate angle to dsc for mode EFOV 
+ * @brief set rotate angle to dsc for mode EFOV
  */
 void ImgProc2D::SetEFOVRotate(int data, EKnobReturn ret)
 {
@@ -1279,9 +1279,9 @@ void ImgProc2D::SetEFOVRotate(int data, EKnobReturn ret)
 }
 
 /*
- * @brief change scale of image zoom in mode EFOV 
+ * @brief change scale of image zoom in mode EFOV
  *
- * @param oper SUB or ADD 
+ * @param oper SUB or ADD
  *
  * @retval EKnobReturn
  */
@@ -1347,7 +1347,7 @@ enum EKnobReturn ImgProc2D::ChangeEFOVZoomScale(enum EKnobOper oper)
 }
 
 /*
- * @brief set zoom to dsc for mode EFOV 
+ * @brief set zoom to dsc for mode EFOV
  */
 void ImgProc2D::SetEFOVZoom(int scaleIndex, int pos, EKnobReturn ret)
 {
@@ -1362,7 +1362,7 @@ void ImgProc2D::SetEFOVZoom(int scaleIndex, int pos, EKnobReturn ret)
 
 	//update knob zoom
 	m_ptrUpdate->EFOVZoom(m_zoomEFOVScale[scaleIndex], ret);
-	
+
 	//draw box
 	//printf("left=%d top=%d right=%d botom=%d\n",rect.left, rect.top, rect.right, rect.bottom );
 	m_ptrUpdate->EFOVZoomBox(rect.left, rect.top, rect.right, rect.bottom);
@@ -1394,9 +1394,9 @@ bool ImgProc2D::ChangeEFOVZoomPos(enum EKnobOper oper)
 		m_zoomEFOVPos ++;
 	else if (oper == SUB && m_zoomEFOVPos > m_zoomEFOVBox.left)
 		m_zoomEFOVPos --;
-	else 
+	else
 		return FALSE;
-	
+
 	EKnobReturn ret;
 	if(m_zoomEFOVIndex == MAX_EFOV_ZOOM_INDEX - 1)
 	{
@@ -1482,10 +1482,10 @@ void ImgProc2D::GetEFOVSpeedColormap(RGBTRIPLE table[MAX_EFOV_COLOR])
 {
 	int efovColorTable[COLOR_NUM][COLOR_GRADE];
 	MakePseudoColormap(efovColorTable, EFOVCOLOR);
-	for (int i = 0; i < MAX_EFOV_COLOR; i++)  
+	for (int i = 0; i < MAX_EFOV_COLOR; i++)
 	{
 		table[i].rgbtRed = efovColorTable[2][i];
-		table[i].rgbtGreen = efovColorTable[1][i]; 
+		table[i].rgbtGreen = efovColorTable[1][i];
 		table[i].rgbtBlue = efovColorTable[0][i];
     //    PRINTF("[%d] = %d\n", i, table[i].rgbtRed);
 	}
@@ -1507,4 +1507,3 @@ void ImgProc2D::EnhanceBiopsy(bool on)
         ptrDscMan->ReadWriteUnlock();
     }
 }
-

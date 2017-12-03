@@ -28,7 +28,7 @@ class Calc2DLinear: public Calc2D
 		void CalcWeightingEmit(int pulseWidth);
 		void CalcWeightingEmitColor(int pulseWidth);
         void CalcExtendedImagingSample(void);
-		
+
 		float Get2DTis(int scanAngleIndex, float focPos, int freqReceive, int power, int depthIndex);
 		float GetCfmTis(int dopFreq, float focPos, int prfIndex, int power, int boxLineBegin, int boxLineEnd);
 		float GetPwTis(int dopFreq, int prfIndex);
@@ -38,11 +38,11 @@ class Calc2DLinear: public Calc2D
 		static const int EMIT_CH_NUM_55L60G[20]; ///< control calculating emit delay
 		static const int EMIT_CH_NUM_70L40J[20]; ///< control calculating emit delay
 		static const int EMIT_CH_NUM_10L25K[20]; ///< control calculating emit delay
-        static int EMIT_CH_NUM_L_COLOR[20]; 
+        static int EMIT_CH_NUM_L_COLOR[20];
 		static const int EMIT_CH_NUM_L_COLOR_55L60G[20]; ///< control calculating emit delay
-		static const int EMIT_CH_NUM_L_COLOR_70L40J[20]; 
+		static const int EMIT_CH_NUM_L_COLOR_70L40J[20];
         static const int TGC_CTL[4];
-		
+
 		static float TIS_CFM_BASIC[2][12][11]; ///< color doppler freq--focus pos's level--prf
 		static float TIS_CFM_POWER[10];
 		static float TIS_CFM_BOX_LINES[8];
@@ -51,7 +51,7 @@ class Calc2DLinear: public Calc2D
 		static float TIS_2D_POWER[10];
 		static float TIS_2D_DEPTH[20];
 		static float TIS_PW_BASIC[2][15]; ///< pw doppler freq--prf
-		
+
 		void CalcFilterBandPass(int order);
         void CalcDynamicFilter(int order);
 		void CalcDynamicDemod(int order);
@@ -61,4 +61,3 @@ class Calc2DLinear: public Calc2D
 		int GetColorFreqIndex(int freqColor);
 };
 #endif
-

@@ -21,7 +21,7 @@ KnobMenu::KnobItem KnobCfmMenu[15] = {
 	//{N_("Steer"), "", MIN, D2ChgSteer, NULL},
 	{N_("Steer"), "", MIN, PwChgSteer, NULL},
 	{N_("Sensitivity"), "", MIN, CfmChgSensitive, NULL},
-	
+
 	{N_("Doppler Freq."), "", MIN, CfmChgDopFreq, NULL},
 	{N_("Simult"), "", MIN, CfmChgSimult, NULL},
 	{N_("Flow Opt."), "", MIN, CfmChgFlowOpt, NULL},
@@ -41,11 +41,11 @@ KnobMenu::KnobItem KnobCfmMenu[15] = {
 	//{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
 	{"", "", ERROR, NULL, NULL},
-};	
+};
 
 void KnobCfmCreate()
 {
-    KnobMenu::GetInstance()->SetItem(KnobCfmMenu, sizeof(KnobCfmMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::CFM);  
+    KnobMenu::GetInstance()->SetItem(KnobCfmMenu, sizeof(KnobCfmMenu)/sizeof(KnobMenu::KnobItem), KnobMenu::CFM);
 }
 
 ///> sync
@@ -63,7 +63,7 @@ EKnobReturn CfmChgScale(EKnobOper oper)
 	EKnobReturn ret;
 	ModeStatus s;
 	ScanMode::EScanMode mode = s.GetScanMode();
-	
+
 	if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
 		ret = ImgPw::GetInstance()->ChangeScaleSimult3(oper);
 	else
@@ -151,7 +151,7 @@ EKnobReturn CfmChgSimult(EKnobOper oper)
         if (oper == SUB)
             return ScanMode::GetInstance()->EnterPwPdiSimult(FALSE);
 	}
-	else 
+	else
 	{
 		HintArea::GetInstance()->UpdateHint(_("Operation is invalid in current mode."), 1);
 		return ERROR;
@@ -212,7 +212,7 @@ EKnobReturn CfmChgScanLines(EKnobOper oper)
     char type = GlobalClassMan::GetInstance()->GetProbeType();
     if(type == 'p' || type == 'P')
     {
-        if (!Zoom::GetInstance()->GetLocalZoomStatus()) 
+        if (!Zoom::GetInstance()->GetLocalZoomStatus())
             return ImgCfm::GetInstance()->ChangeScanLines(oper);
         else
         {

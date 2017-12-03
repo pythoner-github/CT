@@ -30,17 +30,17 @@ private:
     GtkWidget *m_radiobutton_orignial;
     GtkWidget *m_scrolledwindow_auto;
     GtkWidget *m_scrolledwindow_orignial;
-    
+
     GtkWidget *m_window;
     string m_imgPath;
     GtkWidget *m_image;
     GdkPixmap *m_pixmapPrintImage;
     PangoFontDescription *m_baseFont;
     PangoFontDescription *m_headFont;
-    PangoFontDescription *m_commentTmpFont; 
+    PangoFontDescription *m_commentTmpFont;
 
     #define MAX_PAGE        (30)
-    
+
 #ifdef REPORTPICS_6
     #define MAX_IMAGE       (6)
 #else
@@ -52,14 +52,14 @@ private:
     //#define IMG_SCALE_HEIGHT	(IMG_H*IMAGE_SCALE)
 
 
-    
+
     GdkGC *pagegc;
     GdkPixmap *pagepixmap;
     GtkWidget *drawingarea;
     PangoLayout *pagelayout;
-        
+
     GtkWidget *report_image[30];
-    
+
     int report_page_count;
     bool page_num;
     char *m_path;
@@ -72,8 +72,8 @@ private:
     void ExposeImage(GtkWidget *widget, GdkEventExpose *event);
     static gboolean HandleExposeImage(GtkWidget *widget, GdkEventExpose *event, ViewPrintPreview *data){ data->ExposeImage(widget, event); return FALSE; }
     static void HandleClickPrintButton(GtkButton *button, ViewPrintPreview *data) { data->ClickedPrintButton(button); }
-    
-    //struct print_re_item  Item; 
+
+    //struct print_re_item  Item;
 
     void SeekPrinter(char *device);
     void Printing(void);
@@ -97,7 +97,7 @@ private:
     // signal connect
     static gboolean HandleDeleteEvent(GtkWidget *widget, GdkEvent *event, ViewPrintPreview *data)
 	{ data->BtnExitClicked(NULL); return FALSE; }
- 
+
     static gboolean HandleDeleteWinEvent(GtkWidget *widget, GdkEvent *event, ViewPrintPreview *data)
 	{ data->BtnExitWinClicked(NULL); return FALSE; }
 
@@ -122,6 +122,6 @@ private:
 
     GtkWidget* CreateImageWindow(GtkWidget *frame, int viewmode);
     GtkWidget* CreateReportWindow(GtkWidget *frame, int viewmode);
-    
+
 };
 #endif

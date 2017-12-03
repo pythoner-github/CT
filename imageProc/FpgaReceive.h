@@ -24,7 +24,7 @@ class FpgaReceive:public AbsFpgaReceive
 	void SetDsc(CDSC *ptrDsc);
 
 	private:
-#ifdef EMP_460		
+#ifdef EMP_460
 	static PcieControl* m_ptrUsb;
 #else
 	static EzUsb* m_ptrUsb;
@@ -39,7 +39,7 @@ class FpgaReceive:public AbsFpgaReceive
 	void DataM(unsigned char *data, int line);
 	unsigned char m_cfmData[160*3];
 	void InitDataCfm();
-    
+
 	CalcPw* m_ptrCalc;
 
 };

@@ -9,7 +9,7 @@
  * @date 2007-1-9
  * @version 0.2
  */
- 
+
 #ifndef INI_FILE_H
 #define INI_FILE_H
 
@@ -50,5 +50,4 @@ private:
     std::string m_fileName;
 };
 
-#endif 
-
+#endif

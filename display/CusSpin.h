@@ -26,7 +26,7 @@ class CusSpin
 		void SetValue(const char *str, EKnobReturn flag);
 		void UpdateLabel(void);
 		void Show();
-		
+
 	private:
 		GtkWidget* m_cusspin;
 		GtkWidget* m_entry;

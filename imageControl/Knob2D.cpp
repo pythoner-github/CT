@@ -119,7 +119,7 @@ KnobMenu::KnobItem Knob2DMenu[15] = {
     //{"", "", ERROR, NULL, NULL},
     //{"", "", ERROR, NULL, NULL},
     //{"", "", ERROR, NULL, NULL},
-};	
+};
 #endif
 
 void KnobD2Create()
@@ -148,7 +148,7 @@ EKnobReturn D2ChgPwr(EKnobOper oper)
 	EKnobReturn ret;
 	Img2D::GetInstance()->ChangeSoundPower(oper);
 	ChangeTis();
-    //SyncKnobD2(D2_SOUND_POWER, m_str, status);	
+    //SyncKnobD2(D2_SOUND_POWER, m_str, status);
 	return ret;
 }
 ///> callback function
@@ -213,7 +213,7 @@ EKnobReturn D2PressChgScanAngle(void)
 	}
 	else
 	{
-     if (!Zoom::GetInstance()->GetLocalZoomStatus() && 
+     if (!Zoom::GetInstance()->GetLocalZoomStatus() &&
 			MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
         {
         ResetSampleLine();
@@ -243,7 +243,7 @@ EKnobReturn D2ChgScanAngle(EKnobOper oper)
 	}
 	else
 	{
-        if (!Zoom::GetInstance()->GetLocalZoomStatus() && 
+        if (!Zoom::GetInstance()->GetLocalZoomStatus() &&
 			MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
         {
             ResetSampleLine();
@@ -282,7 +282,7 @@ EKnobReturn D2PressChgLineDensity(void)
     EKnobOper oper = ROTATE;
   //change line density after open compound image.
     Img2D *ptrImg = Img2D::GetInstance();
-    if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn()) 
+    if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn())
     {
         HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
         return ERROR;
@@ -292,7 +292,7 @@ EKnobReturn D2PressChgLineDensity(void)
 
     if (ModeStatus::IsColorMode() || ModeStatus::IsSpectrumColorMode())
         ImgCfm::GetInstance()->ReSendBox();
-    
+
     return ret;
 
 }
@@ -300,7 +300,7 @@ EKnobReturn D2ChgLineDensity(EKnobOper oper)
 {
 	//change line density afert open compound image .
     Img2D *ptrImg = Img2D::GetInstance();
-    if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn()) 
+    if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn())
     {
         HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
         return ERROR;
@@ -311,7 +311,7 @@ EKnobReturn D2ChgLineDensity(EKnobOper oper)
 
     if (ModeStatus::IsColorMode() || ModeStatus::IsSpectrumColorMode())
         ImgCfm::GetInstance()->ReSendBox();
-    
+
     return ret;
 }
 
@@ -324,7 +324,7 @@ EKnobReturn D2PressChgTHI(void)
     char type = GlobalClassMan::GetInstance()->GetProbeType();
     if ((type == 'C') || (type == 'N'))
     {
-        if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn()) 
+        if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn())
         {
             HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
             return ERROR;
@@ -348,7 +348,7 @@ EKnobReturn D2ChgTHI(EKnobOper oper)
     char type = GlobalClassMan::GetInstance()->GetProbeType();
     if ((type == 'C') || (type == 'N'))
     {
-        if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn()) 
+        if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn())
         {
             HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
             return ERROR;
@@ -419,7 +419,7 @@ EKnobReturn D2ChgSteer(EKnobOper oper)
     if (Img2D::GetInstance()->GetTpViewStatus())
         Img2D::GetInstance()->ExitTpView();
 #if 0
-    if (Img2D::GetInstance()->IsCompoundSpaceOn()) 
+    if (Img2D::GetInstance()->IsCompoundSpaceOn())
     {
         HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
         return ERROR;
@@ -444,7 +444,7 @@ EKnobReturn D2ChgSteer(EKnobOper oper)
 
 /**
  * description: adjust steer to change 2D steerangle
- * para: NULL, 
+ * para: NULL,
  * return: ret
  */
 EKnobReturn D2PressChgSteer(void)
@@ -454,14 +454,14 @@ EKnobReturn D2PressChgSteer(void)
     if (Img2D::GetInstance()->GetTpViewStatus())
         Img2D::GetInstance()->ExitTpView();
 
-    if (Img2D::GetInstance()->IsCompoundSpaceOn()) 
+    if (Img2D::GetInstance()->IsCompoundSpaceOn())
     {
         HintArea::GetInstance()->UpdateHint(_("Invalid when compound imaging is on."), 2);
         return ERROR;
     }
 
     if ((probeType == 'L') || (probeType == 'l'))
-    { 
+    {
         if (!Zoom::GetInstance()->GetLocalZoomStatus())
             ret = Img2D::GetInstance()->ChangeSteer(ROTATE);
         else
@@ -511,13 +511,13 @@ EKnobReturn D2PressFocus(void)
         {
             Img2D* ptrImg = Img2D::GetInstance();
             if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn() || ptrImg->GetTpViewStatus() || ptrImg->GetEFVIStatus() || Zoom::GetInstance()->GetLocalZoomStatus())
-            { 
+            {
                 HintArea::GetInstance()->UpdateHint(_("[Focus]: Knob to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."), 4);
                 return ret;
             }
             else
                 HintArea::GetInstance()->UpdateHint(_("[Focus]: Knob to move focus, Press to change focus sum."), 4);
-            
+
             ret = Img2D::GetInstance()->ChangeFocSum(ROTATE);
 
             // change tis
@@ -550,7 +550,7 @@ EKnobReturn D2ChgFocPos(EKnobOper  oper)
     if (SUB==oper)
 		oper=ADD;
 	else if (ADD==oper)
-		oper=SUB;	
+		oper=SUB;
 #endif
     return Img2D::GetInstance()->ChangeFocPos(oper);
 }
@@ -576,7 +576,7 @@ void ParepareForCompound(void)
 //EMP5800 直接按按键来切换
 EKnobReturn D2PressChgSpaceCompound(void)
 {
-    EKnobReturn ret = ERROR;	
+    EKnobReturn ret = ERROR;
     //int index = 3;
     char type = GlobalClassMan::GetInstance()->GetProbeType();
     Img2D* ptrImg2D = Img2D::GetInstance();
@@ -594,7 +594,7 @@ EKnobReturn D2PressChgSpaceCompound(void)
         HintArea::GetInstance()->UpdateHint(_("[Compound]: Invalid when Tp-view or EFVI is open."), 1);
         return ERROR;
     }
- 
+
     ParepareForCompound();
     ret = ptrImg2D->ChangeCompoundSpace();
     return ret;
@@ -651,7 +651,7 @@ EKnobReturn D2PressChgFreqCompound(void)
 }
 EKnobReturn D2ChgFreqCompound(EKnobOper oper)
 {
-#ifdef EMP_3410 
+#ifdef EMP_3410
     if(!CManRegister::GetInstance()->IsAuthorize("eFci"))
         return ERROR;
 #endif
@@ -703,7 +703,7 @@ EKnobReturn D2PressDepth(EKnobOper oper)
 {
     ModeStatus s;
     int flag = 0;
-    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();	
+    ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
     if (s.IsColorMode())
 		flag = 1;
@@ -713,7 +713,7 @@ EKnobReturn D2PressDepth(EKnobOper oper)
 		flag = 3;
 	else if (s.IsMMode())
 		flag = 4;
-	
+
 	if ((flag == 1) || (flag == 3))
 		ImgCfm::GetInstance()->ClearBox();
 	if ((flag == 2) || (flag == 3))
@@ -741,7 +741,7 @@ EKnobReturn D2PressDepth(EKnobOper oper)
 #if 0
   if (mode == ScanMode::D2 )
     {
-        Img2D::GetInstance()->ChangeDepth(oper); 
+        Img2D::GetInstance()->ChangeDepth(oper);
     }
     else
     {
@@ -808,7 +808,7 @@ void ParepareForTpView(void)
     if (ptrImg->GetFocSum() > 1)
     {
         ptrImg->SetFocSum(1);
-    }    
+    }
 }
 
 EKnobReturn D2ChgTpView(EKnobOper oper)
@@ -822,13 +822,13 @@ EKnobReturn D2ChgTpView(EKnobOper oper)
 	if(type =='L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
-        
+
         if (ptrImg2D->GetEFVIStatus() || ptrImg2D->IsCompoundFreqOn() || ptrImg2D->IsCompoundSpaceOn() || Zoom::GetInstance()->GetLocalZoomStatus())
         {
             HintArea::GetInstance()->UpdateHint(_("[TP-View]: Invalid when EFVI , compound or localzoom is open."), 2);
             return ERROR;
         }
-    
+
 
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(oper);
@@ -851,13 +851,13 @@ EKnobReturn D2PressChgTpView()
 	if(type == 'L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
-        
+
         if (ptrImg2D->GetEFVIStatus() || ptrImg2D->IsCompoundFreqOn() || ptrImg2D->IsCompoundSpaceOn() || Zoom::GetInstance()->GetLocalZoomStatus())
         {
             HintArea::GetInstance()->UpdateHint(_("[TP-View]: Invalid when EFVI , compound or localzoom is open."), 2);
             return ERROR;
         }
-    
+
 
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(ROTATE);
@@ -933,7 +933,7 @@ EKnobReturn D2PressChgScanLine(void)
     Format2D::EFormat2D format2D = Format2D::GetInstance()->GetFormat();
     if(type == 'p' || type == 'P')
     {
-        if (!Zoom::GetInstance()->GetLocalZoomStatus()) 
+        if (!Zoom::GetInstance()->GetLocalZoomStatus())
             return Img2D::GetInstance()->ChangeScanLines(ROTATE);
         else
         {
@@ -956,7 +956,7 @@ EKnobReturn D2ChgScanLine(EKnobOper oper)
     //if((type == 'p' || type == 'P') && (format2D == Format2D::B || formatCfm == FormatCfm::B))
     if(type == 'p' || type == 'P')
     {
-        if (!Zoom::GetInstance()->GetLocalZoomStatus()) 
+        if (!Zoom::GetInstance()->GetLocalZoomStatus())
             return Img2D::GetInstance()->ChangeScanLines(oper);
         else
         {

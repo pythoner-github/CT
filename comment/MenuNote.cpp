@@ -9,8 +9,8 @@
 #include "ExamItem.h"
 #include "ProbeSelect.h"
 #include "ViewSystem.h"
-#include "MenuProjectMode.h" 
-#include "ViewSuperuser.h"   
+#include "MenuProjectMode.h"
+#include "ViewSuperuser.h"
 
 MenuNote g_menuNote;
 
@@ -34,7 +34,7 @@ void MenuNote::Show(void)
 UpdateLabel();
  gtk_widget_show_all(m_table);
 
- 
+
  //根据不同的探头部位设置不同科别
 	int index = 0;
 	ExamItem::EItem item = ProbeSelect::GetItemIndex();
@@ -47,9 +47,9 @@ UpdateLabel();
     ExamItem exam;
     current_item = exam.ReadDefaultProbeDefaultItemName(&ini);
     current_probe = exam.ReadDefaultProbe(&ini);
-   
+
     exam.TransItemNameEng(current_item.c_str(), current_exam);
-  
+
     string username;
     username = exam.ReadDefaultUserSelect(&ini);
     char path2[256];
@@ -71,7 +71,7 @@ UpdateLabel();
     IniFile *ptrIni= &new_ini;*/
     int number;
     number = ptrIni->ReadInt((current_probe + "-" + current_exam).c_str(), "Number");
-    if (number) 
+    if (number)
     {
         index=0;
     }
@@ -97,27 +97,27 @@ UpdateLabel();
                 index = 2;
                 break;
             case ExamItem::CAR_ADULT:
-                index = 3;  
+                index = 3;
                 break;
             case ExamItem::EARLY_PREG:
             case ExamItem::LATER_PREG:
-                index = 4; 
+                index = 4;
                 break;
             case ExamItem::GYN:
-                index = 5; 
+                index = 5;
                 break;
             case ExamItem::SMALL_PART:
             case ExamItem::GLANDS:
             case ExamItem::THYROID:
             case ExamItem::EYE:
-                index = 6;  
+                index = 6;
                 break;
 #ifdef EMP_322
             case ExamItem::HIP_JOINT:
             case ExamItem::JOINT_CAVITY:
             case ExamItem::MENISCUS:
             case ExamItem::SPINE:
-                index = 7; 
+                index = 7;
                 break;
 
 #else
@@ -125,25 +125,25 @@ UpdateLabel();
             case ExamItem::JUGULAR:
             case ExamItem::PERI_ARTERY:
             case ExamItem::PERI_VEIN:
-                index = 7; 
+                index = 7;
                 break;
             case ExamItem::HIP_JOINT:
             case ExamItem::JOINT_CAVITY:
             case ExamItem::MENISCUS:
             case ExamItem::SPINE:
-                index = 8; 
+                index = 8;
                 break;
 #endif
             default:
-               index = 1; 
+               index = 1;
                break;
         }
 #endif
     }
-   
+
    gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboDept), index);
    char department[256];
-   if(index ==0) 
+   if(index ==0)
    {
        char path[256];
        sprintf(path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -164,7 +164,7 @@ UpdateLabel();
 
    }
 
-   HideMenu(); 
+   HideMenu();
    ShowMenu(index, department);
 
 
@@ -347,7 +347,7 @@ void MenuNote::UpdateScaleModel(void)
 
     gtk_tree_model_get_iter_first(m_modelDept, &iter);
     gtk_list_store_set(store, &iter, 0, _(current_item.c_str()), -1);   //probe_exam_string.c_str(), -1);
-    gtk_tree_model_iter_next(m_modelDept, &iter);   
+    gtk_tree_model_iter_next(m_modelDept, &iter);
     gtk_list_store_set(store, &iter, 0, _("Abdomen"), -1);
     gtk_tree_model_iter_next(m_modelDept, &iter);
     gtk_list_store_set(store, &iter, 0, _("Urology"), -1);
@@ -414,7 +414,7 @@ GtkWidget* MenuNote::Create(void)
 #endif
     GtkWidget *MenuSP = create_sp_item();
     gtk_table_attach_defaults(GTK_TABLE(m_table), MenuSP, 0, 6, 1, 18);
-#ifndef EMP_322 
+#ifndef EMP_322
     GtkWidget *MenuVS = create_vs_item();
     gtk_table_attach_defaults(GTK_TABLE(m_table), MenuVS, 0, 6, 1, 18);
 #endif
@@ -424,7 +424,7 @@ GtkWidget* MenuNote::Create(void)
     GtkWidget *MenuTendon = create_tendon_item();
     gtk_table_attach_defaults(GTK_TABLE(m_table), MenuTendon, 0, 6, 1, 18);
 #endif
-    return m_table; 
+    return m_table;
 
 }
 
@@ -831,11 +831,11 @@ void MenuNote::add_columns_comment(GtkTreeView *treeview)
 
 GtkTreeModel* MenuNote::CreateDeptModel(void)
 {
- 
+
      char path[256];
     sprintf(path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
     IniFile ini(path);
-    ExamItem exam;  
+    ExamItem exam;
 
     string current_item;
     current_item = exam.ReadDefaultProbeDefaultItemName(&ini);
@@ -843,7 +843,7 @@ GtkTreeModel* MenuNote::CreateDeptModel(void)
     GtkTreeIter iter;
     liststore = gtk_list_store_new(1, G_TYPE_STRING);
     gtk_list_store_append(liststore, &iter);
-    gtk_list_store_set(liststore, &iter, 0, _(current_item.c_str()), -1);//probe_exam_string.c_str(), -1); 
+    gtk_list_store_set(liststore, &iter, 0, _(current_item.c_str()), -1);//probe_exam_string.c_str(), -1);
     gtk_list_store_append(liststore, &iter);
     gtk_list_store_set(liststore, &iter, 0, _("Abdomen"), -1);
     gtk_list_store_append(liststore, &iter);
@@ -863,7 +863,7 @@ GtkTreeModel* MenuNote::CreateDeptModel(void)
     gtk_list_store_set(liststore, &iter, 0, _("Vascular"), -1);
 #endif
     gtk_list_store_append(liststore, &iter);
-    gtk_list_store_set(liststore, &iter, 0, _("Orthopedic"), -1);   
+    gtk_list_store_set(liststore, &iter, 0, _("Orthopedic"), -1);
 #ifdef VET
     gtk_list_store_append(liststore, &iter);
     gtk_list_store_set(liststore, &iter, 0, _("Tendon"), -1);
@@ -877,7 +877,7 @@ void MenuNote::BtnComboDeptChanged(GtkComboBox *widget)
 {
     int index = gtk_combo_box_get_active(widget);
     char department[256];
-    if(index ==0) 
+    if(index ==0)
     {
         char path[256];
         sprintf(path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
@@ -895,10 +895,10 @@ void MenuNote::BtnComboDeptChanged(GtkComboBox *widget)
     else
     {
     DepartmentName(department, index);
-    
+
     }
 
-    	HideMenu(); 
+    	HideMenu();
     ShowMenu(index, department);
 }
 
@@ -926,7 +926,7 @@ GtkTreeModel* MenuNote::create_item_note_model(int index, char *department)
     char path[256];
     if (index ==0)
     {
-        char path1[256];  
+        char path1[256];
         sprintf(path1, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
         IniFile ini1(path1);
         ExamItem exam;
@@ -988,14 +988,14 @@ GtkTreeModel* MenuNote::create_item_note_model(int index, char *department)
         gtk_tree_store_append(store, &iter, NULL);
         if(index == 0)
         {
-            gtk_tree_store_set(store, &iter, 
+            gtk_tree_store_set(store, &iter,
                     NAME_COLUMN, iterItem->name.c_str(),
                     INDEX_COLUMN, iterItem->index,
                     -1);
         }
         else
         {
-            gtk_tree_store_set(store, &iter, 
+            gtk_tree_store_set(store, &iter,
                     NAME_COLUMN, _(iterItem->name.c_str()),
                     INDEX_COLUMN, iterItem->index,
                     -1);
@@ -1003,14 +1003,14 @@ GtkTreeModel* MenuNote::create_item_note_model(int index, char *department)
 
 
     }
-  
+
     return GTK_TREE_MODEL(store);
 }
 
 void MenuNote::DepartmentName(char department[256], int index)
 {
     if(index == 1)
-    {  
+    {
         strcpy(department, "Abdomen");
     }
     else if(index == 2)
@@ -1034,7 +1034,7 @@ void MenuNote::DepartmentName(char department[256], int index)
     {
         strcpy(department, "Small Part");
     }
-       else 
+       else
     {
         strcpy(department, "Orthopedic");
     }
@@ -1051,7 +1051,7 @@ void MenuNote::DepartmentName(char department[256], int index)
     {
         strcpy(department, "Vascular");
     }
-    else if(index ==7) 
+    else if(index ==7)
     {
         strcpy(department, "Orthopedic");
     }
@@ -1073,7 +1073,7 @@ void MenuNote::DepartmentName(char department[256], int index)
     {
         strcpy(department, "Vascular");
     }
-    else 
+    else
     {
         strcpy(department, "Orthopedic");
     }
@@ -1103,69 +1103,69 @@ void MenuNote::Focus(void)
     int index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboDept));
     if(index == 0)
     {
-        gtk_widget_grab_focus(m_treeview_item_current_comment);	
+        gtk_widget_grab_focus(m_treeview_item_current_comment);
     }
    else if(index == 1)
     {
-        gtk_widget_grab_focus(m_treeview_item_abdo_comment);	
+        gtk_widget_grab_focus(m_treeview_item_abdo_comment);
     }
    else if(index == 2)
     {
-        gtk_widget_grab_focus(m_treeview_item_uro_comment);	
+        gtk_widget_grab_focus(m_treeview_item_uro_comment);
     }
     else if(index == 3)
     {
-        gtk_widget_grab_focus(m_treeview_item_car_comment);	
+        gtk_widget_grab_focus(m_treeview_item_car_comment);
     }
     else if(index == 4)
     {
-        gtk_widget_grab_focus(m_treeview_item_ob_comment);	
+        gtk_widget_grab_focus(m_treeview_item_ob_comment);
     }
 #ifdef VET
   else if(index == 5)
     {
-        gtk_widget_grab_focus(m_treeview_item_sp_comment);	
+        gtk_widget_grab_focus(m_treeview_item_sp_comment);
     }
 
 #else
     else if(index == 5)
     {
-        gtk_widget_grab_focus(m_treeview_item_gyn_comment);	
+        gtk_widget_grab_focus(m_treeview_item_gyn_comment);
     }
     else if(index == 6)
     {
-        gtk_widget_grab_focus(m_treeview_item_sp_comment);	
+        gtk_widget_grab_focus(m_treeview_item_sp_comment);
     }
 #endif
 #ifdef EMP_322
       else if(index == 7)
     {
-        gtk_widget_grab_focus(m_treeview_item_ortho_comment);	
+        gtk_widget_grab_focus(m_treeview_item_ortho_comment);
     }
 
-#else 
+#else
 #ifdef VET
     else if(index == 6)
     {
-        gtk_widget_grab_focus(m_treeview_item_vs_comment);	
+        gtk_widget_grab_focus(m_treeview_item_vs_comment);
     }
-    else if(index == 7) 
+    else if(index == 7)
     {
-        gtk_widget_grab_focus(m_treeview_item_ortho_comment);	
+        gtk_widget_grab_focus(m_treeview_item_ortho_comment);
     }
     else
     {
-     gtk_widget_grab_focus(m_treeview_item_tendon_comment);	
+     gtk_widget_grab_focus(m_treeview_item_tendon_comment);
     }
 
 #else
     else if(index == 7)
     {
-        gtk_widget_grab_focus(m_treeview_item_vs_comment);	
+        gtk_widget_grab_focus(m_treeview_item_vs_comment);
     }
-    else 
+    else
     {
-        gtk_widget_grab_focus(m_treeview_item_ortho_comment);	
+        gtk_widget_grab_focus(m_treeview_item_ortho_comment);
     }
 #endif
 #endif

@@ -6,7 +6,7 @@
 class SysPrinterSetting
 {
 public:
-	
+
     SysPrinterSetting();
     ~SysPrinterSetting();
 

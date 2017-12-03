@@ -15,4 +15,3 @@ class I2CInterface
 };
 
 #endif
-

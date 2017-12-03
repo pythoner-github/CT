@@ -5,7 +5,7 @@
  * @brief: control the imaging parameter of cfm/pdi scan mdoe.
  *
  * version: V1.0
- * date: 2009-5-21	
+ * date: 2009-5-21
  * @author: zhanglei
  */
 
@@ -19,12 +19,12 @@
 ImgCfm* ImgCfm::m_ptrInstance = NULL;
 FpgaCfm ImgCfm::m_fpga;
 const int ImgCfm::CFM_PRF[MAX_PRF_INDEX] = {350, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000};
-const short ImgCfm::WALL_FILTER[WALL_FILTER_SIZE] = 
+const short ImgCfm::WALL_FILTER[WALL_FILTER_SIZE] =
 {
 #include "../res/filter/Cfm/MITCoef.h"
 };
 
-const int ImgCfm::WALL_FILTER_SELECT_IDNEX[MAX_PKTSIZE_INDEX][8] = 
+const int ImgCfm::WALL_FILTER_SELECT_IDNEX[MAX_PKTSIZE_INDEX][8] =
 {
 	{0, 3, 6, 8, 10, 11, 12, 13},
 	{0, 2, 5, 7, 12, 13, 14, 15},
@@ -37,7 +37,7 @@ const int ImgCfm::WALL_FILTER_SELECT_IDNEX[MAX_PKTSIZE_INDEX][8] =
 	{1, 4, 7, 9, 12, 13, 14, 15},
 	{2, 5, 8, 12, 13, 14, 15, 4},
 };
-const float ImgCfm::WALLFILTER_DISPLAY[MAX_PKTSIZE_INDEX][MAX_WALLFILTER_INDEX_ALL] = 
+const float ImgCfm::WALLFILTER_DISPLAY[MAX_PKTSIZE_INDEX][MAX_WALLFILTER_INDEX_ALL] =
 {
 	// pkt=8 index=0
 	{0.0178, 0.0334, 0.0623, 0.0750, 0.0834, 0.1000, 0.1331, 0.1486, 0.1649, 0.1734, 0.1923, 0.2000, 0.2190, 0.2210, 0.2289, 0.2350},
@@ -48,7 +48,7 @@ const float ImgCfm::WALLFILTER_DISPLAY[MAX_PKTSIZE_INDEX][MAX_WALLFILTER_INDEX_A
 	// pkt=14 index=3
 	{0.0156, 0.0350, 0.0627, 0.0700, 0.0814, 0.0956, 0.1001, 0.1235, 0.1396, 0.1562, 0.1600, 0.1641, 0.1784, 0.1822, 0.1856, 0.1968},
 	// pkt=16 index=4
-	{0.0150, 0.0283, 0.0543, 0.0603, 0.0687, 0.0785, 0.0832, 0.1065, 0.1123, 0.1302, 0.1459, 0.1637, 0.1984, 0.2387, 0.2597, 0.2752},	
+	{0.0150, 0.0283, 0.0543, 0.0603, 0.0687, 0.0785, 0.0832, 0.1065, 0.1123, 0.1302, 0.1459, 0.1637, 0.1984, 0.2387, 0.2597, 0.2752},
 	// pkt=18 index=5
 	{0.0172, 0.0237, 0.0603, 0.0687, 0.0785, 0.0832, 0.0973, 0.1065, 0.1302, 0.1468, 0.1637, 0.1846, 0.2012, 0.2160, 0.2297, 0.2552},
 	// pkt=20 index=6
@@ -62,12 +62,12 @@ const float ImgCfm::WALLFILTER_DISPLAY[MAX_PKTSIZE_INDEX][MAX_WALLFILTER_INDEX_A
 };
 
 const int ImgCfm::PACKSIZE[MAX_PKTSIZE_INDEX] = {8, 10, 12, 14, 16, 18, 20, 22, 24, 26};
-const string ImgCfm::LINE_DENSITY_DISPLAY[MAX_LINE_DENSITY] = 
-{ 
-	N_("Low"), N_("High") 
+const string ImgCfm::LINE_DENSITY_DISPLAY[MAX_LINE_DENSITY] =
+{
+	N_("Low"), N_("High")
 };
 
-const int ImgCfm::FLOW_OPT[MAX_FLOW_OPT][5] = 
+const int ImgCfm::FLOW_OPT[MAX_FLOW_OPT][5] =
 {
 	// tissue noise rate variance gain
     {500,  0, 0, 16320+15, 0},
@@ -80,7 +80,7 @@ const int ImgCfm::FLOW_OPT[MAX_FLOW_OPT][5] =
 	{8000, 0, 0, 16357+15, 0}
 };
 
-const int ImgCfm::FLOW_OPT_PDI[MAX_FLOW_OPT][5] = 
+const int ImgCfm::FLOW_OPT_PDI[MAX_FLOW_OPT][5] =
 {
 	// tissue noise rate variance gain
 	{1000, 0, 0, 16326+15, 0},
@@ -96,17 +96,17 @@ const int ImgCfm::FLOW_OPT_PDI[MAX_FLOW_OPT][5] =
 
 const float ImgCfm::CFM_FOC_RATIO[MAX_CFM_FOC_RATIO] = {0.25, 0.5, 0.75};
 
-const int ImgCfm::COLOR_MAP_CFM[MAX_COLOR_MAP_CFM] = 
+const int ImgCfm::COLOR_MAP_CFM[MAX_COLOR_MAP_CFM] =
 {
 	COLORMAP_CFM_ASIA0, COLORMAP_CFM_ASIA1, COLORMAP_CFM_ASIA2, COLORMAP_CFM_ASIA3, COLORMAP_CFM_ASIA4, COLORMAP_CFM_ASIA5
 };
 
-const int ImgCfm::COLOR_MAP_PDI[MAX_COLOR_MAP_PDI] = 
+const int ImgCfm::COLOR_MAP_PDI[MAX_COLOR_MAP_PDI] =
 {
-	COLORMAP_PDI_ASIA0, COLORMAP_PDI_ASIA1, COLORMAP_PDI_ASIA2, COLORMAP_PDI_ASIA3, COLORMAP_PDI_ASIA4, COLORMAP_PDI_ASIA5 
+	COLORMAP_PDI_ASIA0, COLORMAP_PDI_ASIA1, COLORMAP_PDI_ASIA2, COLORMAP_PDI_ASIA3, COLORMAP_PDI_ASIA4, COLORMAP_PDI_ASIA5
 };
 
-const int ImgCfm::COLOR_MAP_PDIDIR[MAX_COLOR_MAP_PDIDIR] = 
+const int ImgCfm::COLOR_MAP_PDIDIR[MAX_COLOR_MAP_PDIDIR] =
 {
 	COLORMAP_CFM_ASIA0, COLORMAP_CFM_ASIA1, COLORMAP_CFM_ASIA2, COLORMAP_CFM_ASIA3, COLORMAP_CFM_ASIA4, COLORMAP_CFM_ASIA5
 };
@@ -144,12 +144,12 @@ ImgCfm::ImgCfm()
     m_scale2DBefore = 0.0;
 
 	m_gainCfm = 100;
-	m_PRFIndex = 3; 
-	m_baselineIndex = 0; 
-	m_wallFilterIndex = 2; 
-	m_lineDensity = 1; 
+	m_PRFIndex = 3;
+	m_baselineIndex = 0;
+	m_wallFilterIndex = 2;
+	m_lineDensity = 1;
 	m_pktsizeIndex = 4;
-	m_turbIndex = 0; 
+	m_turbIndex = 0;
 	m_colorMapCfm = 0;
 	m_colorMapPdi = 0;
 	m_colorMapPdiDir = 0;
@@ -184,7 +184,7 @@ ImgCfm::ImgCfm()
 	int i;
 	for (i = 0; i < 8; i ++)
 		m_tgc[i] = 128;
-        
+
     m_cfmFocusIndex = -1;
     m_fcLowFilter = 1.0;
 
@@ -202,8 +202,8 @@ ImgCfm::~ImgCfm()
 void ImgCfm::SetCalcCfm(CalcCfm* calc)
 {
 	m_ptrCalc = calc;
-	
-	///> init m_calcPara, then 
+
+	///> init m_calcPara, then
 	m_ptrCalc->SetCalcPara(&m_calcPara);
 }
 
@@ -211,7 +211,7 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
 {
 	PRINTF("======================optimize PRINTF IMGCFM send para to fpga======================\n");
 	EKnobReturn ret;
-	
+
     ASSERT((ptrPara!=NULL) && (ptrParaItem!=NULL));
 
 	///> read para from exam item
@@ -227,8 +227,8 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
 	m_ptrUpdate->PacketSize(m_pktsizeIndex, OK);
 
 	// PRF
-	//m_PRFIndex = 4; 
-	m_PRFIndex = ptrParaItem->color.PRFIndex; 
+	//m_PRFIndex = 4;
+	m_PRFIndex = ptrParaItem->color.PRFIndex;
 	if (m_PRFIndex == 0)
 		ret = MIN;
 	else if (m_PRFIndex == (MAX_PRF_INDEX - 1))
@@ -238,7 +238,7 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
 	m_ptrUpdate->PRF(CFM_PRF[m_PRFIndex], ret);
 
 	// wall filter, sometime, determined by PRF
-	m_wallFilterIndex = ptrParaItem->color.wallFilter; 
+	m_wallFilterIndex = ptrParaItem->color.wallFilter;
 	m_ptrUpdate->WallFilter(m_wallFilterIndex, OK);
 
     // flow opt
@@ -260,8 +260,8 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
 	m_ptrUpdate->LineDensity(m_lineDensity, ret);
 
     // turbo
-	m_turbIndex = 0; 
-	//m_turbIndex = ptrParaItem->color.turb; 
+	m_turbIndex = 0;
+	//m_turbIndex = ptrParaItem->color.turb;
 	if (m_turbIndex == 0)
 		ret = MIN;
 	else if (m_turbIndex == (MAX_TURB))
@@ -271,7 +271,7 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
 	Turbo(m_turbIndex, ret);
 
     // invert
-	m_invert = ptrParaItem->color.invert; 
+	m_invert = ptrParaItem->color.invert;
     if (m_invert)
         ret = MAX;
     else
@@ -333,12 +333,12 @@ void ImgCfm::InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrP
 	m_ptrUpdate->ColorMap(m_colorMapCfm, MIN);
 
     // cfm foc ratio
-    m_focIndex = 1;	
-	if (m_focIndex == MAX_CFM_FOC_RATIO - 1) 
+    m_focIndex = 1;
+	if (m_focIndex == MAX_CFM_FOC_RATIO - 1)
 		ret = MIN;
-	else if (m_focIndex == 0) 
+	else if (m_focIndex == 0)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
     m_ptrUpdate->FocPosRatio(m_focIndex, ret);
@@ -435,7 +435,7 @@ bool ImgCfm::ChangeBoxSize(int offsetX, int offsetY, bool lrOverturn, bool udOve
 		offsetX = 1;
 	else if (offsetX < 0)
 		offsetX = -1;
-	
+
 	int ySign = 1;
 	if (offsetY < 0)
 		ySign = -1;
@@ -472,7 +472,7 @@ bool ImgCfm::ChangeBoxSize(int offsetX, int offsetY, bool lrOverturn, bool udOve
 			m_boxLine[1] += stepLine;
 		}
 	}
-	
+
 	// dot
 	int boxDotRange[2];
 	GetBoxDotRange(boxDotRange[0], boxDotRange[1]);
@@ -509,7 +509,7 @@ bool ImgCfm::ChangeBoxPos(int offsetX, int offsetY)
 		offsetX = 1;
 	else if (offsetX < 0)
 		offsetX = -1;
-	
+
 	int ySign = 1;
 	if (offsetY < 0)
 		ySign = -1;
@@ -527,7 +527,7 @@ bool ImgCfm::ChangeBoxPos(int offsetX, int offsetY)
 		m_boxLine[1] += stepLine;
 		m_boxLine[0] += stepLine;
 	}
-	
+
 	int boxDotRange[2];
 	GetBoxDotRange(boxDotRange[0], boxDotRange[1]);
 	if (((m_boxDotBefore[1] + stepDot) <= boxDotRange[1]) && ((m_boxDotBefore[0] + stepDot) >= boxDotRange[0]))
@@ -570,7 +570,7 @@ void ImgCfm::ChangeTgcCfm(int tgcY[8])
 #endif
 
 	m_ptrImg2D->CalcTgc(m_gainCfm*MAX_GAIN_CFM/100, m_tgc, 3);
-	m_ptrImg2D->CalcTgcDigital(m_gainCfm*MAX_GAIN_CFM/100, 3, MAX_GAIN_CFM); 
+	m_ptrImg2D->CalcTgcDigital(m_gainCfm*MAX_GAIN_CFM/100, 3, MAX_GAIN_CFM);
 }
 
 void ImgCfm::ChangeMBP(bool drawBox)
@@ -640,15 +640,15 @@ EKnobReturn ImgCfm::ChangeGainCfm(EKnobOper oper)
     {
         return ERROR;
     }
-	
+
 	m_gainCfm = gain;
 
 	EKnobReturn ret = OK;
-	if (gain == 0) 
+	if (gain == 0)
 		ret = MIN;
 	else if (gain == 100)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	GainCfm(m_gainCfm);
@@ -691,9 +691,9 @@ EKnobReturn ImgCfm::ChangeScale(EKnobOper oper)
 	m_PRFIndex = data;
 
 	EKnobReturn ret;
-	
+
 	ret = PRF(m_PRFIndex);
-	
+
 	return (ret);
 }
 
@@ -735,11 +735,11 @@ EKnobReturn ImgCfm::ChangeBaseline(EKnobOper oper)
 	m_baselineIndex = data;
 
 	EKnobReturn ret = OK;
-	if (data == (-MAX_BASELINE_INDEX)) 
+	if (data == (-MAX_BASELINE_INDEX))
 		ret = MIN;
 	else if (data == MAX_BASELINE_INDEX)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	Baseline(m_baselineIndex, ret);
@@ -820,11 +820,11 @@ EKnobReturn ImgCfm::ChangeLineDensity(EKnobOper oper)
 	m_lineDensity = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == (MAX_LINE_DENSITY - 1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 	LineDensity(m_lineDensity, ret);
 
@@ -865,11 +865,11 @@ EKnobReturn ImgCfm::ChangeSensitive(EKnobOper oper)
 	m_pktsizeIndex = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == MAX_PKTSIZE_INDEX - 1)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	PktSize(m_pktsizeIndex, ret);
@@ -912,11 +912,11 @@ EKnobReturn ImgCfm::ChangeTurbo(EKnobOper oper)
 	m_turbIndex = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == (MAX_TURB-1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	Turbo(m_turbIndex, ret);
@@ -934,7 +934,7 @@ EKnobReturn ImgCfm::ChangeColorMap(EKnobOper oper)
 		ret = ChangeColorMapPdi(oper);
 	else if (m_colorMode == COLOR_PDI_DIR)
 		ret = ChangeColorMapPdiDir(oper);
-	
+
 	return ret;
 }
 EKnobReturn ImgCfm::ChangeColorMapCfm(EKnobOper oper)
@@ -972,11 +972,11 @@ EKnobReturn ImgCfm::ChangeColorMapCfm(EKnobOper oper)
 	m_colorMapCfm = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == (MAX_COLOR_MAP_CFM-1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	ColorMapCfm(m_colorMapCfm, m_baselineIndex, m_turbIndex, m_invert, ret);
@@ -1019,11 +1019,11 @@ EKnobReturn ImgCfm::ChangeColorMapPdi(EKnobOper oper)
 	m_colorMapPdi = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == (MAX_COLOR_MAP_PDI-1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	ColorMapPdi(m_colorMapPdi, m_baselineIndex, m_turbIndex, m_invert, ret);
@@ -1066,11 +1066,11 @@ EKnobReturn ImgCfm::ChangeColorMapPdiDir(EKnobOper oper)
 	m_colorMapPdiDir = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == (MAX_COLOR_MAP_PDIDIR-1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	ColorMapPdiDir(m_colorMapPdiDir, m_baselineIndex, m_turbIndex, m_invert, ret);
@@ -1113,16 +1113,16 @@ EKnobReturn ImgCfm::ChangeColorFocus(EKnobOper oper)
     m_focIndex = data;
 
 	EKnobReturn ret = OK;
-	if (m_focIndex == MAX_CFM_FOC_RATIO - 1) 
+	if (m_focIndex == MAX_CFM_FOC_RATIO - 1)
 		ret = MAX;
-	else if (m_focIndex == 0) 
+	else if (m_focIndex == 0)
 		ret = MIN;
-	else 
+	else
 		ret = OK;
 
 	FocPos(m_focIndex);
     m_ptrUpdate->FocPosRatio(m_focIndex, ret);
-    
+
 	return (ret);
 }
 
@@ -1219,7 +1219,7 @@ EKnobReturn ImgCfm::ChangeScanLines(EKnobOper oper)
     ret = Img2D::GetInstance()->ChangeScanLines(oper);
 
     SetScanLines();
-   
+
     return ret;
 }
 
@@ -1262,7 +1262,7 @@ void ImgCfm::SetScanLines()
         m_boxLine[1] = m_boxLine[1] * scanLine / m_scanLineBak;
         m_scanLineBak = scanLine;
     }
-   
+
     PRINTF("ldendit: lineb = %d, linee = %d, range[0] = %d, range[1] = %d\n", m_boxLine[0], m_boxLine[1], boxLineRange[0], boxLineRange[1]);
 
     // correct box
@@ -1271,7 +1271,7 @@ void ImgCfm::SetScanLines()
         ResetBox(TRUE);
     }
     else
-    {   
+    {
         BoxDotCorrect(m_boxDotBefore[0], m_boxDotBefore[1]);
         Box(m_boxLine[0], m_boxLine[1], m_boxDot[0], m_boxDot[1], TRUE);
     }
@@ -1344,7 +1344,7 @@ void ImgCfm::ChangeTSI(void)
 }
 
 /*
- *@brief display TIS in cfm mode, factors that can impact upon Tis's value are doppler frequency, focus position, index of sound power, 
+ *@brief display TIS in cfm mode, factors that can impact upon Tis's value are doppler frequency, focus position, index of sound power,
  *       index of PRF, range of box line.
  */
 void ImgCfm::ChangeCfmTis(void)
@@ -1443,11 +1443,11 @@ void ImgCfm::InitProbeCalc()
     SetColorMode(m_colorMode);
 
 	m_ptrCalc->CalcPacketSize(PACKSIZE[m_pktsizeIndex]);
-	
+
 	// send wall filter
 	//WallFilter(WALL_FILTER_SELECT_IDNEX[m_pktsizeIndex][m_wallFilterIndex], m_pktsizeIndex);
 	WallFilter(m_wallFilterIndex, m_pktsizeIndex);
-    
+
     m_ptrCalc->CalcLowFilter(m_fcLowFilter);
 
 #if 0
@@ -1455,7 +1455,7 @@ void ImgCfm::InitProbeCalc()
 	m_fpga.SendNoiseGate((INT16U)m_noiseGate);
 	m_fpga.SendSpeedGate((INT16U)m_speedGate);
 	m_fpga.SendVarianceGate((INT16U)m_varianceGate);
-	
+
 	m_ptrCalc->CalcGainGate(m_gainGate);
 	m_ptrUpdate->GainGate(m_gainGate, OK);
 #endif
@@ -1493,11 +1493,11 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
 		boxLineTemp[0] = lineBegin/2*2+1;
 		boxLineTemp[1] = lineBegin/2*2 + (lineEnd-lineBegin)/2*2;
 	}
-	
+
     if(boxLineTemp[1] <= boxLineTemp[0])
         boxLineTemp[1] = boxLineTemp[0] + 1;
 
-	// send to fapa 
+	// send to fapa
 #ifdef EMP_355
 	int offset = 4; //0;     //-6;//0-2;
 #else
@@ -1559,7 +1559,7 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
     {
         dotBegin = 1;
     }
-    
+
     if ((dotEnd - dotBegin) < 1)
     {
         dotEnd += 1;
@@ -1602,7 +1602,7 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
             m_ptrUpdate->Box(boxLineTemp[0]*6/4+1, boxLineTemp[1]*6/4+3, dotBegin, dotEnd);
         else
             m_ptrUpdate->Box(boxLineTemp[0], boxLineTemp[1], dotBegin, dotEnd);
-    } 
+    }
 
     // recalc emit delay
     FocPos(m_focIndex);
@@ -1684,9 +1684,9 @@ void ImgCfm::GainCfm(int data)
 #ifdef EMP_430
     data = data/2 + 50;
 #endif
-	// calc tgc 
+	// calc tgc
     m_ptrImg2D->CalcTgc(data*MAX_GAIN_CFM/100, m_tgc, 3);
-    m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_CFM/100, 3, MAX_GAIN_CFM); 
+    m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_CFM/100, 3, MAX_GAIN_CFM);
 
     // recalc vairance
     SetVariance(data, m_flowOptIndex);
@@ -1694,7 +1694,7 @@ void ImgCfm::GainCfm(int data)
 
 void ImgCfm::EnterCfm()
 {
-    // must send focus delay 
+    // must send focus delay
     m_cfmFocusIndex = -1;
 
 	// init
@@ -1704,7 +1704,7 @@ void ImgCfm::EnterCfm()
 	// enter cfm mode
 	SetColorMode(COLOR_CFM);
 
-    // resend flow para 
+    // resend flow para
     FlowOpt(m_flowOptIndex);
 
 	SetBoxStatus(false);
@@ -1718,16 +1718,16 @@ void ImgCfm::EnterCfm()
 
 void ImgCfm::EnterPdi(void)
 {
-    // must send focus delay 
+    // must send focus delay
     m_cfmFocusIndex = -1;
 
 	LDensity();
 	m_ptrCalc->CalcPacketSize(PACKSIZE[m_pktsizeIndex]);
-	
+
 	// enter cfm mode
 	SetColorMode(COLOR_PDI);
 
-    // resend flow para 
+    // resend flow para
     FlowOpt(m_flowOptIndex);
 
 	SetBoxStatus(false);
@@ -1786,11 +1786,11 @@ EKnobReturn ImgCfm::ChangeTissue(EKnobOper oper)
 	m_tissueGate = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == 20000)	//1500
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_fpga.SendTissueGate((INT16U)m_tissueGate);
@@ -1833,11 +1833,11 @@ EKnobReturn ImgCfm::ChangeNoise(EKnobOper oper)
 	m_noiseGate = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == 260)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_fpga.SendNoiseGate((INT16U)m_noiseGate);
@@ -1880,11 +1880,11 @@ EKnobReturn ImgCfm::ChangeSpeed(EKnobOper oper)
 	m_speedGate = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == 1020)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_fpga.SendSpeedGate((INT16U)m_speedGate);
@@ -1927,11 +1927,11 @@ EKnobReturn ImgCfm::ChangeVariance(EKnobOper oper)
 	m_varianceGate = data;
 
 	EKnobReturn ret = OK;
-	if (data == 8) 
+	if (data == 8)
 		ret = MIN;
 	else if (data == 16383) //1028
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_fpga.SendVarianceGate((INT16U)m_varianceGate);
@@ -1974,11 +1974,11 @@ EKnobReturn ImgCfm::ChangeGainGate(EKnobOper oper)
 	m_gainGate = data;
 
 	EKnobReturn ret = OK;
-	if (data == 0) 
+	if (data == 0)
 		ret = MIN;
 	else if (data == 100)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_ptrCalc->CalcGainGate(m_gainGate);
@@ -2027,14 +2027,14 @@ EKnobReturn ImgCfm::PRF(int index)
 	float scale = m_ptrImg2D->GetScale2DInImgHDot();
 	int depth = scale * m_boxDot[1];
 	bool retVal = ClusterSizeNormal(CFM_PRF[index], depth);
-	
+
     // update view
 	EKnobReturn ret = OK;
 	if (m_PRFIndex == 0) // must use m_PRFIndex, PRF mybe call recursive in ClusterSizeNormal functon
 		ret = MIN;
 	else if (m_PRFIndex == m_maxPRFIndex)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 	m_ptrUpdate->PRF(CFM_PRF[m_PRFIndex], ret);
 
@@ -2049,11 +2049,11 @@ void ImgCfm::WhenPRFChanged(int index)
 {
 	EKnobReturn ret;
 	// wall filter
-	if (m_wallFilterIndex == 0) 
+	if (m_wallFilterIndex == 0)
 		ret = MIN;
 	else if (m_wallFilterIndex == (MAX_WALLFILTER_INDEX - 1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 	m_ptrUpdate->WallFilter(m_wallFilterIndex, ret);
 
@@ -2095,7 +2095,7 @@ void ImgCfm::ReviseBoxLine(int &lineBegin, int &lineEnd)
 	int mbp = m_ptrImg2D->GetMBP();
 	if(mbp > 1)	//multiply mbp
 	{
-        lineBegin = lineBegin / mbp * mbp; // avoid out of range 
+        lineBegin = lineBegin / mbp * mbp; // avoid out of range
         lineEnd = lineEnd / mbp * mbp;
 	}
 }
@@ -2130,14 +2130,14 @@ void ImgCfm::LDensity(bool draw)
 	{
 		if(mbp > 1)
 			m_ptrDscPara->dcaCFMLDensity = 4;
-		else	
+		else
 			m_ptrDscPara->dcaCFMLDensity = 1;
 	}
 	else //high
 	{
 		if(mbp > 2)
 			m_ptrDscPara->dcaCFMLDensity = 4;
-		else	
+		else
 			m_ptrDscPara->dcaCFMLDensity = 1;
 	}
     if (ptrDscMan != NULL)
@@ -2244,7 +2244,7 @@ void ImgCfm::ColorMap()
 {
 	EKnobReturn ret;
 
-	if (m_colorMode == COLOR_CFM) 
+	if (m_colorMode == COLOR_CFM)
 	{
 		if (m_colorMapCfm == 0)
 			ret = MIN;
@@ -2312,7 +2312,7 @@ void ImgCfm::FocPos(int focIndex)
         }
         else {}
     }
-    else  
+    else
         m_ptrImg2D->CalcEmitDelayCfm(focPos);
 }
 
@@ -2325,7 +2325,7 @@ EKnobReturn ImgCfm::FlowOpt(int index)
 {
 	m_tissueGate = GetFlowOptValue(index, 0);
 	m_fpga.SendTissueGate((INT16U)m_tissueGate);
-	
+
 	m_noiseGate = GetFlowOptValue(index, 1);
 	m_fpga.SendNoiseGate((INT16U)m_noiseGate);
 
@@ -2337,7 +2337,7 @@ EKnobReturn ImgCfm::FlowOpt(int index)
 		m_speedGate = 10;
 	m_fpga.SendSpeedGate((INT16U)m_speedGate);
 
-	//m_varianceGate = GetFlowOptValue(index, 3); 
+	//m_varianceGate = GetFlowOptValue(index, 3);
 	//m_fpga.SendVarianceGate((INT16U)m_varianceGate);
     SetVariance(m_gainCfm, index);
 
@@ -2347,9 +2347,9 @@ EKnobReturn ImgCfm::FlowOpt(int index)
 	EKnobReturn ret = OK;
 	if (index == 0)
 		ret = MIN;
-	else if (index == (MAX_FLOW_OPT - 1)) 
+	else if (index == (MAX_FLOW_OPT - 1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_ptrUpdate->FlowOpt(index, ret);
@@ -2398,11 +2398,11 @@ bool ImgCfm::ClusterSizeNormal(int prf, int depthEndDot)
 
 
     EKnobReturn ret = OK;
-    if (m_PRFIndex == 0) 
+    if (m_PRFIndex == 0)
         ret = MIN;
     else if (m_PRFIndex == m_maxPRFIndex)
         ret = MAX;
-    else 
+    else
         ret = OK;
     m_ptrUpdate->PRFRange(CFM_PRF[m_PRFIndex], ret);
     return TRUE;
@@ -2426,7 +2426,7 @@ int ImgCfm::GetRealBaseline(int baselineIndex)
 	int baseline = colorLen / 2 - colorLen / 2 * baselineIndex / MAX_BASELINE_INDEX;
     PRINTF("---------------baseline index = %d\n, baseline = %d\n", baselineIndex, baseline);
 
-	if (baseline> COLOR_MAX) 
+	if (baseline> COLOR_MAX)
 		baseline = COLOR_MAX;
 	else if (baseline < COLOR_MIN)
 		baseline = COLOR_MIN;
@@ -2437,7 +2437,7 @@ void ImgCfm::GetBoxLineRange(int &begin, int &end)
 {
 	int interval = 0;//mbp;
 	int scanRange[2];
-    
+
     if (Zoom::GetInstance()->GetLocalZoomStatus())
     {
         Zoom::GetInstance()->GetScanLineRange(scanRange);
@@ -2453,7 +2453,7 @@ void ImgCfm::GetBoxLineRange(int &begin, int &end)
 void ImgCfm::GetBoxDotRange(int &begin, int &end)
 {
 	int interval = 1;
-	
+
 	begin = 0 + interval;
 #ifdef EMP_355
 	end = IMG_H*Calc2D::INIT_SCALE - interval;
@@ -2468,9 +2468,9 @@ void ImgCfm::GetBoxDotRange(int &begin, int &end)
 void ImgCfm::Steer(void)
 {
 	//StopColorFlow();
-	int centerDots = (m_boxDotBefore[1] + m_boxDotBefore[0]) / 2;	
+	int centerDots = (m_boxDotBefore[1] + m_boxDotBefore[0]) / 2;
 	int centerLines = (m_boxLine[1] + m_boxLine[0]) / 2;
-	int dDots = (m_boxDotBefore[1] - m_boxDotBefore[0] + 1) / 2;	
+	int dDots = (m_boxDotBefore[1] - m_boxDotBefore[0] + 1) / 2;
 	int dLines = (m_boxLine[1] - m_boxLine[0] + 1) / 2;
 	PRINTF("CENTER DOTS = %d, cener line = %d, dDots = %d, dLine = %d\n", centerDots, centerLines, dDots, dLines);
 
@@ -2511,7 +2511,7 @@ void ImgCfm::Steer(void)
 		m_boxDotBefore[0] = centerDots - dDots;
         BoxDotCorrect(m_boxDotBefore[0], m_boxDotBefore[1]);
 	}
-	
+
 	Box(m_boxLine[0], m_boxLine[1], m_boxDot[0], m_boxDot[1], FALSE);
 }
 
@@ -2521,16 +2521,16 @@ EKnobReturn ImgCfm::WallFilter(int indexWallFilter, int indexPktsize)
 	const int SIZE = 26*32;
 	PRINTF("indexwallfilter=%d  , indexPktsize= %d \n",indexWallFilter, indexPktsize);
 	filter = (unsigned short*)WALL_FILTER + (indexPktsize * MAX_WALLFILTER_INDEX_ALL + indexWallFilter) * SIZE;
-    
+
 	m_ptrCalc->CalcWallFilter(filter, SIZE);*/
 	m_ptrCalc->CalcWallFilter(indexWallFilter, PACKSIZE[indexPktsize]);
-	
+
 	EKnobReturn ret;
-	if (m_wallFilterIndex == 0) 
+	if (m_wallFilterIndex == 0)
 		ret = MIN;
 	else if (m_wallFilterIndex == (MAX_WALLFILTER_INDEX - 1))
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	m_ptrUpdate->WallFilter(m_wallFilterIndex, ret);
@@ -2590,14 +2590,14 @@ int ImgCfm::GetPRFIndex(int prf) //unit:hz
 EKnobReturn ImgCfm::UpdatePRFRangeStatus(int index, int maxIndex)
 {
 	EKnobReturn ret = OK;
-	if (index == 0) 
+	if (index == 0)
 		ret = MIN;
 	else if (index == maxIndex)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 	m_ptrUpdate->PRF(CFM_PRF[index], ret);
-	
+
 	return ret;
 }
 
@@ -2612,7 +2612,7 @@ void ImgCfm::PRFSimult3(int prf, EKnobReturn ret)
 
 void ImgCfm::ExitSimult3()
 {
-   PRF(m_PRFIndex); 
+   PRF(m_PRFIndex);
 }
 void ImgCfm::BalancePwInfo(void)
 {
@@ -2676,7 +2676,7 @@ void ImgCfm::BoxDotCorrect(int dotBegin, int dotEnd)
     Zoom* ptrZoom = Zoom::GetInstance();
    if (ptrZoom->GetLocalZoomStatus())
    {
-       int dotRange[2]; 
+       int dotRange[2];
        double scale;
        ptrZoom->GetScanDotRange(dotRange);
        ptrZoom->GetLocalZoomScale(scale);
@@ -2700,7 +2700,7 @@ int ImgCfm::GetFlowOptValue(int flowIndex, int itemIndex)
     {
         value = FLOW_OPT[flowIndex][itemIndex];
     }
-    else 
+    else
     {
         value = FLOW_OPT_PDI[flowIndex][itemIndex];
     }

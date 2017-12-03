@@ -11,7 +11,7 @@
 using namespace std;
 #include "Def.h"
 
-typedef struct 
+typedef struct
 {
     char labelTitle[50];
     int label_width;
@@ -26,7 +26,7 @@ typedef struct
 
 }widgetInfo_t;
 
-typedef struct 
+typedef struct
 {
     int x;
     int y;

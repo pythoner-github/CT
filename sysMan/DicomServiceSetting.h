@@ -15,7 +15,7 @@ class DicomServiceSetting
 
         static DicomServiceSetting* GetInstance();
         GtkWidget* CreateDicomWindow(GtkWidget *parent);
-        
+
         enum{
             COL_STORAGE_DEVICE,
             COL_SERVICE_NAME,
@@ -32,9 +32,9 @@ class DicomServiceSetting
         ~DicomServiceSetting();
 
         static DicomServiceSetting* m_ptrInstance;
-        
+
         GtkWidget *m_service_notebook;
-        
+
         //service
         GtkWidget *m_combobox_device;
         GtkWidget *m_entry_name;
@@ -51,7 +51,7 @@ class DicomServiceSetting
         GtkWidget *m_entry_worklist_port;
         GtkWidget *m_treeview_worklist;
         GtkWidget *m_checkbutton_auto_query;
-        
+
         //mpps
         GtkWidget *m_combobox_mpps_device;
         GtkWidget *m_entry_mpps_name;
@@ -104,7 +104,7 @@ class DicomServiceSetting
         void ButtonStorageConnectClicked(GtkButton *button);
         void ChkBtnSendReportToggled(GtkToggleButton *togglebutton);
         void ChkBtnSendVideoToggled(GtkToggleButton *togglebutton);
-        void BtnComboboxVideoFrames(GtkComboBox *combobox);      
+        void BtnComboboxVideoFrames(GtkComboBox *combobox);
         void StorageDeviceChanged(GtkComboBox *combobox);
 
         void ButtonWorkListAddClicked(GtkButton *button);
@@ -114,7 +114,7 @@ class DicomServiceSetting
         void ButtonWorkListConnectClicked(GtkButton *button);
         void WorklistDeviceChanged(GtkComboBox *combobox);
         void ChkBtnAutoQueryToggled(GtkToggleButton *togglebutton);
-        
+
         //mpps
         void ButtonMPPSAddClicked(GtkButton *button);
         void ButtonMPPSClearClicked(GtkButton *button);
@@ -123,7 +123,7 @@ class DicomServiceSetting
         void ButtonMPPSConnectClicked(GtkButton *button);
         void MPPSDeviceChanged(GtkComboBox *combobox);
         void ChkBtnMPPSToggled(GtkToggleButton *togglebutton);
-        
+
         void ButtonStorageCommitmentAddClicked(GtkButton *button);
         void ButtonStorageCommitmentClearClicked(GtkButton *button);
         void ButtonStorageCommitmentDeleteClicked(GtkButton *button);
@@ -173,7 +173,7 @@ class DicomServiceSetting
 
         static void HandleSendReportToggled(GtkToggleButton *togglebutton, DicomServiceSetting *data) { data->ChkBtnSendReportToggled(togglebutton); }
         static void HandleSendVideoToggled(GtkToggleButton *togglebutton, DicomServiceSetting *data) { data->ChkBtnSendVideoToggled(togglebutton); }
-        static void HandleComboVideoFrames(GtkComboBox *combobox, DicomServiceSetting *data) 
+        static void HandleComboVideoFrames(GtkComboBox *combobox, DicomServiceSetting *data)
         { data->BtnComboboxVideoFrames(combobox); }
 
 
@@ -207,7 +207,7 @@ class DicomServiceSetting
         {data->WorklistDeviceChanged(combobox);}
 
         static void HandleAutoQueryToggled(GtkToggleButton *togglebutton, DicomServiceSetting *data) { data->ChkBtnAutoQueryToggled(togglebutton); }
-  
+
         //mpps
         static void HandleButtonMPPSAddClicked(GtkButton *button, DicomServiceSetting *data)
         {
@@ -305,7 +305,7 @@ class DicomServiceSetting
 
         static void GetSingleServiceAttribute(string device, string serviceName,string aeTitle, int port, bool isDefault,void *data);
 
-        static void on_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, DicomServiceSetting *data) 
+        static void on_notebook_switch_page(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, DicomServiceSetting *data)
         { data->notebookChanged(notebook, page, page_num); }
 
         static gboolean StorageConnectTimeout(gpointer data);

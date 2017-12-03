@@ -18,7 +18,7 @@ class MeaFactoryMainSingle
 
 	private:
 		MeaFactoryMainSingle();
-		
+
 		static MeaFactoryMainSingle* m_ptrInstance;
 		int m_type;
 		unsigned int NewSingleMeasure(const SingleItemInfo *ptrSingleItemInfo, MeasureFactory::EMeasureMode currMeaMode);

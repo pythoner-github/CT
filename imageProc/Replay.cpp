@@ -3,9 +3,9 @@
  *
  * @file: Replay.cpp
  * @brief: manage replay images and replay area
- * 
+ *
  * version: V1.0
- * date: 2009-6-2	
+ * date: 2009-6-2
  * @author: zhanglei
  */
 
@@ -46,7 +46,7 @@ gboolean EFOVReviewCallBack(gpointer data)
 
 Replay* Replay::m_ptrInstance = NULL;
 #if (defined(EMP_460) || defined(EMP_355))
-const float Replay::REPLAY_SPEED[MAX_SPEED] = {0, 2.0,1.0,0.5}; 
+const float Replay::REPLAY_SPEED[MAX_SPEED] = {0, 2.0,1.0,0.5};
 #else
 const float Replay::REPLAY_SPEED[MAX_SPEED] = {0.5, 1.0, 2.0};
 #endif
@@ -70,14 +70,14 @@ Replay::Replay()
 	m_ptrDsc->GetReplayWriteLock();
 	for (i = 0; i < MAX_AREA; i ++)
 	{
-		m_deq[i].clear(); 
-		m_maxCount[i] = 0; 
-		m_imgIndex[i] = 0; 
-        m_maxCountBak[i] = 0; 
+		m_deq[i].clear();
+		m_maxCount[i] = 0;
+		m_imgIndex[i] = 0;
+        m_maxCountBak[i] = 0;
 	}
 	m_ptrDsc->ReadWriteReplayUnlock();
 
-	m_areaIndex = 0; 
+	m_areaIndex = 0;
 	m_speedIndex = 1;
 	m_fps = 20;
 	m_trimLeft = 0;
@@ -85,11 +85,11 @@ Replay::Replay()
 	m_tagTimer = 0;
 	m_viewMode = TRUE;
 
-	m_areaIndexBak = 0; 
-	m_areaNumBak = 0; 
+	m_areaIndexBak = 0;
+	m_areaNumBak = 0;
 	m_fpsBak = m_fps;
 	m_enterCine = FALSE;;
-	m_enterSnap = FALSE;	
+	m_enterSnap = FALSE;
 
     m_discard = FALSE;
 
@@ -108,17 +108,17 @@ Replay::~Replay()
 void Replay::Init()
 {
     EKnobReturn retSpeed = OK;
-	if (m_speedIndex == (MAX_SPEED-1)) 
+	if (m_speedIndex == (MAX_SPEED-1))
 		retSpeed = MAX;
 	else if (m_speedIndex == 0)
 		retSpeed = MIN;
-	else 
+	else
 		retSpeed = OK;
 #if (defined (EMP_322) || defined(EMP_313))
-	m_ptrUpdate->ReplayCtrl(FALSE);	
-	m_ptrUpdate->SpeedCtrl(m_speedIndex);	 
+	m_ptrUpdate->ReplayCtrl(FALSE);
+	m_ptrUpdate->SpeedCtrl(m_speedIndex);
 #else
-    m_ptrUpdate->ReplayCtrl(FALSE, m_speedIndex, retSpeed);	
+    m_ptrUpdate->ReplayCtrl(FALSE, m_speedIndex, retSpeed);
 #endif
     m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
 	m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
@@ -181,11 +181,11 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
 #endif
 
     EKnobReturn ret = OK;
-	if (m_speedIndex == (MAX_SPEED-1)) 
+	if (m_speedIndex == (MAX_SPEED-1))
 		ret = MAX;
 	else if (m_speedIndex == 0)
 		ret = MIN;
-	else 
+	else
 		ret = OK;
 
 	// power off timer
@@ -212,7 +212,7 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
 #else
     m_ptrUpdate->ReplayCtrl(on, m_speedIndex, ret);
 #endif
-    return (ret);		
+    return (ret);
 }
 
 #if (defined(EMP_460) || defined(EMP_355))
@@ -270,7 +270,7 @@ void Replay::ResetTrim()
  * @brief split the quantity of replay save area(space) to "num"
  *
  * @para num number of replay area, num value must be in range{1, 2, 4}
- *  
+ *
  */
 bool Replay::SetAreaNum(int num)
 {
@@ -301,7 +301,7 @@ bool Replay::SetAreaNum(int num)
 			for (i = 0; i < MAX_AREA; i ++)
 			{
 				m_imgIndex[i] = 0;
-			}	
+			}
 			break;
 
 		case 2:
@@ -318,7 +318,7 @@ bool Replay::SetAreaNum(int num)
 			for (i = 0; i < MAX_AREA; i ++)
 			{
 				m_imgIndex[i] = 0;
-			}	
+			}
 			break;
 
 		case 4:
@@ -330,13 +330,13 @@ bool Replay::SetAreaNum(int num)
 			for (i = 0; i < MAX_AREA; i ++)
 			{
 				m_imgIndex[i] = 0;
-			}	
+			}
 			break;
 
 		default:
 			break;
 	}
-    
+
 	return TRUE;
 }
 
@@ -362,7 +362,7 @@ bool Replay::SwitchArea(int current, bool unfreeze)
 				return FALSE;
 			break;
 	}
-	
+
 	m_areaIndex = current;
     if (unfreeze)
     {
@@ -402,7 +402,7 @@ void Replay::AddOneImg(Image img)
 		m_deq[m_areaIndex].pop_front();
 		m_deq[m_areaIndex].push_back(img);
 	}
-	
+
 	m_ptrDsc->ReadWriteReplayUnlock();
 }
 
@@ -471,11 +471,11 @@ void Replay::UpdateReplayCtrl(bool on, EKnobReturn ret)
 {
 //printf("---updateReplayCtrl value = %d\n", on);
     EKnobReturn retSpeed = OK;
-	if (m_speedIndex == (MAX_SPEED-1)) 
+	if (m_speedIndex == (MAX_SPEED-1))
 		retSpeed = MAX;
 	else if (m_speedIndex == 0)
 		retSpeed = MIN;
-	else 
+	else
 		retSpeed = OK;
 #if (defined (EMP_322) || defined(EMP_313))
     m_ptrUpdate->ReplayCtrl(on);
@@ -498,11 +498,11 @@ void Replay::ClearCurReplayData()
 	m_trimRight = 0;
 }
 /*
- * @brief clear images in current replay area 
+ * @brief clear images in current replay area
  */
 void Replay::PrepareForEndReplay()
 {
-    ClearCurReplayData();	
+    ClearCurReplayData();
 	m_ptrUpdate->ClearReplayBar();
 }
 
@@ -519,15 +519,15 @@ void Replay::PrepareForReplay()
 #endif
     m_trimLeft = 0;
     m_trimRight = size - 1;
-    
+
     if((ViewSuperuser::GetInstance()->GetDemoStatus()) && m_viewMode)
         m_imgIndex[m_areaIndex] = m_trimLeft;
     else
         m_imgIndex[m_areaIndex] = m_trimRight;
-       
+
     // m_imgIndex[m_areaIndex] = m_trimRight;
 
-    if (ScanMode::GetInstance()->GetScanMode() != ScanMode::EFOV) 
+    if (ScanMode::GetInstance()->GetScanMode() != ScanMode::EFOV)
     {
         m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
         m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
@@ -541,7 +541,7 @@ void Replay::DisplayReplayBar()
 {
     int size = m_deq[m_areaIndex].size();
 
-    //draw	
+    //draw
 	if (size == 0)
         m_ptrUpdate->ReplayBar(0, size, 0, 0);
     else
@@ -552,7 +552,7 @@ unsigned int* Replay::ReviewOneImg()
 {
 	//update replay mode
 	FreezeMode::GetInstance()->SetReplayMode();
-    
+
     return ReviewOneImgOnly();
 }
 unsigned int* Replay::ViewOneImg()
@@ -619,9 +619,9 @@ unsigned int* Replay::ReviewOneImgOnly()
 		if (m_imgIndex[m_areaIndex] > m_trimLeft)
 			m_imgIndex[m_areaIndex] --;
 		else
-			m_imgIndex[m_areaIndex] = m_trimRight; 
+			m_imgIndex[m_areaIndex] = m_trimRight;
 
-	//draw	
+	//draw
 	m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 
 	//review
@@ -642,7 +642,7 @@ unsigned int* Replay::ViewOneImgOnly()
 	PRINTF("view one image\n");
 	PRINTF("m_maxCount[m_areaIndex] = %d\n", m_maxCount[m_areaIndex]);
 	PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
-	PRINTF("m_areaIndex = %d\n", m_areaIndex);	
+	PRINTF("m_areaIndex = %d\n", m_areaIndex);
 	PRINTF("m_trimLeft= %d\n", m_trimLeft);
 	PRINTF("m_trimRight= %d\n", m_trimRight);
 	PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
@@ -652,7 +652,7 @@ unsigned int* Replay::ViewOneImgOnly()
 	if (size == 0)
 		return NULL;
 
-	if (m_imgIndex[m_areaIndex] < m_trimRight) 
+	if (m_imgIndex[m_areaIndex] < m_trimRight)
     {
 		m_imgIndex[m_areaIndex] ++;
     }
@@ -668,8 +668,8 @@ unsigned int* Replay::ViewOneImgOnly()
 		    m_imgIndex[m_areaIndex] = m_trimLeft;
         }
     }
-  
-	//draw	
+
+	//draw
 	m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 
 	//view
@@ -684,10 +684,10 @@ unsigned int* Replay::GetCurrentImg()
 }
 
 /*
- * @brief get the select image for IMT measure when freeze 
+ * @brief get the select image for IMT measure when freeze
  */
  unsigned int* Replay::GetSelectImgForIMT()
-{	
+{
     int size = m_deq[m_areaIndex].size();
     if ((size <= 1) || m_imgIndex[m_areaIndex] < 1)
         return NULL;
@@ -695,10 +695,10 @@ unsigned int* Replay::GetCurrentImg()
 }
 
 /*
- * @brief get the preselect image for IMT measure when freeze 
+ * @brief get the preselect image for IMT measure when freeze
  */
 unsigned int* Replay::GetSelectNextImgForIMT()
-{	
+{
     int size = m_deq[m_areaIndex].size();
     if (size == 0)
         return NULL;
@@ -885,7 +885,7 @@ void Replay::AddOneCineImg(Image img)
 
 /*
  * @brief enter cine read mode, you can use system replay memory temporarily. read replay data from harddisk to memory, then replay it.
- * @note  1)if in snap read mode now, must exit it first, or else replay image can not be displayed correctly 
+ * @note  1)if in snap read mode now, must exit it first, or else replay image can not be displayed correctly
  *        2)ExitReadCine must be called when EnterReadCine is calledi(after use it).
  */
 void Replay::EnterReadCine()
@@ -896,7 +896,7 @@ void Replay::EnterReadCine()
 	{
 		m_enterCine = TRUE;
         m_discard = FALSE;
-		
+
 		//bak
         for (int i = 0; i < MAX_AREA; i ++)
             m_maxCountBak[i] = m_maxCount[i];
@@ -947,8 +947,8 @@ void Replay::ExitReadCine()
 /*
  * @brief set new frame update func(draw image on pointed draw area)
  *
- * @para drawImg[in] function pointer pointed to draw-image function 
- */ 
+ * @para drawImg[in] function pointer pointed to draw-image function
+ */
 void Replay::SetUpdateFrameFunc(UPDATEFRAME drawImg)
 {
 	m_ptrUpdateFrameFreeze = drawImg;
@@ -957,21 +957,21 @@ void Replay::SetUpdateFrameFunc(UPDATEFRAME drawImg)
 /*
  * @brief set default frame update func(draw image on draw area in main window)
  *
- */ 
+ */
 void Replay::SetDefaultFrameFunc(void)
 {
 	m_ptrUpdateFrameFreeze = DscMan::GetInstance()->GetFrameUpdateFunFreeze();
 }
 /*
  * @brief enter snap read mode, read data from harddisk and display it in main window
- * @note in this mode, system image can not be display correctly, so ExitReadSnap must be 
+ * @note in this mode, system image can not be display correctly, so ExitReadSnap must be
  *		 called when EnterReadSnap is called(after used it).
  */
 void Replay::EnterReadSnap()
 {
 	if (!m_enterSnap)
 	{
-		m_enterSnap = TRUE;	
+		m_enterSnap = TRUE;
 		BakImgForSnap();
 	}
 }
@@ -979,7 +979,7 @@ void Replay::ExitReadSnap()
 {
 	if (m_enterSnap)
 	{
-		m_enterSnap = FALSE;	
+		m_enterSnap = FALSE;
 		RestoreImgForSnap();
 		ScanMode::GetInstance()->ExitSpecialMeasure();
 	}
@@ -995,7 +995,7 @@ void Replay::BakImgForSnap()
 {
 	ImageArea* ptrImgArea = ImageArea::GetInstance();
 	TopArea* ptrTopArea = TopArea::GetInstance();
-	
+
 	if(!ptrTopArea->GetReadImg())
 		ptrTopArea->SetReadImg(TRUE);
 	if(!ptrImgArea->GetReadImg())
@@ -1006,7 +1006,7 @@ void Replay::RestoreImgForSnap()
 {
 	ImageArea* ptrImgArea = ImageArea::GetInstance();
 	TopArea* ptrTopArea = TopArea::GetInstance();
-	
+
 	if(ptrTopArea->GetReadImg())
 		ptrTopArea->SetReadImg(FALSE);
 	if(ptrImgArea->GetReadImg())
@@ -1081,11 +1081,11 @@ EKnobReturn Replay::ChangeEFOVReviewDir(EKnobOper oper)
     }
 
 	EKnobReturn ret = OK;
-	if (m_efovFrameNo == (total-1)) 
+	if (m_efovFrameNo == (total-1))
 		ret = MIN;
 	else if (m_efovFrameNo == 0)
 		ret = MAX;
-	else 
+	else
 		ret = OK;
 
 	if(DscMan::GetInstance()->GetDsc() != NULL)
@@ -1196,6 +1196,6 @@ bool Replay::EFOVVideoOutOfRange(void)
 {
     if (m_deq[m_areaIndex].size() >= (unsigned int)TOTAL_REPLAY)
         return true;
-    else 
+    else
         return false;
 }

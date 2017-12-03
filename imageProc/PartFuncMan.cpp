@@ -24,8 +24,7 @@ EKnobReturn PIPZoom(EKnobOper oper)
 }
 
 EKnobReturn GrayTransport(EKnobOper oper)
-{   
+{
     ImgProc2D::GetInstance()->ChangeGrayTransPointX(oper);
     return OK;
 }
-

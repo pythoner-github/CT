@@ -101,7 +101,7 @@ GtkWidget* MenuArea::Create(void)
     m_labelCW = gtk_label_new ("CW");
     gtk_widget_set_size_request (m_labelCW, 45, -1);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (m_noteBook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (m_noteBook), 3), m_labelCW);
-    
+
     //CFM menu
     GtkWidget *tableCFM = g_menuCFM.Create();
     gtk_widget_set_usize(tableCFM, widthMax, heightMaxNB);
@@ -144,7 +144,7 @@ GtkWidget* MenuArea::Create(void)
     GtkWidget *vboxBiopsyBracket = g_menuBiopsyBracket.Create();
     gtk_widget_set_usize(vboxBiopsyBracket, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), vboxBiopsyBracket, 0, 0);
-	
+
 	GtkWidget *vboxBiopsyVerify = g_menuBiopsyVerify.Create();
     gtk_widget_set_usize(vboxBiopsyVerify, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), vboxBiopsyVerify, 0, 0);
@@ -184,7 +184,7 @@ void MenuArea::SwitchMenu(EMenuType type)
     }
 #endif
 
-    switch(type) 
+    switch(type)
     {
         case MAIN:
             ShowMainMenu();
@@ -447,14 +447,14 @@ void MenuArea::ShowMainMenu(void)
 {
     m_menuType = MAIN;
 
-#ifdef EMP_PROJECT 
+#ifdef EMP_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
         return;
     }
 #endif
-    
+
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), "");
     //    g_menuMain.Show();
@@ -574,7 +574,7 @@ void MenuArea::ShowCFMMenu(void)
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color Mode"));
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    g_menu2D.Show(); 
+    g_menu2D.Show();
     g_menuCFM.Show();
     gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
 }
@@ -596,14 +596,14 @@ void MenuArea::ShowCWCFMMenu(bool currentCw)
     if (currentCw) {
     	gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Color Mode"));
     	gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show(); 
+    	g_menu2D.Show();
     	g_menuCW.Show();
     	g_menuCFM.Show();
     	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 3);
     } else {
     	gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color CW Mode"));
     	gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show(); 
+    	g_menu2D.Show();
     	g_menuCW.Show();
     	g_menuCFM.Show();
     	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
@@ -635,12 +635,12 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Color Mode"));
         }
         else
-        { 
+        {
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("PW Color Mode"));
             gtk_label_set_text(GTK_LABEL(m_labelPW), _("PW"));
         }
         gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show(); 
+    	g_menu2D.Show();
     	g_menuPW.Show();
     	g_menuCFM.Show();
     	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 2);
@@ -658,7 +658,7 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
         else
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color PW Mode"));
         gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show(); 
+    	g_menu2D.Show();
     	g_menuPW.Show();
     	g_menuCFM.Show();
     	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
@@ -759,7 +759,7 @@ void MenuArea::ShowNoteMenu(void)
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("Note"));
   // ShowMenu();
     g_menuNote.Show();
-    
+
 }
 
 void MenuArea::ShowBiopsyMenu(void)
@@ -797,7 +797,7 @@ void MenuArea::ShowBioVerifyMenu(void)
 void MenuArea::ShowSystemMenu(void)
 {
     m_menuType = SYSTEM;
-  
+
 #ifdef EMP_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
@@ -1016,7 +1016,7 @@ void MenuShowUndo()
 			case ScanMode::PWPDI_SIMULT:
 				type = MenuArea::PWCFM;
 				break;
-			
+
             case ScanMode::CWCFM:
 			case ScanMode::CWPDI:
 				type = MenuArea::CWCFM;
@@ -1042,7 +1042,7 @@ MenuArea::EMenuType MenuArea::GetNotebookType(void)
     GtkWidget *child = gtk_notebook_get_nth_page(GTK_NOTEBOOK(m_noteBook), page_index);
     const char *label_text = gtk_notebook_get_menu_label_text(GTK_NOTEBOOK(m_noteBook),child);
     if(label_text == NULL)
-        return m_menuType;	
+        return m_menuType;
     if (strcmp(label_text, gtk_label_get_text(GTK_LABEL(m_label2D))) == 0) {
         return D2;
     } else if (strcmp(label_text, gtk_label_get_text(GTK_LABEL(m_labelM))) == 0) {
@@ -1053,6 +1053,6 @@ MenuArea::EMenuType MenuArea::GetNotebookType(void)
         return CW;
     } else if (strcmp(label_text, gtk_label_get_text(GTK_LABEL(m_labelCFM))) == 0) {
         return CFM;
-    } else 
+    } else
         return m_menuType;
 }

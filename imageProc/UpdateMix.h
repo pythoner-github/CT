@@ -14,19 +14,19 @@ class UpdateMix: public AbsUpdateMix
 		void UnFreeze();
 
 		void EnterMeasure();
-		
+
 		void ExitMeasure();
-		
+
 		void EnterCalc();
-		
+
 		void ExitCalc();
 
 		void EnterSystem(void);
-		
+
 		void ExitSystem(void);
 
 		void ReplayBar(int cur, int total, int trimLeft, int trimRight);
-		
+
 		void ClearReplayBar();
 
 		void ReplayCtrl(bool on );
@@ -35,12 +35,12 @@ class UpdateMix: public AbsUpdateMix
 #endif
         void ReplayCtrl(bool on, int indexSpeed, EKnobReturn status);
 
-        void ReplayTrimLeft(int data);		
-		
-		void ReplayTrimRight(int data);		
+        void ReplayTrimLeft(int data);
+
+		void ReplayTrimRight(int data);
 
 	private:
-		MenuArea* m_ptrMenu;		
+		MenuArea* m_ptrMenu;
 		char m_str[20];
 };
 

@@ -25,7 +25,7 @@ public:
 	static const int MAX_ROWS = 6;//4;
 	static const int SNAP_W = 100;
 	static const int SNAP_H = 80;
-    
+
 	vector<string> m_vecName;
 	vector<string> m_vecNameSel;
 
@@ -43,7 +43,7 @@ public:
     void NextSnap();
 	void PreviousSnap();
     void PlayNextVideoDemo(void);
-    
+
 	const char* GetReadFrm(){ return m_readFrm.c_str(); }
     void LoadVideoToReplay(void);
     void LoadSnapToReview(void);
@@ -107,14 +107,14 @@ private:
 	int m_imageFormat;
 	int m_videoFormat;
 	// slide
-	/* m_limit=0: enable measure and delete 
+	/* m_limit=0: enable measure and delete
 	 * m_limit=1: enable measure but disable delete (show image from ViewArchiveImgMan-harddisk)
 	 * m_limit=2: disable measure but enable delete (show image form ViewArchiveImgMan-udisk)
 	 */
-	guchar m_limit;		
+	guchar m_limit;
 	gint m_timer;
     gint m_timer2;
-	gboolean m_slidePlay; 
+	gboolean m_slidePlay;
 	gint m_slideSpeed; //level
 	static const int MAX_SLIDE_SPEED = 5;
 	static const int SLIDE_SPEED[MAX_SLIDE_SPEED]; //ms
@@ -143,16 +143,16 @@ private:
 
     unsigned char LoadSnapDemo(unsigned int no, const char* filepath, vector<string> *vec);
 
-	static void HandlePreviewClicked(GtkButton *button, MenuReview *data) 
-     { 
+	static void HandlePreviewClicked(GtkButton *button, MenuReview *data)
+     {
         if(ViewSuperuser::GetInstance()->GetDemoStatus() && (data->m_reviewType == REVIEW_SNAP))
         {
             //do nothing
         }
         else
         {
-            data->ExitSlide(); 
-            data->PreviewClicked(button); 
+            data->ExitSlide();
+            data->PreviewClicked(button);
         }
      }
 	static void HandleChkBtnClicked(GtkButton *button, MenuReview *data) { data->ChkBtnClicked(button); }

@@ -8,21 +8,21 @@ class FpgaCfm
 {
 	public:
 
-	/** 
+	/**
 	* @param demod[]: demod data 16bits
-	* @param size: number of data 
+	* @param size: number of data
 	*/
 	int SendVariable(INT16U data);
-	
+
 	int SendDemod(INT16U *demod, INT32U size);
 
 	int SendMatchFilter(INT16U *filter, INT32U size);
-	
+
 	int SendLowFilter(INT16U *filter, INT32U size);
 
 	int SendWallFilter(INT16U *filter, INT32U size);
 
-	int SendLog(INT16U *log, INT32U size); 
+	int SendLog(INT16U *log, INT32U size);
 
 	int SendTissueGate(INT16U data);
 
@@ -33,7 +33,7 @@ class FpgaCfm
 	int SendVarianceGate(INT16U data);
 
 	int SendSampleFactor(INT16U data);
-	
+
 	int SendGainGate(INT16U data);
 
 	int SendSmooth(INT16U data);
@@ -53,19 +53,19 @@ class FpgaCfm
 	int SendColorBands(INT16* colorBands, int size);
 
 	int SendPdiDirMode(bool on);
-	
+
 	int SendMaxPeriod(INT16U maxPeriod);
-	
+
 	int SendClusterSize(INT16U cluster);
-	
+
 
 	private:
 
 	enum
 	{
         //CFM
-        FILTER_ADDR=19, //   
-        FILTER_DATA=20, //   
+        FILTER_ADDR=19, //
+        FILTER_DATA=20, //
         CFM_DEMOD_ADDR=21,
         CFM_DEMOD_DATA=22,
 		CFM_VARIABLE=23,
@@ -81,7 +81,7 @@ class FpgaCfm
 		PROBE_EMIT2 = 39
 	};
 
-	struct FpgaAddrVariableCfm 
+	struct FpgaAddrVariableCfm
 	{
 		 INT32U m_cfmDemodAddr;
 		 INT32U m_cfmLog;
@@ -93,7 +93,7 @@ class FpgaCfm
 	static struct FpgaAddrVariableCfm fpgaCfm;
 	static AbsUltraInterface* m_ptrInterface;
 
-	/** 
+	/**
 	* @param clear_addr: clear addr 0-10
 	* @param cfm_data: data to send
 	*/

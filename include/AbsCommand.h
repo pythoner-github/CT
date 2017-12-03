@@ -3,7 +3,7 @@
 
 class AbsCommand
 {
-	public: 
+	public:
 
 	virtual ~AbsCommand() {}
 

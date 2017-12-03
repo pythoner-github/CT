@@ -34,7 +34,7 @@ class FileMan
 		static bool SortByMTime(const string s1, const string s2);
 		static bool SortByATime(const string s1, const string s2);
 		static bool SortByCTime(const string s1, const string s2);
-	
+
 	private:
 		int copy_dir(const char* source, const char* dest);
 		int delete_dir(const char* absPath);

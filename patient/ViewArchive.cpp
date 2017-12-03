@@ -82,7 +82,7 @@ GtkWidget* ViewArchive::GetWindow(void)
 {
     if (GTK_IS_WIDGET(m_window))
         return m_window;
-    else 
+    else
         return NULL;
 }
 
@@ -96,7 +96,7 @@ void ViewArchive::CreateWindow(void)
 	GtkWidget *imgCalendarStart;
 	GtkWidget *eventboxCalendarStart;
 	GtkWidget *labelName;
-    //hlx 
+    //hlx
 #ifdef VET
     GtkWidget *labelOwnerName;
     GtkWidget *labelSpecies;
@@ -174,9 +174,9 @@ void ViewArchive::CreateWindow(void)
     GtkWidget *btnUdisk;
 
 
-    GtkWidget *label_query_retrieve; 
-    GtkWidget *img_query_retrieve; 
-    GtkWidget *button_query_retrieve; 
+    GtkWidget *label_query_retrieve;
+    GtkWidget *img_query_retrieve;
+    GtkWidget *button_query_retrieve;
 
     GetCurrentDate(m_curYear, m_curMonth, m_curDay);
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
@@ -289,7 +289,7 @@ void ViewArchive::CreateWindow(void)
 	fixedSearch = gtk_fixed_new ();
 	gtk_container_add (GTK_CONTAINER (alignmentSearch), fixedSearch);
     //修改 动物超 档案管理 界面
-    //hlx 
+    //hlx
 #ifdef VET
     labelID = gtk_label_new (_("ID:"));
     gtk_fixed_put (GTK_FIXED (fixedSearch), labelID, 10, 5);
@@ -459,7 +459,7 @@ void ViewArchive::CreateWindow(void)
     gtk_widget_set_size_request (labelDateEnd, 90-12+10, 30);
     gtk_misc_set_alignment (GTK_MISC (labelDateEnd), 0, 0.5);
 
-    SysGeneralSetting *sys_date1 = new SysGeneralSetting;    
+    SysGeneralSetting *sys_date1 = new SysGeneralSetting;
     int date_format = sys_date1->GetDateFormat();
     if(0==date_format)
 
@@ -606,7 +606,7 @@ void ViewArchive::CreateWindow(void)
         GtkWidget *label1 = gtk_label_new (_("M  "));
         gtk_widget_set_size_request (label1, 10+10, 30);
         gtk_fixed_put (GTK_FIXED (fixedSearch), label1, 145-15-12, 75);
-        
+
         m_entryMonthStart = gtk_entry_new ();
         gtk_entry_set_max_length (GTK_ENTRY(m_entryMonthStart), 2);
         gtk_widget_set_size_request (m_entryMonthStart, 30, 30);
@@ -663,9 +663,9 @@ void ViewArchive::CreateWindow(void)
     gtk_widget_set_size_request (eventboxCalendarStart, 40, 30);
     gtk_container_add (GTK_CONTAINER (eventboxCalendarStart), imgCalendarStart);
     gtk_fixed_put (GTK_FIXED (fixedSearch), eventboxCalendarStart, 243+30-12, 77);
-    g_signal_connect (G_OBJECT (eventboxCalendarStart), 
-            "button_press_event", 
-            G_CALLBACK (HandleEventBoxCalendarStartPress), 
+    g_signal_connect (G_OBJECT (eventboxCalendarStart),
+            "button_press_event",
+            G_CALLBACK (HandleEventBoxCalendarStartPress),
             this);
 
     imgCalendarEnd = gtk_image_new_from_file ("./res/icon/Calendar.png");
@@ -673,9 +673,9 @@ void ViewArchive::CreateWindow(void)
     gtk_widget_set_size_request (eventboxCalendarEnd, 40, 30);
     gtk_container_add (GTK_CONTAINER (eventboxCalendarEnd), imgCalendarEnd);
     gtk_fixed_put (GTK_FIXED (fixedSearch), eventboxCalendarEnd, 243+30-12, 112);
-	g_signal_connect (G_OBJECT (eventboxCalendarEnd), 
-			"button_press_event", 
-			G_CALLBACK (HandleEventBoxCalendarEndPress), 
+	g_signal_connect (G_OBJECT (eventboxCalendarEnd),
+			"button_press_event",
+			G_CALLBACK (HandleEventBoxCalendarEndPress),
 			this);
 
 	btnClear = gtk_button_new ();
@@ -746,7 +746,7 @@ void ViewArchive::CreateWindow(void)
 	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Three Days"));
 	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Week"));
 	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Month"));
-	g_signal_connect(G_OBJECT(comboboxQSearch), "changed", G_CALLBACK(HandleComboQSearch), this); 
+	g_signal_connect(G_OBJECT(comboboxQSearch), "changed", G_CALLBACK(HandleComboQSearch), this);
 
 #ifdef EMP_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
@@ -778,19 +778,19 @@ void ViewArchive::CreateWindow(void)
         btnUnselectAll = create_button_icon(labelUnselectAll, imgUnselectAll);
         gtk_fixed_put (GTK_FIXED (fixedWin), btnUnselectAll, 20, 410-30);
         g_signal_connect(G_OBJECT(btnUnselectAll), "clicked", G_CALLBACK(HandleBtnUnselectAllClicked), this);
-		
+
 		DicomSend::GetInstance()->createPopup(_("DICOM Server"),ViewArchive::HandleBtnSendDicomClicked);
-		
+
 	 	DicomSend::GetInstance()->createPopup(_("DICOM Printer"),DicomSendPrinter::HandleDicomSendPrinterClicked);
-		
+
 		labelSend = gtk_label_new_with_mnemonic (_("SendTo DICOM"));
         imgSend = gtk_image_new_from_stock (GTK_STOCK_REVERT_TO_SAVED, GTK_ICON_SIZE_BUTTON);
         btnSend = create_button_icon(labelSend, imgSend);
         gtk_fixed_put (GTK_FIXED (fixedWin), btnSend, 20, (480-40));
         //g_signal_connect(G_OBJECT(btnSend), "clicked", G_CALLBACK(HandleBtnSendClicked), this);
         g_signal_connect(G_OBJECT(btnSend), "event", G_CALLBACK(DicomSend::HandleDicomBtnExportEvent), this);
-        
-#ifndef VET 
+
+#ifndef VET
         label_query_retrieve= gtk_label_new_with_mnemonic (_("Query/Retrieve"));
         img_query_retrieve = gtk_image_new_from_stock (GTK_STOCK_CONVERT, GTK_ICON_SIZE_BUTTON);
         button_query_retrieve= create_button_icon(label_query_retrieve, img_query_retrieve);
@@ -817,7 +817,7 @@ void ViewArchive::CreateWindow(void)
         gtk_fixed_put (GTK_FIXED (fixedWin), btnExit, 20, 760-80);
         g_signal_connect(G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
 
-        //Create udisk 
+        //Create udisk
         m_menu_udisk = gtk_menu_new();
 
         GtkWidget *itemEmp = gtk_menu_item_new_with_label(_("Browse Udisk Image"));
@@ -909,7 +909,7 @@ void ViewArchive::CreateWindow(void)
 
 	gtk_widget_show_all (m_window);
 	gtk_widget_hide_all (m_framePreview);
-	
+
 	g_keyInterface.Push(this);
 	SetSystemCursorToCenter();
 }
@@ -972,16 +972,16 @@ void ViewArchive::DisplaySearchResult(vector<Database::NewPatSearchResult> &Resu
 		cout << "id = " << Result[i].ID << endl;
 		cout << "sex = " << Result[i].gender << endl;
 		cout << "examDate = " << Result[i].examDate << endl;
-		cout << "examType = " << Result[i].examType << endl; 
+		cout << "examType = " << Result[i].examType << endl;
 #else
 		cout << "name =" << Result[i].name << endl;
 		cout << "id = " << Result[i].ID << endl;
 		cout << "sex = " << Result[i].gender << endl;
 		cout << "examDate = " << Result[i].examDate << endl;
-		cout << "examType = " << Result[i].examType << endl; 
+		cout << "examType = " << Result[i].examType << endl;
 #endif
         */
-#ifndef VET 
+#ifndef VET
         int studyNo = atoi(Result[i].examID.c_str());
         bool value = CDCMMan::GetMe()->GetStudyBackupStatus(studyNo);
         string backupStatus = "";
@@ -991,7 +991,7 @@ void ViewArchive::DisplaySearchResult(vector<Database::NewPatSearchResult> &Resu
             backupStatus = " ";
 #endif
 		GtkTreeIter iter;
-		gtk_list_store_append(GTK_LIST_STORE(model), &iter);	
+		gtk_list_store_append(GTK_LIST_STORE(model), &iter);
 
 #ifdef VET
         gtk_list_store_set(GTK_LIST_STORE(model), &iter,
@@ -1031,7 +1031,7 @@ void ViewArchive::GetTimeBefore(int daysBefore, int &year, int &mon, int &day)
 
 	time_t now;
 	time(&now);
-	
+
 	now -= daysBefore*24*60*60;
 
 	struct tm* ct;
@@ -1044,7 +1044,7 @@ void ViewArchive::GetTimeBefore(int daysBefore, int &year, int &mon, int &day)
 
 /*
  * @brief fill diskspace info when diskType and radioButton actived is changed
- * 
+ *
  * @para diskType[in] type of disk which will be statisticed, rang(HARDDISK, FLASH)
  * @para radioButton[in] index of radio button which is selected, range(UNIT_KB, UNIT_MB)
  */
@@ -1090,7 +1090,7 @@ void ViewArchive::FillDiskSpace(void)
 		devide = 1024;
 		totalSize = stat.f_blocks / devide * stat.f_bsize;
 		availSize = stat.f_bavail / devide * stat.f_bsize;
-		
+
 		// display
 		sprintf(buf, "%ld KB\n", totalSize);
 		gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
@@ -1146,9 +1146,9 @@ static gboolean LoadUdiskData(gpointer data)
 	if(!ptr->CheckUsbStorageState())
 	{
 		ViewDialog::GetInstance()->Destroy();
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
 				ViewDialog::ERROR,
-				_("No USB storage is found!"), 
+				_("No USB storage is found!"),
 				NULL);
 		return FALSE;
 	}
@@ -1157,9 +1157,9 @@ static gboolean LoadUdiskData(gpointer data)
 		if(!ptr->MountUsbStorage())
 		{
 			ViewDialog::GetInstance()->Destroy();
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
 					ViewDialog::ERROR,
-					_("Failed to mount USB storage!"), 
+					_("Failed to mount USB storage!"),
 					NULL);
 			return FALSE;
 		}
@@ -1177,13 +1177,13 @@ static gboolean LoadUdiskData(gpointer data)
 	ViewDialog::GetInstance()->Destroy();
 	if(ret < 0)
 	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
 				ViewDialog::INFO,
-				_("Failed to load data from USB storage!"), 
+				_("Failed to load data from USB storage!"),
 				NULL);
 		return FALSE;
 	}
-	
+
 	vector<string> vecPatExamID;
 	vecPatExamID.clear();
 	ViewArchiveImgMan::GetInstance()->CreateWindow(vecPatExamID);
@@ -1198,9 +1198,9 @@ void SelectUdiskData(void)
 
 	if(!ptr->CheckUsbStorageState())
 	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
 				ViewDialog::ERROR,
-				_("No USB storage is found!"), 
+				_("No USB storage is found!"),
 				NULL);
 		return;
 	}
@@ -1208,9 +1208,9 @@ void SelectUdiskData(void)
 	{
 		if(!ptr->MountUsbStorage())
 		{
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
 					ViewDialog::ERROR,
-					_("Failed to mount USB storage!"), 
+					_("Failed to mount USB storage!"),
 					NULL);
 			return;
 		}
@@ -1252,7 +1252,7 @@ void ViewArchive::BtnClearClicked(GtkButton *button)
 	gtk_entry_set_text(GTK_ENTRY(m_entryYearEnd), "");
 	gtk_entry_set_text(GTK_ENTRY(m_entryMonthEnd), "");
 	gtk_entry_set_text(GTK_ENTRY(m_entryDayEnd), "");
-#ifdef VET 
+#ifdef VET
     //clear  Owner,species,Gender
     gtk_entry_set_text(GTK_ENTRY(m_entryOwnerName),"");
     //gtk_entry_set_text(GTK_ENTRY(m_entrySpecies), "");
@@ -1264,10 +1264,10 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
 {
     char buf[40];
 
-    int combQItem = gtk_combo_box_get_active(GTK_COMBO_BOX (comboboxQSearch)); 
+    int combQItem = gtk_combo_box_get_active(GTK_COMBO_BOX (comboboxQSearch));
     if (combQItem != -1)
         gtk_combo_box_set_active(GTK_COMBO_BOX (comboboxQSearch),-1); //设置"快速搜索"方式为null
-    
+
 	// get search conditions
 	Database::NewPatSearchTerm searchInfo;
 	GetEntryTextForDB(m_entryID, searchInfo.id);
@@ -1282,7 +1282,7 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
         sprintf(buf, "%%");
     else
         sprintf(buf, "%d", species);
-    searchInfo.species = buf;	
+    searchInfo.species = buf;
 #else
 	string pat_name;
 	GetEntryTextForDB(m_entryName, pat_name);
@@ -1304,7 +1304,7 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
 	else
 		sprintf(buf, "%d", gender);
 	searchInfo.gender = buf;
-	
+
 	GetEntryTextForDB(m_entryAge, searchInfo.age);
         if (searchInfo.age != "%") {
             int ageUnit = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxAgeUnit));
@@ -1313,7 +1313,7 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
             sprintf(buf, "%%");
         }
 	searchInfo.ageUnit = buf;
-	
+
 	// examDateBegin
 	string year, mon, day;
 	GetEntryTextForDB(m_entryYearStart, year);
@@ -1338,10 +1338,10 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
     if (strcmp(year.c_str(), "%") == 0) // if value is not set
         year = cYear;
     GetEntryTextForDB(m_entryMonthEnd, mon);
-    if (strcmp(mon.c_str(), "%") == 0) 
+    if (strcmp(mon.c_str(), "%") == 0)
         mon = cMon;
     GetEntryTextForDB(m_entryDayEnd, day);
-    if (strcmp(day.c_str(), "%") == 0) 
+    if (strcmp(day.c_str(), "%") == 0)
         day = cDay;
     searchInfo.examDateEndYear= year;
     searchInfo.examDateEndMonth = mon;
@@ -1352,7 +1352,7 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
     Database db;
     db.ArchiveSearch(searchInfo, dbResult);
 
-    // display 
+    // display
     DisplaySearchResult(dbResult);
 }
 
@@ -1381,7 +1381,7 @@ vector<string> ViewArchive::GetSelExamID(void)
             //for (int ii = 0; ii <strlen(temp); ii++)
             // printf("select the ID is %c\n",temp[ii]);
 			free(temp);
-			
+
 			vec.push_back(examID);
 		}
 		exist = gtk_tree_model_iter_next(model, &iter);
@@ -1394,7 +1394,7 @@ vector<string> ViewArchive::GetSelExamID(void)
 void ViewArchive::BtnDisplayClicked(GtkButton *button)
 {
 	vector<string> vecPatExamID = GetSelExamID();
-	
+
 	// display image management dialog
 	if (vecPatExamID.size() == 0)
 	{
@@ -1461,7 +1461,7 @@ int SureToDelete(gpointer data)
             if(CDCMMan::GetMe()->DeleteStudy(studyID))
             {
                 PRINTF("------DeleteStudy successfully\n");
-            }	
+            }
 
 			free(sid);
 		}
@@ -1476,8 +1476,8 @@ int SureToDelete(gpointer data)
 
 	return 0;
 }
-	
-/* 
+
+/*
  * @brief seek out the selected item, then delete it according examID
  */
 void ViewArchive::BtnDeleteClicked(GtkButton *button)
@@ -1642,7 +1642,7 @@ void ViewArchive::BtnSendClicked()
            // ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), _("Sending..."));
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
                 ViewDialog::PRG_CANCEL,
-                _("Sending..."), 
+                _("Sending..."),
                 CancelCopyToFlash);
 
         g_timeout_add(500, SendToDicom, this);
@@ -1652,7 +1652,7 @@ void ViewArchive::BtnSendClicked()
 int ViewArchive::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 {
 	if (event->type == GDK_BUTTON_PRESS) {
-		GdkEventButton *bevent = (GdkEventButton *) event; 
+		GdkEventButton *bevent = (GdkEventButton *) event;
 		gtk_menu_popup (GTK_MENU (m_menu), NULL, NULL, NULL, NULL,
 				bevent->button, bevent->time);
 		return TRUE;
@@ -1663,7 +1663,7 @@ int ViewArchive::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 int ViewArchive::BtnImportEvent(GtkWidget *widget, GdkEvent *event)
 {
 	if (event->type == GDK_BUTTON_PRESS) {
-		GdkEventButton *bevent = (GdkEventButton *) event; 
+		GdkEventButton *bevent = (GdkEventButton *) event;
 		gtk_menu_popup (GTK_MENU (m_menu_udisk), NULL, NULL, NULL, NULL,
 				bevent->button, bevent->time);
 		return TRUE;
@@ -1698,9 +1698,9 @@ void ViewArchive::SetStartDate(int year, int month, int day)
         m_iEnd = icurrent;
     if ((m_iStart > m_iEnd) || (m_iStart > icurrent))
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("The time input is not correct!"), 
+                _("The time input is not correct!"),
                 NULL);
         m_iStart = 0;
         return;
@@ -1741,7 +1741,7 @@ void ViewArchive::SetStartDate(int year, int month, int day)
 
 void ViewArchive::SetEndDate(int year, int month, int day)
 {
-	guint i; 
+	guint i;
     int pos, iCurrent;
     char tmp[10];
     char str[2];
@@ -1753,13 +1753,13 @@ void ViewArchive::SetEndDate(int year, int month, int day)
     m_iEnd = year * 10000 + month * 100 + day * 1;
     if (( m_iStart > m_iEnd) || (m_iEnd > iCurrent))
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("The time input is not correct!"), 
+                _("The time input is not correct!"),
                 NULL);
         m_iEnd = 0;
     }
-    else 
+    else
     {
         pos = 0;
         gtk_entry_set_text(GTK_ENTRY(m_entryYearEnd), "");
@@ -1995,7 +1995,7 @@ GtkWidget* ViewArchive::create_record_treeview()
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
-    
+
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
 	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
@@ -2082,7 +2082,7 @@ GtkWidget* ViewArchive::create_record_treeview()
     model = create_record_model();
     if (model != NULL)
 		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
-    g_object_unref (model); 
+    g_object_unref (model);
 
 	GtkTreeSelection *select;
     select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
@@ -2099,28 +2099,28 @@ GtkTreeModel* ViewArchive::create_record_model()
 #ifdef VET
     store = gtk_list_store_new(NUM_COLS,
             G_TYPE_BOOLEAN,
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
-            G_TYPE_STRING, 
             G_TYPE_STRING,
             G_TYPE_STRING,
-	         G_TYPE_STRING, 
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+	         G_TYPE_STRING,
             G_TYPE_STRING);
 #else
-    store = gtk_list_store_new(NUM_COLS, 
-			G_TYPE_BOOLEAN, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
-			G_TYPE_STRING, 
+    store = gtk_list_store_new(NUM_COLS,
+			G_TYPE_BOOLEAN,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
+			G_TYPE_STRING,
 			G_TYPE_STRING);
 #endif
 #if 0
@@ -2242,9 +2242,9 @@ void ViewArchive::MenuItemFlashActivate(GtkMenuItem *menuitem)
 
     if(vec.empty())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No record is selected!"), 
+                _("No record is selected!"),
                 NULL);
         return;
     }
@@ -2258,7 +2258,7 @@ void ViewArchive::MenuItemCDActivate(GtkMenuItem *menuitem)
     vector<string> vec;
     gboolean valid;
     gboolean value;
-    gchar *sid; 
+    gchar *sid;
     gchar *name;
     gchar *id;
     GtkTreeIter iter;
@@ -2292,9 +2292,9 @@ void ViewArchive::MenuItemCDActivate(GtkMenuItem *menuitem)
 
     if(vec.empty())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("Please select the list you want to export the data!"), 
+                _("Please select the list you want to export the data!"),
                 NULL);
         return;
     }
@@ -2313,9 +2313,9 @@ void ViewArchive::MenuItemDicomActivate(GtkMenuItem *menuitem)
    PeripheralMan *ptr = PeripheralMan::GetInstance();
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return;
     }
@@ -2323,9 +2323,9 @@ void ViewArchive::MenuItemDicomActivate(GtkMenuItem *menuitem)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return;
         }
@@ -2386,7 +2386,7 @@ void ViewArchive::GetSelToDicom()
         if(value)
         {
             vec.clear();
-            gtk_tree_model_get(model, &iter, 
+            gtk_tree_model_get(model, &iter,
                     COL_NAME, &name,
                     COL_ID, &id,
                     COL_EXAMTYPE, &part,
@@ -2468,9 +2468,9 @@ void ViewArchive::GetSelToDicom()
     ViewDialog::GetInstance()->Destroy();
     char info[256];
     sprintf(info, "%s\n%s %d\n%s %d", _("Sending finished!"), _("Success:"), count_success,  _("Fail:"), count_failed);
-    
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             info,
             NULL);
 
@@ -2500,7 +2500,7 @@ void ViewArchive::GetSelToDicom()
         if(value)
         {
             vec.clear();
-            gtk_tree_model_get(model, &iter, 
+            gtk_tree_model_get(model, &iter,
                     COL_NAME, &name,
                     COL_ID, &id,
                     COL_EXAMTYPE, &part,
@@ -2529,7 +2529,7 @@ void ViewArchive::GetSelToDicom()
             dcmData.SetName(name);
             dcmData.SetID(id);
 
-            ChangeDateFormatToString(info.p.birthDate.year, info.p.birthDate.month, info.p.birthDate.day, year, mon, day); 
+            ChangeDateFormatToString(info.p.birthDate.year, info.p.birthDate.month, info.p.birthDate.day, year, mon, day);
             date = year+mon+day;
             dcmData.SetBirthDate(date);	//YMD 19990807
 
@@ -2560,16 +2560,16 @@ void ViewArchive::GetSelToDicom()
             else
                 dcmData.SetSex("O");	//F/M/O
 
-            ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day); 
+            ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day);
             date = year + mon + day;
             dcmData.SetStudyDate(date);
 
             string hour, min, sec, time;
-            ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec); 
+            ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec);
             time = hour + min + sec;
             dcmData.SetStudyTime(time);		//HMS
 
-    
+
   			   dcmData.SetStudyDr(info.e.examDoctor); // to be continu
 
             dcmData.SetSID(sid);
@@ -2579,7 +2579,7 @@ void ViewArchive::GetSelToDicom()
 			if (strcmp(part, _("Abdomen")) == 0 || strcmp(part, _("Adult Abdomen")) == 0 || strcmp(part, _("Adult Liver")) == 0 || strcmp(part, _("Kid Abdomen")) == 0 || strcmp(part, _("Kidney Ureter")) == 0
 					 || strcmp(part, _("Bladder Prostate")) == 0 || strcmp(part, _("Abdo-adult")) == 0 || strcmp(part, _("Abdo-liver")) == 0 || strcmp(part, _("Abdo-kid")) == 0)
 				partTemp = "ABDOMEN";
-			else if (strcmp(part, _("Cardiac")) == 0 || strcmp(part, _("Adult Cardio")) == 0 || strcmp(part, _("Kid Cardio")) == 0 || strcmp(part, _("Fetus Cardio")) == 0 || strcmp(part, _("Car-adult")) == 0 || strcmp(part, _("Car-kid")) == 0 || strcmp(part, _("Car-fetus")) == 0) 
+			else if (strcmp(part, _("Cardiac")) == 0 || strcmp(part, _("Adult Cardio")) == 0 || strcmp(part, _("Kid Cardio")) == 0 || strcmp(part, _("Fetus Cardio")) == 0 || strcmp(part, _("Car-adult")) == 0 || strcmp(part, _("Car-kid")) == 0 || strcmp(part, _("Car-fetus")) == 0)
 				partTemp = "HEART";
 			else if (strcmp(part, _("Hip Joint")) == 0 || strcmp(part, _("Hip-joint")) == 0)
 				partTemp = "HIP";
@@ -2587,7 +2587,7 @@ void ViewArchive::GetSelToDicom()
 				partTemp = "BREAST";
 			else
 				partTemp = "";
-            dcmData.SetPart(partTemp);	
+            dcmData.SetPart(partTemp);
 
 
             string hospital;
@@ -2637,8 +2637,8 @@ void ViewArchive::GetSelToDicom()
     char info[256];
     sprintf(info, "%s\n%s %d\n%s %d", _("Sending finished!"), _("Success:"), count_success,  _("Fail:"), count_failed);
     //	ViewDialog::GetInstance()->Destroy();
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             info,
             NULL);
 #endif*/
@@ -2655,11 +2655,11 @@ static void progress_callback(goffset current, goffset total, gpointer data)
     //	PRINTF("prac = %f\n", prac);
     if(prac >= 0 && prac <= 1.0)
     {
-        gdk_threads_enter();	
+        gdk_threads_enter();
         ViewDialog::GetInstance()->SetProgressBar(prac);
         while(gtk_events_pending())
             gtk_main_iteration();
-        gdk_threads_leave();	
+        gdk_threads_leave();
     }
     else
         PRINTF("fraction out of range!\n");
@@ -2677,9 +2677,9 @@ static gboolean SendToFlash(gpointer data)
 
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return FALSE;
     }
@@ -2687,9 +2687,9 @@ static gboolean SendToFlash(gpointer data)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return FALSE;
         }
@@ -2803,7 +2803,7 @@ static gboolean SendToFlash(gpointer data)
         gchar *array = NULL;
         gchar *basePath = g_path_get_basename(UDISK_DATA_PATH);
         vector<string>::iterator Sid = vecSid.begin();
-        while (Sid < vecSid.end()) 
+        while (Sid < vecSid.end())
         {
             gchar *path = g_build_path("/", basePath, (*Sid).c_str(), NULL);
             if(!array)
@@ -2823,9 +2823,9 @@ static gboolean SendToFlash(gpointer data)
         g_free(basePath);
         //	g_free(storePath);
     }
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
-            result, 
+            result,
             NULL);
 
     return FALSE;
@@ -2870,18 +2870,18 @@ void ViewArchive::GetSelToFlash()
 
     if(m_vecFlashSid.empty())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("Please select the wanted data from the list  to be exported!"), 
+                _("Please select the wanted data from the list  to be exported!"),
                 NULL);
         return;
     }
 
     g_timeout_add(1000, SendToFlash, this);
 
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::PRG_CANCEL,
-            _("Please wait..."), 
+            _("Please wait..."),
             CancelCopyToFlash);
 }
 #endif
@@ -2898,9 +2898,9 @@ static gboolean ExportToFlashNew(gpointer data)
 
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return FALSE;
     }
@@ -2908,9 +2908,9 @@ static gboolean ExportToFlashNew(gpointer data)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return FALSE;
         }
@@ -2923,7 +2923,7 @@ static gboolean ExportToFlashNew(gpointer data)
     vector<string> path = ViewCD::GetInstance()->GetSelPath();
 
     ///>目标目录和目标文件路径
-    vector<string>::iterator it;	
+    vector<string>::iterator it;
     for(it=folder.begin(); it<folder.end(); it++)
     {
         gchar *basename = g_path_get_basename((*it).c_str());
@@ -2973,7 +2973,7 @@ static gboolean ExportToFlashNew(gpointer data)
     ///>/mnt/udisk/目录下建立目标目录
     FileMan fm;
     vector<string>::iterator iteSid = vecSid.begin();
-    while (iteSid < vecSid.end() && !cond) 
+    while (iteSid < vecSid.end() && !cond)
     {
         gchar *path = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, (*iteSid).c_str(), NULL);
         GFile *dir = g_file_new_for_path(path);
@@ -3069,7 +3069,7 @@ static gboolean ExportToFlashNew(gpointer data)
         gchar *array = NULL;
         gchar *basepath = g_path_get_basename(UDISK_DATA_PATH);
         vector<string>::iterator sid = vecSid.begin();
-        while (sid < vecSid.end()) 
+        while (sid < vecSid.end())
         {
             gchar *path = g_build_path("/", basepath, (*sid).c_str(), NULL);
             if(!array)
@@ -3088,11 +3088,11 @@ static gboolean ExportToFlashNew(gpointer data)
         sprintf(result, "%s %s", _("Success to export to USB storage.\nPath: "), array);
         g_free(basepath);
     }
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
-            result, 
+            result,
             NULL);
-   
+
     return false;
 }
 
@@ -3107,9 +3107,9 @@ static gboolean ExportToFlash(gpointer data)
 
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return FALSE;
     }
@@ -3117,16 +3117,16 @@ static gboolean ExportToFlash(gpointer data)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return FALSE;
         }
     }
     vector<string> folder = ViewCD::GetInstance()->GetSelFolderSrc();
     vector<string> path = ViewCD::GetInstance()->GetSelPathSrc();
-    vector<string>::iterator it;	
+    vector<string>::iterator it;
     for(it=folder.begin(); it<folder.end(); it++)
     {
         gchar *basename = g_path_get_basename((*it).c_str());
@@ -3153,7 +3153,7 @@ static gboolean ExportToFlash(gpointer data)
     FileMan fm;
     //vecSid.sort(vecSid.begin(), vecSid.end());
     vector<string>::iterator iteSid = vecSid.begin();
-    while (iteSid < vecSid.end() && !cond) 
+    while (iteSid < vecSid.end() && !cond)
     {
         gchar *path = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, (*iteSid).c_str(), NULL);
         GFile *dir = g_file_new_for_path(path);
@@ -3247,7 +3247,7 @@ static gboolean ExportToFlash(gpointer data)
         gchar *array = NULL;
         gchar *basepath = g_path_get_basename(UDISK_DATA_PATH);
         vector<string>::iterator sid = vecSid.begin();
-        while (sid < vecSid.end()) 
+        while (sid < vecSid.end())
         {
             gchar *path = g_build_path("/", basepath, (*sid).c_str(), NULL);
             if(!array)
@@ -3267,11 +3267,11 @@ static gboolean ExportToFlash(gpointer data)
         g_free(basepath);
         //	g_free(storepath);
     }
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
-            result, 
+            result,
             NULL);
-   
+
     return false;
 }
 
@@ -3281,7 +3281,7 @@ void ViewArchive::StartUsbExport(GtkWidget *parent)
     g_timeout_add(1000, ExportToFlashNew, this);
     ViewDialog::GetInstance()->Create(GTK_WINDOW(parent),
             ViewDialog::PRG_CANCEL,
-            _("Please wait..."), 
+            _("Please wait..."),
             CancelCopyToFlash);
 }
 
@@ -3293,7 +3293,7 @@ string ViewArchive::GetExamType()
     if (strcmp(part.c_str(), _("Abdomen")) == 0 || strcmp(part.c_str(), _("Adult Abdomen")) == 0 || strcmp(part.c_str(), _("Adult Liver")) == 0 || strcmp(part.c_str(), _("Kid Abdomen")) == 0 || strcmp(part.c_str(), _("Kidney Ureter")) == 0
             || strcmp(part.c_str(), _("Bladder Prostate")) == 0 || strcmp(part.c_str(), _("Abdo-adult")) == 0 || strcmp(part.c_str(), _("Abdo-liver")) == 0 || strcmp(part.c_str(), _("Abdo-kid")) == 0)
 				partTemp = "ABDOMEN";
-			else if (strcmp(part.c_str(), _("Cardiac")) == 0 || strcmp(part.c_str(), _("Adult Cardio")) == 0 || strcmp(part.c_str(), _("Kid Cardio")) == 0 || strcmp(part.c_str(), _("Fetus Cardio")) == 0 || strcmp(part.c_str(), _("Car-adult")) == 0 || strcmp(part.c_str(), _("Car-kid")) == 0 || strcmp(part.c_str(), _("Car-fetus")) == 0) 
+			else if (strcmp(part.c_str(), _("Cardiac")) == 0 || strcmp(part.c_str(), _("Adult Cardio")) == 0 || strcmp(part.c_str(), _("Kid Cardio")) == 0 || strcmp(part.c_str(), _("Fetus Cardio")) == 0 || strcmp(part.c_str(), _("Car-adult")) == 0 || strcmp(part.c_str(), _("Car-kid")) == 0 || strcmp(part.c_str(), _("Car-fetus")) == 0)
 				partTemp = "HEART";
 			else if (strcmp(part.c_str(), _("Hip Joint")) == 0 || strcmp(part.c_str(), _("Hip-joint")) == 0)
 				partTemp = "HIP";
@@ -3336,11 +3336,11 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
     GtkWidget *label_ok;
     GtkWidget *image_ok;
     GtkWidget *btnOk;
-    
+
     GtkWidget *label_cancel;
     GtkWidget *image_cancel;
     GtkWidget *btnCancel;
-   
+
     window_type = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_widget_set_size_request (window_type, 400-20, 280-40);
     gtk_window_set_title (GTK_WINDOW (window_type), _("Export Setting"));
@@ -3380,7 +3380,7 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
         radiobutton_data_type_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobutton_dicom));
         g_signal_connect((gpointer)m_radiobutton_dicom, "toggled", G_CALLBACK (on_dicom_radio_button_toggled), this);
     }
- 
+
     m_radiobutton_emp = gtk_radio_button_new_with_mnemonic (NULL, _("JPEG/BMP/EMP/AVI/CINE"));
     gtk_widget_show (m_radiobutton_emp);
     gtk_box_pack_start (GTK_BOX (vbox_type), m_radiobutton_emp, FALSE, FALSE, 5);
@@ -3393,7 +3393,7 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
 	btnOk = create_button_icon(label_ok, image_ok);
 	gtk_fixed_put (GTK_FIXED (fixed1), btnOk, 40, 180 - 40);
 	g_signal_connect(G_OBJECT(btnOk), "clicked", G_CALLBACK(HandleBtnOkClicked), this);
-    
+
     label_cancel = gtk_label_new_with_mnemonic (_("Cancel"));
     image_cancel = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
 	btnCancel = create_button_icon(label_cancel, image_cancel);
@@ -3401,9 +3401,9 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
 	g_signal_connect(G_OBJECT(btnCancel), "clicked", G_CALLBACK(HandleBtnCancelClicked), this);
 
     gtk_widget_show_all(window_type);
-    
+
     m_window = window_type;
-    g_signal_connect(G_OBJECT(m_window), "delete-event", G_CALLBACK(on_window_delete_event), this); 
+    g_signal_connect(G_OBJECT(m_window), "delete-event", G_CALLBACK(on_window_delete_event), this);
     g_keyInterface.Push(this);
     SetSystemCursorToCenter();
 
@@ -3435,9 +3435,9 @@ void CustomType::ExportStudy(void)
 
     if(!ptr->CheckUsbStorageState())
     {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                 ViewDialog::ERROR,
-                _("No USB storage found!"), 
+                _("No USB storage found!"),
                 NULL);
         return ;
     }
@@ -3445,9 +3445,9 @@ void CustomType::ExportStudy(void)
     {
         if(!ptr->MountUsbStorage())
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::ERROR,
-                    _("Failed to mount USB storage!"), 
+                    _("Failed to mount USB storage!"),
                     NULL);
             return ;
         }
@@ -3471,43 +3471,43 @@ void CustomType::ExportStudy(void)
         //EDCMReturnStatus status = CDCMMan::GetMe()->ExportStudy(studyNo,strSrcDir,destDirStorageMedia,NULL);
         if(status == DCMSUCCESS)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Export data successfully!"),
                     NULL);
         }
         else if(status == DCMSTUDYEXISTED)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Study Info has existed!"),
                     NULL);
         }
         else if (status == DCMINVALIDSTORAGEDEVICE)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Invalid storage device!"),
                     NULL);
         }
         else if (status == DCMEXPORTFAILURE)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Export data failure!"),
                     NULL);
         }
         else if(status == DCMNOENOUGHSPACE)
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("No enough space!"),
                     NULL);
         }
         else
         {
-            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                    ViewDialog::INFO, 
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::INFO,
                     _("Export data failure!"),
                     NULL);
         }
@@ -3528,7 +3528,7 @@ void CustomType::ExportStudy(void)
             if(status == DCMSUCCESS)
             {
                 count_success++;
-                
+
             }
             else
             {
@@ -3538,8 +3538,8 @@ void CustomType::ExportStudy(void)
         char info[256];
         sprintf(info, "%s\n%s %d\n%s %d", _("Exporting finished!"), _("Success:"), count_success,  _("Fail:"), count_failed);
 
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), 
-                ViewDialog::INFO, 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
                 info,
                 NULL);
     }
@@ -3583,7 +3583,7 @@ void CustomType::BtnOkClicked(GtkButton *button)
             g_timeout_add(100, ExportStudyForDicom, this);
             ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
                     ViewDialog::PROGRESS,
-                    _("Please wait..."), 
+                    _("Please wait..."),
                     NULL);
         }
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_emp)))
@@ -3713,7 +3713,7 @@ void ViewArchive::TreeSelectionChanged(GtkTreeSelection *selection)
 
 void ViewArchive::ClearPreview()
 {
-	int i, total; 
+	int i, total;
 	m_vecImage.clear();
 	total = m_vecItem.size();
 	for(i=0; i<total; i++)
@@ -3762,7 +3762,7 @@ bool ViewArchive::Sort(const string s1, const string s2)
 	int len;
 	char str1[255], str2[255];
 
-	len = strlen(s1.c_str()); 
+	len = strlen(s1.c_str());
 	for(i=0; i<len; i++)
 	{
 		if(s1.c_str()[i]=='.')
@@ -3771,7 +3771,7 @@ bool ViewArchive::Sort(const string s1, const string s2)
 	strncpy(str1, s1.c_str(), i);
 	str1[i] = '\0';
 
-	len = strlen(s2.c_str()); 
+	len = strlen(s2.c_str());
 	for(i=0; i<len; i++)
 	{
 		if(s2.c_str()[i]=='.')
@@ -3802,7 +3802,7 @@ GtkWidget* ViewArchive::CreateImageItem(int sid, int id)
 			PRINTF("%s: ReadVideoInfo Error!\n", __FUNCTION__);
 			return NULL;
 		}
-		GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB, 
+		GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB,
 				false, 8, video_item.width, video_item.height, video_item.width*3, NULL, NULL);
 		pixbuf = gdk_pixbuf_scale_simple(pb, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
 		GdkPixmap *pixmap = gdk_pixmap_new(NULL, SNAP_W, SNAP_H, 24);
@@ -3862,4 +3862,3 @@ void ViewArchive::BtnPreviewClicked(GtkButton *button)
 
 	ViewArchiveImgMan::GetInstance()->CreateWindow(vec, filename);
 }
-

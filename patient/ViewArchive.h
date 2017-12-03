@@ -100,7 +100,7 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
 		void TreeSelectionChanged(GtkTreeSelection *selection);
 		vector<string> GetSelExamID(void);
         int GetSelNum(void) {return m_selNum;}
-		
+
 		virtual void SetStartDate(int year, int month, int day);
         virtual void SetEndDate(int year, int month, int day);
         string GetExamType();
@@ -164,13 +164,13 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
         GtkWidget *m_radiobtnGb;
 
         GtkWidget *comboboxQSearch;
-       
+
         CustomType m_custom_win;
 		vector<string> vec;
         int m_selNum ;
         //	GtkWidget *m_comboboxSource;
 
-        
+
 		GtkWidget *m_framePreview;
 		GtkWidget *m_viewportPreview;
 		GtkWidget *m_tablePreview;
@@ -191,7 +191,7 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
 		void KeyEvent(unsigned char keyValue);
 		void DisplaySearchResult(vector<Database::NewPatSearchResult> &Result);
 		void GetTimeBefore(int daysBefore, int &year, int &mon, int &day);
-		void FillDiskSpace(void); 
+		void FillDiskSpace(void);
 
         void SetProgressBar(double fraction);
 		// signal handle
@@ -219,19 +219,19 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
         void BirthDateEndMonthInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
         void BirthDateEndDayInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
         void EntryOnlyNumInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
-    
+
         void MenuItemFlashActivate(GtkMenuItem *menuitem);
         void MenuItemCDActivate(GtkMenuItem *menuitem);
-        
+
         void MenuItemEmpActivate(GtkMenuItem *menuitem);
         void MenuItemDicomActivate(GtkMenuItem *menuitem);
 
-		void BtnComboboxQSearch(GtkComboBox *combobox);      
+		void BtnComboboxQSearch(GtkComboBox *combobox);
 	//	void BtnComboboxSource(GtkComboBox *combobox);
 	//	void BtnToggleKb(GtkToggleButton *toggleButton);
 	//	void BtnToggleMb(GtkToggleButton *toggleButton);
 	//	void BtnToggleGb(GtkToggleButton *toggleButton);
-		
+
 
 		// signal connect
 		static void HandleEventBoxCalendarStartPress(GtkWidget *widget, GdkEventButton *event, ViewArchive *data) { data->EventBoxCalendarStartPress(widget, event); }
@@ -245,13 +245,13 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
 		static void HandleBtnUnselectAllClicked(GtkButton *button, ViewArchive *data) { data->BtnUnselectAllClicked(button); }
 		static void HandleBtnSendClicked(GtkButton *button, ViewArchive *data) { data->BtnSendClicked(); }
 		static void HandleBtnSendDicomClicked(GtkMenuItem *menuitem, gpointer *data) {  ViewArchive::GetInstance()->BtnSendClicked(); }
-		
+
 
 
 		static int HandleBtnExportEvent(GtkWidget *widget, GdkEvent *event, ViewArchive *data) { return data->BtnExportEvent(widget, event); }
 		static int HandleBtnUdiskEvent(GtkWidget *widget, GdkEvent *event, ViewArchive *data) { return data->BtnImportEvent(widget, event); }
 		static void HandleBtnExitClicked(GtkButton *button, ViewArchive *data) { data->BtnExitClicked(button); }
-		static void HandleToggleRecord(GtkCellRendererToggle *cell, gchar *path_str, ViewArchive *data) { data->ToggleRecord(cell, path_str); 
+		static void HandleToggleRecord(GtkCellRendererToggle *cell, gchar *path_str, ViewArchive *data) { data->ToggleRecord(cell, path_str);
         }
 		static void HandleTreeSelectionChanged(GtkTreeSelection *selection, ViewArchive *data) { data->TreeSelectionChanged(selection); }
 		static void HandleBtnPreviewClicked(GtkButton *button, ViewArchive *data) { data->BtnPreviewClicked(button); }
@@ -270,24 +270,24 @@ class ViewArchive:public FakeXEvent, public AbsCalendarOpr
         static void on_entry_birth_date_end_day(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewArchive *data)
         { data->BirthDateEndDayInsert(editable, new_text, new_text_length, position); }
 
-        static void HandleEntryOnlyNumInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewArchive *data) 
+        static void HandleEntryOnlyNumInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewArchive *data)
         { data->EntryOnlyNumInsert(editable, new_text, new_text_length, position); }
-         static void HandleMenuItemFlashActivate(GtkMenuItem *menuitem, ViewArchive *data) 
+         static void HandleMenuItemFlashActivate(GtkMenuItem *menuitem, ViewArchive *data)
 		{ data->MenuItemFlashActivate(menuitem); }
-		static void HandleMenuItemCDActivate(GtkMenuItem *menuitem, ViewArchive *data) 
+		static void HandleMenuItemCDActivate(GtkMenuItem *menuitem, ViewArchive *data)
 		{ data->MenuItemCDActivate(menuitem); }
-static void HandleMenuItemEmpActivate(GtkMenuItem *menuitem, ViewArchive *data) 
+static void HandleMenuItemEmpActivate(GtkMenuItem *menuitem, ViewArchive *data)
 		{ data->MenuItemEmpActivate(menuitem); }
-		static void HandleMenuItemDicomActivate(GtkMenuItem *menuitem, ViewArchive *data) 
+		static void HandleMenuItemDicomActivate(GtkMenuItem *menuitem, ViewArchive *data)
 		{ data->MenuItemDicomActivate(menuitem); }
-		static void HandleComboQSearch(GtkComboBox *combobox, ViewArchive *data) 
+		static void HandleComboQSearch(GtkComboBox *combobox, ViewArchive *data)
         { data->BtnComboboxQSearch(combobox); }
-	//	static void HandleComboSource(GtkComboBox *combobox, ViewArchive *data) 
+	//	static void HandleComboSource(GtkComboBox *combobox, ViewArchive *data)
 	//	{ data->BtnComboboxSource(combobox); }
 		static void HandleBtnToggleKb(GtkToggleButton *toggleButton, ViewArchive *data) { data->FillDiskSpace(); }
 		static void HandleBtnToggleMb(GtkToggleButton *toggleButton, ViewArchive *data) { data->FillDiskSpace(); }
 		static void HandleBtnToggleGb(GtkToggleButton *toggleButton, ViewArchive *data) { data->FillDiskSpace(); }
-#ifndef VET 
+#ifndef VET
         static void HandleBtnQueryRetrieveClicked(GtkButton *button, ViewArchive *data) { data->BtnQueryRetrieveClicked(button); }
 #endif
         static void PROGRESSSTATUS(int nPos);

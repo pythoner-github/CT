@@ -29,8 +29,8 @@ ViewCalcDialog::ViewCalcDialog(void)
 
 ViewCalcDialog::~ViewCalcDialog(void)
 {
-    if (m_ptrInstance != NULL) 
-	delete m_ptrInstance; 
+    if (m_ptrInstance != NULL)
+	delete m_ptrInstance;
 }
 
 void ViewCalcDialog::Create(ECalcDialogType type)
@@ -141,7 +141,7 @@ void ViewCalcDialog::Create(ECalcDialogType type)
 	gtk_widget_show (m_entry_manual_input);
 	if (type == CAV)
 		gtk_fixed_put (GTK_FIXED (fixed), m_entry_manual_input, 175, 100);
-	else 
+	else
 		gtk_fixed_put (GTK_FIXED (fixed), m_entry_manual_input, 175, 130);
 	gtk_widget_set_size_request (m_entry_manual_input, 100, 30);
 	g_signal_connect(G_OBJECT(m_entry_manual_input), "insert_text", G_CALLBACK(on_entry_manual_input), this);

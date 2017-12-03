@@ -12,14 +12,14 @@ class DicomLocalSetting
 
         static DicomLocalSetting* GetInstance();
         GtkWidget* CreateDicomWindow(GtkWidget *parent);
-        
+
         void init_local_setting(void);
     private:
         DicomLocalSetting();
         ~DicomLocalSetting();
 
         static DicomLocalSetting* m_ptrInstance;
-        
+
         //Local
         GtkWidget *m_entry_network_ip;
         GtkWidget *m_entry_network_mask;
@@ -37,7 +37,7 @@ class DicomLocalSetting
             if (data)
                 data->ButtonSettingClicked(button);
         }
-        
+
         static gboolean HandleKeyFilter(GtkWidget *entry, GdkEventKey *event, gpointer data)
         {
             ((DicomLocalSetting *)data)->KeyFilter(entry, event);

@@ -33,13 +33,13 @@ class KeyValueOpr
 		int Size();
 		AbsKeyboardEvent * GetElement( int n );
 		void SendKeyValue( unsigned char *keyValue );
-		void SetMouseSpeed( int s); 
+		void SetMouseSpeed( int s);
 		int GetMouseSpeed(void);
 		bool IsLighten(unsigned char lightValue);
 		void ListLighten(); //for debug
 	private:
 		int m_mouseSpeed;
-		vector<AbsKeyboardEvent *> WinOprStack; 
+		vector<AbsKeyboardEvent *> WinOprStack;
 		void SendLightValue( unsigned char light_value );
 
 		vector<unsigned char> m_vecLighten;
@@ -62,4 +62,3 @@ void KeyboardRequestTGC(void);
 void KeyboardSound(bool value);
 
 #endif //__OPERATOR_H_
-

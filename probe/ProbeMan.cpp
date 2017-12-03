@@ -68,7 +68,7 @@ ProbeMan::ProbeMan()
 	para.model[2] = 'C';
 	para.model[3] = '5';
 	para.model[4] = '0';
-	para.model[5] = 'J'; 
+	para.model[5] = 'J';
 #elif defined(EMP_430)
 	para.model[0] = '3';
 	para.model[1] = '5';
@@ -94,15 +94,15 @@ ProbeMan::ProbeMan()
 	para.model[6] = 0;
 	para.type = 'C';
 #if defined (EMP_430)
- 	para.width = 6000; 
-    para.array = 80;    
-    para.lines = 160;   
-    para.r = 60; 
+ 	para.width = 6000;
+    para.array = 80;
+    para.lines = 160;
+    para.r = 60;
 #else
     para.width = 7200;
     para.array = 128;
     para.lines = 256;
-    para.r = 50;    
+    para.r = 50;
 #endif
     para.widthPhase = 0;
     para.depth = 300;
@@ -123,32 +123,32 @@ ProbeMan::ProbeMan()
     para.exist = TRUE;
 
     ///> init all sockets
-    ProbeSocket socket0(SOCKET_ADDR[0], CMD_READ_PARA[0]);	
+    ProbeSocket socket0(SOCKET_ADDR[0], CMD_READ_PARA[0]);
     //socket0.SetProbePara(para);
     m_vecSockets.push_back(socket0);
 
     if (MAX_SOCKET > 1)
     {
-        ProbeSocket socket1(SOCKET_ADDR[1], CMD_READ_PARA[1]);	
+        ProbeSocket socket1(SOCKET_ADDR[1], CMD_READ_PARA[1]);
         //socket1.SetProbePara(para);
         m_vecSockets.push_back(socket1);
     }
 
     if (MAX_SOCKET > 2)
     {
-        ProbeSocket socket2(SOCKET_ADDR[2], CMD_READ_PARA[2]);	
+        ProbeSocket socket2(SOCKET_ADDR[2], CMD_READ_PARA[2]);
         //socket2.SetProbePara(para);
         m_vecSockets.push_back(socket2);
     }
 
     if (MAX_SOCKET > 3)
     {
-        ProbeSocket socket3(SOCKET_ADDR[3], CMD_READ_PARA[3]);	
+        ProbeSocket socket3(SOCKET_ADDR[3], CMD_READ_PARA[3]);
         //socket3.SetProbePara(para);
         m_vecSockets.push_back(socket3);
     }
 
-    ///> create default socket, used when no probe is exist in all sockets 
+    ///> create default socket, used when no probe is exist in all sockets
     //35C50K
 #if 0
 	para.exist = TRUE;
@@ -179,7 +179,7 @@ ProbeMan::ProbeMan()
 	para.model[2] = 'C';
 	para.model[3] = '5';
 	para.model[4] = '0';
-	para.model[5] = 'L'; 
+	para.model[5] = 'L';
 #else
 	para.model[0] = '3';
 	para.model[1] = '.';
@@ -191,10 +191,10 @@ ProbeMan::ProbeMan()
 	para.model[6] = 0;
 	para.type = 'C';
 #if defined (EMP_430)
-   para.width = 6000; 
-    para.array = 80;   
-    para.lines = 160;  
-    para.r = 60; 
+   para.width = 6000;
+    para.array = 80;
+    para.lines = 160;
+    para.r = 60;
 #else
     para.width = 7200;
     para.array = 128;
@@ -213,7 +213,7 @@ ProbeMan::ProbeMan()
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[0][i]);
 	}
-		
+
 #endif
 
 // 75L40K
@@ -271,7 +271,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[1][i]);
-	}	
+	}
     for (i = 0; i < ProbeSocket::MAX_HARMONIC_FREQ; i++)
     {
         para.thiFreq[i] = ProbeSocket::FREQ_THI[0][i];
@@ -303,7 +303,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[2][i]);
-	}	
+	}
 #endif
 
 #if 0
@@ -330,7 +330,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[3][i]);
-	}	
+	}
 #endif
 
 #if 0//65C15D
@@ -357,7 +357,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
-	}	
+	}
 #endif
 #if 0//30P16A
 	para.exist = TRUE;
@@ -383,7 +383,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
-	}	
+	}
 #endif
  //10L25J
 #if 0
@@ -412,7 +412,7 @@ ProbeMan::ProbeMan()
 	for (i = 0; i < size; i ++)
 	{
 		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[7][i]);
-	}	
+	}
     for (i = 0; i < ProbeSocket::MAX_HARMONIC_FREQ; i++)
     {
         para.thiFreq[i] = ProbeSocket::FREQ_THI[7][i];
@@ -434,7 +434,7 @@ ProbeMan::~ProbeMan()
 		delete m_ptrInstance;
 }
 
-///> public 
+///> public
 ProbeMan* ProbeMan::GetInstance()
 {
 	if (m_ptrInstance == NULL)
@@ -466,7 +466,7 @@ void ProbeMan::ActiveHV(bool on)
 void ProbeMan::GetCurProbe(ProbeSocket::ProbePara &para)
 {
 #if 0
-    char str_path[256];  
+    char str_path[256];
     sprintf(str_path, "%s/%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
     IniFile ini(str_path);
 #endif
@@ -503,11 +503,11 @@ void ProbeMan::GetAllProbe(ProbeSocket::ProbePara para[MAX_SOCKET])
     int i;
     for (i = 0; i < MAX_SOCKET; i ++)
 	{
-#if (defined(EMP_322) || defined(EMP_313)|| defined(EMP_430)) 
+#if (defined(EMP_322) || defined(EMP_313)|| defined(EMP_430))
         m_vecSockets[i].ActiveSocket();
         usleep(900000);//
 #endif
-		
+
 #ifdef EMP_355
         m_vecSockets[i].ActiveSocket();
         usleep(430000);//
@@ -578,7 +578,7 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe35MC;
     //buf = Probe75LVS;
     //buf = Probe65VMC;
- 
+
     // EMP-322
     //buf = Probe35C50J;
     //buf = Probe35C20G;
@@ -586,7 +586,7 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe65C10J;
     //buf = Probe65C20G;
     //buf = Probe90L40J;
-   
+
 
     // EMP-340
     buf = Probe35C50K;
@@ -693,7 +693,7 @@ void ProbeMan::WriteProbe(int type)
         case PL30P16A:
             buf = Probe30P16A;
             break;
-        
+
         case PL35D40JSNR:
             buf = Probe35D40JSNR;
             break;
@@ -720,7 +720,7 @@ void ProbeMan::WriteProbe(int type)
         case P65C10E:
             buf = Probe65C10E;
             break;
-        
+
         case PT65C15D:
             buf = ProbeT65C15D;
             break;
@@ -737,7 +737,7 @@ void ProbeMan::WriteProbe(int type)
 #elif defined(EMP_440)
     switch((EProbeList440)type)
     {
-        
+
         case PT65C15D:
             buf = ProbeT65C15D;
             break;
@@ -764,7 +764,7 @@ void ProbeMan::WriteProbe(int type)
         case P35C50LAPX:
             buf = Probe35C50LAPX;
             break;
-        
+
         case P35C50LEMP:
             buf = Probe35C50LEMP;
             break;
@@ -776,11 +776,11 @@ void ProbeMan::WriteProbe(int type)
         case P70L40J:
             buf = Probe70L40J;
             break;
-        
+
         case P75L40JAPX:
             buf = Probe75L40JAPX;
             break;
-        
+
         case P75L40JEMP:
             buf = Probe75L40JEMP;
             break;
@@ -820,8 +820,8 @@ void ProbeMan::WriteProbe(int type)
         case P55L60G:
             buf = Probe55L60G;
             break;
-#endif 
-      
+#endif
+
         default:
             buf = Probe35C50LAPX;
             break;
@@ -864,7 +864,7 @@ void ProbeMan::WriteProbe(int type)
         case P35D40JSNR:
             buf = Probe35D40JSNR;
             break;
-        
+
         case P35D40JNDK:
             buf = Probe35D40JNDK;
             break;
@@ -944,4 +944,3 @@ void ProbeMan::WriteProbeAlias(IniFile *ini, const char *model, char *alias)
     ini->WriteString(model, "Alias", alias);
     ini->SyncConfigFile();
 }
-

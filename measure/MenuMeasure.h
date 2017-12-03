@@ -34,7 +34,7 @@ private:
     EMeasureMode GetMeasureModeFromMeasureType(int measureType);
     int GetUnitItemFromMeasureType(int measureType);
 
-    vector<GUIMenuNew> m_vecAllMeasureItem; 
+    vector<GUIMenuNew> m_vecAllMeasureItem;
     vector<GUIMenuNew> m_vecCurExamItemMeasureItem;
     vector<GUIMenuNew> m_vecCurScanModeMeasureItem;
     int m_sizeDefaultItems;

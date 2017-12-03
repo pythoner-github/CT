@@ -46,7 +46,7 @@ private:
     GtkWidget *m_btnScale;
 	GtkTreeModel *m_modelScale;
     GtkWidget *m_comboScale;
-	
+
 	CusSpin spin_threshold;
 	CusSpin spin_persist;
 	CusSpin spin_reject;
@@ -62,7 +62,7 @@ private:
 	static CusSpin::CusSpinItem item_persist;
 	static CusSpin::CusSpinItem item_reject;
 	static CusSpin::CusSpinItem item_smooth;
-	static CusSpin::CusSpinItem item_artifact;	
+	static CusSpin::CusSpinItem item_artifact;
 
 	static void ChgThreshold(EKnobOper oper);
 	static void ChgPersist(EKnobOper oper);

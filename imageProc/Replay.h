@@ -28,7 +28,7 @@ class Replay
 		void SetTrimLeft(EKnobOper oper);
 		void SetTrimRight(EKnobOper oper);
 		void ResetTrim(EKnobOper oper);
-#else 
+#else
 		void SetTrimLeft();
 		void SetTrimRight();
 		void ResetTrim();
@@ -47,14 +47,14 @@ class Replay
 		void DisplayReplayBar();
 
 		unsigned int* ReviewOneImg();
-		
+
         bool ReviewNoImgBB(int curB);
         bool ReviewNoImgB4(int curB);
         unsigned int* ViewOneImg();
 		unsigned int* ReviewOneImgOnly();
 		unsigned int* ViewOneImgOnly();
 		unsigned int* GetCurrentImg();
-        
+
         unsigned int* GetSelectImgForIMT();
         unsigned int* GetSelectNextImgForIMT();
 
@@ -102,7 +102,7 @@ class Replay
 		bool EFOVVideoOutOfRange(void);
 	private:
 		Replay();
-		
+
 		static Replay* m_ptrInstance;
 		static const int TOTAL_REPLAY = 1024;//500;
 		static const int MAX_AREA = 4;
@@ -131,10 +131,10 @@ class Replay
 		guint m_tagTimer;
 		bool m_viewMode;
 
-		int m_maxCountBak[MAX_AREA]; 
-		int m_areaIndexBak; 
-		int m_areaNumBak; 
-		int m_fpsBak; 
+		int m_maxCountBak[MAX_AREA];
+		int m_areaIndexBak;
+		int m_areaNumBak;
+		int m_fpsBak;
 		bool m_enterCine;
 		bool m_enterSnap;
 
@@ -152,9 +152,9 @@ class Replay
 		guint m_tagTimerEFOV;
 };
 
-inline void Replay::SetReplayFps(int fps) 
-{ 
-	m_fps = fps; 
+inline void Replay::SetReplayFps(int fps)
+{
+	m_fps = fps;
     if (m_fps <= 0)
         m_fps = 60;
 }

@@ -32,10 +32,10 @@ class Format2D
 
         // special measure
         void SetFormatForSnap(EFormat2D format) { m_formatSnap = format; }
-	
+
 	private:
 		Format2D();
-		
+
 		static Format2D* m_ptrInstance;
 
 		DscMan* m_ptrDsc;

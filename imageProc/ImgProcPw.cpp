@@ -37,7 +37,7 @@ EKnobReturn ImgProcPw::ChangeTimeSmooth(EKnobOper oper)
 		m_timeSmooth ++;
 	else if ((oper == SUB) && (m_timeSmooth > 0))
 		m_timeSmooth --;
-	else 
+	else
 		return ERROR;
 
 	EKnobReturn ret;
@@ -84,7 +84,7 @@ void ImgProcPw::Init(ExamItem::ParaSpectrum* pw)
 	// timeMark
 	m_TimeMark = false;
 	SetTimeMark(m_TimeMark);
-    
+
     //autotrace
     m_drawTraceStatus = false;//false;
     m_ptrUpdate->AutoStatus(m_drawTraceStatus);
@@ -92,7 +92,7 @@ void ImgProcPw::Init(ExamItem::ParaSpectrum* pw)
     // autoCalc
     m_autoCalc = false;
     m_ptrUpdate->AutoCalc(m_autoCalc);
-        
+
 }
 void ImgProcPw::GetCurPara(ExamItem::ParaItem* ptrParaItem)
 {
@@ -185,10 +185,9 @@ void ImgProcPw::SetTimeSmooth(int data, EKnobReturn ret)
 }
 
 /*
- * @brief set time mark 
+ * @brief set time mark
  */
 void ImgProcPw::SetTimeMark(bool on)
 {
 	m_ptrUpdate->TimeMarkPw(on);
 }
-

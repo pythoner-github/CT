@@ -4,8 +4,8 @@
 #include "gui_global.h"
 #include "gui_func.h"
 #include <stdlib.h>
-#include "ModeStatus.h" 
-#include "FreezeMode.h" 
+#include "ModeStatus.h"
+#include "FreezeMode.h"
 #include "KeyValueOpr.h"
 #include "KeyDef.h"
 #include "HintArea.h"
@@ -13,7 +13,7 @@
 #include "ScanMode.h"
 #include "../imageProc/GlobalClassMan.h"
 #include "../keyboard/LightDef.h"
-#include "ViewSystem.h"          
+#include "ViewSystem.h"
 #include "UserSelect.h"
 #include "TopArea.h"
 #include "ImgProcPw.h"
@@ -25,7 +25,7 @@ using std::vector;
 extern MenuPW g_menuPW;
 #ifdef VET
 #ifdef EMP_355
-const char* examType[] = 
+const char* examType[] =
 {
     N_("Dog"),
     N_("Cat"),
@@ -36,7 +36,7 @@ const char* examType[] =
     NULL
 };
 #else
-const char* examType[] = 
+const char* examType[] =
 {
     N_("User1"),
     N_("User2"),
@@ -53,7 +53,7 @@ const char* examType[] =
 
 #endif
 #else
-const char* examType[] = 
+const char* examType[] =
 {
     N_("Adult Abdomen"),
     N_("Adult Liver"),
@@ -178,7 +178,7 @@ bool ViewProbe::Create(void)
     // get probe and item info
     HintArea::GetInstance()->UpdateHint(_("[Probe Select]: Reading Probe Para..."));
     if(ImgProcPw::GetInstance()->GetTraceStatus() && ModeStatus::IsFreezeMode())
-    { 
+    {
         if(g_menuPW.GetAutoTraceStatus())
             ImgProcPw::GetInstance()->SetAutoCalc(FALSE);
     }
@@ -243,7 +243,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     gtk_container_add (GTK_CONTAINER (m_window), fixed_window);
 
     //user select
-    GtkWidget *label_user_select; 
+    GtkWidget *label_user_select;
     label_user_select = gtk_label_new (_("<b>Current User: </b>"));
     gtk_label_set_use_markup (GTK_LABEL (label_user_select), TRUE);
     gtk_widget_show (label_user_select);
@@ -264,7 +264,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     gtk_widget_set_size_request (m_combobox_user_select, 100+60, 30);
     // g_signal_connect(GTK_COMBO_BOX(m_combobox_user_select), "changed", G_CALLBACK(HandleProbeUserChanged), this);
 
-    UserSelect::GetInstance()->read_default_username(m_combobox_user_select); 
+    UserSelect::GetInstance()->read_default_username(m_combobox_user_select);
     //UserSelect::GetInstance()->read_username(m_combobox_user_select);
     UserSelect::GetInstance()->read_username_db(USERNAME_DB, m_combobox_user_select);
     int num = UserSelect::GetInstance()->get_active_user();
@@ -277,7 +277,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     int index_username = exam.ReadDefaultUserIndex(&ini);
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_user_select), index_username);
     g_signal_connect(GTK_COMBO_BOX(m_combobox_user_select), "changed", G_CALLBACK(HandleProbeUserChanged), this);
- 
+
     int x = 20, y = 20;
     //vector<string>exam_type;
     char exam_type[MAXNUMBER+20][50];
@@ -359,7 +359,7 @@ int ViewProbe::CreateAllExamType(const char *model, vector<ExamItem::EItem> item
     {
         strcpy((char*)exam_type[i+j], m_vecUserItemName[j].c_str());
     }
-    
+
     strcpy((char*)exam_type[i+j], " ");
     return (i+j);
 }
@@ -598,10 +598,10 @@ GtkWidget* ViewProbe::CreateTreeView(char exam_type[][50], int probe_index)
                 m_treeViewIndex = 0;
             }
         }
-        g_signal_connect(treeview0, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);	
+        g_signal_connect(treeview0, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);
         //g_signal_connect(select, "changed", G_CALLBACK(HandleTreeSelectionChanged), this);
         g_signal_connect(treeview0, "button-press-event", G_CALLBACK(HandleTreeViewButtonClick), this);
-        
+
         g_object_unref(model);
         return treeview0;
     }
@@ -633,7 +633,7 @@ GtkWidget* ViewProbe::CreateTreeView(char exam_type[][50], int probe_index)
             }
         }
 
-        g_signal_connect(treeview1, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);	
+        g_signal_connect(treeview1, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);
         //g_signal_connect(select, "changed", G_CALLBACK(HandleTreeSelectionChanged), this);
         g_signal_connect(treeview1, "button-press-event", G_CALLBACK(HandleTreeViewButtonClick), this);
 
@@ -667,7 +667,7 @@ GtkWidget* ViewProbe::CreateTreeView(char exam_type[][50], int probe_index)
             }
         }
 
-        g_signal_connect(treeview2, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);	
+        g_signal_connect(treeview2, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);
         //g_signal_connect(select, "changed", G_CALLBACK(HandleTreeSelectionChanged), this);
         g_signal_connect(treeview2, "button-press-event", G_CALLBACK(HandleTreeViewButtonClick), this);
 
@@ -701,7 +701,7 @@ GtkWidget* ViewProbe::CreateTreeView(char exam_type[][50], int probe_index)
             }
         }
 
-        g_signal_connect(treeview3, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);	
+        g_signal_connect(treeview3, "focus-out-event", G_CALLBACK(HandleTreeViewFocusOut), this);
         //g_signal_connect(select, "changed", G_CALLBACK(HandleTreeSelectionChanged), this);
         g_signal_connect(treeview3, "button-press-event", G_CALLBACK(HandleTreeViewButtonClick), this);
 
@@ -779,7 +779,7 @@ void ViewProbe::BtnCancelClicked(GtkButton *button)
 // gtk_widget_destroy(m_window);
 // PRINTF("PROBE index = %d\n", m_probeIndex);
 // PRINTF("item index = %d\n", m_itemIndex);
-// m_pKps.ProbeInit(m_probeIndex, (ExamItem::EItem)m_itemIndex);	
+// m_pKps.ProbeInit(m_probeIndex, (ExamItem::EItem)m_itemIndex);
 // if (g_keyInterface.Size() == 1)
 //     SetSystemCursor(SYSCURSOR_X, SYSCUROSR_Y);
 // }
@@ -796,10 +796,10 @@ void ViewProbe::TreeSelectionChanged(GtkTreeSelection *selection)
     if (name != NULL)
     {
         int num = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_user_select));
-     
+
         UserSelect::GetInstance()->save_cur_username(name);
         char username[256];
-        char str_path[256] = {'\0'}; 
+        char str_path[256] = {'\0'};
         sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
         IniFile ini(str_path);
         ExamItem exam;
@@ -824,7 +824,7 @@ void ViewProbe::TreeSelectionChanged(GtkTreeSelection *selection)
 
     // treeview = gtk_tree_selection_get_tree_view(selection);
     if (gtk_tree_selection_get_selected(selection, &model, &iter)) {
-        char str_path[256] = {'\0'}; 
+        char str_path[256] = {'\0'};
         sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
         IniFile ini(str_path);
         ProbeSocket::ProbePara para;
@@ -872,8 +872,8 @@ void ViewProbe::TreeSelectionChanged(GtkTreeSelection *selection)
 
         ProbeMan::GetInstance()->GetCurProbe(para);
 
-        //write default probe model 
-        ProbeMan::GetInstance()->WriteDefaultProbe((char*)para.model, &ini);    
+        //write default probe model
+        ProbeMan::GetInstance()->WriteDefaultProbe((char*)para.model, &ini);
 
         //write selected item to file
         exam.WriteDefaultProbeItem(&ini, m_itemIndex);
@@ -902,22 +902,22 @@ void ViewProbe::ProbeUserChanged(GtkWidget *widget)
                  if(i==0)
                  {
                      gtk_tree_view_set_model(GTK_TREE_VIEW(treeview0), model);
-                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview0)); 
+                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview0));
                  }
                  if(i==1)
                  {
                      gtk_tree_view_set_model(GTK_TREE_VIEW(treeview1), model);
-                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview1)); 
+                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview1));
                  }
                  if(i==2)
                  {
                      gtk_tree_view_set_model(GTK_TREE_VIEW(treeview2), model);
-                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview2)); 
+                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview2));
                  }
                  if(i==3)
                  {
                      gtk_tree_view_set_model(GTK_TREE_VIEW(treeview3), model);
-                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview3)); 
+                     gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview3));
                  }
 
              }
@@ -950,7 +950,7 @@ void ViewProbe::TreeViewBtnClicked(GtkWidget *widget, GdkEventButton *event)
             int num = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_user_select));
             UserSelect::GetInstance()->save_cur_username(name);
             char username[256];
-            char str_path[256] = {'\0'}; 
+            char str_path[256] = {'\0'};
             sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
             IniFile ini(str_path);
             ExamItem exam;
@@ -976,7 +976,7 @@ void ViewProbe::TreeViewBtnClicked(GtkWidget *widget, GdkEventButton *event)
         model = gtk_tree_view_get_model (GTK_TREE_VIEW(widget));
         if (gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW(widget), x, y, &path, NULL, NULL, NULL))
         {
-            char str_path[256] = {'\0'}; 
+            char str_path[256] = {'\0'};
             sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
             IniFile ini(str_path);
             ProbeSocket::ProbePara para;
@@ -1021,12 +1021,12 @@ void ViewProbe::TreeViewBtnClicked(GtkWidget *widget, GdkEventButton *event)
                         break;
                 }
                 g_timeout_add(500, DestroyWindow, this);
-                
+
                 ProbeMan::GetInstance()->GetCurProbe(para);
                 ProbeMan::GetInstance()->GetCurProbe(para);
 
-                //write default probe model 
-                ProbeMan::GetInstance()->WriteDefaultProbe((char*)para.model, &ini);    
+                //write default probe model
+                ProbeMan::GetInstance()->WriteDefaultProbe((char*)para.model, &ini);
                 //write selected item to file
                 exam.WriteDefaultProbeItem(&ini, m_itemIndex);
 

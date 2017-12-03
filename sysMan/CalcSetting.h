@@ -3,15 +3,15 @@
  *
  *       Filename:  CalcSetting.h
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  10/29/2012 04:09:21 AM
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
- *        Company:  
+ *         Author:  YOUR NAME (),
+ *        Company:
  *
  * =====================================================================================
  */
@@ -50,7 +50,7 @@ static const int MAX_METHOD = 17;
 struct CustomEtype
 {
    std::string name;
-   int etype; 
+   int etype;
 };
 
 
@@ -77,19 +77,19 @@ class CustomCalc:public FakeXEvent
         GtkWidget* CreateExportCalcSettingWin(GtkWidget *parent);
         GtkWidget* CreateCalcSettingWin(GtkWidget *parent);
         void DestroyWin(void);
-        
+
         void DelayDestroyWin(void);
         GtkWidget *GetWindow(){return m_window;}
         void SetProgressBar(double fraction);
         void ExportLoadInfoNotice(char *result);
         void ExportRightInfoNotice(char *result);
         void ExportErrorInfoNotice(char *result);
-        void HideOKAndCancelClicked(); 
-        void OKAndCancelClicked(); 
-        bool RenameCompare(char * name_copy); 
+        void HideOKAndCancelClicked();
+        void OKAndCancelClicked();
+        bool RenameCompare(char * name_copy);
         void ImportSuccess(void);
-        bool ImportCopy(int j); 
-        void ImportRenameCopy(string item_name); 
+        bool ImportCopy(int j);
+        void ImportRenameCopy(string item_name);
         void ButtonImportNameOK();
         void ImportWrite(string item_name, int &item_num);
     private:
@@ -100,10 +100,10 @@ class CustomCalc:public FakeXEvent
 		GtkWidget *label_type;
 		GtkWidget *label_method;
 		GtkWidget *m_window;
-		GtkWidget *fixed1; 
+		GtkWidget *fixed1;
 		GtkWidget *m_frame_new_notice;
 		GtkWidget *m_label_notice;
-		GtkWidget *fixed_new_notice; 
+		GtkWidget *fixed_new_notice;
 		GtkWidget *m_label_notice1;
 		GtkWidget *m_label_notice2;
         GtkWidget *m_label_notice3;
@@ -309,7 +309,7 @@ class CalcSetting
         {
             if (data)
                 data->ButtonAddClicked(button);
-        }   
+        }
 
         static void HandleButtonBackOneClicked(GtkButton *button, CalcSetting *data)
         {

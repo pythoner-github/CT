@@ -140,7 +140,7 @@ void ViewPrinterAdd::CreateWindow(GtkWindow *parent)
     g_signal_connect ((gpointer) button_add, "clicked",
                       G_CALLBACK (on_button_add_clicked),
                       this);
- 
+
     GtkWidget *image_cancel = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
     GtkWidget *label_cancel = gtk_label_new_with_mnemonic (_("Cancel"));
     button_cancel = create_button_icon(label_cancel, image_cancel);
@@ -153,7 +153,7 @@ void ViewPrinterAdd::CreateWindow(GtkWindow *parent)
 
     g_keyInterface.Push(this);
     SetSystemCursorToCenter();
-   
+
     return ;
 }
 
@@ -180,25 +180,25 @@ void ViewPrinterAdd::BtnPPDNameClicked(GtkButton *button)
 void ViewPrinterAdd::BtnAddClicked(GtkButton *button)
 {
     if (m_uriName.empty()) {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
                                           ViewDialog::ERROR,
-                                          _("Add Printer Error: URI not found!"), 
+                                          _("Add Printer Error: URI not found!"),
                                           NULL);
         return;
     }
     if (!gtk_entry_get_text_length(GTK_ENTRY(m_entry_printer_name))) {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
                                           ViewDialog::ERROR,
-                                          _("Add Printer Error: Please enter printer name!"), 
+                                          _("Add Printer Error: Please enter printer name!"),
                                           NULL);
         gtk_widget_grab_focus(m_entry_printer_name);
         return;
     }
 
     if (m_ppdFileName.empty()) {
-        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), 
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
                                           ViewDialog::ERROR,
-                                          _("Add Printer Error: Please select a PPD file!"), 
+                                          _("Add Printer Error: Please select a PPD file!"),
                                           NULL);
         return ;
     }
@@ -220,7 +220,7 @@ void ViewPrinterAdd::BtnCancelClicked(GtkButton *button)
 void ViewPrinterAdd::KeyEvent(unsigned char keyValue)
 {
     FakeXEvent::KeyEvent(keyValue);
-    
+
     switch(keyValue) {
     case KEY_ESC:
 	BtnCancelClicked(NULL);
@@ -231,7 +231,7 @@ void ViewPrinterAdd::KeyEvent(unsigned char keyValue)
 }
 
 void ViewPrinterAdd::SetPPDName(const char* name, const char *path)
-{ 
+{
     m_ppdFileName = path;
     gtk_label_set_text(GTK_LABEL(m_labelPPDName), name);
 }

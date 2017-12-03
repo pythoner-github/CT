@@ -51,7 +51,7 @@ GtkWidget* MenuProjectMode::Create(void)
 		gtk_table_attach_defaults(GTK_TABLE(tableMode), m_button[i], 0, 1, i, i+1);
         g_signal_connect(m_button[i], "clicked", G_CALLBACK(HandleModeClicked), this);
 	}
-    
+
 	GtkWidget *tableButton = gtk_table_new (2, 2, TRUE);
     gtk_widget_set_size_request (tableButton, MENU_AREA_W, 70);
     gtk_fixed_put (GTK_FIXED (m_fixed), tableButton, 0, 200+10);
@@ -121,7 +121,7 @@ void MenuProjectMode::ModeClicked(GtkButton *button)
     UpdateLabel();
 
 	//printf("ModeClicked---%d, %d, %s\n", id, id+m_curentPage*MODECOUNT, m_curentMode.c_str());
-    ProjectCalc2D::GetInstance()->ReadCalcPara2D(m_curentMode.c_str());	
+    ProjectCalc2D::GetInstance()->ReadCalcPara2D(m_curentMode.c_str());
 }
 
 void MenuProjectMode::PageUpClicked(GtkButton *button)
@@ -211,7 +211,7 @@ void MenuProjectMode::UpdateLabel(const char *mode)
         m_curentPage = m_maxPage;
     }
 
-    
+
 	for(int i = 0; i < MODECOUNT; ++i)
 	{
 	    int j = i + m_curentPage*MODECOUNT;
@@ -290,7 +290,7 @@ void MenuProjectMode::CreateDeleteWindow(void)
     gtk_fixed_put (GTK_FIXED (fixedFrame), scrolledwindow, 5, 5);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_SHADOW_IN);
-    
+
     GtkWidget *viewport = gtk_viewport_new (NULL, NULL);
     gtk_container_add (GTK_CONTAINER (scrolledwindow), viewport);
 
@@ -303,11 +303,11 @@ void MenuProjectMode::CreateDeleteWindow(void)
         //char buf[128];
         //sprintf(buf, "testsatasas-%d", t);
         GtkWidget* checkbutton = gtk_check_button_new_with_mnemonic (m_vectorMode[t].c_str());
-        gtk_widget_set_size_request (checkbutton, 350, 25);   
+        gtk_widget_set_size_request (checkbutton, 350, 25);
         gtk_fixed_put (GTK_FIXED (fixed2), checkbutton, 30, 10+t*30);
         m_vectorChectButton.push_back(checkbutton);
     }
-    gtk_container_add (GTK_CONTAINER (viewport), fixed2); 
+    gtk_container_add (GTK_CONTAINER (viewport), fixed2);
 
     gtk_widget_show_all(m_windowDelete);
     g_keyInterface.Pop();
@@ -336,9 +336,9 @@ void MenuProjectMode::SelectProjectMode(GtkButton *button)
 void MenuProjectMode::DestroyDeleteWindow(void)
 {
     m_selectAll = false;
-    if(GTK_IS_WIDGET(m_windowDelete))	
+    if(GTK_IS_WIDGET(m_windowDelete))
     {
-        g_keyInterface.Pop(); 
+        g_keyInterface.Pop();
         gtk_widget_destroy(m_windowDelete);
         m_windowDelete = NULL;
         if (g_keyInterface.Size() == 1)
@@ -391,9 +391,9 @@ void MenuProjectMode::DeleteProjectMode(void)
     }
 	const char* info = N_("Sure Delete Project Mode?");
 	ViewDialog::GetInstance()->Create(
-        GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
-        ViewDialog::QUESTION, 
-        _(info), 
+        GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
+        ViewDialog::QUESTION,
+        _(info),
         DeleteCallBack);
 }
 
@@ -428,11 +428,11 @@ void ViewProjectMode::CreateWindow(void)
     gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radioButtonNew), radioButtonParaModeGroup);
     radioButtonParaModeGroup = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radioButtonNew));
     gtk_fixed_put (GTK_FIXED (fixed), m_radioButtonNew, 20, 80);
-    
+
     GtkWidget *labelNew = gtk_label_new_with_mnemonic ("ProbeType - Frequency -");
     gtk_widget_set_size_request (labelNew, 160, 30);
     gtk_fixed_put (GTK_FIXED (fixed), labelNew, 30, 120);
-    
+
     m_entryNew = gtk_entry_new ();
     gtk_fixed_put (GTK_FIXED (fixed), m_entryNew, 200, 120);
     gtk_widget_set_size_request (m_entryNew, 220, 30);
@@ -463,7 +463,7 @@ void ViewProjectMode::CreateWindow(void)
     gtk_fixed_put (GTK_FIXED (fixed), m_comboboxOverload, 40, 220);
     gtk_widget_set_size_request (m_comboboxOverload, 380, 30);
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxOverload), -1);
-    
+
     for(unsigned int i=0; i<m_vectorModeName.size(); ++i)
     {
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxOverload), m_vectorModeName[i].c_str());
@@ -511,9 +511,9 @@ void ViewProjectMode::KeyEvent(unsigned char keyValue)
 
 void ViewProjectMode::DestroyWindow(void)
 {
-    if(GTK_IS_WIDGET(m_window))	
+    if(GTK_IS_WIDGET(m_window))
     {
-        g_keyInterface.Pop(); 
+        g_keyInterface.Pop();
         gtk_widget_destroy(m_window);
         if (g_keyInterface.Size() == 1)
         {
@@ -541,9 +541,9 @@ void ViewProjectMode::SaveProjectModePara(void)
             {
             	const char* info = N_("The Name Existed! Please Rename!");
             	ViewDialog::GetInstance()->Create(
-                    GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), 
-                    ViewDialog::QUESTION, 
-                    _(info), 
+                    GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
+                    ViewDialog::QUESTION,
+                    _(info),
                     DeleteCallBack);
                 return;
             }
@@ -555,7 +555,7 @@ void ViewProjectMode::SaveProjectModePara(void)
 
     }
 
-    printf("ViewProjectMode::SaveProjectModePara(%s)\n", saveName);    
+    printf("ViewProjectMode::SaveProjectModePara(%s)\n", saveName);
 
     //add some code for save para to ini file
     ProjectCalc2D::GetInstance()->SaveCalcPara2D(saveName);
@@ -571,7 +571,7 @@ void ViewProjectMode::EntryNameInsert(GtkEditable *editable, gchar *new_text, gi
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radioButtonNew)))
     {
         gint old_text_length = strlen(gtk_entry_get_text(GTK_ENTRY(editable)));
-        if(old_text_length + new_text_length > gtk_entry_get_max_length(GTK_ENTRY(editable))) 
+        if(old_text_length + new_text_length > gtk_entry_get_max_length(GTK_ENTRY(editable)))
         {
             gtk_signal_emit_stop(GTK_OBJECT(editable), g_signal_lookup("insert-text", GTK_TYPE_EDITABLE));
         }

@@ -16,7 +16,7 @@
 #include "ViewDialog.h"
 
 #define FILE_MAX_NUM 50
-#define FILENAME_MAX_LEN 255 
+#define FILENAME_MAX_LEN 255
 
 UpgradeMan* UpgradeMan::m_ptrInstance = NULL;
 
@@ -53,13 +53,13 @@ UpgradeMan::UpgradeMan()
 }
 
 UpgradeMan::~UpgradeMan()
-{ 
+{
 	 if (ptrIni != NULL) {
 		 delete ptrIni;
 		 ptrIni = NULL;
 	 }
-	 if (m_ptrInstance != NULL) 
-		 delete m_ptrInstance; 
+	 if (m_ptrInstance != NULL)
+		 delete m_ptrInstance;
 }
 
 /**
@@ -70,7 +70,7 @@ void UpgradeMan::GetMachineType(string& machinetype)
     machinetype = ptrIni->ReadString(SECTION.c_str(), "MachineType");
 }
 
-/** 
+/**
 * @return softVersion
 */
 void UpgradeMan::GetSoftVersion(string& softversion)
@@ -78,7 +78,7 @@ void UpgradeMan::GetSoftVersion(string& softversion)
     softversion = ptrIni->ReadString(SECTION.c_str(), "SoftVersion");
 }
 
-/** 
+/**
 * @return fpgaVersion to gui to display
 */
 void UpgradeMan::GetFpgaVersion(string& fpgaversion)
@@ -279,7 +279,7 @@ int UpgradeMan::UpgradeFile(vector<string> src, vector<string> dest)
 				sprintf(tmp, "0");
 			SetOrderState(tmp);
 			SetRebootState("0");
-		}	
+		}
 		g_free(basename);
 	}
 
@@ -391,7 +391,7 @@ int UpgradeMan::UpgradeFile(const char *file)
 			sprintf(tmp, "0");
 		SetOrderState(tmp);
 		SetRebootState("0");
-	}	
+	}
 
 	PRINTF("Upgrade file %s success!\n", file);
 	return SUCCESS;
@@ -405,8 +405,8 @@ gboolean TimeoutUpgrade(gpointer data)
 	PeripheralMan::GetInstance()->UmountUsbStorage();
 
 //	ViewDialog::GetInstance()->Destroy();
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-			ViewDialog::INFO, 
+	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+			ViewDialog::INFO,
 			_(UpgradeMan::m_info[val].c_str()),
 			NULL);
 	return FALSE;
@@ -414,7 +414,7 @@ gboolean TimeoutUpgrade(gpointer data)
 
 int HandleOKUpgrade(gpointer data)
 {
-	ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
+	ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                                               _(UpgradeMan::m_info[UpgradeMan::PROGRESS].c_str()));
 
 	g_timeout_add(500, TimeoutUpgrade, NULL);
@@ -424,9 +424,8 @@ int HandleOKUpgrade(gpointer data)
 
 void UpgradeMan::Upgrade()
 {
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-			ViewDialog::QUESTION, 
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+			ViewDialog::QUESTION,
 			_(m_info[QUESTION].c_str()),
 			HandleOKUpgrade);
 }
-

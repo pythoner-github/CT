@@ -32,7 +32,7 @@ class ImgProcM
 		void GetAnatomicInitLine(POINT &begin, POINT &end);
 
 		void ChangeTimeMark(bool on);
-	
+
 	private:
 		ImgProcM();
 

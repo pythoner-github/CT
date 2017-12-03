@@ -94,7 +94,7 @@ ImageArea::ImageArea(void)
 	m_gcMeaResult = 0;
 
 	m_inReadImg = false;
-	m_meaResultLineH = 18; 
+	m_meaResultLineH = 18;
 	m_meaResultPos.clear();
 	m_tmFps = 0;
     m_counts = 0;
@@ -102,15 +102,15 @@ ImageArea::ImageArea(void)
     m_cineRemoveImg = 0;
     m_speedbarDraw = false;
 #ifdef TRANSDUCER
-    m_pixmapTransducer =0;  
+    m_pixmapTransducer =0;
     m_transducerGainBak = 0;
 #endif
     m_curCountLines = 0;
 }
 
 ImageArea::~ImageArea()
-{ 
-	if (m_ptrInstance != NULL) 
+{
+	if (m_ptrInstance != NULL)
 		delete m_ptrInstance;
 
 	cvReleaseImage(&m_imageSymbol);
@@ -140,7 +140,7 @@ void ImageArea::DrawImgData(void* pBits, int nWidth, int nHeight)
 	if (ModeStatus::IsEFOVMode()) {
 		if (nWidth==IMG_AREA_W)
 			memcpy(m_bitsEFOV, pBits, IMG_AREA_W*IMG_AREA_H*IMG_BPP);
-	} 
+	}
 	else {
 		if (nWidth==IMAGE_W)
 			memcpy(m_bitsImg, pBits, IMAGE_W*IMAGE_H*IMG_BPP);
@@ -199,7 +199,7 @@ void ImageArea::UpdateMeaResultArea(int fontsize)
         fontsize = 10;
     else if(fontsize == 1)
         fontsize = 14;
-    else 
+    else
         fontsize = 10;
     m_meaResultFontSize = fontsize;
     PRINTF("fontSize:%d\n", fontsize);
@@ -385,7 +385,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 			-1);
 	GdkGC *gc_replayBar = gdk_gc_new(m_pixmapReplayBar);
 	gdk_gc_set_foreground(gc_replayBar, g_black);
-	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H); 
+	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H);
 	g_object_unref(gc_replayBar);
 
 	// Pw Trace Area
@@ -398,7 +398,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 	if (!m_gcTrace)
 		m_gcTrace = gdk_gc_new(m_pixmapPwTrace);
 	gdk_gc_set_foreground(m_gcTrace, g_black);
-	gdk_draw_rectangle(m_pixmapPwTrace, m_gcTrace, TRUE, 0, 0, IMAGE_W, IMAGE_H); 
+	gdk_draw_rectangle(m_pixmapPwTrace, m_gcTrace, TRUE, 0, 0, IMAGE_W, IMAGE_H);
 
 	// MeasureResult Area
     SysMeasurementSetting sysMeasure;
@@ -413,7 +413,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
         meaResult = 14;
         measure_line_max = 10;
     }
-    else 
+    else
         meaResult = 10;
     m_meaResultFontSize = meaResult;
     char str_font[256];
@@ -446,7 +446,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
         meaResult = 10;
     else if(m_meaResultFontSize == 1)
         meaResult = 14;
-    else 
+    else
         meaResult = 10;
     m_meaResultFontSize = meaResult;
     char str_font[256];
@@ -485,7 +485,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 		m_gcMeaResult = gdk_gc_new(m_pixmapMeaResult);
 	gdk_gc_set_foreground(m_gcMeaResult, g_black);
 	gdk_draw_rectangle(m_pixmapMeaResult, m_gcMeaResult, TRUE, 0, 0, m_meaResultRect.w, m_meaResultRect.h);
-	
+
     // BodyMark Area
 	const int bdmk_width = BDMK_W * BDMK_MAX_SCALE;
 	const int bdmk_height = BDMK_H * BDMK_MAX_SCALE;
@@ -499,7 +499,7 @@ void ImageArea::ImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 				-1);
 		GdkGC *gc_bdmk = gdk_gc_new(m_pixmapBDMK[i]);
 		gdk_gc_set_foreground(gc_bdmk, g_black);
-		gdk_draw_rectangle(m_pixmapBDMK[i], gc_bdmk, TRUE, 0, 0, bdmk_width, bdmk_height); 
+		gdk_draw_rectangle(m_pixmapBDMK[i], gc_bdmk, TRUE, 0, 0, bdmk_width, bdmk_height);
 		g_object_unref(gc_bdmk);
 	}
 }
@@ -550,9 +550,9 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				// 844 * 560
 				pDst = pSrc0 = m_bitsMix;
 				pSrc1 = m_bitsEFOV;
-				widthSrc0 = IMG_AREA_W;	
+				widthSrc0 = IMG_AREA_W;
 				heightSrc0 = IMG_AREA_H;
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				roiWidthSrc = IMG_AREA_W;
 				roiHeightSrc = IMG_AREA_H;
@@ -567,12 +567,12 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 				// PixmapArea的叠加(pixmap area-> m_bitsMix)
 				pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				pSrc0 = (unsigned char*)(iA->mem);
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
-				roiWidthSrc = IMAGE_W; 
+				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
 				ImageMixC3C4R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor, rgbOrderReversed);
 
@@ -606,9 +606,9 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				// 844 * 560
 				pDst = pSrc0 = m_bitsMix;
 				pSrc1 = m_bitsEFOV;
-				widthSrc0 = IMG_AREA_W;	
+				widthSrc0 = IMG_AREA_W;
 				heightSrc0 = IMG_AREA_H;
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				roiWidthSrc = IMG_AREA_W;
 				roiHeightSrc = IMG_AREA_H;
@@ -623,11 +623,11 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 				gdk_draw_drawable(widget->window,
 						gc,
-						m_pixmapReplayBar, 
+						m_pixmapReplayBar,
 						0, 0,
 						EFOV_SPEEDBAR_X, EFOV_SPEEDBAR_Y,
 						REPLAY_BAR_W, REPLAY_BAR_H);
-			} 
+			}
 		} else {
 			if (ModeStatus::IsPureFreezeMode() || ModeStatus::IsFreezeMode() || ModeStatus::IsAutoReplayMode()) {
 				//
@@ -640,11 +640,11 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 					// replay data layer(replay -> m_bitsReplayMix)
 					pDst = pSrc1 = m_bitsReplayMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
 					pSrc0 =  m_bitsLastReplay + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-					widthSrc1 = IMG_AREA_W;	
+					widthSrc1 = IMG_AREA_W;
 					heightSrc1 = IMG_AREA_H;
-					widthSrc0 = IMG_AREA_W; 
+					widthSrc0 = IMG_AREA_W;
 					heightSrc0 = IMG_AREA_H;
-					roiWidthSrc = IMAGE_W; 
+					roiWidthSrc = IMAGE_W;
 					roiHeightSrc = IMAGE_H;
 					ImageMixC3R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor);
 #if 0
@@ -652,11 +652,11 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 					// replay data layer(replay -> m_bitsReplayMix)
 					pDst = pSrc1 = m_bitsReplayMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
 					pSrc0 = m_bitsImg;
-					widthSrc1 = IMG_AREA_W;	
+					widthSrc1 = IMG_AREA_W;
 					heightSrc1 = IMG_AREA_H;
-					widthSrc0 = IMAGE_W; 
+					widthSrc0 = IMAGE_W;
 					heightSrc0 = IMAGE_H;
-					roiWidthSrc = IMAGE_W; 
+					roiWidthSrc = IMAGE_W;
 					roiHeightSrc = IMAGE_H;
 					ImageMixC3R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor);
 #endif
@@ -665,18 +665,18 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 						// imageSymbol叠加(symbol -> m_bitsReplayMix)
 						unsigned char* symbolData = (unsigned char *)m_imageSymbol->imageData;
 						pDst = pSrc1 = m_bitsReplayMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-						widthSrc1 = IMG_AREA_W;	
+						widthSrc1 = IMG_AREA_W;
 						heightSrc1 = IMG_AREA_H;
-						widthSrc0 = IMAGE_W; 
+						widthSrc0 = IMAGE_W;
 						heightSrc0 = IMAGE_H;
 						if (ModeStatus::IsColorVS2DMode()) {
 							pSrc0 = symbolData;
-							roiWidthSrc = IMAGE_W; 
+							roiWidthSrc = IMAGE_W;
 							roiHeightSrc = IMAGE_H;
 						}
 						else {
 							pSrc0 = symbolData + ((m_symbolArea.y-IMAGE_Y)*IMAGE_W + (m_symbolArea.x-IMAGE_X))*IMG_BPP;
-							roiWidthSrc = m_symbolArea.w; 
+							roiWidthSrc = m_symbolArea.w;
 							roiHeightSrc = m_symbolArea.h;
 						}
 						ImageMixC3R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor);
@@ -684,17 +684,17 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				}
 				else {
 					//printf("%s: IsFreezeMode or replay!\n", __FUNCTION__);
-					memcpy(m_bitsReplayMix, m_bitsLastReplay, IMG_AREA_W*IMG_AREA_H*IMG_BPP); 
+					memcpy(m_bitsReplayMix, m_bitsLastReplay, IMG_AREA_W*IMG_AREA_H*IMG_BPP);
 				}
 
 				// PixmapArea的叠加(pixmap area -> m_bitsReplayMix)
 				pDst = pSrc1 = m_bitsReplayMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				pSrc0 = (unsigned char*)(iA->mem);
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
-				roiWidthSrc = IMAGE_W;     
+				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
 				ImageMixC3C4R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor, rgbOrderReversed);
 
@@ -703,7 +703,7 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				unsigned char* ImtData = (unsigned char *)m_imageIMT->imageData;
 				pDst = pSrc1 = m_bitsReplayMix + (IMG_AREA_W*IMAGE_Y*3 + IMAGE_X*3);
 				pSrc0 = ImtData;// + ((IMAGE_Y-IMAGE_Y)*IMAGE_W + (IMAGE_X-IMAGE_X))*3
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				widthSrc0 = IMAGE_W;
 				roiWidthSrc = IMAGE_W;
@@ -731,14 +731,14 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				if (ModeStatus::IsFreezeMode()) {
 					gdk_draw_drawable(widget->window,
 							widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
-							m_pixmapFps, 
+							m_pixmapFps,
 							0, 0,
 							FPS_POS_X, FPS_POS_Y,
 							FPS_POS_W, FPS_POS_H);
 				}
 				gdk_draw_drawable(widget->window,
 						widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
-						m_pixmapReplayBar, 
+						m_pixmapReplayBar,
 						0, 0,
 						REPLAY_BAR_X, REPLAY_BAR_Y,
 						REPLAY_BAR_W, REPLAY_BAR_H);
@@ -767,9 +767,9 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				// data layer(image -> m_bitsMix)
 				pDst = pSrc0 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
 				pSrc1 = m_bitsImg;
-				widthSrc0 = IMG_AREA_W;	
+				widthSrc0 = IMG_AREA_W;
 				heightSrc0 = IMG_AREA_H;
-				widthSrc1 = IMAGE_W;	
+				widthSrc1 = IMAGE_W;
 				heightSrc1 = IMAGE_H;
 				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
@@ -779,11 +779,11 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				unsigned char* symbolData = (unsigned char *)m_imageSymbol->imageData;
 				pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*m_symbolArea.y*IMG_BPP + m_symbolArea.x*IMG_BPP);
 				pSrc0 = symbolData + ((m_symbolArea.y-IMAGE_Y)*IMAGE_W + (m_symbolArea.x-IMAGE_X))*IMG_BPP;
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
-				roiWidthSrc = m_symbolArea.w; 
+				roiWidthSrc = m_symbolArea.w;
 				roiHeightSrc = m_symbolArea.h;
 				ImageMixC3R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor);
 
@@ -792,9 +792,9 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 					unsigned char* spectraData = (unsigned char *)m_imageSpectra->imageData;
 					pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*m_spectraArea.y*IMG_BPP + m_spectraArea.x*IMG_BPP);
 					pSrc0 = spectraData + ((m_spectraArea.y-IMAGE_Y)*IMAGE_W + (m_spectraArea.x-IMAGE_X))*IMG_BPP;
-					widthSrc1 = IMG_AREA_W;	
+					widthSrc1 = IMG_AREA_W;
 					heightSrc1 = IMG_AREA_H;
-					widthSrc0 = IMAGE_W; 
+					widthSrc0 = IMAGE_W;
 					heightSrc0 = IMAGE_H;
 					roiWidthSrc = m_spectraArea.w;
 					roiHeightSrc = m_spectraArea.h;
@@ -805,12 +805,12 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				if (ModeStatus::IsColorMode()) {
 					unsigned char* preBoxData = (unsigned char *)m_imagePreBox->imageData;
 					pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-					widthSrc1 = IMG_AREA_W;	
+					widthSrc1 = IMG_AREA_W;
 					heightSrc1 = IMG_AREA_H;
 					pSrc0 = preBoxData;
-					widthSrc0 = IMAGE_W; 
+					widthSrc0 = IMAGE_W;
 					heightSrc0 = IMAGE_H;
-					roiWidthSrc = IMAGE_W; 
+					roiWidthSrc = IMAGE_W;
 					roiHeightSrc = IMAGE_H;
 					ImageMixC3R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor);
 				}
@@ -840,9 +840,9 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 				unsigned char* ImtData = (unsigned char *)m_imageIMT->imageData;
 				pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
 				pSrc0 = ImtData;// + ((IMAGE_Y-IMAGE_Y)*IMAGE_W + (IMAGE_X-IMAGE_X))*3;
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
 				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
@@ -868,12 +868,12 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 				// PixmapArea的叠加(pixmap area-> m_bitsMix)
 				pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				pSrc0 = (unsigned char*)(iA->mem);
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
-				roiWidthSrc = IMAGE_W; 
+				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
 				ImageMixC3C4R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor, rgbOrderReversed);
 
@@ -895,12 +895,12 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 				// PixmapArea的叠加(pixmap area-> m_bitsMix)
 				pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-				widthSrc1 = IMG_AREA_W;	
+				widthSrc1 = IMG_AREA_W;
 				heightSrc1 = IMG_AREA_H;
 				pSrc0 = (unsigned char*)(iA->mem);
-				widthSrc0 = IMAGE_W; 
+				widthSrc0 = IMAGE_W;
 				heightSrc0 = IMAGE_H;
-				roiWidthSrc = IMAGE_W; 
+				roiWidthSrc = IMAGE_W;
 				roiHeightSrc = IMAGE_H;
 				ImageMixC3C4R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor, rgbOrderReversed);
 
@@ -920,12 +920,12 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 			// PixmapArea的叠加(pixmap area-> m_bitsMix)
 			pDst = pSrc1 = m_bitsMix + (IMG_AREA_W*IMAGE_Y*IMG_BPP + IMAGE_X*IMG_BPP);
-			widthSrc1 = IMG_AREA_W;	
+			widthSrc1 = IMG_AREA_W;
 			heightSrc1 = IMG_AREA_H;
 			pSrc0 = (unsigned char*)(iA->mem);
-			widthSrc0 = IMAGE_W; 
+			widthSrc0 = IMAGE_W;
 			heightSrc0 = IMAGE_H;
-			roiWidthSrc = IMAGE_W; 
+			roiWidthSrc = IMAGE_W;
 			roiHeightSrc = IMAGE_H;
 			ImageMixC3C4R(pDst, pSrc0, pSrc1, widthDst, heightDst, widthSrc0, heightSrc0, widthSrc1, heightSrc1, roiWidthSrc, roiHeightSrc, keyColor, rgbOrderReversed);
 
@@ -941,18 +941,18 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 
 	if (histogram_status != 0) {
 		gdk_draw_drawable(widget->window,
-				gc, 
-				m_pixmapHistogram, 
+				gc,
+				m_pixmapHistogram,
 				0, 0,
 				kHistogramX, kHistogramY,
 				kHistogramWidth, kHistogramHeight);
 	}
 
 #if 0
-	// 绘制PixmapArea 
+	// 绘制PixmapArea
 	gdk_draw_drawable(widget->window,
-			gc, 
-			m_pixmapArea, 
+			gc,
+			m_pixmapArea,
 			0, 0,
 			IMAGE_X, IMAGE_Y,
 			IMAGE_W, IMAGE_H);
@@ -964,8 +964,8 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 		{
 			if(m_pixmapBDMK[i])
 				gdk_draw_drawable(widget->window,
-						gc, 
-						m_pixmapBDMK[i], 
+						gc,
+						m_pixmapBDMK[i],
 						0, 0,
 						m_bdmkPos[i].x, m_bdmkPos[i].y,
 						m_bdmkWidth[i], m_bdmkHeight[i]);
@@ -975,8 +975,8 @@ void ImageArea::ImageAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 	//    if (m_drawPwTrace) {
 	gdk_gc_set_function(gc, GDK_XOR);
 	gdk_draw_drawable(widget->window,
-			gc, 
-			m_pixmapPwTrace, 
+			gc,
+			m_pixmapPwTrace,
 			0, 0,
 			IMAGE_X, IMAGE_Y,
 			IMAGE_W, IMAGE_H);
@@ -1069,11 +1069,11 @@ void ImageArea::GetImgPtr(unsigned char ** image)
 
 GdkPixbuf* ImageArea::GetDrawingAreaImage()
 {
-	return gdk_pixbuf_get_from_drawable(NULL, 
+	return gdk_pixbuf_get_from_drawable(NULL,
 			m_imageDA->window,
-			gdk_colormap_get_system(), 
+			gdk_colormap_get_system(),
 			IMAGE_X, IMAGE_Y,
-			0, 0, 
+			0, 0,
 			IMAGE_W, IMAGE_H);
 }
 
@@ -1127,9 +1127,9 @@ void ImageArea::GetFrmData(guchar **pBits, int *nWidth, int *nHeight)
 void ImageArea::LoadFrm(void)
 {
     PRINTF("%s: load frm file %s\n", __FUNCTION__, g_menuReview.GetReadFrm());
-	ImgMan::ImgItem item;	
+	ImgMan::ImgItem item;
 	if (ImgMan::GetInstance()->ReadSnap(g_menuReview.GetReadFrm(), &item) != 0) {
-		PRINTF("%s: Error with ReadSnap!\n", __FUNCTION__);	
+		PRINTF("%s: Error with ReadSnap!\n", __FUNCTION__);
 		return;
 	}
 
@@ -1142,11 +1142,11 @@ void ImageArea::LoadFrm(void)
 
 void ImageArea::GetSnapData(guchar **pBits, int *nWidth, int *nHeight)
 {
-    GdkPixbuf *pixbuf = gdk_pixbuf_get_from_drawable(NULL, 
+    GdkPixbuf *pixbuf = gdk_pixbuf_get_from_drawable(NULL,
             ViewMain::GetInstance()->GetMainWindow()->window,
-            gdk_colormap_get_system(), 
-            IMG_AREA_X, 0, 
-            0, 0, 
+            gdk_colormap_get_system(),
+            IMG_AREA_X, 0,
+            0, 0,
             IMG_AREA_W, IMG_AREA_H + TOP_AREA_H + GAP_AREA_H);
 
     int size = IMG_AREA_W * (IMG_AREA_H+TOP_AREA_H+GAP_AREA_H) * 3;
@@ -1211,28 +1211,28 @@ void ImageArea::DrawLine(DrawAttr &attr, const GdkColor* const color, int x1, in
 		case IMT:
 			if (attr.mode.cvDraw)
 				cvLine(m_imageIMT, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvLine(m_imageIMT, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(0, 0, 0));
 			break;
 		case SYMBOL:
 			if (attr.mode.cvDraw)
 				cvLine(m_imageSymbol, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvLine(m_imageSymbol, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(0, 0, 0));
 			break;
 		case SPECTRA:
 			if (attr.mode.cvDraw)
 				cvLine(m_imageSpectra, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvLine(m_imageSpectra, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(0, 0, 0));
 			break;
 		case PARA:
 			if (attr.mode.cvDraw)
 				cvLine(m_imagePara, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvLine(m_imagePara, cvPoint(x1, y1), cvPoint(x2, y2), CV_RGB(0, 0, 0));
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
                 GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1255,22 +1255,22 @@ void ImageArea::DrawPoint(DrawAttr &attr, const GdkColor* const color, int x, in
 		case SYMBOL:
 			if (attr.mode.cvDraw)
 				cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), CV_FILLED);
-			else 
+			else
 				cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0), CV_FILLED);
 			break;
 		case SPECTRA:
 			if (attr.mode.cvDraw)
 				cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), CV_FILLED);
-			else 
+			else
 				cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0), CV_FILLED);
 			break;
 		case PARA:
 			if (attr.mode.cvDraw)
 				cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), CV_FILLED);
-			else 
+			else
 				cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0), CV_FILLED);
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
 				GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1328,7 +1328,7 @@ void ImageArea::DrawCircle(DrawAttr &attr, const GdkColor* const color, int x, i
 					cvCircle(m_imagePara, cvPoint(x, y), radius, CV_RGB(0, 0, 0));
 			}
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
 				GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1350,22 +1350,22 @@ void ImageArea::DrawArc(DrawAttr &attr, const GdkColor* const color, int x, int 
 		case SYMBOL:
 			if (attr.mode.cvDraw)
 				cvEllipse(m_imageSymbol, cvPoint(x+width/2, y+height/2), cvSize(width/2, height/2), 0, angle1, angle2, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvEllipse(m_imageSymbol, cvPoint(x+width/2, y+height/2), cvSize(width/2, width/2), 0, angle1, angle2, CV_RGB(0, 0, 0));
 			break;
 		case SPECTRA:
 			if (attr.mode.cvDraw)
 				cvEllipse(m_imageSpectra, cvPoint(x+width/2, y+height/2), cvSize(width/2, height/2), 0, angle1, angle2, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvEllipse(m_imageSpectra, cvPoint(x+width/2, y+height/2), cvSize(width/2, width/2), 0, angle1, angle2, CV_RGB(0, 0, 0));
 			break;
 		case PARA:
 			if (attr.mode.cvDraw)
 				cvEllipse(m_imagePara, cvPoint(x+width/2, y+height/2), cvSize(width/2, height/2), 0, angle1, angle2, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvEllipse(m_imagePara, cvPoint(x+width/2, y+height/2), cvSize(width/2, width/2), 0, angle1, angle2, CV_RGB(0, 0, 0));
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
 				GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1398,22 +1398,22 @@ void ImageArea::DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, 
 			case SYMBOL:
 				if (attr.mode.cvDraw)
 					cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
-				else 
+				else
 					cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
 				break;
 			case SPECTRA:
 				if (attr.mode.cvDraw)
 					cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
-				else 
+				else
 					cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
 				break;
 			case PARA:
 				if (attr.mode.cvDraw)
 					cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
-				else 
+				else
 					cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
 				break;
-			case PIXMAP: 
+			case PIXMAP:
 				{
 					GdkGC *gc = gdk_gc_new(m_pixmapArea);
 					gdk_gc_set_foreground(gc, color);
@@ -1486,7 +1486,7 @@ void ImageArea::DrawRectangle(DrawAttr &attr, const GdkColor* const color, int x
 					cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+width, y+height), CV_RGB(0, 0, 0));
 			}
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
 				GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1515,22 +1515,22 @@ void ImageArea::DrawPolygon(DrawAttr &attr, const GdkColor* const color, GdkPoin
 		case SYMBOL:
 			if (attr.mode.cvDraw)
 				cvFillConvexPoly(m_imageSymbol, pts, nPoint, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvFillConvexPoly(m_imageSymbol, pts, nPoint, CV_RGB(0, 0, 0));
 			break;
 		case SPECTRA:
 			if (attr.mode.cvDraw)
 				cvFillConvexPoly(m_imageSpectra, pts, nPoint, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvFillConvexPoly(m_imageSpectra, pts, nPoint, CV_RGB(0, 0, 0));
 			break;
 		case PARA:
 			if (attr.mode.cvDraw)
 				cvFillConvexPoly(m_imagePara, pts, nPoint, CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-			else 
+			else
 				cvFillConvexPoly(m_imagePara, pts, nPoint, CV_RGB(0, 0, 0));
 			break;
-		case PIXMAP: 
+		case PIXMAP:
 			{
 				GdkGC *gc = gdk_gc_new(m_pixmapArea);
 				gdk_gc_set_foreground(gc, color);
@@ -1572,22 +1572,22 @@ void ImageArea::DrawDashLine(DrawAttr &attr, const GdkColor* const color, int x1
 				case SYMBOL:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8),size*2,CV_AA);
-					else 
+					else
 						cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0),size);
 					break;
 				case SPECTRA:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-					else 
+					else
 						cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0));
 					break;
 				case PARA:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-					else 
+					else
 						cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0));
 					break;
-				case PIXMAP: 
+				case PIXMAP:
 					gdk_draw_point(m_pixmapArea, gc, x,   y);
 					gdk_draw_point(m_pixmapArea, gc, x+1, y);
 					gdk_draw_point(m_pixmapArea, gc, x,   y+1);
@@ -1630,22 +1630,22 @@ void ImageArea::DrawDashLine(DrawAttr &attr, const GdkColor* const color, int x1
 				case SYMBOL:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-					else 
+					else
 						cvRectangle(m_imageSymbol, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0));
 					break;
 				case SPECTRA:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-					else 
+					else
 						cvRectangle(m_imageSpectra, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0));
 					break;
 				case PARA:
 					if (attr.mode.cvDraw)
 						cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8));
-					else 
+					else
 						cvRectangle(m_imagePara, cvPoint(x, y), cvPoint(x+1, y+1), CV_RGB(0, 0, 0));
 					break;
-				case PIXMAP: 
+				case PIXMAP:
 					gdk_draw_point(m_pixmapArea, gc, x,   y);
 					gdk_draw_point(m_pixmapArea, gc, x+1, y);
 					gdk_draw_point(m_pixmapArea, gc, x,   y+1);
@@ -1667,7 +1667,7 @@ void ImageArea::ClearReplayBar(void)
 {
 	GdkGC *gc_replayBar = gdk_gc_new(m_pixmapReplayBar);
 	gdk_gc_set_foreground(gc_replayBar, g_black);
-	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H); 
+	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H);
 	g_object_unref(gc_replayBar);
 }
 
@@ -1687,7 +1687,7 @@ void ImageArea::DrawReplayBar(int cur_img, int total_img, int left, int right)
 	GdkGC *gc_replayBar = gdk_gc_new(m_pixmapReplayBar);
 
 	gdk_gc_set_foreground(gc_replayBar, g_white);
-	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, FALSE, x, y, bar_w, bar_h); 
+	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, FALSE, x, y, bar_w, bar_h);
 	if (right != 0) {
 		gdk_gc_set_foreground(gc_replayBar, g_green);
 		gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, FALSE, x+slip_left, y, abs(slip_right-slip_left), bar_h);
@@ -1724,7 +1724,7 @@ void ImageArea::ClearEFOVSpeedbar(void)
 {
 	GdkGC *gc_replayBar = gdk_gc_new(m_pixmapReplayBar);
 	gdk_gc_set_foreground(gc_replayBar, g_black);
-	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H); 
+	gdk_draw_rectangle(m_pixmapReplayBar, gc_replayBar, TRUE, 0, 0, REPLAY_BAR_W, REPLAY_BAR_H);
 	g_object_unref(gc_replayBar);
 	m_speedbarDraw = false;
 }
@@ -1764,7 +1764,7 @@ void ImageArea::DrawEFOVSpeedbar(int cur, int total, float speed)
 
 		gdk_gc_set_function(gc, GDK_COPY);
 		gdk_gc_set_foreground(gc, g_black);
-		gdk_draw_rectangle(m_pixmapReplayBar, gc, TRUE, 5, y-2, hint_w, 17); 
+		gdk_draw_rectangle(m_pixmapReplayBar, gc, TRUE, 5, y-2, hint_w, 17);
 		gdk_gc_set_foreground(gc, g_white);
 		gdk_draw_layout(m_pixmapReplayBar, gc, 5, y-2, layout);
 		//gdk_draw_layout(m_pixmapReplayBar, gc, 5, y-2, m_layout);
@@ -1780,7 +1780,7 @@ void ImageArea::DrawEFOVSpeedbar(int cur, int total, float speed)
 			free_color(color);
 		}
 		gdk_gc_set_foreground(gc, g_yellow);
-		gdk_draw_rectangle(m_pixmapReplayBar, gc, FALSE, x+optimal_speed_x, y, optimal_speed_width, bar_h+1); 
+		gdk_draw_rectangle(m_pixmapReplayBar, gc, FALSE, x+optimal_speed_x, y, optimal_speed_width, bar_h+1);
 	}
 
 	gdk_gc_set_foreground(gc, g_white);
@@ -1800,7 +1800,7 @@ void ImageArea::DrawEFOVSpeedbar(int cur, int total, float speed)
 	//pango_layout_set_text(m_layout, buf, -1);
 	gdk_gc_set_function(gc, GDK_COPY);
 	gdk_gc_set_foreground(gc, g_black);
-	gdk_draw_rectangle(m_pixmapReplayBar, gc, TRUE, x+bar_w+5, y-2, 100, 17); 
+	gdk_draw_rectangle(m_pixmapReplayBar, gc, TRUE, x+bar_w+5, y-2, 100, 17);
 	gdk_gc_set_foreground(gc, g_white);
 	gdk_draw_layout(m_pixmapReplayBar, gc, x+bar_w+5, y-2, layout);
 	//gdk_draw_layout(m_pixmapReplayBar, gc, x+bar_w+5, y-2, m_layout);
@@ -1886,14 +1886,14 @@ void ImageArea::DrawProbeMark(int x, int y, guint direction, guint directionMax,
 	double cosy, siny, cosAngle, sinAngle;
 	double Len;
 	double slopy = (directionMax - direction) * PI * 2 / (float)directionMax;
-	double angle = 30 * PI / (float)180; 
+	double angle = 30 * PI / (float)180;
 
 	cosy = cos( slopy );
-	siny = sin( slopy ); 
+	siny = sin( slopy );
 	cosAngle = cos(angle);
 	sinAngle = sin(angle);
 
-	Len = 24.0 * scale;	
+	Len = 24.0 * scale;
 
 	//head
 	p1_x = - (Len * 3 / (float)devide);
@@ -1965,7 +1965,7 @@ void ImageArea::DrawProbeMark(int x, int y, guint direction, guint directionMax,
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t7_x, t7_y, t8_x, t8_y);
 	gdk_draw_line(m_pixmapBDMK[index], gc, t5_x, t5_y, t7_x, t7_y);
 	//gdk_draw_line(m_pixmapBDMK[index], gc, t6_x, t6_y, t8_x, t8_y);
-	
+
 
 	g_object_unref(gc);
 	UpdateImgArea();
@@ -2083,7 +2083,7 @@ void ImageArea::DrawMeasureResult(const char *result, int pos, int lines, int cu
    	//PRINTF("%s-%s: result=\n%s\n", __FILE__, __FUNCTION__, result);
 	PRINTF("%s-%s: pos=%d, lines=%d\n", __FILE__, __FUNCTION__, pos, lines);
     m_curCountLines = lines;
-   
+
     if(m_meaResultFontSize == 14)
     {
         if(m_meaResultLineH > 25)
@@ -2094,7 +2094,7 @@ void ImageArea::DrawMeasureResult(const char *result, int pos, int lines, int cu
         if(m_meaResultLineH > 18)
             m_meaResultLineH = 18;
     }
-    
+
     int y = (pos - lines)*m_meaResultLineH;
     //从下往上显示
     //int y = m_meaResultRect.h - pos*m_meaResultLineH;
@@ -2132,16 +2132,16 @@ void ImageArea::DrawMeasureResult(const char *result, int pos, int lines, int cu
 		meaPos.width = width + cursor_w;
 		m_meaResultPos.push_back(meaPos);
 	}
-    
+
     gdk_gc_set_foreground(m_gcMeaResult, g_black);
 
     //从下往上显示
-    //gdk_draw_rectangle(m_pixmapMeaResult, m_gcMeaResult, TRUE, x, 0, m_meaResultRect.w, y+height);    
+    //gdk_draw_rectangle(m_pixmapMeaResult, m_gcMeaResult, TRUE, x, 0, m_meaResultRect.w, y+height);
     gdk_draw_rectangle(m_pixmapMeaResult, m_gcMeaResult, TRUE, x, y, m_meaResultRect.w, m_meaResultRect.h - y);
     PRINTF("%s-%s: draw rectange w=%d, h=%d\n", __FILE__, __FUNCTION__, m_meaResultRect.w, y+height);
 	gdk_gc_set_foreground(m_gcMeaResult, color);
     //DrawMeasureResultCursor(m_gcMeaResult, cursorType, color, x+7, y+7);
-    
+
     gdk_draw_layout(m_pixmapMeaResult, m_gcMeaResult, x, y+1, layout);
     g_object_unref(layout);
 
@@ -2289,13 +2289,13 @@ void ImageArea::DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* co
 	int width = bitmap->pitch;
 	int height = bitmap->rows;
 
-	GdkImage *iA = gdk_drawable_get_image(m_pixmapArea, 0, 0, IMAGE_W, IMAGE_H); 
+	GdkImage *iA = gdk_drawable_get_image(m_pixmapArea, 0, 0, IMAGE_W, IMAGE_H);
 	unsigned char* data = (unsigned char *)iA->mem;
 	GdkColor colorT;
 
-	for (int i = IMAGE_W*y*4 + x*4, k=0; i < (IMAGE_W*(y+height)-(IMAGE_W-x-width))*4 && k < height; i+=IMAGE_W*4, k++) 
+	for (int i = IMAGE_W*y*4 + x*4, k=0; i < (IMAGE_W*(y+height)-(IMAGE_W-x-width))*4 && k < height; i+=IMAGE_W*4, k++)
 	{
-		for (int j = 0, n = 0; j < width * 4 && n < width; j+=4, n++) 
+		for (int j = 0, n = 0; j < width * 4 && n < width; j+=4, n++)
 		{
 			if (bitmap->buffer[n+k*width] > 0)
 			{
@@ -2316,7 +2316,7 @@ void ImageArea::DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* co
 			}
 		}
 	}
-	
+
 	GdkGC *gc = gdk_gc_new(m_pixmapArea);
 	gdk_gc_set_function(gc, GDK_COPY);
 	gdk_draw_image(m_pixmapArea, gc, iA, 0, 0, 0, 0, IMAGE_W, IMAGE_H);
@@ -2325,17 +2325,17 @@ void ImageArea::DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* co
 }
 
 void ImageArea::DrawString(GdkGC *gc, int x, int y, const char *str)
-{  
+{
     //GdkFont *font;
     //font=gdk_font_load("-adobe-helvetica-medium-r-normal--17-*-*-*-*-*-iso8859-1");
     //gdk_draw_string(m_pixmapArea, font, gc, x, y, str);
 #if 1
-    cairo_t *cr;    
-    cr = gdk_cairo_create(m_pixmapArea);    
-    cairo_set_source_rgb(cr, 1, 1, 1);    
-    cairo_select_font_face(cr, "Purisa",       CAIRO_FONT_SLANT_NORMAL,       CAIRO_FONT_WEIGHT_BOLD);   
-    cairo_set_font_size(cr, 13);    
-    cairo_move_to(cr, x, y); 
+    cairo_t *cr;
+    cr = gdk_cairo_create(m_pixmapArea);
+    cairo_set_source_rgb(cr, 1, 1, 1);
+    cairo_select_font_face(cr, "Purisa",       CAIRO_FONT_SLANT_NORMAL,       CAIRO_FONT_WEIGHT_BOLD);
+    cairo_set_font_size(cr, 13);
+    cairo_move_to(cr, x, y);
     cairo_show_text(cr, str);
     cairo_destroy(cr);
 #endif
@@ -2489,7 +2489,7 @@ void ImageArea::RedrawBodyMarkWhenModeChanged()
 	}
 #if 1
 	//UpdateImgArea();
-	//swap BodyMark 
+	//swap BodyMark
 	GdkPixmap *pixmap = m_pixmapBDMK[0];
 	m_bdmkWidth[0] = m_bdmkWidth[m_bdmkLast];
 	m_bdmkHeight[0] = m_bdmkHeight[m_bdmkLast];
@@ -2560,9 +2560,9 @@ void ImageArea::RedrawBodyMarkWhenModeChanged()
  *
  * @para x[in] x coordinate of left corner of body mark
  * @para y[in] y coordinate of left corner of body mark
- * @para scale[in] zoom scale 
+ * @para scale[in] zoom scale
  * @oara colorIndex[in] color index of body mark, range (0-5) white, gray ,red, green ,yellow, blue
- * @oara index[in] index of body mark, range (0-3) 
+ * @oara index[in] index of body mark, range (0-3)
  */
 void ImageArea::DrawBodyMark(int x, int y, GdkPixbuf* pixbuf, double scale, guint colorIndex, guint index)
 {
@@ -2617,9 +2617,9 @@ gboolean ImageArea::UpdateFps()
 	return TRUE;
 }
 
-void ImageArea::ClearUpdateCounts() 
-{ 
-    m_counts = 0; 
+void ImageArea::ClearUpdateCounts()
+{
+    m_counts = 0;
 #ifdef EMP_355
     g_fps = 0;
 #endif
@@ -2681,14 +2681,14 @@ void ImageArea::DrawArrowHollow(int x, int y, guint direction, guint directionMa
 	double cosy, siny, cosAngle, sinAngle;
 	double Len;
 	double slopy = (directionMax - direction) * PI * 2 / (float)directionMax;
-	double angle = 30 * PI / (float)180; 
+	double angle = 30 * PI / (float)180;
 
 	cosy = cos( slopy );
-	siny = sin( slopy ); 
+	siny = sin( slopy );
 	cosAngle = cos(angle);
 	sinAngle = sin(angle);
 
-	Len = 10.0 * scale;	
+	Len = 10.0 * scale;
 
 	// head
 	p0_x = 0;
@@ -2731,7 +2731,7 @@ void ImageArea::DrawArrowHollow(int x, int y, guint direction, guint directionMa
 	t6_x = t0_x + p6_x*cosy + p6_y*siny;
 	t6_y = t0_y + p6_y*cosy - p6_x*siny;
 
-	// head line 
+	// head line
 	//gdk_draw_line(m_pixmapArea, gc, t0_x, t0_y, t1_x, t1_y);
 	//gdk_draw_line(m_pixmapArea, gc, t0_x, t0_y, t2_x, t2_y);
 	gdk_draw_line(m_pixmapArea, gc, t1_x, t1_y, t0_x, t0_y);
@@ -2739,7 +2739,7 @@ void ImageArea::DrawArrowHollow(int x, int y, guint direction, guint directionMa
 	gdk_draw_line(m_pixmapArea, gc, t1_x, t1_y, t3_x, t3_y);
 	gdk_draw_line(m_pixmapArea, gc, t2_x, t2_y, t4_x, t4_y);
 
-	// tail line 
+	// tail line
 	gdk_draw_line(m_pixmapArea, gc, t3_x, t3_y, t5_x, t5_y);
 	gdk_draw_line(m_pixmapArea, gc, t4_x, t4_y, t6_x, t6_y);
 	gdk_draw_line(m_pixmapArea, gc, t5_x, t5_y, t6_x, t6_y);
@@ -2750,7 +2750,7 @@ void ImageArea::DrawArrowHollow(int x, int y, guint direction, guint directionMa
 
 
 // @brief draw arrow with direction, size, color
-// @para x,y the center coordinate 
+// @para x,y the center coordinate
 // @para direction(enum DIRECTION) value:0~23
 // @oara colorIndex[in] color index of body mark, range (0-5) white, gray ,red, green ,yellow, blue
 void ImageArea::DrawArrowSimple(int x, int y, guint direction, guint directionMax, double scale, guint colorIndex)
@@ -2779,14 +2779,14 @@ void ImageArea::DrawArrowSimple(int x, int y, guint direction, guint directionMa
 	double cosy, siny, cosAngle, sinAngle;
 	double Len;
 	double slopy = (directionMax - direction) * PI * 2 / (float)directionMax;
-	double angle = 30 * PI / (float)180; 
+	double angle = 30 * PI / (float)180;
 
 	cosy = cos( slopy );
-	siny = sin( slopy ); 
+	siny = sin( slopy );
 	cosAngle = cos(angle);
 	sinAngle = sin(angle);
 
-	Len = 10.0 * scale;	
+	Len = 10.0 * scale;
 
 	// head
 	p0_x = 0;
@@ -2813,7 +2813,7 @@ void ImageArea::DrawArrowSimple(int x, int y, guint direction, guint directionMa
 	t3_x = t0_x + p3_x*cosy + p3_y*siny;
 	t3_y = t0_y + p3_y*cosy - p3_x*siny;
 
-	// draw arrow 
+	// draw arrow
 	//gdk_draw_line(m_pixmapArea, gc, t0_x, t0_y, t1_x, t1_y);
 	//gdk_draw_line(m_pixmapArea, gc, t0_x, t0_y, t2_x, t2_y);
 	gdk_draw_line(m_pixmapArea, gc, t1_x, t1_y, t0_x, t0_y);
@@ -2868,7 +2868,7 @@ void ImageArea::DrawTransducerResult(int x, int y, int width, int height, int Tr
 
 
     int heightdiv=height/5;
-   
+
     int i;
 
     DrawRectangle(imgAttr, g_white, x, y , width, height, false, false);
@@ -2887,7 +2887,7 @@ void ImageArea::DrawTransducerResult(int x, int y, int width, int height, int Tr
     DrawRectangle(imgAttr, g_white, x, y , width, height, false, false);
 
     m_transducerGainBak = TransducerGain;
-} 
+}
 #endif
 
 void ImageArea::DrawMagnifier(int x, int y)
@@ -2924,10 +2924,10 @@ void ImageArea::DrawBiopsyLine(GdkFunction mode, const GdkColor* const color, in
 
     int length = (int)(sqrt(dist_x*dist_x + dist_y*dist_y));
 
-    if (length > distance) 
+    if (length > distance)
     {
         count = (length / distance) * distance;
-        while (count >= distance) 
+        while (count >= distance)
         {
             x = x1 + (int)((float)dist_x * (float)count / (float)length);
             y = y1 + (int)((float)dist_y * (float)count / (float)length);

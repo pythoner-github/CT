@@ -19,7 +19,7 @@
 #include "ModeStatus.h"
 #include "ViewMain.h"
 
-extern int g_tgcSlider[8]; 
+extern int g_tgcSlider[8];
 CUIS4DReceiveInterface g_uis4d_ri;
 unsigned char *g_pshm_data0, *g_pshm_data1;
 int g_sem_id0, g_sem_id1;
@@ -69,7 +69,7 @@ void D4FuncMan::GetPara(SUIS4DPARA &Para)
     GetHospitalName();
 #ifndef VET
     GetPatientInfo();
-#endif    
+#endif
     GetTimeFormat();
     Para = m_Para4d;
 }
@@ -118,10 +118,10 @@ void D4FuncMan::Exit4D()
 
     // keyboard control
     KeyboardOversee((void *)&g_keyInterface, false);
-   
+
     FreezeMode::GetInstance()->UnFreeze();
 
-    Img2D::GetInstance()->SetLineDensity(1); 
+    Img2D::GetInstance()->SetLineDensity(1);
     Img2D::GetInstance()->SetMBP(1);
 
 
@@ -131,8 +131,8 @@ void D4FuncMan::Exit4D()
 
     SUIS4DPARA para;
     para = g_uis4d_ri.ReadConfigInfo();
-    
-    // achieve tgc from 4D 
+
+    // achieve tgc from 4D
     g_tgcSlider[0] = para.tgc_0;
     g_tgcSlider[1] = para.tgc_1;
     g_tgcSlider[2] = para.tgc_2;
@@ -152,7 +152,7 @@ void D4FuncMan::Exit4D()
     mode = para.scan_mode;
     if(strcmp(mode.c_str(),"M")==0)
     {
-        g_keyInterface.CtrlLight(TRUE,LIGHT_M); 
+        g_keyInterface.CtrlLight(TRUE,LIGHT_M);
         if (Img2D::GetInstance()->GetTpViewStatus() || Img2D::GetInstance()->GetEFVIStatus())
         {
             Img2D::GetInstance()->ExitTpView();
@@ -280,8 +280,8 @@ void D4FuncMan::GetProbeInfo()
     m_Para4d.fps_real = ImageAreaPara::GetInstance()->GetGenFps();
     m_Para4d.scan_range_begin = scan_range[0];
     m_Para4d.scan_range_end = scan_range[1];
-    m_Para4d.samples = samples; 
-    m_Para4d.scan_angle = scanangle; 
+    m_Para4d.samples = samples;
+    m_Para4d.scan_angle = scanangle;
     m_Para4d.scan_angle = (int)angle;
 
     return;
@@ -353,4 +353,3 @@ void D4FuncMan::GetTimeFormat()
     m_Para4d.date_format = date_format;
     return;
 }
-

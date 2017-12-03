@@ -46,11 +46,11 @@
 const string CManRegister::Optional[MAX_OPTIONAL_NUM] =
 {
     "Dicom",
-    "Anatomic M", 
-    "CW",         
-    "eFci",      
-    "eView",     
-    "IMT",       
+    "Anatomic M",
+    "CW",
+    "eFci",
+    "eView",
+    "IMT",
 };
 
 const char* CManRegister::ValueOpt[MAX_OPTIONAL_NUM] =
@@ -88,7 +88,7 @@ CManRegister::CManRegister(string resFileDir) : m_resFilePath(""), m_isAuthorize
 		m_resFilePath = resFileDir + DIR_SEPARATOR_CHAR;
 	else
 		m_resFilePath = resFileDir;
-	
+
 	string registerKey = "";
     /**查找当前目录下所有文件名称
      * 读取文件内容，校验，赋值
@@ -96,7 +96,7 @@ CManRegister::CManRegister(string resFileDir) : m_resFilePath(""), m_isAuthorize
     if (access(m_resFilePath.c_str(), F_OK) < 0)
         PRINTF("The directory used to store the license is invalid!\n");
 
-    vector<string> file_name; 
+    vector<string> file_name;
     GetFiles(m_resFilePath.c_str(), file_name);
 
     for(int i = 0; i < file_name.size(); i++)
@@ -175,7 +175,7 @@ bool CManRegister::GenerateLicenseFile(string destFileDir, string fileName)
 	}
 
 	int fd = open(destFilePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
-	
+
 	if (fd < 0)
 	{
 		PRINTF("Fail to open license file!\n");
@@ -203,7 +203,7 @@ bool CManRegister::SaveRegisterKeyFile(string registerKey)
 {
 	string filePath = m_resFilePath + m_currentFileName; //KEY_FILENAME;
 	int fd = open(filePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
-	
+
 	if (fd < 0)
 	{
 		PRINTF("Fail to open register key file!\n");
@@ -224,7 +224,7 @@ bool CManRegister::ReadRegisterKeyFile(string &registerKey, string fileName)
 {
 	string filePath = m_resFilePath + fileName;
 	int fd = open(filePath.c_str(), O_RDWR);
-	
+
 	if (fd < 0)
 	{
 		PRINTF("Fail to open register key file!\n");
@@ -316,7 +316,7 @@ void CManRegister::SetAuthorize(string optional, bool status)
  *para files[out]: 当前目录下文件名称
  */
 void CManRegister::GetFiles(const char *path, vector<string>& files)
-{ 
+{
 	const char *name;
 	GDir *dir;
 	GError *err = NULL;
@@ -331,7 +331,7 @@ void CManRegister::GetFiles(const char *path, vector<string>& files)
     {
         PRINTF("%s: the dir is null!\n", __FUNCTION__);
         g_dir_close(dir);
-        return; 
+        return;
     }
     string str;
     while(name != NULL)
@@ -432,7 +432,7 @@ int CManRegister::OpenSCSIDevice(const char *dev)
         return -1;
     }
 
-    if ((ioctl(fd, SG_GET_VERSION_NUM, &vers) < 0) || (vers < 30000)) 
+    if ((ioctl(fd, SG_GET_VERSION_NUM, &vers) < 0) || (vers < 30000))
 	{
         PRINTF("/dev is not an sg device, or old sg driver\n");
         close(fd);
@@ -557,7 +557,7 @@ void CManRegister::GenerateLicenseCode(char *code)
 	GetSCSIDiskID(scsiID);
 	GetMacID(macID);
     GetValue(value, m_currentIndex);
-	
+
 	sprintf(ptrCurPos, "%010d", GetRand());
 	ptrCurPos += randBit;
 
@@ -624,4 +624,3 @@ unsigned int CManRegister::GetSecond()
     p = localtime(&getTime);
 	return p->tm_sec;
 }
-

@@ -66,13 +66,13 @@ public:
     void UpdatePdiWF(int data, bool draw = TRUE);
     void UpdatePdiPersist(int data, bool draw = TRUE);
     void UpdatePdiSensitive(int data, bool draw = TRUE);
-    void UpdateAutoOptimize(bool data, bool draw = TRUE);    
+    void UpdateAutoOptimize(bool data, bool draw = TRUE);
     void UpdateFreq(const char* freq, bool draw=TRUE);
     void UpdateCfmDopplerFreq(const char* freq, bool draw=TRUE);
     void UpdatePdiDopplerFreq(const char* freq, bool draw=TRUE);
     void UpdateDepth(int depth, bool draw=TRUE);
 	void FillRectangle(int x, int y, int w, int h);
-		
+
 #ifdef TRANSDUCER
     void UpdateTransducer(int data,bool draw =TRUE);
     void DrawTransducer(void);
@@ -84,12 +84,12 @@ private:
 
     void DrawPwGenPara(void);
     void DrawPwGen2Para(void);
-		
+
     static ImageAreaPara* m_ptrInstance;
-    static char * Level[2];	
-		
+    static char * Level[2];
+
     ImageArea* m_ptrImg;
-		
+
     char m_bufText[100];
     char m_freq[100];
 	char m_freqDoppler[100];
@@ -126,7 +126,7 @@ private:
     double m_PRFCw;
     int m_angleCw;
     double m_svPosCw;
-		
+
     int m_gainCfm;
     int m_wfCfm;
     int m_prfCfm;

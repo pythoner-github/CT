@@ -14,7 +14,7 @@ class ConfigToHost: public FakeXEvent
         ~ConfigToHost();
         static ConfigToHost* GetInstance();
         void CreateWindow(GtkWindow *parent);
-        void CreateCalcImportWindow(GtkWindow *parent);	
+        void CreateCalcImportWindow(GtkWindow *parent);
         GtkWidget* GetWindow() {return m_window;}
         vector<string> GetSelectedVec() {return m_vecPath;}
         void ClearData() { m_vecPath.clear();}
@@ -24,8 +24,8 @@ class ConfigToHost: public FakeXEvent
         void ExportRightInfoNotice(char *result);
         void ExportErrorInfoNotice(char *result);
         void DeleteUdiskFile();
-        void HideOKAndCancelClicked(); 
-        void OKAndCancelClicked(); 
+        void HideOKAndCancelClicked();
+        void OKAndCancelClicked();
 
     private:
         enum{
@@ -37,7 +37,7 @@ class ConfigToHost: public FakeXEvent
         ConfigToHost(void);
         static ConfigToHost* m_ptrInstance;
         void KeyEvent(unsigned char KeyValue);
-      
+
         GtkWidget *m_window;
 
         GtkWidget *m_window1;
@@ -45,7 +45,7 @@ class ConfigToHost: public FakeXEvent
         GtkWidget *m_treeBranch;
         GtkWidget *m_chkbtnDel;
         GtkWidget *btnOK;
-        GtkWidget *btnCancel; 
+        GtkWidget *btnCancel;
         GList *m_listBranch;
         GtkWidget *label_calc_notice1;
         vector<string> m_vecPath;
@@ -54,11 +54,11 @@ class ConfigToHost: public FakeXEvent
         GtkWidget *img_error;
         GtkWidget *img_load;
         GtkWidget* create_calc_treeview();
-        GtkWidget* create_treeview(gint type);	
+        GtkWidget* create_treeview(gint type);
         GtkTreeModel* create_root_model(void);
         GtkTreeModel* create_calc_root_model();
         void UpdateRootModel(void);
-        void UpdateCalcRootModel(void); 
+        void UpdateCalcRootModel(void);
         void UpdateBranchModel(gint rows);
         GtkTreeModel* LoadBranchModel(gchar *branch);
         void SetAllToggleValue(GtkTreeModel *model, gboolean value);
@@ -72,13 +72,13 @@ class ConfigToHost: public FakeXEvent
         //	void BtnSelectAllClicked(GtkButton *button);
         //	void BtnDeselectClicked(GtkButton *button);
         void BtnOKClicked(GtkButton *button);
-        void BtnCalcImportOKClicked(GtkButton *button); 
+        void BtnCalcImportOKClicked(GtkButton *button);
         void BtnCancelClicked(GtkButton *button);
         void ToggleData(GtkCellRendererToggle *cell, gchar *path_str);
         void RootSelectionChanged(GtkTreeSelection *selection);
         void RootCalcSelectionChanged(GtkTreeSelection *selection);
 
-        //signal connect 
+        //signal connect
         static gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, ConfigToHost* data) { return data->WindowDeleteEvent(widget, event); }
         static void on_data_toggled(GtkCellRendererToggle *cell, gchar *path_str, ConfigToHost* data) { data->ToggleData(cell, path_str); }
 

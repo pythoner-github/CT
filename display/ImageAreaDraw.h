@@ -172,7 +172,7 @@ private:
     void HorFocus(vector<int> &focPos, bool draw, bool L2R);
     void VerFocus(vector<int> &focPos, bool draw, bool U2D);
     void CenterLine(int rotate);
-  
+
     int PwScaleCalc(double vel);
     void ScanDirection(int x, int y, bool CurB);
     void BMLine(int curBMLine, bool LRStatus, bool UDStatus, GdkPoint pointBM, bool draw);
@@ -208,7 +208,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     int m_probeLines;
     double m_probeWidth;
     int m_probeR;
-    
+
     ImageArea* m_ptrImg;
     int m_correctAngle;
     int m_steerAngle;
@@ -248,7 +248,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     vector<GdkPoint> m_clearScaleY;
     int m_heightClearScaleY;
     int m_widthClearScaleY;
-    
+
     struct focInfo{
     	int focSum;
     	vector<int> focPos;
@@ -257,7 +257,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
 //    vector<focInfo> m_focInfo;
     GdkPoint m_pointFocus;
     bool m_focusDraw;
-    
+
     // Biopsy
     struct preBiopsy{
 	/*int xDist;
@@ -281,7 +281,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     GdkPoint m_pointBM;
     int m_widthImgBM;
     int m_heightImgBM;
-    bool m_mLineDraw; 
+    bool m_mLineDraw;
     bool m_drawMline;
 //    int m_mLine;
     struct PreMLine{
@@ -397,13 +397,13 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     // other
     int m_PIPBox[4]; //x, y, width, height
     bool m_PIPBoxDraw;
-    
+
     GdkPoint m_pointLZ;
     PreBoxPara m_preLZ;
     bool m_LZDraw;
     bool m_inLZMode;
     int m_LZLineRange[2];
-    int m_LZDotRange[2]; 
+    int m_LZDotRange[2];
     int m_LZDotBeginDepth;
     double m_LZScale;
 	bool m_dashLZBox;

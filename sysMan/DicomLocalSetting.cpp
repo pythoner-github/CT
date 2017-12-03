@@ -161,7 +161,7 @@ GtkWidget* DicomLocalSetting::CreateDicomWindow(GtkWidget *parent)
     gtk_widget_set_size_request (button_setting, 85, 35);
     //gtk_table_attach_defaults (GTK_TABLE (table_network), button_setting, 2,3 ,3, 4);
     g_signal_connect(button_setting, "clicked", G_CALLBACK(HandleButtonSettingClicked), this);
-    
+
     //Host
     frame_host = gtk_frame_new (NULL);
     gtk_widget_show (frame_host);
@@ -283,12 +283,12 @@ void DicomLocalSetting::ButtonSettingClicked(GtkButton *button)
         PRINTF("Fail to set the local network!\n");
         sprintf(info, _("Fail to set the local network!"));
     }
-   
-    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()), 
-            ViewDialog::INFO, 
+
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
+            ViewDialog::INFO,
             info,
             NULL);
-    
+
     }
 
 gboolean DicomLocalSetting::KeyFilter(GtkWidget *entry, GdkEventKey *event)

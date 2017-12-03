@@ -1,6 +1,6 @@
 /**
 * @brief AbsDCMData.h: interface for the CAbsDCMData class.
-* CAbsDCMData is abstract base class used to get datas of DICOM 
+* CAbsDCMData is abstract base class used to get datas of DICOM
 * image that be send.
 *
 * @version: 1.0

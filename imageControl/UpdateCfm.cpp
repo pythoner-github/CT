@@ -8,7 +8,7 @@
 #include "../display/KnobMenu.h"
 #include "MenuBiopsy.h"//2016.09.18--hy
 #include "ViewMain.h"
-const char * Toggle_Cfm[2] = 
+const char * Toggle_Cfm[2] =
 {
     N_("OFF"),
     N_("ON")
@@ -89,12 +89,12 @@ void UpdateCfm::PRFRange(int data, EKnobReturn status)
 void UpdateCfm::Baseline(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_BASELINE, m_str, status);	
+	SyncKnobCfm(CFM_BASELINE, m_str, status);
 }
 void UpdateCfm::WallFilter(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_WALL_FILTER, m_str, status);	
+	SyncKnobCfm(CFM_WALL_FILTER, m_str, status);
 	m_ptrImgPara->UpdateCfmWF(index);
 	ImageArea::GetInstance()->UpdateImgArea();
 }
@@ -111,7 +111,7 @@ void UpdateCfm::LineDensity(int index, EKnobReturn status)
  	N_("LOW"),
 	N_("HIGH")
     };
-	
+
 	SyncKnobCfm(CFM_LINE_DENSITY,(char*)Level[index], status);
     //m_ptrImgPara->Update2DLineDensity(index);
 }
@@ -124,12 +124,12 @@ void UpdateCfm::PacketSize(int index, EKnobReturn status)
 void UpdateCfm::ColorMap(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_MAP, m_str, status);	
+	SyncKnobCfm(CFM_MAP, m_str, status);
 }
 void UpdateCfm::Turbo(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_TURBO, m_str, status);	
+	SyncKnobCfm(CFM_TURBO, m_str, status);
 }
 
 void UpdateCfm::ScanLines()
@@ -143,7 +143,7 @@ void UpdateCfm::ScanLines()
     else
         ret = OK;
     sprintf(m_str, "%d", index);
-    SyncKnobCfm(CFM_SCAN_LINES, m_str, ret);	
+    SyncKnobCfm(CFM_SCAN_LINES, m_str, ret);
 }
 
 void UpdateCfm::SetVelRange(double max, double min, double maxKHz, double minKHz)
@@ -153,12 +153,12 @@ void UpdateCfm::SetVelRange(double max, double min, double maxKHz, double minKHz
 
 void UpdateCfm::ColorInvert(bool data, EKnobReturn status)
 {
-	SyncKnobCfm(CFM_INVERT, (char*)Toggle_Cfm[data], status);	
+	SyncKnobCfm(CFM_INVERT, (char*)Toggle_Cfm[data], status);
 }
 void UpdateCfm::FlowOpt(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_FLOW_OPT, m_str, status);	
+	SyncKnobCfm(CFM_FLOW_OPT, m_str, status);
 }
 
 void UpdateCfm::FocPosRatio(int index, EKnobReturn status)
@@ -169,7 +169,7 @@ void UpdateCfm::FocPosRatio(int index, EKnobReturn status)
         sprintf(m_str, "1/2");
     else
         sprintf(m_str, "3/4");
-	SyncKnobCfm(CFM_FOC_POS, m_str, status);	
+	SyncKnobCfm(CFM_FOC_POS, m_str, status);
 }
 
 void UpdateCfm::EnterCfm()
@@ -248,7 +248,7 @@ void UpdateCfm::ChangeFormatCfm(int format)
     m_ptrImgDraw->ReDrawFocus();
 
 	ImageArea::GetInstance()->RedrawBodyMarkWhenModeChanged();
-#ifdef TRANSDUCER  
+#ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
 }

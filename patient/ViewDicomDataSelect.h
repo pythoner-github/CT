@@ -52,7 +52,7 @@ class ViewDicomDataSelect: public FakeXEvent
         string m_srComments;
         vector<string> m_srReferenceImageFilename;
         string m_srIndication;
-    
+
         PatientInfo::Info m_info;
 
         deque<Image> deq;	///< each frames in deque (input)

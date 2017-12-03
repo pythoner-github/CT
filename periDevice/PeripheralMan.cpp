@@ -59,8 +59,8 @@ PeripheralMan::PeripheralMan()
 
 PeripheralMan::~PeripheralMan()
 {
-	if (m_ptrInstance != NULL) 
-		delete m_ptrInstance; 
+	if (m_ptrInstance != NULL)
+		delete m_ptrInstance;
 }
 
 bool PeripheralMan::get_property_string(char **val, LibHalContext *ctx, const char *udi, const char *key, DBusError *error)
@@ -267,7 +267,7 @@ bool PeripheralMan::GetCdMediaInfoCallback(GIOChannel *source, GIOCondition cond
     gboolean format = TRUE;
     gint bit = 0;
     gint comma = 0;
-    gint64 last_track_addr = 0; 
+    gint64 last_track_addr = 0;
     gint64 next_writable_addr = 0;
 
     if(condition == G_IO_HUP || condition == G_IO_ERR)
@@ -472,7 +472,7 @@ void PeripheralMan::VolumeDetails(const char *udi)
         m_disc.last_track_addr = 0;
         m_disc.next_writable_addr = 0;
 
-        PRINTF("disc state=%d, device=%s, udi=%s, is_mounted=%d, is_blank=%d, is_appendable=%d, disc_type=%s, capacity=%llu, volume.size=%llu, last_track_addr=%lld, next_writable_addr=%lld\n", 
+        PRINTF("disc state=%d, device=%s, udi=%s, is_mounted=%d, is_blank=%d, is_appendable=%d, disc_type=%s, capacity=%llu, volume.size=%llu, last_track_addr=%lld, next_writable_addr=%lld\n",
                 m_disc.state, m_disc.device.c_str(), m_disc.udi.c_str(), m_disc.is_mounted, m_disc.is_blank, m_disc.is_appendable, m_disc.disc_type.c_str(), m_disc.capacity, m_disc.data_size, m_disc.last_track_addr, m_disc.next_writable_addr);
 
         ViewCD* ptrCD = ViewCD::GetInstance();
@@ -580,11 +580,11 @@ void PeripheralMan::PrinterDetails(const char *udi)
 
 void PeripheralMan::DevAdded(LibHalContext *ctx, const char *udi)
 {
-    if (libhal_device_query_capability(ctx, udi, "printer", NULL)) 
+    if (libhal_device_query_capability(ctx, udi, "printer", NULL))
     {
         PrinterDetails(udi);
     }
-    else if (libhal_device_query_capability(ctx, udi, "volume", NULL)) 
+    else if (libhal_device_query_capability(ctx, udi, "volume", NULL))
     {
         VolumeDetails(udi);
     }
@@ -662,23 +662,23 @@ void PeripheralMan::ListDevices()
     char **devices;
 
     /* search HAL for volume devices */
-    if ((devices = libhal_find_device_by_capability(m_ctx, "volume", &num_devices, &m_error)) == NULL) 
+    if ((devices = libhal_find_device_by_capability(m_ctx, "volume", &num_devices, &m_error)) == NULL)
         LIBHAL_FREE_DBUS_ERROR(&m_error);
     else
     {
         /* details */
-        for (i = 0;i < num_devices;i++) 
+        for (i = 0;i < num_devices;i++)
             VolumeDetails((const char *)devices[i]);
         libhal_free_string_array(devices);
     }
 
     /* search HAL for printer devices */
-    if ((devices = libhal_find_device_by_capability(m_ctx, "printer", &num_devices, &m_error)) == NULL) 
+    if ((devices = libhal_find_device_by_capability(m_ctx, "printer", &num_devices, &m_error)) == NULL)
         LIBHAL_FREE_DBUS_ERROR(&m_error);
     else
     {
         /* details */
-        for (i = 0;i < num_devices;i++) 
+        for (i = 0;i < num_devices;i++)
             PrinterDetails((const char *)devices[i]);
         libhal_free_string_array(devices);
     }
@@ -775,7 +775,7 @@ bool PeripheralMan::AddWatchNetCable()
 }
 
 void PeripheralMan::AddWatch()
-{	
+{
     dbus_error_init(&m_error);
 
     /* set up connection to DBUS system bus */
@@ -804,7 +804,7 @@ void PeripheralMan::AddWatch()
         return;
     }
 
-    /* set up two callbacks */ 
+    /* set up two callbacks */
     libhal_ctx_set_device_added(m_ctx, HandleDeviceAdded);
     libhal_ctx_set_device_removed(m_ctx, HandleDeviceRemoved);
 
@@ -988,4 +988,4 @@ void PeripheralMan::UnLoadUsblp()
 {
 	_system_("modprobe -r usblp");
 	printf("%s-%s: modprobe -r usblp\n", __FILE__, __FUNCTION__);
-}  
+}

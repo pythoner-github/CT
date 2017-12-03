@@ -17,13 +17,13 @@
 #include "../display/ImageArea.h"
 #include "KnobEFOV.h"
 #include "ViewMain.h"
-const char * Toggle[2] = 
+const char * Toggle[2] =
 {
 	N_("OFF"),
 	N_("ON")
 };
 
-const char * Toggle_THI[2] = 
+const char * Toggle_THI[2] =
 {
 #if(defined(EMP_460) || defined(EMP_355))
 	N_("Freq"),
@@ -34,7 +34,7 @@ const char * Toggle_THI[2] =
 #endif
 };
 
-const char * Toggle_EFOVReplay[2] = 
+const char * Toggle_EFOVReplay[2] =
 {
 	N_("OFF"),
 	N_("ON")
@@ -52,7 +52,7 @@ const char * Level_LD[2] = {
 	N_("HIGH")
 };
 
-const char * TpName[4] = 
+const char * TpName[4] =
 {
     N_("Normal"),
     N_("Steer Left"),
@@ -84,7 +84,7 @@ void Update2D::ExamItemByProbe(const char *type)
 #endif
 
 
-//update user defined item 
+//update user defined item
 void Update2D::UserDefineExamItem(const char *useritem)
 {
 	TopArea::GetInstance()->UpdateCheckPart(useritem);
@@ -111,8 +111,8 @@ void Update2D::Freq(int freq, EKnobReturn status)
 #if (defined (EMP_322) || defined(EMP_313))
     TopArea::GetInstance()->UpdateFreq(m_str);
 #else
-    SyncKnobD2(D2_FREQ, m_str, status);	
-    SyncKnobM(M_FREQ, m_str, status);	
+    SyncKnobD2(D2_FREQ, m_str, status);
+    SyncKnobM(M_FREQ, m_str, status);
 #endif
     m_ptrImgPara->UpdateFreq(m_str);
 }
@@ -143,13 +143,13 @@ void Update2D::LineDensity(const char* density, EKnobReturn status)
 	m_ptrImgPara->Update2DLineDensity(density);
 }
 
-void  Update2D::Harmonic(bool on, EKnobReturn status) 
+void  Update2D::Harmonic(bool on, EKnobReturn status)
 {
-	SyncKnobD2(D2_THI, Toggle[on], status);	
+	SyncKnobD2(D2_THI, Toggle[on], status);
 	m_ptrImgPara->Update2DTHI(on);
 }
 
-void  Update2D::HarmonicStatus(bool on, EKnobReturn status) 
+void  Update2D::HarmonicStatus(bool on, EKnobReturn status)
 {
 #ifndef EMP_322
 #ifndef EMP_313
@@ -158,7 +158,7 @@ void  Update2D::HarmonicStatus(bool on, EKnobReturn status)
 #endif
 }
 
-void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status) 
+void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
 {
 #if(defined(EMP_460))
     sprintf(m_str, "H:%.1fMHz", (float)harFreq/20.0*2);
@@ -180,7 +180,7 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
         {
             freq_tmp = 120;
         }
-        else 
+        else
             freq_tmp =harFreq;
     }
     else if((strcmp(para.model, "65C10L") == 0)||(strcmp(para.model, "65C10K") == 0) ||(strcmp(para.model, "65C10H") == 0))
@@ -197,7 +197,7 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
         {
             freq_tmp = 100;
         }
-        else 
+        else
             freq_tmp =harFreq;
 
     }
@@ -215,7 +215,7 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
         {
             freq_tmp = 120;
         }
-        else 
+        else
             freq_tmp =harFreq;
     }
     else
@@ -226,30 +226,30 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
 #endif
 #ifndef EMP_322
 #ifndef EMP_313
-    SyncKnobD2(D2_FREQ, m_str, status);	
-    SyncKnobM(M_FREQ, m_str, status);	
+    SyncKnobD2(D2_FREQ, m_str, status);
+    SyncKnobM(M_FREQ, m_str, status);
 #endif
 #endif
     m_ptrImgPara->UpdateFreq(m_str);
 }
 
-void Update2D::Tsi(const char* data, EKnobReturn status) 
+void Update2D::Tsi(const char* data, EKnobReturn status)
 {
 #if (defined (EMP_322) || defined(EMP_313))
 	m_ptrImgPara->Update2DTSI(data);
 #else
-	SyncKnobD2(D2_TSI, data, status);	
+	SyncKnobD2(D2_TSI, data, status);
 	m_ptrImgPara->Update2DTSI(data);
 #endif
 }
 
-void Update2D::Agc(int index, EKnobReturn status) 
+void Update2D::Agc(int index, EKnobReturn status)
 {
 	sprintf(m_str, "%d", index);
 	//SyncKnobD2(D2_AGC, m_str, status);
 }
 
-void Update2D::MBP(int mbp, EKnobReturn status) 
+void Update2D::MBP(int mbp, EKnobReturn status)
 {
     if(Img2D::GetInstance()->GetLDensity() == 0)
         mbp *= 2;
@@ -261,16 +261,16 @@ void Update2D::MBP(int mbp, EKnobReturn status)
     m_ptrImgPara->Update2DMBP(mbp);
 }
 
-void  Update2D::EdgeEnhance(int edgeIndex, EKnobReturn status) 
+void  Update2D::EdgeEnhance(int edgeIndex, EKnobReturn status)
 {
 	sprintf(m_str, "%d", edgeIndex);
 	SyncKnobD2(D2_EDGE, m_str, status);
 }
 
-void Update2D::Steer(int angle, EKnobReturn status) 
+void Update2D::Steer(int angle, EKnobReturn status)
 {
 	sprintf(m_str, "%d°", angle);
-	SyncKnobD2(D2_STEER, m_str, status);	
+	SyncKnobD2(D2_STEER, m_str, status);
     //m_ptrImgDraw->Set2DSteerAngle(angle); 偏转的情况下不能进入localzoom
 }
 
@@ -279,7 +279,7 @@ void Update2D::Depth(int depth)
 	//m_ptrImgPara->DrawGeneralPara();
 	//update system head
     //TopArea::GetInstance()->UpdateDepth(depth);
-    
+
     m_ptrImgPara->UpdateDepth(depth);
     m_ptrImgDraw->Update();
     m_ptrImgDraw->DrawScaleY();
@@ -298,15 +298,15 @@ void  Update2D::FocInfo(int focSum, int focPos[])
 #ifndef EMP_322
 #ifndef EMP_313
 	EKnobReturn status = OK;
-	if (focSum == 1) 
+	if (focSum == 1)
 		status = MIN;
 	else if (focSum == Img2D::MAX_FOCUS)
 		status = MAX;
-	else 
+	else
 		status = OK;
 
 	sprintf(m_str, "%d", focSum);
-	SyncKnobD2(D2_FOCUS, m_str, status);	
+	SyncKnobD2(D2_FOCUS, m_str, status);
 #endif
 #endif
 	m_ptrImgDraw->ClearFocus();
@@ -334,18 +334,18 @@ void  Update2D::TgcCurve(unsigned char* tgc, int tgcSize)
 #ifdef TRANSDUCER
 void Update2D::Transducer(int transducer)
 {
-	m_ptrImgPara->UpdateTransducer(transducer); 
+	m_ptrImgPara->UpdateTransducer(transducer);
 }
 #endif
 
-void  Update2D::Gain2D(int total) 
+void  Update2D::Gain2D(int total)
 {
-	m_ptrImgPara->Update2DGain(total); 
+	m_ptrImgPara->Update2DGain(total);
 }
 
-void  Update2D::GainM(int total) 
+void  Update2D::GainM(int total)
 {
-	m_ptrImgPara->UpdateMGain(total); 
+	m_ptrImgPara->UpdateMGain(total);
 }
 
 void Update2D::SoundPower(int power, EKnobReturn status)
@@ -356,7 +356,7 @@ void Update2D::SoundPower(int power, EKnobReturn status)
     SyncKnobD2(D2_SOUND_POWER,m_str,status);
    	SyncKnobM(M_SOUND_POWER, m_str, status);
 	PRINTF("power = %d\n", power);
-    m_ptrImgPara->UpdateGenPwr(power);	
+    m_ptrImgPara->UpdateGenPwr(power);
 #elif (defined(EMP_460) || defined(EMP_355))
     sprintf(m_str, "%d", power);
     SyncKnobD2(D2_SOUND_POWER,m_str,status);
@@ -368,48 +368,48 @@ void Update2D::SoundPower(int power, EKnobReturn status)
 #endif
 }
 
-void  Update2D::MLine(int line) 
+void  Update2D::MLine(int line)
 {
 	m_ptrImgDraw->Update();
 	m_ptrImgDraw->DrawBMLine(line);
 }
 
-void  Update2D::ClearMLine() 
+void  Update2D::ClearMLine()
 {
 	m_ptrImgDraw->Update();
 	m_ptrImgDraw->ClearBMLine();
 }
 
-void  Update2D::ReDrawMLine() 
+void  Update2D::ReDrawMLine()
 {
 	m_ptrImgDraw->Update();
 	m_ptrImgDraw->ReDrawBMLine();
 }
 
-void  Update2D::MSpeed(int speedIndex, EKnobReturn status) 
+void  Update2D::MSpeed(int speedIndex, EKnobReturn status)
 {
 	// knob
 	sprintf(m_str, "%d", speedIndex);
 	SyncKnobM(M_SPEED, m_str, status);
 
-	// scale 
+	// scale
 	m_ptrImgDraw->Update();
 	m_ptrImgDraw->DrawScaleXM();
 	if (m_timeMark)
 		m_ptrImgDraw->DrawGridM();
 }
 
-void  Update2D::ProbePara(int type, int lines, int width, int r) 
+void  Update2D::ProbePara(int type, int lines, int width, int r)
 {
 	m_ptrImgDraw->GetProbePara(type, lines, width, r);
 }
 
-void  Update2D::Enter2DMode(void) 
+void  Update2D::Enter2DMode(void)
 {
 	Enter2DMenu();
 	Enter2DKnob();
 	Enter2DImg();
-} 
+}
 
 void Update2D::Enter2DMenu(void)
 {
@@ -449,7 +449,7 @@ void Update2D::Enter2DImg(bool update)
 
 #ifdef TRANSDUCER
     // display transducer
-    m_ptrImgPara->DrawTransducer();	
+    m_ptrImgPara->DrawTransducer();
 
 #endif
 
@@ -492,7 +492,7 @@ void Update2D::EnterEFOVCapture(void)
 	m_ptrImgDraw->ClearEFOVViewBox();
 	m_ptrImgDraw->ClearTextArea(true);
 	m_ptrImgPara->DrawGeneralPara();
-#ifdef TRANSDUCER 
+#ifdef TRANSDUCER
     //para area
     //m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -511,7 +511,7 @@ void Update2D::EnterEFOVView(void)
 	m_ptrImgDraw->ClearTextArea(true);
 	m_ptrImgDraw->DrawEFOVScaleY();
 	m_ptrImgDraw->DrawEFOVScaleX();
-#ifdef TRANSDUCER   
+#ifdef TRANSDUCER
     //para area
     //m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -531,16 +531,16 @@ void Update2D::EnterEFOVReview(void)
 	m_ptrImgDraw->DrawEFOV2DScaleY(false);
 }
 
-void Update2D::EFOVZoom(float scale, EKnobReturn status) 
+void Update2D::EFOVZoom(float scale, EKnobReturn status)
 {
 	sprintf(m_str, "%.1f", scale);
-	SyncKnobEFOV(EFOV_ZOOM, m_str, status);	
+	SyncKnobEFOV(EFOV_ZOOM, m_str, status);
 }
 
-void Update2D::EFOVRotate(int angle, EKnobReturn status) 
+void Update2D::EFOVRotate(int angle, EKnobReturn status)
 {
 	sprintf(m_str, "%d°", angle);
-	SyncKnobEFOV(EFOV_ROTATE, m_str, status);	
+	SyncKnobEFOV(EFOV_ROTATE, m_str, status);
 }
 
 void Update2D::EFOVZoomMiniatureBox(int start_x, int start_y, int end_x, int end_y)
@@ -574,9 +574,9 @@ void Update2D::ClearEFOVViewBox(void)
 	m_ptrImgDraw->ClearEFOVViewBox();
 }
 
-void Update2D::EFOVReplay(bool on, EKnobReturn status) 
+void Update2D::EFOVReplay(bool on, EKnobReturn status)
 {
-	SyncKnobEFOVReview(EFOV_REPLAY, Toggle_EFOVReplay[on], status);	
+	SyncKnobEFOVReview(EFOV_REPLAY, Toggle_EFOVReplay[on], status);
 }
 
 void Update2D::ClearEFOVImg()
@@ -584,7 +584,7 @@ void Update2D::ClearEFOVImg()
 	ImageArea::GetInstance()->ClearEFOVImg();
 }
 
-void  Update2D::EnterMMode() 
+void  Update2D::EnterMMode()
 {
 	EnterMImg();
 }
@@ -593,7 +593,7 @@ void Update2D::EnterMImg()
 {
 	m_ptrImgDraw->ReDrawBMLine();
 }
-void  Update2D::UpdateM() 
+void  Update2D::UpdateM()
 {
 	UpdateMKnob();
 	UpdateMMenu();
@@ -627,7 +627,7 @@ void Update2D::UpdateMImg(void)
 		m_ptrImgDraw->DrawGridM();
 	m_ptrImgDraw->DrawScanDirection();
 
-#ifdef TRANSDUCER  
+#ifdef TRANSDUCER
      //para area
     m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -653,7 +653,7 @@ void Update2D::EnterAnatomicM()
 	m_ptrImgDraw->DrawScanDirection();
 }
 
-void Update2D::ChangeFormat2D(int format) 
+void Update2D::ChangeFormat2D(int format)
 {
 	m_ptrImgDraw->ClearTextArea();
 	m_ptrImgDraw->Update();
@@ -667,9 +667,9 @@ void Update2D::ChangeFormat2D(int format)
 	// change to 2D image area para
 	m_ptrImgPara->DrawGeneralPara();
 	m_ptrImgPara->Draw2DPara();
-} 
+}
 
-void Update2D::ChangeCurrentImgBB(int current) 
+void Update2D::ChangeCurrentImgBB(int current)
 {
 	m_ptrImgDraw->ClearFocus();
 	m_ptrImgDraw->Update();
@@ -679,9 +679,9 @@ void Update2D::ChangeCurrentImgBB(int current)
 	m_ptrImgDraw->DrawScanDirection();
 
 	ImageArea::GetInstance()->ChangeCurrentBDMK(current);
-} 
+}
 
-void  Update2D::ChangeCurrentImg4B(int current) 
+void  Update2D::ChangeCurrentImg4B(int current)
 {
 	m_ptrImgDraw->ClearFocus();
 	m_ptrImgDraw->Update();
@@ -691,9 +691,9 @@ void  Update2D::ChangeCurrentImg4B(int current)
 	m_ptrImgDraw->DrawScanDirection();
 
 	ImageArea::GetInstance()->ChangeCurrentBDMK(current);
-} 
+}
 
-void  Update2D::ChangeFormatM(int format) 
+void  Update2D::ChangeFormatM(int format)
 {
 	m_ptrImgDraw->ClearTextArea();
 	m_ptrImgDraw->Update();
@@ -709,11 +709,11 @@ void  Update2D::ChangeFormatM(int format)
 	m_ptrImgDraw->ReDrawFocus();
 	if (m_timeMark)
 		m_ptrImgDraw->DrawGridM();
-#ifdef TRANSDUCER  
+#ifdef TRANSDUCER
  //para area
     m_ptrImgPara->ReDrawTransducer();
 #endif
-} 
+}
 
 void Update2D::LeftRight(bool on)
 {
@@ -770,7 +770,7 @@ void Update2D::LeftRight(bool on)
 		m_ptrImgDraw->ReDrawSV();
 #endif
 		m_ptrImgDraw->DrawScanDirection();
-	}	
+	}
 	else if ((mode == ScanMode::CW_INIT) || (mode == ScanMode::CW)){
 		m_ptrImgDraw->ClearSVCW();
 		m_ptrImgDraw->ClearFocus();
@@ -780,7 +780,7 @@ void Update2D::LeftRight(bool on)
 		m_ptrImgDraw->ReDrawSVCW();
 		m_ptrImgDraw->DrawScanDirection();
 	}
-	else if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI) || (mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D)){	
+	else if ((mode == ScanMode::CFM) || (mode == ScanMode::PDI) || (mode == ScanMode::CFM_VS_2D) || (mode == ScanMode::PDI_VS_2D)){
 		m_ptrImgDraw->ClearCfmBox();
 		m_ptrImgDraw->ClearFocus();
 		m_ptrImgDraw->Update();
@@ -934,7 +934,7 @@ void Update2D::UpDown(bool on)
 		m_ptrImgDraw->ReDrawSV();
 #endif
 		m_ptrImgDraw->DrawScanDirection();
-	}	
+	}
 	else if ((mode == ScanMode::CWCFM_INIT) || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI_INIT) || (mode == ScanMode::CWPDI)) {
 		m_ptrImgDraw->ClearCfmBox();
 		m_ptrImgDraw->ClearSVCW();
@@ -952,7 +952,7 @@ void Update2D::Polarity(bool on, EKnobReturn status)
 {
 //	g_menu2D.UpdatePolarity(on);
 //	g_menuM.UpdatePolarity(on);
-	SyncKnobD2(D2_POLARITY, Toggle[on], status);	
+	SyncKnobD2(D2_POLARITY, Toggle[on], status);
 }
 
 void Update2D::NoiseReject(bool on)
@@ -1002,7 +1002,7 @@ void Update2D::Gamma(int data, EKnobReturn status)
 
 void Update2D::Chroma(const char* data, EKnobReturn status)
 {
-#if not defined(EMP_322) 
+#if not defined(EMP_322)
 #if not defined(EMP_313)
 	SyncKnobD2(D2_CHROMA, data, status, TRUE);
 	SyncKnobM(M_CHROMA, data, status, TRUE);
@@ -1024,22 +1024,22 @@ void Update2D::CompoundSpace(int angle, EKnobReturn status)
         //sprintf(m_str, "%d°", angle);
         sprintf(m_str, "%d", angle);
 
-	SyncKnobD2(D2_SPACE_COMPOUND, m_str, status);	
+	SyncKnobD2(D2_SPACE_COMPOUND, m_str, status);
 }
 void Update2D::CompoundFreq(bool on, EKnobReturn status)
 {
-	SyncKnobD2(D2_FREQ_COMPOUND, Toggle[on], status);	
+	SyncKnobD2(D2_FREQ_COMPOUND, Toggle[on], status);
 }
 
 void Update2D::TpView(int index, EKnobReturn status)
 {
-	//SyncKnobD2(D2_TP_VIEW, TpName[index], status);	
-	 SyncKnobD2(D2_TP_VIEW, Toggle[index], status);	
+	//SyncKnobD2(D2_TP_VIEW, TpName[index], status);
+	 SyncKnobD2(D2_TP_VIEW, Toggle[index], status);
 }
 
 void Update2D::EFVI(bool on, EKnobReturn status)
 {
-	SyncKnobD2(D2_EFVI, Toggle[on], status);	
+	SyncKnobD2(D2_EFVI, Toggle[on], status);
 }
 
 // M

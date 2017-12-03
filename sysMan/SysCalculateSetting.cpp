@@ -33,7 +33,7 @@ const int GetCurEfwMethod(void)
 const int GetGWMethod(const int item)
 {
     int method = 0;
-	
+
     switch(item) {
     case OB_CER:
 	method = g_obSetting.cer;

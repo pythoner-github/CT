@@ -34,8 +34,8 @@ class FormatM
 		static FormatM* m_ptrInstance;
 
 		DscMan* m_ptrDsc;
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;		
-		
+		DSCCONTROLATTRIBUTES* m_ptrDscPara;
+
 		AbsUpdate2D* m_ptrUpdate;
 		Img2D* m_ptrImg;
 		Replay* m_ptrReplay;

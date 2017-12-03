@@ -34,7 +34,7 @@ FormatM::FormatM()
 	m_ptrUpdate = ptrGcm->GetUpdate2D();
 
 	m_ptrDsc = DscMan::GetInstance();
-	m_ptrDscPara = m_ptrDsc->GetDscPara(); 
+	m_ptrDscPara = m_ptrDsc->GetDscPara();
 
 	m_ptrImg = Img2D::GetInstance();
 	m_ptrReplay = Replay::GetInstance();
@@ -53,7 +53,7 @@ void FormatM::ChangeFormat(enum EFormatM format)
 {
 	bool isAnatomicMode = FALSE;
 
-	m_ptrDsc->GetWriteLock();	
+	m_ptrDsc->GetWriteLock();
 
 	// if anatomic M, init anatomic line
 	if (ScanMode::GetInstance()->GetScanMode() == ScanMode::ANATOMIC_M)
@@ -76,29 +76,29 @@ void FormatM::ChangeFormat(enum EFormatM format)
 		case M_TOTAL:
 			m_ptrDscPara->dcaMDisplayFormat = 0;
 			break;
-			
+
 		case BM11_UD:
 			m_ptrDscPara->dcaMDisplayFormat = 1;
 			break;
-		
+
 		case BM21_UD:
 			m_ptrDscPara->dcaMDisplayFormat = 3;
 			break;
-			
+
 		case BM12_UD:
 			m_ptrDscPara->dcaMDisplayFormat = 2;
 			break;
-		
+
 		case BM11_LR:
 			m_ptrDscPara->dcaMDisplayFormat = 4;
 			break;
-				
+
 		default:
 			m_ptrDscPara->dcaMDisplayFormat = 0;
-			break;		
+			break;
 	}
 	m_ptrDsc->GetDsc()->UpdateMDisplayFormat();
-	m_ptrDsc->ReadWriteUnlock();	
+	m_ptrDsc->ReadWriteUnlock();
 
 	// set replay area number
 	m_ptrReplay->SetAreaNum(1);
@@ -189,7 +189,7 @@ POINT FormatM::GetBCenterPoint(void)
 		case BM11_LR:
 			p.x = IMAGE_W / 4;
 			p.y = IMAGE_H / 2;
-			break;		
+			break;
 
 		default:
 			p.x = IMAGE_X + IMAGE_W / 2;
@@ -199,4 +199,3 @@ POINT FormatM::GetBCenterPoint(void)
 
 	return p;
 }
-

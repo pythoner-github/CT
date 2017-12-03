@@ -101,8 +101,8 @@ class D2MeasureLengthTrack: public AbsMeasure
 
     private:
 	double m_length;
-	vector<POINT> m_track;//存储轨迹用于擦除  
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+	vector<POINT> m_track;//存储轨迹用于擦除
+	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -137,7 +137,7 @@ class D2MeasureLengthDot: public AbsMeasure
 
     private:
 	double m_length;
-	vector<POINT> m_dot;//存储描点位置用于擦除   
+	vector<POINT> m_dot;//存储描点位置用于擦除
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -171,8 +171,8 @@ class D2MeasureAreaTrack: public AbsMeasure
     private:
 	double m_area;
 	double m_perimeter;
-	vector<POINT> m_track;//存储轨迹用于擦除  
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+	vector<POINT> m_track;//存储轨迹用于擦除
+	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -208,8 +208,8 @@ class D2MeasureSimpson: public AbsMeasure
 	int DiamLine(POINT lenStart, POINT lenEnd, int lenEndPosi, bool isCur);
 
     private:
-	vector<POINT> m_track;//存储轨迹用于擦除  
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+	vector<POINT> m_track;//存储轨迹用于擦除
+	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -255,8 +255,8 @@ class D2MeasureAL: public AbsMeasure
 	void Esc();
 
     private:
-	vector<POINT> m_track;//存储轨迹用于擦除  
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘  
+	vector<POINT> m_track;//存储轨迹用于擦除
+	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -299,7 +299,7 @@ class D2MeasureAreaDot: public AbsMeasure
     private:
 	double m_area;
 	double m_perimeter;
-	vector<POINT> m_dot;//存储描点位置用于擦除   
+	vector<POINT> m_dot;//存储描点位置用于擦除
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -367,7 +367,7 @@ class D2MeasureAreaRec: public AbsMeasure
 	MeasureDraw m_draw;
 	UpdateMeasure m_update;
 	MeasureMan* m_ptrMan;
-    
+
     int m_item;
 	const SingleItemInfo *m_itemInfo;
 
@@ -648,7 +648,7 @@ class D2MeasureHip: public AbsMeasure
 	POINT m_bl_p1, m_bl_p2;
 	POINT m_rl_p1, m_rl_p2;
 	POINT m_il_p1, m_il_p2;
-	double m_theta; 
+	double m_theta;
 	double m_alpha;//α
 	double m_beta;//β
 	struct Record{
@@ -782,8 +782,8 @@ class D2MeasureRatioAreaTrack: public AbsMeasure
 	double m_area1;
 	double m_area2;
 	double m_ratio;
-	vector<POINT> Track1;//存储轨迹用于擦除  
-	vector<POINT> Track2;//存储轨迹用于擦除  
+	vector<POINT> Track1;//存储轨迹用于擦除
+	vector<POINT> Track2;//存储轨迹用于擦除
 
 	MeasureCalc m_calc;
 	MeasureDraw m_draw;
@@ -916,13 +916,13 @@ class DrawHistogram
     public:
 	DrawHistogram();
 	~DrawHistogram();
-	
+
 	static void SetArea(POINT area_start, POINT area_end);
 	static void HistogramDraw(unsigned char *image_p);
-	
+
     private:
-	static POINT m_area_start; 
-	static POINT m_area_end; 
+	static POINT m_area_start;
+	static POINT m_area_end;
 	static int m_sum[256];
 	static MeasureDraw m_draw;
 };
@@ -976,7 +976,7 @@ class D2MeasureIMT: public AbsMeasure
 	UpdateMeasure m_update;
 	MeasureMan* m_ptrMan;
 
- 
+
     int m_step; ///< current status(step)
     bool m_isDraw;
     bool m_ImtStatus;
@@ -993,7 +993,7 @@ class D2MeasureIMT: public AbsMeasure
 
     static int roi_width;
     static int roi_height;
-    POINT start; 
+    POINT start;
     POINT end;
 };
 #endif

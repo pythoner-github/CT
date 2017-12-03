@@ -7,7 +7,7 @@
 #include "ModeStatus.h"
 #include "FreezeMode.h"
 #include "KeyFunc.h"
- 
+
 MenuSystem g_menuSystem;
 
 MenuSystem::MenuSystem(void)
@@ -39,7 +39,7 @@ GtkWidget* MenuSystem::Create(void)
 
     g_signal_connect(btn_biopsy, "clicked", G_CALLBACK(HandleBtnBiopsy), this);
 //    gtk_button_set_focus_on_click(GTK_BUTTON(btn_biopsy), FALSE);
-    
+
     UpdateLabel();
     gtk_widget_set_usize(m_table, WIDTH_SYSTEM_MENU, HEIGHT_SYSTEM_MENU);
     return m_table;
@@ -65,7 +65,7 @@ void MenuSystem::BtnGeneral(GtkButton *button)
 {
     if (ModeStatus::IsAutoReplayMode())
         FreezeMode::GetInstance()->ChangeAutoReplay();
-    else if (ModeStatus::IsUnFreezeMode())	
+    else if (ModeStatus::IsUnFreezeMode())
 		FreezeMode::GetInstance()->PressFreeze();
 
     ViewSystem::GetInstance()->CreateWindow();

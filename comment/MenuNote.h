@@ -56,14 +56,14 @@ class MenuNote
         GtkWidget *scrolledwindow_item_vs_comment;
         GtkWidget *scrolledwindow_item_ortho_comment;
         GtkWidget *scrolledwindow_item_tendon_comment;
-        
+
         GtkCellRenderer *m_cellrenderer_comment_text;
 
         GtkWidget * m_table;
         GtkWidget * m_comboDept;
         GtkTreeModel * m_modelDept;
         GtkTreeModel* CreateDeptModel(void);
-        
+
         GtkWidget* create_item_list(int index , char *department);
         void UpdateScaleModel(void);
         void HideMenu(void);
@@ -81,7 +81,7 @@ class MenuNote
         //void TreeSelectionChanged(GtkTreeSelection *selection);
         void TreeBtnPress(GtkWidget *widget, GdkEventButton *event);
 
-        //signal connect 
+        //signal connect
         //static void HandleSelectionChanged(GtkTreeSelection *selection, MenuNote *data) { data->TreeSelectionChanged(selection); }
         static gboolean HandleTreeBtnPress(GtkWidget *widget, GdkEventButton *event, MenuNote *data) { data->TreeBtnPress(widget, event); return FALSE; }
 };

@@ -17,8 +17,8 @@ deque<CArrow::ArrowElem> CArrow::m_arrowList(0);
 const double CArrow::ARROW_SCALE[3] = {1.0, 1.5, 2.0};
 
 CArrow::CArrow(CAbsUpdateArrow& updateArrow, POINT initPos)
-:m_curPos(initPos), m_curDir(DI0), m_updateArrow(updateArrow), 
-//:m_curShape(HOLLOWARROW), m_curPos(initPos), m_curDir(DI0), m_updateArrow(updateArrow), 
+:m_curPos(initPos), m_curDir(DI0), m_updateArrow(updateArrow),
+//:m_curShape(HOLLOWARROW), m_curPos(initPos), m_curDir(DI0), m_updateArrow(updateArrow),
 m_bDrawed(false), m_bMoving(false), m_initPos(initPos)
 {
 	m_updateArrow =  updateArrow;
@@ -38,7 +38,7 @@ void CArrow::SetArrowPos(POINT pos)
 {
 	if(m_bDrawed)
 		m_updateArrow.DrawArrow(m_curPos, m_curDir, ARROW_SCALE[m_curSize], m_curColor, m_curShape);
-	
+
 	m_curPos = pos;
 	m_updateArrow.DrawArrow(m_curPos, m_curDir, ARROW_SCALE[m_curSize], m_curColor, m_curShape);
 	m_bDrawed = true;
@@ -142,11 +142,11 @@ bool CArrow::Delete()
 		return false;
 
 	if(m_arrowList.empty())
-		return false; 
+		return false;
 
 	//ArrowElem arrowElem = m_arrowList.front();
 	ArrowElem arrowElem = m_arrowList.back();
-	m_updateArrow.DrawArrow(arrowElem.pos, arrowElem.direction, ARROW_SCALE[arrowElem.size], 
+	m_updateArrow.DrawArrow(arrowElem.pos, arrowElem.direction, ARROW_SCALE[arrowElem.size],
 		arrowElem.color, arrowElem.shape);
 	m_arrowList.pop_back();
 	//m_arrowList.pop_front();
@@ -171,7 +171,7 @@ bool CArrow::DeleteAll()
 	while(m_arrowList.size())
 	{
 		arrowElem = m_arrowList.back();
-		m_updateArrow.DrawArrow(arrowElem.pos, arrowElem.direction, arrowElem.size, 
+		m_updateArrow.DrawArrow(arrowElem.pos, arrowElem.direction, arrowElem.size,
 			arrowElem.color, arrowElem.shape);
 		m_arrowList.pop_back();
 	}
@@ -260,4 +260,3 @@ unsigned int CArrow::GetDistance(POINT pos1, POINT pos2)
 	int y = pos1.y - pos2.y;
 	return (sqrt(x*x + y*y));
 }
-

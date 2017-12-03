@@ -14,13 +14,13 @@ public:
 
 	int GetBioBracketNum(const string probeModel);
 	vector<string> GetBioBracketTypeOfProbe(const string probeModel);
-    
+
 	string GetDefaultAngleType(const string bioBracketType);
 
 	int GetBioBracketAngleNum(const string bioBracketType);
 	vector<string> GetBioBracketAngleType(const string bioBracketType);
 	//int GetBiopsyXOfAngleType(const string bioBracketTypeAngle);
-    double GetBiopsyXOfAngleType(const string bioBracketTypeAngle);	
+    double GetBiopsyXOfAngleType(const string bioBracketTypeAngle);
 
     /*void SetBiopsyXOfAngleType(const string bioBracketTypeAngle,int value);*/
     void SetBiopsyXOfAngleType(const string bioBracketTypeAngle,double value);
@@ -34,4 +34,4 @@ private:
     IniFile *m_ptrIni;
 };
 
-#endif 
+#endif

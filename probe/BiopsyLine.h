@@ -71,6 +71,6 @@ private:
 
     int m_adjustAngle;
     int m_baseAngle;
-    
+
 };
 #endif

@@ -133,7 +133,7 @@ void MeasureMan::ClearPwTraceUnFreeze()
     vector<MeasureInfo> vecInfo;
     int k;
     bool flag = false;
-    //clear trace 
+    //clear trace
     if(size > 0)
     {
         for(int i = 0; i <= size - 1; i++)
@@ -142,7 +142,7 @@ void MeasureMan::ClearPwTraceUnFreeze()
             {
                 EraseMeasureLine(m_deq[i]);
                 //printf("curType:%d\n", m_deq[i].cursorType);
-                ImageArea::GetInstance()->ClearTrace(); 
+                ImageArea::GetInstance()->ClearTrace();
                 k = i;
                 flag = true;
                 break;
@@ -156,7 +156,7 @@ void MeasureMan::ClearPwTraceUnFreeze()
             for(int i = size - 1; i > k; i--)
             {
                 vecInfo.push_back(m_deq[i]);
-                m_deq.pop_back();    
+                m_deq.pop_back();
             }
 
             if(m_deq.size() > 0)
@@ -175,7 +175,7 @@ void MeasureMan::ClearPwTraceUnFreeze()
         else
         {
             if(m_pwAdjust)
-            {	
+            {
                 m_update.ClearPwResultUnFreeze(m_orderNumBak);
                 m_pwAdjust = false;
             }
@@ -199,7 +199,7 @@ void MeasureMan::ClearLast()
 		// erase measure line
 		EraseMeasureLine(m_deq[size - 1]);
 		m_draw.SetOrderNumber(m_deq[size - 1].orderNumber);
-       
+
         m_orderNumBak = m_deq[size - 1].orderNumber;
         // erase data
 		m_deq.pop_back();
@@ -207,7 +207,7 @@ void MeasureMan::ClearLast()
         {
 			m_draw.SetOrderNumber(1);
         }
-	}	
+	}
 }
 
 void MeasureMan::ClearFirst()
@@ -222,7 +222,7 @@ void MeasureMan::ClearFirst()
 	{
 		// erase measure line
 		EraseMeasureLine(m_deq[0]);
-    
+
 		// erase data
 		m_deq.pop_front();
 	}
@@ -930,7 +930,7 @@ void MeasureMan::EraseEllipse(MeasureInfo info)
 		return;
 
 	m_draw.SetCursorType(info.cursorType);
-	m_draw.SetCursorSize(info.cursorSize);	
+	m_draw.SetCursorSize(info.cursorSize);
 	m_draw.SetConfirmColor(info.confirmColor);
 
 	p1 = info.vecPoint[0];
@@ -1275,7 +1275,7 @@ void MeasureMan::EraseVelD(MeasureInfo info)
 
     if(info.vecPoint.empty())
         return;
-	
+
     int size = info.vecPoint.size();
     if((info.meaType == INTEGRAL_TRACK) && (size < 2))
         return;
@@ -1455,7 +1455,7 @@ const char* MeasureMan::GetMeasureTitle(int item)
     else if ((item>=ABD_MEA_START) && (item<ABD_MEA_END))
 	{
 		return AbdoInfo[item-ABD_MEA_START].title;
-	}		
+	}
 	else if ((item>=UR_MEA_START) && (item<UR_MEA_END))
 	{
 		return URInfo[item-UR_MEA_START].title;
@@ -1530,7 +1530,7 @@ void MeasureMan::GetMeasureString(int item, const SingleItemInfo **ptrSingleItem
 		itemMultiStart = (int)ABD_MULTI_START;
 		ptrSingleItemStart = AbdoInfo;
 		ptrMultiItemStart = AbdoMultiInfo;
-	}		
+	}
 	else if ((item>=UR_MEA_START) && (item<UR_MEA_END))
 	{
 		itemStart = (int)UR_MEA_START;
@@ -1650,14 +1650,14 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
     {
         int unit = sysMeasure.GetUnitDist();
         if(unit)
-        { 
+        {
             units = CustomUnitArray[0].unit2;
-            coeffi = 10.0; 
+            coeffi = 10.0;
         }
         else
         {
             units = CustomUnitArray[0].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
     }
     else if(unit == CM2)
@@ -1671,8 +1671,8 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
         else
         {
             units = CustomUnitArray[3].unit1;
-            coeffi = 1.0; 
-        } 
+            coeffi = 1.0;
+        }
     }
     else if(unit == CM3)
     {
@@ -1685,7 +1685,7 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
         else
         {
             units = CustomUnitArray[4].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
     }
     else if(unit ==SEC)
@@ -1699,7 +1699,7 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
         else
         {
             units = CustomUnitArray[5].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
     }
     else if(unit == CMS)
@@ -1708,7 +1708,7 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
         if(unit == 0)
         {
             units = CustomUnitArray[1].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
         else if(unit == 1)
         {
@@ -1727,7 +1727,7 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
         if(unit == 0)
         {
             units = CustomUnitArray[2].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
         else if(unit == 1)
         {
@@ -1744,20 +1744,20 @@ void MeasureMan::GetMeasureUnit(double& coeffi, string& units, int unit)
     {
         int unit = sysMeasure.GetUnitEfw();
         if(unit)
-        {   
+        {
             units = CustomUnitArray[7].unit2;
             coeffi = 1000.0;
-        } 
+        }
         else
         {
             units = CustomUnitArray[7].unit1;
-            coeffi = 1.0; 
+            coeffi = 1.0;
         }
     }
     else
-    { 
+    {
         units = CustomUnitArray[unit].unit1;
-        coeffi = 1.0; 
+        coeffi = 1.0;
     }
 }
 
@@ -1935,5 +1935,4 @@ void MeasureMan::ClearAllMeasureOrderNumber()
 		}
 	}
 }
-
 

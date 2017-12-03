@@ -3,7 +3,7 @@
  *
  * @file: ExamItem.cpp
  * @brief: manage parameter of exam item and auto-optimizing image
- * 
+ *
  * version: V1.0
  * date: 2009-6-7
  * @author: zhanglei
@@ -41,7 +41,7 @@
 // 14: "BladderProstate": 膀胱前列腺
 // 15: "Carotid": 颈动脉
 // 16: "Jugular": 颈静脉
-// 17: "PeripheryArtery": 外周动脉 
+// 17: "PeripheryArtery": 外周动脉
 // 18: "PeripheryVein": 外周静脉
 // 19: "HipJoint": 髋关节
 // 20: "Meniscus": 半月板
@@ -57,23 +57,23 @@
 
 #ifdef VET
 #ifdef EMP_355
-const string ExamItem::ITEM_LIB[NUM_ITEM] = 
+const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
 	"Dog","Cat","Bovine","Equine","Swine","Sheep"
 };
 #else
-const string ExamItem::ITEM_LIB[NUM_ITEM] = 
+const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
 	"User1","User2","User3","User4","User5","User6","User7","User8","User9","User10"
 };
 #endif
 #else
-const string ExamItem::ITEM_LIB[NUM_ITEM] = 
+const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
-	"AdultAbdo","AdultLiver","KidAbdo", "AdultCardio", "KidCardio", "MammaryGlands", 
-	//"Thyroid", "EyeBall", "SmallPart", "Gyn", "EarlyPreg", "MiddleLaterPreg", 
-	"Thyroid", "EyeBall", "Testicle", "Gyn", "EarlyPreg", "MiddleLaterPreg", 
-	"FetusCardio", "KidneyUreter", "BladderProstate", "Carotid", "Jugular", "PeripheryArtery", 
+	"AdultAbdo","AdultLiver","KidAbdo", "AdultCardio", "KidCardio", "MammaryGlands",
+	//"Thyroid", "EyeBall", "SmallPart", "Gyn", "EarlyPreg", "MiddleLaterPreg",
+	"Thyroid", "EyeBall", "Testicle", "Gyn", "EarlyPreg", "MiddleLaterPreg",
+	"FetusCardio", "KidneyUreter", "BladderProstate", "Carotid", "Jugular", "PeripheryArtery",
 	"PeripheryVein", "HipJoint", "Meniscus", "JointCavity", "Spine", "MSK", "TCD",  "User1", "User2", "User3", "User4"
 };
 #endif
@@ -133,7 +133,7 @@ void ExamItem::GetUserItemListOfProbe(char* probeModel, vector<string> &ItemList
 }
 
 /*
- * @brief get user item info 
+ * @brief get user item info
  *
  * @para probeModel[in] designamted probe model, in
  */
@@ -152,7 +152,7 @@ void ExamItem::GetUserItemInfo(char* probeModel, string &genfirstitem)
     string username;
     username = exam.ReadDefaultUserSelect(&ini);
 
-    
+
     vector<string> useritemgroup;
     vector<string> vecExamItem;
     ExamItem examitem;
@@ -204,7 +204,7 @@ void ExamItem::GetInitUserItemInfo(char* probeModel, string inituseritem, string
     string username;
     username = exam.ReadDefaultUserSelect(&ini);
 
-    
+
     vector<string> useritemgroup;
     vector<string> vecExamItem;
     ExamItem examitem;
@@ -242,7 +242,7 @@ void ExamItem::GetInitUserItemInfo(char* probeModel, string inituseritem, string
 
 /*
  * @brief set probe "probeModel"'s default item
- * 
+ *
  * @para probeModel probe model
  * @retval value of default item
  */
@@ -257,7 +257,7 @@ enum ExamItem::EItem ExamItem::GetDefaultItem(char* probeModel)
 
     m_probeIndex = GetProbeIndex(probeModel);
     m_itemIndex = m_vecItemIndex[m_probeIndex][0];
-   
+
     //SetItemOfProbe(probeModel,m_itemIndex);
 
 	return m_itemIndex;
@@ -271,14 +271,14 @@ void ExamItem::SetUserItemOfProbe(char* probeModel, enum EItem itemIndex, const 
 	// read current item para value to m_paraItem
 	char path[256];
 #ifdef VET
- 	if (strcmp(user_configure, "VetItemPara.ini") == 0)    
+ 	if (strcmp(user_configure, "VetItemPara.ini") == 0)
         sprintf(path, "%s%s", CFG_RES_PATH, EXAM_FILE);
  else
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
 
 #else
     //const gchar *name = ViewProbe::GetInstance()->GetUserName();
-    if (strcmp(user_configure, "ItemPara.ini") == 0)    
+    if (strcmp(user_configure, "ItemPara.ini") == 0)
         sprintf(path, "%s%s", CFG_RES_PATH, EXAM_FILE);
     else
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
@@ -299,14 +299,14 @@ void ExamItem::SetItemOfProbe(char* probeModel, enum EItem itemIndex)
     char path[256];
 
 #ifdef VET
-    
-    if (strcmp(user_configure, "VetItemPara.ini") == 0)    
+
+    if (strcmp(user_configure, "VetItemPara.ini") == 0)
         sprintf(path, "%s%s", CFG_RES_PATH, EXAM_FILE);
     else
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
 
 #else
-    if (strcmp(user_configure, "ItemPara.ini") == 0)    
+    if (strcmp(user_configure, "ItemPara.ini") == 0)
         sprintf(path, "%s%s", CFG_RES_PATH, EXAM_FILE);
     else
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
@@ -326,7 +326,7 @@ void ExamItem::GetCurrentItemPara(ParaItem &ptrPara)
 }
 
 /*
- * @brief generate default config file, para value in it should be revise according to real condition, only used when the first time when "ItemPara.ini" is generate 
+ * @brief generate default config file, para value in it should be revise according to real condition, only used when the first time when "ItemPara.ini" is generate
  * note: only used for our programer
  */
 void ExamItem::GenerateDefaultExamItem()
@@ -336,7 +336,7 @@ void ExamItem::GenerateDefaultExamItem()
 
 	InitItemPara(&m_paraItem);
 	InitItemOfProbe();
-	
+
 	char path[256];
 	sprintf(path, "%s/%s", CFG_RES_PATH, DEFAULT_EXAM_FILE);
 	IniFile ini(path);
@@ -362,9 +362,9 @@ void ExamItem::GenerateDefaultExamItem()
 }
 
 /*
- * @brief read image optimizing para of designated probe 
+ * @brief read image optimizing para of designated probe
  *
- * @para probeModel designated probe model  
+ * @para probeModel designated probe model
  */
 void ExamItem::GetImgOptimize(char* probeModel, ParaItem &para)
 {
@@ -384,13 +384,13 @@ void ExamItem::GetImgOptimize(char* probeModel, ParaItem &para)
  * @brief read parameter of examItem in config file, according to probeIndex and itemIndex
  * @para probeIndex [in] index of probe in PROBE_LIST
  * @para itemIndex [in] index of exam item in ITEM_LIB
- * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file 
+ * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file
  */
 void ExamItem::ReadExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem, char *itemName)
 {
     char path[256];
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-   if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+   if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
     {
@@ -421,7 +421,7 @@ void ExamItem::ReadExamItemPara(int probeIndex, int itemIndex, ParaItem* paraIte
  * @brief write parameter of examItem to config file, according to probeIndex and itemIndex
  * @para probeIndex[in] index of probe in PROBE_LIST
  * @para itemIndex[in] index of exam item in ITEM_LIB
- * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file 
+ * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file
  */
 void ExamItem::WriteExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName)
 {
@@ -429,7 +429,7 @@ void ExamItem::WriteExamItemPara(int probeIndex, int itemIndex, ParaItem* paraIt
     char path[256];
     char path_other[256]; //只是用来到处默认用户时候的参数
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
 
@@ -498,7 +498,7 @@ vector <string> ExamItem::GetCurrentUserGroup(void)
     {
         PRINTF("errno_str=%s\n", strerror(errno));
         vector<string> tmp;
-        tmp.clear(); 
+        tmp.clear();
         return tmp;
     }
     else
@@ -522,12 +522,12 @@ vector <string> ExamItem::GetCurrentProbeUserGroup(char *username)
     else
         strcpy(name, username);
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, name, ".ini");
-    int fd; 
+    int fd;
     FILE *fp;
     if((fp = fopen(path, "r")) == NULL)
     {
         vector<string> tmp;
-        tmp.clear(); 
+        tmp.clear();
         return tmp;
     }
     else
@@ -554,12 +554,12 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
         username="SystemDefault";
     }
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, username.c_str(), ".ini");
-    int fd; 
+    int fd;
     FILE *fp;
     if((fp = fopen(path, "r")) == NULL)
     {
         vector<string> tmp;
-        tmp.clear(); 
+        tmp.clear();
         return tmp;
     }
     else
@@ -584,7 +584,7 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
     char path[256];
 
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, name, ".ini");
-    int fd; 
+    int fd;
     FILE *fp;
     if((fp = fopen(path, "r")) == NULL)
     {
@@ -625,7 +625,7 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
     char path[256];
 
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE,username.c_str(), ".ini");
-    int fd; 
+    int fd;
     FILE *fp;
     if((fp = fopen(path, "r")) == NULL)
     {
@@ -660,7 +660,7 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
         strcpy(name, "SystemDefault");
     }
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE,name, ".ini");
-    
+
     IniFile ini(path);
     IniFile *ptrIni= &ini;
 
@@ -684,12 +684,12 @@ vector <string> ExamItem::GetDefaultUserGroup(void)
     username = exam.ReadDefaultUserSelect(&ini1);
     if(strcmp(username.c_str(),"System Default")==0)
     {
-        username="SystemDefault";   
+        username="SystemDefault";
     }
 
     char path[256];
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE,username.c_str(), ".ini");
-    int fd; 
+    int fd;
     FILE *fp;
     if((fp = fopen(path, "r")) == NULL)
     {
@@ -784,7 +784,7 @@ void ExamItem::WriteNewItemToCommentFile(int probeIndex, char *new_string, const
     IniFile ini(path);
     IniFile *ptrIni= &ini;
 
-    
+
  /*   char path[256];
     sprintf(path, "%s%s", CFG_RES_PATH, COMMENT_FILE);
     IniFile ini(path);
@@ -846,7 +846,7 @@ void ExamItem::DeleteNewItemFile(int probeIndex, const char *old_string, const c
         strcpy(name, "SystemDefault");
     }
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE,name, ".ini");
-    
+
     IniFile ini(path);
 
     DeleteNewExamItem(str, PROBE_LIST[probeIndex] + "-" + old_string, &ini);
@@ -857,7 +857,7 @@ void ExamItem::DeleteItemParaFile(int probeIndex, const char *old_string, const 
     char path[256];
     char path_other[256]; //只是用来到处默认用户时候的参数
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
     {
@@ -898,7 +898,7 @@ void ExamItem::WriteDefinedItemPara(int probeIndex, char *new_string,const char 
 {
     char path[256];
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
 
@@ -933,14 +933,14 @@ void ExamItem::WriteNewItemFile(int probeIndex, char *new_string,const char *str
     strcpy(nameuser, username);
     if(strcmp(nameuser,_("System Default"))==0)
     {
-        strcpy(nameuser, "SystemDefault");  
+        strcpy(nameuser, "SystemDefault");
     }
 
     char path[256];
     sprintf(path, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, nameuser, ".ini");
-    
+
     int fd;
-    fd = open(path, O_RDWR |O_CREAT, 0666);  
+    fd = open(path, O_RDWR |O_CREAT, 0666);
     close(fd);
 
     IniFile ini(path);
@@ -950,7 +950,7 @@ void ExamItem::WriteNewItemFile(int probeIndex, char *new_string,const char *str
     char path1[256];
     char path_other[256];
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
 
@@ -975,7 +975,7 @@ void ExamItem::WriteNewItemFile(int probeIndex, char *new_string,const char *str
  * @brief read parameter of factory defalut examItem in config file, according to probeIndex and itemIndex
  * @para probeIndex [in] index of probe in PROBE_LIST
  * @para itemIndex [in] index of exam item in ITEM_LIB
- * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file 
+ * @para paraItem[out] pointer saved all parameter read from ItemPara.ini file
  */
 void ExamItem::ReadDefaultExamItem(int probeIndex, int itemIndex, ParaItem* paraItem, char *itemName)
 {
@@ -996,7 +996,7 @@ void ExamItem::ReadDefaultExamItem(int probeIndex, int itemIndex, ParaItem* para
 
 
 /*
- * @brief generate all probe's default image optimizing para, only used when the first time "OptimizePara.ini" file is generate 
+ * @brief generate all probe's default image optimizing para, only used when the first time "OptimizePara.ini" file is generate
  */
 void ExamItem::GenerateDefaultImgOptimize()
 {
@@ -1023,7 +1023,7 @@ void ExamItem::GenerateDefaultImgOptimize()
 int ExamItem::GetProbeIndex(char* probeModel)
 {
 
-	int i; 
+	int i;
 	for (i = 0; i < NUM_PROBE; i ++)
 	{
         PRINTF("list model = %s\n", PROBE_LIST[i].c_str());
@@ -1080,10 +1080,10 @@ void ExamItem::InitItemPara(ParaItem* paraItem)
 	paraItem->d2.noiseReject = 0;
 	paraItem->d2.imgEhn = 2;
 	paraItem->d2.gainM = 100;
-	
+
 	//spectrum
 	paraItem->spectrum.freq = 0; //< index of color freq
-	
+
     if(ModeStatus::IsCWImgMode())
     {
         paraItem->spectrum.gain = 50;
@@ -1464,7 +1464,7 @@ void ExamItem::InitItemOfProbe()
         m_vecItemIndex[4].push_back(CAR_KID);
     }
 #endif
- 
+
 #if (defined(EMP_313) || defined(EMP_322))
     // probe 5 90L40J
     if (NUM_PROBE > 5)
@@ -1576,7 +1576,7 @@ void ExamItem::InitItemOfProbe()
         m_vecItemIndex[6].push_back(MSK);
     }
 
-    //probe 7 10L25J 
+    //probe 7 10L25J
     if (NUM_PROBE > 7)
     {
         m_vecItemIndex[7].push_back(GLANDS);
@@ -1646,7 +1646,7 @@ void ExamItem::TransUserSelectForEng(char *name, char *username)
 
 void ExamItem::TransItemNameEng(const char *str_index,char str_name[256])
 {
-    
+
     string adbo ="Adult Abdomen";
     string gyn ="Gynecology";
     string earlypreg ="Early Pregnancy";
@@ -1664,13 +1664,13 @@ void ExamItem::TransItemNameEng(const char *str_index,char str_name[256])
     string ureter ="Kidney Ureter";
     string bladder ="Bladder Prostate";
     string joint ="Joint Cavity";
-    string eye ="Eye Ball"; 
+    string eye ="Eye Ball";
     string small ="Small Part";
     string perart ="Periphery Artery";
     string pervein ="Periphery Vein";
     string kidcar ="Kid Cardio";
     string msk ="MSK";
-    
+
     if (strcmp(str_index, liver.c_str())==0)
     {
         strcpy(str_name, "AdultLiver");
@@ -1715,7 +1715,7 @@ void ExamItem::TransItemNameEng(const char *str_index,char str_name[256])
     }
     else if (strcmp(str_index, adbo.c_str())==0)
     {
-        strcpy(str_name, "AdultAbdo");    
+        strcpy(str_name, "AdultAbdo");
     }
     else if (strcmp(str_index, gyn.c_str())==0)
     {
@@ -1772,7 +1772,7 @@ void ExamItem::TransItemNameEng(const char *str_index,char str_name[256])
 
 void ExamItem::TransItemName(const char *str_index,char str_name[256])
 {
-    
+
 #ifndef VET
     string adbo =_("Adult Abdomen");
     string gyn =_("Gynecology");
@@ -1791,7 +1791,7 @@ void ExamItem::TransItemName(const char *str_index,char str_name[256])
     string ureter =_("Kidney Ureter");
     string bladder =_("Bladder Prostate");
     string joint =_("Joint Cavity");
-    string eye =_("Eye Ball"); 
+    string eye =_("Eye Ball");
     //string small =_("Small Part");
     string small =_("Testicle");
     string perart =_("Periphery Artery");
@@ -1805,7 +1805,7 @@ void ExamItem::TransItemName(const char *str_index,char str_name[256])
 
     if (strcmp(str_index, liver.c_str())==0)
     {
-        strcpy(str_name, "AdultLiver");    
+        strcpy(str_name, "AdultLiver");
     }
     else if (strcmp(str_index, laterpreg.c_str())==0)
     {
@@ -1923,27 +1923,27 @@ void ExamItem::TransItemName(const char *str_index,char str_name[256])
     string user6 =_("Sheep");
     if (strcmp(str_index, user1.c_str())==0)
     {
-        strcpy(str_name, "Dog");    
+        strcpy(str_name, "Dog");
     }
     else if (strcmp(str_index, user2.c_str())==0)
     {
-        strcpy(str_name, "Cat");    
+        strcpy(str_name, "Cat");
     }
     else if (strcmp(str_index, user3.c_str())==0)
     {
-        strcpy(str_name, "Bovine");    
+        strcpy(str_name, "Bovine");
     }
     else if (strcmp(str_index, user4.c_str())==0)
     {
-        strcpy(str_name, "Equine");    
+        strcpy(str_name, "Equine");
     }
     else if (strcmp(str_index, user5.c_str())==0)
     {
-        strcpy(str_name, "Swine");    
+        strcpy(str_name, "Swine");
     }
     else if (strcmp(str_index, user6.c_str())==0)
     {
-        strcpy(str_name, "Sheep");    
+        strcpy(str_name, "Sheep");
     }
 else
     {
@@ -1963,43 +1963,43 @@ else
     string user10 =_("User10");
     if (strcmp(str_index, user1.c_str())==0)
     {
-        strcpy(str_name, "User1");    
+        strcpy(str_name, "User1");
     }
     else if (strcmp(str_index, user2.c_str())==0)
     {
-        strcpy(str_name, "User2");    
+        strcpy(str_name, "User2");
     }
     else if (strcmp(str_index, user3.c_str())==0)
     {
-        strcpy(str_name, "User3");    
+        strcpy(str_name, "User3");
     }
     else if (strcmp(str_index, user4.c_str())==0)
     {
-        strcpy(str_name, "User4");    
+        strcpy(str_name, "User4");
     }
     else if (strcmp(str_index, user5.c_str())==0)
     {
-        strcpy(str_name, "User5");    
+        strcpy(str_name, "User5");
     }
     else if (strcmp(str_index, user6.c_str())==0)
     {
-        strcpy(str_name, "User6");    
+        strcpy(str_name, "User6");
     }
     else if (strcmp(str_index, user7.c_str())==0)
     {
-        strcpy(str_name, "User7");    
+        strcpy(str_name, "User7");
     }
     else if (strcmp(str_index, user8.c_str())==0)
     {
-        strcpy(str_name, "User8");    
+        strcpy(str_name, "User8");
     }
     else if (strcmp(str_index, user9.c_str())==0)
     {
-        strcpy(str_name, "User9");    
+        strcpy(str_name, "User9");
     }
     else if (strcmp(str_index, user10.c_str())==0)
     {
-        strcpy(str_name, "User10");    
+        strcpy(str_name, "User10");
     }
 else
     {
@@ -2011,7 +2011,7 @@ else
 void ExamItem::WriteDefinedExamItemPara(const char *department, string section, IniFile* ptrIni, string probelist, char *new_string,const char *str_index)
 {
      char str_name[256];
-    TransItemNameEng(str_index, str_name); 
+    TransItemNameEng(str_index, str_name);
     //printf("--------------str_naem=%s\n",str_name);
     ParaItem paradefinedItem;
     char path[256];
@@ -2025,7 +2025,7 @@ void ExamItem::WriteDefinedExamItemPara(const char *department, string section, 
 
     char path1[256];
     const gchar *name = ViewSystem::GetInstance()->GetUserName();
-    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) && 
+    if ((strcmp(name, "System Default") != 0) && (strcmp(name, "Умолчан системы") != 0) &&
             (strcmp(name, "系统默认") != 0) && (strcmp(name, "Domyślne Systemu") != 0)  &&
             (strcmp(name, "Par défaut du sys.") != 0) && (strcmp(name, "Systemvorgabe") != 0)&& (strcmp(name, "Sistema por defecto") !=0))
 
@@ -2050,7 +2050,7 @@ void ExamItem::WriteDefinedExamItemPara(const char *department, string section, 
 void ExamItem::WriteDefaultDefinedExamItemPara(const char *department, string section, IniFile* ptrIni, string probelist,char *new_string,const char *str_index)
 {
     char str_name[256];
-    TransItemNameEng(str_index, str_name); 
+    TransItemNameEng(str_index, str_name);
 
     char path[256];
     ParaItem paraItem;
@@ -2353,7 +2353,7 @@ bool ExamItem::ReadUserItemFlag(IniFile* ptrIni)
     vector<ExamItem::ProjectDefaultParaItem> projectPara;
     if(!projectPara.empty())
         projectPara.clear();
-    
+
     if(model == NULL || user == NULL) return projectPara;
 
     int index;
@@ -2396,8 +2396,8 @@ bool ExamItem::ReadUserItemFlag(IniFile* ptrIni)
                     for(j = size; j < ExamItem::BAND_PASS_SIZE_D2; j++)
                         para.pro2d.BandPassW[j] = 0;
                 }
-                
-                
+
+
                 sprintf(key_name, "%s-%d-%s", "D2", ProbeSocket::FREQ2D[index][i].emit, "TxFNum");
                 para.pro2d.txFNum = ptrIni->ReadInt(group_name, key_name);
                 sprintf(key_name, "%s-%d-%s", "D2", ProbeSocket::FREQ2D[index][i].emit, "WpScale");
@@ -2419,8 +2419,8 @@ void ExamItem::WriteProjectPara(ExamItem::ProjectDefaultParaItem *proParaItem, c
 {
     if(model == NULL || user == NULL) return;
 
-    char group_name[256] = {"\0"}; 
-    char key_name[256] = {"\0"}; 
+    char group_name[256] = {"\0"};
+    char key_name[256] = {"\0"};
     sprintf(group_name, "%s-%s", model, user);
     sprintf(key_name, "%s-%d-%s", "D2", proParaItem->pro2d.freq, "FilterSection");
     ptrIni->WriteInt(group_name, key_name, proParaItem->pro2d.FilterSection);
@@ -2453,8 +2453,8 @@ void ExamItem::WriteProjectPara(ExamItem::ProjectDefaultParaItem *proParaItem, c
  */
 void ExamItem::RemoveUserFromFile(const char* model, const char* user, IniFile* ptrIni)
 {
-    if(model == NULL || user == NULL) 
-    { 
+    if(model == NULL || user == NULL)
+    {
         perror("input is null\n");
         return;
     }

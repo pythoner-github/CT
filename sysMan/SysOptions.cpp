@@ -44,12 +44,12 @@ int SysOptions::GetImageFormat(void)
 int SysOptions::GetDisplayFormatM(void)
 {
     return ptrIni->ReadInt("Options", "DisplayFormatM");
-} 
+}
 
 int SysOptions::GetDisplayFormatPW(void)
 {
     return ptrIni->ReadInt("Options", "DisplayFormatPW");
-} 
+}
 
 int SysOptions::GetImageMedia(void)
 {
@@ -162,10 +162,10 @@ void SysOptions::DefaultFactory(void)
     int imageAutoName=1;
     int cineFormat=0;
     int cineMedia=0;
-    int cineAutoName=1;	
+    int cineAutoName=1;
     int displayFormat=1;
 	int mouseSpeed = 1;
-    
+
     ptrIni->WriteInt("Options", "BiopsyLine", biopsyLine);
     ptrIni->WriteInt("Options", "CenterLine", centerLine);
     ptrIni->WriteInt("Options", "TI", TI);

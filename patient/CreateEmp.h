@@ -1,5 +1,5 @@
 #ifndef CREATE_EMP_H
-#define CREATE_EMP_H 
+#define CREATE_EMP_H
 
 #include <stdio.h>
 #include <unistd.h>

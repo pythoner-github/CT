@@ -1,8 +1,8 @@
 /**
 * @brief MultiFuncArrow.h: interface for the MultiFuncArrow class.
 *
-* MultiFuncArrow handle all events of arrow operation, include 
-* add delete cancel move and so on. MultiFuncArrow derive from 
+* MultiFuncArrow handle all events of arrow operation, include
+* add delete cancel move and so on. MultiFuncArrow derive from
 * class CAbsUpdateArrow KnobEvent and AbsMultiFunc.
 *
 * emperor
@@ -21,7 +21,7 @@
 #include "Arrow.h"
 #include "KnobMenu.h"
 #include "CalcTime.h"
- 
+
 class MultiFuncArrow: public CAbsUpdateArrow, public CKnobEvent, public AbsMultiFunc
 {
 public:
@@ -34,7 +34,7 @@ public:
 	virtual void Mouse(int offsetX, int offsetY);
 	virtual void Esc();
 
-    virtual void DrawArrow(POINT pos, unsigned int direction, double scale, 
+    virtual void DrawArrow(POINT pos, unsigned int direction, double scale,
             unsigned int color, unsigned int shape);
 
 	virtual void KeyEvent(unsigned char keyValue);

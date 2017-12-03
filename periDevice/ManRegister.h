@@ -30,7 +30,7 @@ class CManRegister
         void GetFiles(const char *path, vector<string>& files);
         string GenerateRegisterKey(int optionalIndex=0);
         bool GetSCSIDiskID(unsigned char *serialNumber);
-		int GetMacID(unsigned char *mac); 
+		int GetMacID(unsigned char *mac);
         void GetValue(unsigned char *value, int optionalIndex);
         int OpenSCSIDevice(const char *dev);
 		int SCSIInquiryUnitSerialNumber(int fd, unsigned char *serialNumber);

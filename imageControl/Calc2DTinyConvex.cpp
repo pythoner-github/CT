@@ -32,17 +32,17 @@ void Calc2DTinyConvex::CalcEmitDelay()
 	int focSum = m_calcPara->focSum;
     int size = sizeof(EMIT_CH_NUM) / sizeof(int);
 	bool compound = m_calcPara->compoundSpaceCtrl || m_calcPara->compoundFreqCtrl;
-	
+
 	int i;
 	for (i = 0; i < focSum; i ++)
 	{
 		CEmitDelay(i, EMIT_CH_NUM, size, compound);
-	}	
+	}
 }
 
 void Calc2DTinyConvex::CalcFocPos()
 {
-    int start = 0; 
+    int start = 0;
 
     FocChange(start);
 
@@ -53,14 +53,14 @@ void Calc2DTinyConvex::CalcFocPos()
 #else
     if (pos > 120) //mm
         m_fpga.Send2DPulseNum(1);
-    else   
+    else
         m_fpga.Send2DPulseNum(2);
 #endif
     CalcEmitDelay();
 }
 
 void Calc2DTinyConvex::CalcDefaultDemodFd()
-{ 
+{
     int count = 0;
     if(!m_calcPara->harmonic)
     {
@@ -114,8 +114,8 @@ void Calc2DTinyConvex::CalcFilterBandPass(int order)
     depth[3] = 200;
     depth[4] = 250;
 #endif
-    
-    for (int i = 0; i < NUM_PROBE; ++i) 
+
+    for (int i = 0; i < NUM_PROBE; ++i)
     {
         if (strcmp(probe_type.c_str(), PROBE_LIST[i].c_str()) == 0)
             probeIndex = i;
@@ -141,7 +141,7 @@ void Calc2DTinyConvex::CalcFilterBandPass(int order)
 			PRINTF("-Tiny convex--%d-----w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
 		}
     }
-   
+
 	BandPassFilterSelect_test(fc_bandpass_filter1, fc_bandpass_filter2, depth, order);
 
 #else
@@ -162,7 +162,7 @@ void Calc2DTinyConvex::CalcFilterBandPass(int order)
 	//BandPassFilterSelect(order);
 #endif
 
-}    
+}
 void Calc2DTinyConvex::CalcDynamicFilter(int order)
 {
 	int depth[5];
@@ -183,8 +183,8 @@ void Calc2DTinyConvex::CalcDynamicFilter(int order)
     depth[3] = 200;
     depth[4] = 250;
 #endif
-    
-    for (int i = 0; i < NUM_PROBE; ++i) 
+
+    for (int i = 0; i < NUM_PROBE; ++i)
     {
         if (strcmp(probe_type.c_str(), PROBE_LIST[i].c_str()) == 0)
             probeIndex = i;
@@ -210,7 +210,7 @@ void Calc2DTinyConvex::CalcDynamicFilter(int order)
     DynamicFilter_test(fc_dynamic_filter, depth, order);
 
     //DynamicFilter(order);
-}    
+}
 void Calc2DTinyConvex::CalcDynamicDemod(int order)
 {
 	//int probeR = m_calcPara->probeR;
@@ -454,14 +454,14 @@ void Calc2DTinyConvex::CalcDynamicDemod(int order)
         fd_harmonic[3] = 5.0;
         fd_harmonic[4] = 5.0;
     }
-	
+
 	// 35C20H---G70
 #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_355) || defined(EMP_322))
-	int freqIndex = Img2D::GetInstance()->GetFreqIndex();   
+	int freqIndex = Img2D::GetInstance()->GetFreqIndex();
 	int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
 	int probeIndex = 0;
     string probe_type = TopArea::GetInstance()->GetProbeType();
-    for (i = 0; i < NUM_PROBE; ++i) 
+    for (i = 0; i < NUM_PROBE; ++i)
     {
         if (strcmp(probe_type.c_str(), PROBE_LIST[i].c_str()) == 0)
             probeIndex = i;
@@ -469,20 +469,20 @@ void Calc2DTinyConvex::CalcDynamicDemod(int order)
 
 #ifdef EMP_PROJECT
     if (m_projectCalcPara->filterSecIndex)
-    { 
+    {
         for(i = 0; i < 5; i++)
         {
 
-            fd[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);	
-            fd_harmonic[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);	
+            fd[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);
+            fd_harmonic[i] =  float(m_projectCalcPara->bandPassW[i] / 10.0);
 
             PRINTF("----- project test --TinyConvex--%d----demod freq basic = %.2f, THI= %.2f\n", i, fd[i], fd_harmonic[i]);
         }
     }
-    else 
-    {  	
+    else
+    {
         for (i = 0; i < 5; i++)
-        {      
+        {
            // fd[i] =  float(ProbeSocket::BAND_PASS_FILTER_FC_BASE_FREQ[probeIndex][freqIndex][i]) / 10.0;
            // fd_harmonic[i] = float(ProbeSocket::BAND_PASS_FILTER_FC[probeIndex][harmonicIndex][i]) / 10.0;
 
@@ -495,7 +495,7 @@ void Calc2DTinyConvex::CalcDynamicDemod(int order)
 #else
 
     for (i = 0; i < 5; i++)
-    {      
+    {
         fd[i] =  float((ProbeSocket::BAND_PASS_FILTER_FC1_BASE_FREQ[probeIndex][freqIndex][i] + ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[probeIndex][freqIndex][i]) / 20.0);
         fd_harmonic[i] = float((ProbeSocket::BAND_PASS_FILTER_FC1[probeIndex][harmonicIndex][i] + ProbeSocket::BAND_PASS_FILTER_FC2[probeIndex][harmonicIndex][i]) / 20.0);
         PRINTF("-Tiny Convex--%d---demod freq basic = %.2f, THI= %.2f\n", i, fd[i], fd_harmonic[i]);
@@ -517,4 +517,4 @@ void Calc2DTinyConvex::CalcDynamicDemod(int order)
         else
             DynamicDemodFreqCompound(fd, depth, TRUE, order);
     }
-}    
+}

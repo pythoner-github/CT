@@ -22,7 +22,7 @@ public:
     void Hide(void);
 	void UpdateMenuBiopsyBracket(void);
 private:
-   
+
     GtkWidget *m_vboxBioBracketType;
 	GtkWidget *m_menuBar;
 	//---------------------------------------//

@@ -21,7 +21,7 @@ class ViewCD:public FakeXEvent
         GtkWidget* GetWindow(void);
         void UpdateSize(bool is_cd);
 		void SetBackupStatus(guchar status);
-	
+
 		gboolean MakeIsoCallback(GIOChannel *source, GIOCondition condition);
 		gboolean BurnCDCallback(GIOChannel *source, GIOCondition condition);
 		gboolean BurnDVDCallback(GIOChannel *source, GIOCondition condition);
@@ -55,7 +55,7 @@ class ViewCD:public FakeXEvent
         vector<string> m_vecTotalId;
 
         guint64 m_estimated, m_remain, m_available;
-        gint m_iscd;	
+        gint m_iscd;
         vector<string> m_vecFlashItem;
 
 		GtkTreeModel* create_from_model(vector<string> vec);

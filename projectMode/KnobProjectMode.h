@@ -11,7 +11,7 @@ class KnobProjectMode
 
         enum EKnobType {NONE, D2, M, PW, CFM, REPLAY, SNAP, ARROW, BDMK, ANATOMIC_M, EFOV, TEST};
         enum CONST{ WIDTH_KNOB=844, HEIGHT_KNOB=46, KNOB_NUM=5};
-        
+
     	typedef EKnobReturn (*pKnobFunc)(EKnobOper);
     	typedef EKnobReturn (*pKnobFuncPress)(void);
     	struct KnobItem
@@ -75,4 +75,3 @@ class KnobProjectMode
 };
 #endif
 #endif //__KNOB_PROJECTMODE_H__
-

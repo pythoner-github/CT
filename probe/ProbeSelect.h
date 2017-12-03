@@ -36,4 +36,3 @@ private:
     vector<ExamItem::EItem> probeItemName[ProbeMan::MAX_SOCKET];
 };
 #endif
-

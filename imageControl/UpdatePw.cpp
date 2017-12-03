@@ -8,14 +8,14 @@
 #include "ViewMain.h"
 #include "../imageProc/ModeStatus.h"
 
-const char * SpeedLevel[3] = 
+const char * SpeedLevel[3] =
 {
     N_("Low"),
     N_("Mid"),
     N_("High")
 };
 
-const char * Toggle_Pw[2] = 
+const char * Toggle_Pw[2] =
 {
     N_("OFF"),
     N_("ON")
@@ -121,7 +121,7 @@ void  UpdatePw::SVPos(double depth)
 		draw = TRUE;
 	else
         draw = FALSE;
-	
+
 	m_ptrImgPara->UpdatePwSVPos(depth, draw);
 }
 
@@ -229,8 +229,8 @@ void UpdatePw::Baseline(int index, int maxIndex, EKnobReturn status)
 void UpdatePw::Steer(int angle, EKnobReturn status)
 {
 	sprintf(m_str, "%d°", angle);
-    SyncKnobPw(PW_STEER, m_str, status);	
-	SyncKnobCfm(CFM_STEER, m_str, status);	
+    SyncKnobPw(PW_STEER, m_str, status);
+	SyncKnobCfm(CFM_STEER, m_str, status);
 	m_ptrImgDraw->SetSteerAngle(angle);
 }
 void UpdatePw::WallFilter(int data, EKnobReturn status)
@@ -262,7 +262,7 @@ void UpdatePw::DopFreq(int freq, EKnobReturn status)
     {
         if (freq == 48)
             freq = 54; //A60 convex probe doppler freq is 52
-        else 
+        else
             freq = 66;
     }
 #endif
@@ -275,8 +275,8 @@ void UpdatePw::DopFreq(int freq, EKnobReturn status)
     }
 #endif
 	sprintf(m_str, "%.1fMHz", (float)freq/20);
-    SyncKnobPw(PW_DOP_FREQ, m_str, status);	
-	SyncKnobCfm(CFM_DOP_FREQ, m_str, status);	
+    SyncKnobPw(PW_DOP_FREQ, m_str, status);
+	SyncKnobCfm(CFM_DOP_FREQ, m_str, status);
 
 	if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
 	{
@@ -296,7 +296,7 @@ void UpdatePw::DopFreq(int freq, EKnobReturn status)
 void UpdatePw::Speed(int index, EKnobReturn status)
 {
 	// knob
-	sprintf(m_str, "%d", index); 
+	sprintf(m_str, "%d", index);
 	SyncKnobPw(PW_SPEED, m_str, status);
 
 	// image
@@ -318,14 +318,14 @@ void UpdatePw::SoundVolume(int index, EKnobReturn status)
 
 void UpdatePw::Simult(bool on, EKnobReturn status)
 {
-    const char * Toggle[2] = 
+    const char * Toggle[2] =
 	{
 		N_("OFF"),
 		N_("ON")
 	};
 
-	SyncKnobPw(PW_SIMULT, (char*)Toggle[on], status);	
-	SyncKnobCfm(CFM_SIMULT, (char*)Toggle[on], status);	
+	SyncKnobPw(PW_SIMULT, (char*)Toggle[on], status);
+	SyncKnobCfm(CFM_SIMULT, (char*)Toggle[on], status);
 }
 void UpdatePw::DynamicRange(int index, EKnobReturn status)
 {
@@ -334,7 +334,7 @@ void UpdatePw::DynamicRange(int index, EKnobReturn status)
 }
 void UpdatePw::HPRF(bool on, EKnobReturn status)
 {
-	SyncKnobPw(PW_HPRF, (char*)Toggle_Pw[on], status);	
+	SyncKnobPw(PW_HPRF, (char*)Toggle_Pw[on], status);
 	m_ptrImgPara->UpdatePwHPRFStatus(on);
 }
 
@@ -346,7 +346,7 @@ void UpdatePw::GrayMap(int index, EKnobReturn status)
 
 void UpdatePw::SoundStatus(int index, EKnobReturn status)
 {
-	SyncKnobPw(PW_SOUNDSTATUS, Toggle_Pw[index], status);	
+	SyncKnobPw(PW_SOUNDSTATUS, Toggle_Pw[index], status);
 	ViewIcon::GetInstance()->Sound((bool)index);
 }
 
@@ -389,7 +389,7 @@ void UpdatePw::EnterPwImg()
         m_ptrImgDraw->ReDrawSV();
     else
         m_ptrImgDraw->ReDrawSVCW();
-    
+
     // draw para
     m_ptrImgPara->DrawPwPara();
 
@@ -456,7 +456,7 @@ void UpdatePw::EnterCwCfmFromCfm()
 {
     m_ptrMenu->ShowCWCFMMenu(false);
     m_ptrImgPara->DrawPwPara();
-    
+
     // change to pw knob
     KnobPwCreate();
 }
@@ -464,7 +464,7 @@ void UpdatePw::EnterPwCfmFromCfm()
 {
     m_ptrMenu->ShowPWCFMMenu(false);
     m_ptrImgPara->DrawPwPara();
-    
+
     // change to pw knob
     KnobPwCreate();
 }
@@ -508,7 +508,7 @@ void UpdatePw::UpdatePwCfmImg(void)
     m_ptrImgPara->DrawGeneralPara();
     m_ptrImgPara->DrawPwPara();
     m_ptrImgPara->DrawCfmPara();
-    m_ptrImgDraw->DrawColorScale();    
+    m_ptrImgDraw->DrawColorScale();
     m_ptrImgDraw->ReDrawCfmBox();
     m_ptrImgDraw->ReDrawFocus();
     if (m_timeMark)
@@ -526,9 +526,9 @@ void UpdatePw::EnterCwPdiFromPdi()
 {
     m_ptrMenu->ShowCWCFMMenu(false);
     m_ptrImgPara->DrawPwPara();
-    
+
     // change to pw knob
-    KnobPwCreate();	
+    KnobPwCreate();
 }
 void UpdatePw::UpdateCwPdiMode()
 {
@@ -539,9 +539,9 @@ void UpdatePw::EnterPwPdiFromPdi()
 {
     m_ptrMenu->ShowPWCFMMenu(false);
     m_ptrImgPara->DrawPwPara();
-    
+
     // change to pw knob
-    KnobPwCreate();	
+    KnobPwCreate();
 }
 void UpdatePw::UpdatePwPdiMode()
 {
@@ -564,7 +564,7 @@ void UpdatePw::ChangeFormatPw(int format)
     m_ptrImgDraw->ReDrawFocus();
     if (m_timeMark)
 	m_ptrImgDraw->DrawGridPw();
-#ifdef TRANSDUCER    
+#ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
 }

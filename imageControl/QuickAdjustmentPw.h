@@ -2,16 +2,16 @@
    * Copyright (C), EMP Tech. Co., Ltd.
    * FileName: QuickAdjustmentPw.h
    * Author: weifang       Version : 1.1        Date:2017.01.11
-   * Description:    
+   * Description:
       * pw一键优化实现
-   * Version:  1.1       
-   * Function List:   
+   * Version:  1.1
+   * Function List:
       * 1. SetDataPw
       * 2. AnalysisPw
-   * History:         
+   * History:
      * <author>  <time>   <version >   <desc>
      * 1.   weifang    2014/07/24     0.0     build this moudle
-     * 2.   weifang    2014/09/19     1.0.2   
+     * 2.   weifang    2014/09/19     1.0.2
      * 2.   weifang    2017/01/11     1.1
 *****************************************************************/
 #pragma once
@@ -26,7 +26,7 @@ class QuickAdjustmentPw
 
 		void QuickAdjustmentPwOn();
 		void QuickAdjustmentPwOff();
-        void SendDataToQAPw(unsigned char *pImgData); 
+        void SendDataToQAPw(unsigned char *pImgData);
         void SetParaChangeMode();
         void SetParaChangeKnob(int pwFlag);
 
@@ -35,7 +35,7 @@ class QuickAdjustmentPw
 		QuickAdjustmentPw();
 
 		// extern member
-		static QuickAdjustmentPw* m_ptrInstance;	
+		static QuickAdjustmentPw* m_ptrInstance;
 
         // quick adjustment pw control para
         int m_spectrumSpeed;
@@ -44,9 +44,9 @@ class QuickAdjustmentPw
         int m_lineNo;
         bool m_readPw;
         unsigned char *m_pPwBuf;
-        bool m_shutPwChangeKnob;    
+        bool m_shutPwChangeKnob;
         int m_cout;
-        
+
 		// pw calculate para
 		float m_prfChg;
 		int m_baselineChg;
@@ -58,4 +58,3 @@ class QuickAdjustmentPw
         void SaveImage(unsigned char *pBits, int size);
 
 };
-
