@@ -6,42 +6,42 @@
 
 class UpdateMix: public AbsUpdateMix
 {
-	public:
-		UpdateMix();
+    public:
+        UpdateMix();
 
-		void Freeze();
+        void Freeze();
 
-		void UnFreeze();
+        void UnFreeze();
 
-		void EnterMeasure();
+        void EnterMeasure();
 
-		void ExitMeasure();
+        void ExitMeasure();
 
-		void EnterCalc();
+        void EnterCalc();
 
-		void ExitCalc();
+        void ExitCalc();
 
-		void EnterSystem(void);
+        void EnterSystem(void);
 
-		void ExitSystem(void);
+        void ExitSystem(void);
 
-		void ReplayBar(int cur, int total, int trimLeft, int trimRight);
+        void ReplayBar(int cur, int total, int trimLeft, int trimRight);
 
-		void ClearReplayBar();
+        void ClearReplayBar();
 
-		void ReplayCtrl(bool on );
+        void ReplayCtrl(bool on );
 #if (defined (EMP_322) || defined(EMP_313))
-		void SpeedCtrl(int indexSpeed);
+        void SpeedCtrl(int indexSpeed);
 #endif
         void ReplayCtrl(bool on, int indexSpeed, EKnobReturn status);
 
         void ReplayTrimLeft(int data);
 
-		void ReplayTrimRight(int data);
+        void ReplayTrimRight(int data);
 
-	private:
-		MenuArea* m_ptrMenu;
-		char m_str[20];
+    private:
+        MenuArea* m_ptrMenu;
+        char m_str[20];
 };
 
 #endif

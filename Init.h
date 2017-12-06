@@ -15,20 +15,20 @@
 
 class Init
 {
-	public:
-		Init();
-		~Init() {}
+    public:
+        Init();
+        ~Init() {}
 
-		void SystemInit(int argc, char *argv[]);
-		void ParaInit();
-		void ProbeCheck();
-		void WriteLogHead();
-		void CreatMainWindow(void);
-		void ExitSystem();
-	private:
-		static GtkWidget *main_window;
+        void SystemInit(int argc, char *argv[]);
+        void ParaInit();
+        void ProbeCheck();
+        void WriteLogHead();
+        void CreatMainWindow(void);
+        void ExitSystem();
+    private:
+        static GtkWidget *main_window;
 
-		///> func
-		static gboolean UpdateTopArea(gpointer data);
+        ///> func
+        static gboolean UpdateTopArea(gpointer data);
 };
 #endif

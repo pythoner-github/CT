@@ -52,19 +52,19 @@ ViewIcon::ViewIcon(void)
 ViewIcon::~ViewIcon()
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 ViewIcon* ViewIcon::GetInstance(void)
 {
     if (m_ptrInstance == NULL)
-	    m_ptrInstance = new ViewIcon;
+        m_ptrInstance = new ViewIcon;
     return m_ptrInstance;
 }
 
 void ViewIcon::Create(void)
 {
-	const int num = 6;
+    const int num = 6;
     m_table = gtk_table_new(1, num, TRUE);
 //    gtk_widget_set_size_request (m_table, 180, 32);
     gtk_widget_set_size_request (m_table, 26*num, 24);
@@ -134,9 +134,9 @@ gboolean ScrollScanIcon(gpointer data)
     tmp->ScanIcon(path);
 
     if (count < 4)
-	count++;
+    count++;
     else
-	count = 0;
+    count = 0;
 
     tmp->SetCountScanIcon(count);
     return TRUE;

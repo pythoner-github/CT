@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: KnobM.cpp
- * @brief: knob in 2D mode
- *
- * version: V1.0
- * date: 2009-8-10
- * @author: zhanglei
- */
-
 #include "imageControl/KnobM.h"
 #include "imageControl/Img2D.h"
 #include "display/KnobMenu.h"
@@ -20,7 +9,7 @@
 
 #if defined (EMP_322) || defined(EMP_313)
 KnobMenu::KnobItem KnobMMenu[6] = {
-//	{_("Freq."), "", MIN, MChgFreq, NULL},
+//  {_("Freq."), "", MIN, MChgFreq, NULL},
     {_("M Speed"), "", MIN, MChgSpeed, MPressChgSpeed},
  //   {_("【Chroma】"), "", MIN, MChgChroma, MPressChroma},
     {N_("MBP"),"", MIN, NULL, MPressChgMBP},
@@ -31,29 +20,29 @@ KnobMenu::KnobItem KnobMMenu[6] = {
 
 };
 KnobMenu::KnobItem KnobAnatomicMMenu[6] = {
-//	{_("Freq."), "", MIN, MChgFreq, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+//  {_("Freq."), "", MIN, MChgFreq, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 
 };
 #else
 KnobMenu::KnobItem KnobMMenu[5] = {
-	{_("Freq."), "", MIN, MChgFreq, MPressChgStatusTHI},
-	{_("M Speed"), "", MIN, MChgSpeed, NULL},
+    {_("Freq."), "", MIN, MChgFreq, MPressChgStatusTHI},
+    {_("M Speed"), "", MIN, MChgSpeed, NULL},
     {_("【Chroma】"), "", MIN, MChgChroma, MPressChroma},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 };
 KnobMenu::KnobItem KnobAnatomicMMenu[5] = {
-	{_("Freq."), "", MIN, MChgFreq, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+    {_("Freq."), "", MIN, MChgFreq, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 };
 #endif
 
@@ -71,7 +60,7 @@ void KnobAnatomicMCreate()
 void SyncKnobM(EKnobM type, const char* s, EKnobReturn status, bool draw)
 {
     sprintf(KnobMMenu[type].value, "%s", s);
-	KnobMMenu[type].status = status;
+    KnobMMenu[type].status = status;
 #if not defined(EMP_322)
     if (type == M_FREQ)
     {
@@ -86,7 +75,7 @@ void SyncKnobM(EKnobM type, const char* s, EKnobReturn status, bool draw)
 ///> callback function
 EKnobReturn MChgFreq(EKnobOper oper)
 {
-	EKnobReturn ret;
+    EKnobReturn ret;
     bool status = Img2D::GetInstance()->GetStatusTHI();
     //printf("status:%d\n", status);
 
@@ -96,9 +85,9 @@ EKnobReturn MChgFreq(EKnobOper oper)
         ret = Img2D::GetInstance()->ChangeFreq(oper);
 
     // change Tis
-	ChangeTis();
+    ChangeTis();
 
-	return ret;
+    return ret;
     //return Img2D::GetInstance()->ChangeFreq(oper);                //M模式下也应该由谐波
 }
 
@@ -132,7 +121,7 @@ EKnobReturn MChgChroma(EKnobOper oper)
 
 EKnobReturn MPressChroma(void)
 {
-	return ImgProc2D::GetInstance()->PressChroma();
+    return ImgProc2D::GetInstance()->PressChroma();
 }
 
 // change mbp

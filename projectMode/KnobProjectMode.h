@@ -12,17 +12,17 @@ class KnobProjectMode
         enum EKnobType {NONE, D2, M, PW, CFM, REPLAY, SNAP, ARROW, BDMK, ANATOMIC_M, EFOV, TEST};
         enum CONST{ WIDTH_KNOB=844, HEIGHT_KNOB=46, KNOB_NUM=5};
 
-    	typedef EKnobReturn (*pKnobFunc)(EKnobOper);
-    	typedef EKnobReturn (*pKnobFuncPress)(void);
-    	struct KnobItem
+        typedef EKnobReturn (*pKnobFunc)(EKnobOper);
+        typedef EKnobReturn (*pKnobFuncPress)(void);
+        struct KnobItem
         {
-		char *name;
-		char value[20];
-		bool isPrint;
-		EKnobReturn status;
-		pKnobFunc pf;
-		pKnobFuncPress pfPress;
-    	};
+        char *name;
+        char value[20];
+        bool isPrint;
+        EKnobReturn status;
+        pKnobFunc pf;
+        pKnobFuncPress pfPress;
+        };
 
         static KnobProjectMode* GetInstance(void);
         EKnobType GetKnobType(void) { return m_knobType; }
@@ -42,16 +42,16 @@ class KnobProjectMode
         void Knob3_Screw(int cw);
         void Knob4_Screw(int cw);
         void Knob5_Screw(int cw);
-    	void Knob1_Press(void);
+        void Knob1_Press(void);
         void Knob2_Press(void);
         void Knob3_Press(void);
         void Knob4_Press(void);
-	void Knob5_Press(void);
+    void Knob5_Press(void);
 
-	static const int KNOB_MENU_SIZE = 10;
-	void SetPrint(int seq, bool value);
-	bool GetPrint(int seq);
-	unsigned int GetCurPageLevel();
+    static const int KNOB_MENU_SIZE = 10;
+    void SetPrint(int seq, bool value);
+    bool GetPrint(int seq);
+    unsigned int GetCurPageLevel();
 
     private:
         KnobProjectMode();

@@ -1,17 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: ImgPw.cpp
- * @brief: control the imaging parameter of pw/cw scan mdoe.
- * @note: steer->sv pos->PRF|->wallFilter
- *							|->Spectrum speed->sound interpolation
- *		  "->" means affact
- *
- * version: V1.0
- * date: 2009-5-21
- * @author: zhanglei
- */
-
 #include <math.h>
 #include "imageControl/ImgPw.h"
 #include "imageControl/Img2D.h"
@@ -22,16 +8,17 @@
 #include "periDevice/IoCtrl.h"
 #include "probe/ProbeMan.h"
 #include "ViewMain.h"
+
 int soundstatus=0;
 int ImgPw::SPECTRUM_SPEED[MAX_SPEED_INDEX] = {48, 64, 80, 96, 112, 127};//{24, 32, 40, 48, 56,60}; //PRF=8000hz
 ImgPw* ImgPw::m_ptrInstance = NULL;
 //const int ImgPw::SV_POS_PRF[] = {54, 60, 65, 70, 75, 80, 87, 94, 103, 112, 124, 138, 155, 177, 204, 241, 292}; // sv pos unit:mm, prf index begin from 18 to 2
 const int ImgPw::SV_POS_PRF[2][POS_PRF_SUM] =
 {
-	{70, 100, 120, 138, 150, 177, 204, 241, 1000}, //sv pos unit:mm
+    {70, 100, 120, 138, 150, 177, 204, 241, 1000}, //sv pos unit:mm
     //{300, 300, 300, 300, 300, 300, 300, 300, 1000}, //sv pos unit:mm
-	{8000, 6000, 5000, 4500, 4000, 3500, 3000, 2500, 2000}, // prf unit:hz
-	//{8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000}, // prf unit:hz
+    {8000, 6000, 5000, 4500, 4000, 3500, 3000, 2500, 2000}, // prf unit:hz
+    //{8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000}, // prf unit:hz
 };
 
 const int ImgPw::DYNAMIC_RANGE[2] = {5, 120};// {1, 121};
@@ -39,31 +26,31 @@ const int ImgPw::DYNAMIC_RANGE[2] = {5, 120};// {1, 121};
 #ifdef EMP_355
 const unsigned int ImgPw::WALL_FILTER_FREQ[MAX_PRF][MAX_WALL_FILTER] =  //hz
 {
-	{7,10,14,17,21,28,35,52}, //350
-	{10,15,20,25,30,40,50,75}, //500
-	{15,22,30,37,45,60,75,112}, //750
-	{20,30,40,50,60,80,100,150}, //1000
-	{30,45,60,75,90,120,150,225}, //1500
-	{40,60,80,100,120,160,200,300}, //2000
-	{50,75,100,125,150,200,250,375}, //2500
-	{60,90,120,150,180,240,300,450}, //3000
-	{70,105,140,175,210,280,350,525}, //3500
-	{80,120,160,200,240,320,400,600}, //4000
-	{90,135,180,225,270,360,450,675}, //4500
-	{100,150,200,250,300,400,500,750}, //5000
-	{110,165,220,275,330,440,550,825}, //5500
-	{120,180,240,300,360,480,600,900}, //6000
-	{130,195,260,325,390,520,650,975}, //6500
-	{140,210,280,350,420,560,700,1050}, //7000
-	{150,225,300,375,450,600,750,1125}, //7500
-	{160,240,320,400,480,640,800,1200},	//8000
-	{170, 255, 340, 425, 510, 680, 850, 1275}, //8500
-	{180, 270, 360, 450, 540, 720, 900, 1350}, //9000
-	{190, 285, 380, 475, 570, 760, 950, 1425}, //9500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {7,10,14,17,21,28,35,52}, //350
+    {10,15,20,25,30,40,50,75}, //500
+    {15,22,30,37,45,60,75,112}, //750
+    {20,30,40,50,60,80,100,150}, //1000
+    {30,45,60,75,90,120,150,225}, //1500
+    {40,60,80,100,120,160,200,300}, //2000
+    {50,75,100,125,150,200,250,375}, //2500
+    {60,90,120,150,180,240,300,450}, //3000
+    {70,105,140,175,210,280,350,525}, //3500
+    {80,120,160,200,240,320,400,600}, //4000
+    {90,135,180,225,270,360,450,675}, //4500
+    {100,150,200,250,300,400,500,750}, //5000
+    {110,165,220,275,330,440,550,825}, //5500
+    {120,180,240,300,360,480,600,900}, //6000
+    {130,195,260,325,390,520,650,975}, //6500
+    {140,210,280,350,420,560,700,1050}, //7000
+    {150,225,300,375,450,600,750,1125}, //7500
+    {160,240,320,400,480,640,800,1200}, //8000
+    {170, 255, 340, 425, 510, 680, 850, 1275}, //8500
+    {180, 270, 360, 450, 540, 720, 900, 1350}, //9000
+    {190, 285, 380, 475, 570, 760, 950, 1425}, //9500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
 };
 const unsigned int ImgPw::WALL_FILTER_FREQ_CW[MAX_PRF_CW][MAX_WALL_FILTER] =  //hz
 {
@@ -71,66 +58,66 @@ const unsigned int ImgPw::WALL_FILTER_FREQ_CW[MAX_PRF_CW][MAX_WALL_FILTER] =  //
     {10,15,20,25,30,40,50,75}, //500
     {15,22,30,37,45,60,75,112}, //750
     {20,30,40,50,60,80,100,150}, //1000
-	{30,45,60,75,90,120,150,225}, //1500
-	{40,60,80,100,120,160,200,300}, //2000
-	{50,75,100,125,150,200,250,375}, //2500
-	{60,90,120,150,180,240,300,450}, //3000
-	{70,105,140,175,210,280,350,525}, //3500
-	{80,120,160,200,240,320,400,600}, //4000
-	{90,135,180,225,270,360,450,675}, //4500
-	{100,150,200,250,300,400,500,750}, //5000
-	{110,165,220,275,330,440,550,825}, //5500
-	{120,180,240,300,360,480,600,900}, //6000
-	{130,195,260,325,390,520,650,975}, //6500
-	{140,210,280,350,420,560,700,1050}, //7000
-	{150,225,300,375,450,600,750,1125}, //7500
-	{160,240,320,400,480,640,800,1200},	//8000
-	{170, 255, 340, 425, 510, 680, 850, 1275}, //8500
-	{180, 270, 360, 450, 540, 720, 900, 1350}, //9000
-	{190, 285, 380, 475, 570, 760, 950, 1425}, //9500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10200
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //11000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //11500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //12000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //12500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //13000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //13500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //14000
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //14500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //15000
+    {30,45,60,75,90,120,150,225}, //1500
+    {40,60,80,100,120,160,200,300}, //2000
+    {50,75,100,125,150,200,250,375}, //2500
+    {60,90,120,150,180,240,300,450}, //3000
+    {70,105,140,175,210,280,350,525}, //3500
+    {80,120,160,200,240,320,400,600}, //4000
+    {90,135,180,225,270,360,450,675}, //4500
+    {100,150,200,250,300,400,500,750}, //5000
+    {110,165,220,275,330,440,550,825}, //5500
+    {120,180,240,300,360,480,600,900}, //6000
+    {130,195,260,325,390,520,650,975}, //6500
+    {140,210,280,350,420,560,700,1050}, //7000
+    {150,225,300,375,450,600,750,1125}, //7500
+    {160,240,320,400,480,640,800,1200}, //8000
+    {170, 255, 340, 425, 510, 680, 850, 1275}, //8500
+    {180, 270, 360, 450, 540, 720, 900, 1350}, //9000
+    {190, 285, 380, 475, 570, 760, 950, 1425}, //9500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10200
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //11000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //11500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //12000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //12500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //13000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //13500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //14000
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //14500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //15000
 };
 #else
 const unsigned int ImgPw::WALL_FILTER_FREQ[MAX_PRF][MAX_WALL_FILTER] =  //hz
 {
-	{7,10,14,17,21,28,35,52}, //350
-	{10,15,20,25,30,40,50,75}, //500
-	{15,22,30,37,45,60,75,112}, //750
-	{20,30,40,50,60,80,100,150}, //1000
-	{30,45,60,75,90,120,150,225}, //1500
-	{40,60,80,100,120,160,200,300}, //2000
-	{50,75,100,125,150,200,250,375}, //2500
-	{60,90,120,150,180,240,300,450}, //3000
-	{70,105,140,175,210,280,350,525}, //3500
-	{80,120,160,200,240,320,400,600}, //4000
-	{90,135,180,225,270,360,450,675}, //4500
-	{100,150,200,250,300,400,500,750}, //5000
-	{110,165,220,275,330,440,550,825}, //5500
-	{120,180,240,300,360,480,600,900}, //6000
-	{130,195,260,325,390,520,650,975}, //6500
-	{140,210,280,350,420,560,700,1050}, //7000
-	{150,225,300,375,450,600,750,1125}, //7500
-	{160,240,320,400,480,640,800,1200},	//8000
-	{170, 255, 340, 425, 510, 680, 850, 1275}, //8500
-	{180, 270, 360, 450, 540, 720, 900, 1350}, //9000
-	{190, 285, 380, 475, 570, 760, 950, 1425}, //9500
-	{200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
+    {7,10,14,17,21,28,35,52}, //350
+    {10,15,20,25,30,40,50,75}, //500
+    {15,22,30,37,45,60,75,112}, //750
+    {20,30,40,50,60,80,100,150}, //1000
+    {30,45,60,75,90,120,150,225}, //1500
+    {40,60,80,100,120,160,200,300}, //2000
+    {50,75,100,125,150,200,250,375}, //2500
+    {60,90,120,150,180,240,300,450}, //3000
+    {70,105,140,175,210,280,350,525}, //3500
+    {80,120,160,200,240,320,400,600}, //4000
+    {90,135,180,225,270,360,450,675}, //4500
+    {100,150,200,250,300,400,500,750}, //5000
+    {110,165,220,275,330,440,550,825}, //5500
+    {120,180,240,300,360,480,600,900}, //6000
+    {130,195,260,325,390,520,650,975}, //6500
+    {140,210,280,350,420,560,700,1050}, //7000
+    {150,225,300,375,450,600,750,1125}, //7500
+    {160,240,320,400,480,640,800,1200}, //8000
+    {170, 255, 340, 425, 510, 680, 850, 1275}, //8500
+    {180, 270, 360, 450, 540, 720, 900, 1350}, //9000
+    {190, 285, 380, 475, 570, 760, 950, 1425}, //9500
+    {200, 300, 400, 500, 600, 800, 1000, 1500}, //10000
 };
 #endif
 const unsigned int ImgPw::PW_PRF[MAX_PRF] = //hz
 {
-	350, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500,
+    350, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500,
     6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000,10200, 10500, 11000,
 };
 
@@ -147,12 +134,12 @@ const unsigned int ImgPw::WALL_FILTER[MAX_WALL_FILTER][7] =
 
 const unsigned int ImgPw::SIMULT2_PRF[MAX_SIMULT2_PRF_INDEX] = //hz
 {
-	1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000,
+    1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000,
 };
 
 const unsigned int ImgPw::SIMULT3_PRF[MAX_SIMULT3_PRF_INDEX] = //hz
 {
-	1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000,
+    1000, 1500, 2000, 2500, 3000, 3500, 5000, 6000, 7000, 9000,
 };
 
 const int ImgPw::STEER_ANGLE[MAX_STEER] = {-15, -10, -5,  0, 5, 10, 15};
@@ -162,59 +149,59 @@ const int ImgPw::CORRECT_ANGLE_FAST[MAX_ANGLE_FAST] = {-60, 0, 60};
 
 gboolean ApplySVChange(gpointer data)
 {
-	ImgPw::GetInstance()->DelaySendPwPara();
+    ImgPw::GetInstance()->DelaySendPwPara();
 
     //Img2D::GetInstance()->SetCwLine(pwLine);
 
-	return FALSE;
+    return FALSE;
 }
 
 ImgPw* ImgPw::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new ImgPw;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new ImgPw;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 ImgPw::ImgPw()
 {
-	GlobalClassMan* ptrGcm = GlobalClassMan::GetInstance();
-	m_ptrUpdate = ptrGcm->GetUpdatePw();
+    GlobalClassMan* ptrGcm = GlobalClassMan::GetInstance();
+    m_ptrUpdate = ptrGcm->GetUpdatePw();
 
-	DscMan* ptrDscMan = DscMan::GetInstance();
-	m_ptrDscPara = ptrDscMan->GetDscPara();
+    DscMan* ptrDscMan = DscMan::GetInstance();
+    m_ptrDscPara = ptrDscMan->GetDscPara();
 
-	m_ptrCalc = NULL;
-	m_ptrImg2D = Img2D::GetInstance();
+    m_ptrCalc = NULL;
+    m_ptrImg2D = Img2D::GetInstance();
 
-	m_ctGainPw.Begin();
-	m_tGainPw = 0;
+    m_ctGainPw.Begin();
+    m_tGainPw = 0;
 #ifdef EMP_355
-	m_HPRF = TRUE;
+    m_HPRF = TRUE;
 #else
-	m_HPRF = FALSE;
+    m_HPRF = FALSE;
 #endif
-	m_pwLine = 128;
-	m_svPos = 200;
+    m_pwLine = 128;
+    m_svPos = 200;
     m_svPosBefore = m_svPos;
-	m_svLen = 5;
-	m_gainPw = 70;
+    m_svLen = 5;
+    m_gainPw = 70;
     m_gainCw = 50;
-	m_freqIndex = 0;
-	m_angle = 0;
-	m_PRFIndex = 0;
-	m_PRFIndexBak = m_PRFIndex;
+    m_freqIndex = 0;
+    m_angle = 0;
+    m_PRFIndex = 0;
+    m_PRFIndexBak = m_PRFIndex;
     m_PRFIndexTempBak = m_PRFIndex;
-	m_baselineIndex = 0;
-	m_baseline = IMG_H * 3 / 4;
-	m_wallFilterIndex = 0;
-	m_dynamicRangeIndex = 36;
-	m_speedIndex = 1;
-	m_soundVolumeIndex = 0;
-	m_log = 294;
-	m_invert = FALSE;
-	m_soundStatus = FALSE;
-	m_soundFilterIndex = 3;
+    m_baselineIndex = 0;
+    m_baseline = IMG_H * 3 / 4;
+    m_wallFilterIndex = 0;
+    m_dynamicRangeIndex = 36;
+    m_speedIndex = 1;
+    m_soundVolumeIndex = 0;
+    m_log = 294;
+    m_invert = FALSE;
+    m_soundStatus = FALSE;
+    m_soundFilterIndex = 3;
     m_grayMap = 0;
     m_offSetX = 0;
     m_offSetY = 0;
@@ -222,31 +209,31 @@ ImgPw::ImgPw()
    m_oper = ADD;
 #endif
     int i;
-	for (i = 0; i < ProbeSocket::MAX_DOP_FREQ; i ++)
-		m_freq[i] = 0;
-	m_freqSum = 0;
-	m_depthToSample = 10.0;
-	m_maxPRFIndex = MAX_PRF-1;
+    for (i = 0; i < ProbeSocket::MAX_DOP_FREQ; i ++)
+        m_freq[i] = 0;
+    m_freqSum = 0;
+    m_depthToSample = 10.0;
+    m_maxPRFIndex = MAX_PRF-1;
     m_balance = FALSE;
 
-	m_scaleTime = 0.0;
-	m_scaleVel = 0.0;
+    m_scaleTime = 0.0;
+    m_scaleVel = 0.0;
 
-	m_simult2 = FALSE;
-	m_simult2PRFIndex = 4;
-	m_maxSimult2PRFIndex = MAX_SIMULT2_PRF_INDEX - 1;
+    m_simult2 = FALSE;
+    m_simult2PRFIndex = 4;
+    m_maxSimult2PRFIndex = MAX_SIMULT2_PRF_INDEX - 1;
 
-	m_simult3 = FALSE;
-	m_simult3PRFIndex = 4;
-	m_maxSimult3PRFIndex = MAX_SIMULT2_PRF_INDEX - 1;
+    m_simult3 = FALSE;
+    m_simult3PRFIndex = 4;
+    m_maxSimult3PRFIndex = MAX_SIMULT2_PRF_INDEX - 1;
 
-	m_pwImgCtrl = TRUE;
-	m_timer = 0;
+    m_pwImgCtrl = TRUE;
+    m_timer = 0;
     m_sendPwLine = TRUE;
     m_cwImgCtrl =  TRUE;
 
-	for (i = 0; i < 8; i ++)
-		m_tgc[i] = 128;
+    for (i = 0; i < 8; i ++)
+        m_tgc[i] = 128;
 
     m_scaleVelSnap = 0.0;
     m_scaleTimeSnap = 0.0;
@@ -264,45 +251,45 @@ ImgPw::ImgPw()
 
 ImgPw::~ImgPw()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 void ImgPw::SetCalcPw(CalcPw* calc)
 {
-	m_ptrCalc = calc;
+    m_ptrCalc = calc;
 
-	m_ptrCalc->SetCalcPara(&m_calcPara);
+    m_ptrCalc->SetCalcPara(&m_calcPara);
 }
 
 void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem)
 {
-	PRINTF("======================optimize PRINTF IMGPW send para to fpga======================\n");
-	EKnobReturn ret;
+    PRINTF("======================optimize PRINTF IMGPW send para to fpga======================\n");
+    EKnobReturn ret;
 
     ASSERT((ptrPara!=NULL) && (ptrParaItem!=NULL));
-	// get doppler freq
-	int i;
-	m_freqSum = 0;
-	for (i = 0; i < ProbeSocket::MAX_DOP_FREQ; i ++)
-	{
-		if (ptrPara->freqDop[i] != 0)
-		{
-			m_freq[i] = ptrPara->freqDop[i];
-			m_freqSum ++;
-		}
-	}
+    // get doppler freq
+    int i;
+    m_freqSum = 0;
+    for (i = 0; i < ProbeSocket::MAX_DOP_FREQ; i ++)
+    {
+        if (ptrPara->freqDop[i] != 0)
+        {
+            m_freq[i] = ptrPara->freqDop[i];
+            m_freqSum ++;
+        }
+    }
 
-	// apply doppler freq
-	//m_freqIndex = 0;
-	m_freqIndex = ptrParaItem->spectrum.freq;
-	if (m_freqIndex == 0)
-		ret = MIN;
-	else if (m_freqIndex == (m_freqSum - 1))
-		ret = MAX;
-	else
-		ret = OK;
-	DopplerFreq(m_freq[m_freqIndex], ret);
+    // apply doppler freq
+    //m_freqIndex = 0;
+    m_freqIndex = ptrParaItem->spectrum.freq;
+    if (m_freqIndex == 0)
+        ret = MIN;
+    else if (m_freqIndex == (m_freqSum - 1))
+        ret = MAX;
+    else
+        ret = OK;
+    DopplerFreq(m_freq[m_freqIndex], ret);
 
     //gain
     m_gainCw = ptrParaItem->spectrum.gain;
@@ -310,48 +297,48 @@ void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIte
     m_gainPw = ptrParaItem->spectrum.gain;
     GainPw(m_gainPw);
 
-	//dynamic range
-	m_dynamicRangeIndex = ptrParaItem->spectrum.dynamicRange;
-	if (m_dynamicRangeIndex == DYNAMIC_RANGE[0])
-		ret = MIN;
-	else if (m_dynamicRangeIndex == DYNAMIC_RANGE[1])
-		ret = MAX;
-	else
-		ret = OK;
-	DynamicRange(m_dynamicRangeIndex, ret);
+    //dynamic range
+    m_dynamicRangeIndex = ptrParaItem->spectrum.dynamicRange;
+    if (m_dynamicRangeIndex == DYNAMIC_RANGE[0])
+        ret = MIN;
+    else if (m_dynamicRangeIndex == DYNAMIC_RANGE[1])
+        ret = MAX;
+    else
+        ret = OK;
+    DynamicRange(m_dynamicRangeIndex, ret);
 
-	//sv
+    //sv
     int range[2];
-	GetPwLineRange(range[0], range[1]);
-	m_pwLine = (range[0] + range[1]) / 2;
-	m_svPosBefore = 200;
+    GetPwLineRange(range[0], range[1]);
+    m_pwLine = (range[0] + range[1]) / 2;
+    m_svPosBefore = 200;
     m_svPos = SVPosCorrect(m_svPosBefore);
-	m_svLen = ptrParaItem->spectrum.SV;
-	SampleVolume(m_pwLine, m_svPos, m_svLen);
+    m_svLen = ptrParaItem->spectrum.SV;
+    SampleVolume(m_pwLine, m_svPos, m_svLen);
 
-	// PRF, realize in HPRF
-	m_PRFIndex = ptrParaItem->spectrum.PRF;
-	m_PRFIndexBak = m_PRFIndex;
-	HPRF(m_HPRF, ret);
+    // PRF, realize in HPRF
+    m_PRFIndex = ptrParaItem->spectrum.PRF;
+    m_PRFIndexBak = m_PRFIndex;
+    HPRF(m_HPRF, ret);
 
-	//wall filter
-	m_wallFilterIndex = ptrParaItem->spectrum.wallFilter;
-	WallFilter(m_wallFilterIndex, OK);
+    //wall filter
+    m_wallFilterIndex = ptrParaItem->spectrum.wallFilter;
+    WallFilter(m_wallFilterIndex, OK);
 
-	// invert
-	m_invert = ptrParaItem->spectrum.invert;
-	Invert(m_invert);
+    // invert
+    m_invert = ptrParaItem->spectrum.invert;
+    Invert(m_invert);
 
     // correct angle
-	m_angle = ptrParaItem->spectrum.correctAngle;
-	if (m_angle == -MAX_ANGLE)
-		ret = MIN;
-	else if (m_angle == MAX_ANGLE)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->SetValueCorrectAngle(m_angle);
-	m_ptrUpdate->CorrectAngle(m_angle, ret);
+    m_angle = ptrParaItem->spectrum.correctAngle;
+    if (m_angle == -MAX_ANGLE)
+        ret = MIN;
+    else if (m_angle == MAX_ANGLE)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->SetValueCorrectAngle(m_angle);
+    m_ptrUpdate->CorrectAngle(m_angle, ret);
 
     //fast anlge index
     if(m_angle < 0)
@@ -362,15 +349,15 @@ void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIte
         m_corAngleFastIndex = 1;
 
     //baseline
-	//m_baselineIndex = 0;
-	m_baselineIndex = ptrParaItem->spectrum.baseline;
-	if (m_baselineIndex == - MAX_BASELINE_INDEX)
-		ret = MIN;
-	else if (m_baselineIndex == MAX_BASELINE_INDEX)
-		ret = MAX;
-	else
-		ret = OK;
-	Baseline(m_baselineIndex, ret);
+    //m_baselineIndex = 0;
+    m_baselineIndex = ptrParaItem->spectrum.baseline;
+    if (m_baselineIndex == - MAX_BASELINE_INDEX)
+        ret = MIN;
+    else if (m_baselineIndex == MAX_BASELINE_INDEX)
+        ret = MAX;
+    else
+        ret = OK;
+    Baseline(m_baselineIndex, ret);
 
     //spectrum speed
     //m_speedIndex = 3;
@@ -412,25 +399,25 @@ void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIte
     //m_steerIndex = 3;
     m_steerIndex = ptrParaItem->color.steer;
     m_steerIndexBak = m_steerIndex;
-	if (m_steerIndex == 0)
-		ret = MIN;
-	else if (m_steerIndex == (MAX_STEER - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    if (m_steerIndex == 0)
+        ret = MIN;
+    else if (m_steerIndex == (MAX_STEER - 1))
+        ret = MAX;
+    else
+        ret = OK;
     Steer(STEER_ANGLE[m_steerIndex], ret);
 }
 
 void ImgPw::InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrParaItem)
 {
-	PRINTF("======================PRINTF IMGPW send para to fpga======================\n");
-	EKnobReturn ret;
+    PRINTF("======================PRINTF IMGPW send para to fpga======================\n");
+    EKnobReturn ret;
 
     ASSERT((ptrPara!=NULL) && (ptrParaItem!=NULL));
     InitProbeOptimize(ptrPara, ptrParaItem);
 
-	// pw img display on
-	OnPwImgCtrl(TRUE);
+    // pw img display on
+    OnPwImgCtrl(TRUE);
     m_sendPwLine = TRUE;
 
     // tgc
@@ -440,9 +427,9 @@ void ImgPw::InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrPa
     else if(ModeStatus::IsPWImgMode())
         GainPw(m_gainPw);
 
-	//log
-	m_log = 294;
-	Log(m_log, OK);
+    //log
+    m_log = 294;
+    Log(m_log, OK);
 
     //sv
     int range[2];
@@ -471,17 +458,17 @@ void ImgPw::InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrPa
         ret = MAX;
     Simult2(m_simult2, ret);
 
-	// high pulse repeat frequency
+    // high pulse repeat frequency
 #ifdef EMP_355
-	m_HPRF = TRUE;
+    m_HPRF = TRUE;
 #else
-	m_HPRF = FALSE;
+    m_HPRF = FALSE;
 #endif
-	if (!m_HPRF)
-		ret = MIN;
-	else if (m_HPRF)
-		ret = MAX;
-	HPRF(m_HPRF, ret);
+    if (!m_HPRF)
+        ret = MIN;
+    else if (m_HPRF)
+        ret = MAX;
+    HPRF(m_HPRF, ret);
 
     // pw focus pos
     FocPos(m_svPos);
@@ -507,19 +494,19 @@ void ImgPw::GetCurPara(ExamItem::ParaItem* ptrParaItem)
 
 void ImgPw::EnterPw()
 {
-	EKnobReturn ret;
-  	//m_PRFIndex=8;
+    EKnobReturn ret;
+    //m_PRFIndex=8;
     // 控制FPGA开始传输PW图像
-	OnPwImgCtrl(TRUE);
-	if (m_speedIndex == 0)
-	    ret = MIN;
-	else if (m_speedIndex == (MAX_SPEED_INDEX - 1))
-		ret = MAX;
-	else
+    OnPwImgCtrl(TRUE);
+    if (m_speedIndex == 0)
+        ret = MIN;
+    else if (m_speedIndex == (MAX_SPEED_INDEX - 1))
+        ret = MAX;
+    else
         ret = OK;
 
     // resend pw speed and prf value to FPGA
-//	SpectrumSpeed(m_speedIndex, m_PRFIndex, ret);
+//  SpectrumSpeed(m_speedIndex, m_PRFIndex, ret);
 #ifdef EMP_355
 if(ViewMain::GetInstance()->GetModeIsFlag())
     {
@@ -535,11 +522,11 @@ if(ViewMain::GetInstance()->GetModeIsFlag())
         ImgPw::GetInstance()->ChangeHPRF(FALSE);
     }
 #else
-	ret = PRF(m_PRFIndex);
+    ret = PRF(m_PRFIndex);
 #endif
 
     // gain M和PW模式共用统一TGC地址，因此进入时需重新发送TGC
-	GainPw(m_gainPw);
+    GainPw(m_gainPw);
 }
 
 void ImgPw::EnterCw()
@@ -559,15 +546,15 @@ void ImgPw::EnterCw()
     // ret = PRF(m_PRFIndex);
     //
 
-	//  doppler freq
-	m_freqIndex = 0;
-	if (m_freqIndex == 0)
-		ret = MIN;
-	else if (m_freqIndex == (m_freqSum - 1))
-		ret = MAX;
-	else
-		ret = OK;
-	DopplerFreq(m_freq[m_freqIndex], ret);
+    //  doppler freq
+    m_freqIndex = 0;
+    if (m_freqIndex == 0)
+        ret = MIN;
+    else if (m_freqIndex == (m_freqSum - 1))
+        ret = MAX;
+    else
+        ret = OK;
+    DopplerFreq(m_freq[m_freqIndex], ret);
 
     // gain M和PW模式共用统一TGC地址，因此进入时需重新发送TGC
     GainCw(m_gainCw);
@@ -583,13 +570,13 @@ void ImgPw::EnterCw()
 void ImgPw::ResetSv()
 {
     int range[2];
-	GetPwLineRange(range[0], range[1]);
-	m_pwLine = (range[1] + range[0]) / 2;
-	m_svPosBefore = 200;
+    GetPwLineRange(range[0], range[1]);
+    m_pwLine = (range[1] + range[0]) / 2;
+    m_svPosBefore = 200;
     m_svPos = SVPosCorrect(m_svPosBefore);
-	m_svLen = 10;
+    m_svLen = 10;
 
-	SampleVolume(m_pwLine, m_svPos, m_svLen);
+    SampleVolume(m_pwLine, m_svPos, m_svLen);
 }
 
 void ImgPw::ResetSvAccordingColor()
@@ -599,7 +586,7 @@ void ImgPw::ResetSvAccordingColor()
     m_pwLine = (cfmLine[0] + cfmLine[1]) / 2;
     m_svPosBefore = (cfmDot[0] + cfmDot[1]) / 2;
     m_svPos = SVPosCorrect(m_svPosBefore);
-	SampleVolume(m_pwLine, m_svPos, m_svLen);
+    SampleVolume(m_pwLine, m_svPos, m_svLen);
 }
 
 /*
@@ -624,230 +611,230 @@ void ImgPw::ReSendSv()
         m_svPosBefore = (range[0] + range[1] ) / 2;
     }
     m_svPos = SVPosCorrect(m_svPosBefore);
-	SampleVolume(m_pwLine, m_svPos, m_svLen);
+    SampleVolume(m_pwLine, m_svPos, m_svLen);
 }
 
 void ImgPw::ChangeInvert()
 {
-	m_invert = !m_invert;
+    m_invert = !m_invert;
 
-	Invert(m_invert);
+    Invert(m_invert);
 }
 void ImgPw::ChangeTgcPw(int tgcY[8])
 {
-	memcpy(m_tgc, tgcY, 8*sizeof(int));
+    memcpy(m_tgc, tgcY, 8*sizeof(int));
 
-	m_ptrImg2D->CalcTgc(m_gainPw*MAX_GAIN_PW/100, m_tgc, 2);
-	m_ptrImg2D->CalcTgcDigital(m_gainPw*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
+    m_ptrImg2D->CalcTgc(m_gainPw*MAX_GAIN_PW/100, m_tgc, 2);
+    m_ptrImg2D->CalcTgcDigital(m_gainPw*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
 }
 
 EKnobReturn ImgPw::ChangeGainPw(EKnobOper oper)
 {
-	int gain = m_gainPw;
-	int step = 1;
+    int gain = m_gainPw;
+    int step = 1;
 
-	float tu = m_ctGainPw.End();
-	m_ctGainPw.Begin();
+    float tu = m_ctGainPw.End();
+    m_ctGainPw.Begin();
 
-	if(tu < INTERVAL)
-	{
-		if(m_tGainPw >= 3)
-			step = 5;
-		else
-			m_tGainPw ++;
-	}
-	else
-	{
-		m_tGainPw = 0;
-	}
+    if(tu < INTERVAL)
+    {
+        if(m_tGainPw >= 3)
+            step = 5;
+        else
+            m_tGainPw ++;
+    }
+    else
+    {
+        m_tGainPw = 0;
+    }
 
-	if (oper == ADD)
-	{
-		if(gain == 100)
-		{
-			PRINTF("Img2D: 2D gian max value!\n");
-			return (MAX);
-		}
-		else
-		{
-			gain += step;
-			if (gain > 100)
-			{
-				gain = 100;
-			}
-		}
-	}
-	else if (oper == SUB)
-	{
-		if(gain < 0)
-		{
-			PRINTF("Img2D: 2D gian reach min value!\n");
-			return (MIN);
-		}
-		else
-		{
-			gain -= step;
-			if (gain < 0)
-			{
-				gain = 0;
-			}
-		}
-	}
+    if (oper == ADD)
+    {
+        if(gain == 100)
+        {
+            PRINTF("Img2D: 2D gian max value!\n");
+            return (MAX);
+        }
+        else
+        {
+            gain += step;
+            if (gain > 100)
+            {
+                gain = 100;
+            }
+        }
+    }
+    else if (oper == SUB)
+    {
+        if(gain < 0)
+        {
+            PRINTF("Img2D: 2D gian reach min value!\n");
+            return (MIN);
+        }
+        else
+        {
+            gain -= step;
+            if (gain < 0)
+            {
+                gain = 0;
+            }
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_gainPw = gain;
+    m_gainPw = gain;
 
-	EKnobReturn ret = OK;
-	if (gain == 0)
-		ret = MIN;
-	else if (gain == 100)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (gain == 0)
+        ret = MIN;
+    else if (gain == 100)
+        ret = MAX;
+    else
+        ret = OK;
 
-	GainPw(m_gainPw);
+    GainPw(m_gainPw);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeGainCw(EKnobOper oper)
 {
-	int gain = m_gainCw;
-	int step = 1;
+    int gain = m_gainCw;
+    int step = 1;
 
-	float tu = m_ctGainPw.End();
-	m_ctGainPw.Begin();
+    float tu = m_ctGainPw.End();
+    m_ctGainPw.Begin();
 
-	if(tu < INTERVAL)
-	{
-		if(m_tGainPw >= 3)
-			step = 5;
-		else
-			m_tGainPw ++;
-	}
-	else
-	{
-		m_tGainPw = 0;
-	}
+    if(tu < INTERVAL)
+    {
+        if(m_tGainPw >= 3)
+            step = 5;
+        else
+            m_tGainPw ++;
+    }
+    else
+    {
+        m_tGainPw = 0;
+    }
 
-	if (oper == ADD)
-	{
-		if(gain == 100)
-		{
-			PRINTF("Img2D: 2D gian max value!\n");
-			return (MAX);
-		}
-		else
-		{
-			gain += step;
-			if (gain > 100)
-			{
-				gain = 100;
-			}
-		}
-	}
-	else if (oper == SUB)
-	{
-		if(gain < 0)
-		{
-			PRINTF("Img2D: 2D gian reach min value!\n");
-			return (MIN);
-		}
-		else
-		{
-			gain -= step;
-			if (gain < 0)
-			{
-				gain = 0;
-			}
-		}
-	}
+    if (oper == ADD)
+    {
+        if(gain == 100)
+        {
+            PRINTF("Img2D: 2D gian max value!\n");
+            return (MAX);
+        }
+        else
+        {
+            gain += step;
+            if (gain > 100)
+            {
+                gain = 100;
+            }
+        }
+    }
+    else if (oper == SUB)
+    {
+        if(gain < 0)
+        {
+            PRINTF("Img2D: 2D gian reach min value!\n");
+            return (MIN);
+        }
+        else
+        {
+            gain -= step;
+            if (gain < 0)
+            {
+                gain = 0;
+            }
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_gainCw = gain;
+    m_gainCw = gain;
 
-	EKnobReturn ret = OK;
-	if (gain == 0)
-		ret = MIN;
-	else if (gain == 100)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (gain == 0)
+        ret = MIN;
+    else if (gain == 100)
+        ret = MAX;
+    else
+        ret = OK;
 
     GainCw(m_gainCw);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeDopplerFreq(EKnobOper oper)
 {
-	int index = m_freqIndex;
-	int step = 1;
+    int index = m_freqIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (index < (m_freqSum - 1))
-		{
-			index += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (index < (m_freqSum - 1))
+        {
+            index += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_freqIndex = index;
-	int freq = m_freq[m_freqIndex];
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (m_freqSum - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    m_freqIndex = index;
+    int freq = m_freq[m_freqIndex];
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (m_freqSum - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	DopplerFreq(freq, ret);
+    DopplerFreq(freq, ret);
 
-	return (ret);
+    return (ret);
 }
 
 void ImgPw::UpdateDopplerFreq()
 {
-	EKnobReturn ret;
-	if (m_freqIndex == 0)
-		ret = MIN;
-	else if (m_freqIndex == (m_freqSum - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if (m_freqIndex == 0)
+        ret = MIN;
+    else if (m_freqIndex == (m_freqSum - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_ptrUpdate->DopFreq(m_freq[m_freqIndex], ret);
+    m_ptrUpdate->DopFreq(m_freq[m_freqIndex], ret);
 }
 EKnobReturn ImgPw::ChangeCorrectAngle(EKnobOper oper)
 {
-	int data = m_angle;
-	int step = 1;
+    int data = m_angle;
+    int step = 1;
 
     float tu = m_ctGainPw.End();
     m_ctGainPw.Begin();
@@ -856,34 +843,34 @@ EKnobReturn ImgPw::ChangeCorrectAngle(EKnobOper oper)
     else
         step = 1;
 
-	if (oper == ADD)
-	{
-		if ((data+step) < MAX_ANGLE)
-		{
-			data += step;
-		}
-		else
-		{
+    if (oper == ADD)
+    {
+        if ((data+step) < MAX_ANGLE)
+        {
+            data += step;
+        }
+        else
+        {
             data = -MAX_ANGLE;
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((data-step) > -MAX_ANGLE)
-		{
-			data -= step;
-		}
-		else
-		{
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((data-step) > -MAX_ANGLE)
+        {
+            data -= step;
+        }
+        else
+        {
             data = MAX_ANGLE;
-		}
-	}
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_angle = data;
+    m_angle = data;
 
     //fast anlge index
     if(data < 0)
@@ -895,46 +882,46 @@ EKnobReturn ImgPw::ChangeCorrectAngle(EKnobOper oper)
 
     PRINTF("data: %d   index:%d\n", data, m_corAngleFastIndex);
 
-	EKnobReturn ret = OK;
-	if (data == -MAX_ANGLE)
-		ret = MIN;
-	else if (data == MAX_ANGLE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == -MAX_ANGLE)
+        ret = MIN;
+    else if (data == MAX_ANGLE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	CorrectAngle(m_angle, ret);
+    CorrectAngle(m_angle, ret);
 
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeCorrectAngleFast(EKnobOper oper)
 {
-	int data = m_angle;
+    int data = m_angle;
     int index = m_corAngleFastIndex;
     int step = 30;
 
-	if (oper == ADD)
-	{
-		if ((data + step) <= MAX_ANGLE)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((data - step) >= -MAX_ANGLE)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((data + step) <= MAX_ANGLE)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((data - step) >= -MAX_ANGLE)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else if (oper == ROTATE)
     {
        if(index < MAX_ANGLE_FAST - 1)
@@ -949,19 +936,19 @@ EKnobReturn ImgPw::ChangeCorrectAngleFast(EKnobOper oper)
         return ERROR;
     }
 
-	m_angle = data;
+    m_angle = data;
 
-	EKnobReturn ret = OK;
-	if (data == -MAX_ANGLE)
-		ret = MIN;
-	else if (data == MAX_ANGLE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == -MAX_ANGLE)
+        ret = MIN;
+    else if (data == MAX_ANGLE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	CorrectAngle(m_angle, ret);
+    CorrectAngle(m_angle, ret);
 
-	return (ret);
+    return (ret);
 }
 
 void ImgPw::SetScale(int prfIndex)
@@ -1057,38 +1044,38 @@ EKnobReturn ImgPw::ChangeScale(EKnobOper oper)
         HPRF(m_HPRF, ret);
     }
 #else
-	if (m_HPRF)
-	{
+    if (m_HPRF)
+    {
         HintArea::GetInstance()->UpdateHint(_("[Scale]: Can not be changed when HPRF is on."), 2);
-		return ERROR;
-	}
+        return ERROR;
+    }
 
-	int data = m_PRFIndex;
-	int step = 1;
+    int data = m_PRFIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
+    if (oper == ADD)
+    {
 
-		if (data < m_maxPRFIndex)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+        if (data < m_maxPRFIndex)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
@@ -1097,322 +1084,322 @@ EKnobReturn ImgPw::ChangeScale(EKnobOper oper)
     m_PRFIndex = data;
     ret = PRF(m_PRFIndex);
 #endif
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeScaleSimult2(EKnobOper oper)
 {
-	if (!m_simult2)
-	{
-		PRINTF("simult prf can not be changed when simult is off\n");
-		return ERROR;
-	}
-	int data = m_simult2PRFIndex;
-	int step = 1;
+    if (!m_simult2)
+    {
+        PRINTF("simult prf can not be changed when simult is off\n");
+        return ERROR;
+    }
+    int data = m_simult2PRFIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (data < m_maxSimult2PRFIndex)
-    	{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (data < m_maxSimult2PRFIndex)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_simult2PRFIndex = data;
-	EKnobReturn ret;
-	ret = PRFSimult2(m_simult2PRFIndex);
+    m_simult2PRFIndex = data;
+    EKnobReturn ret;
+    ret = PRFSimult2(m_simult2PRFIndex);
 
-	return (ret);
+    return (ret);
 
 }
 
 EKnobReturn ImgPw::ChangeScaleSimult3(EKnobOper oper)
 {
-	if (!m_simult3)
-	{
-		PRINTF("simult prf can not be changed when simult is off\n");
-		return ERROR;
-	}
+    if (!m_simult3)
+    {
+        PRINTF("simult prf can not be changed when simult is off\n");
+        return ERROR;
+    }
 
-	PRINTF("---change simult 3: index = %d, maxIndex = %d\n", m_simult3PRFIndex, m_maxSimult3PRFIndex);
-	int data = m_simult3PRFIndex;
-	int step = 1;
+    PRINTF("---change simult 3: index = %d, maxIndex = %d\n", m_simult3PRFIndex, m_maxSimult3PRFIndex);
+    int data = m_simult3PRFIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if ((data+step) <= m_maxSimult3PRFIndex)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((data+step) <= m_maxSimult3PRFIndex)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
-	m_simult3PRFIndex = data;
+    m_simult3PRFIndex = data;
 
-	EKnobReturn ret = PRFSimult3(m_simult3PRFIndex);
-	return (ret);
+    EKnobReturn ret = PRFSimult3(m_simult3PRFIndex);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeBaseline(EKnobOper oper)
 {
-	int data = m_baselineIndex;
-	int step = 1;
+    int data = m_baselineIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (data < MAX_BASELINE_INDEX)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > -MAX_BASELINE_INDEX)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (data < MAX_BASELINE_INDEX)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > -MAX_BASELINE_INDEX)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_baselineIndex = data;
+    m_baselineIndex = data;
 
-	EKnobReturn ret = OK;
-	if (data == -MAX_BASELINE_INDEX)
-		ret = MIN;
-	else if (data == MAX_BASELINE_INDEX)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == -MAX_BASELINE_INDEX)
+        ret = MIN;
+    else if (data == MAX_BASELINE_INDEX)
+        ret = MAX;
+    else
+        ret = OK;
 
-	Baseline(m_baselineIndex, ret);
+    Baseline(m_baselineIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeWallFilter(EKnobOper oper)
 {
-	int data = m_wallFilterIndex;
-	int step = 1;
+    int data = m_wallFilterIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (data < (MAX_WALL_FILTER-1))
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (data < (MAX_WALL_FILTER-1))
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
-	m_wallFilterIndex = data;
+    m_wallFilterIndex = data;
 
-	EKnobReturn ret = OK;
-	if (data == 0)
-		ret = MIN;
-	else if (data == (MAX_WALL_FILTER-1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == 0)
+        ret = MIN;
+    else if (data == (MAX_WALL_FILTER-1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	WallFilter(m_wallFilterIndex, ret);
+    WallFilter(m_wallFilterIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeDynamicRange(EKnobOper oper)
 {
-	int data = m_dynamicRangeIndex;
-	int step = 5;
+    int data = m_dynamicRangeIndex;
+    int step = 5;
 
-	if (oper == ADD)
-	{
-		if ((data + step) <= DYNAMIC_RANGE[1])
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((data - step) >= DYNAMIC_RANGE[0])
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((data + step) <= DYNAMIC_RANGE[1])
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((data - step) >= DYNAMIC_RANGE[0])
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_dynamicRangeIndex = data;
+    m_dynamicRangeIndex = data;
 
-	EKnobReturn ret = OK;
-	if (data == DYNAMIC_RANGE[0])
-		ret = MIN;
-	else if (data == DYNAMIC_RANGE[1])
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == DYNAMIC_RANGE[0])
+        ret = MIN;
+    else if (data == DYNAMIC_RANGE[1])
+        ret = MAX;
+    else
+        ret = OK;
 
-	DynamicRange(m_dynamicRangeIndex, ret);
+    DynamicRange(m_dynamicRangeIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeSpeed(EKnobOper oper)
 {
-	int data = m_speedIndex;
-	int step = 1;
+    int data = m_speedIndex;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (data < MAX_SPEED_INDEX - 1)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (data < MAX_SPEED_INDEX - 1)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
-	m_speedIndex = data;
+    m_speedIndex = data;
 
-	EKnobReturn ret = OK;
-	if (data == 0)
-		ret = MIN;
-	else if (data == MAX_SPEED_INDEX - 1)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == 0)
+        ret = MIN;
+    else if (data == MAX_SPEED_INDEX - 1)
+        ret = MAX;
+    else
+        ret = OK;
 
-	SpectrumSpeed(m_speedIndex, m_PRFIndex, ret);
+    SpectrumSpeed(m_speedIndex, m_PRFIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeSoundVolume(EKnobOper oper)
 {
-	int data = m_soundVolumeIndex;
-	int step = 1;
-	if (oper == ADD)
-	{
-		if (data < MAX_SOUND_VOLUME)
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    int data = m_soundVolumeIndex;
+    int step = 1;
+    if (oper == ADD)
+    {
+        if (data < MAX_SOUND_VOLUME)
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
-	m_soundVolumeIndex = data;
+    m_soundVolumeIndex = data;
 
-	EKnobReturn ret = OK;
-	if (data == 0)
-		ret = MIN;
-	else if (data == MAX_SOUND_VOLUME)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == 0)
+        ret = MIN;
+    else if (data == MAX_SOUND_VOLUME)
+        ret = MAX;
+    else
+        ret = OK;
 
-	SoundVolume(m_soundVolumeIndex, ret);
+    SoundVolume(m_soundVolumeIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 
 /*
@@ -1429,82 +1416,82 @@ EKnobReturn ImgPw::ChangeHPRF(bool on)
     if ((m_specMode == SPECTRUM_CW) && on)
     {
 
-		HintArea::GetInstance()->UpdateHint(_("Operation is invalid."), 1);
+        HintArea::GetInstance()->UpdateHint(_("Operation is invalid."), 1);
         return ERROR;
     }
 
-	m_HPRF = on;
+    m_HPRF = on;
 
-	EKnobReturn ret = OK;
-	if (m_HPRF == FALSE)
-		ret = MIN;
-	else if (m_HPRF == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (m_HPRF == FALSE)
+        ret = MIN;
+    else if (m_HPRF == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	HPRF(m_HPRF, ret);
+    HPRF(m_HPRF, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeSimult2(bool on)
 {
-	bool data = on;
-	EKnobReturn ret = OK;
-	if (data == FALSE)
-		ret = MIN;
-	else if (data == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    bool data = on;
+    EKnobReturn ret = OK;
+    if (data == FALSE)
+        ret = MIN;
+    else if (data == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_simult2 = data;
-	Simult2(m_simult2, ret);
-	return (ret);
+    m_simult2 = data;
+    Simult2(m_simult2, ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeSimult3(bool on)
 {
-	bool data = on;
+    bool data = on;
 
-	EKnobReturn ret = OK;
-	if (data == FALSE)
-		ret = MIN;
-	else if (data == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == FALSE)
+        ret = MIN;
+    else if (data == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_simult3 = data;
-	Simult3(m_simult3, ret);
+    m_simult3 = data;
+    Simult3(m_simult3, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeLineDensity(EKnobOper oper)
 {
-	EKnobReturn ret = OK;
+    EKnobReturn ret = OK;
 
-	if (m_ptrImg2D != NULL)
-	{
-		ret = m_ptrImg2D->ChangeLineDensity(oper);
-		if (m_simult3)
-		{
-			PRFSimult3(m_simult3PRFIndex);
-		}
-	}
-	return ret;
+    if (m_ptrImg2D != NULL)
+    {
+        ret = m_ptrImg2D->ChangeLineDensity(oper);
+        if (m_simult3)
+        {
+            PRFSimult3(m_simult3PRFIndex);
+        }
+    }
+    return ret;
 }
 
 void ImgPw::ChangeMBP(void)
 {
-	m_ptrImg2D->ChangeMBP();
+    m_ptrImg2D->ChangeMBP();
 
-	if (m_simult3)
-	{
-		PRFSimult3(m_simult3PRFIndex);
-	}
+    if (m_simult3)
+    {
+        PRFSimult3(m_simult3PRFIndex);
+    }
 }
 
 void ImgPw::ChangeTSI(void)
@@ -1530,77 +1517,77 @@ void ImgPw::ChangeTSI(void)
         return ERROR;
     }
 
-	m_HPRF = on;
+    m_HPRF = on;
 
-	EKnobReturn ret = OK;
-	if (m_HPRF == FALSE)
-		ret = MIN;
-	else if (m_HPRF == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (m_HPRF == FALSE)
+        ret = MIN;
+    else if (m_HPRF == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	HPRF(m_HPRF, ret);
+    HPRF(m_HPRF, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeSimult2(bool on)
 {
-	bool data = on;
-	EKnobReturn ret = OK;
-	if (data == FALSE)
-		ret = MIN;
-	else if (data == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    bool data = on;
+    EKnobReturn ret = OK;
+    if (data == FALSE)
+        ret = MIN;
+    else if (data == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_simult2 = data;
-	Simult2(m_simult2, ret);
-	return (ret);
+    m_simult2 = data;
+    Simult2(m_simult2, ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeSimult3(bool on)
 {
-	bool data = on;
+    bool data = on;
 
-	EKnobReturn ret = OK;
-	if (data == FALSE)
-		ret = MIN;
-	else if (data == TRUE)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == FALSE)
+        ret = MIN;
+    else if (data == TRUE)
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_simult3 = data;
-	Simult3(m_simult3, ret);
+    m_simult3 = data;
+    Simult3(m_simult3, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeLineDensity(EKnobOper oper)
 {
-	EKnobReturn ret = OK;
+    EKnobReturn ret = OK;
 
-	if (m_ptrImg2D != NULL)
-	{
-		ret = m_ptrImg2D->ChangeLineDensity(oper);
-		if (m_simult3)
-		{
-			PRFSimult3(m_simult3PRFIndex);
-		}
-	}
-	return ret;
+    if (m_ptrImg2D != NULL)
+    {
+        ret = m_ptrImg2D->ChangeLineDensity(oper);
+        if (m_simult3)
+        {
+            PRFSimult3(m_simult3PRFIndex);
+        }
+    }
+    return ret;
 }
 void ImgPw::ChangeMBP(void)
 {
-	m_ptrImg2D->ChangeMBP();
+    m_ptrImg2D->ChangeMBP();
 
-	if (m_simult3)
-	{
-		PRFSimult3(m_simult3PRFIndex);
-	}
+    if (m_simult3)
+    {
+        PRFSimult3(m_simult3PRFIndex);
+    }
 }
 
 void ImgPw::ChangeTSI(void)
@@ -1613,198 +1600,198 @@ void ImgPw::ChangeTSI(void)
 //int soundstatus=0;
 EKnobReturn ImgPw::ChangeSoundStatus(EKnobOper oper)
 {
-	bool data = m_soundStatus;
-	if (oper == ADD)
-	{
-		if (data == FALSE)
-		{
-			data = TRUE;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data == TRUE)
-		{
-			data =  FALSE;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else if (oper == ROTATE)
-	{
-		if (data)
-			data = FALSE;
-		else
-			data = TRUE;
-	}
+    bool data = m_soundStatus;
+    if (oper == ADD)
+    {
+        if (data == FALSE)
+        {
+            data = TRUE;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data == TRUE)
+        {
+            data =  FALSE;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else if (oper == ROTATE)
+    {
+        if (data)
+            data = FALSE;
+        else
+            data = TRUE;
+    }
     else
     {
         return ERROR;
     }
 
-	m_soundStatus = data;
+    m_soundStatus = data;
 
-	EKnobReturn ret = OK;
-	if (!data)
-		ret = MIN;
-	else if (data)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (!data)
+        ret = MIN;
+    else if (data)
+        ret = MAX;
+    else
+        ret = OK;
 
-	SoundStatus(m_soundStatus, ret);
+    SoundStatus(m_soundStatus, ret);
     soundstatus=m_soundStatus;
-	return (ret);
+    return (ret);
 }
 EKnobReturn ImgPw::ChangeGrayMap(EKnobOper oper)
 {
-	int data = m_grayMap;
-	int step = 1;
+    int data = m_grayMap;
+    int step = 1;
 
-	if (oper == ADD)
-	{
-		if (data < (MAX_GRAY_SCALE-1))
-		{
-			data += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (data > 0)
-		{
-			data -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (data < (MAX_GRAY_SCALE-1))
+        {
+            data += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (data > 0)
+        {
+            data -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
-	m_grayMap = data;
+    m_grayMap = data;
 
-	EKnobReturn ret = OK;
-	if (data == 0)
-		ret = MIN;
-	else if (data == (MAX_GRAY_SCALE - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (data == 0)
+        ret = MIN;
+    else if (data == (MAX_GRAY_SCALE - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	GrayMap(m_grayMap, ret);
+    GrayMap(m_grayMap, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeNoiseThreshold(EKnobOper oper)
 {
-	int index = m_noiseThreshould;
-	int step = 2;
+    int index = m_noiseThreshould;
+    int step = 2;
 
-	if (oper == ADD)
-	{
-		if ((index+step) < (MAX_NOISE-1))
-		{
-			index += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((index-step) > 0)
-		{
-			index -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((index+step) < (MAX_NOISE-1))
+        {
+            index += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((index-step) > 0)
+        {
+            index -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_noiseThreshould = index;
+    m_noiseThreshould = index;
 
-	EKnobReturn ret = OK;
-	if (index == MIN_NOISE)
-		ret = MIN;
-	else if (index == (MAX_NOISE-3))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == MIN_NOISE)
+        ret = MIN;
+    else if (index == (MAX_NOISE-3))
+        ret = MAX;
+    else
+        ret = OK;
 
-	NoiseThreshold(m_noiseThreshould, ret);
+    NoiseThreshold(m_noiseThreshould, ret);
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ImgPw::ChangeLog(EKnobOper oper)
 {
-	int index = m_log;
-	int step = 10;
+    int index = m_log;
+    int step = 10;
 
-	if (oper == ADD)
-	{
-		if ((index+step) < (MAX_LOG-1))
-		{
-			index += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((index-step) > 1)
-		{
-			index -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((index+step) < (MAX_LOG-1))
+        {
+            index += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((index-step) > 1)
+        {
+            index -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_log = index;
+    m_log = index;
 
-	EKnobReturn ret = OK;
-	if (index == 1)
-		ret = MIN;
-	else if (index == (MAX_LOG-1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 1)
+        ret = MIN;
+    else if (index == (MAX_LOG-1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	Log(m_log, ret);
+    Log(m_log, ret);
 
-	return (ret);
+    return (ret);
 }
 
 void ImgPw::ChangeDepth()
 {
-	SendSampleVolume(m_pwLine, m_svPos, m_svLen);
+    SendSampleVolume(m_pwLine, m_svPos, m_svLen);
     if(ModeStatus::IsSimultMode())
     {
         if(ModeStatus::IsCwImgMode())
@@ -1817,55 +1804,55 @@ void ImgPw::ChangeDepth()
 EKnobReturn ImgPw::ChangeSteer(EKnobOper oper)
 {
     m_steerIndexBak = m_steerIndex;
-	int index = m_steerIndex;
+    int index = m_steerIndex;
     int angle;
 
-	///> change speed of sound
-	if (oper == ADD)
-	{
-		if (index < (MAX_STEER - 1))
-		{
-			index ++;
-		}
-		else
-		{
-			PRINTF("ImgPw: steer reach max value!\n");
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index --;
+    ///> change speed of sound
+    if (oper == ADD)
+    {
+        if (index < (MAX_STEER - 1))
+        {
+            index ++;
         }
-		else
-		{
-			PRINTF("ImgPw: steer reach min value!\n");
-			return (MIN);
-		}
-	}
-	else if (oper == ROTATE)
-	{
-		if (index < (MAX_STEER - 1))
-			index ++;
-		else
-			index = 0;
-	}
+        else
+        {
+            PRINTF("ImgPw: steer reach max value!\n");
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index --;
+        }
+        else
+        {
+            PRINTF("ImgPw: steer reach min value!\n");
+            return (MIN);
+        }
+    }
+    else if (oper == ROTATE)
+    {
+        if (index < (MAX_STEER - 1))
+            index ++;
+        else
+            index = 0;
+    }
     else
     {
         return ERROR;
     }
 
-	m_steerIndex = index;
+    m_steerIndex = index;
     angle = STEER_ANGLE[m_steerIndex];
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_STEER - 1))
-		ret = MAX;
-	else
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_STEER - 1))
+        ret = MAX;
+    else
         ret = OK;
 
     Steer(angle, ret);
@@ -1874,9 +1861,9 @@ EKnobReturn ImgPw::ChangeSteer(EKnobOper oper)
 
 void ImgPw::ChangePwTis()
 {
-	int freq = GetNameColorFreq();
-	///> Tis
-	m_ptrImg2D->SetPwTis(freq, m_PRFIndex);
+    int freq = GetNameColorFreq();
+    ///> Tis
+    m_ptrImg2D->SetPwTis(freq, m_PRFIndex);
 
 }
 
@@ -1887,43 +1874,43 @@ void ImgPw::ChangePwTis()
  */
 void ImgPw::SetRGBSampleDots(int dots)
 {
-	const int MAX = 256;
-	unsigned short *table = (unsigned short*)malloc (dots*BITS16);
-	int i;
-	float step = (float)MAX / dots;
+    const int MAX = 256;
+    unsigned short *table = (unsigned short*)malloc (dots*BITS16);
+    int i;
+    float step = (float)MAX / dots;
 
-	PRINTF("===========================================\n");
+    PRINTF("===========================================\n");
 
-	for (i = 0; i < dots; i ++)
-	{
-		table[i] = (0 + i * step) * (float)128;
+    for (i = 0; i < dots; i ++)
+    {
+        table[i] = (0 + i * step) * (float)128;
         //PRINTF("==");
-		//PRINTF("%d",table[i]);
-	}
+        //PRINTF("%d",table[i]);
+    }
 
-	PRINTF("dots after decimation is dots = %d\n",dots)
-	PRINTF("===========================================\n");
+    PRINTF("dots after decimation is dots = %d\n",dots)
+    PRINTF("===========================================\n");
 
-	m_ptrCalc->CalcRGBSampleDots(dots);
-	m_ptrCalc->CalcRGBSampleCoef(table, dots);
+    m_ptrCalc->CalcRGBSampleDots(dots);
+    m_ptrCalc->CalcRGBSampleCoef(table, dots);
 
-	free(table);
+    free(table);
 }
 
 void ImgPw::ClearSv()
 {
-	//m_ptrUpdate->SampleVolumeClear();
+    //m_ptrUpdate->SampleVolumeClear();
    UpdateSVClear();
 }
 
 void ImgPw::ReDrawSv()
 {
-	// redraw sv
-	int dotBegin;
-	int dotEnd;
+    // redraw sv
+    int dotBegin;
+    int dotEnd;
 
-	SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, FALSE);
-	//m_ptrUpdate->SampleVolume(m_pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
+    SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, FALSE);
+    //m_ptrUpdate->SampleVolume(m_pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
    UpdateSV(m_pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
 }
 
@@ -1942,32 +1929,32 @@ bool ImgPw::ChangePwSV(int offsetX, int offsetY)
 
     int range[2];
 
-	GetPwLineRange(range[0], range[1]);
+    GetPwLineRange(range[0], range[1]);
 
-	line += stepLine;
-	if (line > range[1])
-		line = range[1];
-	else if (line < range[0])
-		line = range[0];
-	m_pwLine = line;
+    line += stepLine;
+    if (line > range[1])
+        line = range[1];
+    else if (line < range[0])
+        line = range[0];
+    m_pwLine = line;
 
-	GetSvPosRange(range[0], range[1]);
-	pos += stepDot;
-	if (pos > range[1])
-		pos = range[1];
-	else if (pos < range[0])
-		pos = range[0];
-	m_svPosBefore = pos;
+    GetSvPosRange(range[0], range[1]);
+    pos += stepDot;
+    if (pos > range[1])
+        pos = range[1];
+    else if (pos < range[0])
+        pos = range[0];
+    m_svPosBefore = pos;
 
-	//m_sendPwLine = FALSE;
+    //m_sendPwLine = FALSE;
     m_svPos = SVPosCorrect(m_svPosBefore);
-	SVPos(m_pwLine, m_svPos, m_svLen);
+    SVPos(m_pwLine, m_svPos, m_svLen);
 
-	return (TRUE);
+    return (TRUE);
 }
 EKnobReturn ImgPw::ChangeSVLength(EKnobOper oper)
 {
-	EKnobReturn ret = OK;
+    EKnobReturn ret = OK;
 #ifdef EMP_355
   if(!ViewMain::GetInstance()->GetModeIsFlag())
     {
@@ -2014,52 +2001,52 @@ EKnobReturn ImgPw::ChangeSVLength(EKnobOper oper)
     }
     else
     {
-		HintArea::GetInstance()->UpdateHint(_("Operation is invalid."), 1);
-		return ERROR;
+        HintArea::GetInstance()->UpdateHint(_("Operation is invalid."), 1);
+        return ERROR;
     }
 #else
-	int index = m_svLen;
-	int step = 5;
+    int index = m_svLen;
+    int step = 5;
 
-	if (oper == ADD)
-	{
-		if ((index+step) <= MAX_SV)
-		{
-			index += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if ((index-step) >= MIN_SV)
-		{
-			index -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if ((index+step) <= MAX_SV)
+        {
+            index += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if ((index-step) >= MIN_SV)
+        {
+            index -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_svLen = index;
+    m_svLen = index;
 
-	if (index == MIN_SV)
-		ret = MIN;
-	else if (index == (MAX_SV))
-		ret = MAX;
-	else
-		ret = OK;
+    if (index == MIN_SV)
+        ret = MIN;
+    else if (index == (MAX_SV))
+        ret = MAX;
+    else
+        ret = OK;
 
-	SVLen(m_pwLine, m_svPos, m_svLen, ret);
+    SVLen(m_pwLine, m_svPos, m_svLen, ret);
 #endif
-	return (ret);
+    return (ret);
 }
 
 void ImgPw::GetPwInfo(int &line, int &dotBegin, int &dotEnd, int &dotSvLen)
@@ -2073,14 +2060,14 @@ void ImgPw::SetPwInfo(int line, int dotBegin, int dotEnd)
     m_pwLine = line;
 
     // pw sv pos
-	double scale = m_ptrImg2D->GetScale2DInImgHDot();
+    double scale = m_ptrImg2D->GetScale2DInImgHDot();
     if (Zoom::GetInstance()->GetLocalZoomStatus())
     {
-		double scaleZoom;
-		Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
+        double scaleZoom;
+        Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
         scale = scale / scaleZoom;
     }
-	int svLenDot = (float)m_svLen / 10 / scale;
+    int svLenDot = (float)m_svLen / 10 / scale;
     m_svPosBefore = dotBegin + svLenDot / 2;
     m_svPos = SVPosCorrect(m_svPosBefore);
 
@@ -2096,9 +2083,9 @@ double ImgPw::GetScaleTime()
     }
 
     // normal mode
-	int speed = GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
-	m_scaleTime = m_ptrCalc->CalcScaleTime(speed, GetPRFValue(m_PRFIndex));
-	return m_scaleTime;
+    int speed = GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
+    m_scaleTime = m_ptrCalc->CalcScaleTime(speed, GetPRFValue(m_PRFIndex));
+    return m_scaleTime;
 }
 
 /*
@@ -2115,16 +2102,16 @@ double ImgPw::GetScaleVel()
     }
 
     // normal mode
-	double speed = Img2D::GetInstance()->GetSoundSpeed() * 1000;
-	//double speed = SOUND_SPEED * 1000; //s
-	// get dots value from dsc
-	int dots = GetPwDots() / 2;
+    double speed = Img2D::GetInstance()->GetSoundSpeed() * 1000;
+    //double speed = SOUND_SPEED * 1000; //s
+    // get dots value from dsc
+    int dots = GetPwDots() / 2;
 
-	int freq = GetColorFreq();
+    int freq = GetColorFreq();
 
-	m_scaleVel = m_ptrCalc->CalcScaleVel(GetPRFValue(m_PRFIndex), freq, m_angle, speed, dots);
+    m_scaleVel = m_ptrCalc->CalcScaleVel(GetPRFValue(m_PRFIndex), freq, m_angle, speed, dots);
 
-	return m_scaleVel;
+    return m_scaleVel;
 }
 
 int ImgPw::GetBaseLineForCalc()
@@ -2136,46 +2123,46 @@ int ImgPw::GetBaseLineForCalc()
     }
 
     // normal mode
-	ModeStatus s;
-	FormatPw::EFormatPw formatPw = s.GetFormatPw();
-	int offset;
+    ModeStatus s;
+    FormatPw::EFormatPw formatPw = s.GetFormatPw();
+    int offset;
     float pwImgWidth;
 
-	switch(formatPw)
-	{
-		case FormatPw::P_TOTAL:
-			offset = IMG_H / 2;
+    switch(formatPw)
+    {
+        case FormatPw::P_TOTAL:
+            offset = IMG_H / 2;
             pwImgWidth = IMG_H;
-			break;
-		case FormatPw::BP11_UD:
-			offset = IMG_H * 3 / 4;
+            break;
+        case FormatPw::BP11_UD:
+            offset = IMG_H * 3 / 4;
             pwImgWidth = IMG_H / 2;
-			break;
-		case FormatPw::BP21_UD:
-			offset = IMG_H * 5 / 6;
+            break;
+        case FormatPw::BP21_UD:
+            offset = IMG_H * 5 / 6;
             pwImgWidth = IMG_H * 1 / 3;
-			break;
-		case FormatPw::BP12_UD:
-			offset = IMG_H * 2 / 3;
+            break;
+        case FormatPw::BP12_UD:
+            offset = IMG_H * 2 / 3;
             pwImgWidth = IMG_H * 2 / 3;
-			break;
-		case FormatPw::BP11_LR:
-			offset = IMG_H / 2;
+            break;
+        case FormatPw::BP11_LR:
+            offset = IMG_H / 2;
             pwImgWidth = IMG_H;
-			break;
-		default:
-			offset = IMG_H * 3 / 4;
+            break;
+        default:
+            offset = IMG_H * 3 / 4;
             pwImgWidth = IMG_H / 2;
-			break;
-	}
+            break;
+    }
 
     int baseline = pwImgWidth / 2 * m_baselineIndex / MAX_BASELINE_INDEX;
-	return (offset - baseline);
+    return (offset - baseline);
 }
 
 int ImgPw::GetRealSpectrumSpeed()
 {
-	return GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
+    return GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
 }
 
 int ImgPw::GetRealPRF()
@@ -2185,17 +2172,17 @@ int ImgPw::GetRealPRF()
 
 void ImgPw::CalcPwInfoDot(int posDot, int svLen, int &dotBegin, int &dotEnd, int &dotSvLen)
 {
-	double scale = m_ptrImg2D->GetScale2DInImgHDot();
+    double scale = m_ptrImg2D->GetScale2DInImgHDot();
     if (Zoom::GetInstance()->GetLocalZoomStatus())
     {
-		double scaleZoom;
-		Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
+        double scaleZoom;
+        Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
         scale = scale / scaleZoom;
     }
 
-	dotSvLen = (float)svLen / 10 / scale;
-	dotBegin = posDot - dotSvLen/2;
-	dotEnd = posDot + dotSvLen/2;
+    dotSvLen = (float)svLen / 10 / scale;
+    dotBegin = posDot - dotSvLen/2;
+    dotEnd = posDot + dotSvLen/2;
 }
 
 int ImgPw::GetSteerAngle(int &currentAngle)
@@ -2206,64 +2193,64 @@ int ImgPw::GetSteerAngle(int &currentAngle)
 
 double ImgPw::GetMaxVel()
 {
-	double speed = SOUND_SPEED * 1000;
-	int freq = GetColorFreq();
+    double speed = SOUND_SPEED * 1000;
+    int freq = GetColorFreq();
 
-	double maxVel = m_ptrCalc->CalcMaxVel(GetPRFValue(m_PRFIndex), freq, m_angle, speed);
-	//PRINTF("MAX vel = %f\n", maxVel);
+    double maxVel = m_ptrCalc->CalcMaxVel(GetPRFValue(m_PRFIndex), freq, m_angle, speed);
+    //PRINTF("MAX vel = %f\n", maxVel);
 
-	return maxVel;
+    return maxVel;
 }
 
 double ImgPw::GetScaleVelKHz() ///< (KHz)/pixel
 {
-	// get dots value from dsc
-	int dots = GetPwDots() / 2;
-	double scaleVel = GetPRFValue(m_PRFIndex) / (float)dots / 1000;
+    // get dots value from dsc
+    int dots = GetPwDots() / 2;
+    double scaleVel = GetPRFValue(m_PRFIndex) / (float)dots / 1000;
 
-	PRINTF("scaleVelKHz = %f\n", scaleVel);
+    PRINTF("scaleVelKHz = %f\n", scaleVel);
 
-	return scaleVel;
+    return scaleVel;
 
 }
 double ImgPw::GetMaxVelKHz() ///< KHz
 {
-	double vel = GetPRFValue(m_PRFIndex) / (float)1000;
+    double vel = GetPRFValue(m_PRFIndex) / (float)1000;
 
-	return vel;
+    return vel;
 }
 int ImgPw::GetPwDots()
 {
-	return FormatPw::GetInstance()->GetSpectrumDots();
+    return FormatPw::GetInstance()->GetSpectrumDots();
 }
 int ImgPw::GetColorFreq()
 {
-	int pulseNum;
+    int pulseNum;
 
-	if (m_ptrCalc != NULL)
-		pulseNum = m_ptrCalc->GetPulseCycleNum() + 1;
-	else
-		pulseNum = 1;
-	int freq = ((float)60 / pulseNum / 2) * 20; //unit: MHZ*20
+    if (m_ptrCalc != NULL)
+        pulseNum = m_ptrCalc->GetPulseCycleNum() + 1;
+    else
+        pulseNum = 1;
+    int freq = ((float)60 / pulseNum / 2) * 20; //unit: MHZ*20
 
-	//PRINTF("--------------corrected freq = %d\n", freq);
-	return freq;
+    //PRINTF("--------------corrected freq = %d\n", freq);
+    return freq;
 }
 
 // only for temp use
 int ImgPw::GetNameColorFreq()
 {
-	return m_freq[m_freqIndex];
+    return m_freq[m_freqIndex];
 }
 
 double ImgPw::GetSvSamplePos()
 {
-	return m_depthToSample;
+    return m_depthToSample;
 }
 
 bool ImgPw::GetHPRFStatus()
 {
-	return m_HPRF;
+    return m_HPRF;
 }
 
 void ImgPw::DopplerFreq(int freq, EKnobReturn ret)
@@ -2271,10 +2258,10 @@ void ImgPw::DopplerFreq(int freq, EKnobReturn ret)
     int power = Img2D::GetInstance()->GetOutputPower();
      m_pulseCycle = CalcFocPulse(freq, power);
 #ifdef EMP_355
-	float fc_offset = 2.4;
-	m_ptrCalc->CalcBandPassFilter_new(m_pulseCycle, fc_offset);
+    float fc_offset = 2.4;
+    m_ptrCalc->CalcBandPassFilter_new(m_pulseCycle, fc_offset);
 #else
-	 m_ptrCalc->CalcBandPassFilter_test(m_pulseCycle, m_bandPassFilterList);
+     m_ptrCalc->CalcBandPassFilter_test(m_pulseCycle, m_bandPassFilterList);
 #endif
 
     m_ptrUpdate->DopFreq(freq, ret);
@@ -2282,15 +2269,15 @@ void ImgPw::DopplerFreq(int freq, EKnobReturn ret)
 
 void ImgPw::GainPw(int data)
 {
-	SetTraceGain(data);
+    SetTraceGain(data);
 
     //update view
-	m_ptrUpdate->GainPw(data);
+    m_ptrUpdate->GainPw(data);
 #ifdef EMP_430
     data = data/2 + 50;
 #endif
-	m_ptrImg2D->CalcTgc(data*MAX_GAIN_PW/100, m_tgc, 2);
-	m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
+    m_ptrImg2D->CalcTgc(data*MAX_GAIN_PW/100, m_tgc, 2);
+    m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
 
 }
 void ImgPw::GainCw(int data)
@@ -2319,34 +2306,34 @@ void ImgPw::GainCw(int data)
 
 void ImgPw::DynamicRange(int data, EKnobReturn ret)
 {
-	SetTraceDynRange(data);
-	m_ptrCalc->CalcDynamicRange(data);
-	m_ptrUpdate->DynamicRange(data, ret);
+    SetTraceDynRange(data);
+    m_ptrCalc->CalcDynamicRange(data);
+    m_ptrUpdate->DynamicRange(data, ret);
 }
 
 void ImgPw::Baseline(int index, EKnobReturn ret)
 {
-	int maxPwDots = MAX_BASELINE;
+    int maxPwDots = MAX_BASELINE;
 
-	// send to fpga
-	m_baseline = ((float)index / MAX_BASELINE_INDEX) * maxPwDots;
-	if(m_baseline >= maxPwDots)
-		m_baseline = maxPwDots-1;
+    // send to fpga
+    m_baseline = ((float)index / MAX_BASELINE_INDEX) * maxPwDots;
+    if(m_baseline >= maxPwDots)
+        m_baseline = maxPwDots-1;
 
-	SetTraceBaseline(m_baseline);
-	m_ptrCalc->CalcBaseline(m_baseline);
-	m_ptrUpdate->Baseline(index, MAX_BASELINE_INDEX, ret);
+    SetTraceBaseline(m_baseline);
+    m_ptrCalc->CalcBaseline(m_baseline);
+    m_ptrUpdate->Baseline(index, MAX_BASELINE_INDEX, ret);
 }
 
 void ImgPw::WallFilter(int index, EKnobReturn ret)
 {
-	m_ptrCalc->CalcWallFilter((unsigned int*)WALL_FILTER[index], 7);
-	m_ptrUpdate->WallFilter(index, ret);
+    m_ptrCalc->CalcWallFilter((unsigned int*)WALL_FILTER[index], 7);
+    m_ptrUpdate->WallFilter(index, ret);
 
-	PRINTF("=====================================send wall filter coefficients");
+    PRINTF("=====================================send wall filter coefficients");
 
-	// pw trace
-	CalcTraceFs(index, m_PRFIndex, m_baseline, m_angle);
+    // pw trace
+    CalcTraceFs(index, m_PRFIndex, m_baseline, m_angle);
 }
 
 /*
@@ -2357,8 +2344,8 @@ void ImgPw::WallFilter(int index, EKnobReturn ret)
  */
 void ImgPw::SampleVolume(int pwLine, int svPos, int svLen)
 {
-	SendSampleVolume(pwLine, svPos, svLen);
-	DrawSampleVolume(pwLine, svPos, svLen);
+    SendSampleVolume(pwLine, svPos, svLen);
+    DrawSampleVolume(pwLine, svPos, svLen);
 }
 
 /*
@@ -2369,35 +2356,35 @@ void ImgPw::SampleVolume(int pwLine, int svPos, int svLen)
  */
 void ImgPw::SendSampleVolume(int pwLine, int svPos, int svLen)
 {
-	// pw line
-	m_ptrCalc->CalcPwLine(pwLine);
+    // pw line
+    m_ptrCalc->CalcPwLine(pwLine);
     m_ptrImg2D->SetCwLine(pwLine);
 
-	// sv pos
-	SVPos(pwLine, svPos, svLen);
+    // sv pos
+    SVPos(pwLine, svPos, svLen);
 }
 
 void ImgPw::DrawSampleVolume(int pwLine, int svPos, int svLen)
 {
-	int dotBegin;
-	int dotEnd;
-	EKnobReturn ret;
+    int dotBegin;
+    int dotEnd;
+    EKnobReturn ret;
 
-	SVCalc(pwLine, svPos, svLen, dotBegin, dotEnd, FALSE);
+    SVCalc(pwLine, svPos, svLen, dotBegin, dotEnd, FALSE);
 
-	//update view
-	if (svLen == MIN_SV)
-		ret = MIN;
-	else if (svLen == MAX_SV)
-		ret = MAX;
-	else
-		ret = OK;
+    //update view
+    if (svLen == MIN_SV)
+        ret = MIN;
+    else if (svLen == MAX_SV)
+        ret = MAX;
+    else
+        ret = OK;
 
     UpdateSV(pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
-	m_ptrUpdate->SVLength(svLen, ret);
+    m_ptrUpdate->SVLength(svLen, ret);
 
-	double pos = svPos * m_ptrImg2D->GetScale2DInImgHDot();
-	m_ptrUpdate->SVPos(pos);
+    double pos = svPos * m_ptrImg2D->GetScale2DInImgHDot();
+    m_ptrUpdate->SVPos(pos);
 }
 /*
  * @brief calc when svn pos is changed
@@ -2407,8 +2394,8 @@ void ImgPw::DrawSampleVolume(int pwLine, int svPos, int svLen)
  */
 void ImgPw::SVPos(int pwLine, int svPos, int svLen)
 {
-	m_sendPwLine = FALSE;
-	int dotBegin;
+    m_sendPwLine = FALSE;
+    int dotBegin;
     int dotEnd;
     //send to fpga
     SVCalc(pwLine, svPos, svLen, dotBegin, dotEnd, m_sendPwLine);
@@ -2466,23 +2453,23 @@ void ImgPw::SVPos(int pwLine, int svPos, int svLen)
 }
 void ImgPw::SVLen(int pwLine, int svPos, int svLen, EKnobReturn ret)
 {
-	int dotBegin;
-	int dotEnd;
+    int dotBegin;
+    int dotEnd;
 
     SVCalc(pwLine, svPos, svLen, dotBegin, dotEnd, TRUE);
 
-	//send to fpga
-	if(m_HPRF)
-	{
-		SwitchHPRF(m_HPRF, svPos*m_ptrImg2D->GetScale2DInImgHDot());
-	}
-	else
-	{
-		CalcPRF(GetPRFValue(m_PRFIndex), m_depthToSample);
-	}
+    //send to fpga
+    if(m_HPRF)
+    {
+        SwitchHPRF(m_HPRF, svPos*m_ptrImg2D->GetScale2DInImgHDot());
+    }
+    else
+    {
+        CalcPRF(GetPRFValue(m_PRFIndex), m_depthToSample);
+    }
 
-	//update view
-	m_ptrUpdate->SVLength(svLen, ret);
+    //update view
+    m_ptrUpdate->SVLength(svLen, ret);
     UpdateSV(pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
 
     // balance cfm box
@@ -2502,12 +2489,12 @@ void ImgPw::SVLen(int pwLine, int svPos, int svLen, EKnobReturn ret)
  */
 void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd, bool SendFpga)
 {
-	// calc sv len dot in scale 2D, used for decide range of sv
-	double scale = m_ptrImg2D->GetScale2DInImgHDot();
+    // calc sv len dot in scale 2D, used for decide range of sv
+    double scale = m_ptrImg2D->GetScale2DInImgHDot();
     PRINTF("scale:%lf\n", scale);
-	int svLenDot = (float)svLen / 10 / scale;
-	dotBegin = svPos - svLenDot/2;
-	dotEnd = svPos + svLenDot/2;
+    int svLenDot = (float)svLen / 10 / scale;
+    dotBegin = svPos - svLenDot/2;
+    dotEnd = svPos + svLenDot/2;
 #ifdef EMP_355
  if (dotEnd >= m_ptrImg2D->GetDepthDots()) // out of range
     {
@@ -2515,7 +2502,7 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
         dotBegin = m_ptrImg2D->GetDepthDots() - svLenDot;
         m_svPosBefore = m_ptrImg2D->GetDepthDots() - svLenDot/2;
         m_svPos = SVPosCorrect(m_svPosBefore);
-	}
+    }
 #else
     if (dotEnd >= IMG_H) // out of range
     {
@@ -2536,53 +2523,53 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
     double pos = m_svPosBefore * scale;
     m_ptrUpdate->SVPos(pos);
 
-	// calc svBegin and svEnd
-	double svPosDetph = m_svPosBefore * scale; //mm
-	double svBeginDepth = dotBegin * scale;
-	double svEndDetph = svPosDetph + (float)svLen / 10 / 2; //mm
+    // calc svBegin and svEnd
+    double svPosDetph = m_svPosBefore * scale; //mm
+    double svBeginDepth = dotBegin * scale;
+    double svEndDetph = svPosDetph + (float)svLen / 10 / 2; //mm
 
-	double speed = m_ptrImg2D->GetSoundSpeed(); //km/s
-	double depthToSample;
-	if(svEndDetph < 25)
-		depthToSample = 25;
-	else
-		depthToSample = svEndDetph;
+    double speed = m_ptrImg2D->GetSoundSpeed(); //km/s
+    double depthToSample;
+    if(svEndDetph < 25)
+        depthToSample = 25;
+    else
+        depthToSample = svEndDetph;
 
     //calc prf is not connection to current depth
    // depthToSample = Img2D::GetInstance()->GetDepth();
-	m_depthToSample = depthToSample;
+    m_depthToSample = depthToSample;
 #ifdef EMP_355
-	double newScale =  depthToSample / m_ptrImg2D->GetDepthDots(); //mm/p
+    double newScale =  depthToSample / m_ptrImg2D->GetDepthDots(); //mm/p
 #else
-	double newScale =  depthToSample / IMG_H; //mm/p
+    double newScale =  depthToSample / IMG_H; //mm/p
 #endif
-	//int newSvPosDot = svPosDetph / newScale;
-	int newDotBegin = svBeginDepth/newScale;
-	int newsvLenDot = (float)svLen / 10 / newScale;
+    //int newSvPosDot = svPosDetph / newScale;
+    int newDotBegin = svBeginDepth/newScale;
+    int newsvLenDot = (float)svLen / 10 / newScale;
 
-	int newDotEnd = newDotBegin + newsvLenDot;// newSvPosDot + newsvLenDot / 2;
+    int newDotEnd = newDotBegin + newsvLenDot;// newSvPosDot + newsvLenDot / 2;
 
-	PRINTF("================SVCalc verify: dotBegin = %d, dotEnd = %d  \n",newDotBegin,newDotEnd);
+    PRINTF("================SVCalc verify: dotBegin = %d, dotEnd = %d  \n",newDotBegin,newDotEnd);
 
     // send to fpga
     if(!m_HPRF)
         m_ptrCalc->CalcHDotSample(depthToSample, speed);
 
     if (SendFpga)
-	{
+    {
 #ifdef EMP_355
- 	// send sample begin and end
+    // send sample begin and end
         if(!ViewMain::GetInstance()->GetModeIsFlag())
         {
             m_ptrCalc->CalcPwLine(pwLine);
             SVCorrect(newDotBegin, newDotEnd);
         }
 #else
-		m_ptrCalc->CalcPwLine(pwLine);
-		// send sample begin and end
-		SVCorrect(newDotBegin, newDotEnd);
+        m_ptrCalc->CalcPwLine(pwLine);
+        // send sample begin and end
+        SVCorrect(newDotBegin, newDotEnd);
 #endif
-	}
+    }
 }
 
 /*
@@ -2593,7 +2580,7 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
  */
 void ImgPw::GetPwLineRange(int &begin, int &end)
 {
-	int interval = 0;
+    int interval = 0;
     int scanRange[2];
     if (Zoom::GetInstance()->GetLocalZoomStatus())
     {
@@ -2604,8 +2591,8 @@ void ImgPw::GetPwLineRange(int &begin, int &end)
         Img2D::GetInstance()->GetDisplayScanRange(scanRange);
     }
 
-	begin = scanRange[0] + interval;
-	end = scanRange[1] - interval;
+    begin = scanRange[0] + interval;
+    end = scanRange[1] - interval;
 }
 
 /*
@@ -2613,26 +2600,26 @@ void ImgPw::GetPwLineRange(int &begin, int &end)
  */
 void ImgPw::GetSvPosRange(int &begin, int &end)
 {
-	//int offset = m_ptrImg2D->GetImgStartDots();
-	int offset = 0;
-	double scale = m_ptrImg2D->GetScale2DInImgHDot();
+    //int offset = m_ptrImg2D->GetImgStartDots();
+    int offset = 0;
+    double scale = m_ptrImg2D->GetScale2DInImgHDot();
 
     if (Zoom::GetInstance()->GetLocalZoomStatus())
-	{
-		double scaleZoom;
-		Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
-		scale = scale / scaleZoom;
-	}
+    {
+        double scaleZoom;
+        Zoom::GetInstance()->GetLocalZoomScale(scaleZoom);
+        scale = scale / scaleZoom;
+    }
 
-	int svLenDot = (float)m_svLen / 10 / scale;
-	begin = svLenDot / 2;
+    int svLenDot = (float)m_svLen / 10 / scale;
+    begin = svLenDot / 2;
 #ifdef EMP_355
-	end = m_ptrImg2D->GetDepthDots() - offset - svLenDot / 2;
+    end = m_ptrImg2D->GetDepthDots() - offset - svLenDot / 2;
 #else
-	end = IMG_H - offset - svLenDot / 2;
+    end = IMG_H - offset - svLenDot / 2;
 #endif
 
-	PRINTF("get sv pos range: m_svLen = %d, scale = %f, offset = %d, svLenDot = %d, begin = %d, end = %d\n", m_svLen, scale, offset, svLenDot, begin, end);
+    PRINTF("get sv pos range: m_svLen = %d, scale = %f, offset = %d, svLenDot = %d, begin = %d, end = %d\n", m_svLen, scale, offset, svLenDot, begin, end);
 }
 void ImgPw::SpectrumSpeed(int speedIndex, int prfIndex, EKnobReturn ret)
 {
@@ -2658,47 +2645,47 @@ void ImgPw::SpectrumSpeed(int speedIndex, int prfIndex, EKnobReturn ret)
     }
 #else
     // set pw speed in dsc
-	int num = GetPwLineOneImg(m_speedIndex, GetPRFValue(m_PRFIndex));
-	m_ptrDscPara->dcaPWSpeed = num;
-	PRINTF("---------------DSC spectrum speed num = %d\n", m_ptrDscPara->dcaPWSpeed);
+    int num = GetPwLineOneImg(m_speedIndex, GetPRFValue(m_PRFIndex));
+    m_ptrDscPara->dcaPWSpeed = num;
+    PRINTF("---------------DSC spectrum speed num = %d\n", m_ptrDscPara->dcaPWSpeed);
 
-	int prf = GetPRFValue(prfIndex);
+    int prf = GetPRFValue(prfIndex);
 #endif
 
-	int speed = GetSpeed(speedIndex, prf);
-	m_ptrCalc->CalcSpeed(speed);
-	m_ptrUpdate->Speed(speedIndex, ret);
+    int speed = GetSpeed(speedIndex, prf);
+    m_ptrCalc->CalcSpeed(speed);
+    m_ptrUpdate->Speed(speedIndex, ret);
 
-	//send dsc
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.interval = (float)speed / prf;
+    //send dsc
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.interval = (float)speed / prf;
 
-	//PRINTF("spectrum speed = %d\n", speed);
-	m_ptrCalc->CalcSoundInterpolation(prf, speed);
+    //PRINTF("spectrum speed = %d\n", speed);
+    m_ptrCalc->CalcSoundInterpolation(prf, speed);
 }
 
 void ImgPw::SoundStatus(bool data, EKnobReturn ret)
 {
-	m_ptrCalc->CalcSoundStatus((int)data);
-	m_ptrUpdate->SoundStatus((int)data, ret);
+    m_ptrCalc->CalcSoundStatus((int)data);
+    m_ptrUpdate->SoundStatus((int)data, ret);
 #ifdef EMP_355
     bool mode = ViewMain::GetInstance()->GetModeIsFlag();
 #endif
 
-	// sound volume
-	if (data)
-	{
-		usleep(1);
-		SoundVolume(m_soundVolumeIndex, OK);
-		int speed = GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
+    // sound volume
+    if (data)
+    {
+        usleep(1);
+        SoundVolume(m_soundVolumeIndex, OK);
+        int speed = GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
 #ifdef EMP_355
         if(mode)
             m_ptrCalc->CalcSoundInterpolation(GetHPRFValue(m_PRFIndex), speed);
         else
             m_ptrCalc->CalcSoundInterpolation(GetPRFValue(m_PRFIndex), speed);
 #else
-		m_ptrCalc->CalcSoundInterpolation(GetPRFValue(m_PRFIndex), speed);
+        m_ptrCalc->CalcSoundInterpolation(GetPRFValue(m_PRFIndex), speed);
 #endif
-	}
+    }
 }
 //public fun
 void ImgPw::ChangeDopplerSoundStatus(bool data)
@@ -2723,55 +2710,55 @@ void ImgPw::ChangeDopplerSoundStatus(bool data)
 
 void ImgPw::SoundVolume(int data, EKnobReturn ret)
 {
-	m_ptrCalc->CalcSoundVolume(data);
+    m_ptrCalc->CalcSoundVolume(data);
 
-	// only for test
-	m_ptrUpdate->SoundVolume(data, ret);
+    // only for test
+    m_ptrUpdate->SoundVolume(data, ret);
 }
 
 void ImgPw::CorrectAngle(int data, EKnobReturn ret)
 {
-	CalcTraceFs(m_wallFilterIndex, m_PRFIndex, m_baseline, data);
-	m_ptrUpdate->CorrectAngle(data, ret);
+    CalcTraceFs(m_wallFilterIndex, m_PRFIndex, m_baseline, data);
+    m_ptrUpdate->CorrectAngle(data, ret);
 }
 
 void ImgPw::Simult2(bool on, EKnobReturn ret)
 {
-	// change prf
-	if (on)
-	{
-		m_simult2PRFIndex = GetSimult2PRFIndex(PW_PRF[m_PRFIndex]);
-		PRINTF("-------------simult2 on: prf = %d\n", SIMULT2_PRF[m_simult2PRFIndex]);
-		PRFSimult2(m_simult2PRFIndex);
-	}
-	else
-	{
+    // change prf
+    if (on)
+    {
+        m_simult2PRFIndex = GetSimult2PRFIndex(PW_PRF[m_PRFIndex]);
+        PRINTF("-------------simult2 on: prf = %d\n", SIMULT2_PRF[m_simult2PRFIndex]);
+        PRFSimult2(m_simult2PRFIndex);
+    }
+    else
+    {
         m_ptrImg2D->ExitSimult();
-		PRINTF("-------------simult2 off: prf = %d\n", PW_PRF[m_PRFIndex]);
-		PRF(m_PRFIndex);
-	}
+        PRINTF("-------------simult2 off: prf = %d\n", PW_PRF[m_PRFIndex]);
+        PRF(m_PRFIndex);
+    }
 
-	// update
-	m_ptrUpdate->Simult(on, ret);
+    // update
+    m_ptrUpdate->Simult(on, ret);
 }
 
 void ImgPw::Simult3(bool on, EKnobReturn ret)
 {
-	// change prf
-	if (on)
-	{
-		m_simult3PRFIndex = GetSimult3PRFIndex(GetPRFValue(m_PRFIndex));
-		PRFSimult3(m_simult3PRFIndex);
-	}
-	else
-	{
+    // change prf
+    if (on)
+    {
+        m_simult3PRFIndex = GetSimult3PRFIndex(GetPRFValue(m_PRFIndex));
+        PRFSimult3(m_simult3PRFIndex);
+    }
+    else
+    {
         m_ptrImg2D->ExitSimult();
         ImgCfm::GetInstance()->ExitSimult3();
-		PRF(m_PRFIndex);
-	}
+        PRF(m_PRFIndex);
+    }
 
-	// update
-	m_ptrUpdate->Simult(on, ret);
+    // update
+    m_ptrUpdate->Simult(on, ret);
 }
 
 void ImgPw::HPRF(bool on, EKnobReturn ret)
@@ -2831,51 +2818,51 @@ bool mode = ViewMain::GetInstance()->GetModeIsFlag();
                 ret1 =OK;
 
             m_ptrUpdate->PRF(prf, ret1);
-        }	//m_ptrUpdate->HPRF(on, ret);
+        }   //m_ptrUpdate->HPRF(on, ret);
     }
 #else
-	//switch HPRF when on is true, switch PRF when on is false.
-	if (on)
+    //switch HPRF when on is true, switch PRF when on is false.
+    if (on)
     {
-		m_PRFIndexBak = m_PRFIndex;
+        m_PRFIndexBak = m_PRFIndex;
         m_PRFIndexTempBak = m_PRFIndex;
-		ScanMode::GetInstance()->EnterHPRF(TRUE);
+        ScanMode::GetInstance()->EnterHPRF(TRUE);
     }
-	else
+    else
     {
         //m_PRFIndex = m_PRFIndexBak;
-		ScanMode::GetInstance()->EnterHPRF(FALSE);
+        ScanMode::GetInstance()->EnterHPRF(FALSE);
     }
 
-	int dotBegin;
-	int dotEnd;
-	SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, FALSE);
-	SwitchHPRF(on, m_svPos*m_ptrImg2D->GetScale2DInImgHDot());
+    int dotBegin;
+    int dotEnd;
+    SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, FALSE);
+    SwitchHPRF(on, m_svPos*m_ptrImg2D->GetScale2DInImgHDot());
 
-	//update view
+    //update view
     UpdateSV(m_pwLine, dotBegin, dotEnd, GetHPRFEmitPos());
 #endif
-	m_ptrUpdate->HPRF(on, ret);
+    m_ptrUpdate->HPRF(on, ret);
 }
 
 EKnobReturn ImgPw::PRFHPRF(int index)
 {
-	m_ptrCalc->CalcMaxPeriod(GetPRFValue(index));
+    m_ptrCalc->CalcMaxPeriod(GetPRFValue(index));
 
-	// update vie
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_PRF - 1))
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRF(GetPRFValue(index), ret);
+    // update vie
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_PRF - 1))
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRF(GetPRFValue(index), ret);
 
-	// update para
-	WhenPRFChanged(index);
+    // update para
+    WhenPRFChanged(index);
 
-	return ret;
+    return ret;
 }
 
 EKnobReturn ImgPw::PRF(int index)
@@ -2884,10 +2871,10 @@ EKnobReturn ImgPw::PRF(int index)
 
     IoCtrl io;
     io.Freeze();
-	EKnobReturn ret = OK;
+    EKnobReturn ret = OK;
 
 #ifdef EMP_355
-	bool mode = ViewMain::GetInstance()->GetModeIsFlag();
+    bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(!mode)
     {
         bool retVal = CalcPRFNormal(GetPRFValue(index), m_depthToSample);
@@ -2910,28 +2897,28 @@ EKnobReturn ImgPw::PRF(int index)
         WhenPRFChanged(index);
     }
 #else
-	// calPwc
-	bool retVal = CalcPRFNormal(GetPRFValue(index), m_depthToSample);
-	if (m_PRFIndex == 0) // must use m_PRFIndex, PRF mybe call recursive in ClusterSizeNormal functon
-		ret = MIN;
-	else if (m_PRFIndex == m_maxPRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRF(GetPRFValue(m_PRFIndex), ret);
+    // calPwc
+    bool retVal = CalcPRFNormal(GetPRFValue(index), m_depthToSample);
+    if (m_PRFIndex == 0) // must use m_PRFIndex, PRF mybe call recursive in ClusterSizeNormal functon
+        ret = MIN;
+    else if (m_PRFIndex == m_maxPRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRF(GetPRFValue(m_PRFIndex), ret);
 
-	// update para
+    // update para
     if (retVal)
-	{
-		PRINTF("----------------------prf normal: index = %d\n", index);
+    {
+        PRINTF("----------------------prf normal: index = %d\n", index);
         WhenPRFChanged(index);
-	}
+    }
 #endif
     ScanMode::GetInstance()->SetPWPulseNum();
 
     io.Unfreeze();
 
-	return ret;
+    return ret;
 }
 
 /*
@@ -2939,27 +2926,27 @@ EKnobReturn ImgPw::PRF(int index)
  */
 EKnobReturn ImgPw::PRFSimult2(int index)
 {
-	PRINTF("----------prf simult2: SIMULT2_PRF = %d, m_depthToSample = %f\n", SIMULT2_PRF[index], m_depthToSample);
-	// calc maxperiod
-	bool retVal = CalcPRFSimult2(SIMULT2_PRF[index], m_depthToSample);
+    PRINTF("----------prf simult2: SIMULT2_PRF = %d, m_depthToSample = %f\n", SIMULT2_PRF[index], m_depthToSample);
+    // calc maxperiod
+    bool retVal = CalcPRFSimult2(SIMULT2_PRF[index], m_depthToSample);
     EKnobReturn ret = OK;
-	if (m_simult2PRFIndex == 0)
+    if (m_simult2PRFIndex == 0)
         ret = MIN;
-	else if (m_simult2PRFIndex == m_maxSimult2PRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRF(SIMULT2_PRF[m_simult2PRFIndex], ret);
+    else if (m_simult2PRFIndex == m_maxSimult2PRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRF(SIMULT2_PRF[m_simult2PRFIndex], ret);
 
-	// update prf index in normal mode
+    // update prf index in normal mode
     if (retVal)
     {
         m_PRFIndex = GetPRFIndex(SIMULT2_PRF[index]);
-		PRINTF("----------------------prf simult2: index = %d\n", m_PRFIndex);
+        PRINTF("----------------------prf simult2: index = %d\n", m_PRFIndex);
         WhenPRFChanged(m_PRFIndex);
     }
 
-	return ret;
+    return ret;
 }
 
 /*
@@ -2967,29 +2954,29 @@ EKnobReturn ImgPw::PRFSimult2(int index)
  */
 EKnobReturn ImgPw::PRFSimult3(int index)
 {
-	//cluster size
-	bool retVal = CalcPRFSimult3(SIMULT3_PRF[index], m_depthToSample);
-	EKnobReturn ret = OK;
-	if (m_simult3PRFIndex == 0)
-		ret = MIN;
-	else if (m_simult3PRFIndex == m_maxSimult3PRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRF(SIMULT3_PRF[m_simult3PRFIndex], ret);
+    //cluster size
+    bool retVal = CalcPRFSimult3(SIMULT3_PRF[index], m_depthToSample);
+    EKnobReturn ret = OK;
+    if (m_simult3PRFIndex == 0)
+        ret = MIN;
+    else if (m_simult3PRFIndex == m_maxSimult3PRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRF(SIMULT3_PRF[m_simult3PRFIndex], ret);
 
-	// update CFM prf index in normal mode
+    // update CFM prf index in normal mode
     if (retVal)
     {
         m_PRFIndex = GetPRFIndex(SIMULT3_PRF[index]);
-		PRINTF("----------------simut3 prf = %d\n", PW_PRF[m_PRFIndex]);
+        PRINTF("----------------simut3 prf = %d\n", PW_PRF[m_PRFIndex]);
         WhenPRFChanged(m_PRFIndex);
 
         // cfm chang when simult3
         ImgCfm::GetInstance()->PRFSimult3(SIMULT3_PRF[index], ret);
     }
 
-	return ret;
+    return ret;
 }
 
 bool ImgPw::CalcPRFNormal(int prf, float samplePos)
@@ -2998,18 +2985,18 @@ bool ImgPw::CalcPRFNormal(int prf, float samplePos)
 
     //因为m_PRFIndex在上面的函数中可能会变化，此时计算的maxPeriof必须和变化了的prfIndex对应
     //该处理放到上面的函数内部进行处理
-	//m_ptrCalc->CalcMaxPeriod(prf);
+    //m_ptrCalc->CalcMaxPeriod(prf);
 
     // view
     EKnobReturn ret = OK;
-	if (m_PRFIndex == 0)
-		ret = MIN;
-	else if (m_PRFIndex == m_maxPRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
+    if (m_PRFIndex == 0)
+        ret = MIN;
+    else if (m_PRFIndex == m_maxPRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
 
-	m_ptrUpdate->PRFRange(GetPRFValue(m_PRFIndex), ret);
+    m_ptrUpdate->PRFRange(GetPRFValue(m_PRFIndex), ret);
 
     PRINTF("prf = %d, prfMaxIndex = %d\n", prf, m_maxPRFIndex);
     return TRUE;
@@ -3038,74 +3025,74 @@ bool ImgPw::CalcPRFMaxIndex(float samplePos)
         return FALSE;
     }
 
-	m_ptrCalc->CalcMaxPeriod(GetPRFValue(m_PRFIndex));
+    m_ptrCalc->CalcMaxPeriod(GetPRFValue(m_PRFIndex));
 }
 
 bool ImgPw::CalcPRFSimult2(int prfSimult, float samplePos)
 {
-	// calc
-	float depth2D = Img2D::GetInstance()->GetDepth();
-	float depthSv = samplePos;
-	float speed = Img2D::GetInstance()->GetSoundSpeed();
-	int maxPeriod2D = depth2D * 2 / speed + 5 ; //us
-	int maxPeriodCfm = maxPeriod2D;
-	int maxPeriodPw;// = maxPeriod2D;
-	int prf = prfSimult;
+    // calc
+    float depth2D = Img2D::GetInstance()->GetDepth();
+    float depthSv = samplePos;
+    float speed = Img2D::GetInstance()->GetSoundSpeed();
+    int maxPeriod2D = depth2D * 2 / speed + 5 ; //us
+    int maxPeriodCfm = maxPeriod2D;
+    int maxPeriodPw;// = maxPeriod2D;
+    int prf = prfSimult;
 
-	maxPeriodPw = depthSv * 2 /speed + 5; //us
+    maxPeriodPw = depthSv * 2 /speed + 5; //us
 
-	int mbp = 1;
-	if (m_ptrImg2D != NULL)
-	{
-		mbp = m_ptrImg2D->GetMBPFpgaColor();
-	}
+    int mbp = 1;
+    if (m_ptrImg2D != NULL)
+    {
+        mbp = m_ptrImg2D->GetMBPFpgaColor();
+    }
 
-	int maxValue = 100;
-	if (mbp <= 2)
-		maxValue = 80;
-	else
-		maxValue = 100;
+    int maxValue = 100;
+    if (mbp <= 2)
+        maxValue = 80;
+    else
+        maxValue = 100;
 
-	if(maxPeriod2D < maxValue)
-		maxPeriod2D = maxValue;
+    if(maxPeriod2D < maxValue)
+        maxPeriod2D = maxValue;
 
-	PRINTF("================ duplex: calculate maxPeriod =============\n");
-	PRINTF(" maxPeriod2D = %d maxPeriodPw = %d, maxPeriodCfm = %d \n",maxPeriod2D,maxPeriodPw,maxPeriodCfm);
-	//deal the problem prf is out of range
-	int maxPRF = (float)1000000 / (maxPeriod2D + FOC_LOW_TIME + maxPeriodPw + FOC_LOW_TIME); //hz
-	m_maxSimult2PRFIndex = GetSimult2PRFIndex(maxPRF);
-	if (m_simult2PRFIndex > m_maxSimult2PRFIndex)
-	{
-		m_simult2PRFIndex = m_maxSimult2PRFIndex;
-		PRFSimult2(m_simult2PRFIndex);
-		return FALSE;
-	}
+    PRINTF("================ duplex: calculate maxPeriod =============\n");
+    PRINTF(" maxPeriod2D = %d maxPeriodPw = %d, maxPeriodCfm = %d \n",maxPeriod2D,maxPeriodPw,maxPeriodCfm);
+    //deal the problem prf is out of range
+    int maxPRF = (float)1000000 / (maxPeriod2D + FOC_LOW_TIME + maxPeriodPw + FOC_LOW_TIME); //hz
+    m_maxSimult2PRFIndex = GetSimult2PRFIndex(maxPRF);
+    if (m_simult2PRFIndex > m_maxSimult2PRFIndex)
+    {
+        m_simult2PRFIndex = m_maxSimult2PRFIndex;
+        PRFSimult2(m_simult2PRFIndex);
+        return FALSE;
+    }
 
-	int clusterSize =  ((float)1000000/prf - maxPeriodPw - FOC_LOW_TIME) / (maxPeriod2D + FOC_LOW_TIME);
-	maxPeriodPw = 1000000/(float)prf - (maxPeriod2D + FOC_LOW_TIME) * clusterSize - FOC_LOW_TIME;
+    int clusterSize =  ((float)1000000/prf - maxPeriodPw - FOC_LOW_TIME) / (maxPeriod2D + FOC_LOW_TIME);
+    maxPeriodPw = 1000000/(float)prf - (maxPeriod2D + FOC_LOW_TIME) * clusterSize - FOC_LOW_TIME;
 
-	PRINTF("========================= duplex parameters===================\n");
-	PRINTF("maxPRF = %d,clusterSize = %d,  maxPeriod2D = %d, maxPeriodCFM = %d, maxPeriodPW = %d\n",maxPRF,clusterSize,maxPeriod2D,maxPeriodCfm,maxPeriodPw);
-	PRINTF("=========== duplex PRFtime = %d\n",maxPeriodPw+60+(maxPeriod2D+60)*clusterSize);
+    PRINTF("========================= duplex parameters===================\n");
+    PRINTF("maxPRF = %d,clusterSize = %d,  maxPeriod2D = %d, maxPeriodCFM = %d, maxPeriodPW = %d\n",maxPRF,clusterSize,maxPeriod2D,maxPeriodCfm,maxPeriodPw);
+    PRINTF("=========== duplex PRFtime = %d\n",maxPeriodPw+60+(maxPeriod2D+60)*clusterSize);
 
-	// send to fpga
-	FpgaCfm fpgaCfm;
-	FpgaPw fpgaPw;
-	FpgaCtrl2D fpga2D;
-	fpga2D.SendMaxPeriod(maxPeriod2D);
-	fpgaPw.SendMaxPeriod(maxPeriodPw);
-	fpgaCfm.SendClusterSize(clusterSize);//useful
-	fpgaCfm.SendMaxPeriod(maxPeriodCfm);
+    // send to fpga
+    FpgaCfm fpgaCfm;
+    FpgaPw fpgaPw;
+    FpgaCtrl2D fpga2D;
+    fpga2D.SendMaxPeriod(maxPeriod2D);
+    fpgaPw.SendMaxPeriod(maxPeriodPw);
+    fpgaCfm.SendClusterSize(clusterSize);//useful
+    fpgaCfm.SendMaxPeriod(maxPeriodCfm);
 
     // view
     EKnobReturn ret = OK;
-	if (m_simult2PRFIndex == 0)
-		ret = MIN;
-	else if (m_simult2PRFIndex == m_maxSimult2PRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRFRange(SIMULT2_PRF[m_simult2PRFIndex], ret);
+    if (m_simult2PRFIndex == 0)
+        ret = MIN;
+    else if (m_simult2PRFIndex == m_maxSimult2PRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRFRange(SIMULT2_PRF[m_simult2PRFIndex], ret);
 
     return TRUE;
 }
@@ -3117,94 +3104,94 @@ bool ImgPw::CalcPRFSimult2(int prfSimult, float samplePos)
  */
 bool ImgPw::CalcPRFSimult3(int prfSimult, int samplePos)
 {
-	// calc
-	float depth2D = m_ptrImg2D->GetDepth();
-	float speed = Img2D::GetInstance()->GetSoundSpeed();
+    // calc
+    float depth2D = m_ptrImg2D->GetDepth();
+    float speed = Img2D::GetInstance()->GetSoundSpeed();
 #ifdef EMP_430
-	int maxPeriod2D = depth2D * 2 / speed +10;// 5 ; //us
-	int maxPeriodPw = samplePos * 2 / speed + 10;//5 ;//us
+    int maxPeriod2D = depth2D * 2 / speed +10;// 5 ; //us
+    int maxPeriodPw = samplePos * 2 / speed + 10;//5 ;//us
 #else
-	int maxPeriod2D = depth2D * 2 / speed +5;// 20;// 5 ; //us
-	int maxPeriodPw = samplePos * 2 / speed + 5;// 20;//5 ;//us
+    int maxPeriod2D = depth2D * 2 / speed +5;// 20;// 5 ; //us
+    int maxPeriodPw = samplePos * 2 / speed + 5;// 20;//5 ;//us
 #endif
-	int maxPeriodCfm = maxPeriod2D;
-	int prf = prfSimult;
+    int maxPeriodCfm = maxPeriod2D;
+    int prf = prfSimult;
 
-//	PRINTF("================triplex: calculate maxPeriod=============\n");
-//	PRINTF(" maxPeriod2D = %d maxPeriodPw = %d, maxPeriodCfm = %d \n",maxPeriod2D,maxPeriodPw,maxPeriodCfm);
+//  PRINTF("================triplex: calculate maxPeriod=============\n");
+//  PRINTF(" maxPeriod2D = %d maxPeriodPw = %d, maxPeriodCfm = %d \n",maxPeriod2D,maxPeriodPw,maxPeriodCfm);
 
-	int mbp = 1;
-	if (m_ptrImg2D != NULL)
-	{
-		mbp = m_ptrImg2D->GetMBPFpgaColor();
-		PRINTF("mbp = %d\n", mbp);
-	}
+    int mbp = 1;
+    if (m_ptrImg2D != NULL)
+    {
+        mbp = m_ptrImg2D->GetMBPFpgaColor();
+        PRINTF("mbp = %d\n", mbp);
+    }
 
-	int maxValue = 100;
-	if (mbp <= 2)
-		maxValue = 80;
-	else
-		maxValue = 100;
+    int maxValue = 100;
+    if (mbp <= 2)
+        maxValue = 80;
+    else
+        maxValue = 100;
 
-	if(maxPeriodCfm < maxValue)
-		maxPeriodCfm = maxValue;
+    if(maxPeriodCfm < maxValue)
+        maxPeriodCfm = maxValue;
 
-	maxPeriod2D = maxPeriodCfm;
+    maxPeriod2D = maxPeriodCfm;
 
-	// if or not is out of range
-	int maxPRF = (float)1000000 / (maxPeriod2D + FOC_LOW_TIME + maxPeriodPw + FOC_LOW_TIME); //hzi
-	m_maxSimult3PRFIndex = GetSimult3PRFIndex(maxPRF);
-	if (m_simult3PRFIndex > m_maxSimult3PRFIndex)
-	{
-		m_simult3PRFIndex = m_maxSimult3PRFIndex;
-		PRFSimult3(m_simult3PRFIndex);
-		return FALSE;
-	}
+    // if or not is out of range
+    int maxPRF = (float)1000000 / (maxPeriod2D + FOC_LOW_TIME + maxPeriodPw + FOC_LOW_TIME); //hzi
+    m_maxSimult3PRFIndex = GetSimult3PRFIndex(maxPRF);
+    if (m_simult3PRFIndex > m_maxSimult3PRFIndex)
+    {
+        m_simult3PRFIndex = m_maxSimult3PRFIndex;
+        PRFSimult3(m_simult3PRFIndex);
+        return FALSE;
+    }
 
-	// calc para and send to fpga
-	int clusterSize =  ((float)1000000/prf - maxPeriodPw - FOC_LOW_TIME) / (maxPeriod2D + FOC_LOW_TIME);
-	maxPeriodPw = 1000000/(float)prf - (maxPeriod2D + FOC_LOW_TIME) * clusterSize - FOC_LOW_TIME;
+    // calc para and send to fpga
+    int clusterSize =  ((float)1000000/prf - maxPeriodPw - FOC_LOW_TIME) / (maxPeriod2D + FOC_LOW_TIME);
+    maxPeriodPw = 1000000/(float)prf - (maxPeriod2D + FOC_LOW_TIME) * clusterSize - FOC_LOW_TIME;
 
-	PRINTF("=========================triplex parameters===================\n");
-	PRINTF("maxPRF = %d,clusterSize = %d,  maxPeriod2D = %d, maxPeriodCFM = %d, maxPeriodPW = %d\n",maxPRF,clusterSize,maxPeriod2D,maxPeriodCfm,maxPeriodPw);
+    PRINTF("=========================triplex parameters===================\n");
+    PRINTF("maxPRF = %d,clusterSize = %d,  maxPeriod2D = %d, maxPeriodCFM = %d, maxPeriodPW = %d\n",maxPRF,clusterSize,maxPeriod2D,maxPeriodCfm,maxPeriodPw);
 
-	//send to fpga
-	FpgaCfm fpgaCfm;
-	FpgaPw fpgaPw;
-	FpgaCtrl2D fpga2D;
-	fpga2D.SendMaxPeriod(maxPeriod2D);
-	fpgaPw.SendMaxPeriod(maxPeriodPw);
-	fpgaCfm.SendClusterSize(clusterSize);
-	fpgaCfm.SendMaxPeriod(maxPeriodCfm);
+    //send to fpga
+    FpgaCfm fpgaCfm;
+    FpgaPw fpgaPw;
+    FpgaCtrl2D fpga2D;
+    fpga2D.SendMaxPeriod(maxPeriod2D);
+    fpgaPw.SendMaxPeriod(maxPeriodPw);
+    fpgaCfm.SendClusterSize(clusterSize);
+    fpgaCfm.SendMaxPeriod(maxPeriodCfm);
 
     // view
-	EKnobReturn ret = OK;
-	if (m_simult3PRFIndex == 0)
-		ret = MIN;
-	else if (m_simult3PRFIndex == m_maxSimult3PRFIndex)
-		ret = MAX;
-	else
-		ret = OK;
-	m_ptrUpdate->PRFRange(SIMULT3_PRF[m_simult3PRFIndex], ret);
+    EKnobReturn ret = OK;
+    if (m_simult3PRFIndex == 0)
+        ret = MIN;
+    else if (m_simult3PRFIndex == m_maxSimult3PRFIndex)
+        ret = MAX;
+    else
+        ret = OK;
+    m_ptrUpdate->PRFRange(SIMULT3_PRF[m_simult3PRFIndex], ret);
 
     return TRUE;
 }
 
 void ImgPw::CalcPRF(int prf, float samplePos)
 {
-	if (m_simult2)
-		CalcPRFSimult2(prf,samplePos);
-	else if (m_simult3)
-		CalcPRFSimult3(prf,samplePos);
-	else
-		CalcPRFNormal(prf, samplePos);
+    if (m_simult2)
+        CalcPRFSimult2(prf,samplePos);
+    else if (m_simult3)
+        CalcPRFSimult3(prf,samplePos);
+    else
+        CalcPRFNormal(prf, samplePos);
 }
 
 void ImgPw::WhenPRFChanged(int index)
 {
-	EKnobReturn ret = OK;
+    EKnobReturn ret = OK;
 
-	// sound stop dot
+    // sound stop dot
 #ifdef EMP_355
  if(ViewMain::GetInstance()->GetModeIsFlag())
     {
@@ -3216,61 +3203,61 @@ void ImgPw::WhenPRFChanged(int index)
         m_ptrCalc->CalcSoundStopDot(GetPRFValue(index));
     }
 #else
-	m_ptrCalc->CalcSoundStopDot(GetPRFValue(index));
+    m_ptrCalc->CalcSoundStopDot(GetPRFValue(index));
 #endif
 
-	if (m_wallFilterIndex == (MAX_WALL_FILTER-1))
-		ret = MAX;
-	else if (m_wallFilterIndex == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    if (m_wallFilterIndex == (MAX_WALL_FILTER-1))
+        ret = MAX;
+    else if (m_wallFilterIndex == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	m_ptrUpdate->WallFilter(m_wallFilterIndex, ret);
-	// pw trace
-	CalcTraceFs(m_wallFilterIndex, index, m_baseline, m_angle);
+    m_ptrUpdate->WallFilter(m_wallFilterIndex, ret);
+    // pw trace
+    CalcTraceFs(m_wallFilterIndex, index, m_baseline, m_angle);
 
-	if (m_speedIndex == 0)
-		ret = MIN;
-	else if (m_speedIndex == (MAX_SPEED_INDEX-1))
-		ret = MAX;
-	else
-		ret = OK;
-	SpectrumSpeed(m_speedIndex, index, ret);
+    if (m_speedIndex == 0)
+        ret = MIN;
+    else if (m_speedIndex == (MAX_SPEED_INDEX-1))
+        ret = MAX;
+    else
+        ret = OK;
+    SpectrumSpeed(m_speedIndex, index, ret);
 }
 void ImgPw::GrayMap(int index, EKnobReturn ret)
 {
-	m_ptrUpdate->GrayMap(index, ret);
+    m_ptrUpdate->GrayMap(index, ret);
 }
 
 void ImgPw::NoiseThreshold(int data, EKnobReturn ret)
 {
-	SetTraceNoiseThreshold(data);
+    SetTraceNoiseThreshold(data);
 
-	// send to fpga
-	m_ptrCalc->CalcNoise(data);
+    // send to fpga
+    m_ptrCalc->CalcNoise(data);
 
-	m_ptrUpdate->Noise(data, ret);
+    m_ptrUpdate->Noise(data, ret);
 }
 
 void ImgPw::SoundFilter(int index, EKnobReturn ret)
 {
-	// send to fpga
-	m_ptrCalc->CalcSoundFilter(index);
+    // send to fpga
+    m_ptrCalc->CalcSoundFilter(index);
 
-	m_ptrUpdate->SoundFilter(index, ret);
+    m_ptrUpdate->SoundFilter(index, ret);
 }
 
 void ImgPw::Invert(bool on)
 {
-	// send to dsc
-	//	m_ptrDscPara->dcaPWIPAttrs.ipaUDOverturn = on;
+    // send to dsc
+    //  m_ptrDscPara->dcaPWIPAttrs.ipaUDOverturn = on;
 
-	// send to fpga
-	m_ptrCalc->CalcInvert(on);
+    // send to fpga
+    m_ptrCalc->CalcInvert(on);
 
-	// update view
-	m_ptrUpdate->SpectrumInvert(on);
+    // update view
+    m_ptrUpdate->SpectrumInvert(on);
 }
 
 /*
@@ -3290,8 +3277,8 @@ void ImgPw::Steer(int angle, EKnobReturn ret)
     m_ptrUpdate->Steer(angle, ret);
 
     // draw sample volume
-	int current, before;
-	double angleCurrent, angleBefore, dAngle;
+    int current, before;
+    double angleCurrent, angleBefore, dAngle;
     current = angle;
     before = STEER_ANGLE[m_steerIndexBak];
 
@@ -3302,93 +3289,93 @@ void ImgPw::Steer(int angle, EKnobReturn ret)
         m_angle = abs(m_angle);
 
     EKnobReturn ret1 = OK;
-	if (m_angle == -MAX_ANGLE)
-		ret1 = MIN;
-	else if (m_angle== MAX_ANGLE)
-		ret1 = MAX;
-	else
-		ret1 = OK;
+    if (m_angle == -MAX_ANGLE)
+        ret1 = MIN;
+    else if (m_angle== MAX_ANGLE)
+        ret1 = MAX;
+    else
+        ret1 = OK;
     CorrectAngle(m_angle, ret1);
 
-	// steer sv, make center of sv is not changed according to screen
+    // steer sv, make center of sv is not changed according to screen
     angleCurrent = current * PI / 180;
-	angleBefore = before * PI / 180;
-	dAngle = angleCurrent - angleBefore;
-	double scale = m_ptrImg2D->GetScale2DInImgHDot();
-	float focPos = m_svPosBefore * scale;
-	float wLines = m_ptrImg2D->GetWidthBetweenLinesL();
-	int nLines = focPos * sin(dAngle) / wLines;
-	int nDots = m_svPosBefore * fabs(cos(angleBefore)) / cos(angleCurrent) - m_svPosBefore;
+    angleBefore = before * PI / 180;
+    dAngle = angleCurrent - angleBefore;
+    double scale = m_ptrImg2D->GetScale2DInImgHDot();
+    float focPos = m_svPosBefore * scale;
+    float wLines = m_ptrImg2D->GetWidthBetweenLinesL();
+    int nLines = focPos * sin(dAngle) / wLines;
+    int nDots = m_svPosBefore * fabs(cos(angleBefore)) / cos(angleCurrent) - m_svPosBefore;
 
-	int rangeLine[2], rangeSvPos[2];
-	GetPwLineRange(rangeLine[0], rangeLine[1]);
-	GetSvPosRange(rangeSvPos[0], rangeSvPos[1]);
-	if (((m_pwLine - nLines) >= rangeLine[0]) && (m_pwLine - nLines) <= rangeLine[1])
-		m_pwLine -= nLines;
-	if (((m_svPosBefore + nDots) >= rangeSvPos[0]) && ((m_svPosBefore + nDots) <= rangeSvPos[1]))
+    int rangeLine[2], rangeSvPos[2];
+    GetPwLineRange(rangeLine[0], rangeLine[1]);
+    GetSvPosRange(rangeSvPos[0], rangeSvPos[1]);
+    if (((m_pwLine - nLines) >= rangeLine[0]) && (m_pwLine - nLines) <= rangeLine[1])
+        m_pwLine -= nLines;
+    if (((m_svPosBefore + nDots) >= rangeSvPos[0]) && ((m_svPosBefore + nDots) <= rangeSvPos[1]))
     {
-		m_svPosBefore += nDots;
+        m_svPosBefore += nDots;
         m_svPos = SVPosCorrect(m_svPosBefore);
     }
-	SendSampleVolume(m_pwLine, m_svPos, m_svLen);
+    SendSampleVolume(m_pwLine, m_svPos, m_svLen);
 
-	// change focus
+    // change focus
     FocPos(m_svPos);
 }
 
 void ImgPw::ChangeSoundPower(EKnobOper oper)
 {
-	int power = m_ptrImg2D->GetOutputPower();
-	CalcFocPulse(m_freq[m_freqIndex], power);
+    int power = m_ptrImg2D->GetOutputPower();
+    CalcFocPulse(m_freq[m_freqIndex], power);
 }
 
 // for test
 EKnobReturn ImgPw::ChangeSoundFilter(EKnobOper oper)
 {
-	int index = m_soundFilterIndex;
-	int step = 1;
-	int max = m_ptrCalc->GetMaxSoundFilter();
+    int index = m_soundFilterIndex;
+    int step = 1;
+    int max = m_ptrCalc->GetMaxSoundFilter();
 
-	if (oper == ADD)
-	{
-		if (index < (max - 1))
-		{
-			index += step;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= step;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (index < (max - 1))
+        {
+            index += step;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= step;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	m_soundFilterIndex = index;
+    m_soundFilterIndex = index;
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (max - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (max - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	SoundFilter(m_soundFilterIndex, ret);
+    SoundFilter(m_soundFilterIndex, ret);
 
-	return (ret);
+    return (ret);
 }
 
 /** @brief switch between HPRF and PRF.
@@ -3397,14 +3384,14 @@ EKnobReturn ImgPw::ChangeSoundFilter(EKnobOper oper)
  */
 int ImgPw::SwitchHPRF(bool on, float svPos)
 {
-	int num = 0;
-	int dotBegin;
-	int dotEnd;
+    int num = 0;
+    int dotBegin;
+    int dotEnd;
 #ifdef EMP_355
  if(on)
-	{
-		float svBegin = svPos - (float)m_svLen/20;
-		float svEnd = svBegin + (float)m_svLen/10;
+    {
+        float svBegin = svPos - (float)m_svLen/20;
+        float svEnd = svBegin + (float)m_svLen/10;
 
         PRINTF("=================111111SV Depth HPRF 1: svBegin = %3f, svEnd = %3f \n",svBegin,svEnd);
         //test
@@ -3451,9 +3438,9 @@ int ImgPw::SwitchHPRF(bool on, float svPos)
     }
 #else
     if(on)
-	{
-		float svBegin = svPos - (float)m_svLen/20;
-		float svEnd = svBegin + (float)m_svLen/10;
+    {
+        float svBegin = svPos - (float)m_svLen/20;
+        float svEnd = svBegin + (float)m_svLen/10;
 
         PRINTF("=================111111SV Depth HPRF 1: svBegin = %3f, svEnd = %3f \n",svBegin,svEnd);
         //test
@@ -3461,35 +3448,35 @@ int ImgPw::SwitchHPRF(bool on, float svPos)
         num = m_ptrCalc->SVPosPRFToHPRF(svBegin, svEnd, GetPRFValue(m_PRFIndex));
 
         // recalc
-		float speed = m_ptrImg2D->GetSoundSpeed();
-		if (svEnd < 25)
-			m_depthToSample = 25;
-		else
-			m_depthToSample = svEnd;
+        float speed = m_ptrImg2D->GetSoundSpeed();
+        if (svEnd < 25)
+            m_depthToSample = 25;
+        else
+            m_depthToSample = svEnd;
 
         m_ptrCalc->CalcHDotSample(m_depthToSample, speed);
         //reCalc end
 
-		double scale = m_depthToSample / (float)IMG_H;
-		dotBegin = svBegin / scale;
-		dotEnd = svEnd / scale;
-		SVCorrect(dotBegin, dotEnd);
+        double scale = m_depthToSample / (float)IMG_H;
+        dotBegin = svBegin / scale;
+        dotEnd = svEnd / scale;
+        SVCorrect(dotBegin, dotEnd);
 
-		PRINTF("============== PRFindex HPRF : m_PRFIndex = %d, m_PRFIndexTempBak = %d \n",m_PRFIndex,m_PRFIndexTempBak);
+        PRINTF("============== PRFindex HPRF : m_PRFIndex = %d, m_PRFIndexTempBak = %d \n",m_PRFIndex,m_PRFIndexTempBak);
         if (m_PRFIndex != m_PRFIndexTempBak)
         {
             m_PRFIndexTempBak = m_PRFIndex;
             PRFHPRF(m_PRFIndex);
         }
-	}
-	else
-	{
-		//send to fpga
-		SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, TRUE);
+    }
+    else
+    {
+        //send to fpga
+        SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, TRUE);
         PRF(m_PRFIndex);
-	}
+    }
 
-	m_ptrCalc->CalcHPRF(num);
+    m_ptrCalc->CalcHPRF(num);
 #endif
     return num;
 }
@@ -3499,13 +3486,13 @@ int ImgPw::SwitchHPRF(bool on, float svPos)
  */
 vector<int> ImgPw::GetHPRFEmitPos(void)
 {
-	vector<int> emitDots;
-	double soundSpeed = m_ptrImg2D->GetSoundSpeed();
+    vector<int> emitDots;
+    double soundSpeed = m_ptrImg2D->GetSoundSpeed();
 
-	if(m_HPRF)
-		emitDots = m_ptrCalc->GetHPRFEmitPos(GetPRFValue(m_PRFIndex), m_svPos, soundSpeed, m_ptrImg2D->GetScale2DInImgHDot());
+    if(m_HPRF)
+        emitDots = m_ptrCalc->GetHPRFEmitPos(GetPRFValue(m_PRFIndex), m_svPos, soundSpeed, m_ptrImg2D->GetScale2DInImgHDot());
 
-	return emitDots;
+    return emitDots;
 }
 
 /*
@@ -3518,25 +3505,25 @@ vector<int> ImgPw::GetHPRFEmitPos(void)
  */
 int ImgPw::GetSpeed(int speedIndex, int prf)
 {
-	int speed = SPECTRUM_SPEED[speedIndex];
-	int speedNew = prf * speed / 8000;//8000;
+    int speed = SPECTRUM_SPEED[speedIndex];
+    int speedNew = prf * speed / 8000;//8000;
 
-	//PRINTF("(((((((((((((((((((((speedNew = %d\n", speedNew);
-	speedNew = speedNew;// / 2 * 2;
-	if (speedNew > 127)
-		speedNew = 127;
-	if (speedNew < 1)
-		speedNew = 1;
+    //PRINTF("(((((((((((((((((((((speedNew = %d\n", speedNew);
+    speedNew = speedNew;// / 2 * 2;
+    if (speedNew > 127)
+        speedNew = 127;
+    if (speedNew < 1)
+        speedNew = 1;
 
-//	PRINTF("revised speedNew = %d\n", speedNew);
+//  PRINTF("revised speedNew = %d\n", speedNew);
 
-	return speedNew;
+    return speedNew;
 }
 void ImgPw::Log(int value, EKnobReturn ret)
 {
-	m_ptrCalc->CalcLog(value);
+    m_ptrCalc->CalcLog(value);
 
-	m_ptrUpdate->Log(value, ret);
+    m_ptrUpdate->Log(value, ret);
 }
 
 /*
@@ -3548,143 +3535,143 @@ void ImgPw::Log(int value, EKnobReturn ret)
  */
 int ImgPw::GetPRFIndex(unsigned int prf) //unit:hz
 {
-	int i;
+    int i;
 
-	for (i = 0; i < MAX_PRF; i ++)
-	{
-		if (GetPRFValue(i) == prf)
-		{
-			break;
-		}
-		else if (GetPRFValue(i) > prf)
-		{
-			i--;
-			break;
-		}
-	}
+    for (i = 0; i < MAX_PRF; i ++)
+    {
+        if (GetPRFValue(i) == prf)
+        {
+            break;
+        }
+        else if (GetPRFValue(i) > prf)
+        {
+            i--;
+            break;
+        }
+    }
 
-	if ( i > MAX_PRF-1)
-		i = MAX_PRF-1;
-	else if (i < 0)
-		i = 0;
+    if ( i > MAX_PRF-1)
+        i = MAX_PRF-1;
+    else if (i < 0)
+        i = 0;
 
-	PRINTF("get index of prf, prf = %d\n", GetPRFValue(i));
+    PRINTF("get index of prf, prf = %d\n", GetPRFValue(i));
 
-	return i;
+    return i;
 }
 
 int ImgPw::GetSimult2PRFIndex(unsigned int prf) //unit:hz
 {
-	int i;
+    int i;
 
-	for (i = 0; i < MAX_SIMULT2_PRF_INDEX; i ++)
-	{
-		if (SIMULT2_PRF[i] == prf)
-		{
-			break;
-		}
-		else if (SIMULT2_PRF[i] > prf)
-		{
-			i--;
-			break;
-		}
-	}
+    for (i = 0; i < MAX_SIMULT2_PRF_INDEX; i ++)
+    {
+        if (SIMULT2_PRF[i] == prf)
+        {
+            break;
+        }
+        else if (SIMULT2_PRF[i] > prf)
+        {
+            i--;
+            break;
+        }
+    }
 
-	if ( i > MAX_SIMULT2_PRF_INDEX - 1)
-		i = MAX_SIMULT2_PRF_INDEX - 1;
-	else if ( i < 0)
-		i = 0;
+    if ( i > MAX_SIMULT2_PRF_INDEX - 1)
+        i = MAX_SIMULT2_PRF_INDEX - 1;
+    else if ( i < 0)
+        i = 0;
 
-	return i;
+    return i;
 }
 
 int ImgPw::GetSimult3PRFIndex(unsigned int prf) //unit:hz
 {
-	int i;
+    int i;
 
-	for (i = 0; i < MAX_SIMULT3_PRF_INDEX; i ++)
-	{
-		if (SIMULT3_PRF[i] == prf)
-		{
-			break;
-		}
-		else if (SIMULT3_PRF[i] > prf)
-		{
-			i--;
-			break;
-		}
-	}
+    for (i = 0; i < MAX_SIMULT3_PRF_INDEX; i ++)
+    {
+        if (SIMULT3_PRF[i] == prf)
+        {
+            break;
+        }
+        else if (SIMULT3_PRF[i] > prf)
+        {
+            i--;
+            break;
+        }
+    }
 
-	if ( i > MAX_SIMULT3_PRF_INDEX - 1)
-		i = MAX_SIMULT3_PRF_INDEX - 1;
-	else if (i < 0)
-		i = 0;
+    if ( i > MAX_SIMULT3_PRF_INDEX - 1)
+        i = MAX_SIMULT3_PRF_INDEX - 1;
+    else if (i < 0)
+        i = 0;
 
-	return i;
+    return i;
 }
 
 int ImgPw::CalcTraceFs(int wallFilterIndex, int prfIndex, int baseline, int angleCorrect)
 {
-	double speed = SOUND_SPEED * 1000;
- 	int wf;
+    double speed = SOUND_SPEED * 1000;
+    int wf;
 #ifdef EMP_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
         wf = WALL_FILTER_FREQ_CW[m_PRFIndex][wallFilterIndex];//unit:hz
     else
         wf = WALL_FILTER_FREQ[m_PRFIndex][wallFilterIndex];//unit:hz
 #else
-	wf = WALL_FILTER_FREQ[m_PRFIndex][wallFilterIndex];//unit:hz
+    wf = WALL_FILTER_FREQ[m_PRFIndex][wallFilterIndex];//unit:hz
 #endif
-	int freq = GetColorFreq();
+    int freq = GetColorFreq();
 
-	double vel = m_ptrCalc->CalcMaxVel(wf, freq, angleCorrect, speed);
-	double scaleVel = GetScaleVel();
+    double vel = m_ptrCalc->CalcMaxVel(wf, freq, angleCorrect, speed);
+    double scaleVel = GetScaleVel();
 
-	int height = m_ptrDscPara->dcaPWSamplePoints;
-	if(DscMan::GetInstance()->GetDsc() != NULL && DscMan::GetInstance()->GetDsc()->GetPWHeight() > 0)
-		height =DscMan::GetInstance()->GetDsc()->GetPWHeight();
+    int height = m_ptrDscPara->dcaPWSamplePoints;
+    if(DscMan::GetInstance()->GetDsc() != NULL && DscMan::GetInstance()->GetDsc()->GetPWHeight() > 0)
+        height =DscMan::GetInstance()->GetDsc()->GetPWHeight();
 
-	float scalePos = (float)m_ptrDscPara->dcaPWSamplePoints / height;
-	int fs = (int)((vel / scaleVel) * scalePos);
+    float scalePos = (float)m_ptrDscPara->dcaPWSamplePoints / height;
+    int fs = (int)((vel / scaleVel) * scalePos);
 
-	SetTraceFs(fs);
-	return fs;
+    SetTraceFs(fs);
+    return fs;
 }
 
 void ImgPw::SetTraceFs(int fs)
 {
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.fs = fs;
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.fs = fs;
 }
 
 void ImgPw::SetTraceBaseline(int baseline)
 {
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.baseline = baseline;
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.baseline = baseline;
 }
 
 void ImgPw::SetTraceDynRange(int dynRange)
 {
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.dynRange = dynRange;
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.dynRange = dynRange;
 }
 
 void ImgPw::SetTraceGain(int gain)
 {
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.gain = gain;
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.gain = gain;
 }
 
 void ImgPw::SetTraceNoiseThreshold(int noiseThreshold)
 {
-	m_ptrDscPara->dcaPWIPAttrs.ipaTrace.noiseThreshold = noiseThreshold;
+    m_ptrDscPara->dcaPWIPAttrs.ipaTrace.noiseThreshold = noiseThreshold;
 }
 
 int ImgPw::CalcFocPulse(int freq, int power)
 {
-	int pulseCycle;
-	int pulseWidth;
+    int pulseCycle;
+    int pulseWidth;
 
-	pulseCycle = m_ptrCalc->CalcFocPulse(freq, power, pulseWidth);
-	GlobalClassMan::GetInstance()->GetCalc2D()->CalcWeightingEmitColor(pulseWidth);
+    pulseCycle = m_ptrCalc->CalcFocPulse(freq, power, pulseWidth);
+    GlobalClassMan::GetInstance()->GetCalc2D()->CalcWeightingEmitColor(pulseWidth);
 
-	return pulseCycle;
+    return pulseCycle;
 }
 
 void ImgPw::SVCorrect(int begin, int end)
@@ -3694,8 +3681,8 @@ void ImgPw::SVCorrect(int begin, int end)
 #else
     int offset = -15;
 #endif
-	PRINTF("*******///////// offset dots = %d \n", offset);
-	m_ptrCalc->CalcSvPos(begin-offset, end-offset);
+    PRINTF("*******///////// offset dots = %d \n", offset);
+    m_ptrCalc->CalcSvPos(begin-offset, end-offset);
 }
 
 void ImgPw::BalanceCfmInfo(int pwLine, int pwSvPos, int pwSvLen)
@@ -3747,11 +3734,11 @@ void ImgPw::BalanceCfmInfo(int pwLine, int pwSvPos, int pwSvLen)
         cfmDot[0] = pwDotBegin;
         cfmDot[1] = cfmDot[0] + offset;
 #ifdef EMP_355
-	if (cfmDot[1] > m_ptrImg2D->GetDepthDots())
-		cfmDot[1] = m_ptrImg2D->GetDepthDots();
+    if (cfmDot[1] > m_ptrImg2D->GetDepthDots())
+        cfmDot[1] = m_ptrImg2D->GetDepthDots();
 #else
-	if (cfmDot[1] > IMG_H)
-		cfmDot[1] = IMG_H;
+    if (cfmDot[1] > IMG_H)
+        cfmDot[1] = IMG_H;
 #endif
         outRange = TRUE;
     }
@@ -3776,8 +3763,8 @@ void ImgPw::FocPos(int svDotPos)
     //recalc the focus pos when the focus pos beyound old
     // inorder to improve the frame in cw mode
     int index = GetPwFocus(pos);
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
     char type = m_ptrImg2D->ReviseProbeType(para.type);
 #if 1
     if(ModeStatus::IsCWImgMode())
@@ -3820,10 +3807,10 @@ void ImgPw::FocPos(int svDotPos)
 
 void ImgPw::DelaySendPwPara(void)
 {
-	OnPwImgCtrl(FALSE);
-	int dotBegin;
-	int dotEnd;
-	m_sendPwLine = TRUE;
+    OnPwImgCtrl(FALSE);
+    int dotBegin;
+    int dotEnd;
+    m_sendPwLine = TRUE;
     //if(!m_HPRF)
     SVCalc(m_pwLine, m_svPos, m_svLen, dotBegin, dotEnd, m_sendPwLine);
     OnPwImgCtrl(TRUE);
@@ -3831,18 +3818,18 @@ void ImgPw::DelaySendPwPara(void)
 
 void ImgPw::OnPwImgCtrl(bool on)
 {
-	if (on)
-	{
-		m_pwImgCtrl = TRUE;
-	}
-	else
-	{
-		m_pwImgCtrl = FALSE;
-		int num = GetOffLineNum(m_speedIndex, GetPRFValue(m_PRFIndex));
-		m_ptrCalc->CalcPwImgCtrlPara(num);
-	}
+    if (on)
+    {
+        m_pwImgCtrl = TRUE;
+    }
+    else
+    {
+        m_pwImgCtrl = FALSE;
+        int num = GetOffLineNum(m_speedIndex, GetPRFValue(m_PRFIndex));
+        m_ptrCalc->CalcPwImgCtrlPara(num);
+    }
 
-	m_ptrCalc->CalcPwImgCtrl(m_pwImgCtrl);
+    m_ptrCalc->CalcPwImgCtrl(m_pwImgCtrl);
 }
 
 void ImgPw::OnCwImgCtrl(bool on)
@@ -3870,25 +3857,25 @@ void ImgPw::SetSpectrumModeCW(bool isCW)
 
 int ImgPw::GetOffLineNum(int spectrumSpeedIndex, int prf)
 {
-	const int PRF = 6000;
-	const int SPEED = GetSpeed(3, PRF);
-	const int LINES = 6;
-	int speed = GetSpeed(spectrumSpeedIndex, prf);
+    const int PRF = 6000;
+    const int SPEED = GetSpeed(3, PRF);
+    const int LINES = 6;
+    int speed = GetSpeed(spectrumSpeedIndex, prf);
 
-	int num = SPEED * prf * LINES /(float)(PRF * speed) + 0.5;
-	return num;
+    int num = SPEED * prf * LINES /(float)(PRF * speed) + 0.5;
+    return num;
 }
 
 int ImgPw::GetPwLineOneImg(int spectrumSpeedIndex, int prf)
 {
-	const int PRF = 6000;
-	const int SPEED = GetSpeed(3, PRF);
-	int speed = GetSpeed(spectrumSpeedIndex, prf);
+    const int PRF = 6000;
+    const int SPEED = GetSpeed(3, PRF);
+    int speed = GetSpeed(spectrumSpeedIndex, prf);
 
-	int num = SPEED * prf * 4 /(float)(PRF * speed) + 0.5;
-	if (spectrumSpeedIndex == 0)
-		num = 12;
-	return num;
+    int num = SPEED * prf * 4 /(float)(PRF * speed) + 0.5;
+    if (spectrumSpeedIndex == 0)
+        num = 12;
+    return num;
 }
 
 /*
@@ -4052,70 +4039,70 @@ void ImgPw::ChangeBandPassFilter(EKnobOper oper)
 //------------------------- Quick Adjustment Pw ------------------------------//
 void ImgPw::QAPwInitPara(int &prf)
 {
-	// PRF调节到最大
-	EKnobReturn ret;
-	ModeStatus s;
-	ScanMode::EScanMode mode = s.GetScanMode();
+    // PRF调节到最大
+    EKnobReturn ret;
+    ModeStatus s;
+    ScanMode::EScanMode mode = s.GetScanMode();
 
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
 
-	gdk_threads_enter();
-	if (mode == ScanMode::PW_SIMULT)
-	{
-		switch(para.type)
-		{
-			case 'C':
-				m_simult2PRFIndex = m_maxSimult2PRFIndex;
-				break;
-			case 'L':
-				m_simult2PRFIndex = m_maxSimult2PRFIndex;
-				break;
-			default:
-				m_simult2PRFIndex = m_maxSimult2PRFIndex;
-				break;
-		}
+    gdk_threads_enter();
+    if (mode == ScanMode::PW_SIMULT)
+    {
+        switch(para.type)
+        {
+            case 'C':
+                m_simult2PRFIndex = m_maxSimult2PRFIndex;
+                break;
+            case 'L':
+                m_simult2PRFIndex = m_maxSimult2PRFIndex;
+                break;
+            default:
+                m_simult2PRFIndex = m_maxSimult2PRFIndex;
+                break;
+        }
         PRINTF("-Init--m_simult2PRFIndex = %d\n", m_simult2PRFIndex);
-		ret = PRFSimult2(m_simult2PRFIndex);
-		prf = SIMULT2_PRF[m_simult2PRFIndex];
-	}
-	else if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
-	{
-		switch(para.type)
-		{
-			case 'C':
-				m_simult3PRFIndex = m_maxSimult3PRFIndex;
-				break;
-			case 'L':
-				m_simult3PRFIndex = m_maxSimult3PRFIndex;
-				break;
-			default:
-				m_simult3PRFIndex = m_maxSimult3PRFIndex;
-				break;
-		}
+        ret = PRFSimult2(m_simult2PRFIndex);
+        prf = SIMULT2_PRF[m_simult2PRFIndex];
+    }
+    else if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
+    {
+        switch(para.type)
+        {
+            case 'C':
+                m_simult3PRFIndex = m_maxSimult3PRFIndex;
+                break;
+            case 'L':
+                m_simult3PRFIndex = m_maxSimult3PRFIndex;
+                break;
+            default:
+                m_simult3PRFIndex = m_maxSimult3PRFIndex;
+                break;
+        }
         PRINTF("-Init--m_simult3PRFIndex = %d\n", m_simult3PRFIndex);
-		ret = PRFSimult3(m_simult3PRFIndex);
-		prf = SIMULT3_PRF[m_simult3PRFIndex];
-	}
-	else
-	{
-		switch(para.type)
-		{
-			case 'C':
-				m_PRFIndex = m_maxPRFIndex-2;
-				break;
-			case 'L':
-				m_PRFIndex = m_maxPRFIndex-4;
-				break;
-			default:
-				m_PRFIndex = m_maxPRFIndex-4;
-				break;
-		}
+        ret = PRFSimult3(m_simult3PRFIndex);
+        prf = SIMULT3_PRF[m_simult3PRFIndex];
+    }
+    else
+    {
+        switch(para.type)
+        {
+            case 'C':
+                m_PRFIndex = m_maxPRFIndex-2;
+                break;
+            case 'L':
+                m_PRFIndex = m_maxPRFIndex-4;
+                break;
+            default:
+                m_PRFIndex = m_maxPRFIndex-4;
+                break;
+        }
         PRINTF("-Init--m_PRFIndex = %d\n", m_PRFIndex);
-		ret = PRF(m_PRFIndex);
-		prf = PW_PRF[m_PRFIndex];
-	}
-	gdk_threads_leave();
+        ret = PRF(m_PRFIndex);
+        prf = PW_PRF[m_PRFIndex];
+    }
+    gdk_threads_leave();
 
     usleep(100000);
     // 基线调节到中间位置
@@ -4125,14 +4112,14 @@ void ImgPw::QAPwInitPara(int &prf)
     gdk_threads_leave();
 
     // pw-gain很小时，影响数据分析，增大gain
-	int data;
-	if (m_gainPw < 40)
-	{
-		data = 40;
-		SetTraceGain(data);
-		m_ptrImg2D->CalcTgc(data*MAX_GAIN_PW/100, m_tgc, 2);
-		m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
-	}
+    int data;
+    if (m_gainPw < 40)
+    {
+        data = 40;
+        SetTraceGain(data);
+        m_ptrImg2D->CalcTgc(data*MAX_GAIN_PW/100, m_tgc, 2);
+        m_ptrImg2D->CalcTgcDigital(data*MAX_GAIN_PW/100, 2, MAX_GAIN_PW);
+    }
 }
 
 void ImgPw::QAPwCalcEmission(int onEmission)
@@ -4145,7 +4132,7 @@ void ImgPw::QAPwCalcEmission(int onEmission)
     else
         power = 0;
 
-	CalcFocPulse(m_freq[m_freqIndex], power);
+    CalcFocPulse(m_freq[m_freqIndex], power);
 }
 
 static gboolean TimeoutClearHintArea(gpointer data)
@@ -4220,7 +4207,7 @@ void ImgPw::QAPwSetPara(float prfChg, int baseline)
         gdk_threads_leave();
         DscMan::GetInstance()->GetWriteLock();
         DscMan::GetInstance()->GetDsc()->ClearPWLine();
-		DscMan::GetInstance()->ReadWriteUnlock();
+        DscMan::GetInstance()->ReadWriteUnlock();
 
         // 恢复pw的增益
         if (m_gainPw < 25)
@@ -4235,6 +4222,6 @@ void ImgPw::QAPwSetPara(float prfChg, int baseline)
 
 int ImgPw::GetKnobSpectrumSpeed()
 {
-	int speed = SPECTRUM_SPEED[m_speedIndex];
-	return speed;
+    int speed = SPECTRUM_SPEED[m_speedIndex];
+    return speed;
 }

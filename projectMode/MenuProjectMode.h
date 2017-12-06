@@ -10,13 +10,13 @@ using std::string;
 
 class MenuProjectMode:public FakeXEvent
 {
-	public:
-		MenuProjectMode();
-		~MenuProjectMode() {}
+    public:
+        MenuProjectMode();
+        ~MenuProjectMode() {}
         GtkWidget* Create(void);
         bool ShowStatus(void){return m_show;}
-		void Hide(void);
-		void Show(void);
+        void Hide(void);
+        void Show(void);
         void SetMessage(const char *message);
         void AddMessage(const char *message);
         void UpdateLabel(const char *mode = NULL);
@@ -83,7 +83,7 @@ class MenuProjectMode:public FakeXEvent
         GtkWidget *m_windowDelete;
         vector <GtkWidget *> m_vectorChectButton;
         vector <string> m_vectorModeDelete;
-	string m_messageString;
+    string m_messageString;
 
 };
 
@@ -92,15 +92,15 @@ extern MenuProjectMode g_menuProjectMode;
 
 class ViewProjectMode:public FakeXEvent
 {
-	public:
-		~ViewProjectMode() {}
+    public:
+        ~ViewProjectMode() {}
         void CreateWindow(void);
         void DestroyWindow(void);
         static ViewProjectMode* GetInstance(void);
 
     private:
         //signal handle
-		ViewProjectMode(){  }
+        ViewProjectMode(){  }
         void SaveProjectModePara(void);
         void KeyEvent(unsigned char keyValue);
         static gboolean HandleWindowDeleteEvent(GtkWidget *widget, GdkEvent *event, ViewProjectMode *data)
@@ -115,7 +115,7 @@ class ViewProjectMode:public FakeXEvent
 
         void EntryNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
         static void OnEntryNewinsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewProjectMode *data)
-    	{ if(data)data->EntryNameInsert(editable, new_text, new_text_length, position); }
+        { if(data)data->EntryNameInsert(editable, new_text, new_text_length, position); }
 
         GtkWidget *m_window;
         GtkWidget *m_entryNew;

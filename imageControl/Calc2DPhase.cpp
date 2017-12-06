@@ -1,15 +1,3 @@
-/*
-:A
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: Calc2DPhase.cpp 30P16A
- * @brief: derived from class Calc2DConvex, deal with calculation of phase probe
- *
- * version: V1.0
- * date: 2011-10-10
- * @author: zhanglei
- */
-
 #include "imageControl/Calc2DPhase.h"
 #include "Def.h"
 #include "imageProc/ModeStatus.h"
@@ -18,7 +6,7 @@
 #include "imageControl/Img2D.h"
 #include "display/TopArea.h"
 
-const int Calc2DPhase::EMIT_CH_NUM_P[20] =	{8,10, 12, 14, 18, 32, 64,	64, 64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
+const int Calc2DPhase::EMIT_CH_NUM_P[20] =  {8,10, 12, 14, 18, 32, 64,  64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64};
 
 ///>pulic
 Calc2DPhase::Calc2DPhase()
@@ -65,17 +53,17 @@ void Calc2DPhase::CalcEmitDelay()
 void Calc2DPhase::CalcEmitDelayPw(float focPos)
 {
     int size = sizeof(EMIT_CH_NUM_P) / sizeof(int);
-	PEmitDelayPw(focPos, EMIT_CH_NUM_P, size);
+    PEmitDelayPw(focPos, EMIT_CH_NUM_P, size);
 }
 void Calc2DPhase::CalcEmitDelayCfm(float focPos)
 {
     int size = sizeof(EMIT_CH_NUM_P) / sizeof(int);
-	PEmitDelayCfm(focPos, EMIT_CH_NUM_P, size);
+    PEmitDelayCfm(focPos, EMIT_CH_NUM_P, size);
 }
 
 void Calc2DPhase::CalcReceiveDelay()
 {
-	bool compound = m_calcPara->compoundFreqCtrl || m_calcPara->compoundSpaceCtrl;
+    bool compound = m_calcPara->compoundFreqCtrl || m_calcPara->compoundSpaceCtrl;
 
     bool isCw = m_calcPara->modeCw;
 
@@ -86,12 +74,12 @@ void Calc2DPhase::CalcReceiveDelay()
 }
 void Calc2DPhase::CalcReceiveDelayColor()
 {
-	PReceiveDelayColor();
+    PReceiveDelayColor();
 }
 
 void Calc2DPhase::CalcReceiveAperture()
 {
-	bool compound = m_calcPara->compoundFreqCtrl || m_calcPara->compoundSpaceCtrl;
+    bool compound = m_calcPara->compoundFreqCtrl || m_calcPara->compoundSpaceCtrl;
     PReceiveAperture(compound);
 }
 
@@ -110,16 +98,16 @@ void Calc2DPhase::CalcDefaultDemodFd()
 
 void Calc2DPhase::CalcFilter()
 {
-	CalcDynamicDemod(0);
-	CalcFilterBandPass(0);
-	CalcDynamicFilter(0);
+    CalcDynamicDemod(0);
+    CalcFilterBandPass(0);
+    CalcDynamicFilter(0);
 }
 
 void Calc2DPhase::CalcFilterFreqCompound(int order)
 {
-	CalcDynamicDemod(order);
-	CalcFilterBandPass(order);
-	CalcDynamicFilter(order);
+    CalcDynamicDemod(order);
+    CalcFilterBandPass(order);
+    CalcDynamicFilter(order);
 }
 
 void Calc2DPhase::CalcFilterBandPass(int order)
@@ -163,23 +151,23 @@ void Calc2DPhase::CalcFilterBandPass(int order)
     if(m_calcPara->harmonic)
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_bandpass_filter1[i] = float(ProbeSocket::BAND_PASS_FILTER_FC1[probeIndex][harmonicIndex][i] / 10.0);
             fc_bandpass_filter2[i] = float(ProbeSocket::BAND_PASS_FILTER_FC2[probeIndex][harmonicIndex][i] / 10.0);
-			//printf("-phase--%d---THI---w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
-		}
+            //printf("-phase--%d---THI---w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
+        }
     }
     else
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_bandpass_filter1[i] = float(ProbeSocket::BAND_PASS_FILTER_FC1_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
             fc_bandpass_filter2[i] = float(ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
-			//printf("-phase--%d-----w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
-		}
+            //printf("-phase--%d-----w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
+        }
     }
 
-	BandPassFilterSelect_test(fc_bandpass_filter1, fc_bandpass_filter2, depth, order);
+    BandPassFilterSelect_test(fc_bandpass_filter1, fc_bandpass_filter2, depth, order);
 
 #else
    float fc_bandpass_filter[5];
@@ -234,18 +222,18 @@ void Calc2DPhase::CalcDynamicFilter(int order)
     if(m_calcPara->harmonic)
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_dynamic_filter[i] = float(ProbeSocket::DYNAMIC_FILTER_FC[probeIndex][harmonicIndex][i] / 10.0);
-			//printf("-phase--%d--THI---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
-		}
+            //printf("-phase--%d--THI---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
+        }
     }
     else
     {
         for(int i = 0; i < 5; i++)
-		{
-			fc_dynamic_filter[i] = float(ProbeSocket::DYNAMIC_FILTER_FC_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
-			//printf("-phase--%d---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
-		}
+        {
+            fc_dynamic_filter[i] = float(ProbeSocket::DYNAMIC_FILTER_FC_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
+            //printf("-phase--%d---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
+        }
     }
 
     DynamicFilter_test(fc_dynamic_filter, depth, order);
@@ -253,7 +241,7 @@ void Calc2DPhase::CalcDynamicFilter(int order)
 
 void Calc2DPhase::CalcDynamicDemod(int order)
 {
-	//int probeR = m_calcPara->probeR;
+    //int probeR = m_calcPara->probeR;
     int freq = m_calcPara->freq.receive;
     int depth[5];
     float fd[5];
@@ -389,12 +377,12 @@ void Calc2DPhase::CalcDynamicDemod(int order)
         fd_harmonic[4] = 3.0;
     }
 
-	// 30P16A---G70
+    // 30P16A---G70
  #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || defined(EMP_161) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
-	int freqIndex = Img2D::GetInstance()->GetFreqIndex();
-	int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
-	int probeIndex = 0;
-	int i;
+    int freqIndex = Img2D::GetInstance()->GetFreqIndex();
+    int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
+    int probeIndex = 0;
+    int i;
         string probe_type = TopArea::GetInstance()->GetProbeType();
         for (i = 0; i < NUM_PROBE; ++i)
         {

@@ -29,7 +29,7 @@
 #define KEY_ENDEXAM 0xD8
 #define KEY_CURSOR 0xD9
 #define KEY_AUTO 0xD4
-#define KEY_SHIFT_SPACE 0xED	//reserve
+#define KEY_SHIFT_SPACE 0xED    //reserve
 #define KEY_CFM 0xD2
 #define KNOB_VALUE 0x0C
 #define KEY_REVIEW 0xB8
@@ -160,7 +160,7 @@
 #define KEY_REVIEW 0xAB
 #define KEY_PAGEUP 0xE7
 #define KEY_PAGEDOWM 0xE0
-#define KEY_SHIFT_SPACE 0xED	//reserve
+#define KEY_SHIFT_SPACE 0xED    //reserve
 #define KEY_AUTO 0xD4
 #define KNOB_VALUE 0x0C
 #define KEY_MENU 0xB8
@@ -201,13 +201,13 @@
 #define KEY_VOLUMESUB 0xDB
 
 #else
-#define KEY_SHIFT_CTRL 0xDF	//IM
+#define KEY_SHIFT_CTRL 0xDF //IM
 #define KEY_VOLUMEADD 0xDB
 #define KEY_VOLUMESUB 0xDC
 
 #endif
-#define KEY_SHIFT_ALT 0xEA	//reserve
-//#define KEY_SHIFT_SPACE 0xED	//reserve
+#define KEY_SHIFT_ALT 0xEA  //reserve
+//#define KEY_SHIFT_SPACE 0xED  //reserve
 
 // knob
 #define KNOB_F1 0x01

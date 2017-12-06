@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef KNOB_2D_H
 #define KNOB_2D_H
 

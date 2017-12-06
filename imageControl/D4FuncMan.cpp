@@ -29,9 +29,9 @@ D4FuncMan* D4FuncMan::m_ptrInstance = NULL;
 
 D4FuncMan* D4FuncMan::GetInstance()
 {
-	if ( m_ptrInstance == NULL)
-		m_ptrInstance = new D4FuncMan;
-	return m_ptrInstance;
+    if ( m_ptrInstance == NULL)
+        m_ptrInstance = new D4FuncMan;
+    return m_ptrInstance;
 }
 
 D4FuncMan::D4FuncMan()
@@ -114,7 +114,7 @@ void D4FuncMan::Exit4D()
 {
     printf("\n\n ++++++++++++09001Color: Exit4D +++++++++++++++++++++++\n\n");
 
-	D4FuncMan::GetInstance()->Set4DMode(false);
+    D4FuncMan::GetInstance()->Set4DMode(false);
 
     // keyboard control
     KeyboardOversee((void *)&g_keyInterface, false);
@@ -125,7 +125,7 @@ void D4FuncMan::Exit4D()
     Img2D::GetInstance()->SetMBP(1);
 
 #ifndef EMP_322
-	g_keyInterface.CtrlLight(FALSE, LIGHT_CW);
+    g_keyInterface.CtrlLight(FALSE, LIGHT_CW);
 #endif
 
     SUIS4DPARA para;
@@ -144,7 +144,7 @@ void D4FuncMan::Exit4D()
     Img2D::GetInstance()->SetGainFrom4D(para.gain);
     Img2D::GetInstance()->SetTGCFrom4D(g_tgcSlider);
 
-	ScanMode::GetInstance()->Enter2D();
+    ScanMode::GetInstance()->Enter2D();
     //printf("%s,%d========================\n",__PRETTY_FUNCTION__,__LINE__);
 #if 0
     string mode;

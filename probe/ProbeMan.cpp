@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: ProbeMan.cpp
- * @brief: Manage all socket in system. all operation on socket must delegate by class ProbeMan
- *
- * version: V1.0
- * date: 2009-5-9
- * @author: zhanglei
- */
-
 #include "probe/ProbeMan.h"
 #include "Def.h"
 #include "probe/ProbeList.h"
@@ -50,51 +39,51 @@ extern bool g_init;
 
 ProbeMan::ProbeMan()
 {
-	ProbeSocket::ProbePara para;
-	int i;
-	int size;
+    ProbeSocket::ProbePara para;
+    int i;
+    int size;
 
     para.exist = TRUE;
 #if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '6';
-	para.model[4] = '0';
-	para.model[5] = 'E';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '6';
+    para.model[4] = '0';
+    para.model[5] = 'E';
 #elif (defined(EMP_322) || defined(EMP_313))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '5';
-	para.model[4] = '0';
-	para.model[5] = 'J';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '5';
+    para.model[4] = '0';
+    para.model[5] = 'J';
 #elif defined(EMP_430)
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '6';
-	para.model[4] = '0';
-	para.model[5] = 'E';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '6';
+    para.model[4] = '0';
+    para.model[5] = 'E';
 #elif (defined(EMP_355))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '5';
-	para.model[4] = '0';
-	para.model[5] = 'L';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '5';
+    para.model[4] = '0';
+    para.model[5] = 'L';
 #else
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '5';
-	para.model[4] = '0';
-	para.model[5] = 'K';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '5';
+    para.model[4] = '0';
+    para.model[5] = 'K';
 #endif
-	para.model[6] = 0;
-	para.type = 'C';
+    para.model[6] = 0;
+    para.type = 'C';
 #if defined (EMP_430)
- 	para.width = 6000;
+    para.width = 6000;
     para.array = 80;
     para.lines = 160;
     para.r = 60;
@@ -151,45 +140,45 @@ ProbeMan::ProbeMan()
     ///> create default socket, used when no probe is exist in all sockets
     //35C50K
 #if 0
-	para.exist = TRUE;
+    para.exist = TRUE;
 #if (defined(EMP_360) || defined(EMP_161))
-	para.model[0] = '3';
-	para.model[1] = '.';
-	para.model[2] = '5';
-	para.model[3] = 'C';
-	para.model[4] = 'V';
-	para.model[5] = 0;
+    para.model[0] = '3';
+    para.model[1] = '.';
+    para.model[2] = '5';
+    para.model[3] = 'C';
+    para.model[4] = 'V';
+    para.model[5] = 0;
 #elif (defined(EMP_313) || defined(EMP_322))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '5';
-	para.model[4] = '0';
-	para.model[5] = 'J';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '5';
+    para.model[4] = '0';
+    para.model[5] = 'J';
 #elif (defined(EMP_430))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '6';
-	para.model[4] = '0';
-	para.model[5] = 'E';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '6';
+    para.model[4] = '0';
+    para.model[5] = 'E';
 #elif (defined(EMP_355))
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '5';
-	para.model[4] = '0';
-	para.model[5] = 'L';
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '5';
+    para.model[4] = '0';
+    para.model[5] = 'L';
 #else
-	para.model[0] = '3';
-	para.model[1] = '.';
-	para.model[2] = '5';
-	para.model[3] = 'C';
-	para.model[4] = 'V';
-	para.model[5] = 0;
+    para.model[0] = '3';
+    para.model[1] = '.';
+    para.model[2] = '5';
+    para.model[3] = 'C';
+    para.model[4] = 'V';
+    para.model[5] = 0;
 #endif
-	para.model[6] = 0;
-	para.type = 'C';
+    para.model[6] = 0;
+    para.type = 'C';
 #if defined (EMP_430)
    para.width = 6000;
     para.array = 80;
@@ -202,76 +191,76 @@ ProbeMan::ProbeMan()
     para.r = 50;
 #endif
     para.widthPhase = 0;
-	para.depth = 300;
-	para.freqRange[0] = 40;
-	para.freqRange[1] = 120;
-	para.freqDop[0] = 54;
-	para.freqDop[1] = 66;
-	para.vecFreqRange.clear();
-	size = 7;
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[0][i]);
-	}
+    para.depth = 300;
+    para.freqRange[0] = 40;
+    para.freqRange[1] = 120;
+    para.freqDop[0] = 54;
+    para.freqDop[1] = 66;
+    para.vecFreqRange.clear();
+    size = 7;
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[0][i]);
+    }
 
 #endif
 
 // 75L40K
 #if 1
-	para.exist = TRUE;
+    para.exist = TRUE;
 #if (defined(EMP_360) || defined(EMP_161))
-	para.model[0] = '7';
-	para.model[1] = '.';
-	para.model[2] = '5';
-	para.model[3] = 'L';
-	para.model[4] = 'V';
-	para.model[5] = 'S';
+    para.model[0] = '7';
+    para.model[1] = '.';
+    para.model[2] = '5';
+    para.model[3] = 'L';
+    para.model[4] = 'V';
+    para.model[5] = 'S';
 #elif (defined(EMP_430))
-	para.model[0] = '6';
-	para.model[1] = '5';
-	para.model[2] = 'L';
-	para.model[3] = '4';
-	para.model[4] = '0';
-	para.model[5] = 'E';
+    para.model[0] = '6';
+    para.model[1] = '5';
+    para.model[2] = 'L';
+    para.model[3] = '4';
+    para.model[4] = '0';
+    para.model[5] = 'E';
 #elif (defined(EMP_355))
-	para.model[0] = '7';
-	para.model[1] = '0';
-	para.model[2] = 'L';
-	para.model[3] = '4';
-	para.model[4] = '0';
-	para.model[5] = 'J';
+    para.model[0] = '7';
+    para.model[1] = '0';
+    para.model[2] = 'L';
+    para.model[3] = '4';
+    para.model[4] = '0';
+    para.model[5] = 'J';
 #else
-	para.model[0] = '7';
-	para.model[1] = '5';
-	para.model[2] = 'L';
-	para.model[3] = '4';
-	para.model[4] = '0';
-	para.model[5] = 'K';
+    para.model[0] = '7';
+    para.model[1] = '5';
+    para.model[2] = 'L';
+    para.model[3] = '4';
+    para.model[4] = '0';
+    para.model[5] = 'K';
 #endif
-	para.model[6] = 0;
-	para.type = 'l';
+    para.model[6] = 0;
+    para.type = 'l';
 #ifdef EMP_430
-	para.width = 4000;
-	para.array = 80;
-	para.lines = 160;
+    para.width = 4000;
+    para.array = 80;
+    para.lines = 160;
 #else
-	para.width = 3800;
-	para.array = 128;
-	para.lines = 256;
+    para.width = 3800;
+    para.array = 128;
+    para.lines = 256;
 #endif
-	para.r = 1;
+    para.r = 1;
     para.widthPhase = 0;
-	para.depth = 120;
-	para.freqRange[0] = 100;
-	para.freqRange[1] = 240;
-	para.freqDop[0] = 118;
-	para.freqDop[1] = 144;
+    para.depth = 120;
+    para.freqRange[0] = 100;
+    para.freqRange[1] = 240;
+    para.freqDop[0] = 118;
+    para.freqDop[1] = 144;
     para.vecFreqRange.clear();
-	size = ProbeSocket::FREQ2D_SUM[1];
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[1][i]);
-	}
+    size = ProbeSocket::FREQ2D_SUM[1];
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[1][i]);
+    }
     for (i = 0; i < ProbeSocket::MAX_HARMONIC_FREQ; i++)
     {
         para.thiFreq[i] = ProbeSocket::FREQ_THI[0][i];
@@ -280,139 +269,139 @@ ProbeMan::ProbeMan()
 #endif
 
 #if 0
-	para.exist = TRUE;
-	para.model[0] = '6';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '1';
-	para.model[4] = '0';
-	para.model[5] = 'K';
-	para.model[6] = 0;
-	para.type = 't';
-	para.width = 15000;
-	para.array = 128;
-	para.lines = 256;
-	para.r = 10;
+    para.exist = TRUE;
+    para.model[0] = '6';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '1';
+    para.model[4] = '0';
+    para.model[5] = 'K';
+    para.model[6] = 0;
+    para.type = 't';
+    para.width = 15000;
+    para.array = 128;
+    para.lines = 256;
+    para.r = 10;
     para.widthPhase = 0;
-	para.depth = 120;
-	para.freqRange[0] = 100;
-	para.freqRange[1] = 180;
-	para.freqDop[0] = 98;
-	para.freqDop[1] = 116;
-	size = 3;
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[2][i]);
-	}
+    para.depth = 120;
+    para.freqRange[0] = 100;
+    para.freqRange[1] = 180;
+    para.freqDop[0] = 98;
+    para.freqDop[1] = 116;
+    size = 3;
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[2][i]);
+    }
 #endif
 
 #if 0
-	para.exist = TRUE;
-	para.model[0] = '3';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '2';
-	para.model[4] = '0';
-	para.model[5] = 'H';
-	para.model[6] = 0;
-	para.type = 'N';
-	para.width = 8800;
-	para.array = 96;
-	para.lines = 192;
-	para.r = 20;
+    para.exist = TRUE;
+    para.model[0] = '3';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '2';
+    para.model[4] = '0';
+    para.model[5] = 'H';
+    para.model[6] = 0;
+    para.type = 'N';
+    para.width = 8800;
+    para.array = 96;
+    para.lines = 192;
+    para.r = 20;
     para.widthPhase = 0;
-	para.depth = 300;
-	para.freqRange[0] = 50;
-	para.freqRange[1] = 120;
-	para.freqDop[0] = 76;
-	para.freqDop[1] = 86;
-	size = 4;
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[3][i]);
-	}
+    para.depth = 300;
+    para.freqRange[0] = 50;
+    para.freqRange[1] = 120;
+    para.freqDop[0] = 76;
+    para.freqDop[1] = 86;
+    size = 4;
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[3][i]);
+    }
 #endif
 
 #if 0//65C15D
-	para.exist = TRUE;
-	para.model[0] = '6';
-	para.model[1] = '5';
-	para.model[2] = 'C';
-	para.model[3] = '1';
-	para.model[4] = '5';
-	para.model[5] = 'D';
-	para.model[6] = 0;
-	para.type = 'n';
-	para.width = 9800;
-	para.array = 80;
-	para.lines = 160;
-	para.r = 15;
+    para.exist = TRUE;
+    para.model[0] = '6';
+    para.model[1] = '5';
+    para.model[2] = 'C';
+    para.model[3] = '1';
+    para.model[4] = '5';
+    para.model[5] = 'D';
+    para.model[6] = 0;
+    para.type = 'n';
+    para.width = 9800;
+    para.array = 80;
+    para.lines = 160;
+    para.r = 15;
     para.widthPhase = 0;
-	para.depth = 120;
-	para.freqRange[0] = 120;
-	para.freqRange[1] = 180;
-	para.freqDop[0] = 98;
-	para.freqDop[1] = 116;
-	size = 3;
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
-	}
+    para.depth = 120;
+    para.freqRange[0] = 120;
+    para.freqRange[1] = 180;
+    para.freqDop[0] = 98;
+    para.freqDop[1] = 116;
+    size = 3;
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
+    }
 #endif
 #if 0//30P16A
-	para.exist = TRUE;
-	para.model[0] = '3';
-	para.model[1] = '0';
-	para.model[2] = 'P';
-	para.model[3] = '1';
-	para.model[4] = '6';
-	para.model[5] = 'A';
-	para.model[6] = 0;
-	para.type = 'P';
-	para.width = 9000;
-	para.array = 64;
-	para.lines = 256;
-	para.r = 15;
+    para.exist = TRUE;
+    para.model[0] = '3';
+    para.model[1] = '0';
+    para.model[2] = 'P';
+    para.model[3] = '1';
+    para.model[4] = '6';
+    para.model[5] = 'A';
+    para.model[6] = 0;
+    para.type = 'P';
+    para.width = 9000;
+    para.array = 64;
+    para.lines = 256;
+    para.r = 15;
     para.widthPhase = 0;
-	para.depth = 120;
-	para.freqRange[0] = 120;
-	para.freqRange[1] = 180;
-	para.freqDop[0] = 98;
-	para.freqDop[1] = 116;
-	size = 3;
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
-	}
+    para.depth = 120;
+    para.freqRange[0] = 120;
+    para.freqRange[1] = 180;
+    para.freqDop[0] = 98;
+    para.freqDop[1] = 116;
+    size = 3;
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[4][i]);
+    }
 #endif
  //10L25J
 #if 0
 #ifdef EMP_340
-	para.exist = TRUE;
-	para.model[0] = '1';
-	para.model[1] = '0';
-	para.model[2] = 'L';
-	para.model[3] = '2';
-	para.model[4] = '5';
-	para.model[5] = 'J';
-	para.model[6] = 0;
-	para.type = 'l';
-	para.width = 3800;
-	para.array = 128;
-	para.lines = 256;
-	para.r = 1;
+    para.exist = TRUE;
+    para.model[0] = '1';
+    para.model[1] = '0';
+    para.model[2] = 'L';
+    para.model[3] = '2';
+    para.model[4] = '5';
+    para.model[5] = 'J';
+    para.model[6] = 0;
+    para.type = 'l';
+    para.width = 3800;
+    para.array = 128;
+    para.lines = 256;
+    para.r = 1;
     para.widthPhase = 0;
-	para.depth = 120;
-	para.freqRange[0] = 100;
-	para.freqRange[1] = 240;
-	para.freqDop[0] = 118;
-	para.freqDop[1] = 144;
+    para.depth = 120;
+    para.freqRange[0] = 100;
+    para.freqRange[1] = 240;
+    para.freqDop[0] = 118;
+    para.freqDop[1] = 144;
     para.vecFreqRange.clear();
-	size = ProbeSocket::FREQ2D_SUM[7];
-	for (i = 0; i < size; i ++)
-	{
-		para.vecFreqRange.push_back(ProbeSocket::FREQ2D[7][i]);
-	}
+    size = ProbeSocket::FREQ2D_SUM[7];
+    for (i = 0; i < size; i ++)
+    {
+        para.vecFreqRange.push_back(ProbeSocket::FREQ2D[7][i]);
+    }
     for (i = 0; i < ProbeSocket::MAX_HARMONIC_FREQ; i++)
     {
         para.thiFreq[i] = ProbeSocket::FREQ_THI[7][i];
@@ -420,29 +409,29 @@ ProbeMan::ProbeMan()
 #endif
 #endif
     //四个座都没有读取到探头时，默认读取的探头座.此时读取不到探头参数，因为cmd的数据设置为0xff了
-	ProbeSocket ps(SOCKET_ADDR[2], 0Xff); //default socket is socket0, and can not read probe para(read command set to 0xff)
+    ProbeSocket ps(SOCKET_ADDR[2], 0Xff); //default socket is socket0, and can not read probe para(read command set to 0xff)
     //默认设置的该探头座上的参数
-	ps.SetProbePara(para);
-	m_vecSockets.push_back(ps);
+    ps.SetProbePara(para);
+    m_vecSockets.push_back(ps);
 
     m_defaultSocket = MAX_SOCKET;
 }
 
 ProbeMan::~ProbeMan()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 ///> public
 ProbeMan* ProbeMan::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-	{
-		m_ptrInstance = new ProbeMan;
-	}
+    if (m_ptrInstance == NULL)
+    {
+        m_ptrInstance = new ProbeMan;
+    }
 
-	return (m_ptrInstance);
+    return (m_ptrInstance);
 }
 /*
  * @brief power on or off HV(high voltage)
@@ -454,7 +443,7 @@ ProbeMan* ProbeMan::GetInstance()
 void ProbeMan::ActiveHV(bool on)
 {
    PRINTF("enter the probeMan high value = %d\n",on);
-	m_vecSockets[m_curSocket].ActiveHV(on);
+    m_vecSockets[m_curSocket].ActiveHV(on);
 }
 
 /*
@@ -479,7 +468,7 @@ void ProbeMan::GetCurProbe(ProbeSocket::ProbePara &para)
  */
 void ProbeMan::GetDefaultProbe(ProbeSocket::ProbePara &para)
 {
-	m_vecSockets[MAX_SOCKET].GetProbePara(para);
+    m_vecSockets[MAX_SOCKET].GetProbePara(para);
 }
 /*
  * @brief get para of all probe and saved in para[]
@@ -502,7 +491,7 @@ void ProbeMan::GetAllProbe(ProbeSocket::ProbePara para[MAX_SOCKET])
 #endif
     int i;
     for (i = 0; i < MAX_SOCKET; i ++)
-	{
+    {
 #if (defined(EMP_322) || defined(EMP_313)|| defined(EMP_430))
         m_vecSockets[i].ActiveSocket();
         usleep(900000);//
@@ -512,20 +501,20 @@ void ProbeMan::GetAllProbe(ProbeSocket::ProbePara para[MAX_SOCKET])
         m_vecSockets[i].ActiveSocket();
         usleep(430000);//
 #endif
-		m_vecSockets[i].ReadProbePara();
-		m_vecSockets[i].GetProbePara(para[i]);
+        m_vecSockets[i].ReadProbePara();
+        m_vecSockets[i].GetProbePara(para[i]);
         if (g_init)
         {
             if (strcmp(defaultModel, para[i].model) == 0)
                 m_defaultSocket = i;
-		}
-	}
+        }
+    }
 #ifdef EMP_355
-	if ((para[0].type==para[1].type)&&(para[1].type==para[2].type))       //the same as one probe addr
-	{
-		para[1].exist=false;
-		para[2].exist=false;
-	}
+    if ((para[0].type==para[1].type)&&(para[1].type==para[2].type))       //the same as one probe addr
+    {
+        para[1].exist=false;
+        para[2].exist=false;
+    }
 #endif
    //g_init = false;
 }
@@ -547,19 +536,19 @@ void ProbeMan::GetOneProbe(ProbeSocket::ProbePara para[MAX_SOCKET], int socket)
  */
 int ProbeMan::SetProbeSocket(int socket)
 {
-	///> select socket
-	if (socket <= MAX_SOCKET)
-	{
-		m_curSocket = socket;
-	}
-	else
-	{
-		PRINTF("ProbeMan: socket is out of range\n");
-		return FALSE;
-	}
+    ///> select socket
+    if (socket <= MAX_SOCKET)
+    {
+        m_curSocket = socket;
+    }
+    else
+    {
+        PRINTF("ProbeMan: socket is out of range\n");
+        return FALSE;
+    }
 
     m_vecSockets[m_curSocket].ActiveSocket();
-	return TRUE;
+    return TRUE;
 }
 
 void ProbeMan::WriteProbeManual()
@@ -598,13 +587,13 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe10L25K;
     //buf = Probe35D40J;
 
-	//printf("Begin Write Probe!\n");
-	m_vecSockets[0].ActiveSocket();
-	usleep(100000);
+    //printf("Begin Write Probe!\n");
+    m_vecSockets[0].ActiveSocket();
+    usleep(100000);
 
-	int i;
-	for (i = 0; i < MAX_SOCKET; i ++)
-	{
+    int i;
+    for (i = 0; i < MAX_SOCKET; i ++)
+    {
 #if (defined(EMP_430) || defined(EMP_322))
         if (i > 0)
         {
@@ -887,9 +876,9 @@ void ProbeMan::WriteProbe(int type)
     m_vecSockets[0].ActiveSocket();
     usleep(100000);
 
-	int i;
-	for (i = 0; i < MAX_SOCKET; i ++)
-	{
+    int i;
+    for (i = 0; i < MAX_SOCKET; i ++)
+    {
 #if (defined(EMP_430) || defined(EMP_322))
         if (i > 0)
         {
@@ -897,9 +886,9 @@ void ProbeMan::WriteProbe(int type)
             usleep(100000);
         }
 #endif
-		m_vecSockets[i].WriteProbePara(buf, PROBE_INFO_SIZE);
-		usleep(100000);
-	}
+        m_vecSockets[i].WriteProbePara(buf, PROBE_INFO_SIZE);
+        usleep(100000);
+    }
 }
 
 /**
@@ -908,7 +897,7 @@ void ProbeMan::WriteProbe(int type)
 void ProbeMan::WriteDefaultProbe(const char* probeModel, IniFile* ptrIni)
 {
 // write default probe from file
-	ptrIni->WriteString("ProbeModel", "ProbeModel", probeModel);
+    ptrIni->WriteString("ProbeModel", "ProbeModel", probeModel);
     ptrIni->SyncConfigFile();
 }
 
@@ -917,9 +906,9 @@ void ProbeMan::WriteDefaultProbe(const char* probeModel, IniFile* ptrIni)
  */
 string ProbeMan::ReadDefaultProbe(IniFile* ptrIni)
 {
-	// read default probe from file
+    // read default probe from file
     PRINTF("probemodel:%s\n", ptrIni->ReadString("ProbeModel", "ProbeModel").c_str());
-	return (ptrIni->ReadString("ProbeModel", "ProbeModel"));
+    return (ptrIni->ReadString("ProbeModel", "ProbeModel"));
 }
 
 void ProbeMan::VerifyProbeName(const char *fromType, char *toType)

@@ -1,14 +1,3 @@
-/**
- * Copyritht @ 2012 Shenzhen Emperor Electronic Co. ,Ltd.
- *
- * @file: CDrawIMT.cpp
- * @brief: Draw IMT measure in the roi area
- *
- * version: V1.0
- * @author: lihuamei
- * date: 2012-7-10
- */
-
 #include <stdlib.h>
 #include <libavutil/time.h>
 #include <stdio.h>
@@ -32,10 +21,10 @@ gboolean IMTCallBack(gpointer data)
 
 CDrawIMT* CDrawIMT::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new CDrawIMT;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new CDrawIMT;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 CDrawIMT::CDrawIMT()
@@ -53,7 +42,7 @@ CDrawIMT::CDrawIMT()
 CDrawIMT::~CDrawIMT()
 {
     if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+        delete m_ptrInstance;
     if (pIntima)
     {
         delete [] pIntima;
@@ -237,12 +226,12 @@ void CDrawIMT::UpdateIMT(void)
     }
 
     SIMTPARA imt_para;
-    imt_para.imt_max = 0.0;	             // IMT MAX
-    imt_para.imt_min = 0.0;		        // IMT MIN
-    imt_para.imt_std = 0.0;	           // IMT 标准差
-    imt_para.imt_mean = 0.0;		  // IMT 平均值
-    imt_para.imt_length = 0.0;	     // IMT 测量长度
-    imt_para.imt_quality = 0.0;	 	// IMT 品质因子
+    imt_para.imt_max = 0.0;              // IMT MAX
+    imt_para.imt_min = 0.0;             // IMT MIN
+    imt_para.imt_std = 0.0;            // IMT 标准差
+    imt_para.imt_mean = 0.0;          // IMT 平均值
+    imt_para.imt_length = 0.0;       // IMT 测量长度
+    imt_para.imt_quality = 0.0;     // IMT 品质因子
 
      CIMT::GetInstance()->AnalyseData(imt_para, pRoi, pRoiPre, pIntima, pAdventitia, roi_w);
 

@@ -6,7 +6,7 @@
 
 class Image
 {
-	public:
+    public:
         struct AutoTracePara
         {
             std::vector<POINT> vecTrace;
@@ -15,21 +15,21 @@ class Image
             int cycleEnd;
         };
 
-		Image(unsigned int* ptrImgSrc, AutoTracePara para);
-		Image(const Image &obj);
-		~Image();
+        Image(unsigned int* ptrImgSrc, AutoTracePara para);
+        Image(const Image &obj);
+        ~Image();
 
-		static const int HEIGHT = IMG_AREA_H;
-		static const int WIDTH = IMG_AREA_W;
+        static const int HEIGHT = IMG_AREA_H;
+        static const int WIDTH = IMG_AREA_W;
 
-		unsigned int* GetImg();
+        unsigned int* GetImg();
         const AutoTracePara* GetTraceData(void);
 
-	private:
-		static const char BYTES = 3; ///< bits of one pixel is BYTES * 8 = 24
-		static const int SIZE = HEIGHT * WIDTH * BYTES / 4;
+    private:
+        static const char BYTES = 3; ///< bits of one pixel is BYTES * 8 = 24
+        static const int SIZE = HEIGHT * WIDTH * BYTES / 4;
 
-		unsigned int *m_ptrImg;
+        unsigned int *m_ptrImg;
         AutoTracePara m_tracePara;
 
 };

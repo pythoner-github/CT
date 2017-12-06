@@ -162,16 +162,16 @@ void MenuMain::BtnCFMClicked(GtkButton *button)
 void MenuMain::BtnNoteClicked(GtkButton *button)
 {
     Hide();
-//	ptrMenuArea->ShowNoteMenu();
-	MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::TEXT);
-	NoteArea *m_ptrNoteArea = NoteArea::GetInstance();
-	m_ptrNoteArea->Show();
+    // ptrMenuArea->ShowNoteMenu();
+    MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::TEXT);
+    NoteArea *m_ptrNoteArea = NoteArea::GetInstance();
+    m_ptrNoteArea->Show();
 }
 
 void MenuMain::BtnBDMKClicked(GtkButton *button)
 {
-	Hide();
-	ptrMenuArea->ShowBDMKMenu();
+    Hide();
+    ptrMenuArea->ShowBDMKMenu();
 }
 
 void MenuMain::BtnMeasureClicked(GtkButton *button)
@@ -182,13 +182,13 @@ void MenuMain::BtnMeasureClicked(GtkButton *button)
 
 void MenuMain::BtnReviewClicked(GtkButton *button)
 {
-	FreezeMode::EFreezeMode freezemode = FreezeMode::GetInstance()->GetFreezeMode();
-	if(freezemode != FreezeMode::FREEZE)
-	{
-		//add code to show hint
-		PRINTF("Please frozen first!\n");
-		return;
-	}
+    FreezeMode::EFreezeMode freezemode = FreezeMode::GetInstance()->GetFreezeMode();
+    if(freezemode != FreezeMode::FREEZE)
+    {
+        //add code to show hint
+        PRINTF("Please frozen first!\n");
+        return;
+    }
 
     Hide();
     ptrMenuArea->ShowReviewMenu();
@@ -203,5 +203,5 @@ void MenuMain::BtnCalcClicked(GtkButton *button)
 void MenuMain::BtnBiopsyClicked(GtkButton *button)
 {
     Hide();
-//    ptrMenuArea->ShowBiopsyMenu();
+    // ptrMenuArea->ShowBiopsyMenu();
 }

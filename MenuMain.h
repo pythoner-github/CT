@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef __MENU_MAIN_H__
 #define __MENU_MAIN_H__
 
@@ -34,7 +33,7 @@ private:
     GtkWidget * m_labelCalc;
     GtkWidget * m_labelBiopsy;
 
-//signal handle
+    // signal handle
     void Btn2DClicked(GtkButton *button);
     void BtnMClicked(GtkButton *button);
     void BtnPWClicked(GtkButton *button);
@@ -47,7 +46,7 @@ private:
     void BtnCalcClicked(GtkButton *button);
     void BtnBiopsyClicked(GtkButton *button);
 
-//signal connect
+    // signal connect
     static void Handle2DClicked(GtkButton *button, MenuMain *data) { data->Btn2DClicked(button); }
     static void HandleMClicked(GtkButton *button, MenuMain *data) { data->BtnMClicked(button); }
     static void HandlePWClicked(GtkButton *button, MenuMain *data) { data->BtnPWClicked(button); }

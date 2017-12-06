@@ -19,7 +19,7 @@ EKnobReturn GlobalZoom(EKnobOper oper)
 
 EKnobReturn PIPZoom(EKnobOper oper)
 {
-	Zoom::GetInstance()->PIPZoomScale(oper);
+    Zoom::GetInstance()->PIPZoomScale(oper);
     return OK;
 }
 

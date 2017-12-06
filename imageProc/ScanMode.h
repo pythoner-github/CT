@@ -115,7 +115,7 @@ public:
     EFOVStatus GetEFOVStatus();
 
     ///> spetial measure(example: measure on snap image)
-	void GetSpecialMeasurePara(SpecialMeasurePara *para);
+    void GetSpecialMeasurePara(SpecialMeasurePara *para);
     void EnterSpecialMeasure(SpecialMeasurePara para);
     void ExitSpecialMeasure(void);
     bool IsSpecialMeasureStatus(void);
@@ -125,7 +125,7 @@ private:
     ScanMode();
 
     static ScanMode* m_ptrInstance;
-    		AbsUpdatePw* m_ptrUpdate;
+            AbsUpdatePw* m_ptrUpdate;
     // extern
     FpgaCtrl2D m_fpgaCtrl2D;
 

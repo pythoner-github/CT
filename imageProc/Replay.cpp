@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: Replay.cpp
- * @brief: manage replay images and replay area
- *
- * version: V1.0
- * date: 2009-6-2
- * @author: zhanglei
- */
-
 #include "imageProc/Replay.h"
 #include "Def.h"
 #include "imageProc/GlobalClassMan.h"
@@ -26,22 +15,22 @@
 // calc back
 gboolean ViewCallBack(gpointer data)
 {
-	Replay::GetInstance()->EnterViewStatus();
-	Replay::GetInstance()->ViewOneImgOnly();
-	return true;
+    Replay::GetInstance()->EnterViewStatus();
+    Replay::GetInstance()->ViewOneImgOnly();
+    return true;
 }
 
 gboolean ReviewCallBack(gpointer data)
 {
-	Replay::GetInstance()->EnterReviewStatus();
-	Replay::GetInstance()->ReviewOneImgOnly();
-	return true;
+    Replay::GetInstance()->EnterReviewStatus();
+    Replay::GetInstance()->ReviewOneImgOnly();
+    return true;
 }
 
 gboolean EFOVReviewCallBack(gpointer data)
 {
-	Replay::GetInstance()->EFOVAutoReview();
-	return true;
+    Replay::GetInstance()->EFOVAutoReview();
+    return true;
 }
 
 Replay* Replay::m_ptrInstance = NULL;
@@ -52,75 +41,75 @@ const float Replay::REPLAY_SPEED[MAX_SPEED] = {0.5, 1.0, 2.0};
 #endif
 Replay* Replay::GetInstance()
 {
-	if(m_ptrInstance == NULL)
-		m_ptrInstance = new Replay;
+    if(m_ptrInstance == NULL)
+        m_ptrInstance = new Replay;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 Replay::Replay()
 {
-	int i;
+    int i;
 
-	m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
-	m_ptrUpdate2D = GlobalClassMan::GetInstance()->GetUpdate2D();
-	m_ptrUpdateFrameFreeze = DscMan::GetInstance()->GetFrameUpdateFunFreeze();
-	m_ptrDsc = DscMan::GetInstance();
+    m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
+    m_ptrUpdate2D = GlobalClassMan::GetInstance()->GetUpdate2D();
+    m_ptrUpdateFrameFreeze = DscMan::GetInstance()->GetFrameUpdateFunFreeze();
+    m_ptrDsc = DscMan::GetInstance();
 
-	m_ptrDsc->GetReplayWriteLock();
-	for (i = 0; i < MAX_AREA; i ++)
-	{
-		m_deq[i].clear();
-		m_maxCount[i] = 0;
-		m_imgIndex[i] = 0;
+    m_ptrDsc->GetReplayWriteLock();
+    for (i = 0; i < MAX_AREA; i ++)
+    {
+        m_deq[i].clear();
+        m_maxCount[i] = 0;
+        m_imgIndex[i] = 0;
         m_maxCountBak[i] = 0;
-	}
-	m_ptrDsc->ReadWriteReplayUnlock();
+    }
+    m_ptrDsc->ReadWriteReplayUnlock();
 
-	m_areaIndex = 0;
-	m_speedIndex = 1;
-	m_fps = 20;
-	m_trimLeft = 0;
-	m_trimRight = 0;
-	m_tagTimer = 0;
-	m_viewMode = TRUE;
+    m_areaIndex = 0;
+    m_speedIndex = 1;
+    m_fps = 20;
+    m_trimLeft = 0;
+    m_trimRight = 0;
+    m_tagTimer = 0;
+    m_viewMode = TRUE;
 
-	m_areaIndexBak = 0;
-	m_areaNumBak = 0;
-	m_fpsBak = m_fps;
-	m_enterCine = FALSE;;
-	m_enterSnap = FALSE;
+    m_areaIndexBak = 0;
+    m_areaNumBak = 0;
+    m_fpsBak = m_fps;
+    m_enterCine = FALSE;;
+    m_enterSnap = FALSE;
 
     m_discard = FALSE;
 
-	m_efovFrameNo = 0;
-	m_efovAutoReviewFlag = FALSE;
-	m_tagTimerEFOV = 0;
+    m_efovFrameNo = 0;
+    m_efovAutoReviewFlag = FALSE;
+    m_tagTimerEFOV = 0;
 }
 
 Replay::~Replay()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 void Replay::Init()
 {
     EKnobReturn retSpeed = OK;
-	if (m_speedIndex == (MAX_SPEED-1))
-		retSpeed = MAX;
-	else if (m_speedIndex == 0)
-		retSpeed = MIN;
-	else
-		retSpeed = OK;
+    if (m_speedIndex == (MAX_SPEED-1))
+        retSpeed = MAX;
+    else if (m_speedIndex == 0)
+        retSpeed = MIN;
+    else
+        retSpeed = OK;
 #if (defined (EMP_322) || defined(EMP_313))
-	m_ptrUpdate->ReplayCtrl(FALSE);
-	m_ptrUpdate->SpeedCtrl(m_speedIndex);
+    m_ptrUpdate->ReplayCtrl(FALSE);
+    m_ptrUpdate->SpeedCtrl(m_speedIndex);
 #else
     m_ptrUpdate->ReplayCtrl(FALSE, m_speedIndex, retSpeed);
 #endif
     m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
-	m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
+    m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
 }
 /*
 void Replay::ChangeReplayStatus()
@@ -173,37 +162,37 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
         return ERROR;
     }
 #if (defined(EMP_460) || defined(EMP_355))
-	if (on&&(m_speedIndex==0))
+    if (on&&(m_speedIndex==0))
             FreezeMode::GetInstance()->ChangeAutoReplay();
     if ((!on)&&(m_speedIndex>0))
             FreezeMode::GetInstance()->ChangeAutoReplay();
 #endif
 
     EKnobReturn ret = OK;
-	if (m_speedIndex == (MAX_SPEED-1))
-		ret = MAX;
-	else if (m_speedIndex == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    if (m_speedIndex == (MAX_SPEED-1))
+        ret = MAX;
+    else if (m_speedIndex == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	// power off timer
-	if (m_tagTimer > 0)
-	{
-		int interval = GetReplayTime(m_speedIndex);
+    // power off timer
+    if (m_tagTimer > 0)
+    {
+        int interval = GetReplayTime(m_speedIndex);
 
-		if (!g_source_remove(m_tagTimer))
+        if (!g_source_remove(m_tagTimer))
         {
             PRINTF("remove timer error\n");
         }
-		m_tagTimer = 0;
+        m_tagTimer = 0;
 
-		// restart timer
-		if (m_viewMode)
-			m_tagTimer = g_timeout_add(interval, ViewCallBack, NULL);
-		else
-			m_tagTimer = g_timeout_add(interval, ReviewCallBack, NULL);
-	}
+        // restart timer
+        if (m_viewMode)
+            m_tagTimer = g_timeout_add(interval, ViewCallBack, NULL);
+        else
+            m_tagTimer = g_timeout_add(interval, ReviewCallBack, NULL);
+    }
 
 #if (defined (EMP_322) || defined(EMP_313))
     m_ptrUpdate->ReplayCtrl(on);
@@ -220,11 +209,11 @@ void Replay::SetTrimLeft(EKnobOper oper)
 void Replay::SetTrimLeft()
 #endif
 {
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
     if (size == 0)
         return;
 
-	m_trimLeft = m_imgIndex[m_areaIndex];
+    m_trimLeft = m_imgIndex[m_areaIndex];
 
     // update view
     m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
@@ -236,17 +225,17 @@ void Replay::SetTrimRight(EKnobOper oper)
 void Replay::SetTrimRight()
 #endif
 {
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
     if (size == 0)
         return;
 
-	if (m_imgIndex[m_areaIndex] >  m_trimLeft)
-	{
-		m_trimRight= m_imgIndex[m_areaIndex];
+    if (m_imgIndex[m_areaIndex] >  m_trimLeft)
+    {
+        m_trimRight= m_imgIndex[m_areaIndex];
 
-		// update view
-		m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
-		m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
+        // update view
+        m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
+        m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
     }
 }
 #if (defined(EMP_460) || defined(EMP_355))
@@ -255,15 +244,15 @@ void Replay::ResetTrim(EKnobOper oper)
 void Replay::ResetTrim()
 #endif
 {
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
 
-	m_trimLeft = 0;
-	m_trimRight = size - 1;
+    m_trimLeft = 0;
+    m_trimRight = size - 1;
 
-	// update view
-	m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
-	m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
-	m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
+    // update view
+    m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
+    m_ptrUpdate->ReplayTrimRight(m_trimRight+1);
+    m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 }
 /*
  * @brief split the quantity of replay save area(space) to "num"
@@ -273,70 +262,70 @@ void Replay::ResetTrim()
  */
 bool Replay::SetAreaNum(int num)
 {
-	if ((num != 1) && (num != 2) && (num != 4))
-	{
-		PRINTF("input is out of range!\n");
-		return FALSE;
-	}
+    if ((num != 1) && (num != 2) && (num != 4))
+    {
+        PRINTF("input is out of range!\n");
+        return FALSE;
+    }
 
-	///> clear all of image saved
-	ClearAll();
-	m_areaNum = num;
-	m_areaIndex = 0;
+    ///> clear all of image saved
+    ClearAll();
+    m_areaNum = num;
+    m_areaIndex = 0;
 
-	///> resize replay save area
-	int i;
-	switch (num)
-	{
-		case 1:
-			///> split area
-			m_maxCount[0] = TOTAL_REPLAY;
-			for (i = 1; i < MAX_AREA; i ++)
-			{
-				m_maxCount[i] = 0;
-			}
+    ///> resize replay save area
+    int i;
+    switch (num)
+    {
+        case 1:
+            ///> split area
+            m_maxCount[0] = TOTAL_REPLAY;
+            for (i = 1; i < MAX_AREA; i ++)
+            {
+                m_maxCount[i] = 0;
+            }
 
-			///> reset count
-			for (i = 0; i < MAX_AREA; i ++)
-			{
-				m_imgIndex[i] = 0;
-			}
-			break;
+            ///> reset count
+            for (i = 0; i < MAX_AREA; i ++)
+            {
+                m_imgIndex[i] = 0;
+            }
+            break;
 
-		case 2:
-			for (i = 0; i < 2; i ++)
-			{
-				m_maxCount[i] = TOTAL_REPLAY / 2;
-			}
-			for (i = 2; i < MAX_AREA; i ++)
-			{
-				m_maxCount[i] = 0;
-			}
+        case 2:
+            for (i = 0; i < 2; i ++)
+            {
+                m_maxCount[i] = TOTAL_REPLAY / 2;
+            }
+            for (i = 2; i < MAX_AREA; i ++)
+            {
+                m_maxCount[i] = 0;
+            }
 
-			///>reset
-			for (i = 0; i < MAX_AREA; i ++)
-			{
-				m_imgIndex[i] = 0;
-			}
-			break;
+            ///>reset
+            for (i = 0; i < MAX_AREA; i ++)
+            {
+                m_imgIndex[i] = 0;
+            }
+            break;
 
-		case 4:
-			for (i = 0; i < MAX_AREA; i ++)
-			{
-				m_maxCount[i] = TOTAL_REPLAY / 4;
-			}
-			///> reset
-			for (i = 0; i < MAX_AREA; i ++)
-			{
-				m_imgIndex[i] = 0;
-			}
-			break;
+        case 4:
+            for (i = 0; i < MAX_AREA; i ++)
+            {
+                m_maxCount[i] = TOTAL_REPLAY / 4;
+            }
+            ///> reset
+            for (i = 0; i < MAX_AREA; i ++)
+            {
+                m_imgIndex[i] = 0;
+            }
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 /*
@@ -346,30 +335,30 @@ bool Replay::SetAreaNum(int num)
  */
 bool Replay::SwitchArea(int current, bool unfreeze)
 {
-	switch(m_areaNum)
-	{
-		case 1:
-			if (current > 0)
-				return FALSE;
-			break;
-		case 2:
-			if (current > 1)
-				return FALSE;
-			break;
-		case 4:
-			if (current > 3)
-				return FALSE;
-			break;
-	}
+    switch(m_areaNum)
+    {
+        case 1:
+            if (current > 0)
+                return FALSE;
+            break;
+        case 2:
+            if (current > 1)
+                return FALSE;
+            break;
+        case 4:
+            if (current > 3)
+                return FALSE;
+            break;
+    }
 
-	m_areaIndex = current;
+    m_areaIndex = current;
     if (unfreeze)
     {
         m_ptrDsc->GetReplayWriteLock();
         m_deq[m_areaIndex].clear();
         m_ptrDsc->ReadWriteReplayUnlock();
     }
-	return TRUE;
+    return TRUE;
 }
 
 /*
@@ -388,21 +377,21 @@ void Replay::AddOneImg(Image img)
     }
 
     // add image
-	m_ptrDsc->GetReplayWriteLock();
+    m_ptrDsc->GetReplayWriteLock();
 
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
 
-	if (size < m_maxCount[m_areaIndex])
-	{
-		m_deq[m_areaIndex].push_back(img);
-	}
-	else if (size  == m_maxCount[m_areaIndex])
-	{
-		m_deq[m_areaIndex].pop_front();
-		m_deq[m_areaIndex].push_back(img);
-	}
+    if (size < m_maxCount[m_areaIndex])
+    {
+        m_deq[m_areaIndex].push_back(img);
+    }
+    else if (size  == m_maxCount[m_areaIndex])
+    {
+        m_deq[m_areaIndex].pop_front();
+        m_deq[m_areaIndex].push_back(img);
+    }
 
-	m_ptrDsc->ReadWriteReplayUnlock();
+    m_ptrDsc->ReadWriteReplayUnlock();
 }
 
 const Image::AutoTracePara* Replay::GetCurrentTraceData(void)
@@ -470,12 +459,12 @@ void Replay::UpdateReplayCtrl(bool on, EKnobReturn ret)
 {
 //printf("---updateReplayCtrl value = %d\n", on);
     EKnobReturn retSpeed = OK;
-	if (m_speedIndex == (MAX_SPEED-1))
-		retSpeed = MAX;
-	else if (m_speedIndex == 0)
-		retSpeed = MIN;
-	else
-		retSpeed = OK;
+    if (m_speedIndex == (MAX_SPEED-1))
+        retSpeed = MAX;
+    else if (m_speedIndex == 0)
+        retSpeed = MIN;
+    else
+        retSpeed = OK;
 #if (defined (EMP_322) || defined(EMP_313))
     m_ptrUpdate->ReplayCtrl(on);
 #else
@@ -487,14 +476,14 @@ void Replay::ClearCurReplayData()
 {
     Update2D::SetCineRemoveImg(3);
 
-	// clear replay info
-	m_ptrDsc->GetReplayWriteLock();
-	m_deq[m_areaIndex].clear();
-	m_ptrDsc->ReadWriteReplayUnlock();
+    // clear replay info
+    m_ptrDsc->GetReplayWriteLock();
+    m_deq[m_areaIndex].clear();
+    m_ptrDsc->ReadWriteReplayUnlock();
 
-	m_imgIndex[m_areaIndex] = 0;
-	m_trimLeft = 0;
-	m_trimRight = 0;
+    m_imgIndex[m_areaIndex] = 0;
+    m_trimLeft = 0;
+    m_trimRight = 0;
 }
 /*
  * @brief clear images in current replay area
@@ -502,7 +491,7 @@ void Replay::ClearCurReplayData()
 void Replay::PrepareForEndReplay()
 {
     ClearCurReplayData();
-	m_ptrUpdate->ClearReplayBar();
+    m_ptrUpdate->ClearReplayBar();
 }
 
 /*
@@ -541,7 +530,7 @@ void Replay::DisplayReplayBar()
     int size = m_deq[m_areaIndex].size();
 
     //draw
-	if (size == 0)
+    if (size == 0)
         m_ptrUpdate->ReplayBar(0, size, 0, 0);
     else
         m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
@@ -549,15 +538,15 @@ void Replay::DisplayReplayBar()
 
 unsigned int* Replay::ReviewOneImg()
 {
-	//update replay mode
-	FreezeMode::GetInstance()->SetReplayMode();
+    //update replay mode
+    FreezeMode::GetInstance()->SetReplayMode();
 
     return ReviewOneImgOnly();
 }
 unsigned int* Replay::ViewOneImg()
 {
-	//update replay mode
-	FreezeMode::GetInstance()->SetReplayMode();
+    //update replay mode
+    FreezeMode::GetInstance()->SetReplayMode();
 
     return ViewOneImgOnly();
 }
@@ -602,32 +591,32 @@ bool Replay::ReviewNoImgB4(int curB)
 unsigned int* Replay::ReviewOneImgOnly()
 {
 #if 0
-	PRINTF("review one image\n");
-	PRINTF("m_maxCount[m_areaIndex] = %d\n", m_maxCount[m_areaIndex]);
-	PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
-	PRINTF("m_areaIndex = %d\n", m_areaIndex);
-	PRINTF("m_trimLeft= %d\n", m_trimLeft);
-	PRINTF("m_trimRight= %d\n", m_trimRight);
+    PRINTF("review one image\n");
+    PRINTF("m_maxCount[m_areaIndex] = %d\n", m_maxCount[m_areaIndex]);
+    PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
+    PRINTF("m_areaIndex = %d\n", m_areaIndex);
+    PRINTF("m_trimLeft= %d\n", m_trimLeft);
+    PRINTF("m_trimRight= %d\n", m_trimRight);
 #endif
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
 
-	if (size == 0)
-		return NULL;
+    if (size == 0)
+        return NULL;
 
-	//review
-		if (m_imgIndex[m_areaIndex] > m_trimLeft)
-			m_imgIndex[m_areaIndex] --;
-		else
-			m_imgIndex[m_areaIndex] = m_trimRight;
+    //review
+        if (m_imgIndex[m_areaIndex] > m_trimLeft)
+            m_imgIndex[m_areaIndex] --;
+        else
+            m_imgIndex[m_areaIndex] = m_trimRight;
 
-	//draw
-	m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
+    //draw
+    m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 
-	//review
-	unsigned int* ptrTemp = m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
-	m_ptrUpdateFrameFreeze(ptrTemp, Image::WIDTH, Image::HEIGHT);
+    //review
+    unsigned int* ptrTemp = m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
+    m_ptrUpdateFrameFreeze(ptrTemp, Image::WIDTH, Image::HEIGHT);
 
-	return ptrTemp;
+    return ptrTemp;
 }
 
 /*
@@ -638,24 +627,24 @@ unsigned int* Replay::ReviewOneImgOnly()
 unsigned int* Replay::ViewOneImgOnly()
 {
 #if 0
-	PRINTF("view one image\n");
-	PRINTF("m_maxCount[m_areaIndex] = %d\n", m_maxCount[m_areaIndex]);
-	PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
-	PRINTF("m_areaIndex = %d\n", m_areaIndex);
-	PRINTF("m_trimLeft= %d\n", m_trimLeft);
-	PRINTF("m_trimRight= %d\n", m_trimRight);
-	PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
+    PRINTF("view one image\n");
+    PRINTF("m_maxCount[m_areaIndex] = %d\n", m_maxCount[m_areaIndex]);
+    PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
+    PRINTF("m_areaIndex = %d\n", m_areaIndex);
+    PRINTF("m_trimLeft= %d\n", m_trimLeft);
+    PRINTF("m_trimRight= %d\n", m_trimRight);
+    PRINTF("m_imgIndex[m_areaIndex] = %d\n", m_imgIndex[m_areaIndex]);
 #endif
-	//view
-	int size = m_deq[m_areaIndex].size();
-	if (size == 0)
-		return NULL;
+    //view
+    int size = m_deq[m_areaIndex].size();
+    if (size == 0)
+        return NULL;
 
-	if (m_imgIndex[m_areaIndex] < m_trimRight)
+    if (m_imgIndex[m_areaIndex] < m_trimRight)
     {
-		m_imgIndex[m_areaIndex] ++;
+        m_imgIndex[m_areaIndex] ++;
     }
-	else
+    else
     {
         if((ViewSuperuser::GetInstance()->GetDemoStatus())&&(!g_menuReview.OnlyOneVideoDemo()))
         {
@@ -664,22 +653,22 @@ unsigned int* Replay::ViewOneImgOnly()
         }
         else
         {
-		    m_imgIndex[m_areaIndex] = m_trimLeft;
+            m_imgIndex[m_areaIndex] = m_trimLeft;
         }
     }
 
-	//draw
-	m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
+    //draw
+    m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 
-	//view
-	unsigned int* ptrTemp = m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
-	m_ptrUpdateFrameFreeze(ptrTemp, Image::WIDTH, Image::HEIGHT);
+    //view
+    unsigned int* ptrTemp = m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
+    m_ptrUpdateFrameFreeze(ptrTemp, Image::WIDTH, Image::HEIGHT);
 
-	return ptrTemp;
+    return ptrTemp;
 }
 unsigned int* Replay::GetCurrentImg()
 {
-	return (unsigned int*)m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
+    return (unsigned int*)m_deq[m_areaIndex][m_imgIndex[m_areaIndex]].GetImg();
 }
 
 /*
@@ -737,47 +726,47 @@ bool Replay::GetCineImg(deque<Image>** ptrDeq, int &cineBegin, int &cineCount, i
     if (m_deq[m_areaIndex].size() == 0)
         return FALSE;
 
-	*ptrDeq = &m_deq[m_areaIndex];
-	cineBegin = m_trimLeft;
-	cineCount = m_trimRight - m_trimLeft + 1;
-	cineWidth = Image::WIDTH;
-	cineHeight = Image::HEIGHT;
-	fps = m_fps;
+    *ptrDeq = &m_deq[m_areaIndex];
+    cineBegin = m_trimLeft;
+    cineCount = m_trimRight - m_trimLeft + 1;
+    cineWidth = Image::WIDTH;
+    cineHeight = Image::HEIGHT;
+    fps = m_fps;
 
     return TRUE;
 }
 
 void Replay::EnterViewStatus()
 {
-	m_viewMode = TRUE;
+    m_viewMode = TRUE;
 }
 
 void Replay::EnterReviewStatus()
 {
-	m_viewMode = FALSE;
+    m_viewMode = FALSE;
 }
 
 void Replay::AutoReplayEnd()
 {
-	// time off
-	if (m_tagTimer > 0)
-	{
-		if (!g_source_remove(m_tagTimer))
+    // time off
+    if (m_tagTimer > 0)
+    {
+        if (!g_source_remove(m_tagTimer))
         {
            // printf("remove timer error\n");
         }
-		m_tagTimer = 0;
-		//printf("remove timer\n");
-	}
+        m_tagTimer = 0;
+        //printf("remove timer\n");
+    }
 }
 
 bool Replay::AutoReplayStartView()
 {
-	if (m_deq[m_areaIndex].size() > 1)
-	{
-		int interval = GetReplayTime(m_speedIndex);
+    if (m_deq[m_areaIndex].size() > 1)
+    {
+        int interval = GetReplayTime(m_speedIndex);
 
-		// timer on
+        // timer on
         if (m_tagTimer > 0)
         {
             if (!g_source_remove(m_tagTimer))
@@ -793,22 +782,22 @@ bool Replay::AutoReplayStartView()
            // printf("create timer for replay ok\n");
         }
         return TRUE;
-	}
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
-	}
+    }
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 bool Replay::AutoReplayStartReview()
 {
-	if (m_deq[m_areaIndex].size() > 1)
-	{
-		int interval = GetReplayTime(m_speedIndex);
+    if (m_deq[m_areaIndex].size() > 1)
+    {
+        int interval = GetReplayTime(m_speedIndex);
 
-		// timer on
+        // timer on
         if (m_tagTimer > 0)
         {
             if (!g_source_remove(m_tagTimer))
@@ -824,29 +813,29 @@ bool Replay::AutoReplayStartReview()
            // printf("create timer for replay ok\n");
         }
 
-		return TRUE;
-	}
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
-	}
+        return TRUE;
+    }
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 void Replay::ClearAll()
 {
-	int i;
+    int i;
 
-	m_ptrDsc->GetReplayWriteLock();
+    m_ptrDsc->GetReplayWriteLock();
 
-	for (i = 0; i < MAX_AREA; i ++)
-	{
-		m_deq[i].clear();
-		m_imgIndex[i] = 0;
-	}
+    for (i = 0; i < MAX_AREA; i ++)
+    {
+        m_deq[i].clear();
+        m_imgIndex[i] = 0;
+    }
 
-	m_ptrDsc->ReadWriteReplayUnlock();
+    m_ptrDsc->ReadWriteReplayUnlock();
 
 }
 
@@ -860,24 +849,24 @@ void Replay::ClearAll()
 void Replay::AddOneCineImg(Image img)
 {
 #if 0
-	m_ptrDsc->GetReplayWriteLock();
+    m_ptrDsc->GetReplayWriteLock();
 
-	int size = m_deq[m_areaIndex].size();
+    int size = m_deq[m_areaIndex].size();
 
-	if (size < m_maxCount[m_areaIndex])
-	{
-		m_deq[m_areaIndex].push_back(img);
-	}
-	else if (size  == m_maxCount[m_areaIndex])
-	{
-		m_deq[m_areaIndex].pop_front();
-		m_deq[m_areaIndex].push_back(img);
-	}
+    if (size < m_maxCount[m_areaIndex])
+    {
+        m_deq[m_areaIndex].push_back(img);
+    }
+    else if (size  == m_maxCount[m_areaIndex])
+    {
+        m_deq[m_areaIndex].pop_front();
+        m_deq[m_areaIndex].push_back(img);
+    }
 
-	m_ptrDsc->ReadWriteReplayUnlock();
+    m_ptrDsc->ReadWriteReplayUnlock();
 #endif
 
-	AddOneImg(img);
+    AddOneImg(img);
 }
 
 /*
@@ -887,25 +876,25 @@ void Replay::AddOneCineImg(Image img)
  */
 void Replay::EnterReadCine()
 {
-	ExitReadSnap();
+    ExitReadSnap();
 
-	if (!m_enterCine)
-	{
-		m_enterCine = TRUE;
+    if (!m_enterCine)
+    {
+        m_enterCine = TRUE;
         m_discard = FALSE;
 
-		//bak
+        //bak
         for (int i = 0; i < MAX_AREA; i ++)
             m_maxCountBak[i] = m_maxCount[i];
-		m_areaIndexBak = m_areaIndex;
-		m_areaNumBak = m_areaNum;
-		m_fpsBak = m_fps;
+        m_areaIndexBak = m_areaIndex;
+        m_areaNumBak = m_areaNum;
+        m_fpsBak = m_fps;
 
-		SetAreaNum(1);
-	}
+        SetAreaNum(1);
+    }
 
-	PrepareForEndReplay();
-	KnobCineCreate();
+    PrepareForEndReplay();
+    KnobCineCreate();
 }
 
 /*
@@ -913,17 +902,17 @@ void Replay::EnterReadCine()
  */
 void Replay::ExitReadCine()
 {
-	if (m_enterCine)
-	{
-		m_enterCine = FALSE;
+    if (m_enterCine)
+    {
+        m_enterCine = FALSE;
         m_discard = FALSE;
         //m_discard = TRUE; //lhm
 
         for (int i = 0; i < MAX_AREA; i ++)
             m_maxCount[i]= m_maxCountBak[i];
-		m_areaIndex= m_areaIndexBak;
-		m_areaNum= m_areaNumBak;
-		m_fps = m_fpsBak;
+        m_areaIndex= m_areaIndexBak;
+        m_areaNum= m_areaNumBak;
+        m_fps = m_fpsBak;
 
         ClearAll();
 
@@ -938,7 +927,7 @@ void Replay::ExitReadCine()
 
         m_ptrUpdate->ClearReplayBar();
     }
-	KnobUndo();
+    KnobUndo();
 }
 
 /*
@@ -948,7 +937,7 @@ void Replay::ExitReadCine()
  */
 void Replay::SetUpdateFrameFunc(UPDATEFRAME drawImg)
 {
-	m_ptrUpdateFrameFreeze = drawImg;
+    m_ptrUpdateFrameFreeze = drawImg;
 }
 
 /*
@@ -957,57 +946,57 @@ void Replay::SetUpdateFrameFunc(UPDATEFRAME drawImg)
  */
 void Replay::SetDefaultFrameFunc(void)
 {
-	m_ptrUpdateFrameFreeze = DscMan::GetInstance()->GetFrameUpdateFunFreeze();
+    m_ptrUpdateFrameFreeze = DscMan::GetInstance()->GetFrameUpdateFunFreeze();
 }
 /*
  * @brief enter snap read mode, read data from harddisk and display it in main window
  * @note in this mode, system image can not be display correctly, so ExitReadSnap must be
- *		 called when EnterReadSnap is called(after used it).
+ *       called when EnterReadSnap is called(after used it).
  */
 void Replay::EnterReadSnap()
 {
-	if (!m_enterSnap)
-	{
-		m_enterSnap = TRUE;
-		BakImgForSnap();
-	}
+    if (!m_enterSnap)
+    {
+        m_enterSnap = TRUE;
+        BakImgForSnap();
+    }
 }
 void Replay::ExitReadSnap()
 {
-	if (m_enterSnap)
-	{
-		m_enterSnap = FALSE;
-		RestoreImgForSnap();
-		ScanMode::GetInstance()->ExitSpecialMeasure();
-	}
-	KnobUndo();
+    if (m_enterSnap)
+    {
+        m_enterSnap = FALSE;
+        RestoreImgForSnap();
+        ScanMode::GetInstance()->ExitSpecialMeasure();
+    }
+    KnobUndo();
 }
 
 bool Replay::GetReadSnapStatus()
 {
-	return m_enterSnap;
+    return m_enterSnap;
 }
 
 void Replay::BakImgForSnap()
 {
-	ImageArea* ptrImgArea = ImageArea::GetInstance();
-	TopArea* ptrTopArea = TopArea::GetInstance();
+    ImageArea* ptrImgArea = ImageArea::GetInstance();
+    TopArea* ptrTopArea = TopArea::GetInstance();
 
-	if(!ptrTopArea->GetReadImg())
-		ptrTopArea->SetReadImg(TRUE);
-	if(!ptrImgArea->GetReadImg())
-		ptrImgArea->SetReadImg(TRUE);
+    if(!ptrTopArea->GetReadImg())
+        ptrTopArea->SetReadImg(TRUE);
+    if(!ptrImgArea->GetReadImg())
+        ptrImgArea->SetReadImg(TRUE);
 }
 
 void Replay::RestoreImgForSnap()
 {
-	ImageArea* ptrImgArea = ImageArea::GetInstance();
-	TopArea* ptrTopArea = TopArea::GetInstance();
+    ImageArea* ptrImgArea = ImageArea::GetInstance();
+    TopArea* ptrTopArea = TopArea::GetInstance();
 
-	if(ptrTopArea->GetReadImg())
-		ptrTopArea->SetReadImg(FALSE);
-	if(ptrImgArea->GetReadImg())
-		ptrImgArea->SetReadImg(FALSE);
+    if(ptrTopArea->GetReadImg())
+        ptrTopArea->SetReadImg(FALSE);
+    if(ptrImgArea->GetReadImg())
+        ptrImgArea->SetReadImg(FALSE);
 }
 
 /*
@@ -1017,176 +1006,176 @@ void Replay::RestoreImgForSnap()
  */
 int Replay::GetReplayTime(int speedIndex)
 {
-	if (speedIndex > (MAX_SPEED - 1))
-		speedIndex = MAX_SPEED - 1;
+    if (speedIndex > (MAX_SPEED - 1))
+        speedIndex = MAX_SPEED - 1;
 
-	int time = REPLAY_SPEED[speedIndex] * (1 / (float)m_fps) * 1000;
+    int time = REPLAY_SPEED[speedIndex] * (1 / (float)m_fps) * 1000;
     //printf("-------------------------------m_fps = %d, time = %dms\n", m_fps, time);
 
-	return time;
+    return time;
 }
 
 void Replay::EnterEFOVReview(void)
 {
-	m_efovFrameNo = 0;
-	m_efovAutoReviewFlag = FALSE;
-	ScanMode::GetInstance()->EnterEFOVReview();
-	m_ptrUpdate2D->EFOVReplay(FALSE, PRESS);
-	SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), ERROR);
+    m_efovFrameNo = 0;
+    m_efovAutoReviewFlag = FALSE;
+    ScanMode::GetInstance()->EnterEFOVReview();
+    m_ptrUpdate2D->EFOVReplay(FALSE, PRESS);
+    SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), ERROR);
 }
 
 void Replay::ExitEFOVReview(void)
 {
-	EFOVAutoReviewEnd();
-	ScanMode::GetInstance()->EnterEFOVView();
+    EFOVAutoReviewEnd();
+    ScanMode::GetInstance()->EnterEFOVView();
 }
 
 EKnobReturn Replay::ChangeEFOVReviewDir(EKnobOper oper)
 {
-	EFOVAutoReviewEnd();
-	int total = 0;
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
+    EFOVAutoReviewEnd();
+    int total = 0;
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
 
-	if (oper == ADD)
-	{
-		if (m_efovFrameNo < (total-1))
-		{
-			m_efovFrameNo ++;
-		}
-		else
-		{
-			PRINTF("replay: EFOV frameno reach max value!\n");
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (m_efovFrameNo > 0)
-		{
-			m_efovFrameNo --;
-		}
-		else
-		{
-			PRINTF("replay: EFOV frameNo speed reach min value!\n");
-			return (MIN);
-		}
-	}
+    if (oper == ADD)
+    {
+        if (m_efovFrameNo < (total-1))
+        {
+            m_efovFrameNo ++;
+        }
+        else
+        {
+            PRINTF("replay: EFOV frameno reach max value!\n");
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (m_efovFrameNo > 0)
+        {
+            m_efovFrameNo --;
+        }
+        else
+        {
+            PRINTF("replay: EFOV frameNo speed reach min value!\n");
+            return (MIN);
+        }
+    }
     else
     {
         return ERROR;
     }
 
-	EKnobReturn ret = OK;
-	if (m_efovFrameNo == (total-1))
-		ret = MIN;
-	else if (m_efovFrameNo == 0)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (m_efovFrameNo == (total-1))
+        ret = MIN;
+    else if (m_efovFrameNo == 0)
+        ret = MAX;
+    else
+        ret = OK;
 
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		DscMan::GetInstance()->GetDsc()->SetEFOVReviewFrameNo(m_efovFrameNo);
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        DscMan::GetInstance()->GetDsc()->SetEFOVReviewFrameNo(m_efovFrameNo);
 
-	return ret;
+    return ret;
 }
 
 void Replay::GetEFOVCineImg(unsigned char **data, int &size)
 {
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		DscMan::GetInstance()->GetDsc()->SaveEFOVCine(data, size);
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        DscMan::GetInstance()->GetDsc()->SaveEFOVCine(data, size);
 }
 
 void Replay::SetEFOVCineImg(unsigned char *data, int size)
 {
-	m_efovFrameNo = 0;
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		DscMan::GetInstance()->GetDsc()->ReadEFOVCine(data, size);
+    m_efovFrameNo = 0;
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        DscMan::GetInstance()->GetDsc()->ReadEFOVCine(data, size);
 }
 
 void Replay::EFOVAutoReviewStart()
 {
-	if(m_efovAutoReviewFlag)
-		return;
+    if(m_efovAutoReviewFlag)
+        return;
 
         // set replay para
         ClearCurReplayData();
 
-	int total = 0;
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
+    int total = 0;
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
 
-	if (total > 1)
-	{
-		// timer on
-		if (m_tagTimerEFOV == 0)
-		{
-			m_tagTimerEFOV = g_timeout_add(50, EFOVReviewCallBack, NULL);
-			if (m_tagTimerEFOV > 0)
-			{
-				m_efovAutoReviewFlag = TRUE;
-				PRINTF("create timer for replay ok\n");
-				//knob update
-				m_ptrUpdate2D->EFOVReplay(TRUE, PRESS);
-			}
-		}
-	}
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
-	}
-	SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), ERROR);
+    if (total > 1)
+    {
+        // timer on
+        if (m_tagTimerEFOV == 0)
+        {
+            m_tagTimerEFOV = g_timeout_add(50, EFOVReviewCallBack, NULL);
+            if (m_tagTimerEFOV > 0)
+            {
+                m_efovAutoReviewFlag = TRUE;
+                PRINTF("create timer for replay ok\n");
+                //knob update
+                m_ptrUpdate2D->EFOVReplay(TRUE, PRESS);
+            }
+        }
+    }
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[Replay]: No image can be replayed."), 1);
+    }
+    SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), ERROR);
 }
 
 void Replay::EFOVAutoReviewEnd()
 {
-	if(!m_efovAutoReviewFlag)
-		return;
+    if(!m_efovAutoReviewFlag)
+        return;
 
         PrepareForReplay();
 
-	// time off
-	if (m_tagTimerEFOV > 0)
-	{
-		if (!g_source_remove(m_tagTimerEFOV))
+    // time off
+    if (m_tagTimerEFOV > 0)
+    {
+        if (!g_source_remove(m_tagTimerEFOV))
         {
             PRINTF("remove timer error\n");
         }
-		m_tagTimerEFOV = 0;
-		m_efovAutoReviewFlag = FALSE;
-		PRINTF("remove timer\n");
-		//knob update
-		m_ptrUpdate2D->EFOVReplay(FALSE, PRESS);
-	}
-	SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), PRESS);
+        m_tagTimerEFOV = 0;
+        m_efovAutoReviewFlag = FALSE;
+        PRINTF("remove timer\n");
+        //knob update
+        m_ptrUpdate2D->EFOVReplay(FALSE, PRESS);
+    }
+    SyncKnobEFOVReview(EFOV_SAVE, N_("Press"), PRESS);
 }
 
 void Replay::EFOVAutoReview()
 {
-	int total = 0;
-	if(DscMan::GetInstance()->GetDsc() != NULL)
-		total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
+    int total = 0;
+    if(DscMan::GetInstance()->GetDsc() != NULL)
+        total = DscMan::GetInstance()->GetDsc()->GetEFOVTotalFrameNo();
 
-	if(m_efovFrameNo < total)
-	{
-		if(DscMan::GetInstance()->GetDsc() != NULL)
-			DscMan::GetInstance()->GetDsc()->SetEFOVReviewFrameNo(m_efovFrameNo);
-		m_efovFrameNo++;
-	}
+    if(m_efovFrameNo < total)
+    {
+        if(DscMan::GetInstance()->GetDsc() != NULL)
+            DscMan::GetInstance()->GetDsc()->SetEFOVReviewFrameNo(m_efovFrameNo);
+        m_efovFrameNo++;
+    }
 
-	if(m_efovFrameNo >= total)
-	{
-		EFOVAutoReviewEnd();
-		m_efovFrameNo = 0;
-	}
+    if(m_efovFrameNo >= total)
+    {
+        EFOVAutoReviewEnd();
+        m_efovFrameNo = 0;
+    }
 }
 
 void Replay::ChangeEFOVAutoReviewFlag()
 {
-	if(m_efovAutoReviewFlag)
-		EFOVAutoReviewEnd();
-	else
-		EFOVAutoReviewStart();
+    if(m_efovAutoReviewFlag)
+        EFOVAutoReviewEnd();
+    else
+        EFOVAutoReviewStart();
 }
 
 bool Replay::EFOVVideoOutOfRange(void)

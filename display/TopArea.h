@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef TOPAREA_H
 #define TOPAREA_H
 
@@ -11,7 +10,7 @@
  *      Logo |    Hospital        |  Probe     |  TIS |  Time
  *           |                    |            |      |
  *    --------------------------------------------------------------
- *	  0      P1                   P2           P3     P4          844
+ *    0      P1                   P2           P3     P4          844
  */
 #define TOP_AREA_P1 130
 #define TOP_AREA_P2 440
@@ -88,9 +87,9 @@ private:
     void TopAreaExpose(GtkWidget *widget, GdkEventExpose *event);
 //signal connect
     static gboolean HandleTopAreaConfigure(GtkWidget *widget, GdkEventConfigure *event, TopArea *data)
-	{ data->TopAreaConfigure(widget, event); return FALSE; }
+    { data->TopAreaConfigure(widget, event); return FALSE; }
     static gboolean HandleTopAreaExpose(GtkWidget *widget, GdkEventExpose *event, TopArea *data)
-	{ data->TopAreaExpose(widget, event); return FALSE; }
+    { data->TopAreaExpose(widget, event); return FALSE; }
 };
 
 inline void TopArea::UpdateTopArea(void)

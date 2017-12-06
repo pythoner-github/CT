@@ -12,76 +12,76 @@ ImgProcCfm* ImgProcCfm::m_ptrInstance = NULL;
 
 ImgProcCfm::ImgProcCfm()
 {
-	m_threshold = 0;
-	m_thresholdBak = 0;
-	m_persist = 0;
-	m_reject = 0;
-	m_smooth = 0;
-	m_artifact = 0;
-	m_backgroundHide = FALSE;
-	m_colorHide = FALSE;
-	m_cfmCompare = FALSE;
+    m_threshold = 0;
+    m_thresholdBak = 0;
+    m_persist = 0;
+    m_reject = 0;
+    m_smooth = 0;
+    m_artifact = 0;
+    m_backgroundHide = FALSE;
+    m_colorHide = FALSE;
+    m_cfmCompare = FALSE;
 
-	m_ptrDscPara = DscMan::GetInstance()->GetDscPara();
-	m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateCfm();
+    m_ptrDscPara = DscMan::GetInstance()->GetDscPara();
+    m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateCfm();
 }
 
 ImgProcCfm::~ImgProcCfm()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 ImgProcCfm* ImgProcCfm::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new ImgProcCfm;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new ImgProcCfm;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 void ImgProcCfm::InitOptimize(ExamItem::ParaColor* color)
 {
-	EKnobReturn ret;
+    EKnobReturn ret;
 
     //reject
-	m_reject = color->reject;
-	if(m_reject == (MAX_REJECT-1))
-		ret = MAX;
-	else if(m_reject == 0)
-		ret = MIN;
-	else
-		ret = OK;
-	SetReject(m_reject, ret);
+    m_reject = color->reject;
+    if(m_reject == (MAX_REJECT-1))
+        ret = MAX;
+    else if(m_reject == 0)
+        ret = MIN;
+    else
+        ret = OK;
+    SetReject(m_reject, ret);
 
-	//smooth
-	m_smooth = color->smooth;
-	if(m_smooth == (MAX_SMOOTH-1))
-		ret = MAX;
-	else if(m_smooth == 0)
-		ret = MIN;
-	else
-		ret = OK;
-	SetSmooth(m_smooth, ret);
+    //smooth
+    m_smooth = color->smooth;
+    if(m_smooth == (MAX_SMOOTH-1))
+        ret = MAX;
+    else if(m_smooth == 0)
+        ret = MIN;
+    else
+        ret = OK;
+    SetSmooth(m_smooth, ret);
 
-	//persist
-	m_persist = color->persist;
-	if(m_persist == (MAX_PERSIST-1))
-		ret = MAX;
-	else if(m_persist == 0)
-		ret = MIN;
-	else
-		ret = OK;
-	SetPersist(m_persist, ret);
+    //persist
+    m_persist = color->persist;
+    if(m_persist == (MAX_PERSIST-1))
+        ret = MAX;
+    else if(m_persist == 0)
+        ret = MIN;
+    else
+        ret = OK;
+    SetPersist(m_persist, ret);
 
     //artifact
     m_artifact = color->artifact;
-	if(m_artifact == (MAX_ARTIFACT - 1))
-		ret = MAX;
-	else if(m_artifact == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    if(m_artifact == (MAX_ARTIFACT - 1))
+        ret = MAX;
+    else if(m_artifact == 0)
+        ret = MIN;
+    else
+        ret = OK;
 #if 0
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
@@ -110,27 +110,27 @@ void ImgProcCfm::Init(ExamItem::ParaColor* color)
 
     InitOptimize(color);
 
-	//threshold
-	//m_threshold = 0;
-	m_threshold = MAX_THRESHOLD - 1;
-	SetThreshold(m_threshold, MAX);
-	m_colorHide = FALSE;
+    //threshold
+    //m_threshold = 0;
+    m_threshold = MAX_THRESHOLD - 1;
+    SetThreshold(m_threshold, MAX);
+    m_colorHide = FALSE;
 
-	//background hide
-	m_backgroundHide = FALSE;
-	m_ptrUpdate->BackgroundHide(m_backgroundHide);
+    //background hide
+    m_backgroundHide = FALSE;
+    m_ptrUpdate->BackgroundHide(m_backgroundHide);
 
-	//2d+cfm
-	m_cfmCompare = FALSE;
-	m_ptrUpdate->CfmCompare(FALSE);
+    //2d+cfm
+    m_cfmCompare = FALSE;
+    m_ptrUpdate->CfmCompare(FALSE);
 }
 
 void ImgProcCfm::GetCurPara(ExamItem::ParaItem* ptrParaItem)
 {
-	ptrParaItem->color.reject = m_reject;
-	ptrParaItem->color.smooth = m_smooth;
-	ptrParaItem->color.persist = m_persist;
-	ptrParaItem->color.artifact = m_artifact;
+    ptrParaItem->color.reject = m_reject;
+    ptrParaItem->color.smooth = m_smooth;
+    ptrParaItem->color.persist = m_persist;
+    ptrParaItem->color.artifact = m_artifact;
 }
 
 /*
@@ -151,185 +151,185 @@ void ImgProcCfm::ChangeColorHide()
 
 void ImgProcCfm::SetThresholdOff()
 {
-	ColorHide(FALSE);
+    ColorHide(FALSE);
 }
 
 EKnobReturn ImgProcCfm::ChangeBackgroundHide(bool on)
 {
     DscMan* ptrDscMan = DscMan::GetInstance();
     ptrDscMan->GetWriteLock();
-	m_ptrDscPara->dcaCFMIPAttrs.ipaHideBackground = on;
+    m_ptrDscPara->dcaCFMIPAttrs.ipaHideBackground = on;
     CDSC* ptrDsc = DscMan::GetInstance()->GetDsc();
     if (ptrDsc != NULL)
         ptrDsc->Update();
     ptrDscMan->ReadWriteUnlock();
-	return OK;
+    return OK;
 }
 EKnobReturn ImgProcCfm::ChangeThreshold(EKnobOper oper)
 {
-	if (!ImgProc2D::GetInstance()->GetChromaStatus())
-	{
-		if ((oper == ADD) && (m_threshold < (MAX_THRESHOLD - 1)))
-			m_threshold ++;
-		else if ((oper == SUB) && (m_threshold > 0))
-			m_threshold --;
-		else
-			return ERROR;
+    if (!ImgProc2D::GetInstance()->GetChromaStatus())
+    {
+        if ((oper == ADD) && (m_threshold < (MAX_THRESHOLD - 1)))
+            m_threshold ++;
+        else if ((oper == SUB) && (m_threshold > 0))
+            m_threshold --;
+        else
+            return ERROR;
 
-		EKnobReturn ret;
-		if(m_threshold == (MAX_THRESHOLD-1))
-			ret = MAX;
-		else if(m_threshold == 0)
-			ret = MIN;
-		else
-			ret = OK;
+        EKnobReturn ret;
+        if(m_threshold == (MAX_THRESHOLD-1))
+            ret = MAX;
+        else if(m_threshold == 0)
+            ret = MIN;
+        else
+            ret = OK;
 
-		// threshold
-		SetThreshold(m_threshold, ret);
+        // threshold
+        SetThreshold(m_threshold, ret);
 
-		// color hide
-		if(m_threshold == 0)
-			m_colorHide = TRUE;
-		else
-			m_colorHide = FALSE;
-		return ret;
-	}
+        // color hide
+        if(m_threshold == 0)
+            m_colorHide = TRUE;
+        else
+            m_colorHide = FALSE;
+        return ret;
+    }
     else
     {
-		HintArea::GetInstance()->UpdateHint(_("[Threshold]: Invalid when chroma is on."), 1);
+        HintArea::GetInstance()->UpdateHint(_("[Threshold]: Invalid when chroma is on."), 1);
     }
 
-	return ERROR;
+    return ERROR;
 }
 EKnobReturn ImgProcCfm::ChangePersist(EKnobOper oper)
 {
-	if ((oper == ADD) && (m_persist < (MAX_PERSIST - 1)))
-		m_persist ++;
-	else if ((oper == SUB) && (m_persist > 0))
-		m_persist --;
-	else
-		return ERROR;
+    if ((oper == ADD) && (m_persist < (MAX_PERSIST - 1)))
+        m_persist ++;
+    else if ((oper == SUB) && (m_persist > 0))
+        m_persist --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_persist == (MAX_PERSIST-1))
-		ret = MAX;
-	else if(m_persist == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if(m_persist == (MAX_PERSIST-1))
+        ret = MAX;
+    else if(m_persist == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	SetPersist(m_persist, ret);
+    SetPersist(m_persist, ret);
 
-	return ret;
+    return ret;
 }
 EKnobReturn ImgProcCfm::ChangeReject(EKnobOper oper)
 {
-	if ((oper == ADD) && (m_reject < (MAX_REJECT - 1)))
-		m_reject ++;
-	else if ((oper == SUB) && (m_reject > 0))
-		m_reject --;
-	else
-		return ERROR;
+    if ((oper == ADD) && (m_reject < (MAX_REJECT - 1)))
+        m_reject ++;
+    else if ((oper == SUB) && (m_reject > 0))
+        m_reject --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_reject == (MAX_REJECT-1))
-		ret = MAX;
-	else if(m_reject == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if(m_reject == (MAX_REJECT-1))
+        ret = MAX;
+    else if(m_reject == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	SetReject(m_reject, ret);
+    SetReject(m_reject, ret);
 
-	return ret;
+    return ret;
 }
 EKnobReturn ImgProcCfm::ChangeSmooth(EKnobOper oper)
 {
-	if ((oper == ADD) && (m_smooth < (MAX_SMOOTH - 1)))
-		m_smooth ++;
-	else if ((oper == SUB) && (m_smooth > 0))
-		m_smooth --;
-	else
-		return ERROR;
+    if ((oper == ADD) && (m_smooth < (MAX_SMOOTH - 1)))
+        m_smooth ++;
+    else if ((oper == SUB) && (m_smooth > 0))
+        m_smooth --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_smooth == (MAX_SMOOTH-1))
-		ret = MAX;
-	else if(m_smooth == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if(m_smooth == (MAX_SMOOTH-1))
+        ret = MAX;
+    else if(m_smooth == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	SetSmooth(m_smooth, ret);
+    SetSmooth(m_smooth, ret);
 
-	return ret;
+    return ret;
 }
 EKnobReturn ImgProcCfm::ChangeArtifact(EKnobOper oper)
 {
-	if ((oper == ADD) && (m_artifact < (MAX_ARTIFACT - 1)))
-		m_artifact ++;
-	else if ((oper == SUB) && (m_artifact > 0))
-		m_artifact --;
-	else
-		return ERROR;
+    if ((oper == ADD) && (m_artifact < (MAX_ARTIFACT - 1)))
+        m_artifact ++;
+    else if ((oper == SUB) && (m_artifact > 0))
+        m_artifact --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_artifact == (MAX_ARTIFACT-1))
-	{
-		ret = MAX;
-	}
-	else if(m_artifact == 0)
-	{
-		ret = MIN;
-	}
-	else
-	{
-		ret = OK;
-	}
+    EKnobReturn ret;
+    if(m_artifact == (MAX_ARTIFACT-1))
+    {
+        ret = MAX;
+    }
+    else if(m_artifact == 0)
+    {
+        ret = MIN;
+    }
+    else
+    {
+        ret = OK;
+    }
 
-	SetArtifact(m_artifact, ret);
+    SetArtifact(m_artifact, ret);
 
-	return ret;
+    return ret;
 }
 
 ///> private
 void ImgProcCfm::ColorHide(bool on)
 {
-	EKnobReturn ret = OK;
-	if (on)
-	{
-		m_threshold = 0;
-		ret = MIN;
-	}
-	else
-	{
-		m_threshold = MAX_THRESHOLD - 1;
-		ret = MAX;
-	}
+    EKnobReturn ret = OK;
+    if (on)
+    {
+        m_threshold = 0;
+        ret = MIN;
+    }
+    else
+    {
+        m_threshold = MAX_THRESHOLD - 1;
+        ret = MAX;
+    }
 
-	SetThreshold(m_threshold, ret);
+    SetThreshold(m_threshold, ret);
 }
 void ImgProcCfm::SetThreshold(int index, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaCFMIPAttrs.ipaThreshold = THRESHOLD[index];
-	m_ptrUpdate->Threshold(THRESHOLD[index], ret);
+    m_ptrDscPara->dcaCFMIPAttrs.ipaThreshold = THRESHOLD[index];
+    m_ptrUpdate->Threshold(THRESHOLD[index], ret);
 }
 void ImgProcCfm::SetPersist(int index, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaCFMIPAttrs.ipaFrameAver = PERSIST[index];
-	m_ptrUpdate->Persist(index, ret);
+    m_ptrDscPara->dcaCFMIPAttrs.ipaFrameAver = PERSIST[index];
+    m_ptrUpdate->Persist(index, ret);
 }
 void ImgProcCfm::SetReject(int index, EKnobReturn ret)
 {
-	m_ptrUpdate->Reject(index, ret);
+    m_ptrUpdate->Reject(index, ret);
 }
 void ImgProcCfm::SetSmooth(int index, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaCFMIPAttrs.ipaSmooth = index;
-	m_ptrUpdate->Smooth(index, ret);
+    m_ptrDscPara->dcaCFMIPAttrs.ipaSmooth = index;
+    m_ptrUpdate->Smooth(index, ret);
 }
 void ImgProcCfm::SetArtifact(int index, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaCFMIPAttrs.ipaArtifact = index;
-	m_ptrUpdate->Artifact(index, ret);
+    m_ptrDscPara->dcaCFMIPAttrs.ipaArtifact = index;
+    m_ptrUpdate->Artifact(index, ret);
 }

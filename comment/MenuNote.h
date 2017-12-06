@@ -3,11 +3,11 @@
 
 class MenuNote
 {
-	public:
-		MenuNote();
-		~MenuNote() {}
-		void Hide(void);
-		void Show(void);
+    public:
+        MenuNote();
+        ~MenuNote() {}
+        void Hide(void);
+        void Show(void);
 
         GtkWidget* Create(void);
         void Focus(void);

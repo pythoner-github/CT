@@ -22,7 +22,7 @@ private:
     ViewTemplet();
 
     GtkTreeModel* CreateTreeModel(void);
-	void KeyEvent(unsigned char keyValue);
+    void KeyEvent(unsigned char keyValue);
     void AddTreeViewColumn(GtkTreeView *treeview);
     bool OpenDB(void);
     bool CloseDB(void);
@@ -38,8 +38,8 @@ private:
     // char m_copyNode[4][maxNodeLen];//复制结点时所选结点的值(f1-f4)
     // char m_parentNode[maxNodeLen];//复制时所选结点的父结点
 
-    std::string m_copyNode[4];	// 复制结点时所选结点的值(f1-f4)
-    std::string m_parentNode;	// 复制时所选结点的父结点
+    std::string m_copyNode[4];  // 复制结点时所选结点的值(f1-f4)
+    std::string m_parentNode;   // 复制时所选结点的父结点
     int m_nodeHeight;
 
     GtkCellRenderer *m_renderer;

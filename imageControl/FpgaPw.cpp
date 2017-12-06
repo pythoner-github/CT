@@ -16,13 +16,13 @@ struct FpgaPw::FpgaAddrVariablePw FpgaPw::fpgaPw;
 */
 int FpgaPw::SendNoise(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=0;
-	PRINTF("0: fpga send pw_combined noise threshold data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=0;
+    PRINTF("0: fpga send pw_combined noise threshold data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 /**
  * @brief gainCw
@@ -46,13 +46,13 @@ int FpgaPw::SendGainCw(INT16 data)
 */
 int FpgaPw::SendDyn(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=1;
-	PRINTF("1: fpga send pw_combined Dyn data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=1;
+    PRINTF("1: fpga send pw_combined Dyn data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -61,13 +61,13 @@ int FpgaPw::SendDyn(INT16 data)
 */
 int FpgaPw::SendBaseLine(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=2;
-	PRINTF("2: fpga send pw_combined baseline =%d \n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=2;
+    PRINTF("2: fpga send pw_combined baseline =%d \n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -76,13 +76,13 @@ int FpgaPw::SendBaseLine(INT16 data)
 */
 int FpgaPw::SendLogRank(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=3;
-	PRINTF("3: fpga send pw_combined logrank = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=3;
+    PRINTF("3: fpga send pw_combined logrank = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -90,33 +90,33 @@ int FpgaPw::SendLogRank(INT16 data)
 */
 int FpgaPw::SendWfFc(INT32U *filter, INT32U size)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
-	INT16U clearAddr;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
+    INT16U clearAddr;
 
-	clearAddr=4;
-	data = 0;
-	PRINTF("fpga send pw_combined clear wall filter addr = %d, data = %d\n", clearAddr, data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=4;
+    data = 0;
+    PRINTF("fpga send pw_combined clear wall filter addr = %d, data = %d\n", clearAddr, data);
+    SendPwCombined(clearAddr,data);
 
 #if 0
-	unsigned int i;
-	for(i = 0; i < size * 2; i++)
-	{
-		PRINTF(" wF: filter[%d] = %d\n", i, *((unsigned char*)filter+i));
-	}
+    unsigned int i;
+    for(i = 0; i < size * 2; i++)
+    {
+        PRINTF(" wF: filter[%d] = %d\n", i, *((unsigned char*)filter+i));
+    }
 #endif
 
-	//erite data to fpga
-	PRINTF("1: fpga send pw_combined, size = %d\n", size);
-	addr = WALL_FILTER_DATA;
-	ret = m_ptrInterface->WriteBufToFpga(addr, 14, BITS16, (INT8U*)filter);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
-	return (SUCCESS);
+    //erite data to fpga
+    PRINTF("1: fpga send pw_combined, size = %d\n", size);
+    addr = WALL_FILTER_DATA;
+    ret = m_ptrInterface->WriteBufToFpga(addr, 14, BITS16, (INT8U*)filter);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
+    return (SUCCESS);
 }
 
 /**
@@ -125,14 +125,14 @@ int FpgaPw::SendWfFc(INT32U *filter, INT32U size)
 */
 int FpgaPw::SendSampleBegin(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=5;
+    clearAddr=5;
 
-	PRINTF("fpga send pw_combined sample begin = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    PRINTF("fpga send pw_combined sample begin = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -141,14 +141,14 @@ int FpgaPw::SendSampleBegin(INT16 data)
 */
 int FpgaPw::SendSampleEnd(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=6;
+    clearAddr=6;
 
-	PRINTF("fpga send pw_combined sample end = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    PRINTF("fpga send pw_combined sample end = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -157,16 +157,16 @@ int FpgaPw::SendSampleEnd(INT16 data)
 */
 int FpgaPw::SendScanLine(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=7;
+    clearAddr=7;
 
-	data = data / 2 * 2;
+    data = data / 2 * 2;
 
-	PRINTF("fpga send pw_combined scan line = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    PRINTF("fpga send pw_combined scan line = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -175,14 +175,14 @@ int FpgaPw::SendScanLine(INT16 data)
 */
 int FpgaPw::SendSpectrumSpeed(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=8;
+    clearAddr=8;
 
-	PRINTF("------------------------------fpga send pw_combined spetrum speed = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    PRINTF("------------------------------fpga send pw_combined spetrum speed = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -191,22 +191,22 @@ int FpgaPw::SendSpectrumSpeed(INT16 data)
 */
 int FpgaPw::SendSoundVolume(INT16 index)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	addr = HPRF_MBP;
-	fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x3F << 0))) | (index << 0);
-	data = fpgaPw.m_pwHPRF;
+    addr = HPRF_MBP;
+    fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x3F << 0))) | (index << 0);
+    data = fpgaPw.m_pwHPRF;
 
-	PRINTF("fpga send pw hprf-soundVolume, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("fpga send pw hprf-soundVolume, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -216,38 +216,38 @@ int FpgaPw::SendSoundVolume(INT16 index)
 */
 int FpgaPw::SendSoundFilter(INT16U *filter, INT32U size)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	// clear all filter data
-	addr = PW_COMBINED_ADDR;
-	fpgaPw.m_pwSoundFilterAddr = 15;
-	data = fpgaPw.m_pwSoundFilterAddr;
-	PRINTF("fpga send pw sound filter, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    // clear all filter data
+    addr = PW_COMBINED_ADDR;
+    fpgaPw.m_pwSoundFilterAddr = 15;
+    data = fpgaPw.m_pwSoundFilterAddr;
+    PRINTF("fpga send pw sound filter, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	//erite data to fpga
-	PRINTF("fpga send pw sound filter, size = %d\n", size);
+    //erite data to fpga
+    PRINTF("fpga send pw sound filter, size = %d\n", size);
 #if 0
-	unsigned int i;
-	for(i = 0; i < size; i++)
-	{
-		PRINTF("filter[%d] = %d\n", i, filter[i]);
-	}
+    unsigned int i;
+    for(i = 0; i < size; i++)
+    {
+        PRINTF("filter[%d] = %d\n", i, filter[i]);
+    }
 #endif
-	addr = PW_SOUND_DATA;
+    addr = PW_SOUND_DATA;
 
-	ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)filter);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
-	return (SUCCESS);
+    ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)filter);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
+    return (SUCCESS);
 }
 
 /**
@@ -256,70 +256,70 @@ int FpgaPw::SendSoundFilter(INT16U *filter, INT32U size)
 */
 int FpgaPw::SendSpectrumInvert(INT32U invert)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=12;
+    clearAddr=12;
 
-	PRINTF("fpga send pw_combined invert= %d\n", invert);
-	SendPwCombined(clearAddr,invert);
+    PRINTF("fpga send pw_combined invert= %d\n", invert);
+    SendPwCombined(clearAddr,invert);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 int FpgaPw::SendMaxPeriod(INT32U maxPeriod)
 {
-	INT32U addr;
-	INT32U data;
-	INT32U temp;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32U temp;
+    INT32 ret;
 
-	addr = MAXPERIOD_ADDR;
-	data = 2;
-	PRINTF("fpga send pw max_period_addr , addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    addr = MAXPERIOD_ADDR;
+    data = 2;
+    PRINTF("fpga send pw max_period_addr , addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	addr = MAXPERIOD_DATA;
-	temp = maxPeriod & (0xffff << 0);
-	fpgaPw.m_pwMaxperiod = (fpgaPw.m_pwMaxperiod & (~(0xffff << 0))) | (temp << 0);
-	data = fpgaPw.m_pwMaxperiod;
+    addr = MAXPERIOD_DATA;
+    temp = maxPeriod & (0xffff << 0);
+    fpgaPw.m_pwMaxperiod = (fpgaPw.m_pwMaxperiod & (~(0xffff << 0))) | (temp << 0);
+    data = fpgaPw.m_pwMaxperiod;
 
-	PRINTF("fpga send pw max_period_data, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("fpga send pw max_period_data, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 int FpgaPw::SendHPRF(bool on)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	addr = HPRF_MBP;
-	if (on)
-		data = 1;
-	else
-		data = 0;
+    addr = HPRF_MBP;
+    if (on)
+        data = 1;
+    else
+        data = 0;
 
-	fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x1 << 6))) | (data << 6);
-	data = fpgaPw.m_pwHPRF;
+    fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x1 << 6))) | (data << 6);
+    data = fpgaPw.m_pwHPRF;
 
-	PRINTF("fpga send pw hprf, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("fpga send pw hprf, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -328,22 +328,22 @@ int FpgaPw::SendHPRF(bool on)
 */
 int FpgaPw::SendMBP(INT16U index)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	addr = HPRF_MBP;
-	fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x7 << 8))) | (index << 8);
-	data = fpgaPw.m_pwHPRF;
+    addr = HPRF_MBP;
+    fpgaPw.m_pwHPRF = (fpgaPw.m_pwHPRF & (~(0x7 << 8))) | (index << 8);
+    data = fpgaPw.m_pwHPRF;
 
-	PRINTF("fpga send pw hprf-mbp, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("fpga send pw hprf-mbp, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 
 }
 
@@ -354,33 +354,33 @@ int FpgaPw::SendMBP(INT16U index)
 */
 int FpgaPw::SendSoundIntpCoef(INT16U *value, INT32U size)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
-	INT16U clearAddr;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
+    INT16U clearAddr;
 
-	clearAddr=9;
-	data = 0;
-	PRINTF("fpga send pw sound interpolation coeff, addr--data: 0x%x--0x%x\n", clearAddr, data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=9;
+    data = 0;
+    PRINTF("fpga send pw sound interpolation coeff, addr--data: 0x%x--0x%x\n", clearAddr, data);
+    SendPwCombined(clearAddr,data);
 
-	//erite data to fpga
-	PRINTF("fpga send pw sound interpolation coeff, size = %d\n", size);
+    //erite data to fpga
+    PRINTF("fpga send pw sound interpolation coeff, size = %d\n", size);
 #if 0
-	unsigned int i;
-	for(i = 0; i < size; i++)
-	{
-		PRINTF("value[%d] = %d\n", i, value[i]);
-	}
+    unsigned int i;
+    for(i = 0; i < size; i++)
+    {
+        PRINTF("value[%d] = %d\n", i, value[i]);
+    }
 #endif
-	addr = SOUND_INTPCOEF_DATA;
+    addr = SOUND_INTPCOEF_DATA;
 
-	ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)value);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
-	return (SUCCESS);
+    ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)value);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
+    return (SUCCESS);
 }
 
 /**
@@ -389,15 +389,15 @@ int FpgaPw::SendSoundIntpCoef(INT16U *value, INT32U size)
 */
 int FpgaPw::SendSoundIntpNum(INT32U value)
 {
-	INT32U data;
-	INT16U clearAddr;
+    INT32U data;
+    INT16U clearAddr;
 
-	clearAddr=13;
-	data = (value << 0);
-	PRINTF("fpga send sound interpolation num, addr--data: 0x%x--0x%x\n", clearAddr, data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=13;
+    data = (value << 0);
+    PRINTF("fpga send sound interpolation num, addr--data: 0x%x--0x%x\n", clearAddr, data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -406,13 +406,13 @@ int FpgaPw::SendSoundIntpNum(INT32U value)
 */
 int FpgaPw::SendSoundStatus(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=10;
-	PRINTF("0: fpga send pw_combined sound status data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=10;
+    PRINTF("0: fpga send pw_combined sound status data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -421,13 +421,13 @@ int FpgaPw::SendSoundStatus(INT16 data)
 */
 int FpgaPw::SendHPRFEmitNum(INT16 data)
 {
-	INT16U clearAddr;
+    INT16U clearAddr;
 
-	clearAddr=11;
-	PRINTF("1: fpga send pw_combined HPRF emit num data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=11;
+    PRINTF("1: fpga send pw_combined HPRF emit num data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /*
@@ -435,128 +435,128 @@ int FpgaPw::SendHPRFEmitNum(INT16 data)
  */
 int FpgaPw::SendPwSample(INT32 sample)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	// clear
-	addr = TGC_ADDR;
-	data = 6;
-	PRINTF("fpga send clear pw sample, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    // clear
+    addr = TGC_ADDR;
+    data = 6;
+    PRINTF("fpga send clear pw sample, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	addr = FPGA_DATA;
-	data = sample;
+    addr = FPGA_DATA;
+    data = sample;
 
-	PRINTF("fpga send pw sample, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("fpga send pw sample, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 int FpgaPw::SendPwRGBSampleDots(INT32 sample)
 {
-	INT16U clearAddr;
-	INT32U data;
+    INT16U clearAddr;
+    INT32U data;
 
-	clearAddr=14;
-	data = sample;
-	PRINTF("0: fpga send pw_combined rgb sample dots data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=14;
+    data = sample;
+    PRINTF("0: fpga send pw_combined rgb sample dots data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 
 }
 
 int FpgaPw::SendPwRGBSampleCoef(INT16U *table, INT32U size)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
-	INT16U clearAddr;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
+    INT16U clearAddr;
 
-	clearAddr=15;
-	data = 0;
-	PRINTF("fpga send pw rgb sample coeff, addr--data: 0x%x--0x%x\n", clearAddr, data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=15;
+    data = 0;
+    PRINTF("fpga send pw rgb sample coeff, addr--data: 0x%x--0x%x\n", clearAddr, data);
+    SendPwCombined(clearAddr,data);
 
-	//send data to fpga
-	PRINTF("fpga send pw rgb sample coeff, size = %d\n", size);
+    //send data to fpga
+    PRINTF("fpga send pw rgb sample coeff, size = %d\n", size);
 #if 0
-	unsigned int i;
-	for(i = 0; i < size; i++)
-	{
-		PRINTF("table[%d] = %d\n", i, table[i]);
-	}
+    unsigned int i;
+    for(i = 0; i < size; i++)
+    {
+        PRINTF("table[%d] = %d\n", i, table[i]);
+    }
 #endif
-	addr = PW_RGB_SAMPLE_COEF;
+    addr = PW_RGB_SAMPLE_COEF;
 
-	ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)table);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
-	return (SUCCESS);
+    ret = m_ptrInterface->WriteBufToFpga(addr, size, BITS16, (INT8U*)table);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
+    return (SUCCESS);
 }
 int FpgaPw::SendPwSoundStopDot(INT32 dots)
 {
-	INT16U clearAddr;
-	INT32U data;
+    INT16U clearAddr;
+    INT32U data;
 
-	clearAddr=16;
-	data = dots;
-	PRINTF("0: -------fpga send pw_combined sound stop dots data = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=16;
+    data = dots;
+    PRINTF("0: -------fpga send pw_combined sound stop dots data = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 int FpgaPw::SendPwImgCtrl(bool on)
 {
-	INT16U clearAddr;
-	INT32U data;
+    INT16U clearAddr;
+    INT32U data;
 
-	clearAddr=17;
-	data = (int)on;
-	PRINTF("0: -------fpga send pw_combined pw img display ctrl = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=17;
+    data = (int)on;
+    PRINTF("0: -------fpga send pw_combined pw img display ctrl = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 int FpgaPw::SendPwImgCtrlPara(INT32U offLineNum)
 {
-	INT16U clearAddr;
-	INT32U data;
+    INT16U clearAddr;
+    INT32U data;
 
-	clearAddr=18;
-	data = offLineNum;
-	PRINTF("0: -------fpga send pw_combined pw img ctrl line off = %d\n", data);
-	SendPwCombined(clearAddr,data);
+    clearAddr=18;
+    data = offLineNum;
+    PRINTF("0: -------fpga send pw_combined pw img ctrl line off = %d\n", data);
+    SendPwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 
 }
 
 int FpgaPw::SendCwImgCtrl(bool on)
 {
-	INT16U clearAddr;
-	INT32U data;
+    INT16U clearAddr;
+    INT32U data;
 
-	clearAddr=4;
-	data = (int)on;
-	PRINTF("0: -------fpga send cw_combined cw img display ctrl = %d\n", data);
-	SendCwCombined(clearAddr,data);
+    clearAddr=4;
+    data = (int)on;
+    PRINTF("0: -------fpga send cw_combined cw img display ctrl = %d\n", data);
+    SendCwCombined(clearAddr,data);
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 ///>private
@@ -567,32 +567,32 @@ int FpgaPw::SendCwImgCtrl(bool on)
 */
 int FpgaPw::SendPwCombined(INT16U clearAddr, INT16U pwData)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	addr = PW_COMBINED_ADDR;
-	fpgaPw.m_pwCombinedAddr= clearAddr;
-	data = fpgaPw.m_pwCombinedAddr;
+    addr = PW_COMBINED_ADDR;
+    fpgaPw.m_pwCombinedAddr= clearAddr;
+    data = fpgaPw.m_pwCombinedAddr;
 
-	PRINTF("1: fpga send pw_combined clear, addr--data: %d--%d\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("1: fpga send pw_combined clear, addr--data: %d--%d\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	//write data to fpga
-	addr = PW_COMBINED_DATA;
+    //write data to fpga
+    addr = PW_COMBINED_DATA;
     data = pwData;
-	PRINTF("1: fpga send pw_combined send data, addr--data: %d--%d\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("1: fpga send pw_combined send data, addr--data: %d--%d\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }
 
 /**
@@ -602,30 +602,30 @@ int FpgaPw::SendPwCombined(INT16U clearAddr, INT16U pwData)
 */
 int FpgaPw::SendCwCombined(INT16U clearAddr, INT16U cwData)
 {
-	INT32U addr;
-	INT32U data;
-	INT32 ret;
+    INT32U addr;
+    INT32U data;
+    INT32 ret;
 
-	addr = CW_COMBINE_ADDR;
-	data = clearAddr;
+    addr = CW_COMBINE_ADDR;
+    data = clearAddr;
 
-	PRINTF("1: fpga send cw_combined clear, addr--data: 0x%x--0x%x\n", addr, data);
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    PRINTF("1: fpga send cw_combined clear, addr--data: 0x%x--0x%x\n", addr, data);
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	//write data to fpga
-	addr = CW_COMBINE_DATA;
+    //write data to fpga
+    addr = CW_COMBINE_DATA;
     data = cwData;
-	PRINTF("1: fpga send cw_combined send data, addr--data: 0x%x--0x%x\n", addr, data);
+    PRINTF("1: fpga send cw_combined send data, addr--data: 0x%x--0x%x\n", addr, data);
 
-	ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
-	if (ret != SUCCESS)
-	{
-		return (ERR_OP);
-	}
+    ret = m_ptrInterface->WriteOneDataToFpga(addr, data);
+    if (ret != SUCCESS)
+    {
+        return (ERR_OP);
+    }
 
-	return (SUCCESS);
+    return (SUCCESS);
 }

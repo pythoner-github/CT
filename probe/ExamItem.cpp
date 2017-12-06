@@ -1,13 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: ExamItem.cpp
- * @brief: manage parameter of exam item and auto-optimizing image
- *
- * version: V1.0
- * date: 2009-6-7
- * @author: zhanglei
- */
 #include "imageProc/ModeStatus.h"
 #include <stdio.h>
 #include <string.h>
@@ -58,42 +48,42 @@
 #ifdef EMP_355
 const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
-	"Dog","Cat","Bovine","Equine","Swine","Sheep"
+    "Dog","Cat","Bovine","Equine","Swine","Sheep"
 };
 #else
 const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
-	"User1","User2","User3","User4","User5","User6","User7","User8","User9","User10"
+    "User1","User2","User3","User4","User5","User6","User7","User8","User9","User10"
 };
 #endif
 #else
 const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
-	"AdultAbdo","AdultLiver","KidAbdo", "AdultCardio", "KidCardio", "MammaryGlands",
-	//"Thyroid", "EyeBall", "SmallPart", "Gyn", "EarlyPreg", "MiddleLaterPreg",
-	"Thyroid", "EyeBall", "Testicle", "Gyn", "EarlyPreg", "MiddleLaterPreg",
-	"FetusCardio", "KidneyUreter", "BladderProstate", "Carotid", "Jugular", "PeripheryArtery",
-	"PeripheryVein", "HipJoint", "Meniscus", "JointCavity", "Spine", "MSK", "TCD",  "User1", "User2", "User3", "User4"
+    "AdultAbdo","AdultLiver","KidAbdo", "AdultCardio", "KidCardio", "MammaryGlands",
+    //"Thyroid", "EyeBall", "SmallPart", "Gyn", "EarlyPreg", "MiddleLaterPreg",
+    "Thyroid", "EyeBall", "Testicle", "Gyn", "EarlyPreg", "MiddleLaterPreg",
+    "FetusCardio", "KidneyUreter", "BladderProstate", "Carotid", "Jugular", "PeripheryArtery",
+    "PeripheryVein", "HipJoint", "Meniscus", "JointCavity", "Spine", "MSK", "TCD",  "User1", "User2", "User3", "User4"
 };
 #endif
 const string ExamItem::KEY_COMMON = "Common";
 ///> public func
 ExamItem::ExamItem()
 {
-	m_probeIndex = 0;
+    m_probeIndex = 0;
 #ifdef VET
-	m_itemIndex = (EItem)0;
+    m_itemIndex = (EItem)0;
 #else
-	m_itemIndex = ABDO_ADULT;
+    m_itemIndex = ABDO_ADULT;
 #endif
-	InitItemPara(&m_paraItem);
-	InitItemPara(&m_paraOptimize);
+    InitItemPara(&m_paraItem);
+    InitItemPara(&m_paraOptimize);
 
-	int i;
-	for (i = 0; i < NUM_PROBE; i ++)
-	{
-		m_vecItemIndex[i].clear();
-	}
+    int i;
+    for (i = 0; i < NUM_PROBE; i ++)
+    {
+        m_vecItemIndex[i].clear();
+    }
 
     InitItemOfProbe();
     m_genFirstItem = "Carotid";
@@ -256,18 +246,18 @@ enum ExamItem::EItem ExamItem::GetDefaultItem(char* probeModel)
 
     //SetItemOfProbe(probeModel,m_itemIndex);
 
-	return m_itemIndex;
+    return m_itemIndex;
 }
 
 void ExamItem::SetUserItemOfProbe(char* probeModel, enum EItem itemIndex, const char* item)
 {
-	m_probeIndex = GetProbeIndex(probeModel);
-	m_itemIndex = itemIndex;
+    m_probeIndex = GetProbeIndex(probeModel);
+    m_itemIndex = itemIndex;
 
-	// read current item para value to m_paraItem
-	char path[256];
+    // read current item para value to m_paraItem
+    char path[256];
 #ifdef VET
- 	if (strcmp(user_configure, "VetItemPara.ini") == 0)
+    if (strcmp(user_configure, "VetItemPara.ini") == 0)
         sprintf(path, "%s%s", CFG_RES_PATH, EXAM_FILE);
  else
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
@@ -280,8 +270,8 @@ void ExamItem::SetUserItemOfProbe(char* probeModel, enum EItem itemIndex, const 
         sprintf(path, "%s%s%s", CFG_RES_PATH, EXAM_FILE_DIR, user_configure);
 #endif
     IniFile ini(path);
-	ReadConfigCommon(&m_paraItem, KEY_COMMON + "-" + item, &ini);
-	ReadConfigOther(&m_paraItem, PROBE_LIST[m_probeIndex] + "-" + item, &ini);
+    ReadConfigCommon(&m_paraItem, KEY_COMMON + "-" + item, &ini);
+    ReadConfigOther(&m_paraItem, PROBE_LIST[m_probeIndex] + "-" + item, &ini);
 }
 /*
  * @brief set current probe and current item of probe, and get para value according current probe and item, save to m_paraItem
@@ -318,7 +308,7 @@ void ExamItem::SetItemOfProbe(char* probeModel, enum EItem itemIndex)
  */
 void ExamItem::GetCurrentItemPara(ParaItem &ptrPara)
 {
-	ptrPara = m_paraItem;
+    ptrPara = m_paraItem;
 }
 
 /*
@@ -327,34 +317,34 @@ void ExamItem::GetCurrentItemPara(ParaItem &ptrPara)
  */
 void ExamItem::GenerateDefaultExamItem()
 {
-	int i;
-	int j;
+    int i;
+    int j;
 
-	InitItemPara(&m_paraItem);
-	InitItemOfProbe();
+    InitItemPara(&m_paraItem);
+    InitItemOfProbe();
 
-	char path[256];
-	sprintf(path, "%s/%s", CFG_RES_PATH, DEFAULT_EXAM_FILE);
-	IniFile ini(path);
-	// write common para in each item
-	for (j = 0; j < NUM_ITEM; j ++)
-	{
-		WriteConfigCommon(&m_paraItem, KEY_COMMON + "-" + ITEM_LIB[j], &ini);
-	}
+    char path[256];
+    sprintf(path, "%s/%s", CFG_RES_PATH, DEFAULT_EXAM_FILE);
+    IniFile ini(path);
+    // write common para in each item
+    for (j = 0; j < NUM_ITEM; j ++)
+    {
+        WriteConfigCommon(&m_paraItem, KEY_COMMON + "-" + ITEM_LIB[j], &ini);
+    }
 
-	// write different para in each item and each probe
-	//一个探头对应一组检查项目，见m_vecItemIndex[]， 最多MAX_ITEM（16）个。
-	int size;
-	int itemIndex;
-	for (j = 0; j < NUM_PROBE; j ++)
-	{
-		size = m_vecItemIndex[j].size(); // get the size of item in probe PROBE_LIST[j];
-		for (i = 0; i < size; i ++)
-		{
-			itemIndex = m_vecItemIndex[j][i];
-			WriteConfigOther(&m_paraItem, PROBE_LIST[j] + "-" + ITEM_LIB[itemIndex], &ini);
-		}
-	}
+    // write different para in each item and each probe
+    //一个探头对应一组检查项目，见m_vecItemIndex[]， 最多MAX_ITEM（16）个。
+    int size;
+    int itemIndex;
+    for (j = 0; j < NUM_PROBE; j ++)
+    {
+        size = m_vecItemIndex[j].size(); // get the size of item in probe PROBE_LIST[j];
+        for (i = 0; i < size; i ++)
+        {
+            itemIndex = m_vecItemIndex[j][i];
+            WriteConfigOther(&m_paraItem, PROBE_LIST[j] + "-" + ITEM_LIB[itemIndex], &ini);
+        }
+    }
 }
 
 /*
@@ -364,15 +354,15 @@ void ExamItem::GenerateDefaultExamItem()
  */
 void ExamItem::GetImgOptimize(char* probeModel, ParaItem &para)
 {
-	char path[256];
-	sprintf(path, "%s/%s", CFG_RES_PATH, OPTIMIZE_FILE);
-	IniFile ini(path);
+    char path[256];
+    sprintf(path, "%s/%s", CFG_RES_PATH, OPTIMIZE_FILE);
+    IniFile ini(path);
 
-	int probeIndex = GetProbeIndex(probeModel);
-	ReadConfigCommon(&m_paraOptimize, PROBE_LIST[probeIndex], &ini);
-	ReadConfigOther(&m_paraOptimize, PROBE_LIST[probeIndex], &ini);
+    int probeIndex = GetProbeIndex(probeModel);
+    ReadConfigCommon(&m_paraOptimize, PROBE_LIST[probeIndex], &ini);
+    ReadConfigOther(&m_paraOptimize, PROBE_LIST[probeIndex], &ini);
 
-	para = m_paraOptimize;
+    para = m_paraOptimize;
 }
 
 /*
@@ -984,17 +974,17 @@ void ExamItem::ReadDefaultExamItem(int probeIndex, int itemIndex, ParaItem* para
  */
 void ExamItem::GenerateDefaultImgOptimize()
 {
-	char path[256];
-	sprintf(path, "%s/%s", CFG_RES_PATH, DEFAULT_OPTIMIZE_FILE);
-	IniFile ini(path);
-	InitItemPara(&m_paraOptimize);
+    char path[256];
+    sprintf(path, "%s/%s", CFG_RES_PATH, DEFAULT_OPTIMIZE_FILE);
+    IniFile ini(path);
+    InitItemPara(&m_paraOptimize);
 
-	int i;
-	for (i = 0; i < NUM_PROBE; i ++)
-	{
-		WriteConfigCommon(&m_paraOptimize, PROBE_LIST[i], &ini);
-		WriteConfigOther(&m_paraOptimize, PROBE_LIST[i], &ini);
-	}
+    int i;
+    for (i = 0; i < NUM_PROBE; i ++)
+    {
+        WriteConfigCommon(&m_paraOptimize, PROBE_LIST[i], &ini);
+        WriteConfigOther(&m_paraOptimize, PROBE_LIST[i], &ini);
+    }
 }
 
 ///> private func
@@ -1006,23 +996,23 @@ void ExamItem::GenerateDefaultImgOptimize()
 int ExamItem::GetProbeIndex(char* probeModel)
 {
 
-	int i;
-	for (i = 0; i < NUM_PROBE; i ++)
-	{
+    int i;
+    for (i = 0; i < NUM_PROBE; i ++)
+    {
         PRINTF("list model = %s\n", PROBE_LIST[i].c_str());
         if (strcmp(probeModel, PROBE_LIST[i].c_str()) == 0)
         {
             PRINTF("item %d is match\n", i);
             break;
         }
-	}
+    }
 
-	 PRINTF("get probe of index = %d\n", i);
+     PRINTF("get probe of index = %d\n", i);
     int index = i;
     if (index >= NUM_PROBE) //not found
-	{
+    {
         index = 0;
-	}
+    }
 
     return index;
 }
@@ -1033,39 +1023,39 @@ int ExamItem::GetProbeIndex(char* probeModel)
  */
 void ExamItem::InitItemPara(ParaItem* paraItem)
 {
-	// common
-	paraItem->common.MBP = 0;
-	paraItem->common.powerIndex = 9;
-	paraItem->common.textType = 0;
-	paraItem->common.bodymarkType = 0;
-	//2D
-	paraItem->d2.freqIndex = 2;
-	paraItem->d2.imgScale = 1;
-	paraItem->d2.gain2D = 100;
-	paraItem->d2.focSum = 1;
-	paraItem->d2.focPosIndex = 10;
-	paraItem->d2.scanAngle = 0;
-	paraItem->d2.dynamicRange = 0;
-	paraItem->d2.lineDensity = 1;
-	paraItem->d2.steerIndex = 0;
-	paraItem->d2.AGC = 0;
-	paraItem->d2.edgeEnhance = 0;
-	paraItem->d2.harmonic = FALSE;
-	paraItem->d2.TSI = 0;
-	paraItem->d2.chroma = 0;
-	paraItem->d2.leftRight = FALSE;
-	paraItem->d2.upDown = FALSE;
-	paraItem->d2.polarity = FALSE;
-	paraItem->d2.rotate = 0;
-	paraItem->d2.frameAver = 3;
-	paraItem->d2.lineAver = 1;
-	paraItem->d2.smooth = 1;
-	paraItem->d2.noiseReject = 0;
-	paraItem->d2.imgEhn = 2;
-	paraItem->d2.gainM = 100;
+    // common
+    paraItem->common.MBP = 0;
+    paraItem->common.powerIndex = 9;
+    paraItem->common.textType = 0;
+    paraItem->common.bodymarkType = 0;
+    //2D
+    paraItem->d2.freqIndex = 2;
+    paraItem->d2.imgScale = 1;
+    paraItem->d2.gain2D = 100;
+    paraItem->d2.focSum = 1;
+    paraItem->d2.focPosIndex = 10;
+    paraItem->d2.scanAngle = 0;
+    paraItem->d2.dynamicRange = 0;
+    paraItem->d2.lineDensity = 1;
+    paraItem->d2.steerIndex = 0;
+    paraItem->d2.AGC = 0;
+    paraItem->d2.edgeEnhance = 0;
+    paraItem->d2.harmonic = FALSE;
+    paraItem->d2.TSI = 0;
+    paraItem->d2.chroma = 0;
+    paraItem->d2.leftRight = FALSE;
+    paraItem->d2.upDown = FALSE;
+    paraItem->d2.polarity = FALSE;
+    paraItem->d2.rotate = 0;
+    paraItem->d2.frameAver = 3;
+    paraItem->d2.lineAver = 1;
+    paraItem->d2.smooth = 1;
+    paraItem->d2.noiseReject = 0;
+    paraItem->d2.imgEhn = 2;
+    paraItem->d2.gainM = 100;
 
-	//spectrum
-	paraItem->spectrum.freq = 0; //< index of color freq
+    //spectrum
+    paraItem->spectrum.freq = 0; //< index of color freq
 
     if(ModeStatus::IsCWImgMode())
     {
@@ -1076,24 +1066,24 @@ void ExamItem::InitItemPara(ParaItem* paraItem)
         paraItem->spectrum.gain = 60;
     }
     paraItem->spectrum.dynamicRange = 60;
-	paraItem->spectrum.PRF = 1;
-	paraItem->spectrum.wallFilter = 0;
-	paraItem->spectrum.invert = FALSE;
-	paraItem->spectrum.timeSmooth = 0;
-	paraItem->spectrum.correctAngle = 0;
-	paraItem->spectrum.SV = 5;
+    paraItem->spectrum.PRF = 1;
+    paraItem->spectrum.wallFilter = 0;
+    paraItem->spectrum.invert = FALSE;
+    paraItem->spectrum.timeSmooth = 0;
+    paraItem->spectrum.correctAngle = 0;
+    paraItem->spectrum.SV = 5;
 
-	//color
-	paraItem->color.gain = 70;
-	paraItem->color.PRFIndex = 1;
-	paraItem->color.wallFilter = 0;
-	paraItem->color.lineDensity = 0;
-	paraItem->color.sensitive = 0;
-	paraItem->color.turb = 0;
-	paraItem->color.invert = FALSE;
-	paraItem->color.reject = 0;
-	paraItem->color.smooth = 0;
-	paraItem->color.persist = 0;
+    //color
+    paraItem->color.gain = 70;
+    paraItem->color.PRFIndex = 1;
+    paraItem->color.wallFilter = 0;
+    paraItem->color.lineDensity = 0;
+    paraItem->color.sensitive = 0;
+    paraItem->color.turb = 0;
+    paraItem->color.invert = FALSE;
+    paraItem->color.reject = 0;
+    paraItem->color.smooth = 0;
+    paraItem->color.persist = 0;
 }
 
 /*
@@ -1105,120 +1095,120 @@ void ExamItem::InitItemOfProbe()
 #ifdef VET
 #ifdef EMP_355
     ///35C50L
-	m_vecItemIndex[0].push_back(DOG);
-	m_vecItemIndex[0].push_back(CAT);
-	m_vecItemIndex[0].push_back(BOVINE);
-	m_vecItemIndex[0].push_back(EQUINE);
-	m_vecItemIndex[0].push_back(SWINE);
-	m_vecItemIndex[0].push_back(SHEEP);
+    m_vecItemIndex[0].push_back(DOG);
+    m_vecItemIndex[0].push_back(CAT);
+    m_vecItemIndex[0].push_back(BOVINE);
+    m_vecItemIndex[0].push_back(EQUINE);
+    m_vecItemIndex[0].push_back(SWINE);
+    m_vecItemIndex[0].push_back(SHEEP);
     ///70L40J
 #if 0
-	m_vecItemIndex[1].push_back(CAT);
-	m_vecItemIndex[1].push_back(DOG);
-	m_vecItemIndex[1].push_back(EQUINE);
+    m_vecItemIndex[1].push_back(CAT);
+    m_vecItemIndex[1].push_back(DOG);
+    m_vecItemIndex[1].push_back(EQUINE);
 #endif
-	m_vecItemIndex[1].push_back(DOG);
-	m_vecItemIndex[1].push_back(CAT);
-	m_vecItemIndex[1].push_back(BOVINE);
-	m_vecItemIndex[1].push_back(EQUINE);
-	m_vecItemIndex[1].push_back(SWINE);
-	m_vecItemIndex[1].push_back(SHEEP);
+    m_vecItemIndex[1].push_back(DOG);
+    m_vecItemIndex[1].push_back(CAT);
+    m_vecItemIndex[1].push_back(BOVINE);
+    m_vecItemIndex[1].push_back(EQUINE);
+    m_vecItemIndex[1].push_back(SWINE);
+    m_vecItemIndex[1].push_back(SHEEP);
     ///75L40J
-	m_vecItemIndex[2].push_back(DOG);
-	m_vecItemIndex[2].push_back(CAT);
-	m_vecItemIndex[2].push_back(BOVINE);
-	m_vecItemIndex[2].push_back(EQUINE);
-	m_vecItemIndex[2].push_back(SWINE);
-	m_vecItemIndex[2].push_back(SHEEP);
+    m_vecItemIndex[2].push_back(DOG);
+    m_vecItemIndex[2].push_back(CAT);
+    m_vecItemIndex[2].push_back(BOVINE);
+    m_vecItemIndex[2].push_back(EQUINE);
+    m_vecItemIndex[2].push_back(SWINE);
+    m_vecItemIndex[2].push_back(SHEEP);
     ///90L40J
-	m_vecItemIndex[3].push_back(DOG);
-	m_vecItemIndex[3].push_back(CAT);
-	m_vecItemIndex[3].push_back(BOVINE);
-	m_vecItemIndex[3].push_back(EQUINE);
-	m_vecItemIndex[3].push_back(SWINE);
-	m_vecItemIndex[3].push_back(SHEEP);
+    m_vecItemIndex[3].push_back(DOG);
+    m_vecItemIndex[3].push_back(CAT);
+    m_vecItemIndex[3].push_back(BOVINE);
+    m_vecItemIndex[3].push_back(EQUINE);
+    m_vecItemIndex[3].push_back(SWINE);
+    m_vecItemIndex[3].push_back(SHEEP);
     ///65C10L
 #if 0
-	m_vecItemIndex[4].push_back(SWINE);
-	m_vecItemIndex[4].push_back(BOVINE);
-	m_vecItemIndex[4].push_back(SHEEP);
+    m_vecItemIndex[4].push_back(SWINE);
+    m_vecItemIndex[4].push_back(BOVINE);
+    m_vecItemIndex[4].push_back(SHEEP);
 #endif
-	m_vecItemIndex[4].push_back(DOG);
-	m_vecItemIndex[4].push_back(CAT);
-	m_vecItemIndex[4].push_back(BOVINE);
-	m_vecItemIndex[4].push_back(EQUINE);
-	m_vecItemIndex[4].push_back(SWINE);
-	m_vecItemIndex[4].push_back(SHEEP);
+    m_vecItemIndex[4].push_back(DOG);
+    m_vecItemIndex[4].push_back(CAT);
+    m_vecItemIndex[4].push_back(BOVINE);
+    m_vecItemIndex[4].push_back(EQUINE);
+    m_vecItemIndex[4].push_back(SWINE);
+    m_vecItemIndex[4].push_back(SHEEP);
 
     ///35C20I
 #if 0
-	m_vecItemIndex[5].push_back(CAT);
-	m_vecItemIndex[5].push_back(DOG);
-	m_vecItemIndex[5].push_back(EQUINE);
+    m_vecItemIndex[5].push_back(CAT);
+    m_vecItemIndex[5].push_back(DOG);
+    m_vecItemIndex[5].push_back(EQUINE);
 #endif
-	m_vecItemIndex[5].push_back(DOG);
-	m_vecItemIndex[5].push_back(CAT);
-	m_vecItemIndex[5].push_back(BOVINE);
-	m_vecItemIndex[5].push_back(EQUINE);
-	m_vecItemIndex[5].push_back(SWINE);
-	m_vecItemIndex[5].push_back(SHEEP);
+    m_vecItemIndex[5].push_back(DOG);
+    m_vecItemIndex[5].push_back(CAT);
+    m_vecItemIndex[5].push_back(BOVINE);
+    m_vecItemIndex[5].push_back(EQUINE);
+    m_vecItemIndex[5].push_back(SWINE);
+    m_vecItemIndex[5].push_back(SHEEP);
     ///65C15E
-	m_vecItemIndex[6].push_back(DOG);
-	m_vecItemIndex[6].push_back(CAT);
-	m_vecItemIndex[6].push_back(BOVINE);
-	m_vecItemIndex[6].push_back(EQUINE);
-	m_vecItemIndex[6].push_back(SWINE);
-	m_vecItemIndex[6].push_back(SHEEP);
+    m_vecItemIndex[6].push_back(DOG);
+    m_vecItemIndex[6].push_back(CAT);
+    m_vecItemIndex[6].push_back(BOVINE);
+    m_vecItemIndex[6].push_back(EQUINE);
+    m_vecItemIndex[6].push_back(SWINE);
+    m_vecItemIndex[6].push_back(SHEEP);
     ///30P16B
-	m_vecItemIndex[7].push_back(DOG);
-	m_vecItemIndex[7].push_back(CAT);
-	m_vecItemIndex[7].push_back(BOVINE);
-	m_vecItemIndex[7].push_back(EQUINE);
-	m_vecItemIndex[7].push_back(SWINE);
-	m_vecItemIndex[7].push_back(SHEEP);
+    m_vecItemIndex[7].push_back(DOG);
+    m_vecItemIndex[7].push_back(CAT);
+    m_vecItemIndex[7].push_back(BOVINE);
+    m_vecItemIndex[7].push_back(EQUINE);
+    m_vecItemIndex[7].push_back(SWINE);
+    m_vecItemIndex[7].push_back(SHEEP);
     ///10L25J
-	m_vecItemIndex[8].push_back(DOG);
-	m_vecItemIndex[8].push_back(CAT);
-	m_vecItemIndex[8].push_back(BOVINE);
-	m_vecItemIndex[8].push_back(EQUINE);
-	m_vecItemIndex[8].push_back(SWINE);
-	m_vecItemIndex[8].push_back(SHEEP);
+    m_vecItemIndex[8].push_back(DOG);
+    m_vecItemIndex[8].push_back(CAT);
+    m_vecItemIndex[8].push_back(BOVINE);
+    m_vecItemIndex[8].push_back(EQUINE);
+    m_vecItemIndex[8].push_back(SWINE);
+    m_vecItemIndex[8].push_back(SHEEP);
     ///65C10I
-	m_vecItemIndex[9].push_back(DOG);
-	m_vecItemIndex[9].push_back(CAT);
-	m_vecItemIndex[9].push_back(BOVINE);
-	m_vecItemIndex[9].push_back(EQUINE);
-	m_vecItemIndex[9].push_back(SWINE);
-	m_vecItemIndex[9].push_back(SHEEP);
+    m_vecItemIndex[9].push_back(DOG);
+    m_vecItemIndex[9].push_back(CAT);
+    m_vecItemIndex[9].push_back(BOVINE);
+    m_vecItemIndex[9].push_back(EQUINE);
+    m_vecItemIndex[9].push_back(SWINE);
+    m_vecItemIndex[9].push_back(SHEEP);
     ///55L60G
-	m_vecItemIndex[10].push_back(DOG);
-	m_vecItemIndex[10].push_back(CAT);
-	m_vecItemIndex[10].push_back(BOVINE);
-	m_vecItemIndex[10].push_back(EQUINE);
-	m_vecItemIndex[10].push_back(SWINE);
-	m_vecItemIndex[10].push_back(SHEEP);
+    m_vecItemIndex[10].push_back(DOG);
+    m_vecItemIndex[10].push_back(CAT);
+    m_vecItemIndex[10].push_back(BOVINE);
+    m_vecItemIndex[10].push_back(EQUINE);
+    m_vecItemIndex[10].push_back(SWINE);
+    m_vecItemIndex[10].push_back(SHEEP);
 #else
-	m_vecItemIndex[0].push_back(USER1);
-	m_vecItemIndex[0].push_back(USER2);
-	m_vecItemIndex[0].push_back(USER3);
-	m_vecItemIndex[0].push_back(USER4);
-	m_vecItemIndex[0].push_back(USER5);
-	m_vecItemIndex[0].push_back(USER6);
-	m_vecItemIndex[0].push_back(USER7);
-	m_vecItemIndex[0].push_back(USER8);
-	m_vecItemIndex[0].push_back(USER9);
-	m_vecItemIndex[0].push_back(USER10);
-	// probe 1 70L40J 8
-	m_vecItemIndex[1].push_back(USER1);
-	m_vecItemIndex[1].push_back(USER2);
-	m_vecItemIndex[1].push_back(USER3);
-	m_vecItemIndex[1].push_back(USER4);
-	m_vecItemIndex[1].push_back(USER5);
-	m_vecItemIndex[1].push_back(USER6);
-	m_vecItemIndex[1].push_back(USER7);
-	m_vecItemIndex[1].push_back(USER8);
-	m_vecItemIndex[1].push_back(USER9);
-	m_vecItemIndex[1].push_back(USER10);
+    m_vecItemIndex[0].push_back(USER1);
+    m_vecItemIndex[0].push_back(USER2);
+    m_vecItemIndex[0].push_back(USER3);
+    m_vecItemIndex[0].push_back(USER4);
+    m_vecItemIndex[0].push_back(USER5);
+    m_vecItemIndex[0].push_back(USER6);
+    m_vecItemIndex[0].push_back(USER7);
+    m_vecItemIndex[0].push_back(USER8);
+    m_vecItemIndex[0].push_back(USER9);
+    m_vecItemIndex[0].push_back(USER10);
+    // probe 1 70L40J 8
+    m_vecItemIndex[1].push_back(USER1);
+    m_vecItemIndex[1].push_back(USER2);
+    m_vecItemIndex[1].push_back(USER3);
+    m_vecItemIndex[1].push_back(USER4);
+    m_vecItemIndex[1].push_back(USER5);
+    m_vecItemIndex[1].push_back(USER6);
+    m_vecItemIndex[1].push_back(USER7);
+    m_vecItemIndex[1].push_back(USER8);
+    m_vecItemIndex[1].push_back(USER9);
+    m_vecItemIndex[1].push_back(USER10);
     // probe 2 70L60J 8
     m_vecItemIndex[2].push_back(USER1);
     m_vecItemIndex[2].push_back(USER2);
@@ -1243,142 +1233,142 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[3].push_back(USER9);
     m_vecItemIndex[3].push_back(USER10);
 // probe 2 70L60J 8
-	m_vecItemIndex[4].push_back(USER1);
-	m_vecItemIndex[4].push_back(USER2);
-	m_vecItemIndex[4].push_back(USER3);
-	m_vecItemIndex[4].push_back(USER4);
-	m_vecItemIndex[4].push_back(USER5);
-	m_vecItemIndex[4].push_back(USER6);
-	m_vecItemIndex[4].push_back(USER7);
-	m_vecItemIndex[4].push_back(USER8);
-	m_vecItemIndex[4].push_back(USER9);
-	m_vecItemIndex[4].push_back(USER10);
+    m_vecItemIndex[4].push_back(USER1);
+    m_vecItemIndex[4].push_back(USER2);
+    m_vecItemIndex[4].push_back(USER3);
+    m_vecItemIndex[4].push_back(USER4);
+    m_vecItemIndex[4].push_back(USER5);
+    m_vecItemIndex[4].push_back(USER6);
+    m_vecItemIndex[4].push_back(USER7);
+    m_vecItemIndex[4].push_back(USER8);
+    m_vecItemIndex[4].push_back(USER9);
+    m_vecItemIndex[4].push_back(USER10);
 
-	// probe 2 70L60J 8
-	m_vecItemIndex[5].push_back(USER1);
-	m_vecItemIndex[5].push_back(USER2);
-	m_vecItemIndex[5].push_back(USER3);
-	m_vecItemIndex[5].push_back(USER4);
-	m_vecItemIndex[5].push_back(USER5);
-	m_vecItemIndex[5].push_back(USER6);
-	m_vecItemIndex[5].push_back(USER7);
-	m_vecItemIndex[5].push_back(USER8);
-	m_vecItemIndex[5].push_back(USER9);
-	m_vecItemIndex[5].push_back(USER10);
+    // probe 2 70L60J 8
+    m_vecItemIndex[5].push_back(USER1);
+    m_vecItemIndex[5].push_back(USER2);
+    m_vecItemIndex[5].push_back(USER3);
+    m_vecItemIndex[5].push_back(USER4);
+    m_vecItemIndex[5].push_back(USER5);
+    m_vecItemIndex[5].push_back(USER6);
+    m_vecItemIndex[5].push_back(USER7);
+    m_vecItemIndex[5].push_back(USER8);
+    m_vecItemIndex[5].push_back(USER9);
+    m_vecItemIndex[5].push_back(USER10);
 
-	m_vecItemIndex[6].push_back(USER1);
-	m_vecItemIndex[6].push_back(USER2);
-	m_vecItemIndex[6].push_back(USER3);
-	m_vecItemIndex[6].push_back(USER4);
-	m_vecItemIndex[6].push_back(USER5);
-	m_vecItemIndex[6].push_back(USER6);
-	m_vecItemIndex[6].push_back(USER7);
-	m_vecItemIndex[6].push_back(USER8);
-	m_vecItemIndex[6].push_back(USER9);
-	m_vecItemIndex[6].push_back(USER10);
+    m_vecItemIndex[6].push_back(USER1);
+    m_vecItemIndex[6].push_back(USER2);
+    m_vecItemIndex[6].push_back(USER3);
+    m_vecItemIndex[6].push_back(USER4);
+    m_vecItemIndex[6].push_back(USER5);
+    m_vecItemIndex[6].push_back(USER6);
+    m_vecItemIndex[6].push_back(USER7);
+    m_vecItemIndex[6].push_back(USER8);
+    m_vecItemIndex[6].push_back(USER9);
+    m_vecItemIndex[6].push_back(USER10);
 
-	m_vecItemIndex[7].push_back(USER1);
-	m_vecItemIndex[7].push_back(USER2);
-	m_vecItemIndex[7].push_back(USER3);
-	m_vecItemIndex[7].push_back(USER4);
-	m_vecItemIndex[7].push_back(USER5);
-	m_vecItemIndex[7].push_back(USER6);
-	m_vecItemIndex[7].push_back(USER7);
-	m_vecItemIndex[7].push_back(USER8);
-	m_vecItemIndex[7].push_back(USER9);
-	m_vecItemIndex[7].push_back(USER10);
+    m_vecItemIndex[7].push_back(USER1);
+    m_vecItemIndex[7].push_back(USER2);
+    m_vecItemIndex[7].push_back(USER3);
+    m_vecItemIndex[7].push_back(USER4);
+    m_vecItemIndex[7].push_back(USER5);
+    m_vecItemIndex[7].push_back(USER6);
+    m_vecItemIndex[7].push_back(USER7);
+    m_vecItemIndex[7].push_back(USER8);
+    m_vecItemIndex[7].push_back(USER9);
+    m_vecItemIndex[7].push_back(USER10);
 
-	m_vecItemIndex[8].push_back(USER1);
-	m_vecItemIndex[8].push_back(USER2);
-	m_vecItemIndex[8].push_back(USER3);
-	m_vecItemIndex[8].push_back(USER4);
-	m_vecItemIndex[8].push_back(USER5);
-	m_vecItemIndex[8].push_back(USER6);
-	m_vecItemIndex[8].push_back(USER7);
-	m_vecItemIndex[8].push_back(USER8);
-	m_vecItemIndex[8].push_back(USER9);
-	m_vecItemIndex[8].push_back(USER10);
+    m_vecItemIndex[8].push_back(USER1);
+    m_vecItemIndex[8].push_back(USER2);
+    m_vecItemIndex[8].push_back(USER3);
+    m_vecItemIndex[8].push_back(USER4);
+    m_vecItemIndex[8].push_back(USER5);
+    m_vecItemIndex[8].push_back(USER6);
+    m_vecItemIndex[8].push_back(USER7);
+    m_vecItemIndex[8].push_back(USER8);
+    m_vecItemIndex[8].push_back(USER9);
+    m_vecItemIndex[8].push_back(USER10);
 
-	m_vecItemIndex[9].push_back(USER1);
-	m_vecItemIndex[9].push_back(USER2);
-	m_vecItemIndex[9].push_back(USER3);
-	m_vecItemIndex[9].push_back(USER4);
-	m_vecItemIndex[9].push_back(USER5);
-	m_vecItemIndex[9].push_back(USER6);
-	m_vecItemIndex[9].push_back(USER7);
-	m_vecItemIndex[9].push_back(USER8);
-	m_vecItemIndex[9].push_back(USER9);
-	m_vecItemIndex[9].push_back(USER10);
+    m_vecItemIndex[9].push_back(USER1);
+    m_vecItemIndex[9].push_back(USER2);
+    m_vecItemIndex[9].push_back(USER3);
+    m_vecItemIndex[9].push_back(USER4);
+    m_vecItemIndex[9].push_back(USER5);
+    m_vecItemIndex[9].push_back(USER6);
+    m_vecItemIndex[9].push_back(USER7);
+    m_vecItemIndex[9].push_back(USER8);
+    m_vecItemIndex[9].push_back(USER9);
+    m_vecItemIndex[9].push_back(USER10);
 #endif
 #else
-	//probe 0 35C505 13
-	m_vecItemIndex[0].push_back(ABDO_ADULT);
-	m_vecItemIndex[0].push_back(ABDO_LIVER);
-	m_vecItemIndex[0].push_back(ABDO_KID);
-	m_vecItemIndex[0].push_back(GYN);
-	m_vecItemIndex[0].push_back(EARLY_PREG);
-	m_vecItemIndex[0].push_back(LATER_PREG);
-	m_vecItemIndex[0].push_back(CAR_FETUS);
-	m_vecItemIndex[0].push_back(KIDNEY);
-	m_vecItemIndex[0].push_back(BLADDER);
-	m_vecItemIndex[0].push_back(HIP_JOINT);
-	m_vecItemIndex[0].push_back(MENISCUS);
-	m_vecItemIndex[0].push_back(JOINT_CAVITY);
-	m_vecItemIndex[0].push_back(SPINE);
+    //probe 0 35C505 13
+    m_vecItemIndex[0].push_back(ABDO_ADULT);
+    m_vecItemIndex[0].push_back(ABDO_LIVER);
+    m_vecItemIndex[0].push_back(ABDO_KID);
+    m_vecItemIndex[0].push_back(GYN);
+    m_vecItemIndex[0].push_back(EARLY_PREG);
+    m_vecItemIndex[0].push_back(LATER_PREG);
+    m_vecItemIndex[0].push_back(CAR_FETUS);
+    m_vecItemIndex[0].push_back(KIDNEY);
+    m_vecItemIndex[0].push_back(BLADDER);
+    m_vecItemIndex[0].push_back(HIP_JOINT);
+    m_vecItemIndex[0].push_back(MENISCUS);
+    m_vecItemIndex[0].push_back(JOINT_CAVITY);
+    m_vecItemIndex[0].push_back(SPINE);
 
-	// probe 1 75L40K 8
-	m_vecItemIndex[1].push_back(GLANDS);
-	m_vecItemIndex[1].push_back(THYROID);
-	m_vecItemIndex[1].push_back(EYE);
-	m_vecItemIndex[1].push_back(SMALL_PART);
-	m_vecItemIndex[1].push_back(HIP_JOINT);
-	m_vecItemIndex[1].push_back(MENISCUS);
-	m_vecItemIndex[1].push_back(JOINT_CAVITY);
-	m_vecItemIndex[1].push_back(SPINE);
+    // probe 1 75L40K 8
+    m_vecItemIndex[1].push_back(GLANDS);
+    m_vecItemIndex[1].push_back(THYROID);
+    m_vecItemIndex[1].push_back(EYE);
+    m_vecItemIndex[1].push_back(SMALL_PART);
+    m_vecItemIndex[1].push_back(HIP_JOINT);
+    m_vecItemIndex[1].push_back(MENISCUS);
+    m_vecItemIndex[1].push_back(JOINT_CAVITY);
+    m_vecItemIndex[1].push_back(SPINE);
 #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_440))
-	m_vecItemIndex[1].push_back(CAROTID);
-	m_vecItemIndex[1].push_back(JUGULAR);
-	m_vecItemIndex[1].push_back(PERI_ARTERY);
-	m_vecItemIndex[1].push_back(PERI_VEIN);
+    m_vecItemIndex[1].push_back(CAROTID);
+    m_vecItemIndex[1].push_back(JUGULAR);
+    m_vecItemIndex[1].push_back(PERI_ARTERY);
+    m_vecItemIndex[1].push_back(PERI_VEIN);
 #elif (defined(EMP_355)) //70L40J
-	m_vecItemIndex[1].push_back(CAROTID);
-	m_vecItemIndex[1].push_back(JUGULAR);
-	m_vecItemIndex[1].push_back(PERI_ARTERY);
-	m_vecItemIndex[1].push_back(PERI_VEIN);
+    m_vecItemIndex[1].push_back(CAROTID);
+    m_vecItemIndex[1].push_back(JUGULAR);
+    m_vecItemIndex[1].push_back(PERI_ARTERY);
+    m_vecItemIndex[1].push_back(PERI_VEIN);
 #endif
-	m_vecItemIndex[1].push_back(MSK);
+    m_vecItemIndex[1].push_back(MSK);
 
-	// probe 2 65C10K 2
+    // probe 2 65C10K 2
 #if defined(EMP_322)
-	m_vecItemIndex[2].push_back(GYN);
+    m_vecItemIndex[2].push_back(GYN);
 #elif (defined EMP_355)
    //75L40J
     m_vecItemIndex[2].push_back(GLANDS);
-	m_vecItemIndex[2].push_back(THYROID);
-	m_vecItemIndex[2].push_back(EYE);
-	m_vecItemIndex[2].push_back(SMALL_PART);
-	m_vecItemIndex[2].push_back(HIP_JOINT);
-	m_vecItemIndex[2].push_back(MENISCUS);
-	m_vecItemIndex[2].push_back(JOINT_CAVITY);
-	m_vecItemIndex[2].push_back(SPINE);
-	m_vecItemIndex[2].push_back(CAROTID);
-	m_vecItemIndex[2].push_back(JUGULAR);
-	m_vecItemIndex[2].push_back(PERI_ARTERY);
-	m_vecItemIndex[2].push_back(PERI_VEIN);
-	m_vecItemIndex[2].push_back(MSK);
+    m_vecItemIndex[2].push_back(THYROID);
+    m_vecItemIndex[2].push_back(EYE);
+    m_vecItemIndex[2].push_back(SMALL_PART);
+    m_vecItemIndex[2].push_back(HIP_JOINT);
+    m_vecItemIndex[2].push_back(MENISCUS);
+    m_vecItemIndex[2].push_back(JOINT_CAVITY);
+    m_vecItemIndex[2].push_back(SPINE);
+    m_vecItemIndex[2].push_back(CAROTID);
+    m_vecItemIndex[2].push_back(JUGULAR);
+    m_vecItemIndex[2].push_back(PERI_ARTERY);
+    m_vecItemIndex[2].push_back(PERI_VEIN);
+    m_vecItemIndex[2].push_back(MSK);
     ///90L40J
     m_vecItemIndex[3].push_back(GLANDS);
-	m_vecItemIndex[3].push_back(THYROID);
-	m_vecItemIndex[3].push_back(EYE);
-	m_vecItemIndex[3].push_back(SMALL_PART);
-	m_vecItemIndex[3].push_back(HIP_JOINT);
-	m_vecItemIndex[3].push_back(MENISCUS);
-	m_vecItemIndex[3].push_back(JOINT_CAVITY);
-	m_vecItemIndex[3].push_back(SPINE);
-	m_vecItemIndex[3].push_back(CAROTID);
-	m_vecItemIndex[3].push_back(JUGULAR);
-	m_vecItemIndex[3].push_back(PERI_ARTERY);
-	m_vecItemIndex[3].push_back(PERI_VEIN);
+    m_vecItemIndex[3].push_back(THYROID);
+    m_vecItemIndex[3].push_back(EYE);
+    m_vecItemIndex[3].push_back(SMALL_PART);
+    m_vecItemIndex[3].push_back(HIP_JOINT);
+    m_vecItemIndex[3].push_back(MENISCUS);
+    m_vecItemIndex[3].push_back(JOINT_CAVITY);
+    m_vecItemIndex[3].push_back(SPINE);
+    m_vecItemIndex[3].push_back(CAROTID);
+    m_vecItemIndex[3].push_back(JUGULAR);
+    m_vecItemIndex[3].push_back(PERI_ARTERY);
+    m_vecItemIndex[3].push_back(PERI_VEIN);
 #else
     m_vecItemIndex[2].push_back(GYN);
     m_vecItemIndex[2].push_back(EARLY_PREG);
@@ -1388,7 +1378,7 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[2].push_back(BLADDER);
 #endif
 #ifdef EMP_355
-	m_vecItemIndex[3].push_back(MSK);
+    m_vecItemIndex[3].push_back(MSK);
 #endif
 #if defined(EMP_430)
     //probe 3 65C15D
@@ -1398,23 +1388,23 @@ void ExamItem::InitItemOfProbe()
 #elif (defined EMP_355)
     //90L40J
     m_vecItemIndex[4].push_back(GLANDS);
-	m_vecItemIndex[4].push_back(THYROID);
-	m_vecItemIndex[4].push_back(EYE);
-	m_vecItemIndex[4].push_back(SMALL_PART);
-	m_vecItemIndex[4].push_back(HIP_JOINT);
-	m_vecItemIndex[4].push_back(MENISCUS);
-	m_vecItemIndex[4].push_back(JOINT_CAVITY);
-	m_vecItemIndex[4].push_back(SPINE);
-	m_vecItemIndex[4].push_back(CAROTID);
-	m_vecItemIndex[4].push_back(JUGULAR);
-	m_vecItemIndex[4].push_back(PERI_ARTERY);
-	m_vecItemIndex[4].push_back(PERI_VEIN);
-	m_vecItemIndex[4].push_back(MSK);
+    m_vecItemIndex[4].push_back(THYROID);
+    m_vecItemIndex[4].push_back(EYE);
+    m_vecItemIndex[4].push_back(SMALL_PART);
+    m_vecItemIndex[4].push_back(HIP_JOINT);
+    m_vecItemIndex[4].push_back(MENISCUS);
+    m_vecItemIndex[4].push_back(JOINT_CAVITY);
+    m_vecItemIndex[4].push_back(SPINE);
+    m_vecItemIndex[4].push_back(CAROTID);
+    m_vecItemIndex[4].push_back(JUGULAR);
+    m_vecItemIndex[4].push_back(PERI_ARTERY);
+    m_vecItemIndex[4].push_back(PERI_VEIN);
+    m_vecItemIndex[4].push_back(MSK);
 #else
-	// probe 3 35C20H 3
-	m_vecItemIndex[3].push_back(ABDO_KID);
-	m_vecItemIndex[3].push_back(CAR_ADULT);
-	m_vecItemIndex[3].push_back(CAR_KID);
+    // probe 3 35C20H 3
+    m_vecItemIndex[3].push_back(ABDO_KID);
+    m_vecItemIndex[3].push_back(CAR_ADULT);
+    m_vecItemIndex[3].push_back(CAR_KID);
 #endif
 
 #if (defined(EMP_161))
@@ -1564,30 +1554,30 @@ void ExamItem::InitItemOfProbe()
         m_vecItemIndex[7].push_back(THYROID);
         m_vecItemIndex[7].push_back(EYE);
         m_vecItemIndex[7].push_back(SMALL_PART);
-		m_vecItemIndex[7].push_back(CAROTID);
-		m_vecItemIndex[7].push_back(JUGULAR);
-		m_vecItemIndex[7].push_back(PERI_ARTERY);
-		m_vecItemIndex[7].push_back(PERI_VEIN);
-		m_vecItemIndex[7].push_back(HIP_JOINT);
-		m_vecItemIndex[7].push_back(MENISCUS);
-		m_vecItemIndex[7].push_back(JOINT_CAVITY);
-		m_vecItemIndex[7].push_back(SPINE);
+        m_vecItemIndex[7].push_back(CAROTID);
+        m_vecItemIndex[7].push_back(JUGULAR);
+        m_vecItemIndex[7].push_back(PERI_ARTERY);
+        m_vecItemIndex[7].push_back(PERI_VEIN);
+        m_vecItemIndex[7].push_back(HIP_JOINT);
+        m_vecItemIndex[7].push_back(MENISCUS);
+        m_vecItemIndex[7].push_back(JOINT_CAVITY);
+        m_vecItemIndex[7].push_back(SPINE);
         m_vecItemIndex[7].push_back(MSK);
     }
 
-	//probe 8 35D40J
-	if (NUM_PROBE > 8)
-	{
-		m_vecItemIndex[8].push_back(ABDO_ADULT);
-       	m_vecItemIndex[8].push_back(EARLY_PREG);
-	    m_vecItemIndex[8].push_back(LATER_PREG);
+    //probe 8 35D40J
+    if (NUM_PROBE > 8)
+    {
+        m_vecItemIndex[8].push_back(ABDO_ADULT);
+        m_vecItemIndex[8].push_back(EARLY_PREG);
+        m_vecItemIndex[8].push_back(LATER_PREG);
     }
 
-	//probe 9 65C10H
-	if (NUM_PROBE > 9)
-	{
-		m_vecItemIndex[9].push_back(GYN);
-	}
+    //probe 9 65C10H
+    if (NUM_PROBE > 9)
+    {
+        m_vecItemIndex[9].push_back(GYN);
+    }
 #endif
 #endif
 }
@@ -2076,7 +2066,7 @@ void ExamItem::DeleteNewExamItem(const char *department, string section, IniFile
     printf("%s\n",ptrSection);
     ptrIni->RemoveGroup(ptrSection);
 
-	ptrIni->SyncConfigFile();
+    ptrIni->SyncConfigFile();
 }
 
 /*
@@ -2087,74 +2077,74 @@ void ExamItem::DeleteNewExamItem(const char *department, string section, IniFile
  */
 void ExamItem::WriteConfigOther(ParaItem* paraItem, string section, IniFile* ptrIni)
 {
-	const char* ptrSection = section.c_str();
-	//2d
-	ptrIni->WriteInt(ptrSection, "D2-DepthScale", paraItem->d2.imgScale);
-	ptrIni->WriteInt(ptrSection, "D2-Gain2D", paraItem->d2.gain2D);
-	ptrIni->WriteInt(ptrSection, "D2-FreqIndex", paraItem->d2.freqIndex);
-	ptrIni->WriteInt(ptrSection, "D2-ScanAngle", paraItem->d2.scanAngle);
-	ptrIni->WriteInt(ptrSection, "D2-SpaceCompoundIndex", paraItem->d2.spaceCompoundIndex);
-	ptrIni->WriteInt(ptrSection, "D2-FreqCompoundIndex", paraItem->d2.freqCompoundIndex);
-	ptrIni->WriteInt(ptrSection, "D2-Chroma", paraItem->d2.chroma);
-	ptrIni->WriteInt(ptrSection, "D2-DynamicRange", paraItem->d2.dynamicRange);
-	ptrIni->WriteInt(ptrSection, "D2-Harmonic", paraItem->d2.harmonic);
-	ptrIni->WriteInt(ptrSection, "D2-Steer", paraItem->d2.steerIndex);
-	ptrIni->WriteInt(ptrSection, "D2-TSI", paraItem->d2.TSI);
-	ptrIni->WriteInt(ptrSection, "D2-LineDensity", paraItem->d2.lineDensity);
-	ptrIni->WriteInt(ptrSection, "D2-EdgeEnhance", paraItem->d2.edgeEnhance);
-	ptrIni->WriteInt(ptrSection, "D2-FocSum", paraItem->d2.focSum);
-	ptrIni->WriteInt(ptrSection, "D2-FocPosIndex", paraItem->d2.focPosIndex);
-	ptrIni->WriteInt(ptrSection, "D2-AGC", paraItem->d2.AGC);
-	ptrIni->WriteInt(ptrSection, "D2-GainM", paraItem->d2.gainM);
-	ptrIni->WriteInt(ptrSection, "D2-ThiFreqIndex", paraItem->d2.thiFreqIndex);
-	ptrIni->WriteInt(ptrSection, "D2-LeftRight", paraItem->d2.leftRight);
-	ptrIni->WriteInt(ptrSection, "D2-UpDown", paraItem->d2.upDown);
-	ptrIni->WriteInt(ptrSection, "D2-Polarity", paraItem->d2.polarity);
-	ptrIni->WriteInt(ptrSection, "D2-NoiseReject", paraItem->d2.noiseReject);
-	//ptrIni->WriteInt(ptrSection, "D2-Rotate", paraItem->d2.rotate);
-	ptrIni->WriteInt(ptrSection, "D2-FrameAver", paraItem->d2.frameAver);
-	ptrIni->WriteInt(ptrSection, "D2-LineAver", paraItem->d2.lineAver);
-	ptrIni->WriteInt(ptrSection, "D2-Smooth", paraItem->d2.smooth);
-	ptrIni->WriteInt(ptrSection, "D2-Gamma", paraItem->d2.gamma);
-	ptrIni->WriteInt(ptrSection, "D2-ImageEhn", paraItem->d2.imgEhn);
-	ptrIni->WriteInt(ptrSection, "D2-GrayTransIndex", paraItem->d2.grayTransIndex);
-	ptrIni->WriteInt(ptrSection, "D2-Scanline", paraItem->d2.scanline);
+    const char* ptrSection = section.c_str();
+    //2d
+    ptrIni->WriteInt(ptrSection, "D2-DepthScale", paraItem->d2.imgScale);
+    ptrIni->WriteInt(ptrSection, "D2-Gain2D", paraItem->d2.gain2D);
+    ptrIni->WriteInt(ptrSection, "D2-FreqIndex", paraItem->d2.freqIndex);
+    ptrIni->WriteInt(ptrSection, "D2-ScanAngle", paraItem->d2.scanAngle);
+    ptrIni->WriteInt(ptrSection, "D2-SpaceCompoundIndex", paraItem->d2.spaceCompoundIndex);
+    ptrIni->WriteInt(ptrSection, "D2-FreqCompoundIndex", paraItem->d2.freqCompoundIndex);
+    ptrIni->WriteInt(ptrSection, "D2-Chroma", paraItem->d2.chroma);
+    ptrIni->WriteInt(ptrSection, "D2-DynamicRange", paraItem->d2.dynamicRange);
+    ptrIni->WriteInt(ptrSection, "D2-Harmonic", paraItem->d2.harmonic);
+    ptrIni->WriteInt(ptrSection, "D2-Steer", paraItem->d2.steerIndex);
+    ptrIni->WriteInt(ptrSection, "D2-TSI", paraItem->d2.TSI);
+    ptrIni->WriteInt(ptrSection, "D2-LineDensity", paraItem->d2.lineDensity);
+    ptrIni->WriteInt(ptrSection, "D2-EdgeEnhance", paraItem->d2.edgeEnhance);
+    ptrIni->WriteInt(ptrSection, "D2-FocSum", paraItem->d2.focSum);
+    ptrIni->WriteInt(ptrSection, "D2-FocPosIndex", paraItem->d2.focPosIndex);
+    ptrIni->WriteInt(ptrSection, "D2-AGC", paraItem->d2.AGC);
+    ptrIni->WriteInt(ptrSection, "D2-GainM", paraItem->d2.gainM);
+    ptrIni->WriteInt(ptrSection, "D2-ThiFreqIndex", paraItem->d2.thiFreqIndex);
+    ptrIni->WriteInt(ptrSection, "D2-LeftRight", paraItem->d2.leftRight);
+    ptrIni->WriteInt(ptrSection, "D2-UpDown", paraItem->d2.upDown);
+    ptrIni->WriteInt(ptrSection, "D2-Polarity", paraItem->d2.polarity);
+    ptrIni->WriteInt(ptrSection, "D2-NoiseReject", paraItem->d2.noiseReject);
+    //ptrIni->WriteInt(ptrSection, "D2-Rotate", paraItem->d2.rotate);
+    ptrIni->WriteInt(ptrSection, "D2-FrameAver", paraItem->d2.frameAver);
+    ptrIni->WriteInt(ptrSection, "D2-LineAver", paraItem->d2.lineAver);
+    ptrIni->WriteInt(ptrSection, "D2-Smooth", paraItem->d2.smooth);
+    ptrIni->WriteInt(ptrSection, "D2-Gamma", paraItem->d2.gamma);
+    ptrIni->WriteInt(ptrSection, "D2-ImageEhn", paraItem->d2.imgEhn);
+    ptrIni->WriteInt(ptrSection, "D2-GrayTransIndex", paraItem->d2.grayTransIndex);
+    ptrIni->WriteInt(ptrSection, "D2-Scanline", paraItem->d2.scanline);
 #if not defined(EMP_322)
 #if not defined(EMP_313)
-	// spectrum
-	ptrIni->WriteInt(ptrSection, "Spectrum-Freq", paraItem->spectrum.freq);
+    // spectrum
+    ptrIni->WriteInt(ptrSection, "Spectrum-Freq", paraItem->spectrum.freq);
     ptrIni->WriteInt(ptrSection, "Spectrum-Gain", paraItem->spectrum.gain);
     ptrIni->WriteInt(ptrSection, "Spectrum-DynamicRange", paraItem->spectrum.dynamicRange);
-	ptrIni->WriteInt(ptrSection, "Spectrum-PRF", paraItem->spectrum.PRF);
-	ptrIni->WriteInt(ptrSection, "Spectrum-WallFilter", paraItem->spectrum.wallFilter);
-	ptrIni->WriteInt(ptrSection, "Spectrum-Invert", paraItem->spectrum.invert);
-	ptrIni->WriteInt(ptrSection, "Spectrum-TimeSmooth", paraItem->spectrum.timeSmooth); //time resolution
-	ptrIni->WriteInt(ptrSection, "Spectrum-CorrectAngle", paraItem->spectrum.correctAngle);
-	ptrIni->WriteInt(ptrSection, "Spectrum-SampleVolume", paraItem->spectrum.SV);
-	ptrIni->WriteInt(ptrSection, "Spectrum-Baseline", paraItem->spectrum.baseline);
-	ptrIni->WriteInt(ptrSection, "Spectrum-SpectrumSpeed", paraItem->spectrum.speed);
-	ptrIni->WriteInt(ptrSection, "Spectrum-SoundVolume", paraItem->spectrum.soundVolume);
-	ptrIni->WriteInt(ptrSection, "Spectrum-NoiseThread", paraItem->spectrum.noiseThread);
+    ptrIni->WriteInt(ptrSection, "Spectrum-PRF", paraItem->spectrum.PRF);
+    ptrIni->WriteInt(ptrSection, "Spectrum-WallFilter", paraItem->spectrum.wallFilter);
+    ptrIni->WriteInt(ptrSection, "Spectrum-Invert", paraItem->spectrum.invert);
+    ptrIni->WriteInt(ptrSection, "Spectrum-TimeSmooth", paraItem->spectrum.timeSmooth); //time resolution
+    ptrIni->WriteInt(ptrSection, "Spectrum-CorrectAngle", paraItem->spectrum.correctAngle);
+    ptrIni->WriteInt(ptrSection, "Spectrum-SampleVolume", paraItem->spectrum.SV);
+    ptrIni->WriteInt(ptrSection, "Spectrum-Baseline", paraItem->spectrum.baseline);
+    ptrIni->WriteInt(ptrSection, "Spectrum-SpectrumSpeed", paraItem->spectrum.speed);
+    ptrIni->WriteInt(ptrSection, "Spectrum-SoundVolume", paraItem->spectrum.soundVolume);
+    ptrIni->WriteInt(ptrSection, "Spectrum-NoiseThread", paraItem->spectrum.noiseThread);
 
-	// color
-	ptrIni->WriteInt(ptrSection, "Color-Gain", paraItem->color.gain);
-	ptrIni->WriteInt(ptrSection, "Color-PRF", paraItem->color.PRFIndex);
-	ptrIni->WriteInt(ptrSection, "Color-WallFilter", paraItem->color.wallFilter);
-	ptrIni->WriteInt(ptrSection, "Color-LineDensity", paraItem->color.lineDensity);
-	ptrIni->WriteInt(ptrSection, "Color-Sensitive", paraItem->color.sensitive);
-	ptrIni->WriteInt(ptrSection, "Color-Onflow", paraItem->color.turb);
-	ptrIni->WriteInt(ptrSection, "Color-Invert", paraItem->color.invert);
-	ptrIni->WriteInt(ptrSection, "Color-Reject", paraItem->color.reject);
-	ptrIni->WriteInt(ptrSection, "Color-Smooth", paraItem->color.smooth);
-	ptrIni->WriteInt(ptrSection, "Color-Persist", paraItem->color.persist);
-	ptrIni->WriteInt(ptrSection, "Color-FlowOpt", paraItem->color.flowOpt);
-	ptrIni->WriteInt(ptrSection, "Color-Baseline", paraItem->color.baseline);
-	ptrIni->WriteInt(ptrSection, "Color-Steer", paraItem->color.steer);
-	//ptrIni->WriteInt(ptrSection, "Color-ColorMap", paraItem->color.colormap);
-	ptrIni->WriteInt(ptrSection, "Color-Artifact", paraItem->color.artifact);
+    // color
+    ptrIni->WriteInt(ptrSection, "Color-Gain", paraItem->color.gain);
+    ptrIni->WriteInt(ptrSection, "Color-PRF", paraItem->color.PRFIndex);
+    ptrIni->WriteInt(ptrSection, "Color-WallFilter", paraItem->color.wallFilter);
+    ptrIni->WriteInt(ptrSection, "Color-LineDensity", paraItem->color.lineDensity);
+    ptrIni->WriteInt(ptrSection, "Color-Sensitive", paraItem->color.sensitive);
+    ptrIni->WriteInt(ptrSection, "Color-Onflow", paraItem->color.turb);
+    ptrIni->WriteInt(ptrSection, "Color-Invert", paraItem->color.invert);
+    ptrIni->WriteInt(ptrSection, "Color-Reject", paraItem->color.reject);
+    ptrIni->WriteInt(ptrSection, "Color-Smooth", paraItem->color.smooth);
+    ptrIni->WriteInt(ptrSection, "Color-Persist", paraItem->color.persist);
+    ptrIni->WriteInt(ptrSection, "Color-FlowOpt", paraItem->color.flowOpt);
+    ptrIni->WriteInt(ptrSection, "Color-Baseline", paraItem->color.baseline);
+    ptrIni->WriteInt(ptrSection, "Color-Steer", paraItem->color.steer);
+    //ptrIni->WriteInt(ptrSection, "Color-ColorMap", paraItem->color.colormap);
+    ptrIni->WriteInt(ptrSection, "Color-Artifact", paraItem->color.artifact);
 #endif
 #endif
-	ptrIni->SyncConfigFile();
+    ptrIni->SyncConfigFile();
 }
 
 void ExamItem::ReadConfigCommon(ParaItem* paraItem, string section, IniFile* ptrIni)
@@ -2170,35 +2160,35 @@ void ExamItem::ReadConfigCommon(ParaItem* paraItem, string section, IniFile* ptr
 
 void ExamItem::ReadConfigOther(ParaItem* paraItem, string section, IniFile* ptrIni)
 {
-	const char* ptrSection = section.c_str();
+    const char* ptrSection = section.c_str();
 
     PRINTF("==========================item: section is %s\n", ptrSection);
-	//2d
-	paraItem->d2.freqIndex = ptrIni->ReadInt(ptrSection, "D2-FreqIndex");
-	paraItem->d2.imgScale = ptrIni->ReadInt(ptrSection, "D2-DepthScale"); //自动优化时未使用此参数
-	paraItem->d2.gain2D = ptrIni->ReadInt(ptrSection, "D2-Gain2D");
-	paraItem->d2.focSum = ptrIni->ReadInt(ptrSection, "D2-FocSum");
-	paraItem->d2.focPosIndex = ptrIni->ReadInt(ptrSection, "D2-FocPosIndex");
-	paraItem->d2.scanAngle = ptrIni->ReadInt(ptrSection, "D2-ScanAngle");
-	paraItem->d2.dynamicRange = ptrIni->ReadInt(ptrSection, "D2-DynamicRange");
-	paraItem->d2.lineDensity = ptrIni->ReadInt(ptrSection, "D2-LineDensity");
-	paraItem->d2.steerIndex = ptrIni->ReadInt(ptrSection, "D2-Steer");
-	paraItem->d2.AGC = ptrIni->ReadInt(ptrSection, "D2-AGC");
-	paraItem->d2.edgeEnhance = ptrIni->ReadInt(ptrSection, "D2-EdgeEnhance");
-	paraItem->d2.chroma = ptrIni->ReadInt(ptrSection, "D2-Chroma");
-	paraItem->d2.leftRight = ptrIni->ReadInt(ptrSection, "D2-LeftRight");
-	paraItem->d2.upDown = ptrIni->ReadInt(ptrSection, "D2-UpDown");
-	paraItem->d2.polarity = ptrIni->ReadInt(ptrSection, "D2-Polarity");
-	//paraItem->d2.rotate = ptrIni->ReadInt(ptrSection, "D2-Rotate");
-	paraItem->d2.frameAver = ptrIni->ReadInt(ptrSection, "D2-FrameAver");
-	paraItem->d2.lineAver = ptrIni->ReadInt(ptrSection, "D2-LineAver");
-	paraItem->d2.smooth = ptrIni->ReadInt(ptrSection, "D2-Smooth");
-	paraItem->d2.gamma = ptrIni->ReadInt(ptrSection, "D2-Gamma");
-	paraItem->d2.noiseReject = ptrIni->ReadInt(ptrSection, "D2-NoiseReject");
-	paraItem->d2.harmonic = ptrIni->ReadInt(ptrSection, "D2-Harmonic");
-	paraItem->d2.TSI = ptrIni->ReadInt(ptrSection, "D2-TSI");
-	paraItem->d2.imgEhn = ptrIni->ReadInt(ptrSection, "D2-ImageEhn");
-	paraItem->d2.gainM = ptrIni->ReadInt(ptrSection, "D2-GainM");
+    //2d
+    paraItem->d2.freqIndex = ptrIni->ReadInt(ptrSection, "D2-FreqIndex");
+    paraItem->d2.imgScale = ptrIni->ReadInt(ptrSection, "D2-DepthScale"); //自动优化时未使用此参数
+    paraItem->d2.gain2D = ptrIni->ReadInt(ptrSection, "D2-Gain2D");
+    paraItem->d2.focSum = ptrIni->ReadInt(ptrSection, "D2-FocSum");
+    paraItem->d2.focPosIndex = ptrIni->ReadInt(ptrSection, "D2-FocPosIndex");
+    paraItem->d2.scanAngle = ptrIni->ReadInt(ptrSection, "D2-ScanAngle");
+    paraItem->d2.dynamicRange = ptrIni->ReadInt(ptrSection, "D2-DynamicRange");
+    paraItem->d2.lineDensity = ptrIni->ReadInt(ptrSection, "D2-LineDensity");
+    paraItem->d2.steerIndex = ptrIni->ReadInt(ptrSection, "D2-Steer");
+    paraItem->d2.AGC = ptrIni->ReadInt(ptrSection, "D2-AGC");
+    paraItem->d2.edgeEnhance = ptrIni->ReadInt(ptrSection, "D2-EdgeEnhance");
+    paraItem->d2.chroma = ptrIni->ReadInt(ptrSection, "D2-Chroma");
+    paraItem->d2.leftRight = ptrIni->ReadInt(ptrSection, "D2-LeftRight");
+    paraItem->d2.upDown = ptrIni->ReadInt(ptrSection, "D2-UpDown");
+    paraItem->d2.polarity = ptrIni->ReadInt(ptrSection, "D2-Polarity");
+    //paraItem->d2.rotate = ptrIni->ReadInt(ptrSection, "D2-Rotate");
+    paraItem->d2.frameAver = ptrIni->ReadInt(ptrSection, "D2-FrameAver");
+    paraItem->d2.lineAver = ptrIni->ReadInt(ptrSection, "D2-LineAver");
+    paraItem->d2.smooth = ptrIni->ReadInt(ptrSection, "D2-Smooth");
+    paraItem->d2.gamma = ptrIni->ReadInt(ptrSection, "D2-Gamma");
+    paraItem->d2.noiseReject = ptrIni->ReadInt(ptrSection, "D2-NoiseReject");
+    paraItem->d2.harmonic = ptrIni->ReadInt(ptrSection, "D2-Harmonic");
+    paraItem->d2.TSI = ptrIni->ReadInt(ptrSection, "D2-TSI");
+    paraItem->d2.imgEhn = ptrIni->ReadInt(ptrSection, "D2-ImageEhn");
+    paraItem->d2.gainM = ptrIni->ReadInt(ptrSection, "D2-GainM");
     paraItem->d2.grayTransIndex = ptrIni->ReadInt(ptrSection, "D2-GrayTransIndex");
     paraItem->d2.spaceCompoundIndex = ptrIni->ReadInt(ptrSection, "D2-SpaceCompoundIndex");
     paraItem->d2.freqCompoundIndex = ptrIni->ReadInt(ptrSection, "D2-FreqCompoundIndex");
@@ -2206,37 +2196,37 @@ void ExamItem::ReadConfigOther(ParaItem* paraItem, string section, IniFile* ptrI
     paraItem->d2.scanline = ptrIni->ReadInt(ptrSection, "D2-Scanline");
 #if not defined(EMP_322)
 #if not defined(EMP_313)
-	// spectrum
+    // spectrum
     paraItem->spectrum.freq = ptrIni->ReadInt(ptrSection, "Spectrum-Freq");
     paraItem->spectrum.gain = ptrIni->ReadInt(ptrSection, "Spectrum-Gain");
     paraItem->spectrum.dynamicRange = ptrIni->ReadInt(ptrSection, "Spectrum-DynamicRange");
     paraItem->spectrum.PRF= ptrIni->ReadInt(ptrSection, "Spectrum-PRF");
-	paraItem->spectrum.wallFilter = ptrIni->ReadInt(ptrSection, "Spectrum-WallFilter");
-	paraItem->spectrum.invert = ptrIni->ReadInt(ptrSection, "Spectrum-Invert");
-	paraItem->spectrum.timeSmooth = ptrIni->ReadInt(ptrSection, "Spectrum-TimeSmooth");
-	paraItem->spectrum.correctAngle = ptrIni->ReadInt(ptrSection, "Spectrum-CorrectAngle");
-	paraItem->spectrum.SV = ptrIni->ReadInt(ptrSection, "Spectrum-SampleVolume");
-	paraItem->spectrum.baseline = ptrIni->ReadInt(ptrSection, "Spectrum-Baseline");
-	paraItem->spectrum.speed = ptrIni->ReadInt(ptrSection, "Spectrum-SpectrumSpeed");
-	paraItem->spectrum.noiseThread = ptrIni->ReadInt(ptrSection, "Spectrum-NoiseThread");
-	paraItem->spectrum.soundVolume = ptrIni->ReadInt(ptrSection, "Spectrum-SoundVolume");
+    paraItem->spectrum.wallFilter = ptrIni->ReadInt(ptrSection, "Spectrum-WallFilter");
+    paraItem->spectrum.invert = ptrIni->ReadInt(ptrSection, "Spectrum-Invert");
+    paraItem->spectrum.timeSmooth = ptrIni->ReadInt(ptrSection, "Spectrum-TimeSmooth");
+    paraItem->spectrum.correctAngle = ptrIni->ReadInt(ptrSection, "Spectrum-CorrectAngle");
+    paraItem->spectrum.SV = ptrIni->ReadInt(ptrSection, "Spectrum-SampleVolume");
+    paraItem->spectrum.baseline = ptrIni->ReadInt(ptrSection, "Spectrum-Baseline");
+    paraItem->spectrum.speed = ptrIni->ReadInt(ptrSection, "Spectrum-SpectrumSpeed");
+    paraItem->spectrum.noiseThread = ptrIni->ReadInt(ptrSection, "Spectrum-NoiseThread");
+    paraItem->spectrum.soundVolume = ptrIni->ReadInt(ptrSection, "Spectrum-SoundVolume");
 
-	// color
-	paraItem->color.gain = ptrIni->ReadInt(ptrSection, "Color-Gain");
-	paraItem->color.PRFIndex = ptrIni->ReadInt(ptrSection, "Color-PRF");
-	paraItem->color.wallFilter = ptrIni->ReadInt(ptrSection, "Color-WallFilter");
-	paraItem->color.lineDensity = ptrIni->ReadInt(ptrSection, "Color-LineDensity");
-	paraItem->color.sensitive = ptrIni->ReadInt(ptrSection, "Color-Sensitive");
-	paraItem->color.turb = ptrIni->ReadInt(ptrSection, "Color-Onflow");
-	paraItem->color.invert = ptrIni->ReadInt(ptrSection, "Color-Invert");
-	paraItem->color.reject = ptrIni->ReadInt(ptrSection, "Color-Reject");
-	paraItem->color.smooth = ptrIni->ReadInt(ptrSection, "Color-Smooth");
-	paraItem->color.persist = ptrIni->ReadInt(ptrSection, "Color-Persist");
-	paraItem->color.artifact = ptrIni->ReadInt(ptrSection, "Color-Artifact");
-	paraItem->color.flowOpt = ptrIni->ReadInt(ptrSection, "Color-FlowOpt");
-	paraItem->color.baseline = ptrIni->ReadInt(ptrSection, "Color-Baseline");
-	paraItem->color.steer = ptrIni->ReadInt(ptrSection, "Color-Steer");
-	paraItem->color.colormap = ptrIni->ReadInt(ptrSection, "Color-ColorMap");
+    // color
+    paraItem->color.gain = ptrIni->ReadInt(ptrSection, "Color-Gain");
+    paraItem->color.PRFIndex = ptrIni->ReadInt(ptrSection, "Color-PRF");
+    paraItem->color.wallFilter = ptrIni->ReadInt(ptrSection, "Color-WallFilter");
+    paraItem->color.lineDensity = ptrIni->ReadInt(ptrSection, "Color-LineDensity");
+    paraItem->color.sensitive = ptrIni->ReadInt(ptrSection, "Color-Sensitive");
+    paraItem->color.turb = ptrIni->ReadInt(ptrSection, "Color-Onflow");
+    paraItem->color.invert = ptrIni->ReadInt(ptrSection, "Color-Invert");
+    paraItem->color.reject = ptrIni->ReadInt(ptrSection, "Color-Reject");
+    paraItem->color.smooth = ptrIni->ReadInt(ptrSection, "Color-Smooth");
+    paraItem->color.persist = ptrIni->ReadInt(ptrSection, "Color-Persist");
+    paraItem->color.artifact = ptrIni->ReadInt(ptrSection, "Color-Artifact");
+    paraItem->color.flowOpt = ptrIni->ReadInt(ptrSection, "Color-FlowOpt");
+    paraItem->color.baseline = ptrIni->ReadInt(ptrSection, "Color-Baseline");
+    paraItem->color.steer = ptrIni->ReadInt(ptrSection, "Color-Steer");
+    paraItem->color.colormap = ptrIni->ReadInt(ptrSection, "Color-ColorMap");
 #endif
 #endif
 }
@@ -2250,12 +2240,12 @@ void ExamItem::WriteSelectedProbeItem(char *probeModel, IniFile* ptrIni, int ite
 
 int ExamItem::ReadSelectedProbeItem(char *probeModel, IniFile* ptrIni)
 {
-	// read item from file
-	return (ptrIni->ReadInt(probeModel, "SelectProbeItem"));
+    // read item from file
+    return (ptrIni->ReadInt(probeModel, "SelectProbeItem"));
 }
 void ExamItem::WriteDefaultProbe(const char *probeModel, IniFile* ptrIni)
 {
-	ptrIni->WriteString("ProbeModel", "ProbeModel", probeModel);
+    ptrIni->WriteString("ProbeModel", "ProbeModel", probeModel);
     ptrIni->SyncConfigFile();
 }
 
@@ -2271,7 +2261,7 @@ void ExamItem::WriteDefaultUserIndex(IniFile* ptrIni, int index)
 
 int ExamItem::ReadDefaultUserIndex(IniFile* ptrIni)
 {
-	return (ptrIni->ReadInt("UserIndex", "DefaultUserIndex"));
+    return (ptrIni->ReadInt("UserIndex", "DefaultUserIndex"));
 }
 
 void ExamItem::WriteDefaultUserSelect(IniFile* ptrIni, const char *username)
@@ -2282,13 +2272,13 @@ void ExamItem::WriteDefaultUserSelect(IniFile* ptrIni, const char *username)
 
 std::string ExamItem::ReadDefaultUserSelect(IniFile* ptrIni)
 {
-	return (ptrIni->ReadString("UserSelect", "DefaultUser"));
+    return (ptrIni->ReadString("UserSelect", "DefaultUser"));
 }
 
 string ExamItem::ReadDefaultProbe(IniFile* ptrIni)
 {
-	// read default probe from file
-	return (ptrIni->ReadString("ProbeModel", "ProbeModel"));
+    // read default probe from file
+    return (ptrIni->ReadString("ProbeModel", "ProbeModel"));
 }
 
 void ExamItem::WriteDefaultProbeItem(IniFile* ptrIni, int item)
@@ -2299,7 +2289,7 @@ void ExamItem::WriteDefaultProbeItem(IniFile* ptrIni, int item)
 
 int ExamItem::ReadDefaultProbeDefaultItem(IniFile* ptrIni)
 {
-	return (ptrIni->ReadInt("Item", "DefaultItem"));
+    return (ptrIni->ReadInt("Item", "DefaultItem"));
 }
 
 void ExamItem::WriteDefaultProbeItemName(IniFile* ptrIni, const char *itemName)
@@ -2310,7 +2300,7 @@ void ExamItem::WriteDefaultProbeItemName(IniFile* ptrIni, const char *itemName)
 
 std::string ExamItem::ReadDefaultProbeDefaultItemName(IniFile* ptrIni)
 {
-	return (ptrIni->ReadString("UserItemName", "ItemName"));
+    return (ptrIni->ReadString("UserItemName", "ItemName"));
 }
 
 void ExamItem::WriteUserItemFlag(IniFile* ptrIni, bool flag)

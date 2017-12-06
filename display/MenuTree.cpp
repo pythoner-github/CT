@@ -9,7 +9,7 @@ TreeMenu::TreeMenu(void) : m_showTooltip(true)
 
 gboolean HandleTreeViewMove(GtkWidget* widget,GdkEvent* event,gpointer data)
 {
-	//cout<<"just for test,don't mind'"<<endl;
+    //cout<<"just for test,don't mind'"<<endl;
 }
 
 GtkWidget* TreeMenu::Create(GUIMenu *pItem)
@@ -120,9 +120,9 @@ void TreeMenu::ChangeModel(GtkWidget *treeview, GUIMenu *pItem, GUIMenu *pUserDe
 
 void TreeMenu::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data)
 {
-	const char *str="";
-	static char lastStr[30] = "";
-	bool d_press = (bool)user_data;
+    const char *str="";
+    static char lastStr[30] = "";
+    bool d_press = (bool)user_data;
     str = gtk_tree_path_to_string(path);
     if (d_press)
     {
@@ -140,8 +140,8 @@ void TreeMenu::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTr
     }
 
     gtk_tree_view_expand_row(tree_view, path, FALSE);
-	gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
-	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
+    gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
+    gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
  }
 
 gboolean TreeMenu::BtnExamTypeClicked(GtkWidget *widget, GdkEventButton *event)
@@ -254,8 +254,8 @@ void TreeMenu::TreeRowActivated(GtkTreeView *treeView, GtkTreePath *path, GtkTre
             (func.ptrNone)(etype);
         break;
     case TOGGLE:
-        //	    if (func.pf_int)
-        //		(func.pf_int)();
+        //      if (func.pf_int)
+        //      (func.pf_int)();
         break;
     }
 }
@@ -295,8 +295,8 @@ void TreeMenu::TreeSelectionChanged(GtkTreeSelection *selection)
             (func.ptrNone)(etype);
         break;
     case TOGGLE:
-        //	    if (func.pf_int)
-        //		(func.pf_int)();
+        //      if (func.pf_int)
+        //      (func.pf_int)();
         break;
     }
 }
@@ -361,7 +361,7 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine)
         {
             gtk_tree_store_append(store, &iter, NULL);
             gtk_tree_store_set(store, &iter,
-                    //	NAME_COLUMN, _(pItem->name),
+                    //  NAME_COLUMN, _(pItem->name),
                     NAME_COLUMN, _(name),
                     ETYPE_COLUMN, pItem->etype,
 
@@ -407,7 +407,7 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine)
         {
             gtk_tree_store_append(store, &iter, NULL);
             gtk_tree_store_set(store, &iter,
-                    //	NAME_COLUMN, _(pItem->name),
+                    //  NAME_COLUMN, _(pItem->name),
                     NAME_COLUMN, _(nametitle),
                     ETYPE_COLUMN, pUserDefine->etype,
                     RENDERER_TYPE_COLUMN, pUserDefine->type,
@@ -523,7 +523,7 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem)
         {
             gtk_tree_store_append(store, &iter, NULL);
             gtk_tree_store_set(store, &iter,
-                    //	NAME_COLUMN, _(pItem->name),
+                    //  NAME_COLUMN, _(pItem->name),
                     NAME_COLUMN, _(name),
                     ETYPE_COLUMN, pItem->etype,
 
@@ -608,24 +608,24 @@ void TreeMenu::AddColumns(GtkTreeView *treeView)
 
     renderer_text = gtk_cell_renderer_text_new(); // GtkCellRendererText
     column_text = gtk_tree_view_column_new_with_attributes("ITEM_NAME", // column name
-							   renderer_text,    // the cell renderer type
-							   "text", NAME_COLUMN, // renderer attribute
-							   NULL);
+                               renderer_text,    // the cell renderer type
+                               "text", NAME_COLUMN, // renderer attribute
+                               NULL);
     g_object_set(G_OBJECT(column_text),
-		 "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
-		 "fixed_width", 180,
-		 NULL);
+         "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
+         "fixed_width", 180,
+         NULL);
 
     renderer_toggle = gtk_cell_renderer_toggle_new();
     column_toggle = gtk_tree_view_column_new_with_attributes("TOGGLE",
-							     renderer_toggle,
-							     "visible", RENDERER_TYPE_COLUMN,
-							     "active", VALUE_COLUMN,
-							     NULL);
+                                 renderer_toggle,
+                                 "visible", RENDERER_TYPE_COLUMN,
+                                 "active", VALUE_COLUMN,
+                                 NULL);
     g_object_set(G_OBJECT(column_toggle),
-		 "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
-		 "fixed_width", 50,
-		 NULL);
+         "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
+         "fixed_width", 50,
+         NULL);
 
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeView), column_text);
 //    gtk_tree_view_append_column(GTK_TREE_VIEW(treeView), column_toggle);
@@ -640,26 +640,26 @@ void TreeMenu::AddColumnsNew(GtkTreeView *treeView)
     GtkTreeViewColumn *column_toggle;
 
     renderer_text = gtk_cell_renderer_text_new(); // GtkCellRendererText
-	g_object_set(G_OBJECT(renderer_text), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+    g_object_set(G_OBJECT(renderer_text), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
     column_text = gtk_tree_view_column_new_with_attributes("ITEM_NAME", // column name
-							   renderer_text,    // the cell renderer type
-							   "text", NAME_COLUMN, // renderer attribute
-							   NULL);
+                               renderer_text,    // the cell renderer type
+                               "text", NAME_COLUMN, // renderer attribute
+                               NULL);
     g_object_set(G_OBJECT(column_text),
-		 "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
-		 "fixed_width", NAME_COLUMN_WIDTH,
-		 NULL);
+         "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
+         "fixed_width", NAME_COLUMN_WIDTH,
+         NULL);
 
     renderer_toggle = gtk_cell_renderer_toggle_new();
     column_toggle = gtk_tree_view_column_new_with_attributes("TOGGLE",
-							     renderer_toggle,
-							     "visible", RENDERER_TYPE_COLUMN,
-							     "active", VALUE_COLUMN,
-							     NULL);
+                                 renderer_toggle,
+                                 "visible", RENDERER_TYPE_COLUMN,
+                                 "active", VALUE_COLUMN,
+                                 NULL);
     g_object_set(G_OBJECT(column_toggle),
-		 "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
-		 "fixed_width", RENDERER_TYPE_COLUMN_WIDTH,
-		 NULL);
+         "sizing", GTK_TREE_VIEW_COLUMN_FIXED,
+         "fixed_width", RENDERER_TYPE_COLUMN_WIDTH,
+         NULL);
 
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeView), column_text);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeView), column_toggle);
@@ -679,13 +679,13 @@ void TreeMenu::SelectFirst(GtkWidget *tree_view)
 
 void TreeMenu::SelectNext(GtkWidget *tree_view, EMeasureSequenceType sequence)
 {
-	GtkTreeIter iter, iterParent;
-	GtkTreeModel *model;
+    GtkTreeIter iter, iterParent;
+    GtkTreeModel *model;
 
-	GtkTreeSelection *selection;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+    GtkTreeSelection *selection;
+    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
+    if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
     {
         if (gtk_tree_model_iter_parent(model, &iterParent, &iter) == TRUE)
         {
@@ -703,7 +703,7 @@ void TreeMenu::SelectNext(GtkWidget *tree_view, EMeasureSequenceType sequence)
             }
 
         }
-		else
+        else
         {
             if (sequence == MEA_SEQ_NEXT)
             {
@@ -745,32 +745,32 @@ void TreeMenu::SelectItemNew(GtkWidget *tree_view, GtkTreeModel *model, GtkTreeS
 
 gboolean TreeMenu::TimeoutMoveCursor(gpointer data)
 {
-	if ((TreeMenu *)data != NULL)
-	{
-		GtkWidget *tree_view = ((TreeMenu *)data)->m_treeView;
-		GtkTreeIter iter;
-		GtkTreeModel *model;
+    if ((TreeMenu *)data != NULL)
+    {
+        GtkWidget *tree_view = ((TreeMenu *)data)->m_treeView;
+        GtkTreeIter iter;
+        GtkTreeModel *model;
 
-		GtkTreeSelection *selection;
-		selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+        GtkTreeSelection *selection;
+        selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
 
         if (&(((TreeMenu *)data)->m_iterBak) != NULL)
             gtk_tree_selection_select_iter(selection, &(((TreeMenu *)data)->m_iterBak));
 
-		if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
-		{
-			GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
-			GdkRectangle rect;
-			gtk_tree_view_get_cell_area(GTK_TREE_VIEW(tree_view), path, gtk_tree_view_get_column(GTK_TREE_VIEW(tree_view), 0), &rect);
-			gtk_tree_path_free(path);
+        if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
+        {
+            GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
+            GdkRectangle rect;
+            gtk_tree_view_get_cell_area(GTK_TREE_VIEW(tree_view), path, gtk_tree_view_get_column(GTK_TREE_VIEW(tree_view), 0), &rect);
+            gtk_tree_path_free(path);
 
-			int x, y;
-			gtk_widget_get_pointer(tree_view, &x, &y);
-			int offsetY = rect.y + 5 - y;
-			fakeXMotionEvent(0, -offsetY);
-		}
-	}
-	return FALSE;
+            int x, y;
+            gtk_widget_get_pointer(tree_view, &x, &y);
+            int offsetY = rect.y + 5 - y;
+            fakeXMotionEvent(0, -offsetY);
+        }
+    }
+    return FALSE;
 }
 
 GtkWidget* TreeMenu::Create(vector<GUIMenuNew> &vecItems)
@@ -787,25 +787,25 @@ GtkWidget* TreeMenu::Create(vector<GUIMenuNew> &vecItems)
     gtk_tree_view_set_enable_search(GTK_TREE_VIEW(m_treeView), FALSE);
     gtk_tree_view_set_enable_tree_lines(GTK_TREE_VIEW(m_treeView), TRUE);
     gtk_tree_view_set_hover_selection(GTK_TREE_VIEW(m_treeView), TRUE);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(m_treeView), FALSE);
-	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(m_treeView), TRUE);
-	//gtk_tree_view_set_show_expanders(GTK_TREE_VIEW(m_treeView), FALSE);
-	gtk_tree_view_set_grid_lines(GTK_TREE_VIEW(m_treeView), GTK_TREE_VIEW_GRID_LINES_NONE);
-	gtk_widget_set(m_treeView, "has-tooltip", TRUE, NULL);
+    gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(m_treeView), FALSE);
+    gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(m_treeView), TRUE);
+    //gtk_tree_view_set_show_expanders(GTK_TREE_VIEW(m_treeView), FALSE);
+    gtk_tree_view_set_grid_lines(GTK_TREE_VIEW(m_treeView), GTK_TREE_VIEW_GRID_LINES_NONE);
+    gtk_widget_set(m_treeView, "has-tooltip", TRUE, NULL);
 
-	/* selection handling */
-	GtkTreeSelection *select;
-	select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeView));
-	gtk_tree_selection_set_mode(select, GTK_SELECTION_SINGLE);
-	gtk_widget_add_events(GTK_WIDGET(m_treeView), (gtk_widget_get_events(GTK_WIDGET(m_treeView)) | GDK_BUTTON_PRESS_MASK));
-	g_signal_connect(m_treeView, "button_press_event", G_CALLBACK(HandleTreeViewClicked), this);
-	//g_signal_connect (G_OBJECT(m_treeView), "motion-notify-event", G_CALLBACK(HandleTreeViewMouseMove), this);
-	g_signal_connect (G_OBJECT(m_treeView), "query-tooltip", G_CALLBACK(HandleTreeViewTooltip), this);
+    /* selection handling */
+    GtkTreeSelection *select;
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeView));
+    gtk_tree_selection_set_mode(select, GTK_SELECTION_SINGLE);
+    gtk_widget_add_events(GTK_WIDGET(m_treeView), (gtk_widget_get_events(GTK_WIDGET(m_treeView)) | GDK_BUTTON_PRESS_MASK));
+    g_signal_connect(m_treeView, "button_press_event", G_CALLBACK(HandleTreeViewClicked), this);
+    //g_signal_connect (G_OBJECT(m_treeView), "motion-notify-event", G_CALLBACK(HandleTreeViewMouseMove), this);
+    g_signal_connect (G_OBJECT(m_treeView), "query-tooltip", G_CALLBACK(HandleTreeViewTooltip), this);
 
-	gtk_tree_view_collapse_all(GTK_TREE_VIEW(m_treeView));
+    gtk_tree_view_collapse_all(GTK_TREE_VIEW(m_treeView));
 
-	g_object_unref(model);
-	return m_treeView;
+    g_object_unref(model);
+    return m_treeView;
 }
 
 GtkTreeModel* TreeMenu::CreateModel(vector<GUIMenuNew> &vecItems)
@@ -818,19 +818,19 @@ GtkTreeModel* TreeMenu::CreateModel(vector<GUIMenuNew> &vecItems)
             G_TYPE_INT, // toggle value
             G_TYPE_POINTER); /* Union */
 
-	if (vecItems.size() <= 0)
-		return GTK_TREE_MODEL(store);
+    if (vecItems.size() <= 0)
+        return GTK_TREE_MODEL(store);
 
-	vector<GUIMenuNew>::iterator pItem = vecItems.begin();
+    vector<GUIMenuNew>::iterator pItem = vecItems.begin();
     while (pItem != vecItems.end())
-	{
+    {
       vector<GUIMenuNew> vecChild = pItem->child;
         const char *name;
 
         if (pItem->etype >= BASIC_MEA_START && pItem->etype < USER_START)
-		{
+        {
             name = MeasureMan::GetInstance()->GetMeasureTitle(pItem->etype);
-		}
+        }
         else
             name = pItem->name;
 
@@ -852,7 +852,7 @@ GtkTreeModel* TreeMenu::CreateModel(vector<GUIMenuNew> &vecItems)
 
         vector<GUIMenuNew>::iterator pchild = vecChild.begin();
         while (pchild != vecChild.end())
-		{
+        {
             const char *child_name;
             if(pchild->etype >= BASIC_MEA_START && pchild->etype < USER_START)   //pItem->etype < USER_START)
             {
@@ -895,43 +895,43 @@ void TreeMenu::ChangeModel(GtkWidget *treeview, vector<GUIMenuNew> &vecItems)
 
 void TreeMenu::ExpandMenu(GtkWidget *tree_view)
 {
-	GtkTreeIter iter, iterChild;
-	GtkTreeModel *model;
+    GtkTreeIter iter, iterChild;
+    GtkTreeModel *model;
 
-	GtkTreeSelection *selection;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+    GtkTreeSelection *selection;
+    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
-	{
-		if(gtk_tree_model_iter_has_child(model, &iter))
-		{
-			GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
-			gtk_tree_view_expand_to_path(GTK_TREE_VIEW(tree_view), path);
-			gtk_tree_path_free(path);
+    if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
+    {
+        if(gtk_tree_model_iter_has_child(model, &iter))
+        {
+            GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
+            gtk_tree_view_expand_to_path(GTK_TREE_VIEW(tree_view), path);
+            gtk_tree_path_free(path);
 
-			gtk_tree_model_iter_children(model, &iterChild, &iter);
-			gtk_tree_selection_select_iter(selection, &iterChild);
-			PtrFunc func;
-			int type, etype;
-			gtk_tree_model_get(model, &iterChild,
-					PFUNC_COLUMN, &func,
-					RENDERER_TYPE_COLUMN, &type,
-					ETYPE_COLUMN, &etype,
-					-1);
-			switch (type)
-			{
-				case TEXT_ONLY:
-				case TOGGLE:
-					if (func.ptrNone)
-						(func.ptrNone)(etype);
-					break;
-			}
+            gtk_tree_model_iter_children(model, &iterChild, &iter);
+            gtk_tree_selection_select_iter(selection, &iterChild);
+            PtrFunc func;
+            int type, etype;
+            gtk_tree_model_get(model, &iterChild,
+                    PFUNC_COLUMN, &func,
+                    RENDERER_TYPE_COLUMN, &type,
+                    ETYPE_COLUMN, &etype,
+                    -1);
+            switch (type)
+            {
+                case TEXT_ONLY:
+                case TOGGLE:
+                    if (func.ptrNone)
+                        (func.ptrNone)(etype);
+                    break;
+            }
 
-			path = gtk_tree_model_get_path(model, &iterChild);
-		//	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
-			gtk_tree_path_free(path);
-		}
-	}
+            path = gtk_tree_model_get_path(model, &iterChild);
+        //  gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
+            gtk_tree_path_free(path);
+        }
+    }
 }
 
 gboolean TreeMenu::TreeViewClicked(GtkWidget *widget, GdkEventButton *event)
@@ -952,28 +952,28 @@ gboolean TreeMenu::TreeViewClicked(GtkWidget *widget, GdkEventButton *event)
 
             if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
             {
-				if (!gtk_tree_model_iter_parent(model, &iterParent, &iter))
-				{
-					gtk_tree_view_collapse_all(GTK_TREE_VIEW(m_treeView));
-					gtk_tree_selection_select_iter(selection, &iter);
-				}
+                if (!gtk_tree_model_iter_parent(model, &iterParent, &iter))
+                {
+                    gtk_tree_view_collapse_all(GTK_TREE_VIEW(m_treeView));
+                    gtk_tree_selection_select_iter(selection, &iter);
+                }
 
-				PtrFunc func;
-				int type, etype;
-				gtk_tree_model_get(model, &iter,
-						PFUNC_COLUMN, &func,
-						RENDERER_TYPE_COLUMN, &type,
-						ETYPE_COLUMN, &etype,
-						-1);
-				switch (type)
-				{
-					case TEXT_ONLY:
-					case TOGGLE:
-						if (func.ptrNone)
-							(func.ptrNone)(etype);
-						break;
-				}
-				return TRUE;
+                PtrFunc func;
+                int type, etype;
+                gtk_tree_model_get(model, &iter,
+                        PFUNC_COLUMN, &func,
+                        RENDERER_TYPE_COLUMN, &type,
+                        ETYPE_COLUMN, &etype,
+                        -1);
+                switch (type)
+                {
+                    case TEXT_ONLY:
+                    case TOGGLE:
+                        if (func.ptrNone)
+                            (func.ptrNone)(etype);
+                        break;
+                }
+                return TRUE;
             }
         }
     }
@@ -982,79 +982,79 @@ gboolean TreeMenu::TreeViewClicked(GtkWidget *widget, GdkEventButton *event)
 
 gboolean TreeMenu::TreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event)
 {
-	gint bx, by;
-	gtk_tree_view_convert_widget_to_bin_window_coords(GTK_TREE_VIEW(widget), event->x, event->y, &bx, &by);
+    gint bx, by;
+    gtk_tree_view_convert_widget_to_bin_window_coords(GTK_TREE_VIEW(widget), event->x, event->y, &bx, &by);
 
-	GtkTreePath *path = NULL;
-	GtkTreeViewColumn *column = NULL;
-	gint cell_x, cell_y;
-	gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(widget), bx, by, &path, &column, &cell_x, &cell_y);
-	gtk_tree_view_set_cursor(GTK_TREE_VIEW(widget), path, NULL, FALSE);
-	gtk_tree_path_free(path);
-	return FALSE;
+    GtkTreePath *path = NULL;
+    GtkTreeViewColumn *column = NULL;
+    gint cell_x, cell_y;
+    gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(widget), bx, by, &path, &column, &cell_x, &cell_y);
+    gtk_tree_view_set_cursor(GTK_TREE_VIEW(widget), path, NULL, FALSE);
+    gtk_tree_path_free(path);
+    return FALSE;
 }
 
 gboolean TreeMenu::TreeViewTooltip(GtkWidget *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip)
 {
-	if (!m_showTooltip)
-	{
-		m_showTooltip = true;
-		return FALSE;
-	}
+    if (!m_showTooltip)
+    {
+        m_showTooltip = true;
+        return FALSE;
+    }
 
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	GtkTreeSelection *selection;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
+    GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeSelection *selection;
+    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
-	{
-		gchar *text;
-		gtk_tree_model_get(model, &iter, NAME_COLUMN, &text, -1);
+    if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
+    {
+        gchar *text;
+        gtk_tree_model_get(model, &iter, NAME_COLUMN, &text, -1);
 
-		int width, height;
-		PangoLayout *layout = gtk_widget_create_pango_layout(widget, text);
-		GtkStyle *style = gtk_widget_get_style(widget);
-		pango_layout_set_font_description(layout, style->font_desc);
-		pango_layout_set_alignment(layout, PANGO_ALIGN_LEFT);
-		pango_layout_get_pixel_size(layout, &width, &height);
-		//printf("========================width=%d height=%d\n", width, height); //height=17
+        int width, height;
+        PangoLayout *layout = gtk_widget_create_pango_layout(widget, text);
+        GtkStyle *style = gtk_widget_get_style(widget);
+        pango_layout_set_font_description(layout, style->font_desc);
+        pango_layout_set_alignment(layout, PANGO_ALIGN_LEFT);
+        pango_layout_get_pixel_size(layout, &width, &height);
+        //printf("========================width=%d height=%d\n", width, height); //height=17
 
-		if (width > NAME_COLUMN_WIDTH - 25)
-		{
-			gtk_tooltip_set_text(tooltip, text);
-			GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
-			gtk_tree_view_set_tooltip_row(GTK_TREE_VIEW(widget), tooltip, path);
-			gtk_tree_path_free(path);
-			g_free(text);
-			return TRUE;
-		}
-		g_free(text);
-	}
+        if (width > NAME_COLUMN_WIDTH - 25)
+        {
+            gtk_tooltip_set_text(tooltip, text);
+            GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
+            gtk_tree_view_set_tooltip_row(GTK_TREE_VIEW(widget), tooltip, path);
+            gtk_tree_path_free(path);
+            g_free(text);
+            return TRUE;
+        }
+        g_free(text);
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 int TreeMenu::SetCompleteMeasureFlag(GtkWidget *tree_view, int &parentEtype)
 {
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	GtkTreeSelection *selection;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
-	int etype = BASIC_MEA_END;
-	parentEtype = -1;
+    GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeSelection *selection;
+    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+    int etype = BASIC_MEA_END;
+    parentEtype = -1;
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
-	{
-		gtk_tree_store_set((GtkTreeStore *)model, &iter, RENDERER_TYPE_COLUMN, TOGGLE, -1);
-		gtk_tree_model_get(model, &iter, ETYPE_COLUMN, &etype, -1);
+    if (gtk_tree_selection_get_selected(selection, &model, &iter) == TRUE)
+    {
+        gtk_tree_store_set((GtkTreeStore *)model, &iter, RENDERER_TYPE_COLUMN, TOGGLE, -1);
+        gtk_tree_model_get(model, &iter, ETYPE_COLUMN, &etype, -1);
 
-		GtkTreeIter iterParent;
-		if (gtk_tree_model_iter_parent(model, &iterParent, &iter) == TRUE)
-		{
-			if (IsSetParentCompleteMeasureFlag(model, &iterParent))
-			{
-				gtk_tree_store_set((GtkTreeStore *)model, &iterParent, RENDERER_TYPE_COLUMN, TOGGLE, -1);
+        GtkTreeIter iterParent;
+        if (gtk_tree_model_iter_parent(model, &iterParent, &iter) == TRUE)
+        {
+            if (IsSetParentCompleteMeasureFlag(model, &iterParent))
+            {
+                gtk_tree_store_set((GtkTreeStore *)model, &iterParent, RENDERER_TYPE_COLUMN, TOGGLE, -1);
                 gtk_tree_model_get(model, &iterParent, ETYPE_COLUMN, &parentEtype, -1);
             }
         }
@@ -1098,20 +1098,20 @@ int TreeMenu::SetCompleteMeasureFlag(GtkWidget *tree_view, int &parentEtype)
         }
     }
 
-	return etype;
+    return etype;
 }
 
 bool TreeMenu::IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeIter *iter)
 {
-	bool isSet = true;
+    bool isSet = true;
 
     GtkTreeIter iterChild;
-	RendererType type;
+    RendererType type;
     int etype = BASIC_MEA_END;
 
-	int number = gtk_tree_model_iter_n_children(tree_model, iter);
-	for (int i = 0; i < number; i++)
-	{
+    int number = gtk_tree_model_iter_n_children(tree_model, iter);
+    for (int i = 0; i < number; i++)
+    {
         if (gtk_tree_model_iter_nth_child(tree_model, &iterChild, iter, i))
         {
             gtk_tree_model_get(tree_model, &iterChild, RENDERER_TYPE_COLUMN, &type, -1);
@@ -1136,7 +1136,7 @@ bool TreeMenu::IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeI
         }
     }
 
-	return isSet;
+    return isSet;
 }
 
 void TreeMenu::Update(GtkWidget *treeView, vector<GUIMenuNew> &vecItems)
@@ -1145,34 +1145,34 @@ void TreeMenu::Update(GtkWidget *treeView, vector<GUIMenuNew> &vecItems)
     GtkTreeIter iter;
     gtk_tree_model_get_iter_first(model, &iter);
 
-	vector<GUIMenuNew>::iterator pItem = vecItems.begin();
+    vector<GUIMenuNew>::iterator pItem = vecItems.begin();
     while (pItem != vecItems.end())
-	{
+    {
         vector<GUIMenuNew> vecChild = pItem->child;
 
         const char *name;
-		if (pItem->etype >= BASIC_MEA_START && pItem->etype < USER_START)
-		{
+        if (pItem->etype >= BASIC_MEA_START && pItem->etype < USER_START)
+        {
             name = MeasureMan::GetInstance()->GetMeasureTitle(pItem->etype);
-		}
+        }
         else
             name = pItem->name;
 
         if (name != NULL)
-			gtk_tree_store_set(GTK_TREE_STORE(model), &iter, NAME_COLUMN, _(name), -1);
+            gtk_tree_store_set(GTK_TREE_STORE(model), &iter, NAME_COLUMN, _(name), -1);
 
         pItem++;
         if (vecChild.size() <= 0)
-		{
+        {
             gtk_tree_model_iter_next(model, &iter);
             continue;
-		}
+        }
 
         GtkTreeIter child_iter;
         gtk_tree_model_iter_children(model, &child_iter, &iter);
-		vector<GUIMenuNew>::iterator pchild = vecChild.begin();
+        vector<GUIMenuNew>::iterator pchild = vecChild.begin();
         while (pchild != vecChild.end())
-		{
+        {
             const char *child_name;
             if(pchild->etype >= BASIC_MEA_START && pItem->etype < USER_START)
                 child_name = MeasureMan::GetInstance()->GetMeasureTitle(pchild->etype);
@@ -1180,11 +1180,11 @@ void TreeMenu::Update(GtkWidget *treeView, vector<GUIMenuNew> &vecItems)
                 child_name = pchild->name;
 
             if(child_name != NULL)
-				gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter, NAME_COLUMN, _(child_name), -1);
+                gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter, NAME_COLUMN, _(child_name), -1);
             pchild++;
             gtk_tree_model_iter_next(model, &child_iter);
         }
 
         gtk_tree_model_iter_next(model, &iter);
-	}
+    }
 }

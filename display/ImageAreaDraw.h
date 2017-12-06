@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef IMAGE_AREA_2D_H
 #define IMAGE_AREA_2D_H
 
@@ -26,8 +25,8 @@ using std::vector;
 class ImageAreaDraw
 {
 public:
-    enum SCALEUNIT{CMPS, KHZ};	// cm/s and KHz
-	enum EFormat { SINGLEB, DUAL, QUAD, L1R1, U1D2, U2D1, U1D1 };
+    enum SCALEUNIT{CMPS, KHZ};  // cm/s and KHz
+    enum EFormat { SINGLEB, DUAL, QUAD, L1R1, U1D2, U2D1, U1D1 };
 
     static ImageAreaDraw * GetInstance();
     ~ImageAreaDraw();
@@ -95,7 +94,7 @@ public:
     void ClearGridPw(bool update=true);
     void DrawPwTraceAuto(bool auto_calc, const Image::AutoTracePara *para);
     void DrawPwTrace(bool auto_calc, const Image::AutoTracePara *para);
- 	 void ClearAutoCalcPara(bool auto_calc=true);
+     void ClearAutoCalcPara(bool auto_calc=true);
     void DrawTraceTag(const Image::AutoTracePara* para, POINT &cycStart, POINT &cycEnd, POINT &ps, POINT &ed);
     void GetPwTracePara(Image::AutoTracePara &para);
     Image::AutoTracePara* NewPwTracePara(void);
@@ -106,7 +105,7 @@ public:
     void DrawVelScaleRange(void);
     void SetColorScaleRange(double max, double min, double maxKHz, double minKHz);
     void SetColorScaleUnit(SCALEUNIT unit);
-	void SetCfmBoxDashStatus(bool isDash);
+    void SetCfmBoxDashStatus(bool isDash);
     void DrawCfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool update=true);
     void ClearCfmBox(bool update=true);
     void ReDrawCfmBox(bool update=true);
@@ -122,7 +121,7 @@ public:
     void DrawGrayRejectCurve(unsigned char Point, bool update=true);
     void DrawGrayTransCurve(unsigned char *CurveValue, unsigned char *BasePoint, unsigned char Current, bool update=true);
     void ClearGrayCurve(bool update=true);
-	void SetLocalZoomBoxDashStatus(bool isDash);
+    void SetLocalZoomBoxDashStatus(bool isDash);
     void DrawLocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool update=true);
     void ClearLocalZoom(bool update=true);
     void ReDrawLocalZoom(bool update=true);
@@ -187,20 +186,20 @@ private:
     //void BiopsyLine(int xDist, int yDist, bool LRStatus, bool UDStatus, int rotate, bool draw);
 void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int rotate, bool draw);
 
-	void CalcScanDirection(int &xPos, int &yPos);
+    void CalcScanDirection(int &xPos, int &yPos);
 
     //    void PwTrace(const vector<POINT>& trace);
     //    void PwCycle(int begin, int end);
 #ifdef EMP_355
-	bool m_clear;
+    bool m_clear;
 #endif
     POINT m_EFOVZoomMiniatureBox[2];
-	bool m_drawEFOVZoomMiniature;
+    bool m_drawEFOVZoomMiniature;
 
-	POINT m_EFOVZoomBox[2];
-	bool m_drawEFOVZoom;
-	POINT m_EFOVViewBox[4];
-	bool m_drawEFOVView;
+    POINT m_EFOVZoomBox[2];
+    bool m_drawEFOVZoom;
+    POINT m_EFOVViewBox[4];
+    bool m_drawEFOVView;
 
     static ImageAreaDraw * m_ptrInstance;
 
@@ -250,8 +249,8 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     int m_widthClearScaleY;
 
     struct focInfo{
-    	int focSum;
-    	vector<int> focPos;
+        int focSum;
+        vector<int> focPos;
     };
     focInfo m_preFocInfo;
 //    vector<focInfo> m_focInfo;
@@ -260,13 +259,13 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
 
     // Biopsy
     struct preBiopsy{
-	/*int xDist;
-	int yDist;*/
+    /*int xDist;
+    int yDist;*/
     double xDist;
-	double yDist;
-	bool LRStatus;
-	bool UDStatus;
-	int rotate;
+    double yDist;
+    bool LRStatus;
+    bool UDStatus;
+    int rotate;
     };
     preBiopsy m_preBiopsy;
     bool m_drawBiopsy;
@@ -285,10 +284,10 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     bool m_drawMline;
 //    int m_mLine;
     struct PreMLine{
-	int BMLine;
-	bool LRStatus;
-	bool UDStatus;
-	GdkPoint pointBM;
+    int BMLine;
+    bool LRStatus;
+    bool UDStatus;
+    GdkPoint pointBM;
     };
     PreMLine m_preMLine;
 
@@ -314,13 +313,13 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     int m_heightImgPw;
     int m_widthImgPw;
     struct PreSV{
-	int pwLine;
-	int dotBegin;
-	int dotEnd;
-	bool LRStatus;
-	bool UDStatus;
-	GdkPoint pointPw;
-	vector<int> HPRFEmitPos;
+    int pwLine;
+    int dotBegin;
+    int dotEnd;
+    bool LRStatus;
+    bool UDStatus;
+    GdkPoint pointPw;
+    vector<int> HPRFEmitPos;
     };
     PreSV m_preSV;
     //   int m_preSV[3]; // pwLine, dotBegin, dotEnd
@@ -352,14 +351,14 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     float m_ratioXPw;
     float m_widthScaleXPw;
     Image::AutoTracePara m_pwTracePara;
-//	vector<POINT> m_pwTrace;
-//	vector<POINT> m_maxTrace;
-	//vector<POINT> m_validTrace;
+//  vector<POINT> m_pwTrace;
+//  vector<POINT> m_maxTrace;
+    //vector<POINT> m_validTrace;
     POINT m_psP;
     POINT m_edP;
     int m_curOpt;
 
-	// cfm
+    // cfm
     GdkPoint m_pointCfm;
     double m_zoomRatioCfm;
     int m_widthImgCfm;
@@ -368,27 +367,27 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     SCALEUNIT m_cfmUnit;
 
     struct PreBoxPara{
-    	int lineBegin;
-    	int lineEnd;
-    	int dotBegin;
-    	int dotEnd;
-	bool LRStatus;
-	bool UDStatus;
-	GdkPoint point;
+        int lineBegin;
+        int lineEnd;
+        int dotBegin;
+        int dotEnd;
+    bool LRStatus;
+    bool UDStatus;
+    GdkPoint point;
     };
     PreBoxPara m_preBox[4];
     PreBoxPara m_curBox;
     bool m_drawBox[4];
-	bool m_dashCfmBox;
+    bool m_dashCfmBox;
 //    int m_preBox[4];  // lineBegin, lineEnd, dotBegin, dotEnd
 //    bool m_boxDraw;
     double m_colRange[4];
 
     struct ColorScale{
-	unsigned char red;
-	unsigned char green;
-	unsigned char blue;
-	unsigned char alpha;
+    unsigned char red;
+    unsigned char green;
+    unsigned char blue;
+    unsigned char alpha;
     };
     vector<ColorScale> m_colorTable;
     int m_colorScaleLen;
@@ -406,7 +405,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
     int m_LZDotRange[2];
     int m_LZDotBeginDepth;
     double m_LZScale;
-	bool m_dashLZBox;
+    bool m_dashLZBox;
 
     RGBTRIPLE m_grayTable[256];
     int m_graySize;
@@ -416,7 +415,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
 
     POINT m_moveFlag;
     bool m_moveFlagDraw;
-	EFormat m_format;
+    EFormat m_format;
 
     char* m_autoPara;
 

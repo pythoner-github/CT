@@ -10,24 +10,24 @@ extern AbsMeasure* g_ptrAbsMeasure;
 
 class MeasureFactory
 {
-	public:
-		~MeasureFactory();
-		enum EMeasureMode{MEA_2D, MEA_M, MEA_PW, MEA_2D_M, MEA_2D_PW};
-		EMeasureMode JudgeMode(void);
-		FreezeMode::EFreezeMode JudgeFreeze(void);
-		static MeasureFactory* GetInstance();
+    public:
+        ~MeasureFactory();
+        enum EMeasureMode{MEA_2D, MEA_M, MEA_PW, MEA_2D_M, MEA_2D_PW};
+        EMeasureMode JudgeMode(void);
+        FreezeMode::EFreezeMode JudgeFreeze(void);
+        static MeasureFactory* GetInstance();
 
-		AbsMeasure* Create(EMeasureFactory type);
+        AbsMeasure* Create(EMeasureFactory type);
 
-		int GetType();
+        int GetType();
         void UndoLastMeasure();
 
-	private:
-		MeasureFactory();
+    private:
+        MeasureFactory();
 
-		static MeasureFactory* m_ptrInstance;
-		//EMeasureFactory m_type;
-		int m_type;
+        static MeasureFactory* m_ptrInstance;
+        //EMeasureFactory m_type;
+        int m_type;
 };
 
 //软件包测量中只测量距离而没有计算的通用函数

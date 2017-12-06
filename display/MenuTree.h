@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef TREE_MENU_H
 #define TREE_MENU_H
 
@@ -42,7 +41,7 @@ struct GUIMenuNew
 {
     const char *name;
     int etype;
-	EMeasureMode mode;
+    EMeasureMode mode;
     RendererType type;
     bool value;
     PtrFunc pf;
@@ -56,26 +55,26 @@ public:
     TreeMenu();
     ~TreeMenu(){};
 
-	GtkWidget* GetTreeView(void);
-	GtkWidget* Create(GUIMenu *pItem);
-	GtkWidget* Create(GUIMenu *pItem, GUIMenu *pUserDefine);
-	GtkWidget* Create(vector<GUIMenuNew> &vecItems);
-	void Update(GtkWidget *treeView, GUIMenu *pItem);
-	void SelectIter(GtkWidget *treeView, int parent, int child, bool select);
-	void ChangeModel(GtkWidget *treeview, GUIMenu *pItem, GUIMenu *pUserDefine);
-	void ChangeModel(GtkWidget *treeview, GUIMenu *pItem);
-	void ChangeModel(GtkWidget *treeview, vector<GUIMenuNew> &vecItems);
-	void Update(GtkWidget *treeView, GUIMenu *pItem, GUIMenu *pUserDefine);
-	void tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data);
-	void SelectFirst(GtkWidget *tree_view);
-	void SelectNext(GtkWidget *tree_view, EMeasureSequenceType sequence);
-	void ExpandMenu(GtkWidget *tree_view);
-	gboolean TreeViewTooltip(GtkWidget *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip);
-	/**
-	 *@return etype of current measure item.
-	 */
-	int SetCompleteMeasureFlag(GtkWidget *tree_view, int &parentEtype);
-	void Update(GtkWidget *treeView, vector<GUIMenuNew> &vecItems);
+    GtkWidget* GetTreeView(void);
+    GtkWidget* Create(GUIMenu *pItem);
+    GtkWidget* Create(GUIMenu *pItem, GUIMenu *pUserDefine);
+    GtkWidget* Create(vector<GUIMenuNew> &vecItems);
+    void Update(GtkWidget *treeView, GUIMenu *pItem);
+    void SelectIter(GtkWidget *treeView, int parent, int child, bool select);
+    void ChangeModel(GtkWidget *treeview, GUIMenu *pItem, GUIMenu *pUserDefine);
+    void ChangeModel(GtkWidget *treeview, GUIMenu *pItem);
+    void ChangeModel(GtkWidget *treeview, vector<GUIMenuNew> &vecItems);
+    void Update(GtkWidget *treeView, GUIMenu *pItem, GUIMenu *pUserDefine);
+    void tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data);
+    void SelectFirst(GtkWidget *tree_view);
+    void SelectNext(GtkWidget *tree_view, EMeasureSequenceType sequence);
+    void ExpandMenu(GtkWidget *tree_view);
+    gboolean TreeViewTooltip(GtkWidget *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip);
+    /**
+     *@return etype of current measure item.
+     */
+    int SetCompleteMeasureFlag(GtkWidget *tree_view, int &parentEtype);
+    void Update(GtkWidget *treeView, vector<GUIMenuNew> &vecItems);
 
 private:
     enum {
@@ -87,16 +86,16 @@ private:
         N_COLUMNS
     };
 
-	enum { NAME_COLUMN_WIDTH = 140, RENDERER_TYPE_COLUMN_WIDTH = 10 };
+    enum { NAME_COLUMN_WIDTH = 140, RENDERER_TYPE_COLUMN_WIDTH = 10 };
 
     GtkWidget *m_treeView;
-	bool m_showTooltip;
+    bool m_showTooltip;
     GtkTreeIter m_iterBak;
-	void AddColumns(GtkTreeView *treeView);
-	void AddColumnsNew(GtkTreeView *treeView);
-	GtkTreeModel * CreateModel(GUIMenu *pItem);
-	GtkTreeModel* CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine);
-	GtkTreeModel* CreateModel(vector<GUIMenuNew> &vecItems);
+    void AddColumns(GtkTreeView *treeView);
+    void AddColumnsNew(GtkTreeView *treeView);
+    GtkTreeModel * CreateModel(GUIMenu *pItem);
+    GtkTreeModel* CreateModel(GUIMenu *pItem, GUIMenu *pUserDefine);
+    GtkTreeModel* CreateModel(vector<GUIMenuNew> &vecItems);
 
     void TreeViewExpanded(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path);
     void TreeViewCollapse(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path);
@@ -106,21 +105,21 @@ private:
     void TreeSelectionChanged(GtkTreeSelection *selection);
     gboolean BtnExamTypeClicked(GtkWidget *widget, GdkEventButton *event);
     gboolean TreeViewClicked(GtkWidget *widget, GdkEventButton *event);
-	gboolean TreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event);
-	bool IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeIter *iter);
-	void SelectItemNew(GtkWidget *tree_view, GtkTreeModel *model, GtkTreeSelection *selection, GtkTreeIter *iter);
+    gboolean TreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event);
+    bool IsSetParentCompleteMeasureFlag(GtkTreeModel *tree_model, GtkTreeIter *iter);
+    void SelectItemNew(GtkWidget *tree_view, GtkTreeModel *model, GtkTreeSelection *selection, GtkTreeIter *iter);
 
     // signal connect
     static void HandleExamTypeBtnClicked(GtkWidget *widget, GdkEventButton *event, TreeMenu *data) { data->BtnExamTypeClicked(widget, event); }
 
     static void HandleTreeRowActivated(GtkTreeView *treeView, GtkTreePath *path, GtkTreeViewColumn *column, TreeMenu *data)
-	{
-	    data->TreeRowActivated(treeView, path, column);
-	}
+    {
+        data->TreeRowActivated(treeView, path, column);
+    }
     static void HandleTreeSelectionChanged(GtkTreeSelection *selection, TreeMenu *data)
-	{
-	    data->TreeSelectionChanged(selection);
-	}
+    {
+        data->TreeSelectionChanged(selection);
+    }
     static void HandleTreeViewExpanded(GtkTreeView *treeview, GtkTreeIter *iter, GtkTreePath *path, TreeMenu *data)
     {
         data->TreeViewExpanded(treeview, iter, path);
@@ -135,20 +134,20 @@ private:
     }
 
     static gboolean HandleTreeViewClicked(GtkWidget *widget, GdkEventButton *event, TreeMenu *data)
-	{
-		return data->TreeViewClicked(widget, event);
-	}
+    {
+        return data->TreeViewClicked(widget, event);
+    }
 
-	static gboolean HandleTreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event, TreeMenu *data)
-	{
-		return data->TreeViewMouseMove(widget, event);
-	}
+    static gboolean HandleTreeViewMouseMove(GtkWidget *widget, GdkEventMotion *event, TreeMenu *data)
+    {
+        return data->TreeViewMouseMove(widget, event);
+    }
 
-	static gboolean HandleTreeViewTooltip(GtkWidget  *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip, TreeMenu *data)
-	{
-		return data->TreeViewTooltip(widget, x, y, keyboard_mode, tooltip);
-	}
+    static gboolean HandleTreeViewTooltip(GtkWidget  *widget, gint x, gint y, gboolean keyboard_mode, GtkTooltip *tooltip, TreeMenu *data)
+    {
+        return data->TreeViewTooltip(widget, x, y, keyboard_mode, tooltip);
+    }
 
-	static gboolean TimeoutMoveCursor(gpointer data);
+    static gboolean TimeoutMoveCursor(gpointer data);
 };
 #endif

@@ -198,37 +198,37 @@ using std::vector;
 #endif
 class ExamItem
 {
-	public:
+    public:
 #ifdef VET
 #ifdef EMP_355
-		enum EItem {DOG, CAT, BOVINE, EQUINE, SWINE, SHEEP, USERNAME,USER};
+        enum EItem {DOG, CAT, BOVINE, EQUINE, SWINE, SHEEP, USERNAME,USER};
 #else
         enum EItem {USER1, USER2, USER3, USER4, USER5, USER6,USER7, USER8, USER9, USER10,USERNAME,USER};
 #endif
 #else
-	enum EItem {ABDO_ADULT, ABDO_LIVER, ABDO_KID, CAR_ADULT, CAR_KID, GLANDS, THYROID, EYE, SMALL_PART, GYN, EARLY_PREG, LATER_PREG,CAR_FETUS,
-			KIDNEY, BLADDER, CAROTID, JUGULAR, PERI_ARTERY, PERI_VEIN, HIP_JOINT, MENISCUS, JOINT_CAVITY, SPINE, MSK, TCD, USER1, USER2, USER3, USER4,USERNAME,USER};///< order must be indetical to ITEM_LIB[]
+    enum EItem {ABDO_ADULT, ABDO_LIVER, ABDO_KID, CAR_ADULT, CAR_KID, GLANDS, THYROID, EYE, SMALL_PART, GYN, EARLY_PREG, LATER_PREG,CAR_FETUS,
+            KIDNEY, BLADDER, CAROTID, JUGULAR, PERI_ARTERY, PERI_VEIN, HIP_JOINT, MENISCUS, JOINT_CAVITY, SPINE, MSK, TCD, USER1, USER2, USER3, USER4,USERNAME,USER};///< order must be indetical to ITEM_LIB[]
 #endif
-	struct ParaCommon
-		{
-			int MBP; ///< level of multi process
-			int powerIndex; ///< index of sound power
-			int textType; ///< typ of text(comment)
-			int bodymarkType; ///< type of bodymark
-		};
-		struct Para2D
-		{
-			int freqIndex; ///< index of current pair(emit-receive) of frequency
-			int imgScale; ///< index of current img depth scale
-			int gain2D; ///< gain of 2D mode
-			int focSum; ///< focus sum
-			int focPosIndex; ///< index of focus position
-			int scanAngle; ///< index of scan range
-			int dynamicRange; ///< index of dynamic range
-			int lineDensity; ///< scan line density
-			int steerIndex; ///< index of steer, only used in Linear Probe
-			int AGC; ///< level of auto gain correction
-			int edgeEnhance; ///< level of edge enhancement
+    struct ParaCommon
+        {
+            int MBP; ///< level of multi process
+            int powerIndex; ///< index of sound power
+            int textType; ///< typ of text(comment)
+            int bodymarkType; ///< type of bodymark
+        };
+        struct Para2D
+        {
+            int freqIndex; ///< index of current pair(emit-receive) of frequency
+            int imgScale; ///< index of current img depth scale
+            int gain2D; ///< gain of 2D mode
+            int focSum; ///< focus sum
+            int focPosIndex; ///< index of focus position
+            int scanAngle; ///< index of scan range
+            int dynamicRange; ///< index of dynamic range
+            int lineDensity; ///< scan line density
+            int steerIndex; ///< index of steer, only used in Linear Probe
+            int AGC; ///< level of auto gain correction
+            int edgeEnhance; ///< level of edge enhancement
             bool harmonic; ///< harmonic on/off
             int TSI; ///< tissue stamp imaging
             int chroma; ///< type of pseudo color
@@ -248,7 +248,7 @@ class ExamItem
             int freqCompoundIndex; /// freq compound imaging
             int thiFreqIndex; /// freq compound imaging
             int scanline; ///> scan lines of phase probe 0:64; 1:128; 2:196; 3:256
-		};
+        };
         struct ParaSpectrum
         {
             int freq; ///< index of doppler emit frequency
@@ -260,32 +260,32 @@ class ExamItem
             int wallFilter; ///< index of wall filter in spetrum, not used now, determined by PRF
             int SV; ///< sample volume ---
             bool invert; ///< invert of spectrum
-			int timeSmooth; ///< smooth in time direction
+            int timeSmooth; ///< smooth in time direction
             int correctAngle;
             int speed; ///< spetrum speed
             int noiseThread;
             int soundVolume;
             int baseline;
-		};
-		struct ParaColor
-		{
-			int gain; ///< gain of CFM mode
-			int PRFIndex; ///< index of PRF
-			int wallFilter; ///< index of wall filter in color mode, not used now
-			int lineDensity; ///< color scan line density
-			int turb; ///< index of turbulence
-			int sensitive; ///< color flow sensitivity, not used now
-			bool invert; ///< invert of color, not used now
-			int reject; ///< reject low velocity flow
-			int smooth; ///< color smooth
-			int persist; ///< persistent of color flow
+        };
+        struct ParaColor
+        {
+            int gain; ///< gain of CFM mode
+            int PRFIndex; ///< index of PRF
+            int wallFilter; ///< index of wall filter in color mode, not used now
+            int lineDensity; ///< color scan line density
+            int turb; ///< index of turbulence
+            int sensitive; ///< color flow sensitivity, not used now
+            bool invert; ///< invert of color, not used now
+            int reject; ///< reject low velocity flow
+            int smooth; ///< color smooth
+            int persist; ///< persistent of color flow
             int artifact; ///< artifact of color flow
-			// int gainPdi; ///< gain of PDI mode, not used now
+            // int gainPdi; ///< gain of PDI mode, not used now
             int flowOpt; ///< color flow optimize
             int baseline; ///< index of baseline
             int steer; ///< index of color steer
             int colormap; ///< index of colormap
-		};
+        };
         struct ParaItem
         {
             ParaCommon common;
@@ -356,14 +356,14 @@ class ExamItem
         enum ExamItem::EItem GetDefaultItem(char* probeModel);
         void SetUserItemOfProbe(char* probeModel, enum EItem itemIndex, const char* item);
         void SetItemOfProbe(char* probeModel, enum EItem itemIndex);
-		void GetCurrentItemPara(ParaItem &ptrPara);
+        void GetCurrentItemPara(ParaItem &ptrPara);
 
-		///> auto-optimize image
-		void GetImgOptimize(char* probeModel, ParaItem &para);
+        ///> auto-optimize image
+        void GetImgOptimize(char* probeModel, ParaItem &para);
 
-		// config para
-		void ReadExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName);
-		void WriteExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName);
+        // config para
+        void ReadExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName);
+        void WriteExamItemPara(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName);
        void ReadDefaultExamItem(int probeIndex, int itemIndex, ParaItem* paraItem,char *itemName);
         void WriteNewItemFile(int probeIndex, char *new_string, const char *str,const char *str_index);
         void DeleteNewItemFile(int probeIndex, const char *old_string,const char *str);
@@ -388,8 +388,8 @@ class ExamItem
 
         int ReadDefaultUserIndex(IniFile* ptrIni);
        ///> only used for generate config file first
-		void GenerateDefaultExamItem();
-		void GenerateDefaultImgOptimize();
+        void GenerateDefaultExamItem();
+        void GenerateDefaultImgOptimize();
 
         //write selected item to file
         void WriteSelectedProbeItem(char *probeModel, IniFile* ptrIni, int item);
@@ -424,20 +424,20 @@ class ExamItem
 
 #ifdef VET
 #ifdef EMP_355
-		static const int NUM_ITEM = 6; ///< total number of item
+        static const int NUM_ITEM = 6; ///< total number of item
 #else
-		static const int NUM_ITEM = 10; ///< total number of item
+        static const int NUM_ITEM = 10; ///< total number of item
 #endif
 #else
-		static const int NUM_ITEM = 29; ///< total number of item
+        static const int NUM_ITEM = 29; ///< total number of item
 #endif
         static const string ITEM_LIB[NUM_ITEM];
 
-	private:
+    private:
 
-		static const int MAX_ITEM = 16; ///< max number of item
-		//static const string ITEM_LIB[NUM_ITEM];
-		static const string KEY_COMMON;
+        static const int MAX_ITEM = 16; ///< max number of item
+        //static const string ITEM_LIB[NUM_ITEM];
+        static const string KEY_COMMON;
   struct ParaDefinedItem
         {
             ParaCommon common;
@@ -446,12 +446,12 @@ class ExamItem
             ParaColor color;
         };
 
-		int m_probeIndex; ///< current probe
-		EItem m_itemIndex; ///< current item
-		ParaItem m_paraItem; ///< current para of item-probe
-		ParaItem m_paraOptimize; ///< current image optimize para
+        int m_probeIndex; ///< current probe
+        EItem m_itemIndex; ///< current item
+        ParaItem m_paraItem; ///< current para of item-probe
+        ParaItem m_paraOptimize; ///< current image optimize para
 
-		vector<enum EItem> m_vecItemIndex[NUM_PROBE]; ///< save item list index of all support probe, example: m_itemIndex[0] save the item list of PROBE_LIST[0] = 35C50K
+        vector<enum EItem> m_vecItemIndex[NUM_PROBE]; ///< save item list index of all support probe, example: m_itemIndex[0] save the item list of PROBE_LIST[0] = 35C50K
 
         //store user defined item
         vector<string> m_vecUserItemName;
@@ -462,10 +462,10 @@ class ExamItem
 
         int GetProbeIndex(char* probeModel);
 
-		///> wirte config file
-		void InitItemPara(ParaItem* paraItem);
-		void InitItemOfProbe();
-		void WriteConfigCommon(ParaItem* paraItem, string section, IniFile* ptrIni);
+        ///> wirte config file
+        void InitItemPara(ParaItem* paraItem);
+        void InitItemOfProbe();
+        void WriteConfigCommon(ParaItem* paraItem, string section, IniFile* ptrIni);
         void WriteConfigOther(ParaItem* paraItem, string section, IniFile* ptrIni);
         int ReadSelectedProbeItem(char *probeModel, IniFile* ptrIni);
         void ReadConfigCommon(ParaItem* paraItem, string section, IniFile* ptrIni);

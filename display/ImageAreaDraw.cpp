@@ -144,7 +144,7 @@ extern bool g_calcPwStatus;
         m_drawSV = false;
         m_formatCfm = FormatCfm::B;
 
-    //	m_pwTrace.clear();
+    //  m_pwTrace.clear();
 
         m_zoomScale = 1.0;
         m_zoomOffset = 0;
@@ -177,8 +177,8 @@ extern bool g_calcPwStatus;
 
         m_autoPara = NULL;
 
-	m_pointScaleYPw.x = IMAGE_X + IMAGE_W/2;
-	m_pointScaleYPw.y = IMAGE_Y + IMAGE_H/2;
+    m_pointScaleYPw.x = IMAGE_X + IMAGE_W/2;
+    m_pointScaleYPw.y = IMAGE_Y + IMAGE_H/2;
     //add by hzq
     m_widthScaleYPw = IMAGE_W;
 }
@@ -212,7 +212,7 @@ void ImageAreaDraw::ClearTextArea(bool update)
         m_drawPwBaseline = false;
         m_SVDraw = false;
     }
-    //	m_pwTrace.clear();
+    //  m_pwTrace.clear();
 }
 
 void ImageAreaDraw::UpdateAngle(int angle, bool isCw, bool draw, bool update)
@@ -269,14 +269,14 @@ void ImageAreaDraw::Update(void)
         Zoom::GetInstance()->GetLocalZoomScale(m_LZScale);
         m_LZDotBeginDepth = Zoom::GetInstance()->GetScanDotBeginDepth();
 
-		int probeR = m_probeR + m_LZDotBeginDepth;
+        int probeR = m_probeR + m_LZDotBeginDepth;
         double scanAngle = m_probeWidth/2 * PI / 180 * (m_LZLineRange[1] - m_LZLineRange[0]) / (m_probeLines - 1);
 
-		//calculate ScaleY Spacing of the top image
-		if (m_probeType == 'L' || m_probeType == 'l')
-			m_scaleYSpacing = 0;
-		else
-			m_scaleYSpacing = probeR - cos(scanAngle) * probeR;
+        //calculate ScaleY Spacing of the top image
+        if (m_probeType == 'L' || m_probeType == 'l')
+            m_scaleYSpacing = 0;
+        else
+            m_scaleYSpacing = probeR - cos(scanAngle) * probeR;
         PRINTF("scaleYSpacing = %d, scale = %f\n", m_scaleYSpacing, m_ratio2D);
     }
     else
@@ -287,11 +287,11 @@ void ImageAreaDraw::Update(void)
         m_LZDotRange[1] = IMAGE_H;
         m_LZScale = 1.0;
 
-		//calculate ScaleY Spacing of the top image
-		if (m_probeType == 'L' || m_probeType == 'l')
-			m_scaleYSpacing = 0;
-		else
-			m_scaleYSpacing = m_probeR - (cos(m_probeWidth/2 * PI/180) * m_probeR);
+        //calculate ScaleY Spacing of the top image
+        if (m_probeType == 'L' || m_probeType == 'l')
+            m_scaleYSpacing = 0;
+        else
+            m_scaleYSpacing = m_probeR - (cos(m_probeWidth/2 * PI/180) * m_probeR);
     }
 
     switch(m_scanMode) {
@@ -368,7 +368,7 @@ void ImageAreaDraw::ChangeFormat2D(Format2D::EFormat2D format, int curB, double 
 
     switch(format) {
         case (Format2D::B):
-			m_format = SINGLEB;
+            m_format = SINGLEB;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H);
             // ScanDirection
             m_countSD = 1;
@@ -525,7 +525,7 @@ void ImageAreaDraw::ChangeFormat2D(Format2D::EFormat2D format, int curB, double 
 
             break;
         case (Format2D::BB):
-			m_format = DUAL;
+            m_format = DUAL;
             if (curB == 0)
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             else if (curB == 1)
@@ -610,7 +610,7 @@ void ImageAreaDraw::ChangeFormat2D(Format2D::EFormat2D format, int curB, double 
 
             break;
         case (Format2D::B4):
-			m_format = QUAD;
+            m_format = QUAD;
             if (curB == 0)
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H/2);
             else if (curB == 1)
@@ -800,7 +800,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
             m_widthScaleXM = IMAGE_W;
             break;
         case (FormatM::BM11_UD):
-			m_format = U1D1;
+            m_format = U1D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/2);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/2, IMAGE_W, IMAGE_H/2);
             // scan direction
@@ -870,7 +870,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM21_UD):
-			m_format = U2D1;
+            m_format = U2D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0*2.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0*2.0, IMAGE_W, IMAGE_H/3.0);
             m_countSD = 1;
@@ -939,7 +939,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM12_UD):
-			m_format = U1D2;
+            m_format = U1D2;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0, IMAGE_W, IMAGE_H/3.0*2.0);
             m_countSD = 1;
@@ -1008,7 +1008,7 @@ void ImageAreaDraw::ChangeFormatM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM11_LR):
-			m_format = L1R1;
+            m_format = L1R1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             m_ptrImg->UpdateSpectraArea(IMAGE_X+IMAGE_W/2, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             m_countSD = 1;
@@ -1089,7 +1089,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
         case (FormatM::M_TOTAL):
             break;
         case (FormatM::BM11_UD):
-			m_format = U1D1;
+            m_format = U1D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/2);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/2, IMAGE_W, IMAGE_H/2);
             // scan direction
@@ -1149,7 +1149,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM21_UD):
-			m_format = U2D1;
+            m_format = U2D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0*2.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0*2.0, IMAGE_W, IMAGE_H/3.0);
 
@@ -1209,7 +1209,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM12_UD):
-			m_format = U1D2;
+            m_format = U1D2;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0, IMAGE_W, IMAGE_H/3.0*2.0);
 
@@ -1269,7 +1269,7 @@ void ImageAreaDraw::ChangeFormatAnatomicM(FormatM::EFormatM format)
 
             break;
         case (FormatM::BM11_LR):
-			m_format = L1R1;
+            m_format = L1R1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             m_ptrImg->UpdateSpectraArea(IMAGE_X+IMAGE_W/2, IMAGE_Y, IMAGE_W/2, IMAGE_H);
 
@@ -1337,7 +1337,7 @@ void ImageAreaDraw::ChangeFormatMInit(void)
     GdkPoint pointScaleY;
     GdkPoint clearScaleY;
 
-	m_format = SINGLEB;
+    m_format = SINGLEB;
     m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H);
     m_ptrImg->UpdateSpectraArea(0, 0, 0, 0);
 
@@ -1425,7 +1425,7 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP11_UD):
-			m_format = U1D1;
+            m_format = U1D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/2);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/2, IMAGE_W, IMAGE_H/2);
 
@@ -1494,7 +1494,7 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP21_UD):
-			m_format = U2D1;
+            m_format = U2D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0*2.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0*2.0, IMAGE_W, IMAGE_H/3.0);
 
@@ -1563,7 +1563,7 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP12_UD):
-			m_format = U1D2;
+            m_format = U1D2;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0, IMAGE_W, IMAGE_H/3.0*2.0);
 
@@ -1632,7 +1632,7 @@ void ImageAreaDraw::ChangeFormatPw(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP11_LR):
-			m_format = L1R1;
+            m_format = L1R1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             m_ptrImg->UpdateSpectraArea(IMAGE_X+IMAGE_W/2, IMAGE_Y, IMAGE_W/2, IMAGE_H);
 
@@ -1709,7 +1709,7 @@ void ImageAreaDraw::ChangeFormatPwInit(void)
     GdkPoint pointScaleY;
     GdkPoint clearScaleY;
 
-	m_format = SINGLEB;
+    m_format = SINGLEB;
     m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H);
     m_ptrImg->UpdateSpectraArea(0, 0, 0, 0);
     // ScanDirection
@@ -1776,7 +1776,7 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
 
     switch(format) {
         case (FormatCfm::B):
-			m_format = SINGLEB;
+            m_format = SINGLEB;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H);
             // ScanDirection
             m_countSD = 1;
@@ -1829,8 +1829,8 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
             else
                 m_pointCfm.y = 0;
             m_zoomRatioCfm = 1.0;
-            //	m_widthImgCfm = IMAGE_W;
-            //	m_heightImgCfm = IMAGE_H;
+            //  m_widthImgCfm = IMAGE_W;
+            //  m_heightImgCfm = IMAGE_H;
 
             // Local Zoom
             m_pointLZ.x = IMAGE_W / 2;
@@ -1841,7 +1841,7 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
 
             break;
         case (FormatCfm::BB):
-			m_format = DUAL;
+            m_format = DUAL;
             if (curB == 0)
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             else if (curB == 1)
@@ -1934,12 +1934,12 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
                 m_pointCfm.y = IMAGE_H;
             else
                 m_pointCfm.y = 0;
-            //	m_widthImgCfm = IMAGE_W/2;
-            //	m_heightImgCfm = IMAGE_H;
+            //  m_widthImgCfm = IMAGE_W/2;
+            //  m_heightImgCfm = IMAGE_H;
 
             break;
         case (FormatCfm::B4):
-			m_format = QUAD;
+            m_format = QUAD;
             if (curB == 0)
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H/2);
             else if (curB == 1)
@@ -2115,8 +2115,8 @@ void ImageAreaDraw::ChangeFormatCfm(FormatCfm::EFormatCfm format, int curB, doub
                 else
                     m_pointCfm.y = IMAGE_H/2;
             }
-            //	m_widthImgCfm = IMAGE_W/2;
-            //	m_heightImgCfm = IMAGE_H/2;
+            //  m_widthImgCfm = IMAGE_W/2;
+            //  m_heightImgCfm = IMAGE_H/2;
 
             break;
     }
@@ -2153,7 +2153,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP11_UD):
-			m_format = U1D1;
+            m_format = U1D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/2);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/2, IMAGE_W, IMAGE_H/2);
 
@@ -2230,7 +2230,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP21_UD):
-			m_format = U2D1;
+            m_format = U2D1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0*2.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0*2.0, IMAGE_W, IMAGE_H/3.0);
 
@@ -2307,7 +2307,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP12_UD):
-			m_format = U1D2;
+            m_format = U1D2;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H/3.0);
             m_ptrImg->UpdateSpectraArea(IMAGE_X, IMAGE_Y+IMAGE_H/3.0, IMAGE_W, IMAGE_H/3.0*2.0);
 
@@ -2384,7 +2384,7 @@ void ImageAreaDraw::ChangeFormatPwCfm(FormatPw::EFormatPw format)
 
             break;
         case (FormatPw::BP11_LR):
-			m_format = L1R1;
+            m_format = L1R1;
             m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W/2, IMAGE_H);
             m_ptrImg->UpdateSpectraArea(IMAGE_X+IMAGE_W/2, IMAGE_Y, IMAGE_W/2, IMAGE_H);
 
@@ -2479,7 +2479,7 @@ void ImageAreaDraw::ChangeFormatColorVs2D(void)
 {
     GdkPoint pointSD;
     GdkPoint pointScaleY;
-	m_format = DUAL;
+    m_format = DUAL;
     // GdkPoint clearScaleY;
     //  m_ptrImg->UpdateSymbolArea(IMAGE_X, IMAGE_Y, IMAGE_W, IMAGE_H);
     m_ptrImg->UpdateSymbolArea(IMAGE_X+IMAGE_W/2, IMAGE_Y, IMAGE_W/2, IMAGE_H);
@@ -2525,9 +2525,9 @@ void ImageAreaDraw::ChangeFormatColorVs2D(void)
 
     // pointScaleY.x = IMAGE_X + IMAGE_W/2 - SCALE_W;
     // if (m_UDStatus)
-    // 	pointScaleY.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
+    //  pointScaleY.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
     // else
-    // 	pointScaleY.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
+    //  pointScaleY.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
     // m_pointScaleY.push_back(pointScaleY);
 
     pointScaleY.x = IMAGE_X + IMAGE_W;
@@ -2548,11 +2548,11 @@ void ImageAreaDraw::ChangeFormatColorVs2D(void)
 
     // focus
     // if (m_curB == 0) {
-    // 	m_pointFocus.x = IMAGE_X + IMAGE_W/2 - SCALE_W - 5;
-    // 	if (m_UDStatus)
-    // 	    m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
-    // 	else
-    // 	    m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
+    //  m_pointFocus.x = IMAGE_X + IMAGE_W/2 - SCALE_W - 5;
+    //  if (m_UDStatus)
+    //      m_pointFocus.y = IMAGE_Y + IMAGE_H - m_scaleYSpacing / m_ratio2D;
+    //  else
+    //      m_pointFocus.y = IMAGE_Y + m_scaleYSpacing / m_ratio2D;
     // } else if (m_curB == 1) {
     m_pointFocus.x = IMAGE_X + IMAGE_W - 5;
     if (m_UDStatus)
@@ -2765,155 +2765,155 @@ void ImageAreaDraw::GetAnatomicBoundary(int &up, int &down, int &left, int &righ
 // ========================= [2D] =========================
 void ImageAreaDraw::CalcScanDirection(int &xPos, int &yPos)
 {
-	int width = 0, height = 0;
-	switch (m_format)
-	{
-		case SINGLEB:
-			width = IMAGE_W;
+    int width = 0, height = 0;
+    switch (m_format)
+    {
+        case SINGLEB:
+            width = IMAGE_W;
             height = IMAGE_H;
-			break;
-		case DUAL:
-		case L1R1:
-			width = IMAGE_W/2;
-			height = IMAGE_H;
-			break;
-		case QUAD:
-		case U1D1:
-			width = IMAGE_W/2;
-			height = IMAGE_H/2;
-			break;
-		case U2D1:
+            break;
+        case DUAL:
+        case L1R1:
+            width = IMAGE_W/2;
+            height = IMAGE_H;
+            break;
+        case QUAD:
+        case U1D1:
+            width = IMAGE_W/2;
+            height = IMAGE_H/2;
+            break;
+        case U2D1:
             width = IMAGE_W*2/3;
-			height = IMAGE_H*2/3;
-			break;
-		case U1D2:
+            height = IMAGE_H*2/3;
+            break;
+        case U1D2:
             width = IMAGE_W/3;
-			height = IMAGE_H/3;
-			break;
-		default:
-			width = IMAGE_W;
-			height = IMAGE_H;
-			break;
-	}
+            height = IMAGE_H/3;
+            break;
+        default:
+            width = IMAGE_W;
+            height = IMAGE_H;
+            break;
+    }
 
-	int x = 0, y = 0;
-	int offsetX = 15;
+    int x = 0, y = 0;
+    int offsetX = 15;
 
         if(m_ratio2D == 0)
                  m_ratio2D = 1;
-	assert(m_ratio2D > (double)0);
+    assert(m_ratio2D > (double)0);
 
-	if (m_probeType == 'L' || m_probeType == 'l')
-		x = (width - (double)m_probeWidth / m_ratio2D) / 2 - offsetX;
-	else
-		x = width/2 - sin((double)m_probeWidth/2*PI/180.0f) * (m_probeR / m_ratio2D + m_LZDotRange[0] * m_LZScale) - offsetX;
+    if (m_probeType == 'L' || m_probeType == 'l')
+        x = (width - (double)m_probeWidth / m_ratio2D) / 2 - offsetX;
+    else
+        x = width/2 - sin((double)m_probeWidth/2*PI/180.0f) * (m_probeR / m_ratio2D + m_LZDotRange[0] * m_LZScale) - offsetX;
 
-	if (x < 0) x = 0;
-	y = 0;
+    if (x < 0) x = 0;
+    y = 0;
 
-	if (m_UDStatus)
+    if (m_UDStatus)
         y = height - 1 - y;
-	if (m_LRStatus)
+    if (m_LRStatus)
         x = width - 1 - x;
 
-	int x0 = 0, y0 = 0;
-	if (m_rotate == 90)
-	{
+    int x0 = 0, y0 = 0;
+    if (m_rotate == 90)
+    {
         if (m_format == DUAL || m_format == L1R1)
             x0 = width - 1 - y;
-		else
+        else
             x0 = (width + height) / 2 - y - 1;
-		y0 = x - (width - height) / 2;
-	}
-	else if (m_rotate == 180)
-	{
+        y0 = x - (width - height) / 2;
+    }
+    else if (m_rotate == 180)
+    {
         x0 = width - 1 - x;
         y0 = height - 1 - y;
-	}
-	else if (m_rotate == 270)
-	{
-		if (m_format == DUAL || m_format == L1R1)
-			x0 = y;
-		else
-			x0 = (width - height) / 2 + y;
+    }
+    else if (m_rotate == 270)
+    {
+        if (m_format == DUAL || m_format == L1R1)
+            x0 = y;
+        else
+            x0 = (width - height) / 2 + y;
         y0 = (width + height) / 2 - x - 1;
-	}
-	else
-	{
-		x0 = x;
-		y0 = y;
-	}
+    }
+    else
+    {
+        x0 = x;
+        y0 = y;
+    }
 
-	int symbolWidthHalf = 15;
-	int symbolHeightHalf = 10;
-	if (x0 < symbolWidthHalf)
-		x0 = symbolWidthHalf;
-	else if (x0 > width - symbolWidthHalf)
-		x0 = width - symbolWidthHalf;
-	if (y0 < symbolHeightHalf)
-		y0 = symbolHeightHalf;
-	else if (y0 > height - symbolHeightHalf)
-		y0 = height - symbolHeightHalf;
+    int symbolWidthHalf = 15;
+    int symbolHeightHalf = 10;
+    if (x0 < symbolWidthHalf)
+        x0 = symbolWidthHalf;
+    else if (x0 > width - symbolWidthHalf)
+        x0 = width - symbolWidthHalf;
+    if (y0 < symbolHeightHalf)
+        y0 = symbolHeightHalf;
+    else if (y0 > height - symbolHeightHalf)
+        y0 = height - symbolHeightHalf;
 
-	int startX = 0, startY = 0;
-	switch (m_format)
-	{
-		case SINGLEB:
-		case L1R1:
+    int startX = 0, startY = 0;
+    switch (m_format)
+    {
+        case SINGLEB:
+        case L1R1:
             startX = 0;
             startY = 0;
             break;
-		case U1D2:
+        case U1D2:
             startX = (IMAGE_W- (double)IMAGE_W/3) / 2;
             startY = 0;
             break;
-		case U2D1:
+        case U2D1:
             startX = (IMAGE_W- (double)IMAGE_W*2/3) / 2;
             startY = 0;
             break;
-		case U1D1:
+        case U1D1:
             startX = (IMAGE_W- (double)IMAGE_W/2) / 2;
             startY = 0;
             break;
-		case DUAL:
-			{
-				if (m_curB == 0)
-				{
-					startX = 0;
-					startY = 0;
-				}
-				else
-				{
+        case DUAL:
+            {
+                if (m_curB == 0)
+                {
+                    startX = 0;
+                    startY = 0;
+                }
+                else
+                {
                     startX = IMAGE_W/2;
-					startY = 0;
-				}
-			}
-			break;
-		case QUAD:
-			{
-				if (m_curB == 0)
-				{
-					startX = 0;
-					startY = 0;
-				}
-				else if (m_curB == 1)
-				{
-					startX = IMAGE_W/2;
-					startY = 0;
-				}
-				else if (m_curB == 2)
-				{
-					startX = 0;
-					startY = IMAGE_H/2;
-				}
-				else if(m_curB == 3)
-				{
-					startX = IMAGE_W/2;
-					startY = IMAGE_H/2;
-				}
-			}
-			break;
-	}
+                    startY = 0;
+                }
+            }
+            break;
+        case QUAD:
+            {
+                if (m_curB == 0)
+                {
+                    startX = 0;
+                    startY = 0;
+                }
+                else if (m_curB == 1)
+                {
+                    startX = IMAGE_W/2;
+                    startY = 0;
+                }
+                else if (m_curB == 2)
+                {
+                    startX = 0;
+                    startY = IMAGE_H/2;
+                }
+                else if(m_curB == 3)
+                {
+                    startX = IMAGE_W/2;
+                    startY = IMAGE_H/2;
+                }
+            }
+            break;
+    }
 
     xPos = IMAGE_X + x0 + startX;
     yPos = IMAGE_Y + y0 + startY;
@@ -2924,7 +2924,7 @@ void ImageAreaDraw::DrawScanDirection(bool update)
     if (m_countSD == 0)
         return ;
 
-	//bigE:w=10 h=19;  smallEMP:w=24 h=17
+    //bigE:w=10 h=19;  smallEMP:w=24 h=17
     const int width = 30;
     const int height = 20;
 
@@ -2935,8 +2935,8 @@ void ImageAreaDraw::DrawScanDirection(bool update)
     if (m_drawSD[m_curB])
         m_ptrImg->DrawRectangle(attr, g_black, m_prePointSD[m_curB].x-width/2, m_prePointSD[m_curB].y-height/2, width, height, true, false);
 
-	int xPos = 0, yPos = 0;
-	CalcScanDirection(xPos, yPos);
+    int xPos = 0, yPos = 0;
+    CalcScanDirection(xPos, yPos);
     ScanDirection(xPos, yPos, true);
     m_prePointSD[m_curB].x = xPos;
     m_prePointSD[m_curB].y = yPos;
@@ -2982,7 +2982,7 @@ void ImageAreaDraw::ScanDirection(int x, int y, bool CurB)
     else
         color = g_white;
 
-	m_ptrImg->DrawString("<b><big>W</big></b>", x-5, y-9, color);
+    m_ptrImg->DrawString("<b><big>W</big></b>", x-5, y-9, color);
 }
 
 void ImageAreaDraw::DrawHScaleY(bool L2R)
@@ -3068,7 +3068,7 @@ void ImageAreaDraw::DrawScaleY(bool update)
     attr.area = ImageArea::PARA;
     attr.mode.cvDraw = false;
 
-    if (m_scanMode == ScanMode::D2 && m_format2D == Format2D::B) {	// must in 2D single B mode
+    if (m_scanMode == ScanMode::D2 && m_format2D == Format2D::B) {  // must in 2D single B mode
         m_ptrImg->DrawRectangle(attr, g_black, IMAGE_X + IMAGE_W, IMAGE_Y-1, SCALE_W+2, IMAGE_H+2, true, false);
         m_ptrImg->DrawRectangle(attr, g_black, IMAGE_X-1, IMAGE_Y+IMAGE_H, IMAGE_W+2, SCALE_W+2, true, false);
 
@@ -3185,9 +3185,9 @@ void ImageAreaDraw::DrawFocus(int focSum, int focPos[], bool update)
     m_preFocInfo.focPos.clear();
     m_preFocInfo.focSum = focSum;
     for (int i = 0; i < focSum; i++)
-	{
+    {
         m_preFocInfo.focPos.push_back(focPos[i]);
-	}
+    }
     m_focusDraw = true;
     if (update)
         m_ptrImg->UpdateImgArea();
@@ -3228,7 +3228,7 @@ void ImageAreaDraw::VerFocus(vector<int> &focPos, bool draw, bool U2D)
 
     double zoom_offset_pixel = m_zoomScale * m_zoomOffset;
 
-	PRINTF("%s: m_ratio2D = %.2f, m_zoomScale = %.2f, m_zoomOffset = %d, m_pointFocus.y = %d\n m_LZDotRange[0] = %d, m_LZScale = %.2f, zoom_offset_pixel = %.2f\n", __FUNCTION__, m_ratio2D, m_zoomScale, m_zoomOffset, m_pointFocus.y, m_LZDotRange[0], m_LZScale, zoom_offset_pixel);
+    PRINTF("%s: m_ratio2D = %.2f, m_zoomScale = %.2f, m_zoomOffset = %d, m_pointFocus.y = %d\n m_LZDotRange[0] = %d, m_LZScale = %.2f, zoom_offset_pixel = %.2f\n", __FUNCTION__, m_ratio2D, m_zoomScale, m_zoomOffset, m_pointFocus.y, m_LZDotRange[0], m_LZScale, zoom_offset_pixel);
     GdkPoint init_points[3] = {{-6, 0}, {0, 6}, {0, -6}};
     GdkPoint points[3];
     int max_y = 0;
@@ -3236,20 +3236,20 @@ void ImageAreaDraw::VerFocus(vector<int> &focPos, bool draw, bool U2D)
     for (unsigned int i = 0; i < focPos.size(); i++) {
         for (int j=0; j<3; j++) {
             points[j].x = init_points[j].x + m_pointFocus.x;
-			if (U2D)
-			{
-				if (m_inLZMode)
-					points[j].y = init_points[j].y + (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]* m_LZScale) + m_pointFocus.y - zoom_offset_pixel;
-				else
-					points[j].y = init_points[j].y + (int)(focPos[i]/m_ratio2D) + m_pointFocus.y - zoom_offset_pixel;
-			}
-			else
-			{
-				if (m_inLZMode)
-					points[j].y = init_points[j].y + m_pointFocus.y - (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + zoom_offset_pixel;
-				else
-					points[j].y = init_points[j].y + m_pointFocus.y - (int)(focPos[i]/m_ratio2D) + zoom_offset_pixel;
-			}
+            if (U2D)
+            {
+                if (m_inLZMode)
+                    points[j].y = init_points[j].y + (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]* m_LZScale) + m_pointFocus.y - zoom_offset_pixel;
+                else
+                    points[j].y = init_points[j].y + (int)(focPos[i]/m_ratio2D) + m_pointFocus.y - zoom_offset_pixel;
+            }
+            else
+            {
+                if (m_inLZMode)
+                    points[j].y = init_points[j].y + m_pointFocus.y - (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + zoom_offset_pixel;
+                else
+                    points[j].y = init_points[j].y + m_pointFocus.y - (int)(focPos[i]/m_ratio2D) + zoom_offset_pixel;
+            }
         }
         max_y = max_3(points[0].y, points[1].y, points[2].y);
         min_y = min_3(points[0].y, points[1].y, points[2].y);
@@ -3276,19 +3276,19 @@ void ImageAreaDraw::HorFocus(vector<int> &focPos, bool draw, bool L2R)
         for (int j=0; j<3; j++) {
             points[j].y = init_points[j].y + m_pointFocus.y;
             if (L2R)
-			{
-				if (m_inLZMode)
-					points[j].x = init_points[j].x + (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + m_pointFocus.x - zoom_offset_pixel;
-				else
-					points[j].x = init_points[j].x + (int)(focPos[i]/m_ratio2D) + m_pointFocus.x - zoom_offset_pixel;
-			}
+            {
+                if (m_inLZMode)
+                    points[j].x = init_points[j].x + (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + m_pointFocus.x - zoom_offset_pixel;
+                else
+                    points[j].x = init_points[j].x + (int)(focPos[i]/m_ratio2D) + m_pointFocus.x - zoom_offset_pixel;
+            }
             else
-			{
-				if (m_inLZMode)
-					points[j].x = init_points[j].x + m_pointFocus.x - (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + zoom_offset_pixel;
-				else
-					points[j].x = init_points[j].x + m_pointFocus.x - (int)(focPos[i]/m_ratio2D) + zoom_offset_pixel;
-			}
+            {
+                if (m_inLZMode)
+                    points[j].x = init_points[j].x + m_pointFocus.x - (int)(focPos[i]/m_ratio2D - m_LZDotRange[0]*m_LZScale) + zoom_offset_pixel;
+                else
+                    points[j].x = init_points[j].x + m_pointFocus.x - (int)(focPos[i]/m_ratio2D) + zoom_offset_pixel;
+            }
         }
         max_x = max_3(points[0].x, points[1].x, points[2].x);
         min_x = min_3(points[0].x, points[1].x, points[2].x);
@@ -3416,12 +3416,12 @@ void ImageAreaDraw::ClearBiopsyLine(bool update)
 {
    /* if ((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))
         return;*/
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
         if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
 
-	{
-		return;
-	}
+    {
+        return;
+    }
     if (m_drawBiopsy) {
         BiopsyLine(m_preBiopsy.xDist, m_preBiopsy.yDist, m_preBiopsy.LRStatus, m_preBiopsy.UDStatus, m_preBiopsy.rotate, false);
         m_drawBiopsy = false;
@@ -3433,11 +3433,11 @@ void ImageAreaDraw::ClearBiopsyDoubleLine(bool update)
 {
    /* if ((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))
         return;*/
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
     if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
+    {
+        return;
+    }
 
     if (m_drawBiopsyDouble) {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_preBiopsyDouble0.LRStatus, m_preBiopsyDouble0.UDStatus, m_preBiopsyDouble0.rotate, false);
@@ -3469,13 +3469,13 @@ void ImageAreaDraw::ReDrawBiopsyLine(bool update)
 {
    /* if ((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))
         return;*/
-	//-------2016.09.19--hy-----------------------------------//
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
+    //-------2016.09.19--hy-----------------------------------//
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
    if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
-	//-------------------------------------------------------------------------------------------------------//
+    {
+        return;
+    }
+    //-------------------------------------------------------------------------------------------------------//
 
     if (!m_drawBiopsy) {
         BiopsyLine(m_preBiopsy.xDist, m_preBiopsy.yDist, m_LRStatus, m_UDStatus, m_rotate, true);
@@ -3489,13 +3489,13 @@ void ImageAreaDraw::ReDrawBiopsyLine(bool update)
 }
 void ImageAreaDraw::ReDrawBiopsyDoubleLine(bool update)
 {
-	//-------2016.09.19--hy-----------------------------------//
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
+    //-------2016.09.19--hy-----------------------------------//
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
     if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
-	//-------------------------------------------------------------------------------------------------------//
+    {
+        return;
+    }
+    //-------------------------------------------------------------------------------------------------------//
 
     if (!m_drawBiopsyDouble) {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_LRStatus, m_UDStatus, m_rotate, true);
@@ -3564,13 +3564,13 @@ void ImageAreaDraw::DrawBiopsyLine(double xDist, double  yDist, bool update)
 {
    /* if ((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))
         return;*/
-	//-------2016.09.19--hy-----------------------------------//
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
+    //-------2016.09.19--hy-----------------------------------//
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI))*/
     if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
-	//-------------------------------------------------------------------------------------------------------//
+    {
+        return;
+    }
+    //-------------------------------------------------------------------------------------------------------//
 
     if (m_drawBiopsy)
         BiopsyLine(m_preBiopsy.xDist, m_preBiopsy.yDist, m_preBiopsy.LRStatus, m_preBiopsy.UDStatus, m_preBiopsy.rotate, false);
@@ -3588,9 +3588,9 @@ void ImageAreaDraw::DrawBiopsyLine(double xDist, double  yDist, bool update)
 /*void ImageAreaDraw::DrawBiopsyDoubleLine(int xDist0, int yDist0, int xDist1, int yDist1, bool update)
 {
     if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
+    {
+        return;
+    }
     if (m_drawBiopsyDouble)
     {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_preBiopsyDouble0.LRStatus, m_preBiopsyDouble0.UDStatus, m_preBiopsyDouble0.rotate, false);
@@ -3618,11 +3618,11 @@ void ImageAreaDraw::DrawBiopsyLine(double xDist, double  yDist, bool update)
 }*/
 void ImageAreaDraw::DrawBiopsyDoubleLine(double xDist0, double yDist0, double xDist1, double yDist1, bool update)
 {
-	/*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))*/
+    /*if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))*/
     if (((m_scanMode != ScanMode::D2) || (m_format2D != Format2D::B))&&((m_scanMode!=ScanMode::CFM)||(m_formatCfm != FormatCfm::B))&&(m_scanMode!=ScanMode::PDI)&&(ModeStatus::IsFreezeMode()))
-	{
-		return;
-	}
+    {
+        return;
+    }
     if (m_drawBiopsyDouble)
     {
         BiopsyLine(m_preBiopsyDouble0.xDist, m_preBiopsyDouble0.yDist, m_preBiopsyDouble0.LRStatus, m_preBiopsyDouble0.UDStatus, m_preBiopsyDouble0.rotate, false);
@@ -4130,7 +4130,7 @@ void ImageAreaDraw::DrawGridM(bool update)
 
     if (m_drawGridM) {
         GridM(m_ratioXMPre, m_ratioYMPre, m_prePointScaleYM, false);
-        //    	m_drawGridM = false;
+        //      m_drawGridM = false;
     }
     GridM(m_ratioXM, m_ratioYM, m_pointScaleYM, true);
     m_ratioXMPre = m_ratioXM;
@@ -4647,7 +4647,7 @@ void ImageAreaDraw::DrawPwTraceAuto(bool auto_calc, const Image::AutoTracePara* 
                 }
 
                 if (validTrace.size() > 1) {
-						if(m_autoPara == NULL)
+                        if(m_autoPara == NULL)
                     {
                         m_autoPara = (char*) malloc(350);
                         memset(m_autoPara, 0, sizeof(m_autoPara));
@@ -5029,7 +5029,7 @@ void ImageAreaDraw::SetColorScaleRange(double max, double min, double maxKHz, do
 
 void ImageAreaDraw::SetCfmBoxDashStatus(bool isDash)
 {
-	m_dashCfmBox = isDash;
+    m_dashCfmBox = isDash;
 }
 
 void ImageAreaDraw::DrawCfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool update)
@@ -5290,7 +5290,7 @@ void ImageAreaDraw::DrawPIPBox(int x, int y, int width, int height, bool update)
 {
 #ifdef EMP_355
     if (m_clear)
-		return;
+        return;
 #endif
     ImageArea::DrawAttr attr;
     attr.area = ImageArea::SYMBOL;
@@ -5325,7 +5325,7 @@ void ImageAreaDraw::ClearPIPBox(bool update)
     if (update)
         m_ptrImg->UpdateImgArea();
 #ifdef EMP_355
-	m_clear=true;
+    m_clear=true;
 #endif
 }
 
@@ -5466,7 +5466,7 @@ void ImageAreaDraw::DrawGrayRejectCurve(unsigned char Point, bool update)
 
 void ImageAreaDraw::SetLocalZoomBoxDashStatus(bool isDash)
 {
-	m_dashLZBox = isDash;
+    m_dashLZBox = isDash;
 }
 
 void ImageAreaDraw::DrawLocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool update)
@@ -5578,16 +5578,16 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
             p4.x = p3.x + xAngleOffset;
             p4.y = p3.y + yAngleOffset;
         }
-		if (dash)
-		{
-			m_ptrImg->DrawDashLine(attr, g_green, p1.x, p1.y, p3.x, p3.y, false, 5);
-			m_ptrImg->DrawDashLine(attr, g_green, p2.x, p2.y, p4.x, p4.y, false, 5);
-		}
-		else
-		{
-			m_ptrImg->DrawLine(attr, g_green, p1.x, p1.y, p3.x, p3.y, false);
-			m_ptrImg->DrawLine(attr, g_green, p2.x, p2.y, p4.x, p4.y, false);
-		}
+        if (dash)
+        {
+            m_ptrImg->DrawDashLine(attr, g_green, p1.x, p1.y, p3.x, p3.y, false, 5);
+            m_ptrImg->DrawDashLine(attr, g_green, p2.x, p2.y, p4.x, p4.y, false, 5);
+        }
+        else
+        {
+            m_ptrImg->DrawLine(attr, g_green, p1.x, p1.y, p3.x, p3.y, false);
+            m_ptrImg->DrawLine(attr, g_green, p2.x, p2.y, p4.x, p4.y, false);
+        }
     } else {
         double halfLines = m_probeLines / 2;
         double scanAngle = m_probeWidth * PI / 180;
@@ -5773,27 +5773,27 @@ void ImageAreaDraw::LocalZoom(int lineBegin, int lineEnd, int dotBegin, int dotE
             }
         }
 
-		if (dash)
-		{
-			m_ptrImg->DrawDashArc(attr, g_green, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
-			m_ptrImg->DrawDashArc(attr, g_green, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
-		}
-		else
-		{
-			m_ptrImg->DrawArc(attr, g_green, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
-			m_ptrImg->DrawArc(attr, g_green, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
-		}
+        if (dash)
+        {
+            m_ptrImg->DrawDashArc(attr, g_green, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
+            m_ptrImg->DrawDashArc(attr, g_green, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
+        }
+        else
+        {
+            m_ptrImg->DrawArc(attr, g_green, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
+            m_ptrImg->DrawArc(attr, g_green, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
+        }
     }
-	if (dash)
-	{
-		m_ptrImg->DrawDashLine(attr, g_green, p1.x, p1.y, p2.x, p2.y, false, 5);
-		m_ptrImg->DrawDashLine(attr, g_green, p3.x, p3.y, p4.x, p4.y, false, 5);
-	}
-	else
-	{
-		m_ptrImg->DrawLine(attr, g_green, p1.x, p1.y, p2.x, p2.y, false);
-		m_ptrImg->DrawLine(attr, g_green, p3.x, p3.y, p4.x, p4.y, false);
-	}
+    if (dash)
+    {
+        m_ptrImg->DrawDashLine(attr, g_green, p1.x, p1.y, p2.x, p2.y, false, 5);
+        m_ptrImg->DrawDashLine(attr, g_green, p3.x, p3.y, p4.x, p4.y, false, 5);
+    }
+    else
+    {
+        m_ptrImg->DrawLine(attr, g_green, p1.x, p1.y, p2.x, p2.y, false);
+        m_ptrImg->DrawLine(attr, g_green, p3.x, p3.y, p4.x, p4.y, false);
+    }
 }
 
 void ImageAreaDraw::DrawMagnifier(int x, int y, bool update)
@@ -6061,8 +6061,8 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
     // m_correctAngle = 60;
 
     // 假设扫描线数为偶数
-    const int svWidth = 20;	// 取样容积线宽度
-    const int angleLen = 30;	// 角度线的长度
+    const int svWidth = 20; // 取样容积线宽度
+    const int angleLen = 30;    // 角度线的长度
 
     GdkPoint point1, point2, point3, point4; // 1为取样容积线起点,2为终点,3为容积起点,4为终点
     GdkSegment beginSeg;
@@ -6073,30 +6073,30 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
     vector<GdkPoint> HPRFEmitPoint;
     vector<int>::iterator iter;
 
-	PRINTF("%s: curPwLine = %d, dotBegin = %d, dotEnd = %d\n", __FUNCTION__, curPwLine, dotBegin, dotEnd);
+    PRINTF("%s: curPwLine = %d, dotBegin = %d, dotEnd = %d\n", __FUNCTION__, curPwLine, dotBegin, dotEnd);
     int svBegin;
     int svEnd;
-	if (m_inLZMode)
-	{
-		svBegin = (dotBegin - m_LZDotRange[0]) * m_LZScale * m_zoomRatioPw;
-		svEnd = (dotEnd - m_LZDotRange[0]) * m_LZScale * m_zoomRatioPw;
-		PRINTF("svBegin = %d, svEnd = %d\n", svBegin, svEnd);
-	}
-	else
-	{
-		svBegin = dotBegin * m_zoomRatioPw;
-		svEnd = dotEnd * m_zoomRatioPw;
-	}
+    if (m_inLZMode)
+    {
+        svBegin = (dotBegin - m_LZDotRange[0]) * m_LZScale * m_zoomRatioPw;
+        svEnd = (dotEnd - m_LZDotRange[0]) * m_LZScale * m_zoomRatioPw;
+        PRINTF("svBegin = %d, svEnd = %d\n", svBegin, svEnd);
+    }
+    else
+    {
+        svBegin = dotBegin * m_zoomRatioPw;
+        svEnd = dotEnd * m_zoomRatioPw;
+    }
     double angle = (double)m_correctAngle * PI / 180;
 
     if (m_probeType == 'L' || m_probeType == 'l') {
         double probeWidth = m_probeWidth / m_ratio2D;
         double delta = probeWidth / (m_probeLines - 1);
-		double centerLine;
-		if (m_inLZMode)
-			centerLine = (m_LZLineRange[0] + m_LZLineRange[1]) /2;
-		else
-			centerLine = m_probeLines/2;
+        double centerLine;
+        if (m_inLZMode)
+            centerLine = (m_LZLineRange[0] + m_LZLineRange[1]) /2;
+        else
+            centerLine = m_probeLines/2;
         double xOffset = (curPwLine - centerLine) * delta;
 
         double svHeight = svEnd - svBegin;
@@ -6277,35 +6277,35 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
             }
         }
     } else {
-		double halfLines, halfAngle, theta, probeRadius;
+        double halfLines, halfAngle, theta, probeRadius;
         double scanAngle = m_probeWidth * PI / 180;
         double delta = scanAngle / (m_probeLines - 1);
-		int totalLines;
+        int totalLines;
 
-		if (m_inLZMode)
-		{
-			halfLines = (m_LZLineRange[1] + m_LZLineRange[0]) / 2 - 1;
-			totalLines = m_LZLineRange[1] - m_LZLineRange[0] + 1;
-			halfAngle = scanAngle / 2 * (totalLines - 1) / (m_probeLines -1);
-			probeRadius = (m_probeR + m_LZDotBeginDepth) / m_ratio2D;
-		}
-		else
-		{
-			halfLines = m_probeLines / 2;
-			totalLines = m_probeLines;
-			halfAngle = scanAngle / 2;
-			probeRadius =  m_probeR / m_ratio2D;
-		}
+        if (m_inLZMode)
+        {
+            halfLines = (m_LZLineRange[1] + m_LZLineRange[0]) / 2 - 1;
+            totalLines = m_LZLineRange[1] - m_LZLineRange[0] + 1;
+            halfAngle = scanAngle / 2 * (totalLines - 1) / (m_probeLines -1);
+            probeRadius = (m_probeR + m_LZDotBeginDepth) / m_ratio2D;
+        }
+        else
+        {
+            halfLines = m_probeLines / 2;
+            totalLines = m_probeLines;
+            halfAngle = scanAngle / 2;
+            probeRadius =  m_probeR / m_ratio2D;
+        }
 
-		if (totalLines % 2 == 0)
-		{
-			theta = delta * ((curPwLine < halfLines) ? (halfLines - curPwLine) : (curPwLine - halfLines - 1));
-			theta = theta + delta/2;
-		}
-		else
-		{
-			theta = delta * ((curPwLine < halfLines) ? (halfLines - curPwLine) : (curPwLine - halfLines - 1));
-		}
+        if (totalLines % 2 == 0)
+        {
+            theta = delta * ((curPwLine < halfLines) ? (halfLines - curPwLine) : (curPwLine - halfLines - 1));
+            theta = theta + delta/2;
+        }
+        else
+        {
+            theta = delta * ((curPwLine < halfLines) ? (halfLines - curPwLine) : (curPwLine - halfLines - 1));
+        }
 
         double sineTheta = sin(theta);
         double cosineTheta = cos(theta);
@@ -6322,8 +6322,8 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
         double offset_y3 = cosineTheta * (probeRadius + svBegin) - tmpLen;
         double offset_x4 = sineTheta * (probeRadius + svEnd);
         double offset_y4 = cosineTheta * (probeRadius + svEnd) - tmpLen;
-		PRINTF("offset x1=%.2f, y1=%.2f, x2=%.2f, y2=%.2f, x3=%.2f, y3=%.2f, x4=%.2f, y4=%.2f\n",
-				offset_x1, offset_y1, offset_x2, offset_y2, offset_x3, offset_y3, offset_x4, offset_y4);
+        PRINTF("offset x1=%.2f, y1=%.2f, x2=%.2f, y2=%.2f, x3=%.2f, y3=%.2f, x4=%.2f, y4=%.2f\n",
+                offset_x1, offset_y1, offset_x2, offset_y2, offset_x3, offset_y3, offset_x4, offset_y4);
 
         double xOffsetSeg = cosineTheta * (svWidth / 2);
         double yOffsetSeg = sineTheta * (svWidth / 2);
@@ -6725,7 +6725,7 @@ void ImageAreaDraw::SampleVolumn(int curPwLine, int dotBegin, int dotEnd, vector
     m_ptrImg->DrawDashLine(attr, g_green, point4.x, point4.y, point2.x, point2.y, false);
 
     //     m_ptrImg->DrawSegments(GDK_XOR, g_green, &beginSeg, 1);
-    // //	if (! ((beginSeg.x1 == endSeg.x1) && (beginSeg.y1 == endSeg.y1)))
+    // //   if (! ((beginSeg.x1 == endSeg.x1) && (beginSeg.y1 == endSeg.y1)))
     //     m_ptrImg->DrawSegments(GDK_XOR, g_green, &endSeg, 1);
 
     //     m_ptrImg->DrawSegments(GDK_XOR, g_green, &lineUpSeg, 1);
@@ -6767,17 +6767,17 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
     int boxBegin;
     int boxEnd;
 
-	if(m_inLZMode)
-	{
-		boxBegin = (dotBegin - m_LZDotRange[0]) * m_LZScale * m_zoomRatioCfm;
-		boxEnd = (dotEnd - m_LZDotRange[0]) * m_LZScale * m_zoomRatioCfm;
-		PRINTF("boxBegin = %d, boxEnd = %d\n", boxBegin, boxEnd);
-	}
-	else
-	{
-		boxBegin = dotBegin * m_zoomRatioCfm;
-		boxEnd = dotEnd * m_zoomRatioCfm;
-	}
+    if(m_inLZMode)
+    {
+        boxBegin = (dotBegin - m_LZDotRange[0]) * m_LZScale * m_zoomRatioCfm;
+        boxEnd = (dotEnd - m_LZDotRange[0]) * m_LZScale * m_zoomRatioCfm;
+        PRINTF("boxBegin = %d, boxEnd = %d\n", boxBegin, boxEnd);
+    }
+    else
+    {
+        boxBegin = dotBegin * m_zoomRatioCfm;
+        boxEnd = dotEnd * m_zoomRatioCfm;
+    }
 
     ImageArea::DrawAttr attr;
     color = g_green;
@@ -6786,7 +6786,7 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
 
     if (m_probeType == 'L' || m_probeType == 'l') {
         double delta = (m_probeWidth / (m_probeLines - 1)) / m_ratio2D;
-		double centerLine;
+        double centerLine;
         if (m_inLZMode)
             centerLine = (m_LZLineRange[0] + m_LZLineRange[1]) / 2;
         else
@@ -6842,49 +6842,49 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
             p4.y = p2.y;
         }
 
-		if (dash)
-		{
-			m_ptrImg->DrawDashLine(attr, color, p1.x, p1.y, p3.x, p3.y, false, 5);
-			m_ptrImg->DrawDashLine(attr, color, p2.x, p2.y, p4.x, p4.y, false, 5);
-		}
-		else
-		{
-			m_ptrImg->DrawLine(attr, color, p1.x, p1.y, p3.x, p3.y, false);
-			m_ptrImg->DrawLine(attr, color, p2.x, p2.y, p4.x, p4.y, false);
-		}
+        if (dash)
+        {
+            m_ptrImg->DrawDashLine(attr, color, p1.x, p1.y, p3.x, p3.y, false, 5);
+            m_ptrImg->DrawDashLine(attr, color, p2.x, p2.y, p4.x, p4.y, false, 5);
+        }
+        else
+        {
+            m_ptrImg->DrawLine(attr, color, p1.x, p1.y, p3.x, p3.y, false);
+            m_ptrImg->DrawLine(attr, color, p2.x, p2.y, p4.x, p4.y, false);
+        }
     } else {
         double halfLines, halfAngle, theta1, theta2, probeRadius;
         double scanAngle = m_probeWidth * PI / 180;
         double delta = scanAngle / (m_probeLines - 1);
-		int totalLines;
+        int totalLines;
 
-		if (m_inLZMode)
-		{
-			halfLines = (m_LZLineRange[1] + m_LZLineRange[0]) / 2 - 1;
-			totalLines = m_LZLineRange[1] - m_LZLineRange[0] + 1;
-			halfAngle = scanAngle / 2 * (totalLines - 1) / (m_probeLines - 1);
-			probeRadius =  (m_probeR + m_LZDotBeginDepth) / m_ratio2D;
-		}
-		else
-		{
-			halfLines = m_probeLines / 2 - 1;
-			totalLines = m_probeLines;
-			halfAngle = scanAngle / 2;
-			probeRadius = m_probeR / m_ratio2D;
-		}
+        if (m_inLZMode)
+        {
+            halfLines = (m_LZLineRange[1] + m_LZLineRange[0]) / 2 - 1;
+            totalLines = m_LZLineRange[1] - m_LZLineRange[0] + 1;
+            halfAngle = scanAngle / 2 * (totalLines - 1) / (m_probeLines - 1);
+            probeRadius =  (m_probeR + m_LZDotBeginDepth) / m_ratio2D;
+        }
+        else
+        {
+            halfLines = m_probeLines / 2 - 1;
+            totalLines = m_probeLines;
+            halfAngle = scanAngle / 2;
+            probeRadius = m_probeR / m_ratio2D;
+        }
 
-		if (totalLines % 2 == 0)
-		{
-			theta1 = delta * ((lineBegin < halfLines) ? (halfLines - lineBegin) : (lineBegin - halfLines - 1));
-			theta2 = delta * ((lineEnd < halfLines) ? (halfLines - lineEnd) : (lineEnd - halfLines - 1));
-			theta1 = theta1 + delta/2;
-			theta2 = theta2 + delta/2;
-		}
-		else
-		{
-			theta1 = delta * ((lineBegin < halfLines) ? (halfLines - lineBegin) : (lineBegin - halfLines));
-			theta2 = delta * ((lineEnd < halfLines) ? (halfLines - lineEnd) : (lineEnd - halfLines));
-		}
+        if (totalLines % 2 == 0)
+        {
+            theta1 = delta * ((lineBegin < halfLines) ? (halfLines - lineBegin) : (lineBegin - halfLines - 1));
+            theta2 = delta * ((lineEnd < halfLines) ? (halfLines - lineEnd) : (lineEnd - halfLines - 1));
+            theta1 = theta1 + delta/2;
+            theta2 = theta2 + delta/2;
+        }
+        else
+        {
+            theta1 = delta * ((lineBegin < halfLines) ? (halfLines - lineBegin) : (lineBegin - halfLines));
+            theta2 = delta * ((lineEnd < halfLines) ? (halfLines - lineEnd) : (lineEnd - halfLines));
+        }
 
         double sineTheta1 = sin(theta1);
         double cosineTheta1 = cos(theta1);
@@ -6892,7 +6892,7 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
         double cosineTheta2 = cos(theta2);
 
         double tmpLen = cos(halfAngle) * probeRadius;
-		PRINTF("delta=%.2f, theta1=%.2f, sin1=%.2f, cos1=%.2f, halfAngle=%.2f\n", delta, theta1, sineTheta1, cosineTheta1, halfAngle);
+        PRINTF("delta=%.2f, theta1=%.2f, sin1=%.2f, cos1=%.2f, halfAngle=%.2f\n", delta, theta1, sineTheta1, cosineTheta1, halfAngle);
 
         double xOffsetP1 = sineTheta1 * (probeRadius + boxBegin);
         double yOffsetP1 = cosineTheta1 * (probeRadius + boxBegin) - tmpLen;
@@ -6902,7 +6902,7 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
         double yOffsetP3 = cosineTheta2 * (probeRadius + boxBegin) - tmpLen;
         double xOffsetP4 = sineTheta2 * (probeRadius + boxEnd);
         double yOffsetP4 = cosineTheta2 * (probeRadius + boxEnd) - tmpLen;
-		PRINTF("yOffsetP1 = %.2f, cosineTheta1 = %.2f, probeRadius = %.2f, tmpLen = %.2f\n", yOffsetP1, cosineTheta1, probeRadius, tmpLen);
+        PRINTF("yOffsetP1 = %.2f, cosineTheta1 = %.2f, probeRadius = %.2f, tmpLen = %.2f\n", yOffsetP1, cosineTheta1, probeRadius, tmpLen);
 
         GdkPoint centre;
         GdkPoint arcPoint1, arcPoint2;
@@ -7060,33 +7060,33 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
                 p4.x = pointCfm.x + xOffsetP4;
                 p4.y = pointCfm.y + yOffsetP4;
             }
-		}
+        }
 
-		if (dash)
-		{
-			m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
-			m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
-		}
-		else
-		{
-			//m_ptrImg->DrawArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
-			//m_ptrImg->DrawArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
+        if (dash)
+        {
+            m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
+            m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
+        }
+        else
+        {
+            //m_ptrImg->DrawArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
+            //m_ptrImg->DrawArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
 
-			m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false, 1);
-			m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false, 1);
-		}
-	}
+            m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false, 2);
+            m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false, 2);
+        }
+    }
 
-	if (dash)
-	{
-		m_ptrImg->DrawDashLine(attr, color, p1.x, p1.y, p2.x, p2.y, false, 5);
-		m_ptrImg->DrawDashLine(attr, color, p3.x, p3.y, p4.x, p4.y, false, 5);
-	}
-	else
-	{
-		m_ptrImg->DrawLine(attr, color, p1.x, p1.y, p2.x, p2.y, false);
-		m_ptrImg->DrawLine(attr, color, p3.x, p3.y, p4.x, p4.y, false);
-	}
+    if (dash)
+    {
+        m_ptrImg->DrawDashLine(attr, color, p1.x, p1.y, p2.x, p2.y, false, 5);
+        m_ptrImg->DrawDashLine(attr, color, p3.x, p3.y, p4.x, p4.y, false, 5);
+    }
+    else
+    {
+        m_ptrImg->DrawLine(attr, color, p1.x, p1.y, p2.x, p2.y, false);
+        m_ptrImg->DrawLine(attr, color, p3.x, p3.y, p4.x, p4.y, false);
+    }
 }
 
 void ImageAreaDraw::DrawEFOVZoomMiniatureBox(int start_x,  int start_y, int end_x, int end_y)
@@ -7394,6 +7394,6 @@ void ImageAreaDraw::DrawEFOVScaleX(void)
 #ifdef EMP_355
 void ImageAreaDraw::SetClearStatus(bool on)
 {
-	m_clear=on;
+    m_clear=on;
 }
 #endif

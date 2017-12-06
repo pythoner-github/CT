@@ -11,35 +11,35 @@
  */
 class FormatM
 {
-	public:
-		///> new type
-		enum EFormatM{M_TOTAL, BM11_UD, BM21_UD, BM12_UD, BM11_LR}; ///< M display format, "UD"=up down, "LR"=left right, "11"=1:1, "12"=1:2
+    public:
+        ///> new type
+        enum EFormatM{M_TOTAL, BM11_UD, BM21_UD, BM12_UD, BM11_LR}; ///< M display format, "UD"=up down, "LR"=left right, "11"=1:1, "12"=1:2
 
-		static FormatM* GetInstance();
-		~FormatM();
+        static FormatM* GetInstance();
+        ~FormatM();
 
-		void ChangeFormat(enum EFormatM format);
-		EFormatM GetFormat();
+        void ChangeFormat(enum EFormatM format);
+        EFormatM GetFormat();
 
-		int GetBImgHeightDot(void);
-		POINT GetBCenterPoint(void);
+        int GetBImgHeightDot(void);
+        POINT GetBCenterPoint(void);
 
         ///> special measure
         void SetFormatForSnap(EFormatM format) { m_formatSnap = format; }
 
-	private:
-		FormatM();
+    private:
+        FormatM();
 
-		static FormatM* m_ptrInstance;
+        static FormatM* m_ptrInstance;
 
-		DscMan* m_ptrDsc;
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;
+        DscMan* m_ptrDsc;
+        DSCCONTROLATTRIBUTES* m_ptrDscPara;
 
-		AbsUpdate2D* m_ptrUpdate;
-		Img2D* m_ptrImg;
-		Replay* m_ptrReplay;
+        AbsUpdate2D* m_ptrUpdate;
+        Img2D* m_ptrImg;
+        Replay* m_ptrReplay;
 
-		EFormatM m_format;
+        EFormatM m_format;
         EFormatM m_formatSnap;
 };
 #endif

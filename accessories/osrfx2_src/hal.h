@@ -3,35 +3,35 @@
 
 struct ezusb_control
 {
-	unsigned char request;//command
-	int value; //value to set
-	int len; // len of date returned in buf;
-	unsigned char *buf;
+    unsigned char request;//command
+    int value; //value to set
+    int len; // len of date returned in buf;
+    unsigned char *buf;
 };
 
 struct ezusb_control_probe
 {
-	unsigned char request;//command
-	unsigned short value; //value to set
-	int len; // len of date returned in buf;
-	unsigned char *buf;
+    unsigned char request;//command
+    unsigned short value; //value to set
+    int len; // len of date returned in buf;
+    unsigned char *buf;
 };
 
 struct ezusb_bulk_out
 {
-	unsigned char data_type;//bits of data,BITS8-8bits BITS16-16bits BITS32-32bits
-	unsigned char para_len; //length of data in type of data_type
-	unsigned char fpga_addr;// fpga address of receive data
-	unsigned char *buf; //buffer of data send to fpga
+    unsigned char data_type;//bits of data,BITS8-8bits BITS16-16bits BITS32-32bits
+    unsigned char para_len; //length of data in type of data_type
+    unsigned char fpga_addr;// fpga address of receive data
+    unsigned char *buf; //buffer of data send to fpga
 };
 
 #define OUR_MAGIC       'o'
-#define EZUSB_IOC_MAXNR	3
-#define EZUSB_IOC_REQUEST 		_IOW(OUR_MAGIC, 1, struct ezusb_control)
-#define EZUSB_IOC_READPROBE		_IOW(OUR_MAGIC, 2, struct ezusb_control_probe)
-#define EZUSB_IOC_BULK_READ		_IOR(OUR_MAGIC, 3, struct ezusb_bulk_out)
+#define EZUSB_IOC_MAXNR 3
+#define EZUSB_IOC_REQUEST       _IOW(OUR_MAGIC, 1, struct ezusb_control)
+#define EZUSB_IOC_READPROBE     _IOW(OUR_MAGIC, 2, struct ezusb_control_probe)
+#define EZUSB_IOC_BULK_READ     _IOR(OUR_MAGIC, 3, struct ezusb_bulk_out)
 
-#define  PktPerBlock	16
+#define  PktPerBlock    16
 
 //define FPGA addr
 //#define FPGA_BASE_ADDR0   0x28000000

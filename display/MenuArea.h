@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef __MENU_AREA_H__
 #define __MENU_AREA_H__
 
@@ -31,8 +30,8 @@ void ShowEFOVPrepare(void);
     EMenuType GetNotebookType(void);
 
     GtkWidget* Create(void);
-	void ShowMenu(void);
-	void HideMenu(void);
+    void ShowMenu(void);
+    void HideMenu(void);
     void UpdateLabel(void);
     void UpdateSubMenu(void);
     void ShowMainMenu(void);
@@ -57,18 +56,18 @@ void ShowEFOVPrepare(void);
 #endif
 
     void GetMenuIndex(int &index);
-	void ShowBioBracketMenu(void);
-	void ShowBioVerifyMenu(void);
+    void ShowBioBracketMenu(void);
+    void ShowBioVerifyMenu(void);
 private:
     MenuArea();
     static MenuArea *m_ptrInstance;
 
-	void HideCurMenuChild(void);
+    void HideCurMenuChild(void);
 
-	EMenuType m_menuType;
+    EMenuType m_menuType;
 
 #ifdef EMP_PROJECT
-	EMenuType m_menuTypePre;
+    EMenuType m_menuTypePre;
 #endif
 
    bool m_menuVisbible;
@@ -91,7 +90,7 @@ private:
     void NotebookChanged(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num);
 //signal connect
     static void HandleNotebookChanged(GtkNotebook *notebook, GtkNotebookPage *page, guint page_num, MenuArea *data)
-	{ data->NotebookChanged(notebook, page, page_num); }
+    { data->NotebookChanged(notebook, page, page_num); }
 
     void HideAllOtherMenu(void);
 };

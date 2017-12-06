@@ -10,37 +10,37 @@ ImgProcM* ImgProcM::m_ptrInstance = NULL;
 
 ImgProcM* ImgProcM::GetInstance()
 {
-	if(m_ptrInstance == NULL)
-	{
-		m_ptrInstance = new ImgProcM;
-	}
+    if(m_ptrInstance == NULL)
+    {
+        m_ptrInstance = new ImgProcM;
+    }
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 ///> construct
 ImgProcM::ImgProcM()
 {
-	m_EnhanceM = 0;
-	m_MSmooth = 0;
-	m_LineDraw = FALSE;
-	m_LineBegin.x = IMAGE_W / 4;
-	m_LineBegin.y = IMAGE_H / 4;
-	m_LineEnd.x = m_LineBegin.x + 50;
-	m_LineEnd.y = m_LineBegin.y + 50;
-	m_TimeMark = FALSE;
+    m_EnhanceM = 0;
+    m_MSmooth = 0;
+    m_LineDraw = FALSE;
+    m_LineBegin.x = IMAGE_W / 4;
+    m_LineBegin.y = IMAGE_H / 4;
+    m_LineEnd.x = m_LineBegin.x + 50;
+    m_LineEnd.y = m_LineBegin.y + 50;
+    m_TimeMark = FALSE;
 
-	m_ptrDscPara = DscMan::GetInstance()->GetDscPara();
-	m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdate2D();
-	m_ptrImgDraw = ImageAreaDraw::GetInstance();
-	m_ptrImgPara = ImageAreaPara::GetInstance();
-	m_ptrDsc = NULL;
+    m_ptrDscPara = DscMan::GetInstance()->GetDscPara();
+    m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdate2D();
+    m_ptrImgDraw = ImageAreaDraw::GetInstance();
+    m_ptrImgPara = ImageAreaPara::GetInstance();
+    m_ptrDsc = NULL;
 }
 
 ImgProcM::~ImgProcM()
 {
-	if(m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if(m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 void ImgProcM::InitOptimize(ExamItem::Para2D* d2)
@@ -50,17 +50,17 @@ void ImgProcM::Init(ExamItem::Para2D* d2)
 {
     InitOptimize(d2);
 
-	// EnhanceM
-	m_EnhanceM = 0;
-	SetEnhanceM(m_EnhanceM, MIN);
+    // EnhanceM
+    m_EnhanceM = 0;
+    SetEnhanceM(m_EnhanceM, MIN);
 
-	// MSmooth
-	m_MSmooth = 0; //lineAver
-	SetMSmooth(m_MSmooth, MIN);
+    // MSmooth
+    m_MSmooth = 0; //lineAver
+    SetMSmooth(m_MSmooth, MIN);
 
-	// TimeMark
-	m_TimeMark = FALSE;
-	SetTimeMark(m_TimeMark);
+    // TimeMark
+    m_TimeMark = FALSE;
+    SetTimeMark(m_TimeMark);
 }
 /*
  * @brief change enhance M level
@@ -71,25 +71,25 @@ void ImgProcM::Init(ExamItem::Para2D* d2)
  */
 enum EKnobReturn ImgProcM::ChangeEnhanceM(enum EKnobOper oper)
 {
-	if(oper == ADD && m_EnhanceM < MAX_ENHANCE_M)
-		m_EnhanceM ++;
-	else if(oper == SUB && m_EnhanceM > 0)
-		m_EnhanceM --;
-	else
-		return ERROR;
+    if(oper == ADD && m_EnhanceM < MAX_ENHANCE_M)
+        m_EnhanceM ++;
+    else if(oper == SUB && m_EnhanceM > 0)
+        m_EnhanceM --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_EnhanceM == (MAX_ENHANCE_M-1))
-		ret = MAX;
-	else if(m_EnhanceM == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if(m_EnhanceM == (MAX_ENHANCE_M-1))
+        ret = MAX;
+    else if(m_EnhanceM == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	//set Enhance M to DSC
-	SetEnhanceM(m_EnhanceM, ret);
+    //set Enhance M to DSC
+    SetEnhanceM(m_EnhanceM, ret);
 
-	return ret;
+    return ret;
 }
 
 /*
@@ -101,24 +101,24 @@ enum EKnobReturn ImgProcM::ChangeEnhanceM(enum EKnobOper oper)
  */
 enum EKnobReturn ImgProcM::ChangeMSmooth(enum EKnobOper oper)
 {
-	if(oper == ADD && m_MSmooth < MAX_MSMOOTH)
-		m_MSmooth ++;
-	else if(oper == SUB && m_MSmooth > 0)
-		m_MSmooth --;
-	else
-		return ERROR;
+    if(oper == ADD && m_MSmooth < MAX_MSMOOTH)
+        m_MSmooth ++;
+    else if(oper == SUB && m_MSmooth > 0)
+        m_MSmooth --;
+    else
+        return ERROR;
 
-	EKnobReturn ret;
-	if(m_MSmooth == (MAX_MSMOOTH-1))
-		ret = MAX;
-	else if(m_MSmooth == 0)
-		ret = MIN;
-	else
-		ret = OK;
+    EKnobReturn ret;
+    if(m_MSmooth == (MAX_MSMOOTH-1))
+        ret = MAX;
+    else if(m_MSmooth == 0)
+        ret = MIN;
+    else
+        ret = OK;
 
-	// set M Smooth ot DSC
-	SetMSmooth(m_MSmooth, ret);
-	return ret;
+    // set M Smooth ot DSC
+    SetMSmooth(m_MSmooth, ret);
+    return ret;
 }
 
 /*
@@ -128,15 +128,15 @@ enum EKnobReturn ImgProcM::ChangeMSmooth(enum EKnobOper oper)
  */
 void ImgProcM::AnatomicMInit(void)
 {
-	//create DSC object
-	m_ptrDsc = DscMan::GetInstance()->CreateDscObj(DscMan::MANATOMIC);	//create DSC object
+    //create DSC object
+    m_ptrDsc = DscMan::GetInstance()->CreateDscObj(DscMan::MANATOMIC);  //create DSC object
 
-	// init anatomit line
-	GetAnatomicInitLine(m_LineBegin, m_LineEnd);
+    // init anatomit line
+    GetAnatomicInitLine(m_LineBegin, m_LineEnd);
 
-	// set
-	m_LineDraw = FALSE;
-	SetAnatomicLine(m_LineBegin, m_LineEnd); //must call after CreateDscObj
+    // set
+    m_LineDraw = FALSE;
+    SetAnatomicLine(m_LineBegin, m_LineEnd); //must call after CreateDscObj
 }
 
 /*
@@ -154,19 +154,19 @@ void ImgProcM::ChangeAnatomicLine(int offsetX, int offsetY)
     ClearAnatomicLine(m_LineBegin, m_LineEnd);
 
     if (((m_LineEnd.x + offsetX) > left) && ((m_LineEnd.x + offsetX) < right)) {
-	p.x = m_LineEnd.x + offsetX;
-	p.y = m_LineEnd.y;
+    p.x = m_LineEnd.x + offsetX;
+    p.y = m_LineEnd.y;
 
-	if (CalcLength(m_LineBegin, p) <= length)
-	    m_LineEnd.x += offsetX;
+    if (CalcLength(m_LineBegin, p) <= length)
+        m_LineEnd.x += offsetX;
     }
 
     if (((m_LineEnd.y - offsetY) > up) && ((m_LineEnd.y - offsetY) < down)) {
-	p.x = m_LineEnd.x;
-	p.y = m_LineEnd.y - offsetY;
+    p.x = m_LineEnd.x;
+    p.y = m_LineEnd.y - offsetY;
 
-	if (CalcLength(m_LineBegin, p) <= length)
-	    m_LineEnd.y -= offsetY;
+    if (CalcLength(m_LineBegin, p) <= length)
+        m_LineEnd.y -= offsetY;
     }
     SetAnatomicLine(m_LineBegin, m_LineEnd);
 }
@@ -182,15 +182,15 @@ void ImgProcM::MoveAnatomicLine(int offsetX, int offsetY)
     m_ptrImgDraw->GetAnatomicBoundary(up, down, left, right);
 
     if (((m_LineBegin.x + offsetX) > left) && ((m_LineBegin.x + offsetX) < right)
-	&& ((m_LineEnd.x + offsetX) > left) && ((m_LineEnd.x + offsetX) < right)) {
-	m_LineBegin.x += offsetX;
-	m_LineEnd.x += offsetX;
+    && ((m_LineEnd.x + offsetX) > left) && ((m_LineEnd.x + offsetX) < right)) {
+    m_LineBegin.x += offsetX;
+    m_LineEnd.x += offsetX;
     }
 
     if (((m_LineBegin.y - offsetY) > up) && ((m_LineBegin.y - offsetY) < down)
-	&& ((m_LineEnd.y - offsetY) > up) && ((m_LineEnd.y - offsetY) < down)) {
-	m_LineBegin.y -= offsetY;
-	m_LineEnd.y -= offsetY;
+    && ((m_LineEnd.y - offsetY) > up) && ((m_LineEnd.y - offsetY) < down)) {
+    m_LineBegin.y -= offsetY;
+    m_LineEnd.y -= offsetY;
     }
 
     SetAnatomicLine(m_LineBegin, m_LineEnd);
@@ -222,10 +222,10 @@ void ImgProcM::GetAnatomicInitLine(POINT &begin, POINT &end)
  */
 void ImgProcM::ChangeTimeMark(bool on)
 {
-	m_TimeMark = on;
+    m_TimeMark = on;
 
-	// set Time Mark to DSC
-	SetTimeMark(m_TimeMark);
+    // set Time Mark to DSC
+    SetTimeMark(m_TimeMark);
 }
 
 ///> /////////////////////////////////[private func]////////////////////////////
@@ -234,16 +234,16 @@ void ImgProcM::ChangeTimeMark(bool on)
  */
 void ImgProcM::SetEnhanceM(int data, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaMIPAttrs.ipaEnhance = data;
-	m_ptrUpdate->EnhanceM(data, ret);
+    m_ptrDscPara->dcaMIPAttrs.ipaEnhance = data;
+    m_ptrUpdate->EnhanceM(data, ret);
 }
 /*
  * @brief set M smooth to DSC
  */
 void ImgProcM::SetMSmooth(int data, EKnobReturn ret)
 {
-	m_ptrDscPara->dcaMIPAttrs.ipaSmooth = data;
-	m_ptrUpdate->SmoothM(data, ret);
+    m_ptrDscPara->dcaMIPAttrs.ipaSmooth = data;
+    m_ptrUpdate->SmoothM(data, ret);
 }
 /*
  * @brief send anatomic line endpoint to DSC
@@ -252,13 +252,13 @@ void ImgProcM::SetAnatomicLine(POINT begin, POINT end)
 {
     // send to dsc
     if ((m_ptrDsc != NULL) && (m_ptrImgDraw != NULL)) {
-	m_ptrDsc->SetCMMLinePosition(begin, end);
+    m_ptrDsc->SetCMMLinePosition(begin, end);
 
-	// draw line and point
-	if (!m_LineDraw) {
-	    m_ptrImgDraw->DrawAnatomicalM(end, begin, true);
-	    m_LineDraw = TRUE;
-	}
+    // draw line and point
+    if (!m_LineDraw) {
+        m_ptrImgDraw->DrawAnatomicalM(end, begin, true);
+        m_LineDraw = TRUE;
+    }
     }
     // redraw
     // m_ptrImgPara->DrawMPara();
@@ -267,8 +267,8 @@ void ImgProcM::SetAnatomicLine(POINT begin, POINT end)
 void ImgProcM::ClearAnatomicLine(POINT begin, POINT end)
 {
     if ((m_LineDraw) && (m_ptrImgDraw != NULL)) {
-	m_ptrImgDraw->DrawAnatomicalM(end, begin, false);
-	m_LineDraw = FALSE;
+    m_ptrImgDraw->DrawAnatomicalM(end, begin, false);
+    m_LineDraw = FALSE;
     }
 }
 
@@ -277,5 +277,5 @@ void ImgProcM::ClearAnatomicLine(POINT begin, POINT end)
  */
 void ImgProcM::SetTimeMark(bool on)
 {
-	m_ptrUpdate->TimeMarkM(on);
+    m_ptrUpdate->TimeMarkM(on);
 }

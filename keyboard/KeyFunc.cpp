@@ -83,26 +83,26 @@ bool KeySwitchIM::ExcuteChange(bool issitch)
 ////////////////////////////////////////// [Power OFF] //////////////////////////////////////
 int PowerOff(gpointer data)
 {
-	execlp("poweroff", "poweroff", NULL);	//system() is deprecated; when memory is lack, it will be not run!
-	//	int ret = execlp("init", "init", "0", NULL);	//system() is deprecated; when memory is lack, it will be not run!
-	perror("PowerOff Failed");
+    execlp("poweroff", "poweroff", NULL);   //system() is deprecated; when memory is lack, it will be not run!
+    //  int ret = execlp("init", "init", "0", NULL);    //system() is deprecated; when memory is lack, it will be not run!
+    perror("PowerOff Failed");
 
-	return TRUE;
+    return TRUE;
 }
 
 bool KeyPowerOff::Execute()
 {
 #ifdef EMP_355
-	FpgaCtrl2D ctrl2D;
-	ctrl2D.SendPowerOff();
+    FpgaCtrl2D ctrl2D;
+    ctrl2D.SendPowerOff();
 #endif
 
-	//	const char* info = N_("Power OFF?");
-	//const char* info = N_("Are you sure you want to close the program and shut down the computer?");
+    //  const char* info = N_("Power OFF?");
+    //const char* info = N_("Are you sure you want to close the program and shut down the computer?");
 
-	//ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), ViewDialog::QUESTION, _(info), PowerOff);
+    //ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), ViewDialog::QUESTION, _(info), PowerOff);
     PowerOff(NULL);
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [change tsi] //////////////////////////////////////
@@ -138,121 +138,121 @@ ExamItem::ParaItem KeyAutoOptimize::m_itemPara;
 
 bool KeyAutoOptimize::Execute()
 {
-	if(m_autoOn == FALSE)
-	{
-		m_autoOn = TRUE;
+    if(m_autoOn == FALSE)
+    {
+        m_autoOn = TRUE;
 #ifndef EMP_355
         g_keyInterface.CtrlLight(m_autoOn, LIGHT_AUTO);
 #endif
         Do();
-	}
-	else
-	{
-		m_autoOn = FALSE;
+    }
+    else
+    {
+        m_autoOn = FALSE;
 #ifndef EMP_355
         g_keyInterface.CtrlLight(m_autoOn, LIGHT_AUTO);
 #endif
         Undo();
-	}
+    }
 
-	Img2D::GetInstance()->UpdateAutoOptimize(m_autoOn);
+    Img2D::GetInstance()->UpdateAutoOptimize(m_autoOn);
 
-	return TRUE;
+    return TRUE;
 }
 
 void KeyAutoOptimize::AutoOff(void)
 {
-	if (m_autoOn)
-	{
-		m_autoOn = FALSE;
-		Img2D::GetInstance()->UpdateAutoOptimize(m_autoOn);
-	}
+    if (m_autoOn)
+    {
+        m_autoOn = FALSE;
+        Img2D::GetInstance()->UpdateAutoOptimize(m_autoOn);
+    }
 }
 
 bool KeyAutoOptimize::Do()
 {
-	// bakup current parameter
-	BackupPara();
+    // bakup current parameter
+    BackupPara();
 
-	// apply auto optimize
-	ProbeMan* ptrMan = ProbeMan::GetInstance();
-	ProbeSocket::ProbePara pPara;
-	ptrMan->GetCurProbe(pPara);
+    // apply auto optimize
+    ProbeMan* ptrMan = ProbeMan::GetInstance();
+    ProbeSocket::ProbePara pPara;
+    ptrMan->GetCurProbe(pPara);
 
-	ExamItem e;
-	ExamItem::ParaItem ePara;
-	e.GetImgOptimize(pPara.model, ePara);
+    ExamItem e;
+    ExamItem::ParaItem ePara;
+    e.GetImgOptimize(pPara.model, ePara);
 #ifndef EMP_340
     if(!ModeStatus::IsD2Mode())
         ePara.d2.spaceCompoundIndex = 0;
 #endif
-	ImgOptimize(pPara, ePara);
+    ImgOptimize(pPara, ePara);
 
-	return TRUE;
+    return TRUE;
 }
 
 bool KeyAutoOptimize::Undo()
 {
-	// back to bakup parameter
-	ProbeMan* ptrMan = ProbeMan::GetInstance();
-	ProbeSocket::ProbePara pPara;
-	ptrMan->GetCurProbe(pPara);
+    // back to bakup parameter
+    ProbeMan* ptrMan = ProbeMan::GetInstance();
+    ProbeSocket::ProbePara pPara;
+    ptrMan->GetCurProbe(pPara);
 
-	ImgOptimize(pPara, m_itemPara);
+    ImgOptimize(pPara, m_itemPara);
 
-	return TRUE;
+    return TRUE;
 }
 
 void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i)
 {
-	ModeStatus ms;
-	ScanMode::EScanMode mode = ms.GetScanMode();
+    ModeStatus ms;
+    ScanMode::EScanMode mode = ms.GetScanMode();
 
-	//exit simult
-	if (ImgPw::GetInstance()->GetSimut2Status())
-	{
-		ScanMode::GetInstance()->EnterPwSimult(FALSE);
-	}
-	if (ImgPw::GetInstance()->GetSimut3Status())
-	{
-		if (mode == ScanMode::PWPDI_SIMULT)
-			ScanMode::GetInstance()->EnterPwPdiSimult(FALSE);
-		else
-			ScanMode::GetInstance()->EnterPwCfmSimult(FALSE);
-	}
+    //exit simult
+    if (ImgPw::GetInstance()->GetSimut2Status())
+    {
+        ScanMode::GetInstance()->EnterPwSimult(FALSE);
+    }
+    if (ImgPw::GetInstance()->GetSimut3Status())
+    {
+        if (mode == ScanMode::PWPDI_SIMULT)
+            ScanMode::GetInstance()->EnterPwPdiSimult(FALSE);
+        else
+            ScanMode::GetInstance()->EnterPwCfmSimult(FALSE);
+    }
 #if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
     IoCtrl io;
     io.Freeze();
     usleep(700000);
 #else
-	usleep(500000);
+    usleep(500000);
 #endif
 
-	// init 2D
-	Img2D* ptrImg2D = Img2D::GetInstance();
-	ptrImg2D->InitProbe2DOptimize(&p, &i);
-	ImgProc2D::GetInstance()->InitOptimize(&(i.d2));
+    // init 2D
+    Img2D* ptrImg2D = Img2D::GetInstance();
+    ptrImg2D->InitProbe2DOptimize(&p, &i);
+    ImgProc2D::GetInstance()->InitOptimize(&(i.d2));
 
-	// init M
-	ptrImg2D->InitProbeMOptimize(&p, &i);
-	ImgProcM::GetInstance()->InitOptimize(&(i.d2));
+    // init M
+    ptrImg2D->InitProbeMOptimize(&p, &i);
+    ImgProcM::GetInstance()->InitOptimize(&(i.d2));
 #ifndef EMP_322
-	// init pw
-	ImgPw* ptrImgPw = ImgPw::GetInstance();
-	ptrImgPw->InitProbeOptimize(&p, &i);
-	ImgProcPw::GetInstance()->InitOptimize(&(i.spectrum));
+    // init pw
+    ImgPw* ptrImgPw = ImgPw::GetInstance();
+    ptrImgPw->InitProbeOptimize(&p, &i);
+    ImgProcPw::GetInstance()->InitOptimize(&(i.spectrum));
 
-	// init cfm
-	ImgCfm* ptrImgCfm = ImgCfm::GetInstance();
-	ptrImgCfm->InitProbeOptimize(&p, &i);
-	ImgProcCfm::GetInstance()->InitOptimize(&(i.color));
+    // init cfm
+    ImgCfm* ptrImgCfm = ImgCfm::GetInstance();
+    ptrImgCfm->InitProbeOptimize(&p, &i);
+    ImgProcCfm::GetInstance()->InitOptimize(&(i.color));
 #endif
 #if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
     usleep(200000);
     io.Unfreeze();
 #endif
-	// 如果是M模式，则需要重新计算M增益，因为在PW InitProbeOptimize中PW增益覆盖了M增益
-	if (ModeStatus::IsMImgMode())
+    // 如果是M模式，则需要重新计算M增益，因为在PW InitProbeOptimize中PW增益覆盖了M增益
+    if (ModeStatus::IsMImgMode())
     {
         ptrImg2D->ReSendGainM();
     }
@@ -262,45 +262,45 @@ void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i
     }
 
     //clear screen
-	KeyClearScreen kcs;
-	kcs.Execute();
-	kcs.ModeExecute(true);
+    KeyClearScreen kcs;
+    kcs.Execute();
+    kcs.ModeExecute(true);
 
-	// update img when need
-	int curPw = ms.GetPwCurImg();
+    // update img when need
+    int curPw = ms.GetPwCurImg();
 
-	if ((mode == ScanMode::PW) && (curPw == 2))
-	{
-		ScanMode::GetInstance()->SwitchPw();
-		usleep(500000);
-		ScanMode::GetInstance()->SwitchPw();
-	}
-	else if ((mode == ScanMode::PWCFM) && (curPw == 2))
-	{
-		ScanMode::GetInstance()->SwitchPwCfm();
-		usleep(500000);
-		ScanMode::GetInstance()->SwitchPwCfm();
-	}
-	else if ((mode == ScanMode::PWPDI) && (curPw == 2))
-	{
-		ScanMode::GetInstance()->SwitchPwPdi();
-		usleep(500000);
-		ScanMode::GetInstance()->SwitchPwPdi();
-	}
+    if ((mode == ScanMode::PW) && (curPw == 2))
+    {
+        ScanMode::GetInstance()->SwitchPw();
+        usleep(500000);
+        ScanMode::GetInstance()->SwitchPw();
+    }
+    else if ((mode == ScanMode::PWCFM) && (curPw == 2))
+    {
+        ScanMode::GetInstance()->SwitchPwCfm();
+        usleep(500000);
+        ScanMode::GetInstance()->SwitchPwCfm();
+    }
+    else if ((mode == ScanMode::PWPDI) && (curPw == 2))
+    {
+        ScanMode::GetInstance()->SwitchPwPdi();
+        usleep(500000);
+        ScanMode::GetInstance()->SwitchPwPdi();
+    }
 
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM && !Zoom::GetInstance()->GetLocalZoomStatus()) {
-		ImageAreaDraw::GetInstance()->ReDrawLocalZoom();
-	}
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::PIP_ZOOM) {
-		ImageAreaDraw::GetInstance()->ReDrawMagnifier();
-		ImageAreaDraw::GetInstance()->ReDrawPIPBox();
-	}
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM && !Zoom::GetInstance()->GetLocalZoomStatus()) {
+        ImageAreaDraw::GetInstance()->ReDrawLocalZoom();
+    }
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::PIP_ZOOM) {
+        ImageAreaDraw::GetInstance()->ReDrawMagnifier();
+        ImageAreaDraw::GetInstance()->ReDrawPIPBox();
+    }
 }
 
 void KeyAutoOptimize::BackupPara()
 {
-	Img2D::GetInstance()->GetCurPara(&m_itemPara);
-	ImgProc2D::GetInstance()->GetCurPara(&m_itemPara);
+    Img2D::GetInstance()->GetCurPara(&m_itemPara);
+    ImgProc2D::GetInstance()->GetCurPara(&m_itemPara);
 #ifndef EMP_340
     if(!ModeStatus::IsD2Mode())
     {
@@ -309,45 +309,45 @@ void KeyAutoOptimize::BackupPara()
     }
 #endif
 #ifndef EMP_322
-	ImgPw::GetInstance()->GetCurPara(&m_itemPara);
-	ImgCfm::GetInstance()->GetCurPara(&m_itemPara);
+    ImgPw::GetInstance()->GetCurPara(&m_itemPara);
+    ImgCfm::GetInstance()->GetCurPara(&m_itemPara);
 
-	ImgProcPw::GetInstance()->GetCurPara(&m_itemPara);
-	ImgProcCfm::GetInstance()->GetCurPara(&m_itemPara);
+    ImgProcPw::GetInstance()->GetCurPara(&m_itemPara);
+    ImgProcCfm::GetInstance()->GetCurPara(&m_itemPara);
 #endif
 }
 
 ////////////////////////////////////////// [measure] //////////////////////////////////////
 bool KeyMeasure::Execute()
 {
-	AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
+    AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
 
-	// printf("in the Measure which type is :%s\n",MenuArea::GetInstance()->GetMenuType());
+    // printf("in the Measure which type is :%s\n",MenuArea::GetInstance()->GetMenuType());
 
-	if (MenuArea::GetInstance()->GetMenuType() == MenuArea::MEASURE)
-	{
+    if (MenuArea::GetInstance()->GetMenuType() == MenuArea::MEASURE)
+    {
         if(g_ptrAbsMeasure != NULL)
         {
             delete g_ptrAbsMeasure;
             g_ptrAbsMeasure = NULL;
         }
-		m_ptrUpdate->ExitMeasure();
-		MultiFuncUndo();
+        m_ptrUpdate->ExitMeasure();
+        MultiFuncUndo();
 #if defined (EMP_322)
-		g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
 #endif
-	}
-	else
-	{
-		if (g_menuReview.GetLimit() == 2) //note: pic read from external media can not measure
-		{
-			HintArea::GetInstance()->UpdateHint(_("[Measure]: Measure is disable in current image."), 2);
+    }
+    else
+    {
+        if (g_menuReview.GetLimit() == 2) //note: pic read from external media can not measure
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Measure]: Measure is disable in current image."), 2);
 #if defined (EMP_322)
-			g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
+            g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
 #endif
-		}
-		else
-		{
+        }
+        else
+        {
             PRINTF("Enter measure\n");
             MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
             if(g_ptrAbsMeasure != NULL)
@@ -355,25 +355,25 @@ bool KeyMeasure::Execute()
                 delete g_ptrAbsMeasure;
                 g_ptrAbsMeasure = NULL;
             }
-			//SetChangePointerMeasure();
-			m_ptrUpdate->EnterMeasure();
+            //SetChangePointerMeasure();
+            m_ptrUpdate->EnterMeasure();
             //DarkFucusLight();
 #if defined (EMP_322)
             MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
             g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
             g_keyInterface.CtrlLight(TRUE,LIGHT_MEASURE);
 #endif
-		}
-	}
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [calc] //////////////////////////////////////
 bool KeyCalc::Execute()
 {
-	AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
-	if (MenuArea::GetInstance()->GetMenuType() == MenuArea::CALC)
+    AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
+    if (MenuArea::GetInstance()->GetMenuType() == MenuArea::CALC)
     {
         if(g_ptrAbsMeasure != NULL)
         {
@@ -381,19 +381,19 @@ bool KeyCalc::Execute()
             g_ptrAbsMeasure = NULL;
         }
         m_ptrUpdate->ExitCalc();
-    	MultiFuncUndo();
+        MultiFuncUndo();
 #if (defined (EMP_322) || defined(EMP_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
 #endif
-	}
-	else
-	{
-		if (g_menuReview.GetLimit() != 0) //note: pic read from archived and usb media can not calc
-		{
-			HintArea::GetInstance()->UpdateHint(_("[Calc]: Calc is disable in current image."), 2);
-		}
-		else
-		{
+    }
+    else
+    {
+        if (g_menuReview.GetLimit() != 0) //note: pic read from archived and usb media can not calc
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Calc]: Calc is disable in current image."), 2);
+        }
+        else
+        {
             MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
 
             if(g_ptrAbsMeasure !=NULL)
@@ -407,12 +407,12 @@ bool KeyCalc::Execute()
             g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
             g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #elif defined(EMP_313)
-			g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
+            g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #endif
-		}
-	}
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [System] //////////////////////////////////////
@@ -424,7 +424,7 @@ bool KeySystem::Execute(void)
                 {
                     printf("-----------------i = %d\n", i);
                     int num_dests = 0;          /* Number of user destinations */
-                    cups_dest_t	*dests = NULL;  /* User destinations */
+                    cups_dest_t *dests = NULL;  /* User destinations */
 
                     num_dests = cupsGetDests(&dests);
                     printf("-------------------------dests :%x\n", dests);
@@ -433,25 +433,25 @@ bool KeySystem::Execute(void)
                 };
 #endif
 
-	AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
-	MultiFuncFactory* ptr = MultiFuncFactory::GetInstance();
+    AbsUpdateMix* m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
+    MultiFuncFactory* ptr = MultiFuncFactory::GetInstance();
 
-	if (MenuArea::GetInstance()->GetMenuType() == MenuArea::SYSTEM)
-	{
-		delete g_ptrAbsMeasure;
-		g_ptrAbsMeasure = NULL;
-		m_ptrUpdate->ExitSystem();
-		MultiFuncUndo();
-	}
-	else
-	{
-		delete g_ptrAbsMeasure;
-		g_ptrAbsMeasure = NULL;
-		m_ptrUpdate->EnterSystem();
-		ptr->Create(MultiFuncFactory::NONE);
-	}
+    if (MenuArea::GetInstance()->GetMenuType() == MenuArea::SYSTEM)
+    {
+        delete g_ptrAbsMeasure;
+        g_ptrAbsMeasure = NULL;
+        m_ptrUpdate->ExitSystem();
+        MultiFuncUndo();
+    }
+    else
+    {
+        delete g_ptrAbsMeasure;
+        g_ptrAbsMeasure = NULL;
+        m_ptrUpdate->EnterSystem();
+        ptr->Create(MultiFuncFactory::NONE);
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [cursor] //////////////////////////////////////
@@ -463,49 +463,49 @@ bool KeyCursor::Execute()
     if ((type != MultiFuncFactory::EFOV) && (type != MultiFuncFactory::NONE))
     {
        // ptr->Create(MultiFuncFactory::NONE);
-	   //---------2016.08.26--huyang---------------//
-		if(type== MultiFuncFactory::BIOPSY_VERIFY)
-	   {
-		   ptr->Create(MultiFuncFactory::BIOPSY);
-		   SetSystemCursor(90,130);//	SetSystemCursor(90,100);
-	       doBtnEvent(1, 1);//fake btn press
- 	       doBtnEvent(1, 0);//fake btn unpress
-	      // SetMenuBiopsyCursorYRange(128,188);
-		   SetMenuBiopsyCursorYRange(128,250);
-	   }
-	   else
-	   {
-		   	if(type== MultiFuncFactory::BIOPSY)
-		   {
+       //---------2016.08.26--huyang---------------//
+        if(type== MultiFuncFactory::BIOPSY_VERIFY)
+       {
+           ptr->Create(MultiFuncFactory::BIOPSY);
+           SetSystemCursor(90,130);//   SetSystemCursor(90,100);
+           doBtnEvent(1, 1);//fake btn press
+           doBtnEvent(1, 0);//fake btn unpress
+          // SetMenuBiopsyCursorYRange(128,188);
+           SetMenuBiopsyCursorYRange(128,250);
+       }
+       else
+       {
+            if(type== MultiFuncFactory::BIOPSY)
+           {
                //---------------------------------//
-          	   if(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYVERIFY)
-	           {
+               if(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYVERIFY)
+               {
                   SetSystemCursor(90,155);//SetSystemCursor(90,130);//
                   doBtnEvent(1, 1);//fake btn press
- 	              doBtnEvent(1, 0);
-	           }
+                  doBtnEvent(1, 0);
+               }
                //---------------------------------//
-				MultiFuncUndo();
-		   }
-		   else
-		   {
-				 ptr->Create(MultiFuncFactory::NONE);
-		   }
-	   }
-	   //--------------------------------------------------//
+                MultiFuncUndo();
+           }
+           else
+           {
+                 ptr->Create(MultiFuncFactory::NONE);
+           }
+       }
+       //--------------------------------------------------//
     }
-	else
-	{
-		MultiFuncUndo();
-	}
+    else
+    {
+        MultiFuncUndo();
+    }
 
-	return TRUE;
+    return TRUE;
 }
 ////////////////////////////////////////// [text] //////////////////////////////////////
 bool KeyText::Execute()
 {
-	MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::TEXT);
-	return TRUE;
+    MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::TEXT);
+    return TRUE;
 }
 
 ////////////////////////////////////////// [arrow] //////////////////////////////////////
@@ -520,7 +520,7 @@ bool KeyArrow::Execute()
 #else
         HintArea::GetInstance()->UpdateHint(_("[Arrow]: <Value> to change arrow direction."), 2);
 #endif
-		MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::ARROW);
+        MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::ARROW);
     }
     return TRUE;
 }
@@ -528,31 +528,31 @@ bool KeyArrow::Execute()
 bool KeyBiopsy::Execute()
 {
 
-	if ((MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSY)||(MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSYBRACKET)||(MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSYVERIFY))
+    if ((MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSY)||(MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSYBRACKET)||(MenuArea::GetInstance()->GetMenuType() == MenuArea::BIOPSYVERIFY))
     {
-		MenuShowUndo();
-    	MultiFuncUndo();
-	}
-	else
-	{
-		ModeStatus ms;
-		/*if (((ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B))||(ms.IsCFMMode() &&(ms.GetFormatCfm()==FormatCfm::B))||(ms.IsPDIMode() &&(ms.GetFormatCfm()==FormatCfm::B)))&& ms.IsUnFreezeMode())
-		{
-			MenuArea::GetInstance()->ShowBiopsyMenu();
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BIOPSY);
-		}
-		else
-	    {
-			HintArea::GetInstance()->UpdateHint(_("[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."), 1);
-		}*/
+        MenuShowUndo();
+        MultiFuncUndo();
+    }
+    else
+    {
+        ModeStatus ms;
+        /*if (((ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B))||(ms.IsCFMMode() &&(ms.GetFormatCfm()==FormatCfm::B))||(ms.IsPDIMode() &&(ms.GetFormatCfm()==FormatCfm::B)))&& ms.IsUnFreezeMode())
+        {
+            MenuArea::GetInstance()->ShowBiopsyMenu();
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BIOPSY);
+        }
+        else
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."), 1);
+        }*/
     //-------------------------------------------------------------------//
-    	if ((((ms.GetScanMode()==ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))||((ms.GetScanMode()==ScanMode::CFM) &&(ms.GetFormatCfm()==FormatCfm::B))||((ms.GetScanMode()==ScanMode::PDI) &&(ms.GetFormatCfm()==FormatCfm::B)))&& ms.IsUnFreezeMode())
-		{
-			MenuArea::GetInstance()->ShowBiopsyMenu();
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BIOPSY);
-		}
-		else
-	    {
+        if ((((ms.GetScanMode()==ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))||((ms.GetScanMode()==ScanMode::CFM) &&(ms.GetFormatCfm()==FormatCfm::B))||((ms.GetScanMode()==ScanMode::PDI) &&(ms.GetFormatCfm()==FormatCfm::B)))&& ms.IsUnFreezeMode())
+        {
+            MenuArea::GetInstance()->ShowBiopsyMenu();
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BIOPSY);
+        }
+        else
+        {
 #ifdef EMP_322
             HintArea::GetInstance()->UpdateHint(_("[Biopsy]: Only valid in B mode and UnFreeze status."), 1);
 #else
@@ -562,237 +562,237 @@ bool KeyBiopsy::Execute()
 
     //---------------------------------------------------------------------//
 
-	}
+    }
 
-	return TRUE;
+    return TRUE;
 
 }
 ////////////////////////////////////////// [BodyMark] //////////////////////////////////////
 bool KeyBodyMark::Execute()
 {
-	MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BODYMARK);
-	return TRUE;
+    MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::BODYMARK);
+    return TRUE;
 }
 
 ////////////////////////////////////////// [save snap] //////////////////////////////////////
 static ImgMan::ImgItem item;
 static gboolean DelayToSaveSnap(gpointer data)
 {
-	//	PRINTF("*******************************************START SAVE\n");
-	ScanMode::SpecialMeasurePara para;
-	ScanMode::GetInstance()->GetSpecialMeasurePara(&para);
-	item.para = para;
+    //  PRINTF("*******************************************START SAVE\n");
+    ScanMode::SpecialMeasurePara para;
+    ScanMode::GetInstance()->GetSpecialMeasurePara(&para);
+    item.para = para;
     ImageArea::GetInstance()->GetSnapData(&item.data, &item.width, &item.height);
     ImgMan::ImgItem item_frm;
     ImageArea::GetInstance()->GetFrmData(&item_frm.data, &item_frm.width, &item_frm.height);
 
-	int format_bak = ImgMan::GetInstance()->GetImgFormat();
+    int format_bak = ImgMan::GetInstance()->GetImgFormat();
 
-	// save to image manage
-	if(ImgMan::GetInstance()->GetImgStorage() == ImgMan::UDISK)
-	{
-		PeripheralMan* ptrPeripheralMan = PeripheralMan::GetInstance();
+    // save to image manage
+    if(ImgMan::GetInstance()->GetImgStorage() == ImgMan::UDISK)
+    {
+        PeripheralMan* ptrPeripheralMan = PeripheralMan::GetInstance();
 
-		if(!ptrPeripheralMan->CheckUsbStorageState())
-		{
-			HintArea::GetInstance()->UpdateHint(_("Error: No USB device Plug-in!"), 2);
-			free(data);
-			free(item.data);
-			item.data = NULL;
-			return ERROR;
-		}
-		if(!ptrPeripheralMan->MountUsbStorage())
-		{
-			HintArea::GetInstance()->UpdateHint(_("Error: Failed to mount USB device!"), 2);
-			free(data);
-			free(item.data);
-			item.data = NULL;
-			return ERROR;
-		}
+        if(!ptrPeripheralMan->CheckUsbStorageState())
+        {
+            HintArea::GetInstance()->UpdateHint(_("Error: No USB device Plug-in!"), 2);
+            free(data);
+            free(item.data);
+            item.data = NULL;
+            return ERROR;
+        }
+        if(!ptrPeripheralMan->MountUsbStorage())
+        {
+            HintArea::GetInstance()->UpdateHint(_("Error: Failed to mount USB device!"), 2);
+            free(data);
+            free(item.data);
+            item.data = NULL;
+            return ERROR;
+        }
 
-		if(ImgMan::GetInstance()->SaveSnap(0, (char*)data, UDISK_PATH, &item) == 0)
-		{
-			ImgMan::GetInstance()->SetImgFormat(ImgMan::FRM);
-			ImgMan::GetInstance()->SaveSnap(0, (char*)data, UDISK_PATH, &item_frm);
-			ImgMan::GetInstance()->SetImgFormat(format_bak);
-		}
+        if(ImgMan::GetInstance()->SaveSnap(0, (char*)data, UDISK_PATH, &item) == 0)
+        {
+            ImgMan::GetInstance()->SetImgFormat(ImgMan::FRM);
+            ImgMan::GetInstance()->SaveSnap(0, (char*)data, UDISK_PATH, &item_frm);
+            ImgMan::GetInstance()->SetImgFormat(format_bak);
+        }
 
-		ptrPeripheralMan->UmountUsbStorage();
-	}
-	else // save to harddisk
-	{
-		if(ImgMan::GetInstance()->SaveSnap(0, (char*)data, STORE_PATH, &item) == 0)
-		{
-			ImgMan::GetInstance()->SetImgFormat(ImgMan::FRM);
-			ImgMan::GetInstance()->SaveSnap(0, (char*)data, STORE_PATH, &item_frm);
-			ImgMan::GetInstance()->SetImgFormat(format_bak);
-		}
-	}
+        ptrPeripheralMan->UmountUsbStorage();
+    }
+    else // save to harddisk
+    {
+        if(ImgMan::GetInstance()->SaveSnap(0, (char*)data, STORE_PATH, &item) == 0)
+        {
+            ImgMan::GetInstance()->SetImgFormat(ImgMan::FRM);
+            ImgMan::GetInstance()->SaveSnap(0, (char*)data, STORE_PATH, &item_frm);
+            ImgMan::GetInstance()->SetImgFormat(format_bak);
+        }
+    }
 
-	//	PRITNF("item.data = 0x%x\n", item.data);
-	free(item.data);
-	item.data = NULL;
-	free(item_frm.data);
-	free(data);
-	//	PRINTF("*******************************************END SAVE\n");
+    //  PRITNF("item.data = 0x%x\n", item.data);
+    free(item.data);
+    item.data = NULL;
+    free(item_frm.data);
+    free(data);
+    //  PRINTF("*******************************************END SAVE\n");
 
-	if (MenuArea::GetInstance()->GetMenuType() == MenuArea::REVIEW)
-	{
-		g_menuReview.UpdatePreviewList();
-		g_menuReview.UpdateLabel();
-	}
+    if (MenuArea::GetInstance()->GetMenuType() == MenuArea::REVIEW)
+    {
+        g_menuReview.UpdatePreviewList();
+        g_menuReview.UpdateLabel();
+    }
 
 #if 0
-	// update review menu
-	MenuArea* ptrMenu = MenuArea::GetInstance();
-	if (ptrMenu->GetMenuType() == MenuArea::REVIEW)
-		ptrMenu->ShowReviewMenu();
+    // update review menu
+    MenuArea* ptrMenu = MenuArea::GetInstance();
+    if (ptrMenu->GetMenuType() == MenuArea::REVIEW)
+        ptrMenu->ShowReviewMenu();
 #endif
 
-	return FALSE;
+    return FALSE;
 }
 
 static int SaveSnap(gpointer data)
 {
-	//	PRINTF("SaveSnap file name: %s\n", (char*)data);
+    //  PRINTF("SaveSnap file name: %s\n", (char*)data);
 
-	HintArea::GetInstance()->UpdateHint(_("Saving..."), 0);
+    HintArea::GetInstance()->UpdateHint(_("Saving..."), 0);
 
-	if (MenuArea::GetInstance()->GetMenuType() == MenuArea::REVIEW)
-	{
-		g_menuReview.HideTooltips();
-	}
+    if (MenuArea::GetInstance()->GetMenuType() == MenuArea::REVIEW)
+    {
+        g_menuReview.HideTooltips();
+    }
 
-	g_timeout_add(100, DelayToSaveSnap, data);
+    g_timeout_add(100, DelayToSaveSnap, data);
 
-	return OK;
+    return OK;
 }
 
 bool KeySaveSnap::Execute()
 {
-	// get current image para
-	//	ImgMan::ImgItem item;
-	if(item.data)
-		return  TRUE;
-	//	ImageArea::GetInstance()->GetSnapData(&item.data, &item.width, &item.height);
-	//	PRINTF("data=0x%x\n", item.data);
+    // get current image para
+    //  ImgMan::ImgItem item;
+    if(item.data)
+        return  TRUE;
+    //  ImageArea::GetInstance()->GetSnapData(&item.data, &item.width, &item.height);
+    //  PRINTF("data=0x%x\n", item.data);
 
-	SysOptions so;
-	if(!so.GetImageAutoName())
-	{
-		if(!ModeStatus::IsFreezeMode())
-			FreezeMode::GetInstance()->PressFreeze();
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
-				ViewDialog::FILENAME,
-				_("Please input the file name(without suffix)"),
-				&SaveSnap);
-	}
-	else
-	{
-		// generate file name automaticly
-		time_t at;
-		at = time(&at);
+    SysOptions so;
+    if(!so.GetImageAutoName())
+    {
+        if(!ModeStatus::IsFreezeMode())
+            FreezeMode::GetInstance()->PressFreeze();
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
+                ViewDialog::FILENAME,
+                _("Please input the file name(without suffix)"),
+                &SaveSnap);
+    }
+    else
+    {
+        // generate file name automaticly
+        time_t at;
+        at = time(&at);
 
-		struct tm* ct;
-		ct = localtime(&at);
+        struct tm* ct;
+        ct = localtime(&at);
 
-		char *fileName = (char*)malloc(256);
-		memset(fileName, 0, 15);
-		sprintf(fileName, "%d%d%d%d%d%d%d%d%d%d%d", (ct->tm_year+1900), (ct->tm_mon+1)/10, (ct->tm_mon+1)%10, (ct->tm_mday)/10, (ct->tm_mday)%10, (ct->tm_hour)/10, (ct->tm_hour)%10, (ct->tm_min)/10, (ct->tm_min)%10, (ct->tm_sec)/10, (ct->tm_sec)%10);
+        char *fileName = (char*)malloc(256);
+        memset(fileName, 0, 15);
+        sprintf(fileName, "%d%d%d%d%d%d%d%d%d%d%d", (ct->tm_year+1900), (ct->tm_mon+1)/10, (ct->tm_mon+1)%10, (ct->tm_mday)/10, (ct->tm_mday)%10, (ct->tm_hour)/10, (ct->tm_hour)%10, (ct->tm_min)/10, (ct->tm_min)%10, (ct->tm_sec)/10, (ct->tm_sec)%10);
 
-		SaveSnap(fileName);
-	}
+        SaveSnap(fileName);
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [Menu] //////////////////////////////////////
 bool KeyReview::m_menuRead = FALSE;
 bool KeyReview::Execute()
 {
-	MenuArea* ptrMenu = MenuArea::GetInstance();
-	MultiFuncFactory* ptrFunc = MultiFuncFactory::GetInstance();
+    MenuArea* ptrMenu = MenuArea::GetInstance();
+    MultiFuncFactory* ptrFunc = MultiFuncFactory::GetInstance();
 
-	if (m_menuRead)
-	{
-		//FreezeMode::GetInstance()->PressUnFreeze();
-		MenuShowUndo();
-		m_menuRead = FALSE;
+    if (m_menuRead)
+    {
+        //FreezeMode::GetInstance()->PressUnFreeze();
+        MenuShowUndo();
+        m_menuRead = FALSE;
 #if (defined (EMP_322) || defined(EMP_313))
-		g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
 #endif
-	}
-	else
-	{
-		// freeze
-		if (!ModeStatus::IsFreezeMode())
-			FreezeMode::GetInstance()->PressFreeze();
-		ptrMenu->ShowReviewMenu();
-		ptrFunc->Create(MultiFuncFactory::NONE);
-		m_menuRead = TRUE; // must after ShowReviewMenu(HideAllMenu), be care of "HideMenuReview"
+    }
+    else
+    {
+        // freeze
+        if (!ModeStatus::IsFreezeMode())
+            FreezeMode::GetInstance()->PressFreeze();
+        ptrMenu->ShowReviewMenu();
+        ptrFunc->Create(MultiFuncFactory::NONE);
+        m_menuRead = TRUE; // must after ShowReviewMenu(HideAllMenu), be care of "HideMenuReview"
 #if (defined (EMP_322) || defined(EMP_313))
-		g_keyInterface.CtrlLight(TRUE,LIGHT_READ);
+        g_keyInterface.CtrlLight(TRUE,LIGHT_READ);
 #endif
-	}
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 void KeyReview::HideMenuReview()
 {
-	if (m_menuRead)
-		m_menuRead = FALSE;
+    if (m_menuRead)
+        m_menuRead = FALSE;
 }
 
 void KeyReview::ExitMenuReivew()
 {
-	if (m_menuRead)
-	{
-		MenuShowUndo();
-		m_menuRead = FALSE;
+    if (m_menuRead)
+    {
+        MenuShowUndo();
+        m_menuRead = FALSE;
 
-		FreezeMode::GetInstance()->PressUnFreeze();
+        FreezeMode::GetInstance()->PressUnFreeze();
 #if (defined (EMP_322) || defined(EMP_313))
-		g_keyInterface.CtrlLight(m_menuRead,LIGHT_READ);
+        g_keyInterface.CtrlLight(m_menuRead,LIGHT_READ);
 #endif
 
-	}
+    }
 }
 
 void KeyReview::SetDefaultIDAndPath()
 {
-	// set menureview's file path and folder name
-	if (!m_menuRead)
-	{
-		PatientInfo::Info info;
-		g_patientInfo.GetInfo(info);
-		g_menuReview.SetLimit(0);
-		g_menuReview.SetPatientID(0);
-		g_menuReview.SetImgPath((const char*) STORE_PATH);
-	}
+    // set menureview's file path and folder name
+    if (!m_menuRead)
+    {
+        PatientInfo::Info info;
+        g_patientInfo.GetInfo(info);
+        g_menuReview.SetLimit(0);
+        g_menuReview.SetPatientID(0);
+        g_menuReview.SetImgPath((const char*) STORE_PATH);
+    }
 }
 
 #define DEMO_PATH "/mnt/harddisk/demo"
 void KeyReview::SetDemoIDAndPath()
 {
-	// set menureview's file path and folder name
-	if (!m_menuRead)
-	{
-		PatientInfo::Info info;
-		g_patientInfo.GetInfo(info);
-		g_menuReview.SetLimit(0);
-		g_menuReview.SetPatientID(0);
-		g_menuReview.SetImgPath((char*) DEMO_PATH);
-	}
+    // set menureview's file path and folder name
+    if (!m_menuRead)
+    {
+        PatientInfo::Info info;
+        g_patientInfo.GetInfo(info);
+        g_menuReview.SetLimit(0);
+        g_menuReview.SetPatientID(0);
+        g_menuReview.SetImgPath((char*) DEMO_PATH);
+    }
 }
 ////////////////////////////////////////// [PIP] //////////////////////////////////////
 bool KeyPIP::Execute()
 {
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::PIP_ZOOM)
-	{
-		MultiFuncUndo();
-	}
-	else
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::PIP_ZOOM)
+    {
+        MultiFuncUndo();
+    }
+    else
     {
         ModeStatus ms;
         if (ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B) && ms.IsUnFreezeMode())
@@ -805,7 +805,7 @@ bool KeyPIP::Execute()
         }
     }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [LocalZoom] //////////////////////////////////////
@@ -834,7 +834,7 @@ bool KeyLocalZoom::Execute()
         if (inSnap)
         {
             HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Invalid when in status read picture."), 1);
-			return TRUE;
+            return TRUE;
         }
 
         if (ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B) && (ms.IsUnFreezeMode() || ms.IsPureFreezeMode()))
@@ -880,35 +880,35 @@ bool KeyLocalZoom::Execute()
 
 bool KeyLocalZoom::ExitLocalZoom()
 {
-	ModeStatus s;
-	int flag = 0;
+    ModeStatus s;
+    int flag = 0;
 
-	if (Zoom::GetInstance()->GetLocalZoomStatus())
-	{
+    if (Zoom::GetInstance()->GetLocalZoomStatus())
+    {
 #if (defined (EMP_322) || defined (EMP_313))
-		g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
 #endif
-		if(MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
-		{
-			MultiFuncUndo();
-		}
+        if(MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
+        {
+            MultiFuncUndo();
+        }
 
-		// judge mode
-		if (s.IsColorMode())
-			flag = 1;
-		else if (s.IsSpectrumMode())
-			flag = 2;
-		else if (s.IsSpectrumColorMode())
-			flag = 3;
-		else if (s.IsMMode())
-			flag = 4;
+        // judge mode
+        if (s.IsColorMode())
+            flag = 1;
+        else if (s.IsSpectrumMode())
+            flag = 2;
+        else if (s.IsSpectrumColorMode())
+            flag = 3;
+        else if (s.IsMMode())
+            flag = 4;
 
-		// clear line according to mode
-		if ((flag == 1) || (flag == 3))
-			ImgCfm::GetInstance()->ClearBox();
-		if ((flag == 2) || (flag == 3))
-			ImgPw::GetInstance()->ClearSv();
-		else if (flag == 4)
+        // clear line according to mode
+        if ((flag == 1) || (flag == 3))
+            ImgCfm::GetInstance()->ClearBox();
+        if ((flag == 2) || (flag == 3))
+            ImgPw::GetInstance()->ClearSv();
+        else if (flag == 4)
             Img2D::GetInstance()->ClearMLine();
 
         // clear biopsy line
@@ -919,12 +919,12 @@ bool KeyLocalZoom::ExitLocalZoom()
         //redraw biopsyline
         g_menuBiopsy.UpdateBiopsyLine();
 
-		// redraw line according to mode
-		if ((flag == 1) || (flag == 3))
-			ImgCfm::GetInstance()->ReDrawBox();
-		if ((flag == 2) || (flag == 3))
-			ImgPw::GetInstance()->ReDrawSv();
-		else if (flag == 4)
+        // redraw line according to mode
+        if ((flag == 1) || (flag == 3))
+            ImgCfm::GetInstance()->ReDrawBox();
+        if ((flag == 2) || (flag == 3))
+            ImgPw::GetInstance()->ReDrawSv();
+        else if (flag == 4)
             Img2D::GetInstance()->ReDrawMLine();
         HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Exit."), 1);
         return TRUE;
@@ -939,66 +939,66 @@ bool KeyLocalZoom::ExitLocalZoom()
 ////////////////////////////////////////// [focus] //////////////////////////////////////
 bool KeyFocus::Execute()
 {
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FOCUS)
-	{
-		MultiFuncUndo();
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FOCUS)
+    {
+        MultiFuncUndo();
 #if (defined (EMP_322) || defined (EMP_313))
-		g_keyInterface.CtrlLight(FALSE,LIGHT_FOCUS);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_FOCUS);
 #endif
-	}
-	else
-	{
-		ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
-		if ((mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT) || (mode == ScanMode::EFOV))
-		{
-			HintArea::GetInstance()->UpdateHint(_("[Focus]: Invalid when simult is on."), 1);
-		}
-		else
-		{
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::FOCUS);
-			// DarkFucusLight();
+    }
+    else
+    {
+        ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+        if ((mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT) || (mode == ScanMode::EFOV))
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Focus]: Invalid when simult is on."), 1);
+        }
+        else
+        {
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::FOCUS);
+            // DarkFucusLight();
 #if (defined (EMP_322) || defined (EMP_313))
-			g_keyInterface.CtrlLight(TRUE,LIGHT_FOCUS);
+            g_keyInterface.CtrlLight(TRUE,LIGHT_FOCUS);
 #endif
-		}
-	}
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 ////////////////////////////////////////// [depth] //////////////////////////////////////
 bool KeyDepth::ExecuteAdd()
 {
-	DepthExe(ADD);
-	return TRUE;
+    DepthExe(ADD);
+    return TRUE;
 }
 
 bool KeyDepth::ExecuteSub()
 {
-	DepthExe(SUB);
-	return TRUE;
+    DepthExe(SUB);
+    return TRUE;
 }
 
 void KeyDepth::DepthExe(EKnobOper oper)
 {
-	ModeStatus s;
-	int flag = 0;
+    ModeStatus s;
+    int flag = 0;
     ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
-	if (s.IsColorMode())
-		flag = 1;
-	else if (s.IsSpectrumMode())
-		flag = 2;
-	else if (s.IsSpectrumColorMode())
-		flag = 3;
-	else if (s.IsMMode())
-		flag = 4;
+    if (s.IsColorMode())
+        flag = 1;
+    else if (s.IsSpectrumMode())
+        flag = 2;
+    else if (s.IsSpectrumColorMode())
+        flag = 3;
+    else if (s.IsMMode())
+        flag = 4;
 
-	if ((flag == 1) || (flag == 3))
-		ImgCfm::GetInstance()->ClearBox();
-	if ((flag == 2) || (flag == 3))
-		ImgPw::GetInstance()->ClearSv();
-	else if (flag == 4)
-		Img2D::GetInstance()->ClearMLine();
+    if ((flag == 1) || (flag == 3))
+        ImgCfm::GetInstance()->ClearBox();
+    if ((flag == 2) || (flag == 3))
+        ImgPw::GetInstance()->ClearSv();
+    else if (flag == 4)
+        Img2D::GetInstance()->ClearMLine();
 
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
         Zoom::GetInstance()->ClearLocalZoom();
@@ -1034,286 +1034,286 @@ void KeyDepth::DepthExe(EKnobOper oper)
 bool KeyDepth::Execute()
 {
 
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::DEPTH)
-	{
-		MultiFuncUndo();
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::DEPTH)
+    {
+        MultiFuncUndo();
 #if defined (EMP_313)
-		g_keyInterface.CtrlLight(FALSE,LIGHT_DEPTH);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_DEPTH);
 #endif
-	}
-	else
-	{
+    }
+    else
+    {
 #if defined (EMP_313)
-		g_keyInterface.CtrlLight(TRUE,LIGHT_DEPTH);
+        g_keyInterface.CtrlLight(TRUE,LIGHT_DEPTH);
 #endif
-		MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::DEPTH);
-	}
+        MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::DEPTH);
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [freq.] //////////////////////////////////////
 bool KeyFreq::Execute()
 {
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FREQ)
-	{
-		MultiFuncUndo();
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FREQ)
+    {
+        MultiFuncUndo();
 #if (defined (EMP_322) || defined (EMP_313))
-		g_keyInterface.CtrlLight(FALSE,LIGHT_FREQ);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_FREQ);
 #endif
-	}
-	else
-	{
-		ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
-		if ((mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
-		{
-			HintArea::GetInstance()->UpdateHint(_("[Freq]: Invalid when simult is on."), 1);
-		}
-		else
-		{
+    }
+    else
+    {
+        ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
+        if ((mode == ScanMode::PW_SIMULT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Freq]: Invalid when simult is on."), 1);
+        }
+        else
+        {
 #if (defined (EMP_322) || defined (EMP_313))
-			// DarkFucusLight();
-			g_keyInterface.CtrlLight(TRUE,LIGHT_FREQ);
+            // DarkFucusLight();
+            g_keyInterface.CtrlLight(TRUE,LIGHT_FREQ);
 #endif
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::FREQ);
-		}
-	}
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::FREQ);
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 ////////////////////////////////////////// [Chroma] //////////////////////////////////////
 bool KeyChroma::Execute()
 {
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::CHROMA)
-	{
-		MultiFuncUndo();
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::CHROMA)
+    {
+        MultiFuncUndo();
 #if defined (EMP_322)
-		g_keyInterface.CtrlLight(FALSE,LIGHT_CHROMA);
+        g_keyInterface.CtrlLight(FALSE,LIGHT_CHROMA);
 #endif
-	}
-	else
-	{
-		MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::CHROMA);
+    }
+    else
+    {
+        MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::CHROMA);
 #if defined (EMP_322)
-		// DarkFucusLight();
-		g_keyInterface.CtrlLight(TRUE,LIGHT_CHROMA);
+        // DarkFucusLight();
+        g_keyInterface.CtrlLight(TRUE,LIGHT_CHROMA);
 #endif
-	}
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [clear screen] //////////////////////////////////////
 bool KeyClearScreen::Execute()
 {
-	DeleteDataForClearScreen();
-	// draw centerline
-	KeyCenterLine key;
+    DeleteDataForClearScreen();
+    // draw centerline
+    KeyCenterLine key;
     //key.Clear();
 
-	DrawHistogram::GetInstance()->SetOnOff(0);
-	if ((MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSY)||(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYBRACKET)||(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYVERIFY))
-	{
-		MenuShowUndo();//2016.11.07--solve biopsy menu don't exit after biopsy line erased or biopsy line appeared when biopsy menu exited
-		MultiFuncUndo();//2016.11.07--solve problem that biopsy verify don't exit.
-	}
+    DrawHistogram::GetInstance()->SetOnOff(0);
+    if ((MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSY)||(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYBRACKET)||(MenuArea::GetInstance()->GetMenuType()==MenuArea::BIOPSYVERIFY))
+    {
+        MenuShowUndo();//2016.11.07--solve biopsy menu don't exit after biopsy line erased or biopsy line appeared when biopsy menu exited
+        MultiFuncUndo();//2016.11.07--solve problem that biopsy verify don't exit.
+    }
 
-	ImageArea::GetInstance()->ClearScreen();
+    ImageArea::GetInstance()->ClearScreen();
 
-	if (Replay::GetInstance()->GetReadSnapStatus()) {
-		ImageArea::GetInstance()->ResetReadImg();
-		return true;
-	}
+    if (Replay::GetInstance()->GetReadSnapStatus()) {
+        ImageArea::GetInstance()->ResetReadImg();
+        return true;
+    }
 
-	key.Execute();
+    key.Execute();
 
-	// Biopsy line
+    // Biopsy line
     g_menuBiopsy.UpdateBiopsyLine();
 
     // if or not freeze
-	if (!ModeStatus::IsUnFreezeMode())
-	{
-		Replay::GetInstance()->DisplayReplayBar();
-	}
+    if (!ModeStatus::IsUnFreezeMode())
+    {
+        Replay::GetInstance()->DisplayReplayBar();
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 bool KeyClearScreen::UnFreezeExecute(bool update)
 {
-	// draw centerline
+    // draw centerline
     KeyCenterLine key;
     //key.Clear();
-	DrawHistogram::GetInstance()->SetOnOff(0);
-	ImageArea::GetInstance()->ClearScreenUnFreeze();
+    DrawHistogram::GetInstance()->SetOnOff(0);
+    ImageArea::GetInstance()->ClearScreenUnFreeze();
 
-	if (Replay::GetInstance()->GetReadSnapStatus()) {
-		//ImageArea::GetInstance()->ResetReadImg();
-		return true;
-	}
+    if (Replay::GetInstance()->GetReadSnapStatus()) {
+        //ImageArea::GetInstance()->ResetReadImg();
+        return true;
+    }
 
-	key.Execute();
+    key.Execute();
 
-	// Biopsy line
+    // Biopsy line
     g_menuBiopsy.UpdateBiopsyLine();
 
     // if or not freeze
-	if (!ModeStatus::IsUnFreezeMode())
-	{
-		Replay::GetInstance()->DisplayReplayBar();
-	}
+    if (!ModeStatus::IsUnFreezeMode())
+    {
+        Replay::GetInstance()->DisplayReplayBar();
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 bool KeyClearScreen::ModeExecute(bool update)
 {
-	ModeStatus s;
-	ScanMode::EScanMode mode = s.GetScanMode();
+    ModeStatus s;
+    ScanMode::EScanMode mode = s.GetScanMode();
 
-	//ImageArea::GetInstance()->ClearArea();
-	DeleteDataForClearScreen();
+    //ImageArea::GetInstance()->ClearArea();
+    DeleteDataForClearScreen();
 
-	AbsUpdate2D* ptrUpdate2D = GlobalClassMan::GetInstance()->GetUpdate2D();
-	AbsUpdatePw* ptrUpdatePw = GlobalClassMan::GetInstance()->GetUpdatePw();
-	AbsUpdateCfm* ptrUpdateCfm = GlobalClassMan::GetInstance()->GetUpdateCfm();
+    AbsUpdate2D* ptrUpdate2D = GlobalClassMan::GetInstance()->GetUpdate2D();
+    AbsUpdatePw* ptrUpdatePw = GlobalClassMan::GetInstance()->GetUpdatePw();
+    AbsUpdateCfm* ptrUpdateCfm = GlobalClassMan::GetInstance()->GetUpdateCfm();
 
-	switch(mode) {
-		case ScanMode::D2:
-			ptrUpdate2D->Enter2DImg(update);
-			break;
-		case ScanMode::M_INIT:
-			{
-				ptrUpdate2D->Enter2DImg();
-				ptrUpdate2D->EnterMImg();
-			}
-			break;
-		case ScanMode::M:
-			ptrUpdate2D->UpdateMImg();
-			break;
-		case ScanMode::CW_INIT:
-		case ScanMode::PW_INIT:
-			{
-				ptrUpdate2D->Enter2DImg();
-				ptrUpdatePw->EnterPwImg();
-			}
-			break;
-		case ScanMode::PW:
-		case ScanMode::PW_SIMULT:
-		case ScanMode::CW:
-			ptrUpdatePw->UpdatePwImg();
-			break;
-		case ScanMode::PWCFM_INIT:
+    switch(mode) {
+        case ScanMode::D2:
+            ptrUpdate2D->Enter2DImg(update);
+            break;
+        case ScanMode::M_INIT:
+            {
+                ptrUpdate2D->Enter2DImg();
+                ptrUpdate2D->EnterMImg();
+            }
+            break;
+        case ScanMode::M:
+            ptrUpdate2D->UpdateMImg();
+            break;
+        case ScanMode::CW_INIT:
+        case ScanMode::PW_INIT:
+            {
+                ptrUpdate2D->Enter2DImg();
+                ptrUpdatePw->EnterPwImg();
+            }
+            break;
+        case ScanMode::PW:
+        case ScanMode::PW_SIMULT:
+        case ScanMode::CW:
+            ptrUpdatePw->UpdatePwImg();
+            break;
+        case ScanMode::PWCFM_INIT:
        case ScanMode::CWCFM_INIT:
-			{
-				ptrUpdateCfm->EnterCfmImg();
-				ptrUpdatePw->EnterPwImg();
-			}
-			break;
-		case ScanMode::PWPDI_INIT:
+            {
+                ptrUpdateCfm->EnterCfmImg();
+                ptrUpdatePw->EnterPwImg();
+            }
+            break;
+        case ScanMode::PWPDI_INIT:
        case ScanMode::CWPDI_INIT:
-			{
-				ptrUpdateCfm->EnterCfmImg();
-				ptrUpdatePw->EnterPwImg();
-			}
-			break;
-		case ScanMode::PWCFM:
-		case ScanMode::PWCFM_SIMULT:
-		case ScanMode::PWPDI:
-		case ScanMode::PWPDI_SIMULT:
+            {
+                ptrUpdateCfm->EnterCfmImg();
+                ptrUpdatePw->EnterPwImg();
+            }
+            break;
+        case ScanMode::PWCFM:
+        case ScanMode::PWCFM_SIMULT:
+        case ScanMode::PWPDI:
+        case ScanMode::PWPDI_SIMULT:
        case ScanMode::CWCFM:
        case ScanMode::CWPDI:
-			ptrUpdatePw->UpdatePwCfmImg();
-			break;
-		case ScanMode::CFM:
-		case ScanMode::PDI:
-			ptrUpdateCfm->EnterCfmImg(update);
-			break;
+            ptrUpdatePw->UpdatePwCfmImg();
+            break;
+        case ScanMode::CFM:
+        case ScanMode::PDI:
+            ptrUpdateCfm->EnterCfmImg(update);
+            break;
 
-		case ScanMode::CFM_VS_2D:
-		case ScanMode::PDI_VS_2D:
-			ptrUpdateCfm->EnterCfmVs2D();
-			break;
+        case ScanMode::CFM_VS_2D:
+        case ScanMode::PDI_VS_2D:
+            ptrUpdateCfm->EnterCfmVs2D();
+            break;
 
-		case ScanMode::ANATOMIC_M:
-			ptrUpdate2D->EnterAnatomicM();
+        case ScanMode::ANATOMIC_M:
+            ptrUpdate2D->EnterAnatomicM();
 
-		case ScanMode::EFOV:
-			break;
-	}
-	return true;
+        case ScanMode::EFOV:
+            break;
+    }
+    return true;
 }
 
 void KeyClearScreen::DeleteDataForClearScreen()
 {
-	// clear arrow data
-	CArrow::DeleteAllForFreeze();
+    // clear arrow data
+    CArrow::DeleteAllForFreeze();
 
-	// clear text data
-	NoteArea::GetInstance()->Hide();
-	ImageAreaDraw::GetInstance()->ClearMagnifier();
+    // clear text data
+    NoteArea::GetInstance()->Hide();
+    ImageAreaDraw::GetInstance()->ClearMagnifier();
 
-	// clear measure
-	MeasureMan::GetInstance()->DeleteAllForClearScreen();
+    // clear measure
+    MeasureMan::GetInstance()->DeleteAllForClearScreen();
 
-	if (g_ptrAbsMeasure != NULL) {
-		delete g_ptrAbsMeasure;
-		g_ptrAbsMeasure = NULL;
-		//MultiFuncUndo();
-		ModeStatus ms;
-		ScanMode::EScanMode mode = ms.GetScanMode();
-		if(mode != ScanMode::EFOV)
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
-		else
-			MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::EFOV);
-	}
+    if (g_ptrAbsMeasure != NULL) {
+        delete g_ptrAbsMeasure;
+        g_ptrAbsMeasure = NULL;
+        //MultiFuncUndo();
+        ModeStatus ms;
+        ScanMode::EScanMode mode = ms.GetScanMode();
+        if(mode != ScanMode::EFOV)
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
+        else
+            MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::EFOV);
+    }
 
 }
 
 ////////////////////////////////////////// [End Exam] //////////////////////////////////////
 int OpenNewPatWindow(gpointer data)
 {
-	ViewNewPat::GetInstance()->CreateWindow();
-	return 0;
+    ViewNewPat::GetInstance()->CreateWindow();
+    return 0;
 }
 
 int EndExam(gpointer data)
 {
-	PRINTF("begin Exam\n");
-	string errmsg;
-	// archive patient info
-	if (g_patientInfo.ArchivePatientInfo(errmsg)) {
+    PRINTF("begin Exam\n");
+    string errmsg;
+    // archive patient info
+    if (g_patientInfo.ArchivePatientInfo(errmsg)) {
 #ifndef VET
         ViewNewPat::GetInstance()->UpdateStudyInfo();
 #endif
         g_menuCalc.ClearAllData();
-	    g_menuMeasure.ClearAllData();
+        g_menuMeasure.ClearAllData();
         // archive and clear image and viedo
-		//g_patientInfo.ArchiveImg();
-		// archive report
+        //g_patientInfo.ArchiveImg();
+        // archive report
         ViewReport::GetInstance()->LoadMeasureDataForArchive();
-		g_patientInfo.ArchiveReport();
-		// archive and clear image and viedo
-		g_patientInfo.ArchiveImg();
-		// clear patient info
-		g_patientInfo.ClearAll();
+        g_patientInfo.ArchiveReport();
+        // archive and clear image and viedo
+        g_patientInfo.ArchiveImg();
+        // clear patient info
+        g_patientInfo.ClearAll();
         // clear desctiption and comment
         ViewReport::GetInstance()->ClearIndicationandComments();
         //clear screen
         KeyClearScreen kcs;
         kcs.Execute();
 
-		// update review menu
-		MenuArea* ptrMenu = MenuArea::GetInstance();
-		if (ptrMenu->GetMenuType() == MenuArea::REVIEW)
-			ptrMenu->ShowReviewMenu();
+        // update review menu
+        MenuArea* ptrMenu = MenuArea::GetInstance();
+        if (ptrMenu->GetMenuType() == MenuArea::REVIEW)
+            ptrMenu->ShowReviewMenu();
 
-		if (GTK_IS_WIDGET(ViewNewPat::GetInstance()->GetWindow())) {
-			if (ViewNewPat::GetInstance()->GetClearStatus())
-				ViewNewPat::GetInstance()->ClearData();
-			else
-				ViewNewPat::GetInstance()->ClearExamData();
-		}
+        if (GTK_IS_WIDGET(ViewNewPat::GetInstance()->GetWindow())) {
+            if (ViewNewPat::GetInstance()->GetClearStatus())
+                ViewNewPat::GetInstance()->ClearData();
+            else
+                ViewNewPat::GetInstance()->ClearExamData();
+        }
 #ifndef VET
          setlocale(LC_NUMERIC, "en_US.UTF-8");
         if(CDCMMan::GetMe()->EndStudy())
@@ -1398,22 +1398,22 @@ int EndExam(gpointer data)
 
 bool KeyEndExam::Execute()
 {
-	const char* info = N_("End Exam?");
+    const char* info = N_("End Exam?");
 
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), ViewDialog::QUESTION, _(info), EndExam);
-	PRINTF("end end exam execute\n");
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()), ViewDialog::QUESTION, _(info), EndExam);
+    PRINTF("end end exam execute\n");
 
-	return TRUE;
+    return TRUE;
 }
 
 bool KeyCenterLine::Execute()
 {
-	ModeStatus ms;
-	if (((ms.GetScanMode() == ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))
-			|| (((ms.GetScanMode() == ScanMode::CFM) || (ms.GetScanMode() == ScanMode::PDI)) && (ms.GetFormatCfm() == FormatCfm::B))
+    ModeStatus ms;
+    if (((ms.GetScanMode() == ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))
+            || (((ms.GetScanMode() == ScanMode::CFM) || (ms.GetScanMode() == ScanMode::PDI)) && (ms.GetFormatCfm() == FormatCfm::B))
             || (ms.GetScanMode() == ScanMode::PWCFM_INIT) //solve that the center line is cleaned int pwcmf_init mode. lhm
             || (ms.GetScanMode() == ScanMode::PW_INIT))//solve that the center line is cleaned int pw_init mode. lhm
-	{
+    {
         SysOptions sys;
         ImageAreaDraw::GetInstance()->ClearCenterLine();
         if (sys.GetCenterLine() == 0)
@@ -1426,75 +1426,75 @@ bool KeyCenterLine::Execute()
         }
     }
 
-	return TRUE;
+    return TRUE;
 }
 
 void KeyCenterLine::Clear()
 {
-	ModeStatus ms;
-	SysOptions sys;
+    ModeStatus ms;
+    SysOptions sys;
 
-	if (((ms.GetScanMode() == ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))
-			|| (((ms.GetScanMode() == ScanMode::CFM) || (ms.GetScanMode() == ScanMode::PDI)) && (ms.GetFormatCfm() == FormatCfm::B))) {
-		//if (sys.GetCenterLine() == 0)
-	    //	ImageAreaDraw::GetInstance()->ClearCenterLine();
-	}
-	return ;
+    if (((ms.GetScanMode() == ScanMode::D2) && (ms.GetFormat2D() == Format2D::B))
+            || (((ms.GetScanMode() == ScanMode::CFM) || (ms.GetScanMode() == ScanMode::PDI)) && (ms.GetFormatCfm() == FormatCfm::B))) {
+        //if (sys.GetCenterLine() == 0)
+        //  ImageAreaDraw::GetInstance()->ClearCenterLine();
+    }
+    return ;
 }
 
 bool KeyMenu::Execute()
 {
-	if (MenuArea::GetInstance()->GetMenuVisible())
-		MenuArea::GetInstance()->HideMenu();
-	else
-		MenuArea::GetInstance()->ShowMenu();
+    if (MenuArea::GetInstance()->GetMenuVisible())
+        MenuArea::GetInstance()->HideMenu();
+    else
+        MenuArea::GetInstance()->ShowMenu();
 
-	return TRUE;
+    return TRUE;
 }
 
 ////////////////////////////////////////// [Tis] //////////////////////////////////////
 void ChangeTis()
 {
-	ModeStatus s;
-	int curImg = s.GetPwCurImg();
+    ModeStatus s;
+    int curImg = s.GetPwCurImg();
 
-	if (ModeStatus::IsSpectrumImgMode())
-	{
-		if (curImg == 2)
-			ImgPw::GetInstance()->ChangePwTis();
-		else if (curImg == 1)
-			Img2D::GetInstance()->Change2DTis();
-	}
-	else if (ModeStatus::IsColorImgMode())
-	{
-		ImgCfm::GetInstance()->ChangeCfmTis();
-	}
-	else if (ModeStatus::IsSpectrumColorImgMode())
-	{
-		if (curImg == 2) //PW
-			ImgPw::GetInstance()->ChangePwTis();
-		else if (curImg == 1)
-			ImgCfm::GetInstance()->ChangeCfmTis();
-	}
-	else
-	{
-		Img2D::GetInstance()->Change2DTis();
-	}
+    if (ModeStatus::IsSpectrumImgMode())
+    {
+        if (curImg == 2)
+            ImgPw::GetInstance()->ChangePwTis();
+        else if (curImg == 1)
+            Img2D::GetInstance()->Change2DTis();
+    }
+    else if (ModeStatus::IsColorImgMode())
+    {
+        ImgCfm::GetInstance()->ChangeCfmTis();
+    }
+    else if (ModeStatus::IsSpectrumColorImgMode())
+    {
+        if (curImg == 2) //PW
+            ImgPw::GetInstance()->ChangePwTis();
+        else if (curImg == 1)
+            ImgCfm::GetInstance()->ChangeCfmTis();
+    }
+    else
+    {
+        Img2D::GetInstance()->Change2DTis();
+    }
 }
 void DarkFucusLight()
 {
 #if defined (EMP_322)
-	g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_SYSTEM);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_CURSOR);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_BODYMARK);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_SAVE);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_TSI);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_SYSTEM);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_CURSOR);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_BODYMARK);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_SAVE);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_TSI);
 #elif defined (EMP_313)
-	g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_CURSOR);
-	g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_CURSOR);
+    g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
 #endif
 }

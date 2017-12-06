@@ -7,57 +7,57 @@
 
 class ProjectCalc2D
 {
-	public:
-		~ProjectCalc2D();
-		static ProjectCalc2D* GetInstance(void);
+    public:
+        ~ProjectCalc2D();
+        static ProjectCalc2D* GetInstance(void);
 
-		void SetProjectCalc2D(Calc2D* calc);
-		void SetDsc(CDSC* dsc) {m_ptrDsc = dsc;}
+        void SetProjectCalc2D(Calc2D* calc);
+        void SetDsc(CDSC* dsc) {m_ptrDsc = dsc;}
         void RefreshProjectCalc(const char* model, int freqIndex, bool harmonic);
         void InitKnobPara(void);
         void RefreshKnobPara(void);
 
-		// test-----optimization
-		EKnobReturn ChangeDemodSection(EKnobOper oper);
-	    EKnobReturn ChangeBandPassFc(EKnobOper oper);
-		EKnobReturn ChangeTxFNum(EKnobOper oper);
-		EKnobReturn ChangeWpScale(EKnobOper oper);
-		EKnobReturn Change2DPulse(EKnobOper oper);
-		EKnobReturn ChangePwPulse(EKnobOper oper);
-		EKnobReturn ChangeCfmPulse(EKnobOper oper);
-		EKnobReturn ChangeProbeR(EKnobOper oper);
-		EKnobReturn ChangeProbeAngle(EKnobOper oper);
+        // test-----optimization
+        EKnobReturn ChangeDemodSection(EKnobOper oper);
+        EKnobReturn ChangeBandPassFc(EKnobOper oper);
+        EKnobReturn ChangeTxFNum(EKnobOper oper);
+        EKnobReturn ChangeWpScale(EKnobOper oper);
+        EKnobReturn Change2DPulse(EKnobOper oper);
+        EKnobReturn ChangePwPulse(EKnobOper oper);
+        EKnobReturn ChangeCfmPulse(EKnobOper oper);
+        EKnobReturn ChangeProbeR(EKnobOper oper);
+        EKnobReturn ChangeProbeAngle(EKnobOper oper);
 #if 0
         EKnobReturn ChangeLowPassWindowFunc(EKnobOper oper);
-		EKnobReturn ChangeBPWSimult(EKnobOper oper);
+        EKnobReturn ChangeBPWSimult(EKnobOper oper);
 
-		EKnobReturn ChangeBandPassWindowFunc(EKnobOper oper);
+        EKnobReturn ChangeBandPassWindowFunc(EKnobOper oper);
         EKnobReturn ChangeEmissionPara(EKnobOper oper);
 #endif
         EKnobReturn ChangeDemodParaPrintf();
 
-		void SaveCalcPara2D(char* name);
-		void ReadCalcPara2D(const char* name);
-		void ShowCurPageParaValue(int row);
+        void SaveCalcPara2D(char* name);
+        void ReadCalcPara2D(const char* name);
+        void ShowCurPageParaValue(int row);
 
-	private:
-		ProjectCalc2D();
-		static ProjectCalc2D* m_ptrInstance;
+    private:
+        ProjectCalc2D();
+        static ProjectCalc2D* m_ptrInstance;
 
-		Calc2D* m_ptrCalc;
-		Calc2D::CalcPara m_calcPara;
-		Calc2D::ProjectCalcPara m_projectCalcPara;
+        Calc2D* m_ptrCalc;
+        Calc2D::CalcPara m_calcPara;
+        Calc2D::ProjectCalcPara m_projectCalcPara;
 
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;
-		CDSC* m_ptrDsc;
-		static FpgaCtrl2D m_fpga;
+        DSCCONTROLATTRIBUTES* m_ptrDscPara;
+        CDSC* m_ptrDsc;
+        static FpgaCtrl2D m_fpga;
         int m_probeIndex;
         int m_freqIndex;
         bool m_harmonic;
         int m_emitIndex;
 
-		static const int MAX_DEMOD_SECTION = 6;
-		static const float MAX_BAND_PASS_W1 = 200.0;
+        static const int MAX_DEMOD_SECTION = 6;
+        static const float MAX_BAND_PASS_W1 = 200.0;
         static const float MAX_TX_F_NUM = 200.0;
         static const float MAX_WP_SCALE = 200.0;
         static const int MAX_2D_PLUSE= 20;

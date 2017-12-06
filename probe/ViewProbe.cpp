@@ -148,7 +148,7 @@ void ViewProbe::ReadProbe(void)
     ProbeSocket::ProbePara* para = NULL;
     int maxSocket;
     m_pKps.GetPara(para, m_itemList, maxSocket);
-    //	ASSERT(para != NULL);
+    //  ASSERT(para != NULL);
     if(para == NULL)
         return;
     CreateWindow(para, m_itemList, maxSocket);
@@ -167,7 +167,7 @@ void ViewProbe::ReadOneProbe(int socket)
     ProbeSocket::ProbePara* para = NULL;
     int maxSocket;
     m_pKps.GetPara(para, m_itemList, maxSocket);
-    //	ASSERT(para != NULL);
+    //  ASSERT(para != NULL);
     if(para == NULL)
         return;
     CreateWindow(para, m_itemList, maxSocket);
@@ -193,7 +193,7 @@ bool ViewProbe::Create(void)
     }
     gdk_threads_leave();
 
-    //	g_timeout_add(100, HandleReadProbe, this);
+    //  g_timeout_add(100, HandleReadProbe, this);
     ReadProbe();
 
     return TRUE;
@@ -712,7 +712,7 @@ void ViewProbe::KeyEvent(unsigned char keyValue)
     switch(keyValue)
     {
         case KEY_ESC:
-            //	case KEY_PROBE: //避免快速频繁按下Probe时，窗口堆栈出错
+            //  case KEY_PROBE: //避免快速频繁按下Probe时，窗口堆栈出错
             BtnCancelClicked(NULL);
             break;
 
@@ -882,7 +882,7 @@ void ViewProbe::ProbeUserChanged(GtkWidget *widget)
     int maxSocket;
 
       m_pKps.GetPara(para, m_itemList, maxSocket);
-    //	ASSERT(para != NULL);
+    //  ASSERT(para != NULL);
      if(para == NULL)
           return;
      else

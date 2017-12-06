@@ -3,10 +3,10 @@
 
 class AbsCommand
 {
-	public:
+    public:
 
-	virtual ~AbsCommand() {}
+    virtual ~AbsCommand() {}
 
-	virtual bool Execute() = 0;
+    virtual bool Execute() = 0;
 };
 #endif

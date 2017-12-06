@@ -61,14 +61,14 @@ void Init::SystemInit(int argc, char *argv[])
     // keyboard control
     KeyboardOversee((void *)&g_keyInterface);
 
-	/*if(g_authorizationOn)
-	{
-		CAuthorize::GetInstance()->Excute(argc, argv);
-	}*/
+    /*if(g_authorizationOn)
+    {
+        CAuthorize::GetInstance()->Excute(argc, argv);
+    }*/
 
-	KeyboardRequestTGC();
+    KeyboardRequestTGC();
 
-	// keyboard sound
+    // keyboard sound
     SysOptions *sysOpt = new SysOptions;
     int keySound = sysOpt->GetKeyboardSound();
     if (keySound)
@@ -76,36 +76,36 @@ void Init::SystemInit(int argc, char *argv[])
     else
         KeyboardSound(true);
 
-	int mouseSpeed = sysOpt->GetMouseSpeed();
-	g_keyInterface.SetMouseSpeed(mouseSpeed);
+    int mouseSpeed = sysOpt->GetMouseSpeed();
+    g_keyInterface.SetMouseSpeed(mouseSpeed);
     delete sysOpt;
 
-	///> GUI i18n
-	setlocale(LC_ALL, "");
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
+    ///> GUI i18n
+    setlocale(LC_ALL, "");
+    bindtextdomain(PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset(PACKAGE, "UTF-8");
+    textdomain(PACKAGE);
 
-	SysGeneralSetting *sysGeneral = new SysGeneralSetting;
-	int index_lang = sysGeneral->GetLanguage();
-	int index_video_mode = sysGeneral->GetVideoMode();
-	int tvout_format = sysGeneral->GetVideoFormat();
+    SysGeneralSetting *sysGeneral = new SysGeneralSetting;
+    int index_lang = sysGeneral->GetLanguage();
+    int index_video_mode = sysGeneral->GetVideoMode();
+    int tvout_format = sysGeneral->GetVideoFormat();
 
     //printf ("-----index_lang: %d\n", index_lang);
-	delete sysGeneral;
+    delete sysGeneral;
     char str_cmd[256];
-	if (ZH == index_lang)
-	{
-	    setenv("LANG", "zh_CN.UTF-8", 1);
-	    setenv("LANGUAGE", "zh_CN:zh", 1);
+    if (ZH == index_lang)
+    {
+        setenv("LANG", "zh_CN.UTF-8", 1);
+        setenv("LANGUAGE", "zh_CN:zh", 1);
         sprintf(str_cmd, "setxkbmap -layout %s", "us");
         _system_(str_cmd);
         //system("setxkbmap -layout us");
-	}
+    }
     else if (RU == index_lang)
     {
         setenv("LANG", "ru_RU.UTF-8", 1);
-	    setenv("LANGUAGE", "ru_RU:ru", 1);
+        setenv("LANGUAGE", "ru_RU:ru", 1);
         //system("setxkbmap -layout ru");
 
         sprintf(str_cmd, "setxkbmap -layout %s", "ru");
@@ -114,7 +114,7 @@ void Init::SystemInit(int argc, char *argv[])
     else if (PL == index_lang)
     {
         setenv("LANG", "pl_PL.UTF-8", 1);
-	    setenv("LANGUAGE", "pl_PL:pl", 1);
+        setenv("LANGUAGE", "pl_PL:pl", 1);
         //system("setxkbmap -layout pl qwertz");
         sprintf(str_cmd, "setxkbmap -layout %s", "pl qwertz");
         _system_(str_cmd);
@@ -131,7 +131,7 @@ void Init::SystemInit(int argc, char *argv[])
     else if (FR == index_lang)
     {
         setenv("LANG", "fr_FR.UTF-8", 1);
-	    setenv("LANGUAGE", "fr_FR:fr", 1);
+        setenv("LANGUAGE", "fr_FR:fr", 1);
         //system("setxkbmap -layout fr");
         sprintf(str_cmd, "setxkbmap -layout %s", "fr");
         _system_(str_cmd);
@@ -139,58 +139,58 @@ void Init::SystemInit(int argc, char *argv[])
     else if (DE == index_lang)
     {
         setenv("LANG", "de_DE.UTF-8", 1);
-	    setenv("LANGUAGE", "de_DE:de", 1);
+        setenv("LANGUAGE", "de_DE:de", 1);
         //system("setxkbmap -layout de");
         sprintf(str_cmd, "setxkbmap -layout %s", "de");
         _system_(str_cmd);
     }
-	else
-	{
-	    setenv("LANG", "en_US.UTF-8", 1);
-	    setenv("LANGUAGE", "en_US:en", 1);
+    else
+    {
+        setenv("LANG", "en_US.UTF-8", 1);
+        setenv("LANGUAGE", "en_US:en", 1);
         //system("setxkbmap -layout us");
         sprintf(str_cmd, "setxkbmap -layout %s", "us");
         _system_(str_cmd);
-	}
+    }
    // setlocale(LC_NUMERIC, "en_US.UTF-8");
 
 #if 0
 #if not defined (EMP3D)
-	string command;
-	if (tvout_format == 0)
-		command = "--mode 1024x768 --pos 0x0";
-	else if (tvout_format == 1)
-		command = "--mode 848x660 --pos 180x0";
-	else
-		command = "--mode 848x560 --pos 180x100";
+    string command;
+    if (tvout_format == 0)
+        command = "--mode 1024x768 --pos 0x0";
+    else if (tvout_format == 1)
+        command = "--mode 848x660 --pos 180x0";
+    else
+        command = "--mode 848x560 --pos 180x100";
 
-	if (index_video_mode) {
-		//command = "xrandr --output TV --set TV_FORMAT NTSC-M " + command;
-		command = "xrandr --output TV1 --set mode NTSC-M " + command;
-	} else {
-		//command = "xrandr --output TV --set TV_FORMAT PAL " + command;
-		command = "xrandr --output TV1 --set mode PAL " + command;
-	}
-	_system_(command.c_str());
+    if (index_video_mode) {
+        //command = "xrandr --output TV --set TV_FORMAT NTSC-M " + command;
+        command = "xrandr --output TV1 --set mode NTSC-M " + command;
+    } else {
+        //command = "xrandr --output TV --set TV_FORMAT PAL " + command;
+        command = "xrandr --output TV1 --set mode PAL " + command;
+    }
+    _system_(command.c_str());
 #endif
 #endif
 
-	SysCalculateSetting *sysCalc = new SysCalculateSetting;
-	SysMeasurementSetting *sysMeasure = new SysMeasurementSetting;
-	sysCalc->UpdateOBSetting();
-	sysMeasure->UpdateTraceItemSetting();
-	delete sysCalc;
-	delete sysMeasure;
+    SysCalculateSetting *sysCalc = new SysCalculateSetting;
+    SysMeasurementSetting *sysMeasure = new SysMeasurementSetting;
+    sysCalc->UpdateOBSetting();
+    sysMeasure->UpdateTraceItemSetting();
+    delete sysCalc;
+    delete sysMeasure;
 
-	// Database
-	Database db;
-	if (!db.CreateTable()) {
-	    return ;
-	}
-	db.OpenDB();
+    // Database
+    Database db;
+    if (!db.CreateTable()) {
+        return ;
+    }
+    db.OpenDB();
 
-	///> upgrade manage
-	UpgradeMan::GetInstance()->SetRebootState("1");
+    ///> upgrade manage
+    UpgradeMan::GetInstance()->SetRebootState("1");
 #if (defined (EMP_430) || defined(EMP_355))
     //5805 AD control para
     CFpgaGeneral::GetInstance()->AD5805ControlInit();
@@ -203,58 +203,58 @@ void Init::SystemInit(int argc, char *argv[])
 
 void* ThreadReportTable(void* argv)
 {
-	PRINTF("Enter thread to init report table data!\n");
-	ViewReport::GetInstance()->InitTableData();
-	PRINTF("Leave thread to init report table data!\n");
-	ReportInit = TRUE;
-	return NULL;
+    PRINTF("Enter thread to init report table data!\n");
+    ViewReport::GetInstance()->InitTableData();
+    PRINTF("Leave thread to init report table data!\n");
+    ReportInit = TRUE;
+    return NULL;
 }
 
 void Init::ParaInit()
 {
-	// replay
-	Replay::GetInstance()->Init();
+    // replay
+    Replay::GetInstance()->Init();
 
-	// Report Table
-	if( pthread_create(&pidInitTable, NULL, ThreadReportTable, NULL) != 0)
-	{
-		PRINTF("Failed to create report table init thread!\n");
-	}
+    // Report Table
+    if( pthread_create(&pidInitTable, NULL, ThreadReportTable, NULL) != 0)
+    {
+        PRINTF("Failed to create report table init thread!\n");
+    }
 
-	// Measure
-	MeaCalcFun::InitCustomTable();
-	MeasureMan::GetInstance()->ClearAllValue();
+    // Measure
+    MeaCalcFun::InitCustomTable();
+    MeasureMan::GetInstance()->ClearAllValue();
 
-	//clear record
-	g_patientInfo.ClearRecord();
+    //clear record
+    g_patientInfo.ClearRecord();
 
-	///> watch Volume device
-	PRINTF("begin add watch for peripheral device\n");
-	PeripheralMan::GetInstance()->AddWatch();
-	PeripheralMan::GetInstance()->SwitchPrinterDriver();
+    ///> watch Volume device
+    PRINTF("begin add watch for peripheral device\n");
+    PeripheralMan::GetInstance()->AddWatch();
+    PeripheralMan::GetInstance()->SwitchPrinterDriver();
 
-	///> watch network cable
-	PRINTF("begin add watch network cable\n");
-	PeripheralMan::GetInstance()->AddWatchNetCable();
+    ///> watch network cable
+    PRINTF("begin add watch network cable\n");
+    PeripheralMan::GetInstance()->AddWatchNetCable();
 
-	///> screen saver
-	PRINTF("begin screen saver timer\n");
-	SysGeneralSetting sgs;
-	ScreenSaver::GetInstance()->SetPeriod(sgs.GetScreenProtect()*60);
+    ///> screen saver
+    PRINTF("begin screen saver timer\n");
+    SysGeneralSetting sgs;
+    ScreenSaver::GetInstance()->SetPeriod(sgs.GetScreenProtect()*60);
 
-	//ProbeMan::GetInstance()->WriteProbeManual();
-	//ExamItem item;
-	//item.GenerateDefaultImgOptimize();
+    //ProbeMan::GetInstance()->WriteProbeManual();
+    //ExamItem item;
+    //item.GenerateDefaultImgOptimize();
 
-	//creat dicom manual object
-	CDCMMan::Create(DCMDB_DIR);
+    //creat dicom manual object
+    CDCMMan::Create(DCMDB_DIR);
     CDCMRegister::Create(DCMRES_DIR);
 }
 
 void Init::ProbeCheck()
 {
-	FreezeMode* ptrFreeze = FreezeMode::GetInstance();
-	ptrFreeze->Freeze();
+    FreezeMode* ptrFreeze = FreezeMode::GetInstance();
+    ptrFreeze->Freeze();
 
     //send 0 to fpga
     INT32U addr;
@@ -328,24 +328,24 @@ void Init::WriteLogHead()
     else if (version->GetProduct() == VersionConfig::PORTABLE)
         (*sysLog) << "software work in portable mode." << endl;
 
-	///> get realse configure version of software
-	if (version->GetRealse() == VersionConfig::EMP_CHI)
-		(*sysLog) << "software is config to chinese language of emperor." << endl;
-	else if (version->GetRealse() == VersionConfig::EMP_EN)
-		(*sysLog) << "software is config to english language of emperor." << endl;
+    ///> get realse configure version of software
+    if (version->GetRealse() == VersionConfig::EMP_CHI)
+        (*sysLog) << "software is config to chinese language of emperor." << endl;
+    else if (version->GetRealse() == VersionConfig::EMP_EN)
+        (*sysLog) << "software is config to english language of emperor." << endl;
 }
 
 void Init::ExitSystem()
 {
-	//destory dicom manual object
-	CDCMMan::Destroy();
+    //destory dicom manual object
+    CDCMMan::Destroy();
     CDCMRegister::Destroy();
 
-	// remove device info
-	PeripheralMan::GetInstance()->RemoveWatch();
+    // remove device info
+    PeripheralMan::GetInstance()->RemoveWatch();
 
-	// destroy global color
-	free_init_colors();
+    // destroy global color
+    free_init_colors();
 #ifdef EMP_3410
     CManRegister::GetInstance()->Destroy();
 #endif

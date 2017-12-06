@@ -1,11 +1,3 @@
-/**
-* @brief MenuCalcNew.h: The file is interface for calc menu creating.
-*
-* @version: 1.0
-* @author: hehao
-* @date: 2014-11-28
-*/
-
 #ifndef __MENUCALC_NEW_H__
 #define __MENUCALC_NEW_H__
 
@@ -18,14 +10,14 @@ extern SingleItemInfo userDef_new[100];
 
 class MenuCalcNew
 {
-	public:
-		MenuCalcNew(void);
-		virtual ~MenuCalcNew(void);
+    public:
+        MenuCalcNew(void);
+        virtual ~MenuCalcNew(void);
 
-		GtkWidget * Create(void);
-		void UpdateLabel(void);
-		void Show(void);
-		void Hide(void);
+        GtkWidget * Create(void);
+        void UpdateLabel(void);
+        void Show(void);
+        void Hide(void);
         int GetCurrentFetal(void) { return m_fetalOrder; }
         void ResetFetalOrder(void) { m_fetalOrder = 0; }
         void ChangeExamItem(string item);
@@ -48,34 +40,34 @@ class MenuCalcNew
         bool IsOBItem(int etype);
 
         bool ShowMultiplyFetal(void);
-		EMeasureMode GetMeasureMode(ScanMode::EScanMode mode);
-		EMeasureMode GetMeasureModeFromMeasureType(int measureType);
-		int GetUnitItemFromMeasureType(int measureType);
-		void ClearUserDefineCalcItem();
-		void ClearUserDefineSingleItemInfo(void);
-		void Fetal1Pressed(GtkButton *widget);
-		void Fetal2Pressed(GtkButton *widget);
-		static void HandleFetal1Pressed(GtkButton *widget, MenuCalcNew *data)
-		{ data->Fetal1Pressed(widget); }
-		static void HandleFetal2Pressed(GtkButton *widget, MenuCalcNew *data)
-		{ data->Fetal2Pressed(widget); }
+        EMeasureMode GetMeasureMode(ScanMode::EScanMode mode);
+        EMeasureMode GetMeasureModeFromMeasureType(int measureType);
+        int GetUnitItemFromMeasureType(int measureType);
+        void ClearUserDefineCalcItem();
+        void ClearUserDefineSingleItemInfo(void);
+        void Fetal1Pressed(GtkButton *widget);
+        void Fetal2Pressed(GtkButton *widget);
+        static void HandleFetal1Pressed(GtkButton *widget, MenuCalcNew *data)
+        { data->Fetal1Pressed(widget); }
+        static void HandleFetal2Pressed(GtkButton *widget, MenuCalcNew *data)
+        { data->Fetal2Pressed(widget); }
 
-		vector<GUIMenuNew> m_vecAllCalcItem;
-		vector<GUIMenuNew> m_vecCurExamItemCalcItem;
-		vector<GUIMenuNew> m_vecCurScanModeCalcItem;
-		int m_sizeDefaultItems;
-		GtkWidget * m_table;
-		TreeMenu m_treeMenu;
-		GtkWidget *m_scrolledWindow;
-		GtkWidget *m_treeView;
-		GtkWidget *m_buttonFetal1;
-		GtkWidget *m_buttonFetal2;
-		static int m_fetalOrder;
-		//ExamItem::EItem m_examItem;
-		string m_examItem;	//name of exam item.
-		ScanMode::EScanMode m_scanMode;
-		bool *m_completeMeasureFlag;
-		bool m_isExistedOBItem;
+        vector<GUIMenuNew> m_vecAllCalcItem;
+        vector<GUIMenuNew> m_vecCurExamItemCalcItem;
+        vector<GUIMenuNew> m_vecCurScanModeCalcItem;
+        int m_sizeDefaultItems;
+        GtkWidget * m_table;
+        TreeMenu m_treeMenu;
+        GtkWidget *m_scrolledWindow;
+        GtkWidget *m_treeView;
+        GtkWidget *m_buttonFetal1;
+        GtkWidget *m_buttonFetal2;
+        static int m_fetalOrder;
+        //ExamItem::EItem m_examItem;
+        string m_examItem;  //name of exam item.
+        ScanMode::EScanMode m_scanMode;
+        bool *m_completeMeasureFlag;
+        bool m_isExistedOBItem;
 };
 
 extern MenuCalcNew g_menuCalc;

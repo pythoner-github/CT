@@ -12,7 +12,7 @@ ViewDialog* ViewDialog::m_ptrInstance = NULL;
 ViewDialog* ViewDialog::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new ViewDialog;
+    m_ptrInstance = new ViewDialog;
     return m_ptrInstance;
 }
 
@@ -21,13 +21,13 @@ ViewDialog::ViewDialog(void)
     m_window = NULL;
     m_ptrFunc = NULL;
     m_ptrFuncCancel = NULL;
-	m_preCursor = true;
+    m_preCursor = true;
 }
 
 ViewDialog::~ViewDialog(void)
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 void ViewDialog::Create(GtkWindow *parent, EDialogType type, const char *info, pFuncDialog ptrFunc, pFuncDialog ptrFuncCancel)
@@ -45,8 +45,8 @@ void ViewDialog::Create(GtkWindow *parent, EDialogType type, const char *info, p
     m_ptrFunc = ptrFunc;
     m_ptrFuncCancel = ptrFuncCancel;
     m_type = type;
-	m_preCursor = ViewMain::GetInstance()->GetCursorVisible();
-	InvisibleCursor(false, false);
+    m_preCursor = ViewMain::GetInstance()->GetCursorVisible();
+    InvisibleCursor(false, false);
 
     if (ViewHintDialog::GetInstance()->Exist())
         ViewHintDialog::GetInstance()->Destroy();
@@ -127,9 +127,9 @@ void ViewDialog::Create(GtkWindow *parent, EDialogType type, const char *info, p
         gtk_widget_show(button_close);
         break;
     case QUESTION:
-	//	gtk_window_set_title (GTK_WINDOW (m_window), _("Question"));
-	//	gtk_window_set_title (GTK_WINDOW (m_window), info);
-		gtk_window_set_title (GTK_WINDOW (m_window), "");
+    //  gtk_window_set_title (GTK_WINDOW (m_window), _("Question"));
+    //  gtk_window_set_title (GTK_WINDOW (m_window), info);
+        gtk_window_set_title (GTK_WINDOW (m_window), "");
         gtk_image_set_from_stock(GTK_IMAGE(image_icon), "gtk-dialog-question", GTK_ICON_SIZE_DIALOG);
         gtk_widget_show(button_ok);
         gtk_widget_show(button_cancel);
@@ -165,10 +165,10 @@ void ViewDialog::Create(GtkWindow *parent, EDialogType type, const char *info, p
     }
     gtk_widget_show(m_window);
 
-	if (GTK_IS_WIDGET(old_window)) {
-		g_keyInterface.Pop();
-		gtk_widget_destroy (old_window);
-	}
+    if (GTK_IS_WIDGET(old_window)) {
+        g_keyInterface.Pop();
+        gtk_widget_destroy (old_window);
+    }
 
     g_keyInterface.Push(this);
     SetSystemCursorToCenter();
@@ -219,8 +219,8 @@ gboolean ViewDialog::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
 
 void ViewDialog::SetText(const char *info)
 {
-	if(m_label_text)
-		gtk_label_set_text(GTK_LABEL(m_label_text), info);
+    if(m_label_text)
+        gtk_label_set_text(GTK_LABEL(m_label_text), info);
 }
 
 gboolean HandleFun(gpointer data)
@@ -234,36 +234,36 @@ gboolean HandleFun(gpointer data)
 
 void ViewDialog::BtnOkClicked(GtkButton *button)
 {
-	// gtk_widget_destroy (m_window);
-	// g_keyInterface.Pop();
-	if(m_type == FILENAME)
-	{
-		char* name = (char*)malloc(256);
-		sprintf(name, "%s", gtk_entry_get_text(GTK_ENTRY(m_entry)));
+    // gtk_widget_destroy (m_window);
+    // g_keyInterface.Pop();
+    if(m_type == FILENAME)
+    {
+        char* name = (char*)malloc(256);
+        sprintf(name, "%s", gtk_entry_get_text(GTK_ENTRY(m_entry)));
 
-		Destroy();
+        Destroy();
 
-		if(strlen(name)>0)
-		{
-			if (m_ptrFunc)
-				(*m_ptrFunc)(name);
-		}
-	}
-	else
-	{
+        if(strlen(name)>0)
+        {
+            if (m_ptrFunc)
+                (*m_ptrFunc)(name);
+        }
+    }
+    else
+    {
         Destroy();
         g_timeout_add(50, HandleFun, this); // 为了解决结束检查时出现白框的问题
 #if 0
-		if (m_ptrFunc)
-			(*m_ptrFunc)(NULL);
+        if (m_ptrFunc)
+            (*m_ptrFunc)(NULL);
 #endif
-	}
+    }
 }
 
 void ViewDialog::BtnCancelClicked(GtkButton *button)
 {
-	// gtk_widget_destroy (m_window);
-	// g_keyInterface.Pop();
+    // gtk_widget_destroy (m_window);
+    // g_keyInterface.Pop();
 
     Destroy();
     if (m_ptrFuncCancel)
@@ -279,10 +279,10 @@ void ViewDialog::BtnCloseClicked(GtkButton *button)
 
 void ViewDialog::BtnPrgCancelClicked(GtkButton *button)
 {
-	SetText(_("Cancelling..."));
-//	SetProgressBar(0);
-	if (m_ptrFunc)
-		(*m_ptrFunc)(NULL);
+    SetText(_("Cancelling..."));
+//  SetProgressBar(0);
+    if (m_ptrFunc)
+        (*m_ptrFunc)(NULL);
 }
 
 void ViewDialog::EntryInsertText(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position)
@@ -320,7 +320,7 @@ ViewHintDialog* ViewHintDialog::m_ptrInstance = NULL;
 ViewHintDialog* ViewHintDialog::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new ViewHintDialog;
+    m_ptrInstance = new ViewHintDialog;
     return m_ptrInstance;
 }
 
@@ -332,7 +332,7 @@ ViewHintDialog::ViewHintDialog(void)
 ViewHintDialog::~ViewHintDialog(void)
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 void ViewHintDialog::Create(GtkWindow *parent, const char *info)

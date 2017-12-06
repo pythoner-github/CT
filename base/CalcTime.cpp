@@ -8,27 +8,27 @@
 
 CalcTime::CalcTime()
 {
-	Init();
+    Init();
 }
 
 void CalcTime::Init()
 {
-	m_start.tv_sec = 0;
-	m_start.tv_usec = 0;
+    m_start.tv_sec = 0;
+    m_start.tv_usec = 0;
 
-	m_end.tv_sec = 0;
-	m_end.tv_usec = 0;
+    m_end.tv_sec = 0;
+    m_end.tv_usec = 0;
 }
 
 void CalcTime::Restart()
 {
-	Init();
-	Begin();
+    Init();
+    Begin();
 }
 
 void CalcTime::Begin()
 {
-	gettimeofday(&m_start, NULL);
+    gettimeofday(&m_start, NULL);
 }
 
 /*
@@ -38,12 +38,12 @@ void CalcTime::Begin()
  */
 float CalcTime::End()
 {
-	gettimeofday(&m_end, NULL);
+    gettimeofday(&m_end, NULL);
 
-	float timeUse;
+    float timeUse;
     timeUse = (m_end.tv_sec - m_start.tv_sec)*1000000 + (m_end.tv_usec - m_start.tv_usec);
     PRINTF("Time use: %fus\n", timeUse);
 
-	m_start = m_end;
-	return timeUse;
+    m_start = m_end;
+    return timeUse;
 }

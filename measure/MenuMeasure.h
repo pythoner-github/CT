@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef MENU_MEASURE_H
 #define MENU_MEASURE_H
 
@@ -41,7 +40,7 @@ private:
     GtkWidget *m_scrolledWindow;
     TreeMenu m_treeMenu;
     GtkWidget *m_treeView;
-    string m_examItem;	//name of exam item.
+    string m_examItem;  //name of exam item.
     ScanMode::EScanMode m_scanMode;
     bool *m_completeMeasureFlag;
 

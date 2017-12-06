@@ -1,16 +1,15 @@
-// -*- c++ -*-
 #ifndef VIEWMAIN_H
 #define VIEWMAIN_H
 
 #include "keyboard/KeyValueOpr.h"
 #include "keyboard/KnobEvent.h"
 
-#define TOP_AREA_X 180 //ModLayout 180 PreLayout 220
+#define TOP_AREA_X 180 // ModLayout 180 PreLayout 220
 #define TOP_AREA_Y 0
 
 #define GAP_AREA_H 2
 
-#define IMG_AREA_X 180 //ModLayout 180 PreLayout 220
+#define IMG_AREA_X 180 // ModLayout 180 PreLayout 220
 #define IMG_AREA_Y 100
 
 // #define STATUS_X 220
@@ -18,15 +17,15 @@
 // #define STATUS_WIDTH 150
 // #define STATUS_HEIGHT (45-2)
 
-//#define HINT_X (370+2)
-#define HINT_X 180 //ModLayout 180 PreLayout 220
-#define HINT_Y 660 //ModLayout 664 PreLayout 642
+// #define HINT_X (370+2)
+#define HINT_X 180 // ModLayout 180 PreLayout 220
+#define HINT_Y 660 // ModLayout 664 PreLayout 642
 
-#define KNOB_X 180 //ModLayout 180 PreLayout 220
-#define KNOB_Y 705 //ModLayout 705 PreLayout 685
+#define KNOB_X 180 // ModLayout 180 PreLayout 220
+#define KNOB_Y 705 // ModLayout 705 PreLayout 685
 
-#define SYSCURSOR_X (TOP_AREA_X/2)//110//238
-#define SYSCUROSR_Y (SCREEN_HEIGHT/4)//90
+#define SYSCURSOR_X (TOP_AREA_X/2)      // 110  // 238
+#define SYSCUROSR_Y (SCREEN_HEIGHT/4)   // 90
 
 gboolean UpdateTopArea(gpointer data);
 void InvisibleCursor(bool invisible, bool resetCursor=TRUE);
@@ -51,8 +50,8 @@ public:
     void Create(void);
     void Show(void);
     void Hide(void);
-	void ShowMenu(void);
-	void HideMenu(void);
+    void ShowMenu(void);
+    void HideMenu(void);
 
     void MenuReviewCallBack(void);
 
@@ -63,15 +62,15 @@ public:
     void SliderEvent(unsigned char keyValue, unsigned char offset);
     void MouseEvent(char offsetX, char offsetY);
     void KnobKeyEvent(unsigned char keyValue);
-	bool GetCursorVisible(void) { return m_cursorVisible; }
-	void SetCursorVisible(bool visible) { m_cursorVisible = visible; }
+    bool GetCursorVisible(void) { return m_cursorVisible; }
+    void SetCursorVisible(bool visible) { m_cursorVisible = visible; }
     bool GetModeIsFlag(){return m_modeIsFlag;}
 private:
     ViewMain();
 
     unsigned char m_keyValue;
     static ViewMain* m_ptrInstance;
-	static bool m_cursorVisible;
+    static bool m_cursorVisible;
     int countN;
     bool m_modeIsFlag;
     GtkWidget* m_mainWindow;
@@ -87,7 +86,7 @@ private:
     KnobProjectMode *m_ptrKnobProjectMode;
 #endif
     //signal handle
-//signal connect
+    //signal connect
 
     void MySleep(int msecond);
     int keyTSIN;

@@ -29,7 +29,7 @@ class MultiFuncFocus: public AbsMultiFunc
 #ifndef EMP_355
                 HintArea::GetInstance()->UpdateHint(_("[Focus]: Mouse to move focus, <Value> to change focus sum."));
 #endif
-			g_ptrKeyFunc = ChgFocusNum;
+            g_ptrKeyFunc = ChgFocusNum;
         }
 
         ~MultiFuncFocus()
@@ -53,13 +53,13 @@ class MultiFuncFocus: public AbsMultiFunc
 */
 class MultiFuncDepth: public AbsMultiFunc
 {
-	public:
-		MultiFuncDepth()
-		{
+    public:
+        MultiFuncDepth()
+        {
 #ifndef EMP_355
             HintArea::GetInstance()->UpdateHint(_("[Depth]: <Value> to change depth size."));
 #endif
-			g_ptrKeyFunc = D2PressDepth;
+            g_ptrKeyFunc = D2PressDepth;
 
         }
 
@@ -91,33 +91,33 @@ class MultiFuncLocalZoom: public AbsMultiFunc
 #endif
             m_changeSize = FALSE;
             Zoom::GetInstance()->LocalZoomInit();
-			Zoom::GetInstance()->SetLocalZoomBoxStatus(m_changeSize);
+            Zoom::GetInstance()->SetLocalZoomBoxStatus(m_changeSize);
             n1 = 0;
         }
-		~MultiFuncLocalZoom()
-		{
+        ~MultiFuncLocalZoom()
+        {
 
-			HintArea::GetInstance()->ClearHint();
-			Zoom::GetInstance()->ClearLocalZoom();
+            HintArea::GetInstance()->ClearHint();
+            Zoom::GetInstance()->ClearLocalZoom();
             if((MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)&&(!(Zoom::GetInstance()->GetLocalZoomStatus())))
             {
 #if (defined (EMP_322) || defined(EMP_313))
             g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
 #endif
             }
-		}
+        }
 
-		void Do();
-		void Undo();
-		void Update();
-		void Mouse(int offsetX, int offsetY); ///< change sample box's position
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
+        void Do();
+        void Undo();
+        void Update();
+        void Mouse(int offsetX, int offsetY); ///< change sample box's position
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
 
-	private:
-		int n1;
+    private:
+        int n1;
         bool m_changeSize; //true: change size, false: move pos
 };
 
@@ -126,33 +126,33 @@ class MultiFuncLocalZoom: public AbsMultiFunc
  */
 class MultiFuncGlobalZoom: public AbsMultiFunc
 {
-	public:
-		MultiFuncGlobalZoom()
-		{
+    public:
+        MultiFuncGlobalZoom()
+        {
 #ifdef EMP_355
             HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: <Auto> to change scale, Mouse to scroll."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: <Value> to change scale, Mouse to scroll."));
 #endif
-			Zoom::GetInstance()->GlobalZoomCtrl(TRUE);
+            Zoom::GetInstance()->GlobalZoomCtrl(TRUE);
             g_ptrKeyFunc = GlobalZoom;
 
-		}
-		~MultiFuncGlobalZoom()
+        }
+        ~MultiFuncGlobalZoom()
         {
             HintArea::GetInstance()->ClearHint();
             Zoom::GetInstance()->GlobalZoomCtrl(FALSE);
             g_ptrKeyFunc = NULL;
 
-		}
+        }
 
-		void Value(EKnobOper opr); ///< change scale
-		void Mouse(int offsetX, int offsetY); ///< change sample box's position
-		void Undo();
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
+        void Value(EKnobOper opr); ///< change scale
+        void Mouse(int offsetX, int offsetY); ///< change sample box's position
+        void Undo();
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
 };
 
 /*
@@ -160,33 +160,33 @@ class MultiFuncGlobalZoom: public AbsMultiFunc
  */
 class MultiFuncPIPZoom: public AbsMultiFunc
 {
-	public:
-		MultiFuncPIPZoom()
-		{
+    public:
+        MultiFuncPIPZoom()
+        {
 #ifdef EMP_355
             HintArea::GetInstance()->UpdateHint(_("[PIP]: <Auto> to change scale, Mouse to Move Magnifier."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[PIP]: <Value> to change scale, Mouse to Move Magnifier."));
 #endif
-			Zoom::GetInstance()->PIPZoomCtrl(TRUE);
+            Zoom::GetInstance()->PIPZoomCtrl(TRUE);
             g_ptrKeyFunc = PIPZoom;
 
-		}
-		~MultiFuncPIPZoom()
+        }
+        ~MultiFuncPIPZoom()
         {
             HintArea::GetInstance()->ClearHint();
             Zoom::GetInstance()->PIPZoomCtrl(FALSE);
             g_ptrKeyFunc = NULL;
 
-		}
+        }
 
-		void Value(EKnobOper opr); ///< change scale
-		void Mouse(int offsetX, int offsetY); ///< change sample box's position
-		void Undo();
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
+        void Value(EKnobOper opr); ///< change scale
+        void Mouse(int offsetX, int offsetY); ///< change sample box's position
+        void Undo();
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
 };
 
 /*
@@ -221,12 +221,12 @@ class MultiFuncMeasure: public AbsMultiFunc
         void KeyUp();
         void KeyDown();
 
-	private:
+    private:
         POINT m_p;
         MeasureDraw m_draw;
         //AbsUpdateMix* m_ptrUpdateMea;
 
-		POINT GetPoint(int offsetX, int offsetY);
+        POINT GetPoint(int offsetX, int offsetY);
 };
 
 #if 0
@@ -258,7 +258,7 @@ class MultiFuncCalc: public AbsMultiFunc
         }
         void Undo();
 
-	private:
+    private:
         AbsUpdateMix* m_ptrUpdateCal;
 
 };
@@ -268,17 +268,17 @@ class MultiFuncCalc: public AbsMultiFunc
  */
 class MultiFuncText: public AbsMultiFunc
 {
-	public:
-		MultiFuncText()
-		{
-			PRINTF("enter text mode\n");
-			NoteArea::GetInstance()->Enter();
-		}
-		~MultiFuncText()
-		{
-			PRINTF("exit text mode\n");
-			NoteArea::GetInstance()->Hide();
-		}
+    public:
+        MultiFuncText()
+        {
+            PRINTF("enter text mode\n");
+            NoteArea::GetInstance()->Enter();
+        }
+        ~MultiFuncText()
+        {
+            PRINTF("exit text mode\n");
+            NoteArea::GetInstance()->Hide();
+        }
         void Undo();
 };
 
@@ -287,9 +287,9 @@ class MultiFuncText: public AbsMultiFunc
  */
 class MultiFuncGrayTrans: public AbsMultiFunc
 {
-	public:
+    public:
         MultiFuncGrayTrans()
-		{
+        {
 #if (defined(EMP_322) || defined(EMP_313))
             HintArea::GetInstance()->UpdateHint(_("[Gray Transform]: Mouse to move dot, <Value> to select dot, <Set> to select curve."));
 #elif defined EMP_355
@@ -300,21 +300,21 @@ class MultiFuncGrayTrans: public AbsMultiFunc
 #endif
             ImgProc2D::GetInstance()->DisplayGrayTrans(TRUE);
             g_ptrKeyFunc = GrayTransport;
-		}
+        }
 
-		~MultiFuncGrayTrans()
-		{
+        ~MultiFuncGrayTrans()
+        {
             HintArea::GetInstance()->ClearHint();
             ImgProc2D::GetInstance()->DisplayGrayTrans(FALSE);
             g_ptrKeyFunc = NULL;
-		}
-		void Mouse(int offsetX, int offsetY);
-		void Value(EKnobOper opr);
+        }
+        void Mouse(int offsetX, int offsetY);
+        void Value(EKnobOper opr);
         void Do();
-		void Undo();
-		void Update();
-		void KeyUp();
-		void KeyDown();
+        void Undo();
+        void Update();
+        void KeyUp();
+        void KeyDown();
 };
 
 /*
@@ -322,22 +322,22 @@ class MultiFuncGrayTrans: public AbsMultiFunc
  */
 class MultiFuncGrayReject: public AbsMultiFunc
 {
-	public:
-		MultiFuncGrayReject()
-		{
-			HintArea::GetInstance()->UpdateHint(_("[Gray Reject]: Mouse to move position."));
-			ImgProc2D::GetInstance()->DisplayGrayReject(TRUE);
-		}
+    public:
+        MultiFuncGrayReject()
+        {
+            HintArea::GetInstance()->UpdateHint(_("[Gray Reject]: Mouse to move position."));
+            ImgProc2D::GetInstance()->DisplayGrayReject(TRUE);
+        }
 
-		~MultiFuncGrayReject()
-		{
-			HintArea::GetInstance()->ClearHint();
-			ImgProc2D::GetInstance()->DisplayGrayReject(FALSE);
-		}
-		void Mouse(int offsetX, int offsetY);
-		void Undo();
-		void KeyLeft();
-		void KeyRight();
+        ~MultiFuncGrayReject()
+        {
+            HintArea::GetInstance()->ClearHint();
+            ImgProc2D::GetInstance()->DisplayGrayReject(FALSE);
+        }
+        void Mouse(int offsetX, int offsetY);
+        void Undo();
+        void KeyLeft();
+        void KeyRight();
 };
 /*
  * @brief freq. reject
@@ -391,28 +391,28 @@ class MultiFuncChroma: public AbsMultiFunc
 
 /*class MultiFuncBiopsyVerify: public AbsMultiFunc,public FakeXEvent
 {
-	public:
-		MultiFuncBiopsyVerify()
-		{
+    public:
+        MultiFuncBiopsyVerify()
+        {
             HintArea::GetInstance()->UpdateHint(_("[Verify]: <Value> to adjust angle, Mouse to adjust position."));
-		}
-		~MultiFuncBiopsyVerify()
+        }
+        ~MultiFuncBiopsyVerify()
         {
             HintArea::GetInstance()->ClearHint();
-		}
+        }
 
-		void Value(EKnobOper opr); ///< verify angle
-		void Mouse(int offsetX, int offsetY); ///< verify position
-		void Undo();
-		void Do();
+        void Value(EKnobOper opr); ///< verify angle
+        void Mouse(int offsetX, int offsetY); ///< verify position
+        void Undo();
+        void Do();
 
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		//------2016.09.11--------------------------------//
-		void KeyEvent(unsigned char keyValue);
-		//------------------------------------------//
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        //------2016.09.11--------------------------------//
+        void KeyEvent(unsigned char keyValue);
+        //------------------------------------------//
 };*/
 
 /*@brief biopsy */
@@ -421,38 +421,38 @@ class MultiFuncChroma: public AbsMultiFunc
 {
     public:
     void Mouse(int offsetX, int offsetY);
-	void Undo();
-	void Do();
-	//------2016.09.11--------------------------------//
-	void KeyEvent(unsigned char keyValue);
-	//------------------------------------------//
+    void Undo();
+    void Do();
+    //------2016.09.11--------------------------------//
+    void KeyEvent(unsigned char keyValue);
+    //------------------------------------------//
 
 };*/
 class MultiFuncBiopsyVerify: public AbsMultiFunc
 {
-	public:
-		MultiFuncBiopsyVerify()
-		{
+    public:
+        MultiFuncBiopsyVerify()
+        {
 #ifdef EMP_355
             HintArea::GetInstance()->UpdateHint(_("[Verify]: <Auto> to adjust angle, Mouse to adjust position."));
         #else
  HintArea::GetInstance()->UpdateHint(_("[Verify]: <Value> to adjust angle, Mouse to adjust position."));
 #endif
-		}
-		~MultiFuncBiopsyVerify()
+        }
+        ~MultiFuncBiopsyVerify()
         {
             HintArea::GetInstance()->ClearHint();
-		}
+        }
 
-		void Value(EKnobOper opr); ///< verify angle
-		void Mouse(int offsetX, int offsetY); ///< verify position
-		void Undo();
-		void Do();
+        void Value(EKnobOper opr); ///< verify angle
+        void Mouse(int offsetX, int offsetY); ///< verify position
+        void Undo();
+        void Do();
 
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
 };
 
 /*@brief biopsy */
@@ -461,8 +461,8 @@ class MultiFuncBiopsy: public AbsMultiFunc
 {
     public:
     void Mouse(int offsetX, int offsetY);
-	void Undo();
-	void Do();
+    void Undo();
+    void Do();
 
 };
 

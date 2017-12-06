@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef MEASURE_DRAW_H
 #define MEASURE_DRAW_H
 
@@ -26,8 +25,8 @@ public:
     int GetConfirmColor(void);
     void SetCurColor(int color);
     int GetCurColor(void);
-	int GetOrderNumber(void);
-	void SetOrderNumber(int number);
+    int GetOrderNumber(void);
+    void SetOrderNumber(int number);
 
     POINT DrawInitialCursor(void);
     POINT DrawInitialHLine(bool isCur=TRUE);
@@ -39,13 +38,13 @@ public:
     void DrawTraceLine(POINT p1, POINT p2, bool isCur=FALSE, EDrawMode mode=XOR);
     void DrawINTEGRALTraceLine(POINT p1, POINT p2, bool isCur=FALSE, EDrawMode mode=XOR);
     void DrawLine(POINT p1, POINT p2, bool isCur=FALSE, EDrawMode mode=XOR);
-	void DrawDotLine(POINT p1, POINT p2, bool isCur=FALSE, EDrawMode mode=XOR);
+    void DrawDotLine(POINT p1, POINT p2, bool isCur=FALSE, EDrawMode mode=XOR);
     void DrawHDotLine(POINT p, bool isCur=TRUE, EDrawMode mode=XOR);
     void DrawVDotLine(POINT p, bool isCur=TRUE, EDrawMode mode=XOR);
     void DrawHLine(POINT p, bool isCur=TRUE, EDrawMode mode=XOR);
     void DrawVLine(POINT p, bool isCur=TRUE, EDrawMode mode=XOR); // no cursor
     void DrawTanBeeline(POINT point, double tan, bool isCur=FALSE, EDrawMode mode=XOR);
-	vector<POINT> DrawTanLineSegment(POINT point1, double angle, int length, bool isCur=FALSE, EDrawMode mode=XOR);
+    vector<POINT> DrawTanLineSegment(POINT point1, double angle, int length, bool isCur=FALSE, EDrawMode mode=XOR);
     void DrawDotBeeline(POINT point1, POINT point2, bool isCur=FALSE, EDrawMode mode=XOR);
     void DrawCrossLine(POINT p, bool isCur=TRUE, EDrawMode mode=XOR);
 
@@ -65,9 +64,9 @@ public:
     void DrawIMTIntima(POINT start, unsigned int *pIntima, int count, bool draw);
     void DrawIMTAdvent(POINT start, unsigned int *pAdventitia, int count, bool draw);
 
-	void DrawAngleArc(POINT center, POINT left, POINT right, bool isCur=TRUE, EDrawMode mode=XOR);
-	void DrawOrderNumber(POINT p, int orderNumber, EDrawMode mode = XOR);
-	void ChangeOrderNumber(void);
+    void DrawAngleArc(POINT center, POINT left, POINT right, bool isCur=TRUE, EDrawMode mode=XOR);
+    void DrawOrderNumber(POINT p, int orderNumber, EDrawMode mode = XOR);
+    void ChangeOrderNumber(void);
     void DrawOrderNumberForErase(POINT p, int orderNumber, int confirmColor, EDrawMode mode = XOR);
 
     void DrawFanshaped(POINT center, POINT left, POINT right, double angle);
@@ -79,7 +78,7 @@ private:
     static int m_cursorType;
     int m_cursorSize;
     static POINT m_cursor; // point of measure, according to image area
-	static int m_orderNumber;
+    static int m_orderNumber;
 
     int m_colorCurIndex;
     int m_colorConfirmIndex;
@@ -130,12 +129,12 @@ inline void MeasureDraw::SetConfirmColor(int color)
 
 inline void MeasureDraw::SetCursor( POINT p )
 {
-	m_cursor = p;
+    m_cursor = p;
 }
 
 inline POINT MeasureDraw::GetCursor(void)
 {
-	return m_cursor;
+    return m_cursor;
 }
 
 inline int MeasureDraw::GetOrderNumber(void)
@@ -149,7 +148,7 @@ inline int MeasureDraw::GetOrderNumber(void)
         measure_line_max = 10;
     }
     if (m_orderNumber > measure_line_max)
-		m_orderNumber = 1;
+        m_orderNumber = 1;
 #endif
 
     return m_orderNumber;
@@ -157,7 +156,7 @@ inline int MeasureDraw::GetOrderNumber(void)
 
 inline void MeasureDraw::SetOrderNumber(int number)
 {
-	m_orderNumber = number;
+    m_orderNumber = number;
 }
 
 #endif

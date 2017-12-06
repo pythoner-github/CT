@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef _HINT_AREA_H_
 #define _HINT_AREA_H_
 
@@ -31,9 +30,9 @@ private:
     void HintAreaExpose(GtkWidget *widget, GdkEventExpose *event);
 //signal connect
     static gboolean HandleHintAreaConfigure(GtkWidget *widget, GdkEventConfigure *event, HintArea *data)
-	{ data->HintAreaConfigure(widget, event); return FALSE; }
+    { data->HintAreaConfigure(widget, event); return FALSE; }
     static gboolean HandleHintAreaExpose(GtkWidget *widget, GdkEventExpose *event, HintArea *data)
-	{ data->HintAreaExpose(widget, event); return FALSE; }
+    { data->HintAreaExpose(widget, event); return FALSE; }
 };
 
 #endif

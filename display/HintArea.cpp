@@ -11,7 +11,7 @@ HintArea* HintArea::m_ptrInstance = NULL;
 HintArea* HintArea::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new HintArea;
+    m_ptrInstance = new HintArea;
     return m_ptrInstance;
 }
 
@@ -25,16 +25,16 @@ HintArea::HintArea(void)
 HintArea::~HintArea()
 {
     if (m_ptrInstance != NULL)
-    	delete m_ptrInstance;
+        delete m_ptrInstance;
 }
 
 gboolean HandleClearHint(gpointer data)
 {
-	HintArea *tmp;
-	tmp = (HintArea *)data;
-	tmp->ClearHint();
-	tmp->m_timeout = 0;
-	return FALSE;
+    HintArea *tmp;
+    tmp = (HintArea *)data;
+    tmp->ClearHint();
+    tmp->m_timeout = 0;
+    return FALSE;
 }
 
 /*
@@ -71,7 +71,7 @@ void HintArea::UpdateHint(const char *text, int timeout)
         }
 
     if (timeout == 0)
-	return;
+    return;
 
         if(m_timeout > 0) {
             g_source_remove(m_timeout);
@@ -111,11 +111,11 @@ GtkWidget * HintArea::Create(void)
 void HintArea::HintAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 {
     if (m_pixmapHint)
-	g_object_unref(m_pixmapHint);
+    g_object_unref(m_pixmapHint);
     m_pixmapHint = gdk_pixmap_new(widget->window,
-				  widget->allocation.width,
-				  widget->allocation.height,
-				  -1);
+                  widget->allocation.width,
+                  widget->allocation.height,
+                  -1);
 
     GdkGC *gc = gdk_gc_new(m_pixmapHint);
     gdk_gc_set_foreground(gc, g_black);
@@ -126,11 +126,11 @@ void HintArea::HintAreaConfigure(GtkWidget *widget, GdkEventConfigure *event)
 void HintArea::HintAreaExpose(GtkWidget *widget, GdkEventExpose *event)
 {
     gdk_draw_drawable(widget->window,
-		      widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
-		      m_pixmapHint,
-		      0, 0,
-		      0, 0,
-		      HINT_AREA_W, HINT_AREA_H);
+              widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+              m_pixmapHint,
+              0, 0,
+              0, 0,
+              HINT_AREA_W, HINT_AREA_H);
 }
 
 void HintArea::DrawString(const char *str, int x, int y, GdkColor *color, PangoFontDescription *font)
@@ -140,7 +140,7 @@ void HintArea::DrawString(const char *str, int x, int y, GdkColor *color, PangoF
     GdkGC *gc = gdk_gc_new(m_pixmapHint);
     PangoLayout *layout = gtk_widget_create_pango_layout(m_hintArea, str);
     if (font)
-    	pango_layout_set_font_description(layout, font);
+        pango_layout_set_font_description(layout, font);
     pango_layout_set_alignment(layout, PANGO_ALIGN_LEFT);
     pango_layout_get_pixel_size(layout, &width, &height);
 

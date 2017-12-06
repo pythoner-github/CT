@@ -37,13 +37,13 @@ ViewTemplet::ViewTemplet()
 ViewTemplet::~ViewTemplet()
 {
     if(m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 ViewTemplet* ViewTemplet::GetInstance()
 {
     if(m_ptrInstance == NULL)
-	m_ptrInstance = new ViewTemplet;
+    m_ptrInstance = new ViewTemplet;
 
     return m_ptrInstance;
 }
@@ -80,7 +80,7 @@ void ViewTemplet::CreateWindow(void)
     gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
     gtk_window_set_destroy_with_parent (GTK_WINDOW (m_window), TRUE);
     gtk_window_set_decorated (GTK_WINDOW (m_window), FALSE);
-	gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
+    gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
 
     fixed = gtk_fixed_new ();
     gtk_widget_show (fixed);
@@ -245,12 +245,12 @@ void ViewTemplet::CreateWindow(void)
 
 void ViewTemplet::DestroyWindow(void)
 {
-	if(GTK_IS_WIDGET(m_window))
-	{
-		g_keyInterface.Pop();
-		gtk_widget_destroy(m_window);
+    if(GTK_IS_WIDGET(m_window))
+    {
+        g_keyInterface.Pop();
+        gtk_widget_destroy(m_window);
         m_window = NULL;
-	}
+    }
 }
 
 static gboolean ExitWindow(gpointer data)
@@ -263,30 +263,30 @@ static gboolean ExitWindow(gpointer data)
 
 void ViewTemplet::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-			if(GTK_WIDGET_VISIBLE(m_button_return))
-				ReturnClicked(GTK_BUTTON(m_button_return));
-			else
-			{
-				g_timeout_add(100, ExitWindow, this);
-				FakeEscKey();
-			}
-		    break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+            if(GTK_WIDGET_VISIBLE(m_button_return))
+                ReturnClicked(GTK_BUTTON(m_button_return));
+            else
+            {
+                g_timeout_add(100, ExitWindow, this);
+                FakeEscKey();
+            }
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 
 void ViewTemplet::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data)
 {
-	const char *str="";
-	static char lastStr[30] = "";
-	bool d_press = (bool)user_data;
+    const char *str="";
+    static char lastStr[30] = "";
+    bool d_press = (bool)user_data;
     str = gtk_tree_path_to_string(path);
     if (d_press)
     {
@@ -304,8 +304,8 @@ void ViewTemplet::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, Gt
     }
 
     gtk_tree_view_expand_row(tree_view, path, FALSE);
-	gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
-	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
+    gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
+    gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
  }
 
 gboolean ViewTemplet::BtnTempletClicked(GtkWidget *widget, GdkEventButton *event)
@@ -354,99 +354,99 @@ GtkTreeModel* ViewTemplet::CreateTreeModel(void)
 
     gtk_tree_store_append(store, &m_topIter, NULL);
     gtk_tree_store_set(store, &m_topIter,
-		       0, _("Ultrasonic"),
-		       -1);
+               0, _("Ultrasonic"),
+               -1);
 
     OpenDB();
     sqlite3_stmt *stmt_f1=NULL;
     string sql_f1 = "SELECT DISTINCT f1 FROM templet";
     if (sqlite3_prepare(m_db_templet, sql_f1.c_str(), sql_f1.size(), &stmt_f1, 0) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-	return NULL;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+    return NULL;
     }
     while (sqlite3_step(stmt_f1) != SQLITE_DONE) {
-	const char *f1 = (const char *)sqlite3_column_text(stmt_f1, 0);
-	if (strcmp(f1, "") == 0)
-	    continue;
-	gtk_tree_store_append(store, &first_iter, &m_topIter);
-	gtk_tree_store_set(store, &first_iter, 0, f1, -1);
+    const char *f1 = (const char *)sqlite3_column_text(stmt_f1, 0);
+    if (strcmp(f1, "") == 0)
+        continue;
+    gtk_tree_store_append(store, &first_iter, &m_topIter);
+    gtk_tree_store_set(store, &first_iter, 0, f1, -1);
 
-	sqlite3_stmt *stmt_f2 = NULL;
-	string sql_f2 = "SELECT DISTINCT f2 FROM templet WHERE f1 = ?";
-	if (sqlite3_prepare(m_db_templet, sql_f2.c_str(), sql_f2.size(), &stmt_f2, 0) != SQLITE_OK) {
-	    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-	    return NULL;
-	}
-	if (sqlite3_bind_text(stmt_f2, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
-	    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-	    sqlite3_finalize(stmt_f2);
-	    return NULL;
-	}
-	while (sqlite3_step(stmt_f2) != SQLITE_DONE) {
-	    const char *f2 = (const char *)sqlite3_column_text(stmt_f2, 0);
-	    if (strcmp(f2, "") == 0)
-		continue;
-	    gtk_tree_store_append(store, &second_iter, &first_iter);
-	    gtk_tree_store_set(store, &second_iter, 0, f2, -1);
+    sqlite3_stmt *stmt_f2 = NULL;
+    string sql_f2 = "SELECT DISTINCT f2 FROM templet WHERE f1 = ?";
+    if (sqlite3_prepare(m_db_templet, sql_f2.c_str(), sql_f2.size(), &stmt_f2, 0) != SQLITE_OK) {
+        PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+        return NULL;
+    }
+    if (sqlite3_bind_text(stmt_f2, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
+        PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+        sqlite3_finalize(stmt_f2);
+        return NULL;
+    }
+    while (sqlite3_step(stmt_f2) != SQLITE_DONE) {
+        const char *f2 = (const char *)sqlite3_column_text(stmt_f2, 0);
+        if (strcmp(f2, "") == 0)
+        continue;
+        gtk_tree_store_append(store, &second_iter, &first_iter);
+        gtk_tree_store_set(store, &second_iter, 0, f2, -1);
 
-	    sqlite3_stmt *stmt_f3 = NULL;
-	    string sql_f3 = "SELECT DISTINCT f3 FROM templet WHERE f1 = ? AND f2 = ?";
-	    if (sqlite3_prepare(m_db_templet, sql_f3.c_str(), sql_f3.size(), &stmt_f3, 0) != SQLITE_OK) {
-		PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		return NULL;
-	    }
-	    if (sqlite3_bind_text(stmt_f3, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
-		PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		sqlite3_finalize(stmt_f3);
-		return NULL;
-	    }
-	    if (sqlite3_bind_text(stmt_f3, 2, f2, strlen(f2), SQLITE_TRANSIENT) != SQLITE_OK) {
-		PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		sqlite3_finalize(stmt_f3);
-		return NULL;
-	    }
-	    while (sqlite3_step(stmt_f3) != SQLITE_DONE) {
-		const char *f3 = (const char *)sqlite3_column_text(stmt_f3, 0);
-		if (strcmp(f3, "") == 0)
-		    continue;
-		gtk_tree_store_append(store, &third_iter, &second_iter);
-		gtk_tree_store_set(store, &third_iter, 0, f3, -1);
+        sqlite3_stmt *stmt_f3 = NULL;
+        string sql_f3 = "SELECT DISTINCT f3 FROM templet WHERE f1 = ? AND f2 = ?";
+        if (sqlite3_prepare(m_db_templet, sql_f3.c_str(), sql_f3.size(), &stmt_f3, 0) != SQLITE_OK) {
+        PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+        return NULL;
+        }
+        if (sqlite3_bind_text(stmt_f3, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
+        PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+        sqlite3_finalize(stmt_f3);
+        return NULL;
+        }
+        if (sqlite3_bind_text(stmt_f3, 2, f2, strlen(f2), SQLITE_TRANSIENT) != SQLITE_OK) {
+        PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+        sqlite3_finalize(stmt_f3);
+        return NULL;
+        }
+        while (sqlite3_step(stmt_f3) != SQLITE_DONE) {
+        const char *f3 = (const char *)sqlite3_column_text(stmt_f3, 0);
+        if (strcmp(f3, "") == 0)
+            continue;
+        gtk_tree_store_append(store, &third_iter, &second_iter);
+        gtk_tree_store_set(store, &third_iter, 0, f3, -1);
 
-		sqlite3_stmt *stmt_f4 = NULL;
-		string sql_f4 = "SELECT DISTINCT f4 FROM templet WHERE f1 = ? AND f2 = ? AND f3 = ?";
-		if (sqlite3_prepare(m_db_templet, sql_f4.c_str(), sql_f4.size(), &stmt_f4, 0) != SQLITE_OK) {
-		    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		    return NULL;
-		}
-		if (sqlite3_bind_text(stmt_f4, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
-		    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		    sqlite3_finalize(stmt_f4);
-		    return NULL;
-		}
-		if (sqlite3_bind_text(stmt_f4, 2, f2, strlen(f2), SQLITE_TRANSIENT) != SQLITE_OK) {
-		    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		    sqlite3_finalize(stmt_f4);
-		    return NULL;
-		}
-		if (sqlite3_bind_text(stmt_f4, 3, f3, strlen(f3), SQLITE_TRANSIENT) != SQLITE_OK) {
-		    PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
-		    sqlite3_finalize(stmt_f4);
-		    return NULL;
-		}
-		while (sqlite3_step(stmt_f4) != SQLITE_DONE) {
-		    const char *f4 = (const char *)sqlite3_column_text(stmt_f4, 0);
-		    if (strcmp(f4, "") == 0)
-			continue;
-		    gtk_tree_store_append(store, &fourth_iter, &third_iter);
-		    gtk_tree_store_set(store, &fourth_iter, 0, f4, -1);
-		}
-		sqlite3_finalize(stmt_f4);
-	    }
-	    sqlite3_finalize(stmt_f3);
-	}
-	sqlite3_finalize(stmt_f2);
+        sqlite3_stmt *stmt_f4 = NULL;
+        string sql_f4 = "SELECT DISTINCT f4 FROM templet WHERE f1 = ? AND f2 = ? AND f3 = ?";
+        if (sqlite3_prepare(m_db_templet, sql_f4.c_str(), sql_f4.size(), &stmt_f4, 0) != SQLITE_OK) {
+            PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+            return NULL;
+        }
+        if (sqlite3_bind_text(stmt_f4, 1, f1, strlen(f1), SQLITE_TRANSIENT) != SQLITE_OK) {
+            PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+            sqlite3_finalize(stmt_f4);
+            return NULL;
+        }
+        if (sqlite3_bind_text(stmt_f4, 2, f2, strlen(f2), SQLITE_TRANSIENT) != SQLITE_OK) {
+            PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+            sqlite3_finalize(stmt_f4);
+            return NULL;
+        }
+        if (sqlite3_bind_text(stmt_f4, 3, f3, strlen(f3), SQLITE_TRANSIENT) != SQLITE_OK) {
+            PRINTF("%s\n", sqlite3_errmsg(m_db_templet));
+            sqlite3_finalize(stmt_f4);
+            return NULL;
+        }
+        while (sqlite3_step(stmt_f4) != SQLITE_DONE) {
+            const char *f4 = (const char *)sqlite3_column_text(stmt_f4, 0);
+            if (strcmp(f4, "") == 0)
+            continue;
+            gtk_tree_store_append(store, &fourth_iter, &third_iter);
+            gtk_tree_store_set(store, &fourth_iter, 0, f4, -1);
+        }
+        sqlite3_finalize(stmt_f4);
+        }
+        sqlite3_finalize(stmt_f3);
+    }
+    sqlite3_finalize(stmt_f2);
     }
     sqlite3_finalize(stmt_f1);
 
@@ -492,8 +492,8 @@ bool ViewTemplet::OpenDB(void)
 bool ViewTemplet::CloseDB(void)
 {
     if (sqlite3_close(m_db_templet) != SQLITE_OK) {
-	PRINTF("Database Close Error:%s\n", sqlite3_errmsg(m_db_templet));
-	return false;
+    PRINTF("Database Close Error:%s\n", sqlite3_errmsg(m_db_templet));
+    return false;
     }
     m_db_templet = 0;
     return true;
@@ -505,12 +505,12 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
     GtkTreeIter iter;
     //如果没有选中任何结点,直接返回
     if (gtk_tree_selection_get_selected(selection, &model, &iter) != TRUE)
-	return;
+    return;
     //如果选中的结点不是叶子结点,设置indication和comment为空,返回
     if (gtk_tree_model_iter_has_child(model, &iter)) {
-	gtk_text_buffer_set_text(m_buffer_indication, "", -1);
-	gtk_text_buffer_set_text(m_buffer_comments, "", -1);
-	return;
+    gtk_text_buffer_set_text(m_buffer_indication, "", -1);
+    gtk_text_buffer_set_text(m_buffer_comments, "", -1);
+    return;
     }
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
     int tree_depth = gtk_tree_path_get_depth(path);
@@ -520,41 +520,41 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
     ostringstream stream;
 
     if (tree_depth == 1) {
-	return;
+    return;
     }
     if (tree_depth == 2) {
-	gtk_tree_model_get(model, &iter, 0, &str1, -1);
-	stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "'";
+    gtk_tree_model_get(model, &iter, 0, &str1, -1);
+    stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "'";
     }
     else if (tree_depth == 3) {
-	GtkTreeIter iter_parent;
-	gtk_tree_model_get(model, &iter, 0, &str2, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent, &iter);
-	gtk_tree_model_get(model, &iter_parent, 0, &str1, -1);
-	stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "'";
+    GtkTreeIter iter_parent;
+    gtk_tree_model_get(model, &iter, 0, &str2, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent, &iter);
+    gtk_tree_model_get(model, &iter_parent, 0, &str1, -1);
+    stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "'";
     }
     else if (tree_depth == 4) {
-	GtkTreeIter iter_parent0;
-	GtkTreeIter iter_parent1;
-	gtk_tree_model_get(model, &iter, 0, &str3, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
-	gtk_tree_model_get(model, &iter_parent0, 0, &str2, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
-	gtk_tree_model_get(model, &iter_parent1, 0, &str1, -1);
-	stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "' AND f3 = '" << str3 << "'";
+    GtkTreeIter iter_parent0;
+    GtkTreeIter iter_parent1;
+    gtk_tree_model_get(model, &iter, 0, &str3, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
+    gtk_tree_model_get(model, &iter_parent0, 0, &str2, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
+    gtk_tree_model_get(model, &iter_parent1, 0, &str1, -1);
+    stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "' AND f3 = '" << str3 << "'";
     }
     else if (tree_depth == 5) {
-	GtkTreeIter iter_parent0;
-	GtkTreeIter iter_parent1;
-	GtkTreeIter iter_parent2;
-	gtk_tree_model_get(model, &iter, 0, &str4, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
-	gtk_tree_model_get(model, &iter_parent0, 0, &str3, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
-	gtk_tree_model_get(model, &iter_parent1, 0, &str2, -1);
-	gtk_tree_model_iter_parent(model, &iter_parent2, &iter_parent1);
-	gtk_tree_model_get(model, &iter_parent2, 0, &str1, -1);
-	stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "' AND f3 = '" << str3 << "' AND f4 = '" << str4 << "'";
+    GtkTreeIter iter_parent0;
+    GtkTreeIter iter_parent1;
+    GtkTreeIter iter_parent2;
+    gtk_tree_model_get(model, &iter, 0, &str4, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
+    gtk_tree_model_get(model, &iter_parent0, 0, &str3, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
+    gtk_tree_model_get(model, &iter_parent1, 0, &str2, -1);
+    gtk_tree_model_iter_parent(model, &iter_parent2, &iter_parent1);
+    gtk_tree_model_get(model, &iter_parent2, 0, &str1, -1);
+    stream << "SELECT indication, comments FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str2 << "' AND f3 = '" << str3 << "' AND f4 = '" << str4 << "'";
     }
 
     sqlite3_stmt *stmt = NULL;
@@ -563,16 +563,16 @@ void ViewTemplet::TreeSelectionChanged(GtkTreeSelection *selection)
 
     OpenDB();
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
-	return;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
+    return;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "indication") == 0)
-	    indication.assign((const char *)sqlite3_column_text(stmt, 0));
-	if (strcmp(sqlite3_column_name(stmt, 1), "comments") == 0)
-	    comments.assign((const char *)sqlite3_column_text(stmt, 1));
+    if (strcmp(sqlite3_column_name(stmt, 0), "indication") == 0)
+        indication.assign((const char *)sqlite3_column_text(stmt, 0));
+    if (strcmp(sqlite3_column_name(stmt, 1), "comments") == 0)
+        comments.assign((const char *)sqlite3_column_text(stmt, 1));
     }
     sqlite3_finalize(stmt);
 
@@ -591,9 +591,9 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select the father node before insert!"), NULL); //请先选择待插入结点的父结点
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select the father node before insert!"), NULL); //请先选择待插入结点的父结点
+        return;
     }
 
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
@@ -603,97 +603,97 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     ostringstream stream;
 
     if (tree_depth == 1) {
-    	if (!UniqueItem(new_string)) {
-	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
-    	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					      _("Please rename the New Item!"), NULL); //请重命名新增结点!
-    	    return;
-    	}
-	stream << "INSERT INTO templet VALUES('" << new_string << "', '', '', '', '', '')";
+        if (!UniqueItem(new_string)) {
+        GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
+            gtk_tree_selection_select_iter(selected_node, &iter_tmp);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                              _("Please rename the New Item!"), NULL); //请重命名新增结点!
+            return;
+        }
+    stream << "INSERT INTO templet VALUES('" << new_string << "', '', '', '', '', '')";
     }
     //如果选中的结点为非叶子结点,则在数据库中插入数据,为叶子结点,则更新数据
     else if (tree_depth == 2) {
-	char *str;
-    	gtk_tree_model_get(model, &iter, 0, &str, -1);
-    	if (!UniqueItem(str, new_string)) {
-    	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
-    	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					      _("Please rename the New Item!"), NULL);
-    	    return;
-    	}
-    	if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
-	    stream << "INSERT INTO templet VALUES('" << str << "', '" << new_string << "', '', '', '', '')";
-    	else
-	    stream << "UPDATE templet SET f2 = '" << new_string << "' WHERE f1 = '" << str << "'";
+    char *str;
+        gtk_tree_model_get(model, &iter, 0, &str, -1);
+        if (!UniqueItem(str, new_string)) {
+            GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
+            gtk_tree_selection_select_iter(selected_node, &iter_tmp);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                              _("Please rename the New Item!"), NULL);
+            return;
+        }
+        if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
+        stream << "INSERT INTO templet VALUES('" << str << "', '" << new_string << "', '', '', '', '')";
+        else
+        stream << "UPDATE templet SET f2 = '" << new_string << "' WHERE f1 = '" << str << "'";
     }
     else if (tree_depth == 3) {
-	char *str0, *str1;
-	GtkTreeIter parent;
-    	gtk_tree_model_get(model, &iter, 0, &str1, -1);
-    	gtk_tree_model_iter_parent(model, &parent, &iter);
-    	gtk_tree_model_get(model, &parent, 0, &str0, -1);
+    char *str0, *str1;
+    GtkTreeIter parent;
+        gtk_tree_model_get(model, &iter, 0, &str1, -1);
+        gtk_tree_model_iter_parent(model, &parent, &iter);
+        gtk_tree_model_get(model, &parent, 0, &str0, -1);
 
-    	if (!UniqueItem(str0, str1, new_string)) {
-    	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
-    	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					      _("Please rename the New Item!"), NULL);
-    	    return;
-    	}
-    	if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
-	    stream << "INSERT INTO templet VALUES('"
-		   << str0 << "', '"
-		   << str1 << "', '"
-		   << new_string << "', '', '', '')";
-    	else
-	    stream << "UPDATE templet SET f3 = '" << new_string
-		   << "' WHERE f1 = '" << str0
-		   << "' AND f2 = '" << str1 << "'";
+        if (!UniqueItem(str0, str1, new_string)) {
+            GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
+            gtk_tree_selection_select_iter(selected_node, &iter_tmp);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                              _("Please rename the New Item!"), NULL);
+            return;
+        }
+        if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
+        stream << "INSERT INTO templet VALUES('"
+           << str0 << "', '"
+           << str1 << "', '"
+           << new_string << "', '', '', '')";
+        else
+        stream << "UPDATE templet SET f3 = '" << new_string
+           << "' WHERE f1 = '" << str0
+           << "' AND f2 = '" << str1 << "'";
     }
     else if (tree_depth == 4) {
-	char *str0, *str1, *str2;
-	GtkTreeIter parent1, parent2;
-    	gtk_tree_model_get(model, &iter, 0, &str2, -1);
-    	gtk_tree_model_iter_parent(model, &parent1, &iter);
-    	gtk_tree_model_get(model, &parent1, 0, &str1, -1);
-    	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    	gtk_tree_model_get(model, &parent2, 0, &str0, -1);
+    char *str0, *str1, *str2;
+    GtkTreeIter parent1, parent2;
+        gtk_tree_model_get(model, &iter, 0, &str2, -1);
+        gtk_tree_model_iter_parent(model, &parent1, &iter);
+        gtk_tree_model_get(model, &parent1, 0, &str1, -1);
+        gtk_tree_model_iter_parent(model, &parent2, &parent1);
+        gtk_tree_model_get(model, &parent2, 0, &str0, -1);
 
-    	if (!UniqueItem(str0, str1, str2, new_string)) {
-    	    GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
-    	    gtk_tree_selection_select_iter(selected_node, &iter_tmp);
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					      _("Please rename the New Item!"), NULL);
-    	    return;
-    	}
-    	if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
-	    stream << "INSERT INTO templet VALUES('"
-		   << str0 << "', '"
-		   << str1 << "', '"
-		   << str2 << "', '"
-		   << new_string << "', '', '')";
-    	else
-	    stream << "UPDATE templet SET f4 = '" << new_string
-		   << "' WHERE f1 = '" << str0
-		   << "' AND f2 = '" << str1
-		   << "' AND f3 = '" << str2 << "'";
+        if (!UniqueItem(str0, str1, str2, new_string)) {
+            GtkTreeIter iter_tmp = InsertUnique(model, &iter, new_string);
+            gtk_tree_selection_select_iter(selected_node, &iter_tmp);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                              _("Please rename the New Item!"), NULL);
+            return;
+        }
+        if (gtk_tree_model_iter_has_child(model, &iter) == TRUE)
+        stream << "INSERT INTO templet VALUES('"
+           << str0 << "', '"
+           << str1 << "', '"
+           << str2 << "', '"
+           << new_string << "', '', '')";
+        else
+        stream << "UPDATE templet SET f4 = '" << new_string
+           << "' WHERE f1 = '" << str0
+           << "' AND f2 = '" << str1
+           << "' AND f3 = '" << str2 << "'";
     }
     else if (tree_depth == 5) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Insert failure! Already the leaf node!"), NULL);//插入失败!已经到达末结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Insert failure! Already the leaf node!"), NULL);//插入失败!已经到达末结点!
+        return;
     }
 
     char *errmsg = NULL;
     string sql = stream.str();
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Database error!"), NULL);//数据库操作失败!
-    	PRINTF("INSERT or UPDATE error:%s!\n", errmsg);
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Database error!"), NULL);//数据库操作失败!
+        PRINTF("INSERT or UPDATE error:%s!\n", errmsg);
+        return;
     }
     CloseDB();
 
@@ -709,10 +709,10 @@ void ViewTemplet::InsertClicked(GtkButton *button)
     column_tree_view = gtk_tree_view_get_column(GTK_TREE_VIEW(m_treeView), 0);
 
     gtk_tree_view_set_cursor_on_cell(GTK_TREE_VIEW(m_treeView),
-    				     new_path,
-    				     column_tree_view,
-    				     m_renderer,
-    				     TRUE);
+                         new_path,
+                         column_tree_view,
+                         m_renderer,
+                         TRUE);
     gtk_tree_path_free (new_path);
 
   }
@@ -724,9 +724,9 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one node to be save!"), NULL); //请先选择待删除的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one node to be save!"), NULL); //请先选择待删除的结点!
+        return;
     }
 
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
@@ -734,77 +734,77 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
     gtk_tree_path_free(path);
 
     if (tree_depth == 1) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Delete failure! Can not delete the root!"), NULL); //删除失败!不能删除根结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Delete failure! Can not delete the root!"), NULL); //删除失败!不能删除根结点!
+        return;
     }
     ostringstream stream;
     if (tree_depth == 2) {
-	char *str;
-	gtk_tree_model_get(model, &iter, 0, &str, -1);
-	stream << "DELETE FROM templet WHERE f1 = '" << str << "'";
+    char *str;
+    gtk_tree_model_get(model, &iter, 0, &str, -1);
+    stream << "DELETE FROM templet WHERE f1 = '" << str << "'";
     }
     else if (tree_depth == 3) {
-	char *str0, *str1;
-	GtkTreeIter parent;
-	gtk_tree_model_get(model, &iter, 0, &str0, -1);
-	gtk_tree_model_iter_parent(model, &parent, &iter);
-	gtk_tree_model_get(model, &parent, 0, &str1, -1);
-	int nChild = gtk_tree_model_iter_n_children(model, &parent);
-	if (nChild == 1)
-	    stream << "UPDATE templet SET f2 = '' " << "WHERE f1 = '" << str1 << "'";
-	else if (nChild > 1)
-	    stream << "DELETE FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str0 << "'";
-	else {
-	    PRINTF("Delete Error!");
-	    return;
-	}
+    char *str0, *str1;
+    GtkTreeIter parent;
+    gtk_tree_model_get(model, &iter, 0, &str0, -1);
+    gtk_tree_model_iter_parent(model, &parent, &iter);
+    gtk_tree_model_get(model, &parent, 0, &str1, -1);
+    int nChild = gtk_tree_model_iter_n_children(model, &parent);
+    if (nChild == 1)
+        stream << "UPDATE templet SET f2 = '' " << "WHERE f1 = '" << str1 << "'";
+    else if (nChild > 1)
+        stream << "DELETE FROM templet WHERE f1 = '" << str1 << "' AND f2 = '" << str0 << "'";
+    else {
+        PRINTF("Delete Error!");
+        return;
+    }
     }
     else if (tree_depth == 4) {
-	char *str0, *str1, *str2;
-	GtkTreeIter parent1, parent2;
-	gtk_tree_model_get(model, &iter, 0, &str0, -1);
-	gtk_tree_model_iter_parent(model, &parent1, &iter);
-	gtk_tree_model_get(model, &parent1, 0, &str1, -1);
-	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-	gtk_tree_model_get(model, &parent2, 0, &str2, -1);
-	int nChild = gtk_tree_model_iter_n_children(model, &parent1);
-	if (nChild == 1)
-	    stream << "UPDATE templet SET f3 = '' " << "WHERE f1 = '" << str2 << "' AND f2 = '" << str1 << "'";
-	else if (nChild > 1)
-	    stream << "DELETE FROM templet WHERE f1 = '" << str2 << "' AND f2 = '" << str1 << "' AND f3 = '" << str0 << "'";
-	else {
-	    PRINTF("Delete Error!");
-	    return;
-	}
+    char *str0, *str1, *str2;
+    GtkTreeIter parent1, parent2;
+    gtk_tree_model_get(model, &iter, 0, &str0, -1);
+    gtk_tree_model_iter_parent(model, &parent1, &iter);
+    gtk_tree_model_get(model, &parent1, 0, &str1, -1);
+    gtk_tree_model_iter_parent(model, &parent2, &parent1);
+    gtk_tree_model_get(model, &parent2, 0, &str2, -1);
+    int nChild = gtk_tree_model_iter_n_children(model, &parent1);
+    if (nChild == 1)
+        stream << "UPDATE templet SET f3 = '' " << "WHERE f1 = '" << str2 << "' AND f2 = '" << str1 << "'";
+    else if (nChild > 1)
+        stream << "DELETE FROM templet WHERE f1 = '" << str2 << "' AND f2 = '" << str1 << "' AND f3 = '" << str0 << "'";
+    else {
+        PRINTF("Delete Error!");
+        return;
+    }
     }
     else if (tree_depth == 5) {
-	char *str0, *str1, *str2, *str3;
-	GtkTreeIter parent1, parent2, parent3;
-	gtk_tree_model_get(model, &iter, 0, &str0, -1);
-	gtk_tree_model_iter_parent(model, &parent1, &iter);
-	gtk_tree_model_get(model, &parent1, 0, &str1, -1);
-	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-	gtk_tree_model_get(model, &parent2, 0, &str2, -1);
-	gtk_tree_model_iter_parent(model, &parent3, &parent2);
-	gtk_tree_model_get(model, &parent3, 0, &str3, -1);
-	int nChild = gtk_tree_model_iter_n_children(model, &parent1);
-	if (nChild == 1)
-	    stream << "UPDATE templet SET f4 = '' "
-		   << "WHERE f1 = '"
-		   << str3 << "' AND f2 = '"
-		   << str2 << "' AND f3 = '"
-		   << str1 << "'";
-	else if (nChild > 1)
-	    stream << "DELETE FROM templet WHERE f1 = '"
-		   << str3 << "' AND f2 = '"
-		   << str2 << "' AND f3 = '"
-		   << str1 << "' AND f4 = '"
-		   << str0 << "'";
-	else {
-	    PRINTF("Delete Error!");
-	    return;
-	}
+    char *str0, *str1, *str2, *str3;
+    GtkTreeIter parent1, parent2, parent3;
+    gtk_tree_model_get(model, &iter, 0, &str0, -1);
+    gtk_tree_model_iter_parent(model, &parent1, &iter);
+    gtk_tree_model_get(model, &parent1, 0, &str1, -1);
+    gtk_tree_model_iter_parent(model, &parent2, &parent1);
+    gtk_tree_model_get(model, &parent2, 0, &str2, -1);
+    gtk_tree_model_iter_parent(model, &parent3, &parent2);
+    gtk_tree_model_get(model, &parent3, 0, &str3, -1);
+    int nChild = gtk_tree_model_iter_n_children(model, &parent1);
+    if (nChild == 1)
+        stream << "UPDATE templet SET f4 = '' "
+           << "WHERE f1 = '"
+           << str3 << "' AND f2 = '"
+           << str2 << "' AND f3 = '"
+           << str1 << "'";
+    else if (nChild > 1)
+        stream << "DELETE FROM templet WHERE f1 = '"
+           << str3 << "' AND f2 = '"
+           << str2 << "' AND f3 = '"
+           << str1 << "' AND f4 = '"
+           << str0 << "'";
+    else {
+        PRINTF("Delete Error!");
+        return;
+    }
     }
 
     char *errmsg = NULL;
@@ -812,17 +812,17 @@ void ViewTemplet::DeleteClicked(GtkButton *button)
 
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Database error!"), NULL);
-    	PRINTF("DELETE ERROR:%s!\n", errmsg);
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Database error!"), NULL);
+        PRINTF("DELETE ERROR:%s!\n", errmsg);
+        return;
     }
     CloseDB();
 
     //如果将要删除的结点为叶子结点,则删除indication和comments文本框中的值
     if (gtk_tree_model_iter_has_child(model, &iter) == FALSE) {
-    	gtk_text_buffer_set_text(m_buffer_indication, "", -1);
-    	gtk_text_buffer_set_text(m_buffer_comments, "", -1);
+        gtk_text_buffer_set_text(m_buffer_indication, "", -1);
+        gtk_text_buffer_set_text(m_buffer_comments, "", -1);
     }
 
     //记录当前所选结点的父结点
@@ -846,82 +846,82 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one node to be copy!"), NULL); //请先选择待复制的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one node to be copy!"), NULL); //请先选择待复制的结点!
+        return;
     }
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
     gint tree_depth = gtk_tree_path_get_depth(path);
     gtk_tree_path_free (path);
 
     if (tree_depth == 1) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Copy failure! Can not copy the root!"), NULL); //复制失败!不能复制根结点
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Copy failure! Can not copy the root!"), NULL); //复制失败!不能复制根结点
+        return;
     }
     // Init m_copyNode
     for (int i = 0; i < 4; i++)
-	m_copyNode[i] = "%";
+    m_copyNode[i] = "%";
 
     if (tree_depth == 2) {
-	gchar *strtmp;
-	GtkTreeIter parent;
-    	m_flagDepth = 2;
-    	gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
-	m_copyNode[0] = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent, &iter);
-    	gtk_tree_model_get(model, &parent, 0, &strtmp, -1);
-	m_parentNode = strtmp;
+    gchar *strtmp;
+    GtkTreeIter parent;
+        m_flagDepth = 2;
+        gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
+    m_copyNode[0] = strtmp;
+        gtk_tree_model_iter_parent(model, &parent, &iter);
+        gtk_tree_model_get(model, &parent, 0, &strtmp, -1);
+    m_parentNode = strtmp;
     }
     else if (tree_depth == 3) {
-	gchar *strtmp;
-	GtkTreeIter parent;
-    	m_flagDepth = 3;
-    	gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
-	m_copyNode[1] = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent, &iter);
-    	gtk_tree_model_get(model, &parent, 0, &strtmp, -1);
-	m_parentNode = strtmp;
-	m_copyNode[0] = strtmp;
+    gchar *strtmp;
+    GtkTreeIter parent;
+        m_flagDepth = 3;
+        gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
+    m_copyNode[1] = strtmp;
+        gtk_tree_model_iter_parent(model, &parent, &iter);
+        gtk_tree_model_get(model, &parent, 0, &strtmp, -1);
+    m_parentNode = strtmp;
+    m_copyNode[0] = strtmp;
     }
     else if (tree_depth == 4) {
-	gchar *strtmp;
-	GtkTreeIter parent1, parent2;
-    	m_flagDepth = 4;
-    	gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
-	m_copyNode[2] = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent1, &iter);
-    	gtk_tree_model_get(model, &parent1, 0, &strtmp, -1);
-    	m_copyNode[1] = strtmp;
-    	m_parentNode =  strtmp;
-    	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    	gtk_tree_model_get(model, &parent2, 0, &strtmp, -1);
-    	m_copyNode[0] = strtmp;
+    gchar *strtmp;
+    GtkTreeIter parent1, parent2;
+        m_flagDepth = 4;
+        gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
+    m_copyNode[2] = strtmp;
+        gtk_tree_model_iter_parent(model, &parent1, &iter);
+        gtk_tree_model_get(model, &parent1, 0, &strtmp, -1);
+        m_copyNode[1] = strtmp;
+        m_parentNode =  strtmp;
+        gtk_tree_model_iter_parent(model, &parent2, &parent1);
+        gtk_tree_model_get(model, &parent2, 0, &strtmp, -1);
+        m_copyNode[0] = strtmp;
     }
     else if (tree_depth == 5) {
-	gchar *strtmp;
-	GtkTreeIter parent1, parent2, parent3;
-    	m_flagDepth = 5;
-    	gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
-    	m_copyNode[3] = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent1, &iter);
-    	gtk_tree_model_get(model, &parent1, 0, &strtmp, -1);
-    	m_copyNode[2] = strtmp;
-    	m_parentNode = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    	gtk_tree_model_get(model, &parent2, 0, &strtmp, -1);
-    	m_copyNode[1] = strtmp;
-    	gtk_tree_model_iter_parent(model, &parent3, &parent2);
-    	gtk_tree_model_get(model, &parent3, 0, &strtmp, -1);
-    	m_copyNode[0] = strtmp;
+    gchar *strtmp;
+    GtkTreeIter parent1, parent2, parent3;
+        m_flagDepth = 5;
+        gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
+        m_copyNode[3] = strtmp;
+        gtk_tree_model_iter_parent(model, &parent1, &iter);
+        gtk_tree_model_get(model, &parent1, 0, &strtmp, -1);
+        m_copyNode[2] = strtmp;
+        m_parentNode = strtmp;
+        gtk_tree_model_iter_parent(model, &parent2, &parent1);
+        gtk_tree_model_get(model, &parent2, 0, &strtmp, -1);
+        m_copyNode[1] = strtmp;
+        gtk_tree_model_iter_parent(model, &parent3, &parent2);
+        gtk_tree_model_get(model, &parent3, 0, &strtmp, -1);
+        m_copyNode[0] = strtmp;
     }
 
     ostringstream stream;
     stream << "SELECT * FROM templet WHERE f1 LIKE '"
-	   << m_copyNode[0] << "' AND f2 LIKE '"
-	   << m_copyNode[1] << "' AND f3 LIKE '"
-	   << m_copyNode[2] << "' AND f4 LIKE '"
-	   << m_copyNode[3] << "'";
+       << m_copyNode[0] << "' AND f2 LIKE '"
+       << m_copyNode[1] << "' AND f3 LIKE '"
+       << m_copyNode[2] << "' AND f4 LIKE '"
+       << m_copyNode[3] << "'";
 
     string sql = stream.str();
 
@@ -931,51 +931,51 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     OpenDB();
     // 清空templet_copy数据库
     if (sqlite3_exec(m_db_templet, "DELETE FROM templet_copy", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("DELETE templet_copy ERROR:%s!\n", errmsg);
-	return;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("DELETE templet_copy ERROR:%s!\n", errmsg);
+    return;
     }
 
     if (sqlite3_exec(m_db_templet, "begin transaction", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
-	sqlite3_free(errmsg);
-	return ;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
+    sqlite3_free(errmsg);
+    return ;
     }
 
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
-	return;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
+    return;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "f1") == 0)
-	    f1.assign((const char *)sqlite3_column_text(stmt, 0));
-	if (strcmp(sqlite3_column_name(stmt, 1), "f2") == 0)
-	    f2.assign((const char *)sqlite3_column_text(stmt, 1));
-	if (strcmp(sqlite3_column_name(stmt, 2), "f3") == 0)
-	    f3.assign((const char *)sqlite3_column_text(stmt, 2));
-	if (strcmp(sqlite3_column_name(stmt, 3), "f4") == 0)
-	    f4.assign((const char *)sqlite3_column_text(stmt, 3));
-	if (strcmp(sqlite3_column_name(stmt, 4), "indication") == 0)
-	    indication.assign((const char *)sqlite3_column_text(stmt, 4));
-	if (strcmp(sqlite3_column_name(stmt, 5), "comments") == 0)
-	    comments.assign((const char *)sqlite3_column_text(stmt, 5));
-	stream.str(""); // 清空stream
-	stream << "INSERT INTO templet_copy VALUES('" << f1 << "', '" << f2 << "', '" << f3 << "', '" << f4 << "', '"
-	       << indication << "', '" << comments << "')";
-	sql = stream.str();
-	if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					      _("Database error!"), NULL);//数据库操作失败!
-	    PRINTF("INSERT ERROR:%s!\n", errmsg);
-	    sqlite3_free(errmsg);
-	    sqlite3_exec(m_db_templet, "rollback transaction", 0, 0, 0);
-	    return;
-	}
+    if (strcmp(sqlite3_column_name(stmt, 0), "f1") == 0)
+        f1.assign((const char *)sqlite3_column_text(stmt, 0));
+    if (strcmp(sqlite3_column_name(stmt, 1), "f2") == 0)
+        f2.assign((const char *)sqlite3_column_text(stmt, 1));
+    if (strcmp(sqlite3_column_name(stmt, 2), "f3") == 0)
+        f3.assign((const char *)sqlite3_column_text(stmt, 2));
+    if (strcmp(sqlite3_column_name(stmt, 3), "f4") == 0)
+        f4.assign((const char *)sqlite3_column_text(stmt, 3));
+    if (strcmp(sqlite3_column_name(stmt, 4), "indication") == 0)
+        indication.assign((const char *)sqlite3_column_text(stmt, 4));
+    if (strcmp(sqlite3_column_name(stmt, 5), "comments") == 0)
+        comments.assign((const char *)sqlite3_column_text(stmt, 5));
+    stream.str(""); // 清空stream
+    stream << "INSERT INTO templet_copy VALUES('" << f1 << "', '" << f2 << "', '" << f3 << "', '" << f4 << "', '"
+           << indication << "', '" << comments << "')";
+    sql = stream.str();
+    if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Database error!"), NULL);//数据库操作失败!
+        PRINTF("INSERT ERROR:%s!\n", errmsg);
+        sqlite3_free(errmsg);
+        sqlite3_exec(m_db_templet, "rollback transaction", 0, 0, 0);
+        return;
+    }
     }
     sqlite3_exec(m_db_templet, "commit transaction", 0, 0, 0);
     sqlite3_finalize(stmt);
@@ -992,16 +992,16 @@ void ViewTemplet::CopyClicked(GtkButton *button)
     child = cur_child;
 
     while (flag == TRUE) {
-    	m_nodeHeight++;
-    	flag = gtk_tree_model_iter_children(model, &grand_child, &cur_child);
-    	if (flag == TRUE)
-    	    cur_child = grand_child;
-    	else {
-    	    max_height = (m_nodeHeight > max_height) ? m_nodeHeight : max_height ;
-    	    m_nodeHeight = 0;
-    	    flag = gtk_tree_model_iter_next(model, &child);
-    	    cur_child = child;
-    	}
+        m_nodeHeight++;
+        flag = gtk_tree_model_iter_children(model, &grand_child, &cur_child);
+        if (flag == TRUE)
+            cur_child = grand_child;
+        else {
+            max_height = (m_nodeHeight > max_height) ? m_nodeHeight : max_height ;
+            m_nodeHeight = 0;
+            flag = gtk_tree_model_iter_next(model, &child);
+            cur_child = child;
+        }
     }
     m_nodeHeight = max_height;
 }
@@ -1011,33 +1011,33 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     GtkTreeSelection *selected_node = gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeView));
 
     // if (m_copyNode[0].empty()) {
-    // 	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    // 					  _("Please copy the node before paste it!"), NULL);//请先复制结点!再进行粘贴
-    // 	return;
+    //  ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+    //                    _("Please copy the node before paste it!"), NULL);//请先复制结点!再进行粘贴
+    //  return;
     // }
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one node to be paste!"), NULL);//请先选择待粘贴的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one node to be paste!"), NULL);//请先选择待粘贴的结点!
+        return;
     }
 
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
     int tree_depth = gtk_tree_path_get_depth(path);
 
     if (m_nodeHeight >= 3 || tree_depth + m_nodeHeight > 4) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Can not paste it!"), NULL);//所选结点不能进行粘贴!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Can not paste it!"), NULL);//所选结点不能进行粘贴!
+        return;
     }
 
     gchar *strtmp;
     gtk_tree_model_get(model, &iter, 0, &strtmp, -1);
     if (strcmp(strtmp, m_parentNode.c_str()) == 0) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Can not paste it in the same parent!"), NULL);//不能在同一父结点下进行粘贴!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Can not paste it in the same parent!"), NULL);//不能在同一父结点下进行粘贴!
+        return;
     }
 
     sqlite3_stmt *stmt = NULL;
@@ -1049,183 +1049,183 @@ void ViewTemplet::PasteClicked(GtkButton *button)
     OpenDB();
 
     if (sqlite3_exec(m_db_templet, "begin transaction", 0, 0, &errmsg) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
-	sqlite3_free(errmsg);
-	return ;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("Transaction error: %s\n", sqlite3_errmsg(m_db_templet));
+    sqlite3_free(errmsg);
+    return ;
     }
 
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-					  _("Database error!"), NULL);//数据库操作失败!
-	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
-	return;
+    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                      _("Database error!"), NULL);//数据库操作失败!
+    PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
+    return;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "f1") == 0)
-	    f1.assign((const char *)sqlite3_column_text(stmt, 0));
-	if (strcmp(sqlite3_column_name(stmt, 1), "f2") == 0)
-	    f2.assign((const char *)sqlite3_column_text(stmt, 1));
-	if (strcmp(sqlite3_column_name(stmt, 2), "f3") == 0)
-	    f3.assign((const char *)sqlite3_column_text(stmt, 2));
-	if (strcmp(sqlite3_column_name(stmt, 3), "f4") == 0)
-	    f4.assign((const char *)sqlite3_column_text(stmt, 3));
-	if (strcmp(sqlite3_column_name(stmt, 4), "indication") == 0)
-	    indication.assign((const char *)sqlite3_column_text(stmt, 4));
-	if (strcmp(sqlite3_column_name(stmt, 5), "comments") == 0)
-	    comments.assign((const char *)sqlite3_column_text(stmt, 5));
-	stream.str(""); // 清空stream
-	switch (m_flagDepth) {
-	case 2:
-    	    if (tree_depth == 2) {
-		char *str_f1;
-    		gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << f1 << "', '" << f2 << "', '" << f3 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 3) {
-		char *str_f1, *str_f2;
-		GtkTreeIter parent;
-    		gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent, &iter);
-    		gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << f1 << "', '" << f2 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 4) {
-		char *str_f1, *str_f2, *str_f3;
-		GtkTreeIter parent1, parent2;
-    		gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
-    		gtk_tree_model_iter_parent(model, &parent1, &iter);
-    		gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    		gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f1 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-	    break;
+    if (strcmp(sqlite3_column_name(stmt, 0), "f1") == 0)
+        f1.assign((const char *)sqlite3_column_text(stmt, 0));
+    if (strcmp(sqlite3_column_name(stmt, 1), "f2") == 0)
+        f2.assign((const char *)sqlite3_column_text(stmt, 1));
+    if (strcmp(sqlite3_column_name(stmt, 2), "f3") == 0)
+        f3.assign((const char *)sqlite3_column_text(stmt, 2));
+    if (strcmp(sqlite3_column_name(stmt, 3), "f4") == 0)
+        f4.assign((const char *)sqlite3_column_text(stmt, 3));
+    if (strcmp(sqlite3_column_name(stmt, 4), "indication") == 0)
+        indication.assign((const char *)sqlite3_column_text(stmt, 4));
+    if (strcmp(sqlite3_column_name(stmt, 5), "comments") == 0)
+        comments.assign((const char *)sqlite3_column_text(stmt, 5));
+    stream.str(""); // 清空stream
+    switch (m_flagDepth) {
+    case 2:
+            if (tree_depth == 2) {
+        char *str_f1;
+            gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << f1 << "', '" << f2 << "', '" << f3 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 3) {
+        char *str_f1, *str_f2;
+        GtkTreeIter parent;
+            gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent, &iter);
+            gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << f1 << "', '" << f2 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 4) {
+        char *str_f1, *str_f2, *str_f3;
+        GtkTreeIter parent1, parent2;
+            gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
+            gtk_tree_model_iter_parent(model, &parent1, &iter);
+            gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent2, &parent1);
+            gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f1 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+        break;
 
-	case 3:
-    	    if (tree_depth == 1){
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << f2 << "', '" << f3 << "', '" << f4 << "', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 2) {
-		char *str_f1;
-    		gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << f2 << "', '" << f3 << "', '" << f4 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 3) {
-		char *str_f1, *str_f2;
-		GtkTreeIter parent;
-    		gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent, &iter);
-    		gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << f2 << "', '" << f3 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    if (tree_depth == 4) {
-		char *str_f1, *str_f2, *str_f3;
-		GtkTreeIter parent1, parent2;
-    		gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
-    		gtk_tree_model_iter_parent(model, &parent1, &iter);
-    		gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    		gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f2 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-	    break;
+    case 3:
+            if (tree_depth == 1){
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << f2 << "', '" << f3 << "', '" << f4 << "', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 2) {
+        char *str_f1;
+            gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << f2 << "', '" << f3 << "', '" << f4 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 3) {
+        char *str_f1, *str_f2;
+        GtkTreeIter parent;
+            gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent, &iter);
+            gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << f2 << "', '" << f3 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+            if (tree_depth == 4) {
+        char *str_f1, *str_f2, *str_f3;
+        GtkTreeIter parent1, parent2;
+            gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
+            gtk_tree_model_iter_parent(model, &parent1, &iter);
+            gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent2, &parent1);
+            gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f2 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+        break;
 
-	case 4:
-    	    if (tree_depth == 1) {
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << f3 << "', '" << f4 << "', '', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 2) {
-		char *str_f1;
-    		gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << f3 << "', '" << f4 << "', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 3) {
-		char *str_f1, *str_f2;
-		GtkTreeIter parent;
-    		gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent, &iter);
-    		gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << f3 << "', '" << f4 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 4) {
-		char *str_f1, *str_f2, *str_f3;
-		GtkTreeIter parent1, parent2;
-    		gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
-    		gtk_tree_model_iter_parent(model, &parent1, &iter);
-    		gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    		gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f3 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-	    break;
-	case 5:
-    	    if (tree_depth == 1) {
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << f4 << "', '', '', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 2) {
-		char *str_f1;
-    		gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << f4 << "', '', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 3) {
-		char *str_f1, *str_f2;
-		GtkTreeIter parent;
-    		gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent, &iter);
-    		gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << f4 << "', '', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-    	    else if (tree_depth == 4) {
-		char *str_f1, *str_f2, *str_f3;
-		GtkTreeIter parent1, parent2;
-    		gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
-    		gtk_tree_model_iter_parent(model, &parent1, &iter);
-    		gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
-    		gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    		gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
-		stream << "INSERT INTO templet VALUES(" << "'"
-		       << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f4 << "', '"
-		       << indication << "', '" << comments << "')";
-    	    }
-	    break;
-	}
-	sql = stream.str();
-	if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-    	    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL);// 数据库操作失败!
-    	    PRINTF("PASTE ERROR:%s!\n", errmsg);
-	    sqlite3_exec(m_db_templet, "rollback transaction", 0, 0, 0);
-    	    return;
-    	}
+    case 4:
+            if (tree_depth == 1) {
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << f3 << "', '" << f4 << "', '', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 2) {
+        char *str_f1;
+            gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << f3 << "', '" << f4 << "', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 3) {
+        char *str_f1, *str_f2;
+        GtkTreeIter parent;
+            gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent, &iter);
+            gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << f3 << "', '" << f4 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 4) {
+        char *str_f1, *str_f2, *str_f3;
+        GtkTreeIter parent1, parent2;
+            gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
+            gtk_tree_model_iter_parent(model, &parent1, &iter);
+            gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent2, &parent1);
+            gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f3 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+        break;
+    case 5:
+            if (tree_depth == 1) {
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << f4 << "', '', '', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 2) {
+        char *str_f1;
+            gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << f4 << "', '', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 3) {
+        char *str_f1, *str_f2;
+        GtkTreeIter parent;
+            gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent, &iter);
+            gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << f4 << "', '', '"
+               << indication << "', '" << comments << "')";
+            }
+            else if (tree_depth == 4) {
+        char *str_f1, *str_f2, *str_f3;
+        GtkTreeIter parent1, parent2;
+            gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
+            gtk_tree_model_iter_parent(model, &parent1, &iter);
+            gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
+            gtk_tree_model_iter_parent(model, &parent2, &parent1);
+            gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
+        stream << "INSERT INTO templet VALUES(" << "'"
+               << str_f1 << "', '" << str_f2 << "', '" << str_f3 << "', '" << f4 << "', '"
+               << indication << "', '" << comments << "')";
+            }
+        break;
+    }
+    sql = stream.str();
+    if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL);// 数据库操作失败!
+            PRINTF("PASTE ERROR:%s!\n", errmsg);
+        sqlite3_exec(m_db_templet, "rollback transaction", 0, 0, 0);
+            return;
+        }
     }
     sqlite3_exec(m_db_templet, "commit transaction", 0, 0, 0);
     sqlite3_finalize(stmt);
@@ -1291,18 +1291,18 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one node to be save!"), NULL);//请先选择待保存的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one node to be save!"), NULL);//请先选择待保存的结点!
+        return;
     }
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
     gint tree_depth = gtk_tree_path_get_depth(path);
     gtk_tree_path_free (path);
 
     if (gtk_tree_model_iter_has_child(model, &iter)) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Save failure! Please select leaf node!"), NULL);//保存失败!请选择末结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Save failure! Please select leaf node!"), NULL);//保存失败!请选择末结点!
+        return;
     }
 
     GtkTextIter it1_start, it1_end;
@@ -1315,67 +1315,67 @@ void ViewTemplet::SaveClicked(GtkButton *button)
     char *text_indication = gtk_text_buffer_get_text(m_buffer_indication, &it1_start, &it1_end, FALSE);
     char *text_comments = gtk_text_buffer_get_text(m_buffer_comments, &it2_start, &it2_end, FALSE);
 
-    if (strlen(text_indication) > maxTextLen)	{
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("The indication is too long!"), NULL);//超声所见超出字数范围限制
-    	return;
+    if (strlen(text_indication) > maxTextLen)   {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("The indication is too long!"), NULL);//超声所见超出字数范围限制
+        return;
     }
 
     if (strlen(text_comments) > maxTextLen) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("The comments are too long!"), NULL);//诊断意见超出字数范围限制
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("The comments are too long!"), NULL);//诊断意见超出字数范围限制
+        return;
     }
 
     ostringstream stream;
     if (tree_depth == 2) {
-	char *str_f1;
-	gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
-	stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
-	       << "' WHERE f1 = '" << str_f1 << "'";
+    char *str_f1;
+    gtk_tree_model_get(model, &iter, 0, &str_f1, -1);
+    stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
+           << "' WHERE f1 = '" << str_f1 << "'";
     }
     else if (tree_depth == 3) {
-	char *str_f1, *str_f2;
-	GtkTreeIter parent;
-    	gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
-    	gtk_tree_model_iter_parent(model, &parent, &iter);
-    	gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
-	stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
-	       << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2 << "'";
+    char *str_f1, *str_f2;
+    GtkTreeIter parent;
+        gtk_tree_model_get(model, &iter, 0, &str_f2, -1);
+        gtk_tree_model_iter_parent(model, &parent, &iter);
+        gtk_tree_model_get(model, &parent, 0, &str_f1, -1);
+    stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
+           << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2 << "'";
     }
     else if (tree_depth == 4) {
-	char *str_f1, *str_f2, *str_f3;
-	GtkTreeIter parent1, parent2;
-	gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
-	gtk_tree_model_iter_parent(model, &parent1, &iter);
-	gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
-	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-	gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
-	stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
-	       << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2 << "' AND f3 = '" << str_f3 << "'";
-    	}
+    char *str_f1, *str_f2, *str_f3;
+    GtkTreeIter parent1, parent2;
+    gtk_tree_model_get(model, &iter, 0, &str_f3, -1);
+    gtk_tree_model_iter_parent(model, &parent1, &iter);
+    gtk_tree_model_get(model, &parent1, 0, &str_f2, -1);
+    gtk_tree_model_iter_parent(model, &parent2, &parent1);
+    gtk_tree_model_get(model, &parent2, 0, &str_f1, -1);
+    stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
+           << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2 << "' AND f3 = '" << str_f3 << "'";
+        }
     else if (tree_depth == 5) {
-	char *str_f1, *str_f2, *str_f3, *str_f4;
-	GtkTreeIter parent1, parent2, parent3;
+    char *str_f1, *str_f2, *str_f3, *str_f4;
+    GtkTreeIter parent1, parent2, parent3;
 
-    	gtk_tree_model_get(model, &iter, 0, &str_f4, -1);
-    	gtk_tree_model_iter_parent(model, &parent1, &iter);
-    	gtk_tree_model_get(model, &parent1, 0, &str_f3, -1);
-    	gtk_tree_model_iter_parent(model, &parent2, &parent1);
-    	gtk_tree_model_get(model, &parent2, 0, &str_f2, -1);
-    	gtk_tree_model_iter_parent(model, &parent3, &parent2);
-    	gtk_tree_model_get(model, &parent3, 0, &str_f1, -1);
-	stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
-	       << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2
-	       << "' AND f3 = '" << str_f3 << "' AND f4 = '" << str_f4 << "'";
+        gtk_tree_model_get(model, &iter, 0, &str_f4, -1);
+        gtk_tree_model_iter_parent(model, &parent1, &iter);
+        gtk_tree_model_get(model, &parent1, 0, &str_f3, -1);
+        gtk_tree_model_iter_parent(model, &parent2, &parent1);
+        gtk_tree_model_get(model, &parent2, 0, &str_f2, -1);
+        gtk_tree_model_iter_parent(model, &parent3, &parent2);
+        gtk_tree_model_get(model, &parent3, 0, &str_f1, -1);
+    stream << "UPDATE templet SET indication = '" << text_indication << "', comments = '" << text_comments
+           << "' WHERE f1 = '" << str_f1 << "' AND f2 = '" << str_f2
+           << "' AND f3 = '" << str_f3 << "' AND f4 = '" << str_f4 << "'";
     }
 
     string sql = stream.str();
     char *errmsg = NULL;
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL); //数据库操作失败!
-    	PRINTF("save error:%s!\n", errmsg);
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL); //数据库操作失败!
+        PRINTF("save error:%s!\n", errmsg);
     }
     CloseDB();
 }
@@ -1427,11 +1427,11 @@ void ViewTemplet::CellRendererEdited(GtkCellRendererText *renderer, gchar *path_
 
     //如果重命名前后renderertext中的文本没有改变,则返回
     if (strcmp(new_text, old_text) == 0)
-    	return;
+        return;
 
     if (strcmp(new_text, "") == 0) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Node name can not be null!"), NULL); //结点名称不能为空
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Node name can not be null!"), NULL); //结点名称不能为空
+        return;
     }
 
     string str1 = "%"; // "%" is sqlite3 wildcard
@@ -1441,72 +1441,72 @@ void ViewTemplet::CellRendererEdited(GtkCellRendererText *renderer, gchar *path_
     ostringstream stream;
 
     if (tree_depth == 1) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Can not rename the root!"), NULL); //不能重命名根结点
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Can not rename the root!"), NULL); //不能重命名根结点
+        return;
     }
     else if (tree_depth == 2) {
-	stream << "UPDATE templet SET f1 = '" << new_text << "' WHERE f1 = '" << old_text << "'";
-	str1 = new_text;
+    stream << "UPDATE templet SET f1 = '" << new_text << "' WHERE f1 = '" << old_text << "'";
+    str1 = new_text;
     }
     else if (tree_depth == 3) {
-	GtkTreeIter iter_parent;
-	char *str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent, &iter);
-    	gtk_tree_model_get(model, &iter_parent, 0, &str_tmp, -1);
-	str1 = str_tmp;
-	stream << "UPDATE templet SET f2 = '" << new_text << "' WHERE f1 = '" << str1 << "' AND f2 = '" << old_text << "'";
-    	str2 = new_text;
+    GtkTreeIter iter_parent;
+    char *str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent, &iter);
+        gtk_tree_model_get(model, &iter_parent, 0, &str_tmp, -1);
+    str1 = str_tmp;
+    stream << "UPDATE templet SET f2 = '" << new_text << "' WHERE f1 = '" << str1 << "' AND f2 = '" << old_text << "'";
+        str2 = new_text;
     }
     else if (tree_depth == 4) {
-	GtkTreeIter iter_parent0;
-	GtkTreeIter iter_parent1;
-	char *str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
-    	gtk_tree_model_get(model, &iter_parent0, 0, &str_tmp, -1);
-	str2 = str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
-    	gtk_tree_model_get(model, &iter_parent1, 0, &str_tmp, -1);
-	str1 = str_tmp;
-	stream << "UPDATE templet SET f3 = '" << new_text
-	       << "' WHERE f1 = '" << str1
-	       << "' AND f2 = '" << str2
-	       << "' AND f3 = '" << old_text << "'";
-    	str3 = new_text;
+    GtkTreeIter iter_parent0;
+    GtkTreeIter iter_parent1;
+    char *str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
+        gtk_tree_model_get(model, &iter_parent0, 0, &str_tmp, -1);
+    str2 = str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
+        gtk_tree_model_get(model, &iter_parent1, 0, &str_tmp, -1);
+    str1 = str_tmp;
+    stream << "UPDATE templet SET f3 = '" << new_text
+           << "' WHERE f1 = '" << str1
+           << "' AND f2 = '" << str2
+           << "' AND f3 = '" << old_text << "'";
+        str3 = new_text;
     }
     else if (tree_depth == 5) {
-	GtkTreeIter iter_parent0;
-	GtkTreeIter iter_parent1;
-	GtkTreeIter iter_parent2;
-	char *str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
-    	gtk_tree_model_get(model, &iter_parent0, 0, &str_tmp, -1);
-	str3 = str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
-    	gtk_tree_model_get(model, &iter_parent1, 0, &str_tmp, -1);
-	str2 = str_tmp;
-    	gtk_tree_model_iter_parent(model, &iter_parent2, &iter_parent1);
-    	gtk_tree_model_get(model, &iter_parent2, 0, &str_tmp, -1);
-	str1 = str_tmp;
-	stream << "UPDATE templet SET f4 = '" << new_text
-	       << "' WHERE f1 = '" << str1
-	       << "' AND f2 = '" << str2
-	       << "' AND f3 = '" << str3
-	       << "' AND f4 = '" << old_text << "'";
-    	str4 = new_text;
+    GtkTreeIter iter_parent0;
+    GtkTreeIter iter_parent1;
+    GtkTreeIter iter_parent2;
+    char *str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent0, &iter);
+        gtk_tree_model_get(model, &iter_parent0, 0, &str_tmp, -1);
+    str3 = str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent1, &iter_parent0);
+        gtk_tree_model_get(model, &iter_parent1, 0, &str_tmp, -1);
+    str2 = str_tmp;
+        gtk_tree_model_iter_parent(model, &iter_parent2, &iter_parent1);
+        gtk_tree_model_get(model, &iter_parent2, 0, &str_tmp, -1);
+    str1 = str_tmp;
+    stream << "UPDATE templet SET f4 = '" << new_text
+           << "' WHERE f1 = '" << str1
+           << "' AND f2 = '" << str2
+           << "' AND f3 = '" << str3
+           << "' AND f4 = '" << old_text << "'";
+        str4 = new_text;
     }
 
     if (!UniqueItem(str1.c_str(), str2.c_str(), str3.c_str(), str4.c_str()) != 0) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Rename failed! The node has been exist!"), NULL); //重命名失败!该结点已存在
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Rename failed! The node has been exist!"), NULL); //重命名失败!该结点已存在
+        return;
     }
 
     char *errmsg = NULL;
     string sql = stream.str();
     OpenDB();
     if (sqlite3_exec(m_db_templet, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL); //数据库操作失败!
-    	PRINTF("UPDATE ERROR:%s!\n", errmsg);
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL); //数据库操作失败!
+        PRINTF("UPDATE ERROR:%s!\n", errmsg);
+        return;
     }
     CloseDB();
 
@@ -1520,26 +1520,26 @@ bool ViewTemplet::UniqueItem(const char *str1, const char *str2, const char *str
     int result = 0;
 
     stream << "SELECT COUNT(*) AS num_result FROM templet "
-	   << "WHERE f1 LIKE '" << str1 << "' "
-	   << "AND f2 LIKE '" << str2 << "' "
-	   << "AND f3 LIKE '" << str3 << "' "
-	   << "AND f4 LIKE '" << str4 << "'";
+       << "WHERE f1 LIKE '" << str1 << "' "
+       << "AND f2 LIKE '" << str2 << "' "
+       << "AND f3 LIKE '" << str3 << "' "
+       << "AND f4 LIKE '" << str4 << "'";
     string sql = stream.str();
     OpenDB();
     if (sqlite3_prepare(m_db_templet, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
-	return false;
+    PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(m_db_templet));
+    return false;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "num_result") == 0)
-	    result = sqlite3_column_int(stmt, 0);
+    if (strcmp(sqlite3_column_name(stmt, 0), "num_result") == 0)
+        result = sqlite3_column_int(stmt, 0);
     }
     sqlite3_finalize(stmt);
     CloseDB();
     if (result)
-	return false;
+    return false;
     else
-	return true;
+    return true;
 }
 
 //在一个指定结点下查找其儿子结点为str的结点
@@ -1552,11 +1552,11 @@ GtkTreeIter ViewTemplet::InsertUnique(GtkTreeModel *model, GtkTreeIter *iter, co
 
     has_node = gtk_tree_model_iter_children(model, &tmp_iter, iter);
     while (has_node == TRUE) {
-    	gtk_tree_model_get(model, &tmp_iter, 0, &strtmp, -1);
-    	if (strcmp(strtmp, str) == 0)
-    	    return tmp_iter;
-    	else
-    	    has_node = gtk_tree_model_iter_next(model, &tmp_iter);
+        gtk_tree_model_get(model, &tmp_iter, 0, &strtmp, -1);
+        if (strcmp(strtmp, str) == 0)
+            return tmp_iter;
+        else
+            has_node = gtk_tree_model_iter_next(model, &tmp_iter);
     }
     return tmp_iter;
 }
@@ -1570,10 +1570,10 @@ void ViewTemplet::InitTreeView(void)
     //折叠起第一级结点
     has_node = gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &tmp_iter, &m_topIter);
     while (has_node == TRUE) {
-    	GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(model), &tmp_iter);
-    	gtk_tree_view_collapse_row(GTK_TREE_VIEW(m_treeView), path);
-    	has_node = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &tmp_iter);
-	gtk_tree_path_free(path);
+        GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(model), &tmp_iter);
+        gtk_tree_view_collapse_row(GTK_TREE_VIEW(m_treeView), path);
+        has_node = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &tmp_iter);
+    gtk_tree_path_free(path);
     }
 }
 

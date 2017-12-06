@@ -1,20 +1,9 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: Calc2DTinyConvex.cpp 65C15D
- * @brief: derived from class Calc2D, deal with calculation of convex probe("35C20H").
- *
- * version: V1.0
- * date: 2010-1-7
- * @author: zhanglei
- */
-
 #include "imageControl/Calc2DTinyConvex.h"
 #include "Def.h"
 #include "imageControl/Img2D.h"
 #include "display/TopArea.h"
 
-const int Calc2DTinyConvex::EMIT_CH_NUM[20] =	{20,22, 24, 26, 30, 34, 38,	46, 50,	58,	64,	64,	64,	64,	64,	64,	64,	64,	64,	64};
+const int Calc2DTinyConvex::EMIT_CH_NUM[20] =   {20,22, 24, 26, 30, 34, 38, 46, 50, 58, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64};
 
 ///>
 Calc2DTinyConvex::Calc2DTinyConvex()
@@ -29,15 +18,15 @@ Calc2DTinyConvex::~Calc2DTinyConvex()
 
 void Calc2DTinyConvex::CalcEmitDelay()
 {
-	int focSum = m_calcPara->focSum;
+    int focSum = m_calcPara->focSum;
     int size = sizeof(EMIT_CH_NUM) / sizeof(int);
-	bool compound = m_calcPara->compoundSpaceCtrl || m_calcPara->compoundFreqCtrl;
+    bool compound = m_calcPara->compoundSpaceCtrl || m_calcPara->compoundFreqCtrl;
 
-	int i;
-	for (i = 0; i < focSum; i ++)
-	{
-		CEmitDelay(i, EMIT_CH_NUM, size, compound);
-	}
+    int i;
+    for (i = 0; i < focSum; i ++)
+    {
+        CEmitDelay(i, EMIT_CH_NUM, size, compound);
+    }
 }
 
 void Calc2DTinyConvex::CalcFocPos()
@@ -75,21 +64,21 @@ void Calc2DTinyConvex::CalcDefaultDemodFd()
 void Calc2DTinyConvex::CalcFilter()
 {
     CalcDynamicDemod(0);
-	CalcFilterBandPass(0);
-	CalcDynamicFilter(0);
+    CalcFilterBandPass(0);
+    CalcDynamicFilter(0);
 }
 
 void Calc2DTinyConvex::CalcFilterFreqCompound(int order)
 {
-	CalcDynamicDemod(order);
-	CalcFilterBandPass(order);
-	CalcDynamicFilter(order);
+    CalcDynamicDemod(order);
+    CalcFilterBandPass(order);
+    CalcDynamicFilter(order);
 }
 
 ///> private
 void Calc2DTinyConvex::CalcFilterBandPass(int order)
 {
-	int depth[5];
+    int depth[5];
     int probeIndex = 0;
     int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
     int freqIndex = Img2D::GetInstance()->GetFreqIndex();
@@ -126,23 +115,23 @@ void Calc2DTinyConvex::CalcFilterBandPass(int order)
     if(m_calcPara->harmonic)
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_bandpass_filter1[i] = float(ProbeSocket::BAND_PASS_FILTER_FC1[probeIndex][harmonicIndex][i] / 10.0);
             fc_bandpass_filter2[i] = float(ProbeSocket::BAND_PASS_FILTER_FC2[probeIndex][harmonicIndex][i] / 10.0);
-			PRINTF("-Tiny convex--%d---THI---w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
-		}
+            PRINTF("-Tiny convex--%d---THI---w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
+        }
     }
     else
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_bandpass_filter1[i] = float(ProbeSocket::BAND_PASS_FILTER_FC1_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
             fc_bandpass_filter2[i] = float(ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
-			PRINTF("-Tiny convex--%d-----w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
-		}
+            PRINTF("-Tiny convex--%d-----w1 = %.2f, w2 = %.2f\n", i, fc_bandpass_filter1[i], fc_bandpass_filter2[i]);
+        }
     }
 
-	BandPassFilterSelect_test(fc_bandpass_filter1, fc_bandpass_filter2, depth, order);
+    BandPassFilterSelect_test(fc_bandpass_filter1, fc_bandpass_filter2, depth, order);
 
 #else
     float fc_bandpass_filter[5];
@@ -159,13 +148,13 @@ void Calc2DTinyConvex::CalcFilterBandPass(int order)
 
     BandPassFilterSelect_test(fc_bandpass_filter, depth, order);
 
-	//BandPassFilterSelect(order);
+    //BandPassFilterSelect(order);
 #endif
 
 }
 void Calc2DTinyConvex::CalcDynamicFilter(int order)
 {
-	int depth[5];
+    int depth[5];
     int probeIndex = 0;
     int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
     int freqIndex = Img2D::GetInstance()->GetFreqIndex();
@@ -194,18 +183,18 @@ void Calc2DTinyConvex::CalcDynamicFilter(int order)
     if(m_calcPara->harmonic)
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_dynamic_filter[i] = float(ProbeSocket::DYNAMIC_FILTER_FC[probeIndex][harmonicIndex][i] / 10.0);
-			PRINTF("-Tiny Convex--%d--THI---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
-		}
+            PRINTF("-Tiny Convex--%d--THI---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
+        }
     }
     else
     {
         for(int i = 0; i < 5; i++)
-		{
+        {
             fc_dynamic_filter[i] = float(ProbeSocket::DYNAMIC_FILTER_FC_BASE_FREQ[probeIndex][freqIndex][i] / 10.0);
             PRINTF("-Tiny Convex--%d---low pass filter = %.2f\n", i, fc_dynamic_filter[i]);
-		}
+        }
     }
     DynamicFilter_test(fc_dynamic_filter, depth, order);
 
@@ -213,12 +202,12 @@ void Calc2DTinyConvex::CalcDynamicFilter(int order)
 }
 void Calc2DTinyConvex::CalcDynamicDemod(int order)
 {
-	//int probeR = m_calcPara->probeR;
-	int i;
-	int freq = m_calcPara->freq.receive;
-	int depth[5];
-	float fd[5];
-	float fd_harmonic[5];
+    //int probeR = m_calcPara->probeR;
+    int i;
+    int freq = m_calcPara->freq.receive;
+    int depth[5];
+    float fd[5];
+    float fd_harmonic[5];
 #if (defined(EMP_340)||defined(EMP_355))
     depth[0] = 20;
     depth[1] = 60;
@@ -455,11 +444,11 @@ void Calc2DTinyConvex::CalcDynamicDemod(int order)
         fd_harmonic[4] = 5.0;
     }
 
-	// 35C20H---G70
+    // 35C20H---G70
 #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_355) || defined(EMP_322))
-	int freqIndex = Img2D::GetInstance()->GetFreqIndex();
-	int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
-	int probeIndex = 0;
+    int freqIndex = Img2D::GetInstance()->GetFreqIndex();
+    int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
+    int probeIndex = 0;
     string probe_type = TopArea::GetInstance()->GetProbeType();
     for (i = 0; i < NUM_PROBE; ++i)
     {

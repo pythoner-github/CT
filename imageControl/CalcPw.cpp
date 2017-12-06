@@ -1,13 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: AbsCalcPw.cpp
- * @brief: abstract class, in charge of pw imaging calculation
- *
- * version: V1.0
- * date: 2009-5-21
- * @author: zhanglei
- */
 #include <math.h>
 #include "imageControl/CalcPw.h"
 #include "imageControl/BandPassFilterPw.h"
@@ -16,6 +6,7 @@
 #include "imageControl/ImgPw.h"
 #include "imageControl/UpdatePw.h"
 #include "ViewMain.h"
+
 FpgaPw CalcPw::m_fpga;
 FpgaCtrl2D CalcPw::m_fpga2D;
 #if (defined(EMP_355))
@@ -54,32 +45,32 @@ const short CalcPw::SOUND_FILTER[MAX_SOUND_FILTER][SOUND_FILTER_ORDER+4] =
     {13500,254,15,-7,1,7,-2,-6,3,6,-5,-5,6,4,-8,-3,9,2,-10,0,11,-3,-12,5,12,-8,-12,12,10,-15,-8,18,5,-21,-1,24,-3,-25,9,26,-15,-25,22,23,-29,-20,35,14,-42,-7,47,-2,-50,13,52,-25,-51,37,48,-50,-41,62,32,-73,-19,83,4,-90,15,94,-35,-94,57,89,-79,-80,101,65,-122,-45,140,19,-155,11,164,-45,-167,83,162,-122,-150,162,128,-201,-97,237,56,-268,-6,292,-54,-307,122,310,-197,-299,279,272,-365,-225,453,157,-542,-64,629,-60,-712,221,789,-434,-859,722,918,-1140,-966,1830,1002,-3321,-1023,10378,17414,10378,-1023,-3321,1002,1830,-966,-1140,918,722,-859,-434,789,221,-712,-60,629,-64,-542,157,453,-225,-365,272,279,-299,-197,310,122,-307,-54,292,-6,-268,56,237,-97,-201,128,162,-150,-122,162,83,-167,-45,164,11,-155,19,140,-45,-122,65,101,-80,-79,89,57,-94,-35,94,15,-90,4,83,-19,-73,32,62,-41,-50,48,37,-51,-25,52,13,-50,-2,47,-7,-42,14,35,-20,-29,23,22,-25,-15,26,9,-25,-3,24,-1,-21,5,18,-8,-15,10,12,-12,-8,12,5,-12,-3,11,0,-10,2,9,-3,-8,4,6,-5,-5,6,3,-6,-2,7,1,-7},
      {14000,254,15,2,-7,1,7,-3,-6,5,5,-7,-3,8,0,-9,3,9,-6,-8,9,5,-12,-2,14,-3,-14,8,13,-13,-10,18,5,-22,2,23,-10,-22,18,18,-26,-11,32,1,-36,11,35,-24,-30,37,20,-47,-6,53,-11,-53,30,48,-48,-35,64,17,-75,7,78,-34,-73,61,58,-85,-33,103,1,-111,36,107,-74,-90,110,60,-138,-18,155,-33,-155,87,137,-140,-101,184,46,-214,22,223,-99,-208,177,165,-248,-96,301,2,-329,109,323,-229,-277,347,188,-449,-55,521,-117,-548,322,515,-551,-406,790,203,-1027,122,1245,-619,-1433,1428,1576,-3066,-1666,10290,18079,10290,-1666,-3066,1576,1428,-1433,-619,1245,122,-1027,203,790,-406,-551,515,322,-548,-117,521,-55,-449,188,347,-277,-229,323,109,-329,2,301,-96,-248,165,177,-208,-99,223,22,-214,46,184,-101,-140,137,87,-155,-33,155,-18,-138,60,110,-90,-74,107,36,-111,1,103,-33,-85,58,61,-73,-34,78,7,-75,17,64,-35,-48,48,30,-53,-11,53,-6,-47,20,37,-30,-24,35,11,-36,1,32,-11,-26,18,18,-22,-10,23,2,-22,5,18,-10,-13,13,8,-14,-3,14,-2,-12,5,9,-8,-6,9,3,-9,0,8,-3,-7,5,5,-6,-3,7,1,-7,2},
      {14500,254,15,6,2,-7,1,6,-4,-5,7,2,-8,2,8,-5,-6,9,3,-11,2,11,-8,-8,12,3,-15,3,15,-11,-12,18,4,-22,5,21,-16,-16,25,6,-30,8,29,-22,-22,34,7,-41,11,39,-31,-28,47,9,-55,16,52,-41,-37,62,11,-72,22,67,-55,-47,81,13,-93,30,86,-72,-59,105,15,-120,40,110,-94,-74,136,16,-154,54,140,-123,-93,176,18,-197,73,179,-162,-117,229,20,-257,99,232,-216,-151,305,21,-343,139,311,-299,-202,426,22,-485,206,446,-446,-293,651,23,-768,349,743,-789,-518,1254,23,-1690,880,2048,-2699,-2281,10157,18739,10157,-2281,-2699,2048,880,-1690,23,1254,-518,-789,743,349,-768,23,651,-293,-446,446,206,-485,22,426,-202,-299,311,139,-343,21,305,-151,-216,232,99,-257,20,229,-117,-162,179,73,-197,18,176,-93,-123,140,54,-154,16,136,-74,-94,110,40,-120,15,105,-59,-72,86,30,-93,13,81,-47,-55,67,22,-72,11,62,-37,-41,52,16,-55,9,47,-28,-31,39,11,-41,7,34,-22,-22,29,8,-30,6,25,-16,-16,21,5,-22,4,18,-12,-11,15,3,-15,3,12,-8,-8,11,2,-11,3,9,-6,-5,8,2,-8,2,7,-5,-4,6,1,-7,2,6},
-	 {15000,254,15,-5,6,1,-7,3,6,-6,-2,8,-2,-7,7,4,-9,2,9,-7,-6,12,0,-12,8,9,-14,-1,17,-9,-13,17,4,-22,8,19,-20,-8,27,-7,-26,24,14,-34,5,34,-26,-22,41,-1,-44,28,31,-49,-5,56,-28,-44,56,14,-69,26,59,-63,-26,84,-22,-77,69,42,-100,14,99,-74,-62,116,-2,-123,76,88,-133,-15,152,-74,-119,150,39,-185,68,158,-167,-71,222,-56,-207,184,114,-267,36,268,-199,-173,320,-3,-348,212,255,-387,-48,459,-224,-377,481,132,-627,234,579,-630,-288,931,-241,-990,942,661,-1704,245,2387,-2234,-2861,9990,19410,9990,-2861,-2234,2387,245,-1704,661,942,-990,-241,931,-288,-630,579,234,-627,132,481,-377,-224,459,-48,-387,255,212,-348,-3,320,-173,-199,268,36,-267,114,184,-207,-56,222,-71,-167,158,68,-185,39,150,-119,-74,152,-15,-133,88,76,-123,-2,116,-62,-74,99,14,-100,42,69,-77,-22,84,-26,-63,59,26,-69,14,56,-44,-28,56,-5,-49,31,28,-44,-1,41,-22,-26,34,5,-34,14,24,-26,-7,27,-8,-20,19,8,-22,4,17,-13,-9,17,-1,-14,9,8,-12,0,12,-6,-7,9,2,-9,4,7,-7,-2,8,-2,-6,6,3,-7,1,6,-5},
+     {15000,254,15,-5,6,1,-7,3,6,-6,-2,8,-2,-7,7,4,-9,2,9,-7,-6,12,0,-12,8,9,-14,-1,17,-9,-13,17,4,-22,8,19,-20,-8,27,-7,-26,24,14,-34,5,34,-26,-22,41,-1,-44,28,31,-49,-5,56,-28,-44,56,14,-69,26,59,-63,-26,84,-22,-77,69,42,-100,14,99,-74,-62,116,-2,-123,76,88,-133,-15,152,-74,-119,150,39,-185,68,158,-167,-71,222,-56,-207,184,114,-267,36,268,-199,-173,320,-3,-348,212,255,-387,-48,459,-224,-377,481,132,-627,234,579,-630,-288,931,-241,-990,942,661,-1704,245,2387,-2234,-2861,9990,19410,9990,-2861,-2234,2387,245,-1704,661,942,-990,-241,931,-288,-630,579,234,-627,132,481,-377,-224,459,-48,-387,255,212,-348,-3,320,-173,-199,268,36,-267,114,184,-207,-56,222,-71,-167,158,68,-185,39,150,-119,-74,152,-15,-133,88,76,-123,-2,116,-62,-74,99,14,-100,42,69,-77,-22,84,-26,-63,59,26,-69,14,56,-44,-28,56,-5,-49,31,28,-44,-1,41,-22,-26,34,5,-34,14,24,-26,-7,27,-8,-20,19,8,-22,4,17,-13,-9,17,-1,-14,9,8,-12,0,12,-6,-7,9,2,-9,4,7,-7,-2,8,-2,-6,6,3,-7,1,6,-5},
 };
 
 #else
 const unsigned short CalcPw::SOUND_FILTER[MAX_SOUND_FILTER][16] =
 {
-	{ 0, -5, 11, -17, 16, 0, -34, 76, -104, 87, 0, -163, 377, -596, 759, 3278},//<=2000
-	{-7, 1, 10, -15, -3, 39, -40, -30, 110, -72, -118, 272, -99, -483, 1170, 2626},//2500
-	{ 0, -8, 3, 17, -11, -35, 34, 60, -82, -87, 174, 113, -378, -130, 1285, 2187},//3000
-	{3, 8, -2, -18, -2, 39, 20, -70, -64, 107, 157, -141, -364, 166, 1276, 1868},//3500
-	{0, -8, -7, 11, 26, 0, -55, -47, 65, 141, 0, -263, -233, 369, 1230, 1642},//4000
-	{-6, 1, 11, 14, -8, -40, -34, 38, 110, 60, -129, -268, -82, 493, 1160, 1457},//4500
-	{4, 8, 6, -9, -27, -24, 21, 79, 75, -37, -190, -212, 50, 565, 1087, 1307},//5000
-	{6, 2, -8, -18, -16, 11, 54, 69, 12, -106, -199, -136, 154, 605, 1022, 1191},//5500
-	{0, -6, -12, -11, 6, 35, 55, 33, -45, -141, -174, -58, 234, 624, 961, 1095},//6000
-	{-6, -8, -7, 3, 22, 40, 36, -8, -84, -148, -134, 13, 291, 628, 904, 1011},//6500
-	{-7, -5, 1, 13, 28, 32, 10, -41, -104, -136, -87, 74, 331, 621, 850, 938},//7000
-	{-4, 0, 8, 18, 24, 16, -14, -64, -109, -114, -42, 123, 359, 609, 801, 873},//7500
-	{0, 5, 11, 17, 16, 0, -34, -76, -104, -87, 0, 162, 376, 594, 757, 818},//8000
+    { 0, -5, 11, -17, 16, 0, -34, 76, -104, 87, 0, -163, 377, -596, 759, 3278},//<=2000
+    {-7, 1, 10, -15, -3, 39, -40, -30, 110, -72, -118, 272, -99, -483, 1170, 2626},//2500
+    { 0, -8, 3, 17, -11, -35, 34, 60, -82, -87, 174, 113, -378, -130, 1285, 2187},//3000
+    {3, 8, -2, -18, -2, 39, 20, -70, -64, 107, 157, -141, -364, 166, 1276, 1868},//3500
+    {0, -8, -7, 11, 26, 0, -55, -47, 65, 141, 0, -263, -233, 369, 1230, 1642},//4000
+    {-6, 1, 11, 14, -8, -40, -34, 38, 110, 60, -129, -268, -82, 493, 1160, 1457},//4500
+    {4, 8, 6, -9, -27, -24, 21, 79, 75, -37, -190, -212, 50, 565, 1087, 1307},//5000
+    {6, 2, -8, -18, -16, 11, 54, 69, 12, -106, -199, -136, 154, 605, 1022, 1191},//5500
+    {0, -6, -12, -11, 6, 35, 55, 33, -45, -141, -174, -58, 234, 624, 961, 1095},//6000
+    {-6, -8, -7, 3, 22, 40, 36, -8, -84, -148, -134, 13, 291, 628, 904, 1011},//6500
+    {-7, -5, 1, 13, 28, 32, 10, -41, -104, -136, -87, 74, 331, 621, 850, 938},//7000
+    {-4, 0, 8, 18, 24, 16, -14, -64, -109, -114, -42, 123, 359, 609, 801, 873},//7500
+    {0, 5, 11, 17, 16, 0, -34, -76, -104, -87, 0, 162, 376, 594, 757, 818},//8000
 };
 #endif
 
 CalcPw::CalcPw()
 {
-	m_maxPeriod = 1;
-	m_pulseCycle = 1;
+    m_maxPeriod = 1;
+    m_pulseCycle = 1;
 }
 CalcPw::~CalcPw()
 {
@@ -87,30 +78,30 @@ CalcPw::~CalcPw()
 
 void CalcPw::CalcPwLine(int line)
 {
-	///> send sv scan line
-	m_fpga.SendScanLine(line);
+    ///> send sv scan line
+    m_fpga.SendScanLine(line);
 }
 void CalcPw::CalcSvPos(int dotBegin, int dotEnd)
 {
 #ifdef EMP_355
-	int dots = IMG_H * Calc2D::INIT_SCALE;
+    int dots = IMG_H * Calc2D::INIT_SCALE;
 #else
-	int dots = IMG_H;
+    int dots = IMG_H;
 #endif
-	if (dotBegin > dots)
-		dotBegin = dots;
-	if (dotEnd > dots)
-		dotEnd = dots;
+    if (dotBegin > dots)
+        dotBegin = dots;
+    if (dotEnd > dots)
+        dotEnd = dots;
 
-	PRINTF("calc sv pos to fpga: dotBegin = %d, dotEnd = %d\n", dotBegin, dotEnd);
-	///> send sv dot interval
-	m_fpga.SendSampleBegin(dotBegin);
-	m_fpga.SendSampleEnd(dotEnd);
+    PRINTF("calc sv pos to fpga: dotBegin = %d, dotEnd = %d\n", dotBegin, dotEnd);
+    ///> send sv dot interval
+    m_fpga.SendSampleBegin(dotBegin);
+    m_fpga.SendSampleEnd(dotEnd);
 }
 
 void CalcPw::CalcNoise(int data)
 {
-	m_fpga.SendNoise(data);
+    m_fpga.SendNoise(data);
 }
 void CalcPw::CalcGainCw(int dataCw)
 {
@@ -118,28 +109,28 @@ void CalcPw::CalcGainCw(int dataCw)
 }
 void CalcPw::CalcDynamicRange(int range)
 {
-	m_fpga.SendDyn(range);
+    m_fpga.SendDyn(range);
 }
 void CalcPw::CalcBaseline(int baseline)
 {
-	m_fpga.SendBaseLine(baseline);
+    m_fpga.SendBaseLine(baseline);
 }
 void CalcPw::CalcLog(int value)
 {
-	m_fpga.SendLogRank(value);
+    m_fpga.SendLogRank(value);
 }
 void CalcPw::CalcWallFilter(unsigned int *filter, int size)
 {
-	m_fpga.SendWfFc(filter, size);
+    m_fpga.SendWfFc(filter, size);
 }
 void CalcPw::CalcSpeed(int data)
 {
-	m_fpga.SendSpectrumSpeed(data);
+    m_fpga.SendSpectrumSpeed(data);
 }
 void CalcPw::CalcSoundVolume(int data)
 {
-	// send speed
-	m_fpga.SendSoundVolume(data);
+    // send speed
+    m_fpga.SendSoundVolume(data);
 }
 
 void CalcPw::CalcSoundFilter(int prf)
@@ -165,11 +156,11 @@ void CalcPw::CalcSoundFilter(int prf)
 #endif
      m_fpga.SendSoundFilter((unsigned short*)(SOUND_FILTER[index]+1),*(SOUND_FILTER[index]+1)+3);
 #else
-	if (prf > (MAX_SOUND_FILTER-1))
-		prf = MAX_SOUND_FILTER-1;
+    if (prf > (MAX_SOUND_FILTER-1))
+        prf = MAX_SOUND_FILTER-1;
 
-	// send speed filter
-	m_fpga.SendSoundFilter((unsigned short*)SOUND_FILTER[prf], 16);
+    // send speed filter
+    m_fpga.SendSoundFilter((unsigned short*)SOUND_FILTER[prf], 16);
 #endif
 }
 
@@ -180,7 +171,7 @@ void  CalcPw::CalcColorGray(int index)
 
 void CalcPw::CalcHPRF(int data)
 {
-	m_fpga.SendHPRFEmitNum(data);
+    m_fpga.SendHPRFEmitNum(data);
 }
 
 void CalcPw::CalcColorEmitDelay()
@@ -192,105 +183,105 @@ void CalcPw::CalcColorReceiveDelay()
 
 void CalcPw::CalcInvert(bool on)
 {
-	m_fpga.SendSpectrumInvert((int)on);
+    m_fpga.SendSpectrumInvert((int)on);
 }
 
 int CalcPw::CalcMaxPeriod(int prf)
 {
-	int maxPeriod = GetMaxPeriod(prf);
-	m_fpga.SendMaxPeriod(maxPeriod);
+    int maxPeriod = GetMaxPeriod(prf);
+    m_fpga.SendMaxPeriod(maxPeriod);
 
-//	PRINTF("================ normal PRFtime = %d\n",maxPeriod+20);
+//  PRINTF("================ normal PRFtime = %d\n",maxPeriod+20);
 
-	return prf;
+    return prf;
 }
 
 int CalcPw::CalcMaxPeriodForHprf(int prf)
 {
-//	int maxPeriod = GetMaxPeriod(prf);
+//  int maxPeriod = GetMaxPeriod(prf);
 
    int maxPeriod = 1000000.0/(float)prf -20;
     m_fpga.SendMaxPeriod(maxPeriod);
 
-	//printf("================ send max period = %d\n",maxPeriod);
+    //printf("================ send max period = %d\n",maxPeriod);
 
-	return prf;
+    return prf;
 }
 
 void CalcPw::CalcSoundInterpolation(int prf, int spectrumSpeed)
 {
-	//double numIntp =GetMaxPeriod(prfIndex);// 24000 / PW_PRF[prfIndex];
-	double MaxPeriod = GetMaxPeriod(prf);
+    //double numIntp =GetMaxPeriod(prfIndex);// 24000 / PW_PRF[prfIndex];
+    double MaxPeriod = GetMaxPeriod(prf);
 
-	double numIntp = (MaxPeriod+20)*3/125;
+    double numIntp = (MaxPeriod+20)*3/125;
     double numIntp_c = 0;
 
-	if(numIntp < 1.0)
-		numIntp = 1.0;
-	else if(numIntp > 31.0)
-		numIntp = 31.0;
+    if(numIntp < 1.0)
+        numIntp = 1.0;
+    else if(numIntp > 31.0)
+        numIntp = 31.0;
 
-	if(numIntp < 3)
-		numIntp_c = 3;
+    if(numIntp < 3)
+        numIntp_c = 3;
     else
-		numIntp_c = numIntp;
+        numIntp_c = numIntp;
 
 #if (defined(EMP_355) || defined(EMP_340))
-	CalcSoundFilter(prf);
+    CalcSoundFilter(prf);
 #else
     CalcSoundFilter((int)numIntp_c - 3);
 #endif
-	int numAfterP = numIntp * spectrumSpeed;
-	unsigned short* coef = (unsigned short*) malloc (numAfterP * sizeof(short));
-	PRINTF("=====================sound interpolation algorithm:=================== \n");
-	PRINTF("sound interp times	= %f\n",numIntp);
-	PRINTF("sound ceof size = %d\n", numAfterP);
-	PRINTF("sound ceof SPECTRUM speed = %d\n", spectrumSpeed);
-	int i;
-	for (i = 0; i < numAfterP; i ++)
-	{
-		coef[i] = (short)(i * 256 / numIntp);
-		//PRINTF("SOUND coef data %d = %d\n", i, coef[i]);
-	}
+    int numAfterP = numIntp * spectrumSpeed;
+    unsigned short* coef = (unsigned short*) malloc (numAfterP * sizeof(short));
+    PRINTF("=====================sound interpolation algorithm:=================== \n");
+    PRINTF("sound interp times  = %f\n",numIntp);
+    PRINTF("sound ceof size = %d\n", numAfterP);
+    PRINTF("sound ceof SPECTRUM speed = %d\n", spectrumSpeed);
+    int i;
+    for (i = 0; i < numAfterP; i ++)
+    {
+        coef[i] = (short)(i * 256 / numIntp);
+        //PRINTF("SOUND coef data %d = %d\n", i, coef[i]);
+    }
 
-	m_fpga.SendSoundIntpNum(numAfterP);
-	m_fpga.SendSoundIntpCoef(coef, numAfterP);
+    m_fpga.SendSoundIntpNum(numAfterP);
+    m_fpga.SendSoundIntpCoef(coef, numAfterP);
 
-	free(coef);
+    free(coef);
 }
 
 int CalcPw::CalcFocPulse(int freq, int power, int &pulseWidth)
 {
-	int freqTemp = 0;
-	if (freq > 150)
-		freqTemp = 150;
-	else
-		freqTemp = freq;
+    int freqTemp = 0;
+    if (freq > 150)
+        freqTemp = 150;
+    else
+        freqTemp = freq;
 #ifdef EMP_355
     int pulseCycle = (int)((float)(CLOCK_EMIT * 10) /  freqTemp + 0.5);
 #else
-	int pulseCycle = (int)((float)600 /  freqTemp + 0.5);
+    int pulseCycle = (int)((float)600 /  freqTemp + 0.5);
 #endif
-	int pulseW = pulseCycle * power / 100;
+    int pulseW = pulseCycle * power / 100;
 
-	// must do like this, unsure pulseCycle and pulseWidth is not 0
-	if (pulseCycle == 0)
-		pulseCycle = 1;
+    // must do like this, unsure pulseCycle and pulseWidth is not 0
+    if (pulseCycle == 0)
+        pulseCycle = 1;
 
     // quick adjustment pw
-	/*if (pulseW == 0)
-		pulseW = 1;*/
+    /*if (pulseW == 0)
+        pulseW = 1;*/
 
-	m_pulseCycle = pulseCycle;
-	pulseWidth = pulseW;
+    m_pulseCycle = pulseCycle;
+    pulseWidth = pulseW;
 
-	//send foc pulse
-	m_fpga2D.SendColorPulseCycle(pulseCycle);
+    //send foc pulse
+    m_fpga2D.SendColorPulseCycle(pulseCycle);
 
-	//send foc pulse for test
-	m_fpga2D.SendColorPulseWidthBak(pulseW);
+    //send foc pulse for test
+    m_fpga2D.SendColorPulseWidthBak(pulseW);
 
-	return pulseCycle;
+    return pulseCycle;
 }
 
 void CalcPw::CalcSoundStatus(int data)
@@ -303,15 +294,15 @@ void CalcPw::CalcSoundStatus(int data)
  */
 void CalcPw::CalcBandPassFilter(int pulseNum)
 {
-	unsigned short *filter = NULL;
-	PRINTF("ENTER band pass pulseNum = %d\n", pulseNum);
+    unsigned short *filter = NULL;
+    PRINTF("ENTER band pass pulseNum = %d\n", pulseNum);
 
-	if (pulseNum > 23)
-		pulseNum = 23;
+    if (pulseNum > 23)
+        pulseNum = 23;
 
-	filter = (unsigned short*)BAND_PASS_FILTER_1[pulseNum-1];
+    filter = (unsigned short*)BAND_PASS_FILTER_1[pulseNum-1];
 
-	m_fpga2D.SendMatchFilterPw(filter, BAND_PASS_FILTER_SIZE);
+    m_fpga2D.SendMatchFilterPw(filter, BAND_PASS_FILTER_SIZE);
 }
 
 /*
@@ -319,11 +310,11 @@ void CalcPw::CalcBandPassFilter(int pulseNum)
  */
 void CalcPw::CalcBandPassFilter_test(int pulseNum, int bplist)
 {
-	unsigned short *filter = NULL;
-	PRINTF("ENTER band pass pulseNum = %d\n", pulseNum);
+    unsigned short *filter = NULL;
+    PRINTF("ENTER band pass pulseNum = %d\n", pulseNum);
 
-	if (pulseNum > 23)
-		pulseNum = 23;
+    if (pulseNum > 23)
+        pulseNum = 23;
 
     switch(bplist)
     {
@@ -353,7 +344,7 @@ void CalcPw::CalcBandPassFilter_test(int pulseNum, int bplist)
             break;
     }
 
-	m_fpga2D.SendMatchFilterPw(filter, BAND_PASS_FILTER_SIZE);
+    m_fpga2D.SendMatchFilterPw(filter, BAND_PASS_FILTER_SIZE);
 }
 /*
  *  *@brief calc Band pass filter(match filter) according to num of pulse width(60MHZ)
@@ -380,10 +371,10 @@ void CalcPw::CalcBandPassFilter_new(int halfpulseCylce, float fc_offset)
 
 double CalcPw::CalcScaleTime(int spectrumSpeed, int prf)
 {
-	double scale = (double)spectrumSpeed / prf;
-	//PRINTF("=========================scale time scale = %f\n", scale);
+    double scale = (double)spectrumSpeed / prf;
+    //PRINTF("=========================scale time scale = %f\n", scale);
 
-	return scale;
+    return scale;
 }
 
 /*
@@ -399,13 +390,13 @@ double CalcPw::CalcScaleTime(int spectrumSpeed, int prf)
  */
 double CalcPw::CalcScaleVel(int prf, int colorFreq, int angle, double soundSpeed, int pixels)
 {
-	//PRINTF("******************************prfIndex = %d, colorFreq = %d, angle = %d, sound = %f, dots = %d\n", prfIndex, colorFreq, angle, soundSpeed, pixels);
-	double maxVel = CalcMaxVel(prf, colorFreq, angle, soundSpeed);
-	double scale = maxVel / pixels;
-	//PRINTF("max vel = %f\n", maxVel);
-	//PRINTF("scale vel = %f\n", scale);
+    //PRINTF("******************************prfIndex = %d, colorFreq = %d, angle = %d, sound = %f, dots = %d\n", prfIndex, colorFreq, angle, soundSpeed, pixels);
+    double maxVel = CalcMaxVel(prf, colorFreq, angle, soundSpeed);
+    double scale = maxVel / pixels;
+    //PRINTF("max vel = %f\n", maxVel);
+    //PRINTF("scale vel = %f\n", scale);
 
-	return scale;
+    return scale;
 }
 
 /*
@@ -420,11 +411,11 @@ double CalcPw::CalcScaleVel(int prf, int colorFreq, int angle, double soundSpeed
  */
 double CalcPw::CalcMaxVel(int prf, int colorFreq, int angle, double soundSpeed)
 {
-	int freq = (float)colorFreq / 20 * 1000000; //hz
-	double angle_radians = angle * PI / 180;
+    int freq = (float)colorFreq / 20 * 1000000; //hz
+    double angle_radians = angle * PI / 180;
 
-	double maxVel = (soundSpeed * prf / 4 / freq/ cos(angle_radians)) * 100; //cm/s
-	return maxVel;
+    double maxVel = (soundSpeed * prf / 4 / freq/ cos(angle_radians)) * 100; //cm/s
+    return maxVel;
 }
 
 /*
@@ -435,119 +426,119 @@ double CalcPw::CalcMaxVel(int prf, int colorFreq, int angle, double soundSpeed)
 void CalcPw::CalcHDotSample(int depth, double soundSpeed)
 {
 #ifdef EMP_355
-	const int DOTS = IMG_H * Calc2D::INIT_SCALE;
+    const int DOTS = IMG_H * Calc2D::INIT_SCALE;
 #else
-	const int DOTS = IMG_H;
+    const int DOTS = IMG_H;
 #endif
-	const int SAMPLE_NUM = 65536;
-	const int FREQ = SAMPLE_FREQ;//60; //Mhz
+    const int SAMPLE_NUM = 65536;
+    const int FREQ = SAMPLE_FREQ;//60; //Mhz
 
-	int sample = (int)(soundSpeed * SAMPLE_NUM * DOTS / 2 / FREQ / depth + 0.5);	//60MHz采样频率IMG_H点
+    int sample = (int)(soundSpeed * SAMPLE_NUM * DOTS / 2 / FREQ / depth + 0.5);    //60MHz采样频率IMG_H点
 
-	PRINTF("===== PW SampleRate = %d \n",sample);
+    PRINTF("===== PW SampleRate = %d \n",sample);
 
-	///> send samplePw
-	m_fpga.SendPwSample(sample);
+    ///> send samplePw
+    m_fpga.SendPwSample(sample);
 }
 
 void CalcPw::CalcHDotSampleForHprf(int depth, int prf)
 {
-	const int DOTS = IMG_H * Calc2D::INIT_SCALE;
-	const int SAMPLE_NUM = 65536;
-	const int FREQ = SAMPLE_FREQ;//60; //Mhz
+    const int DOTS = IMG_H * Calc2D::INIT_SCALE;
+    const int SAMPLE_NUM = 65536;
+    const int FREQ = SAMPLE_FREQ;//60; //Mhz
 
-	int sample = (int)(1.54 * SAMPLE_NUM * DOTS / 2 / FREQ / depth + 0.5);	//60MHz采样频率IMG_H点
+    int sample = (int)(1.54 * SAMPLE_NUM * DOTS / 2 / FREQ / depth + 0.5);  //60MHz采样频率IMG_H点
 
-	///> send samplePw
-	m_fpga.SendPwSample(sample);
+    ///> send samplePw
+    m_fpga.SendPwSample(sample);
 }
 
 int CalcPw::GetPulseCycleNum()
 {
-	return m_pulseCycle;
+    return m_pulseCycle;
 }
 
 void CalcPw::CalcRGBSampleDots(int dots)
 {
-	m_fpga.SendPwRGBSampleDots(dots);
+    m_fpga.SendPwRGBSampleDots(dots);
 }
 void CalcPw::CalcRGBSampleCoef(unsigned short* table, int size)
 {
-	m_fpga.SendPwRGBSampleCoef(table, size);
+    m_fpga.SendPwRGBSampleCoef(table, size);
 }
 
 void CalcPw::CalcSoundStopDot(int prf)
 {
-	int data = 50* 10000 / prf;
-	if (data > 127)
-		data = 127;
-	m_fpga.SendPwSoundStopDot(data);
+    int data = 50* 10000 / prf;
+    if (data > 127)
+        data = 127;
+    m_fpga.SendPwSoundStopDot(data);
 }
 
 void CalcPw::CalcPwImgCtrl(bool on)
 {
-	m_fpga.SendPwImgCtrl(on);
+    m_fpga.SendPwImgCtrl(on);
 }
 
 void CalcPw::CalcPwImgCtrlPara(int offLineNum)
 {
-	m_fpga.SendPwImgCtrlPara(offLineNum);
+    m_fpga.SendPwImgCtrlPara(offLineNum);
 }
 
 void CalcPw::CalcCwImgCtrl(bool on)
 {
-	m_fpga.SendCwImgCtrl(on);
+    m_fpga.SendCwImgCtrl(on);
 }
 
 // private
 double CalcPw::GetMaxPeriod(int prf)
 {
-	double maxPeriod = 1000000 / prf - FOC_LOW_TIME;// + HPRF_CORRECT;
+    double maxPeriod = 1000000 / prf - FOC_LOW_TIME;// + HPRF_CORRECT;
 
-	return maxPeriod;
+    return maxPeriod;
 }
 
 int CalcPw::GetMaxSoundFilter(void)
 {
-	return MAX_SOUND_FILTER;
+    return MAX_SOUND_FILTER;
 }
 int CalcPw::GetHPRFIndex(float svBegin, float svEnd)
 {
-	float beginT = svBegin*2/SOUND_SPEED; //us
-	float endT = svEnd*2/SOUND_SPEED ;
-//	float svLenT = endT- beginT;
-	int index;
+    float beginT = svBegin*2/SOUND_SPEED; //us
+    float endT = svEnd*2/SOUND_SPEED ;
+//  float svLenT = endT- beginT;
+    int index;
 
-	int prf = 8000;
-	float emitCycle8k = 1000000/prf + HPRF_CORRECT; //us
-	int num8k = GetHPRFEmitNum(emitCycle8k, beginT)+1;
+    int prf = 8000;
+    float emitCycle8k = 1000000/prf + HPRF_CORRECT; //us
+    int num8k = GetHPRFEmitNum(emitCycle8k, beginT)+1;
 
-	prf = 6000;
-	float emitCycle6k = 1000000/prf;// + HPRF_CORRECT;
-	int num6k = GetHPRFEmitNum(emitCycle6k,beginT)+1;
+    prf = 6000;
+    float emitCycle6k = 1000000/prf;// + HPRF_CORRECT;
+    int num6k = GetHPRFEmitNum(emitCycle6k,beginT)+1;
 
-	if(beginT < (emitCycle8k - HPRF_CORRECT - FOC_LOW_TIME))
-		index = 14; //8000
-	else if ((beginT >=(num8k*emitCycle8k -HPRF_CORRECT - FOC_LOW_TIME)) && (endT <= (num8k*emitCycle8k + FOC_LOW_TIME + HPRF_CORRECT)))
-		index = 10; //6000
-	else  if((beginT >=(num6k*emitCycle6k-HPRF_CORRECT - FOC_LOW_TIME)) && (endT <= (num6k*emitCycle6k + FOC_LOW_TIME + HPRF_CORRECT)))
-		index = 14; //5000
-	else
-		 index = 14; //8000
+    if(beginT < (emitCycle8k - HPRF_CORRECT - FOC_LOW_TIME))
+        index = 14; //8000
+    else if ((beginT >=(num8k*emitCycle8k -HPRF_CORRECT - FOC_LOW_TIME)) && (endT <= (num8k*emitCycle8k + FOC_LOW_TIME + HPRF_CORRECT)))
+        index = 10; //6000
+    else  if((beginT >=(num6k*emitCycle6k-HPRF_CORRECT - FOC_LOW_TIME)) && (endT <= (num6k*emitCycle6k + FOC_LOW_TIME + HPRF_CORRECT)))
+        index = 14; //5000
+    else
+         index = 14; //8000
 
-	PRINTF("============== HPRF: prfindex = %d, num8k = %d, num6k = %d, emitCycle8k = %.3f, emitCycle6k = %.3f \n",index,num8k,num6k,emitCycle8k,emitCycle6k);
-	return index;
+    PRINTF("============== HPRF: prfindex = %d, num8k = %d, num6k = %d, emitCycle8k = %.3f, emitCycle6k = %.3f \n",index,num8k,num6k,emitCycle8k,emitCycle6k);
+    return index;
 }
 
 int CalcPw::GetHPRFEmitNum(float emitT, float recvT)
 {
-	return recvT/emitT;
+    return recvT/emitT;
 }
 
 int CalcPw::SVPosPRFToHPRF(float &depthBegin, float &depthEnd, int prf, int prfIndex)
 {
 #ifdef EMP_355
- 	bool mode = ViewMain::GetInstance()->GetModeIsFlag();
+    bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(mode)
     {
         static int prf_bak =350;
@@ -620,14 +611,14 @@ int CalcPw::SVPosPRFToHPRF(float &depthBegin, float &depthEnd, int prf, int prfI
         return num;
     }
 #else
-	PRINTF("=================  HPRFaaaaaaa:  depthBegin: %.2f  soundSpeed = %.2f\n", depthBegin, SOUND_SPEED);
-	//calc interval time between the latest emit and the first emit.unit:us.
+    PRINTF("=================  HPRFaaaaaaa:  depthBegin: %.2f  soundSpeed = %.2f\n", depthBegin, SOUND_SPEED);
+    //calc interval time between the latest emit and the first emit.unit:us.
     float svLen =(float)(depthEnd - depthBegin) * 10.0;;
-	float cycle = (float)1000000/prf + HPRF_CORRECT;
-	int num = (int)(depthBegin*2/SOUND_SPEED/cycle);
-	float emitInterval = num * cycle;
-	float emitDepth = emitInterval * SOUND_SPEED / 2;
-	depthBegin = depthBegin - emitDepth;
+    float cycle = (float)1000000/prf + HPRF_CORRECT;
+    int num = (int)(depthBegin*2/SOUND_SPEED/cycle);
+    float emitInterval = num * cycle;
+    float emitDepth = emitInterval * SOUND_SPEED / 2;
+    depthBegin = depthBegin - emitDepth;
     depthEnd = depthEnd - emitDepth;
 
     //实践得出来的校验公式
@@ -640,8 +631,8 @@ int CalcPw::SVPosPRFToHPRF(float &depthBegin, float &depthEnd, int prf, int prfI
 
     PRINTF("=================  HPRF:  num: %d  cycle = %.2f  emitInterval = %.2f\n", num, cycle,  emitInterval);
 
-	PRINTF("=================  HPRF:  emitDepth = %.2f,  depthBegin =  %.2f, depthEnd = %.5f \n",emitDepth,depthBegin,depthEnd);
-	return num;
+    PRINTF("=================  HPRF:  emitDepth = %.2f,  depthBegin =  %.2f, depthEnd = %.5f \n",emitDepth,depthBegin,depthEnd);
+    return num;
 #endif
 }
 
@@ -656,20 +647,20 @@ int CalcPw::SVPosPRFToHPRF(float &depthBegin, float &depthEnd, int prf, int prfI
  */
 vector<int> CalcPw::GetHPRFEmitPos(int prf, int svPos, double soundSpeed, float scale)
 {
-	vector<int> emitDots;
-	emitDots.clear();
+    vector<int> emitDots;
+    emitDots.clear();
 
-	int num = (int)(svPos * scale * 2 / soundSpeed * prf / 1000000);
-	if(num <= 0)
-		return emitDots;
+    int num = (int)(svPos * scale * 2 / soundSpeed * prf / 1000000);
+    if(num <= 0)
+        return emitDots;
 
-	int temp = 0;
-	int i;
-	for(i = 0; i < num; i++)
-	{
-		temp = svPos - (int)((float)1000000 * (i+1) * soundSpeed / prf / 2 / scale);
-		emitDots.push_back(temp);
-	}
+    int temp = 0;
+    int i;
+    for(i = 0; i < num; i++)
+    {
+        temp = svPos - (int)((float)1000000 * (i+1) * soundSpeed / prf / 2 / scale);
+        emitDots.push_back(temp);
+    }
 
-	return emitDots;
+    return emitDots;
 }

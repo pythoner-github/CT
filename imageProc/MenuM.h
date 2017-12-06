@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef MENU_M_SUB_H
 #define MENU_M_SUB_H
 
@@ -15,7 +14,7 @@ public:
     void Hide(void);
     void Show(void);
 
-	void Sensitive(bool on);
+    void Sensitive(bool on);
     void UpdatePolarity(bool on);
     void UpdateTimeMark(bool on);
     void UpdateLine(const char *str, EKnobReturn status);
@@ -41,10 +40,10 @@ private:
     static CusSpin::CusSpinItem item_smooth;
     static CusSpin::CusSpinItem item_enhanceM;
 
-	bool m_sensitive;
+    bool m_sensitive;
     int m_format;
 
-	//signal handle
+    //signal handle
     static void ChgLine(EKnobOper oper);
     static void ChgEnhanceM(EKnobOper oper);
     static void ChgSmooth(EKnobOper oper);

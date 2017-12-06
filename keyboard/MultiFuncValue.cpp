@@ -1,13 +1,3 @@
-/*
- * 2010, 深圳恩普电子技术有限公司
- *
- * @file: MultiFuncValue.cpp
- * @brief: keyboard multifunction not related to scan mode
- *
- * version: V1.0
- * date: 2010-9-27
- * @author: zhanglei
- */
 #include "keyboard/MultiFuncValue.h"
 #include "keyboard/MultiFuncMode.h"
 #include "imageProc/ModeStatus.h"
@@ -29,40 +19,40 @@ void MultiFuncFocus::Value(EKnobOper opr)
     if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn() || Zoom::GetInstance()->GetLocalZoomStatus() || ptrImg->GetTpViewStatus() || ptrImg->GetEFVIStatus())
         return;
 
-	Img2D::GetInstance()->ChangeFocSum(opr);
+    Img2D::GetInstance()->ChangeFocSum(opr);
 
-	// change tis
-	ChangeTis();
+    // change tis
+    ChangeTis();
 }
 void MultiFuncFocus::Mouse(int offsetX, int offsetY)
 {
-	OverturnMouseOpr(offsetX, offsetY);
+    OverturnMouseOpr(offsetX, offsetY);
 
-	if (offsetY > 0)
-		Img2D::GetInstance()->ChangeFocPos(SUB);
-	else if (offsetY < 0)
-		Img2D::GetInstance()->ChangeFocPos(ADD);
+    if (offsetY > 0)
+        Img2D::GetInstance()->ChangeFocPos(SUB);
+    else if (offsetY < 0)
+        Img2D::GetInstance()->ChangeFocPos(ADD);
 
-	// change tis
-	ChangeTis();
+    // change tis
+    ChangeTis();
 }
 void MultiFuncFocus::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncFocus::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncFocus::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 
 //Depth
@@ -157,7 +147,7 @@ void MultiFuncLocalZoom::Do()
 void MultiFuncLocalZoom::Do()
 {
     m_changeSize = !m_changeSize;
-	Zoom::GetInstance()->SetLocalZoomBoxStatus(m_changeSize);
+    Zoom::GetInstance()->SetLocalZoomBoxStatus(m_changeSize);
 }
 #endif
 void MultiFuncLocalZoom::Undo()
@@ -167,93 +157,93 @@ void MultiFuncLocalZoom::Undo()
 void MultiFuncLocalZoom::Update()
 {
     HintArea::GetInstance()->ClearHint();
-	Zoom::GetInstance()->LocalZoomCtrl(TRUE);
+    Zoom::GetInstance()->LocalZoomCtrl(TRUE);
 }
 void MultiFuncLocalZoom::Mouse(int offsetX, int offsetY)
 {
-	OverturnMouseOpr(offsetX, offsetY);
+    OverturnMouseOpr(offsetX, offsetY);
 
-	if (m_changeSize) // change size
-	{
-		bool lrStatus = ImgProc2D::GetInstance()->GetLRStatus();
-		bool udStatus = ImgProc2D::GetInstance()->GetUDStatus();
-		Zoom::GetInstance()->LocalZoomBoxSize(offsetX, offsetY, lrStatus, udStatus);
-	}
-	else // move pos
-	{
-		Zoom::GetInstance()->LocalZoomBoxPos(offsetX, offsetY);
-	}
+    if (m_changeSize) // change size
+    {
+        bool lrStatus = ImgProc2D::GetInstance()->GetLRStatus();
+        bool udStatus = ImgProc2D::GetInstance()->GetUDStatus();
+        Zoom::GetInstance()->LocalZoomBoxSize(offsetX, offsetY, lrStatus, udStatus);
+    }
+    else // move pos
+    {
+        Zoom::GetInstance()->LocalZoomBoxPos(offsetX, offsetY);
+    }
 }
 
 void MultiFuncLocalZoom::KeyLeft()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncLocalZoom::KeyRight()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncLocalZoom::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncLocalZoom::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 ///> global zoom
 void MultiFuncGlobalZoom::Value(EKnobOper opr)
 {
-	Zoom::GetInstance()->GlobalZoomScale(opr);
+    Zoom::GetInstance()->GlobalZoomScale(opr);
 }
 void MultiFuncGlobalZoom::Mouse(int offsetX, int offsetY)
 {
-	OverturnMouseOpr(offsetX, offsetY);
-	Zoom::GetInstance()->GlobalZoomScroll(offsetX, offsetY);
+    OverturnMouseOpr(offsetX, offsetY);
+    Zoom::GetInstance()->GlobalZoomScroll(offsetX, offsetY);
 }
 void MultiFuncGlobalZoom::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncGlobalZoom::KeyLeft()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncGlobalZoom::KeyRight()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncGlobalZoom::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncGlobalZoom::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 ///> PIP zoom
 void MultiFuncPIPZoom::Value(EKnobOper opr)
@@ -262,99 +252,99 @@ void MultiFuncPIPZoom::Value(EKnobOper opr)
 }
 void MultiFuncPIPZoom::Mouse(int offsetX, int offsetY)
 {
-	OverturnMouseOpr(offsetX, offsetY);
-	Zoom::GetInstance()->PIPZoomPos(offsetX, offsetY);
+    OverturnMouseOpr(offsetX, offsetY);
+    Zoom::GetInstance()->PIPZoomPos(offsetX, offsetY);
 }
 void MultiFuncPIPZoom::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncPIPZoom::KeyLeft()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncPIPZoom::KeyRight()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncPIPZoom::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncPIPZoom::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 
 ///> measure
 #if 1
 void MultiFuncMeasure::Do()
 {
-	if (g_ptrAbsMeasure != NULL)
-		g_ptrAbsMeasure->PressLeft(m_p);
+    if (g_ptrAbsMeasure != NULL)
+        g_ptrAbsMeasure->PressLeft(m_p);
 }
 void MultiFuncMeasure::Undo()
 {
-	if (g_ptrAbsMeasure != NULL)
-		g_ptrAbsMeasure->PressRight(m_p);
+    if (g_ptrAbsMeasure != NULL)
+        g_ptrAbsMeasure->PressRight(m_p);
 }
 void MultiFuncMeasure::Update()
 {
-	if (g_ptrAbsMeasure != NULL)
-		g_ptrAbsMeasure->Change();
+    if (g_ptrAbsMeasure != NULL)
+        g_ptrAbsMeasure->Change();
 }
 void MultiFuncMeasure::Value(EKnobOper opr)
 {
-	if (g_ptrAbsMeasure != NULL)
-		g_ptrAbsMeasure->Value(opr);
+    if (g_ptrAbsMeasure != NULL)
+        g_ptrAbsMeasure->Value(opr);
 }
 void MultiFuncMeasure::Mouse(int offsetX, int offsetY)
 {
-	if (g_ptrAbsMeasure != NULL)
-	{
-		GetPoint(offsetX, offsetY);
-		g_ptrAbsMeasure->MouseMove(m_p);
-	}
+    if (g_ptrAbsMeasure != NULL)
+    {
+        GetPoint(offsetX, offsetY);
+        g_ptrAbsMeasure->MouseMove(m_p);
+    }
 }
 void MultiFuncMeasure::KeyLeft()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncMeasure::KeyRight()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncMeasure::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncMeasure::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 POINT MultiFuncMeasure::GetPoint(int offsetX, int offsetY)
 {
@@ -363,13 +353,13 @@ POINT MultiFuncMeasure::GetPoint(int offsetX, int offsetY)
     if (((m_p.x + offsetX) >= 0) &&((m_p.x + offsetX) <= IMAGE_W))
         m_p.x += offsetX;
 
-	offsetY = -offsetY;
-	if (((m_p.y + offsetY) >= 0) &&((m_p.y + offsetY) <= IMAGE_H))
-		m_p.y += offsetY;
+    offsetY = -offsetY;
+    if (((m_p.y + offsetY) >= 0) &&((m_p.y + offsetY) <= IMAGE_H))
+        m_p.y += offsetY;
 
-	m_draw.SetCursor(m_p);
+    m_draw.SetCursor(m_p);
 
-	return m_p;
+    return m_p;
 }
 #endif
 #if 0
@@ -388,183 +378,183 @@ void MultiFuncText::Undo()
 ///> gray trans
 void MultiFuncGrayTrans::Mouse(int offsetX, int offsetY)
 {
-	if (offsetY > 0)
-		ImgProc2D::GetInstance()->ChangeGrayTransPointY(ADD);
-	else if (offsetY < 0)
-		ImgProc2D::GetInstance()->ChangeGrayTransPointY(SUB);
+    if (offsetY > 0)
+        ImgProc2D::GetInstance()->ChangeGrayTransPointY(ADD);
+    else if (offsetY < 0)
+        ImgProc2D::GetInstance()->ChangeGrayTransPointY(SUB);
 }
 void MultiFuncGrayTrans::Value(EKnobOper opr)
 {
-	ImgProc2D::GetInstance()->ChangeGrayTransPointX(opr);
+    ImgProc2D::GetInstance()->ChangeGrayTransPointX(opr);
 }
 
 void MultiFuncGrayTrans::Do()
 {
 #if (defined(EMP_322) || defined(EMP_313))
-	ImgProc2D::GetInstance()->ResetGrayTrans();
+    ImgProc2D::GetInstance()->ResetGrayTrans();
 #endif
 
 }
 
 void MultiFuncGrayTrans::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncGrayTrans::Update()
 {
-	ImgProc2D::GetInstance()->ResetGrayTrans();
+    ImgProc2D::GetInstance()->ResetGrayTrans();
 }
 void MultiFuncGrayTrans::KeyUp()
 {
-	int offsetX = 0;
-	int offsetY = 1;
+    int offsetX = 0;
+    int offsetY = 1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncGrayTrans::KeyDown()
 {
-	int offsetX = 0;
-	int offsetY = -1;
+    int offsetX = 0;
+    int offsetY = -1;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 ///> gray reject
 void MultiFuncGrayReject::Mouse(int offsetX, int offsetY)
 {
-	if (offsetX > 0)
-		ImgProc2D::GetInstance()->ChangeGrayReject(ADD);
-	else if (offsetX < 0)
-		ImgProc2D::GetInstance()->ChangeGrayReject(SUB);
+    if (offsetX > 0)
+        ImgProc2D::GetInstance()->ChangeGrayReject(ADD);
+    else if (offsetX < 0)
+        ImgProc2D::GetInstance()->ChangeGrayReject(SUB);
 }
 void MultiFuncGrayReject::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncGrayReject::KeyLeft()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncGrayReject::KeyRight()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 
 void MultiFuncFreq::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 
 void MultiFuncChroma::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncBiopsyVerify::Value(EKnobOper opr) ///< verify angle
 {
-	BiopsyLine::GetInstance()->AngleChange(opr);
+    BiopsyLine::GetInstance()->AngleChange(opr);
 }
 void MultiFuncBiopsyVerify::Mouse(int offsetX, int offsetY) ///< verify position
 {
-	OverturnMouseOpr(offsetX, offsetY);
-	BiopsyLine::GetInstance()->PositionChange(offsetX);
+    OverturnMouseOpr(offsetX, offsetY);
+    BiopsyLine::GetInstance()->PositionChange(offsetX);
 }
 void MultiFuncBiopsyVerify::MultiFuncBiopsyVerify::Undo()
 {
-	//	MultiFuncUndo();
-	//--------------2016.09.08-----------------------------//
-	BiopsyLine::GetInstance()->Clear();
-	BiopsyLine::GetInstance()->InitPara();
-	BiopsyLine::GetInstance()->Draw();
-	//----------------------------------------------------------//
+    //  MultiFuncUndo();
+    //--------------2016.09.08-----------------------------//
+    BiopsyLine::GetInstance()->Clear();
+    BiopsyLine::GetInstance()->InitPara();
+    BiopsyLine::GetInstance()->Draw();
+    //----------------------------------------------------------//
 
 }
 void MultiFuncBiopsyVerify::Do()
 {
-	  MultiFuncFactory* ptr = MultiFuncFactory::GetInstance();
+      MultiFuncFactory* ptr = MultiFuncFactory::GetInstance();
 
-	ptr->Create(MultiFuncFactory::BIOPSY);
+    ptr->Create(MultiFuncFactory::BIOPSY);
 
-	SetSystemCursor(90,130);//	SetSystemCursor(90,100);
-	doBtnEvent(1, 1);//fake btn press
+    SetSystemCursor(90,130);//  SetSystemCursor(90,100);
+    doBtnEvent(1, 1);//fake btn press
     doBtnEvent(1, 0);//fake btn unpress
   //SetMenuBiopsyCursorYRange(128,188);
-	//SetMenuBiopsyCursorYRange(113,188);
-	SetMenuBiopsyCursorYRange(113,250);
+    //SetMenuBiopsyCursorYRange(113,188);
+    SetMenuBiopsyCursorYRange(113,250);
    //--------------------------------------------------//
 }
 
 void MultiFuncBiopsyVerify::KeyLeft()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncBiopsyVerify::KeyRight()
 {
-	int offsetX =-1;
-	int offsetY = 0;
+    int offsetX =-1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 }
 void MultiFuncBiopsyVerify::KeyUp()
 {
-	int offsetX = -1;
-	int offsetY = 0;
+    int offsetX = -1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 
 }
 void MultiFuncBiopsyVerify::KeyDown()
 {
-	int offsetX = 1;
-	int offsetY = 0;
+    int offsetX = 1;
+    int offsetY = 0;
 
-	Mouse(offsetX, offsetY);
+    Mouse(offsetX, offsetY);
 
 }
 /*void MultiFuncBiopsyVerify::KeyEvent(unsigned char keyValue)
 {
-	switch(keyValue)
-	{
-		case KEY_FREEZE:
-			MenuShowUndo();
-			ViewMain::GetInstance()->KeyEvent(keyValue);
-			break;
-		default:
-			break;
-	}
+    switch(keyValue)
+    {
+        case KEY_FREEZE:
+            MenuShowUndo();
+            ViewMain::GetInstance()->KeyEvent(keyValue);
+            break;
+        default:
+            break;
+    }
 }*/
 
 void MultiFuncBiopsy::Mouse(int offsetX, int offsetY)
 {
-	fakeXMotionEventMenuBiopsy(offsetX,offsetY);
+    fakeXMotionEventMenuBiopsy(offsetX,offsetY);
 }
 void MultiFuncBiopsy::Undo()
 {
-	MultiFuncUndo();
+    MultiFuncUndo();
 }
 void MultiFuncBiopsy::Do()
 {
-	doBtnEvent(1, 1);
-	doBtnEvent(1, 0);
+    doBtnEvent(1, 1);
+    doBtnEvent(1, 0);
 }
 /*void MultiFuncBiopsy::KeyEvent(unsigned char keyValue)
 {
-	switch(keyValue)
-	{
-		case KEY_FREEZE:
-		//	MenuShowUndo();
-			ViewMain::GetInstance()->KeyEvent(keyValue);
-			MenuShowUndo();
-			break;
-		default:
-			break;
-	}
+    switch(keyValue)
+    {
+        case KEY_FREEZE:
+        //  MenuShowUndo();
+            ViewMain::GetInstance()->KeyEvent(keyValue);
+            MenuShowUndo();
+            break;
+        default:
+            break;
+    }
 
 }*/

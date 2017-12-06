@@ -11,69 +11,69 @@
 #if 1
 EKnobReturn D2ChgDemodSection(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeDemodSection(oper);
+    return ProjectCalc2D::GetInstance()->ChangeDemodSection(oper);
 }
 
 EKnobReturn D2PressChgDemodParaPrintf()
 {
-	return ProjectCalc2D::GetInstance()->ChangeDemodParaPrintf();
+    return ProjectCalc2D::GetInstance()->ChangeDemodParaPrintf();
 }
 
 EKnobReturn D2ChgBandPassFc(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeBandPassFc(oper);
+    return ProjectCalc2D::GetInstance()->ChangeBandPassFc(oper);
 }
 
 EKnobReturn D2ChgTxFNum(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeTxFNum(oper);
+    return ProjectCalc2D::GetInstance()->ChangeTxFNum(oper);
 }
 
 EKnobReturn D2ChgWpScale(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeWpScale(oper);
+    return ProjectCalc2D::GetInstance()->ChangeWpScale(oper);
 }
 
 EKnobReturn D2Chg2DPulse(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->Change2DPulse(oper);
+    return ProjectCalc2D::GetInstance()->Change2DPulse(oper);
 }
 
 EKnobReturn D2ChgPwPulse(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangePwPulse(oper);
+    return ProjectCalc2D::GetInstance()->ChangePwPulse(oper);
 }
 
 EKnobReturn D2ChgCfmPulse(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeCfmPulse(oper);
+    return ProjectCalc2D::GetInstance()->ChangeCfmPulse(oper);
 }
 
 EKnobReturn D2ChgProbeR(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeProbeR(oper);
+    return ProjectCalc2D::GetInstance()->ChangeProbeR(oper);
 }
 
 EKnobReturn D2ChgProbeAngle(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeProbeAngle(oper);
+    return ProjectCalc2D::GetInstance()->ChangeProbeAngle(oper);
 }
 
 #if 0
 EKnobReturn D2ChgBPWSimult(EKnobOper oper)
 {
-	//ProjectCalc2D::GetInstance()->ChangeBandPassW(oper);
-	return ProjectCalc2D::GetInstance()->ChangeBandPassFc(oper);
+    //ProjectCalc2D::GetInstance()->ChangeBandPassW(oper);
+    return ProjectCalc2D::GetInstance()->ChangeBandPassFc(oper);
 }
 
 EKnobReturn D2ChgBandPassWindowFunc(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeBandPassWindowFunc(oper);
+    return ProjectCalc2D::GetInstance()->ChangeBandPassWindowFunc(oper);
 }
 
 EKnobReturn D2ChgLowPassWindowFunc(EKnobOper oper)
 {
-	return ProjectCalc2D::GetInstance()->ChangeLowPassWindowFunc(oper);
+    return ProjectCalc2D::GetInstance()->ChangeLowPassWindowFunc(oper);
 }
 
 EKnobReturn D2ChgEmission(EKnobOper oper)
@@ -104,19 +104,19 @@ KnobProjectMode::KnobItem KnobProjectMode::KnobProjectMenu[KNOB_MENU_SIZE] =  //
 
 void KnobProjectMode::SetPrint(int seq, bool value)
 {
-	KnobProjectMenu[seq].isPrint = value;
+    KnobProjectMenu[seq].isPrint = value;
 }
 
 bool KnobProjectMode::GetPrint(int seq)
 {
-	return KnobProjectMenu[seq].isPrint;
+    return KnobProjectMenu[seq].isPrint;
 }
 
 KnobProjectMode* KnobProjectMode::m_ptrInstance = NULL;
 KnobProjectMode* KnobProjectMode::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance  = new KnobProjectMode;
+    m_ptrInstance  = new KnobProjectMode;
     return m_ptrInstance;
 }
 
@@ -138,10 +138,10 @@ KnobProjectMode::~KnobProjectMode()
 void KnobProjectMode::SetItem(KnobItem *item, unsigned int total_item, EKnobType type)
 {
     m_KnobItem = item;
-	if ((total_item % KNOB_NUM) == 0)
-		m_MaxLevel = (total_item/ KNOB_NUM) - 1;
-	else
-		m_MaxLevel = total_item/ KNOB_NUM;
+    if ((total_item % KNOB_NUM) == 0)
+        m_MaxLevel = (total_item/ KNOB_NUM) - 1;
+    else
+        m_MaxLevel = total_item/ KNOB_NUM;
     m_CurLevel = 0;
     m_knobType = type;
     m_isShow = true;
@@ -182,54 +182,54 @@ GtkWidget * KnobProjectMode::Create(void)
     m_labelKnob[1] = create_label("knob2", 0, 22, g_lightGray, NULL);
     gtk_widget_modify_fg(m_labelKnob[1], GTK_STATE_PRELIGHT, g_lightGray);
     gtk_widget_modify_fg(m_labelKnob[1], GTK_STATE_ACTIVE, g_lightGray);
-	gtk_label_set_justify(GTK_LABEL(m_labelKnob[1]), GTK_JUSTIFY_CENTER);
-	m_btnKnob[1] = create_button(m_labelKnob[1], 0, 22, g_deep);
-	gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[1], 5, 9, 0, 1);
-	GTK_WIDGET_UNSET_FLAGS (m_btnKnob[1], GTK_CAN_FOCUS);
-	gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_PRELIGHT, g_deep);
-	gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_ACTIVE, g_deep);
+    gtk_label_set_justify(GTK_LABEL(m_labelKnob[1]), GTK_JUSTIFY_CENTER);
+    m_btnKnob[1] = create_button(m_labelKnob[1], 0, 22, g_deep);
+    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[1], 5, 9, 0, 1);
+    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[1], GTK_CAN_FOCUS);
+    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_PRELIGHT, g_deep);
+    gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(m_btnKnob[1], GTK_STATE_INSENSITIVE, g_deepGray);
 
-	m_labelKnob[2] = create_label("knob3", 0, 22, g_lightGray, NULL);
-	gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_PRELIGHT, g_lightGray);
-	gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_ACTIVE, g_lightGray);
-	gtk_label_set_justify(GTK_LABEL(m_labelKnob[2]), GTK_JUSTIFY_CENTER);
-	m_btnKnob[2] = create_button(m_labelKnob[2], 0, 22, g_deep);
-	gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[2], 9, 13, 0, 1);
-	GTK_WIDGET_UNSET_FLAGS (m_btnKnob[2], GTK_CAN_FOCUS);
-	gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_PRELIGHT, g_deep);
+    m_labelKnob[2] = create_label("knob3", 0, 22, g_lightGray, NULL);
+    gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_PRELIGHT, g_lightGray);
+    gtk_widget_modify_fg(m_labelKnob[2], GTK_STATE_ACTIVE, g_lightGray);
+    gtk_label_set_justify(GTK_LABEL(m_labelKnob[2]), GTK_JUSTIFY_CENTER);
+    m_btnKnob[2] = create_button(m_labelKnob[2], 0, 22, g_deep);
+    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[2], 9, 13, 0, 1);
+    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[2], GTK_CAN_FOCUS);
+    gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(m_btnKnob[2], GTK_STATE_INSENSITIVE, g_deepGray);
 
-	m_labelKnob[3] = create_label("knob4", 0, 22, g_lightGray, NULL);
-	gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_PRELIGHT, g_lightGray);
-	gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_ACTIVE, g_lightGray);
-	gtk_label_set_justify(GTK_LABEL(m_labelKnob[3]), GTK_JUSTIFY_CENTER);
-	m_btnKnob[3] = create_button(m_labelKnob[3], 0, 22, g_deep);
-	gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[3], 13, 17, 0, 1);
-	GTK_WIDGET_UNSET_FLAGS (m_btnKnob[3], GTK_CAN_FOCUS);
-	gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_PRELIGHT, g_deep);
+    m_labelKnob[3] = create_label("knob4", 0, 22, g_lightGray, NULL);
+    gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_PRELIGHT, g_lightGray);
+    gtk_widget_modify_fg(m_labelKnob[3], GTK_STATE_ACTIVE, g_lightGray);
+    gtk_label_set_justify(GTK_LABEL(m_labelKnob[3]), GTK_JUSTIFY_CENTER);
+    m_btnKnob[3] = create_button(m_labelKnob[3], 0, 22, g_deep);
+    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[3], 13, 17, 0, 1);
+    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[3], GTK_CAN_FOCUS);
+    gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(m_btnKnob[3], GTK_STATE_INSENSITIVE, g_deepGray);
 
-	m_labelKnob[4] = create_label("knob5", 0, 22, g_lightGray, NULL);
-	gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_PRELIGHT, g_lightGray);
-	gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_ACTIVE, g_lightGray);
-	gtk_label_set_justify(GTK_LABEL(m_labelKnob[4]), GTK_JUSTIFY_CENTER);
-	m_btnKnob[4] = create_button(m_labelKnob[4], 0, 22, g_deep);
-	gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[4], 17, 21, 0, 1);
-	GTK_WIDGET_UNSET_FLAGS (m_btnKnob[4], GTK_CAN_FOCUS);
-	gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_PRELIGHT, g_deep);
+    m_labelKnob[4] = create_label("knob5", 0, 22, g_lightGray, NULL);
+    gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_PRELIGHT, g_lightGray);
+    gtk_widget_modify_fg(m_labelKnob[4], GTK_STATE_ACTIVE, g_lightGray);
+    gtk_label_set_justify(GTK_LABEL(m_labelKnob[4]), GTK_JUSTIFY_CENTER);
+    m_btnKnob[4] = create_button(m_labelKnob[4], 0, 22, g_deep);
+    gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), m_btnKnob[4], 17, 21, 0, 1);
+    GTK_WIDGET_UNSET_FLAGS (m_btnKnob[4], GTK_CAN_FOCUS);
+    gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(m_btnKnob[4], GTK_STATE_INSENSITIVE, g_deepGray);
 
-	m_labelRight = create_label("≫", 0, 22, g_lightGray, NULL);
+    m_labelRight = create_label("≫", 0, 22, g_lightGray, NULL);
     gtk_widget_modify_fg(m_labelRight, GTK_STATE_PRELIGHT, g_lightGray);
     gtk_widget_modify_fg(m_labelRight, GTK_STATE_ACTIVE, g_lightGray);
     GtkWidget *btn_right = create_button(m_labelRight, 0, 22, g_deep);
     gtk_table_attach_defaults(GTK_TABLE(m_tableKnob), btn_right, 21, 22, 0, 1);
     GTK_WIDGET_UNSET_FLAGS (btn_right, GTK_CAN_FOCUS);
-   	gtk_widget_modify_bg(btn_right, GTK_STATE_PRELIGHT, g_deep);
+    gtk_widget_modify_bg(btn_right, GTK_STATE_PRELIGHT, g_deep);
     gtk_widget_modify_bg(btn_right, GTK_STATE_ACTIVE, g_deep);
     gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
 
@@ -240,19 +240,19 @@ GtkWidget * KnobProjectMode::Create(void)
 void KnobProjectMode::PageUp(void)
 {
     if (m_CurLevel > 0)
-	--m_CurLevel;
+    --m_CurLevel;
     Update();
 
-	ProjectCalc2D::GetInstance()->ShowCurPageParaValue(m_CurLevel);
+    ProjectCalc2D::GetInstance()->ShowCurPageParaValue(m_CurLevel);
 }
 
 void KnobProjectMode::PageDown(void)
 {
     if (m_CurLevel < m_MaxLevel)
-	++m_CurLevel;
-	Update();
+    ++m_CurLevel;
+    Update();
 
-	ProjectCalc2D::GetInstance()->ShowCurPageParaValue(m_CurLevel);
+    ProjectCalc2D::GetInstance()->ShowCurPageParaValue(m_CurLevel);
 }
 
 void KnobProjectMode::Refresh(void)
@@ -316,7 +316,7 @@ void KnobProjectMode::Display(KnobItem item, char *buf)
 {
     if (strcmp(item.name, "") == 0)
     {
-    	sprintf(buf, " ");
+        sprintf(buf, " ");
         return ;
     }
     if (item.status == MIN)
@@ -386,9 +386,9 @@ void KnobProjectMode::Update(void)
             gtk_label_set_text(GTK_LABEL(m_labelRight), ">>\n ▶");
         }
         else
-    	{
-        	gtk_label_set_text(GTK_LABEL(m_labelRight), ">>");
-    	}
+        {
+            gtk_label_set_text(GTK_LABEL(m_labelRight), ">>");
+        }
     }
     else if (m_CurLevel > 0 && m_CurLevel == m_MaxLevel)
     {
@@ -398,21 +398,21 @@ void KnobProjectMode::Update(void)
             gtk_label_set_text(GTK_LABEL(m_labelRight), " \n ▶");
         }
         else
-    	{
-    		gtk_label_set_text(GTK_LABEL(m_labelRight), "");
-    	}
+        {
+            gtk_label_set_text(GTK_LABEL(m_labelRight), "");
+        }
     }
     else if (m_CurLevel > 0 && m_CurLevel < m_MaxLevel)
     {
-    	gtk_label_set_text(GTK_LABEL(m_labelLeft), "<<");
+        gtk_label_set_text(GTK_LABEL(m_labelLeft), "<<");
         if(GetKnobStatus())
         {
             gtk_label_set_text(GTK_LABEL(m_labelRight), ">>\n ▶");
         }
         else
-    	{
-    		gtk_label_set_text(GTK_LABEL(m_labelRight), ">>");
-    	}
+        {
+            gtk_label_set_text(GTK_LABEL(m_labelRight), ">>");
+        }
     }
 
     Refresh();
@@ -420,144 +420,144 @@ void KnobProjectMode::Update(void)
 
 void KnobProjectMode::SetValue(int index, const char* value, EKnobReturn status)
 {
-	sprintf(m_KnobItem[index].value, "%s", value);
-	m_KnobItem[index].status = status;
-	Update();
+    sprintf(m_KnobItem[index].value, "%s", value);
+    m_KnobItem[index].status = status;
+    Update();
 }
 
 void KnobProjectMode::Knob1_Screw(int cw)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 0;
+    index = KNOB_NUM * m_CurLevel + 0;
 
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
     if (cw == 1)
     {
-    	(*(m_KnobItem[index].pf))(ADD);
+        (*(m_KnobItem[index].pf))(ADD);
     }
     else if (cw == 0)
     {
-    	(*(m_KnobItem[index].pf))(SUB);
+        (*(m_KnobItem[index].pf))(SUB);
     }
 }
 
 void KnobProjectMode::Knob2_Screw(int cw)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 1;
+    index = KNOB_NUM * m_CurLevel + 1;
 
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
     if (cw == 1) {
-	(*(m_KnobItem[index].pf))(ADD);
+    (*(m_KnobItem[index].pf))(ADD);
     }
     else if (cw == 0) {
-	(*(m_KnobItem[index].pf))(SUB);
+    (*(m_KnobItem[index].pf))(SUB);
     }
 }
 void KnobProjectMode::Knob3_Screw(int cw)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 2;
+    index = KNOB_NUM * m_CurLevel + 2;
 
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
     if (cw == 1) {
-	(*(m_KnobItem[index].pf))(ADD);
+    (*(m_KnobItem[index].pf))(ADD);
     }
     else if (cw == 0) {
-	(*(m_KnobItem[index].pf))(SUB);
+    (*(m_KnobItem[index].pf))(SUB);
     }
 
 }
 void KnobProjectMode::Knob4_Screw(int cw)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 3;
+    index = KNOB_NUM * m_CurLevel + 3;
 
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
     if (cw == 1) {
-	(*(m_KnobItem[index].pf))(ADD);
+    (*(m_KnobItem[index].pf))(ADD);
     }
     else if (cw == 0) {
-	(*(m_KnobItem[index].pf))(SUB);
+    (*(m_KnobItem[index].pf))(SUB);
     }
 
 }
 void KnobProjectMode::Knob5_Screw(int cw)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 4;
+    index = KNOB_NUM * m_CurLevel + 4;
 
     if (m_KnobItem[index].pf == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
     if (cw == 1) {
-	(*(m_KnobItem[index].pf))(ADD);
+    (*(m_KnobItem[index].pf))(ADD);
     }
     else if (cw == 0) {
-	(*(m_KnobItem[index].pf))(SUB);
+    (*(m_KnobItem[index].pf))(SUB);
     }
 }
 
 void KnobProjectMode::Knob1_Press(void)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 0;
+    index = KNOB_NUM * m_CurLevel + 0;
 
     if (m_KnobItem[index].pfPress == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
-	(*(m_KnobItem[index].pfPress))();
+    (*(m_KnobItem[index].pfPress))();
 }
 
 void KnobProjectMode::Knob2_Press(void)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 1;
+    index = KNOB_NUM * m_CurLevel + 1;
 
     if (m_KnobItem[index].pfPress == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
-	(*(m_KnobItem[index].pfPress))();
+    (*(m_KnobItem[index].pfPress))();
 
 }
 void KnobProjectMode::Knob3_Press(void)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 2;
+    index = KNOB_NUM * m_CurLevel + 2;
 
     if (m_KnobItem[index].pfPress == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
-	(*(m_KnobItem[index].pfPress))();
+    (*(m_KnobItem[index].pfPress))();
 
 }
 void KnobProjectMode::Knob4_Press(void)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 3;
+    index = KNOB_NUM * m_CurLevel + 3;
 
     if (m_KnobItem[index].pfPress == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
-	(*(m_KnobItem[index].pfPress))();
+    (*(m_KnobItem[index].pfPress))();
 }
 void KnobProjectMode::Knob5_Press(void)
 {
     int index = 0;
-	index = KNOB_NUM * m_CurLevel + 4;
+    index = KNOB_NUM * m_CurLevel + 4;
 
     if (m_KnobItem[index].pfPress == NULL || m_KnobItem[index].status == ERROR)
-	return ;
+    return ;
 
-	(*(m_KnobItem[index].pfPress))();
+    (*(m_KnobItem[index].pfPress))();
 }
 
 void KnobProjectMode::ShowKnob(void)
@@ -584,6 +584,6 @@ void KnobProjectMode::HideKnob(void)
 
 unsigned int KnobProjectMode::GetCurPageLevel()
 {
-	return m_CurLevel;
+    return m_CurLevel;
 }
 #endif

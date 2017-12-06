@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef MEASURE_M_H
 #define MEASURE_M_H
 
@@ -155,38 +154,38 @@ private:
 class MMeasureEFTei: public AbsMeasure
 {
     public:
-	MMeasureEFTei(const SingleItemInfo *ptrSingleItemInfo);
-	~MMeasureEFTei();
+    MMeasureEFTei(const SingleItemInfo *ptrSingleItemInfo);
+    ~MMeasureEFTei();
 
-	void Init();
-	void PressLeft(POINT p); ///< do
-	void PressRight(POINT p); ///< undo
-	void MouseMove(POINT p);
-	void Change();
-	void Esc();
+    void Init();
+    void PressLeft(POINT p); ///< do
+    void PressRight(POINT p); ///< undo
+    void MouseMove(POINT p);
+    void Change();
+    void Esc();
 
     private:
-	MeasureCalc m_calc;
-	MeasureDraw m_draw;
-	UpdateMeasure m_update;
-	MeasureMan* m_ptrMan;
+    MeasureCalc m_calc;
+    MeasureDraw m_draw;
+    UpdateMeasure m_update;
+    MeasureMan* m_ptrMan;
 
     int m_item;
     const SingleItemInfo *m_itemInfo;
 
-	int m_step; ///< current status(step)
-	bool m_isDraw;
-	POINT m_lvdd_start;
-	POINT m_lvdd_end;
-	POINT m_lvds_start;
-	POINT m_lvds_end;
-	POINT m_tempP;
-	POINT m_p1;
-	double m_lvdd;//左室舒张直径
-	double m_lvds;//左室收缩直径
-	double m_lvvd;//左室舒张体积
-	double m_lvvs;//左室收缩体积
-	double m_ef;
+    int m_step; ///< current status(step)
+    bool m_isDraw;
+    POINT m_lvdd_start;
+    POINT m_lvdd_end;
+    POINT m_lvds_start;
+    POINT m_lvds_end;
+    POINT m_tempP;
+    POINT m_p1;
+    double m_lvdd;//左室舒张直径
+    double m_lvds;//左室收缩直径
+    double m_lvvd;//左室舒张体积
+    double m_lvvs;//左室收缩体积
+    double m_ef;
 };
 
 #if 0

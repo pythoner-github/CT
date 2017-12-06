@@ -14,32 +14,32 @@
 #include "imageProc/Zoom.h"
 
 KnobMenu::KnobItem KnobCfmMenu[15] = {
-	{N_("Scale"), "", MIN, CfmChgScale, NULL},
-	{N_("Baseline"), "", MIN, CfmChgBaseline, NULL},
-	{N_("Wall Filter"), "", MIN, CfmChgWallFilter, NULL},
-	//{N_("Steer"), "", MIN, D2ChgSteer, NULL},
-	{N_("Steer"), "", MIN, PwChgSteer, NULL},
-	{N_("Sensitivity"), "", MIN, CfmChgSensitive, NULL},
+    {N_("Scale"), "", MIN, CfmChgScale, NULL},
+    {N_("Baseline"), "", MIN, CfmChgBaseline, NULL},
+    {N_("Wall Filter"), "", MIN, CfmChgWallFilter, NULL},
+    //{N_("Steer"), "", MIN, D2ChgSteer, NULL},
+    {N_("Steer"), "", MIN, PwChgSteer, NULL},
+    {N_("Sensitivity"), "", MIN, CfmChgSensitive, NULL},
 
-	{N_("Doppler Freq."), "", MIN, CfmChgDopFreq, NULL},
-	{N_("Simult"), "", MIN, CfmChgSimult, NULL},
-	{N_("Flow Opt."), "", MIN, CfmChgFlowOpt, NULL},
-	{N_("Color Invert"), "", MIN, CfmChgInvert, NULL},
-	{N_("Color Focus"), "", MIN, CfmChgColorFoc, NULL},
+    {N_("Doppler Freq."), "", MIN, CfmChgDopFreq, NULL},
+    {N_("Simult"), "", MIN, CfmChgSimult, NULL},
+    {N_("Flow Opt."), "", MIN, CfmChgFlowOpt, NULL},
+    {N_("Color Invert"), "", MIN, CfmChgInvert, NULL},
+    {N_("Color Focus"), "", MIN, CfmChgColorFoc, NULL},
 
-	{N_("Color Line Density"), "", MIN, CfmChgLineDensity, NULL},
-	{N_("Color Map"), "", MIN, CfmChgMap, NULL},
-	{N_("Scan Line"), "", MIN, CfmChgScanLines, NULL},
-	//{N_("Variance"), "", MIN, CfmChgTurbo, NULL},
-	//{N_("Tissue"), "6000", MIN, CfmChgTissue, NULL},
-	//{N_("Noise"), "11", MIN, CfmChgNoise, NULL},
+    {N_("Color Line Density"), "", MIN, CfmChgLineDensity, NULL},
+    {N_("Color Map"), "", MIN, CfmChgMap, NULL},
+    {N_("Scan Line"), "", MIN, CfmChgScanLines, NULL},
+    //{N_("Variance"), "", MIN, CfmChgTurbo, NULL},
+    //{N_("Tissue"), "6000", MIN, CfmChgTissue, NULL},
+    //{N_("Noise"), "11", MIN, CfmChgNoise, NULL},
 
-	//{N_("Rate"), "40", MIN, CfmChgRate, NULL},
-	//{N_("Variance"), "828", MIN, CfmChgVariance, NULL},
-	//{N_("Gain Gate"), "", MIN, CfmChgGainGate, NULL},
-	//{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+    //{N_("Rate"), "40", MIN, CfmChgRate, NULL},
+    //{N_("Variance"), "828", MIN, CfmChgVariance, NULL},
+    //{N_("Gain Gate"), "", MIN, CfmChgGainGate, NULL},
+    //{"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 };
 
 void KnobCfmCreate()
@@ -50,8 +50,8 @@ void KnobCfmCreate()
 ///> sync
 void SyncKnobCfm(EKnobCfm type, const char* s, EKnobReturn status, bool draw)
 {
-	sprintf(KnobCfmMenu[type].value, "%s", s);
-	KnobCfmMenu[type].status = status;
+    sprintf(KnobCfmMenu[type].value, "%s", s);
+    KnobCfmMenu[type].status = status;
     if (draw)
         KnobMenu::GetInstance()->Update();
 }
@@ -59,62 +59,62 @@ void SyncKnobCfm(EKnobCfm type, const char* s, EKnobReturn status, bool draw)
 ///> call back
 EKnobReturn CfmChgScale(EKnobOper oper)
 {
-	EKnobReturn ret;
-	ModeStatus s;
-	ScanMode::EScanMode mode = s.GetScanMode();
+    EKnobReturn ret;
+    ModeStatus s;
+    ScanMode::EScanMode mode = s.GetScanMode();
 
-	if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
-		ret = ImgPw::GetInstance()->ChangeScaleSimult3(oper);
-	else
-		ret = ImgCfm::GetInstance()->ChangeScale(oper);
+    if ((mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
+        ret = ImgPw::GetInstance()->ChangeScaleSimult3(oper);
+    else
+        ret = ImgCfm::GetInstance()->ChangeScale(oper);
 
-	// change tis
-	ChangeTis();
+    // change tis
+    ChangeTis();
 
-	return ret;
+    return ret;
 }
 
 EKnobReturn CfmChgBaseline(EKnobOper oper)
 {
-	EKnobReturn ret = ImgCfm::GetInstance()->ChangeBaseline(oper);
-	if (ret == ERROR)
-		HintArea::GetInstance()->UpdateHint(_("Operation is invalid in current mode."), 1);
+    EKnobReturn ret = ImgCfm::GetInstance()->ChangeBaseline(oper);
+    if (ret == ERROR)
+        HintArea::GetInstance()->UpdateHint(_("Operation is invalid in current mode."), 1);
 
-	return ret;
+    return ret;
 }
 
 EKnobReturn CfmChgWallFilter(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeWallFilter(oper);
+    return ImgCfm::GetInstance()->ChangeWallFilter(oper);
 }
 
 EKnobReturn CfmChgLineDensity(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeLineDensity(oper);
+    return ImgCfm::GetInstance()->ChangeLineDensity(oper);
 }
 
 EKnobReturn CfmChgSensitive(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeSensitive(oper);
+    return ImgCfm::GetInstance()->ChangeSensitive(oper);
 }
 
 EKnobReturn CfmChgDopFreq(EKnobOper oper)
 {
-	return PwChgDopFreq(oper);
+    return PwChgDopFreq(oper);
 }
 
 EKnobReturn CfmChgMap(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeColorMap(oper);
+    return ImgCfm::GetInstance()->ChangeColorMap(oper);
 }
 
 EKnobReturn CfmChgSimult(EKnobOper oper)
 {
-	ModeStatus ms;
-	ScanMode::EScanMode mode = ms.GetScanMode();
+    ModeStatus ms;
+    ScanMode::EScanMode mode = ms.GetScanMode();
 
-	if (mode == ScanMode::PWCFM)
-	{
+    if (mode == ScanMode::PWCFM)
+    {
         if (ImgPw::GetInstance()->GetHPRFStatus())
         {
             HintArea::GetInstance()->UpdateHint(_("[Simult]: Can not be on when HPRF is on."), 2);
@@ -125,9 +125,9 @@ EKnobReturn CfmChgSimult(EKnobOper oper)
             if (oper == ADD)
                 return ScanMode::GetInstance()->EnterPwCfmSimult(TRUE);
         }
-	}
+    }
     else if (mode == ScanMode::PWPDI)
-	{
+    {
         if (ImgPw::GetInstance()->GetHPRFStatus())
         {
             HintArea::GetInstance()->UpdateHint(_("[Simult]: Can not be on when HPRF is on."), 2);
@@ -138,41 +138,41 @@ EKnobReturn CfmChgSimult(EKnobOper oper)
             if (oper == ADD)
                 return ScanMode::GetInstance()->EnterPwPdiSimult(TRUE);
         }
-	}
+    }
 
-	else if (mode == ScanMode::PWCFM_SIMULT)
-	{
+    else if (mode == ScanMode::PWCFM_SIMULT)
+    {
         if (oper == SUB)
             return ScanMode::GetInstance()->EnterPwCfmSimult(FALSE);
-	}
-	else if (mode == ScanMode::PWPDI_SIMULT)
-	{
+    }
+    else if (mode == ScanMode::PWPDI_SIMULT)
+    {
         if (oper == SUB)
             return ScanMode::GetInstance()->EnterPwPdiSimult(FALSE);
-	}
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("Operation is invalid in current mode."), 1);
-		return ERROR;
-	}
+    }
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("Operation is invalid in current mode."), 1);
+        return ERROR;
+    }
 
     return OK;
 }
 
 EKnobReturn CfmChgTurbo(EKnobOper oper)
 {
-	//return ImgCfm::GetInstance()->ChangeTurbo(oper);
+    //return ImgCfm::GetInstance()->ChangeTurbo(oper);
     return MIN;
 }
 
 EKnobReturn CfmChgInvert(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeInvert(oper);
+    return ImgCfm::GetInstance()->ChangeInvert(oper);
 }
 
 EKnobReturn CfmChgFlowOpt(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeFlowOpt(oper);
+    return ImgCfm::GetInstance()->ChangeFlowOpt(oper);
 }
 EKnobReturn CfmChgColorFoc(EKnobOper oper)
 {
@@ -182,27 +182,27 @@ EKnobReturn CfmChgColorFoc(EKnobOper oper)
 //////////////////////   test    /////////////////////////
 EKnobReturn CfmChgTissue(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeTissue(oper);
+    return ImgCfm::GetInstance()->ChangeTissue(oper);
 }
 
 EKnobReturn CfmChgNoise(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeNoise(oper);
+    return ImgCfm::GetInstance()->ChangeNoise(oper);
 }
 
 EKnobReturn CfmChgRate(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeSpeed(oper);
+    return ImgCfm::GetInstance()->ChangeSpeed(oper);
 }
 
 EKnobReturn CfmChgVariance(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeVariance(oper);
+    return ImgCfm::GetInstance()->ChangeVariance(oper);
 }
 
 EKnobReturn CfmChgGainGate(EKnobOper oper)
 {
-	return ImgCfm::GetInstance()->ChangeGainGate(oper);
+    return ImgCfm::GetInstance()->ChangeGainGate(oper);
 }
 
 EKnobReturn CfmChgScanLines(EKnobOper oper)

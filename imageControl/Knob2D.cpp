@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: Knob2D.cpp
- * @brief: knob in 2D mode
- *
- * version: V1.0
- * date: 2009-7-22
- * @author: zhanglei
- */
-
 #include "imageControl/Knob2D.h"
 #include "imageControl/Img2D.h"
 #include "display/KnobMenu.h"
@@ -31,7 +20,7 @@ KnobMenu::KnobItem Knob2DMenu[15] = {
     {N_("Steer"), "", MIN, D2ChgSteer, NULL},
     {N_("TP-View"), "", MIN, NULL, D2PressChgTpView},
     {N_("EFVI"), "", MIN, NULL, D2PressChgEFVI},
-	{N_("TSI"), "", MIN, D2ChgTSI, NULL},
+    {N_("TSI"), "", MIN, D2ChgTSI, NULL},
     {N_("Line Density"), "", MIN, D2ChgLineDensity, NULL},
     {N_("Edge"), "", MIN, D2ChgEdge, NULL},
     {"", "", ERROR, NULL, NULL},
@@ -131,7 +120,7 @@ void KnobD2Create()
 void SyncKnobD2(EKnobD2 type, const char* s, EKnobReturn status, bool draw)
 {
     sprintf(Knob2DMenu[type].value, "%s", s);
-	Knob2DMenu[type].status = status;
+    Knob2DMenu[type].status = status;
     if (draw)
         KnobMenu::GetInstance()->Update();
 }
@@ -145,16 +134,16 @@ void SyncKnobD2StatusTHI(EKnobD2 type, const char* s, bool draw)
 
 EKnobReturn D2ChgPwr(EKnobOper oper)
 {
-	EKnobReturn ret;
-	Img2D::GetInstance()->ChangeSoundPower(oper);
-	ChangeTis();
+    EKnobReturn ret;
+    Img2D::GetInstance()->ChangeSoundPower(oper);
+    ChangeTis();
     //SyncKnobD2(D2_SOUND_POWER, m_str, status);
-	return ret;
+    return ret;
 }
 ///> callback function
 EKnobReturn D2ChgFreq(EKnobOper oper)
 {
-	EKnobReturn ret;
+    EKnobReturn ret;
     bool status = Img2D::GetInstance()->GetStatusTHI();
     //printf("status:%d\n", status);
 
@@ -164,9 +153,9 @@ EKnobReturn D2ChgFreq(EKnobOper oper)
         ret = Img2D::GetInstance()->ChangeFreq(oper);
 
     // change Tis
-	ChangeTis();
+    ChangeTis();
 
-	return ret;
+    return ret;
 }
 
 EKnobReturn D2PresssChgStatusTHI(void)
@@ -204,47 +193,47 @@ EKnobReturn D2PressChgScanAngle(void)
     EKnobReturn ret = ERROR;
     EKnobOper oper = ROTATE;
 
-	char type = GlobalClassMan::GetInstance()->GetProbeType();
+    char type = GlobalClassMan::GetInstance()->GetProbeType();
 
-	if ((type == 'L') || (type == 'l'))
-	{
-		ret = ERROR;
-		HintArea::GetInstance()->UpdateHint(_("[Scan Angle]: Invalid for linear probe."), 1);
-	}
-	else
-	{
+    if ((type == 'L') || (type == 'l'))
+    {
+        ret = ERROR;
+        HintArea::GetInstance()->UpdateHint(_("[Scan Angle]: Invalid for linear probe."), 1);
+    }
+    else
+    {
      if (!Zoom::GetInstance()->GetLocalZoomStatus() &&
-			MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
+            MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
         {
         ResetSampleLine();
-		ret = Img2D::GetInstance()->ChangeScanAngle(oper);
+        ret = Img2D::GetInstance()->ChangeScanAngle(oper);
 
-		// change Tis
-		ChangeTis();
+        // change Tis
+        ChangeTis();
         }
       else
         {
             HintArea::GetInstance()->UpdateHint(_("[Scan Angle]: Invalid when Zoom is on."), 1);
         }
 
-	}
+    }
 
-	return ret;
+    return ret;
 }
 EKnobReturn D2ChgScanAngle(EKnobOper oper)
 {
-	EKnobReturn ret = ERROR;
-	char type = GlobalClassMan::GetInstance()->GetProbeType();
+    EKnobReturn ret = ERROR;
+    char type = GlobalClassMan::GetInstance()->GetProbeType();
 
-	if ((type == 'L') || (type == 'l'))
-	{
-		ret = ERROR;
-		HintArea::GetInstance()->UpdateHint(_("[Scan Angle]: Invalid for linear probe."), 1);
-	}
-	else
-	{
+    if ((type == 'L') || (type == 'l'))
+    {
+        ret = ERROR;
+        HintArea::GetInstance()->UpdateHint(_("[Scan Angle]: Invalid for linear probe."), 1);
+    }
+    else
+    {
         if (!Zoom::GetInstance()->GetLocalZoomStatus() &&
-			MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
+            MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::LOCAL_ZOOM)
         {
             ResetSampleLine();
             ret = Img2D::GetInstance()->ChangeScanAngle(oper);
@@ -298,7 +287,7 @@ EKnobReturn D2PressChgLineDensity(void)
 }
 EKnobReturn D2ChgLineDensity(EKnobOper oper)
 {
-	//change line density afert open compound image .
+    //change line density afert open compound image .
     Img2D *ptrImg = Img2D::GetInstance();
     if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn())
     {
@@ -337,7 +326,7 @@ EKnobReturn D2PressChgTHI(void)
     }
     else
     {
-		HintArea::GetInstance()->UpdateHint(_("[Harmonic]: Only valid for low frequency convex probe."), 2);
+        HintArea::GetInstance()->UpdateHint(_("[Harmonic]: Only valid for low frequency convex probe."), 2);
         return ERROR;
     }
 
@@ -360,18 +349,18 @@ EKnobReturn D2ChgTHI(EKnobOper oper)
     }
     else
     {
-		HintArea::GetInstance()->UpdateHint(_("[Harmonic]: Only valid for low frequency convex probe."), 2);
+        HintArea::GetInstance()->UpdateHint(_("[Harmonic]: Only valid for low frequency convex probe."), 2);
         return ERROR;
     }
 }
 EKnobReturn D2ChgChroma(EKnobOper oper)
 {
-	return ImgProc2D::GetInstance()->ChangeChroma(oper);
+    return ImgProc2D::GetInstance()->ChangeChroma(oper);
 }
 
 EKnobReturn D2PressChroma(void)
 {
-	return ImgProc2D::GetInstance()->PressChroma();
+    return ImgProc2D::GetInstance()->PressChroma();
 }
 
 EKnobReturn D2ChgTSI(EKnobOper oper)
@@ -548,9 +537,9 @@ EKnobReturn D2ChgFocPos(EKnobOper  oper)
 {
 #ifdef EMP_355
     if (SUB==oper)
-		oper=ADD;
-	else if (ADD==oper)
-		oper=SUB;
+        oper=ADD;
+    else if (ADD==oper)
+        oper=SUB;
 #endif
     return Img2D::GetInstance()->ChangeFocPos(oper);
 }
@@ -603,7 +592,7 @@ EKnobReturn D2PressChgSpaceCompound(void)
 EKnobReturn D2ChgSpaceCompound(EKnobOper oper)
 {
     // valid mode
-	char type = GlobalClassMan::GetInstance()->GetProbeType();
+    char type = GlobalClassMan::GetInstance()->GetProbeType();
     //int index = 3;
     bool harmonicOff = !Img2D::GetInstance()->GetHarmonicStatus();
     Img2D* ptrImg = Img2D::GetInstance();
@@ -628,10 +617,10 @@ EKnobReturn D2ChgSpaceCompound(EKnobOper oper)
 //emp5800 按键切换空间频率复合
 EKnobReturn D2PressChgFreqCompound(void)
 {
-	char type = GlobalClassMan::GetInstance()->GetProbeType();
+    char type = GlobalClassMan::GetInstance()->GetProbeType();
     EKnobReturn ret = ERROR;
     EKnobOper oper = ROTATE;
-	Img2D* ptrImg2D = Img2D::GetInstance();
+    Img2D* ptrImg2D = Img2D::GetInstance();
     bool harmonicOff = !ptrImg2D->GetHarmonicStatus();
     bool valid = (ModeStatus::IsD2ImgMode() || ModeStatus::IsMImgMode()) && (harmonicOff);
     if (!valid)
@@ -659,7 +648,7 @@ EKnobReturn D2ChgFreqCompound(EKnobOper oper)
     // valid mode
     bool harmonicOff = !Img2D::GetInstance()->GetHarmonicStatus();
     bool valid = (ModeStatus::IsD2ImgMode() || ModeStatus::IsMImgMode()) && (harmonicOff);
-	Img2D* ptrImg2D = Img2D::GetInstance();
+    Img2D* ptrImg2D = Img2D::GetInstance();
 
     if (!valid)
     {
@@ -705,20 +694,20 @@ EKnobReturn D2PressDepth(EKnobOper oper)
     ScanMode::EScanMode mode = ScanMode::GetInstance()->GetScanMode();
 
     if (s.IsColorMode())
-		flag = 1;
-	else if (s.IsSpectrumMode())
-		flag = 2;
-	else if (s.IsSpectrumColorMode())
-		flag = 3;
-	else if (s.IsMMode())
-		flag = 4;
+        flag = 1;
+    else if (s.IsSpectrumMode())
+        flag = 2;
+    else if (s.IsSpectrumColorMode())
+        flag = 3;
+    else if (s.IsMMode())
+        flag = 4;
 
-	if ((flag == 1) || (flag == 3))
-		ImgCfm::GetInstance()->ClearBox();
-	if ((flag == 2) || (flag == 3))
-		ImgPw::GetInstance()->ClearSv();
-	else if (flag == 4)
-		Img2D::GetInstance()->ClearMLine();
+    if ((flag == 1) || (flag == 3))
+        ImgCfm::GetInstance()->ClearBox();
+    if ((flag == 2) || (flag == 3))
+        ImgPw::GetInstance()->ClearSv();
+    else if (flag == 4)
+        Img2D::GetInstance()->ClearMLine();
 
     // clear biopsy line
     g_menuBiopsy.ClearBiopsyLine();
@@ -731,7 +720,7 @@ EKnobReturn D2PressDepth(EKnobOper oper)
         Img2D::GetInstance()->ClearMLine();
 
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
-		Zoom::GetInstance()->ClearLocalZoom();
+        Zoom::GetInstance()->ClearLocalZoom();
 
     // clear biopsy line
     g_menuBiopsy.ClearBiopsyLine();
@@ -760,28 +749,28 @@ EKnobReturn D2PressDepth(EKnobOper oper)
 
     //apply
 
-	if (Img2D::GetInstance()->ChangeDepth(oper) != ERROR)
-	{
-	    ImgCfm::GetInstance()->ChangeDepth();
-	    ImgPw::GetInstance()->ChangeDepth();
-	}
+    if (Img2D::GetInstance()->ChangeDepth(oper) != ERROR)
+    {
+        ImgCfm::GetInstance()->ChangeDepth();
+        ImgPw::GetInstance()->ChangeDepth();
+    }
 #endif
 
-	if ((flag == 1) || (flag == 3))
-		ImgCfm::GetInstance()->ReDrawBox();
-	if ((flag == 2) || (flag == 3))
-		ImgPw::GetInstance()->ReDrawSv();
+    if ((flag == 1) || (flag == 3))
+        ImgCfm::GetInstance()->ReDrawBox();
+    if ((flag == 2) || (flag == 3))
+        ImgPw::GetInstance()->ReDrawSv();
     else if (flag == 4)
-		Img2D::GetInstance()->ReDrawMLine();
+        Img2D::GetInstance()->ReDrawMLine();
 
-	if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
-		Zoom::GetInstance()->RedrawLocalZoom();
+    if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
+        Zoom::GetInstance()->RedrawLocalZoom();
 
     // redraw biopsy line
     g_menuBiopsy.UpdateBiopsyLine();
 
-	// change Tis
-	ChangeTis();
+    // change Tis
+    ChangeTis();
 
     return OK;
 }
@@ -811,13 +800,13 @@ void ParepareForTpView(void)
 
 EKnobReturn D2ChgTpView(EKnobOper oper)
 {
-	ModeStatus s;
+    ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-	Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
     char type = Img2D::GetInstance()->ReviseProbeType(para.type);
-	if(type =='L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
+    if(type =='L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
 
@@ -830,22 +819,22 @@ EKnobReturn D2ChgTpView(EKnobOper oper)
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(oper);
     }
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."), 2);
-		return ERROR;
-	}
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."), 2);
+        return ERROR;
+    }
 }
 
 EKnobReturn D2PressChgTpView()
 {
-	ModeStatus s;
+    ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-	Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
     char type = Img2D::GetInstance()->ReviseProbeType(para.type);
-	if(type == 'L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
+    if(type == 'L' && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
 
@@ -858,23 +847,23 @@ EKnobReturn D2PressChgTpView()
         ParepareForTpView();
         return ptrImg2D->ChangeTpView(ROTATE);
     }
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."), 2);
-		return ERROR;
-	}
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[TP-View]: Only valid when probe type is linear and unfreeze status in B mode."), 2);
+        return ERROR;
+    }
 }
 
 EKnobReturn D2ChgEFVI(EKnobOper oper)
 {
-	ModeStatus s;
+    ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-	Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
     char type = Img2D::GetInstance()->ReviseProbeType(para.type);
 
-	if((type != 'L') && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
+    if((type != 'L') && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
         if (ptrImg2D->GetTpViewStatus() || ptrImg2D->IsCompoundFreqOn() || ptrImg2D->IsCompoundSpaceOn())
@@ -884,25 +873,25 @@ EKnobReturn D2ChgEFVI(EKnobOper oper)
         }
 
         ParepareForTpView();
-		return ptrImg2D->ChangeEFVI(oper);
+        return ptrImg2D->ChangeEFVI(oper);
     }
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."), 1);
-		return ERROR;
-	}
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."), 1);
+        return ERROR;
+    }
 }
 
 EKnobReturn D2PressChgEFVI()
 {
-	ModeStatus s;
+    ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-	Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    Format2D::EFormat2D format = Format2D::GetInstance()->GetFormat();
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
     char type = Img2D::GetInstance()->ReviseProbeType(para.type);
 
-	if((type!='L') && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
+    if((type!='L') && ModeStatus::IsUnFreezeMode() && mode==ScanMode::D2 && format==Format2D::B)
     {
         Img2D* ptrImg2D = Img2D::GetInstance();
         if (ptrImg2D->GetTpViewStatus() || ptrImg2D->IsCompoundFreqOn() || ptrImg2D->IsCompoundSpaceOn() || g_menuBiopsy.GetDrawStatus())
@@ -912,13 +901,13 @@ EKnobReturn D2PressChgEFVI()
         }
 
         ParepareForTpView();
-		return ptrImg2D->ChangeEFVI(ROTATE);
+        return ptrImg2D->ChangeEFVI(ROTATE);
     }
-	else
-	{
-		HintArea::GetInstance()->UpdateHint(_("[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."), 1);
-		return ERROR;
-	}
+    else
+    {
+        HintArea::GetInstance()->UpdateHint(_("[EFVI]: Only valid when probe type is convex and unfreeze status in B mode."), 1);
+        return ERROR;
+    }
 }
 
 EKnobReturn D2PressChgScanLine(void)

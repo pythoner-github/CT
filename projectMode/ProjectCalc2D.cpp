@@ -13,21 +13,21 @@ const float ProjectCalc2D::EPSINON = 0.00001;
 ProjectCalc2D* ProjectCalc2D::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance  = new ProjectCalc2D;
+    m_ptrInstance  = new ProjectCalc2D;
     return m_ptrInstance;
 }
 
 ProjectCalc2D::ProjectCalc2D(void)
 {
-	DscMan* ptrDscMan = DscMan::GetInstance();
-	m_ptrDscPara = ptrDscMan->GetDscPara();
+    DscMan* ptrDscMan = DscMan::GetInstance();
+    m_ptrDscPara = ptrDscMan->GetDscPara();
 
     m_probeIndex = 0;
     m_harmonic = false;
     m_emitIndex = 1;
     m_freqIndex = 0;
-	m_ptrDsc = NULL;
-	m_ptrCalc = NULL;
+    m_ptrDsc = NULL;
+    m_ptrCalc = NULL;
 }
 
 ProjectCalc2D::~ProjectCalc2D()
@@ -41,13 +41,13 @@ ProjectCalc2D::~ProjectCalc2D()
 
 void ProjectCalc2D::SetProjectCalc2D(Calc2D* calc)
 {
-	m_ptrCalc = calc;
+    m_ptrCalc = calc;
 
-	// init 2D calculative para in project mode
-	m_projectCalcPara.onDemodParaPrintf = false;
-	m_projectCalcPara.filterSecIndex = 0;
-	for (int i = 0; i < 5; i++)
-	{
+    // init 2D calculative para in project mode
+    m_projectCalcPara.onDemodParaPrintf = false;
+    m_projectCalcPara.filterSecIndex = 0;
+    for (int i = 0; i < 5; i++)
+    {
         m_projectCalcPara.bandPassW[i] = 5.0;
     }
 
@@ -114,7 +114,7 @@ void ProjectCalc2D::InitKnobPara(void)
 {
     ///> demod section
     m_projectCalcPara.filterSecIndex = 1;
-	int section = m_projectCalcPara.filterSecIndex;
+    int section = m_projectCalcPara.filterSecIndex;
     EKnobReturn ret = OK;
     if (section == 0)
         ret = MIN;
@@ -209,7 +209,7 @@ void ProjectCalc2D::InitKnobPara(void)
 void ProjectCalc2D::RefreshKnobPara(void)
 {
     ///> demod section
-	int section = m_projectCalcPara.filterSecIndex;
+    int section = m_projectCalcPara.filterSecIndex;
     EKnobReturn ret = OK;
     if (section == 0)
         ret = MIN;
@@ -258,96 +258,96 @@ void ProjectCalc2D::RefreshKnobPara(void)
 #if 1
 EKnobReturn ProjectCalc2D::ChangeDemodSection(EKnobOper oper)
 {
-	///> test filter
-	int index = m_projectCalcPara.filterSecIndex;
-	if (oper == ROTATE)
-	{
-		if(index < (MAX_DEMOD_SECTION - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+    ///> test filter
+    int index = m_projectCalcPara.filterSecIndex;
+    if (oper == ROTATE)
+    {
+        if(index < (MAX_DEMOD_SECTION - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_DEMOD_SECTION - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index >= 1)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index < (MAX_DEMOD_SECTION - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index >= 1)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
 
-	m_projectCalcPara.filterSecIndex = index;
-	m_ptrCalc->CalcFilter();
+    m_projectCalcPara.filterSecIndex = index;
+    m_ptrCalc->CalcFilter();
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_DEMOD_SECTION - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_DEMOD_SECTION - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%d", index);
-//	if(KnobProjectMode::GetInstance()->GetPrint(0))
-		//dayin
+    ///> draw
+    char value[64];
+    sprintf(value, "%d", index);
+//  if(KnobProjectMode::GetInstance()->GetPrint(0))
+        //dayin
 
-//	KnobProjectMode::GetInstance()->SetValue(0, value, ret);
-//	ShowCurPageParaValue(0);
+//  KnobProjectMode::GetInstance()->SetValue(0, value, ret);
+//  ShowCurPageParaValue(0);
 
     RefreshKnobPara();
 
-	return (ret);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::ChangeDemodParaPrintf()
 {
-	m_projectCalcPara.onDemodParaPrintf = !m_projectCalcPara.onDemodParaPrintf;
-	char strHint[256];
-	if (m_projectCalcPara.onDemodParaPrintf)
-		sprintf(strHint, "Demodulation Para Printf is on !");
-	else
-		sprintf(strHint, "Demodulation Para Printf is off !");
+    m_projectCalcPara.onDemodParaPrintf = !m_projectCalcPara.onDemodParaPrintf;
+    char strHint[256];
+    if (m_projectCalcPara.onDemodParaPrintf)
+        sprintf(strHint, "Demodulation Para Printf is on !");
+    else
+        sprintf(strHint, "Demodulation Para Printf is off !");
 
-	HintArea::GetInstance()->UpdateHint(_(strHint), 0);
-	m_ptrCalc->CalcFilter();
+    HintArea::GetInstance()->UpdateHint(_(strHint), 0);
+    m_ptrCalc->CalcFilter();
 
 #if 0
-	bool ret = KnobProjectMode::GetInstance()->GetPrint(10);
-	ret = !ret;
-	KnobProjectMode::GetInstance()->SetPrint(10, ret);
+    bool ret = KnobProjectMode::GetInstance()->GetPrint(10);
+    ret = !ret;
+    KnobProjectMode::GetInstance()->SetPrint(10, ret);
 #endif
 
-	return PRESS;
+    return PRESS;
 }
 
 EKnobReturn ProjectCalc2D::ChangeBandPassFc(EKnobOper oper)
 {
-	///> test
+    ///> test
     float index;
     if(m_projectCalcPara.filterSecIndex > 0)
         index = m_projectCalcPara.bandPassW[m_projectCalcPara.filterSecIndex-1];
@@ -355,104 +355,104 @@ EKnobReturn ProjectCalc2D::ChangeBandPassFc(EKnobOper oper)
     if (oper == ROTATE)
     {
         if(index <(MAX_BAND_PASS_W1 - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_BAND_PASS_W1 - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index < (MAX_BAND_PASS_W1 - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
 
-	if(m_projectCalcPara.filterSecIndex > 0)
-	    m_projectCalcPara.bandPassW[m_projectCalcPara.filterSecIndex-1] = index;
-	m_ptrCalc->CalcFilter();
+    if(m_projectCalcPara.filterSecIndex > 0)
+        m_projectCalcPara.bandPassW[m_projectCalcPara.filterSecIndex-1] = index;
+    m_ptrCalc->CalcFilter();
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_BAND_PASS_W1 - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_BAND_PASS_W1 - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%.2f", index);
-	KnobProjectMode::GetInstance()->SetValue(1, value, ret);
-	ShowCurPageParaValue(0);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%.2f", index);
+    KnobProjectMode::GetInstance()->SetValue(1, value, ret);
+    ShowCurPageParaValue(0);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::ChangeTxFNum(EKnobOper oper)
 {
-	///> test
-	float index;
-	   index = m_projectCalcPara.txFNum;
+    ///> test
+    float index;
+       index = m_projectCalcPara.txFNum;
 
-	if (oper == ROTATE)
-	{
-		if(index <(MAX_TX_F_NUM - 1))
-		{
-			index += 0.1;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+    if (oper == ROTATE)
+    {
+        if(index <(MAX_TX_F_NUM - 1))
+        {
+            index += 0.1;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_TX_F_NUM - 1))
-		{
-			index += 0.1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= 0.1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
+    else if (oper == ADD)
+    {
+        if (index < (MAX_TX_F_NUM - 1))
+        {
+            index += 0.1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= 0.1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
         return ERROR;
     }
 
@@ -461,22 +461,22 @@ EKnobReturn ProjectCalc2D::ChangeTxFNum(EKnobOper oper)
     m_ptrCalc->CalcEmitDelay();
     EKnobReturn ret = OK;
     if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_TX_F_NUM - 1))
-		ret = MAX;
-	else
-		ret = OK;
+        ret = MIN;
+    else if (index == (MAX_TX_F_NUM - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%.2f", index);
-//	if(KnobProjectMode::GetInstance()->GetPrint(0))
-	{
-		//dayin
-	}
-	KnobProjectMode::GetInstance()->SetValue(2, value, ret);
-//	ShowCurPageParaValue(0);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%.2f", index);
+//  if(KnobProjectMode::GetInstance()->GetPrint(0))
+    {
+        //dayin
+    }
+    KnobProjectMode::GetInstance()->SetValue(2, value, ret);
+//  ShowCurPageParaValue(0);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::ChangeWpScale(EKnobOper oper)
@@ -488,59 +488,59 @@ EKnobReturn ProjectCalc2D::ChangeWpScale(EKnobOper oper)
     if (oper == ROTATE)
     {
         if(index <(MAX_WP_SCALE - 1))
-		{
-			index += 0.05;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+        {
+            index += 0.05;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_WP_SCALE - 1))
-		{
-			index += 0.05;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= 0.05;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index < (MAX_WP_SCALE - 1))
+        {
+            index += 0.05;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= 0.05;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
 
     m_projectCalcPara.wpScale = index;
-	m_ptrCalc->CalcFilter();
+    m_ptrCalc->CalcFilter();
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_WP_SCALE - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_WP_SCALE - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%.2f", index);
-	KnobProjectMode::GetInstance()->SetValue(3, value, ret);
-//	ShowCurPageParaValue(0);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%.2f", index);
+    KnobProjectMode::GetInstance()->SetValue(3, value, ret);
+//  ShowCurPageParaValue(0);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::Change2DPulse(EKnobOper oper)
@@ -549,30 +549,30 @@ EKnobReturn ProjectCalc2D::Change2DPulse(EKnobOper oper)
     index = m_projectCalcPara.d2Pluse;
 
     if (oper == ADD)
-	{
-		if (index < (MAX_2D_PLUSE - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 1)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
+    {
+        if (index < (MAX_2D_PLUSE - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 1)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
     }
 
     m_projectCalcPara.d2Pluse = index;
@@ -586,8 +586,8 @@ EKnobReturn ProjectCalc2D::Change2DPulse(EKnobOper oper)
     else
         ret = OK;
 
-    	///> draw
-	char value[64];
+        ///> draw
+    char value[64];
     sprintf(value, "%d", index);
     KnobProjectMode::GetInstance()->SetValue(4, value, ret);
 
@@ -600,30 +600,30 @@ EKnobReturn ProjectCalc2D::ChangePwPulse(EKnobOper oper)
     index = m_projectCalcPara.pwPluse;
 
     if (oper == ADD)
-	{
-		if (index < (MAX_PW_PLUSE - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 1)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
+    {
+        if (index < (MAX_PW_PLUSE - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 1)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
     }
 
     m_projectCalcPara.pwPluse = index;
@@ -650,30 +650,30 @@ EKnobReturn ProjectCalc2D::ChangeCfmPulse(EKnobOper oper)
     index = m_projectCalcPara.cfmPluse;
 
     if (oper == ADD)
-	{
-		if (index < (MAX_CFM_PLUSE - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 1)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
+    {
+        if (index < (MAX_CFM_PLUSE - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 1)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
     }
 
     m_projectCalcPara.cfmPluse = index;
@@ -700,30 +700,30 @@ EKnobReturn ProjectCalc2D::ChangeProbeR(EKnobOper oper)
     index = m_projectCalcPara.probeR;
     printf("index = %d\n", index);
     if (oper == ADD)
-	{
-		if (index < (MAX_PROBE_R - 1))
-		{
-			index += 10;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 10)
-		{
-			index -= 10;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
+    {
+        if (index < (MAX_PROBE_R - 1))
+        {
+            index += 10;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 10)
+        {
+            index -= 10;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
     }
 
     printf("index = %d\n", index);
@@ -756,30 +756,30 @@ EKnobReturn ProjectCalc2D::ChangeProbeAngle(EKnobOper oper)
      int index;
     index = m_projectCalcPara.probeAngle;
     if (oper == ADD)
-	{
-		if (index < (MAX_PROBE_ANGLE - 1))
-		{
-			index += 10;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 10)
-		{
-			index -= 10;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
+    {
+        if (index < (MAX_PROBE_ANGLE - 1))
+        {
+            index += 10;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 10)
+        {
+            index -= 10;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
     }
 
     m_projectCalcPara.probeAngle = index;
@@ -806,194 +806,194 @@ EKnobReturn ProjectCalc2D::ChangeProbeAngle(EKnobOper oper)
 #if 0
 EKnobReturn ProjectCalc2D::ChangeBandPassWindowFunc(EKnobOper oper)
 {
-	///> test receive aperture calc window function
-	int index = m_projectCalcPara.windowFuncBPIndex;
-	if (oper == ROTATE)
-	{
-		if(index <(MAX_BP_WINDOW_FUNC - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+    ///> test receive aperture calc window function
+    int index = m_projectCalcPara.windowFuncBPIndex;
+    if (oper == ROTATE)
+    {
+        if(index <(MAX_BP_WINDOW_FUNC - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_BP_WINDOW_FUNC - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index < (MAX_BP_WINDOW_FUNC - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
 
-	m_projectCalcPara.windowFuncBPIndex = index;
-	m_ptrCalc->CalcFilter();
+    m_projectCalcPara.windowFuncBPIndex = index;
+    m_ptrCalc->CalcFilter();
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_BP_WINDOW_FUNC - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_BP_WINDOW_FUNC - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%d", index);
-	KnobProjectMode::GetInstance()->SetValue(5, value, ret);
-	ShowCurPageParaValue(1);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%d", index);
+    KnobProjectMode::GetInstance()->SetValue(5, value, ret);
+    ShowCurPageParaValue(1);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::ChangeLowPassWindowFunc(EKnobOper oper)
 {
-	///> test receive aperture calc window function
-	int index = m_projectCalcPara.windowFuncLPIndex;
-	if (oper == ROTATE)
-	{
-		if(index <(MAX_LP_WINDOW_FUNC - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			index = 0;
-		}
-	}
+    ///> test receive aperture calc window function
+    int index = m_projectCalcPara.windowFuncLPIndex;
+    if (oper == ROTATE)
+    {
+        if(index <(MAX_LP_WINDOW_FUNC - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 0;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index < (MAX_LP_WINDOW_FUNC - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 0)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index < (MAX_LP_WINDOW_FUNC - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 0)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
 
-	m_projectCalcPara.windowFuncLPIndex = index;
-	m_ptrCalc->CalcFilter();
+    m_projectCalcPara.windowFuncLPIndex = index;
+    m_ptrCalc->CalcFilter();
 
-	EKnobReturn ret = OK;
-	if (index == 0)
-		ret = MIN;
-	else if (index == (MAX_LP_WINDOW_FUNC - 1))
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 0)
+        ret = MIN;
+    else if (index == (MAX_LP_WINDOW_FUNC - 1))
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%d", index);
-	KnobProjectMode::GetInstance()->SetValue(6, value, ret);
-	ShowCurPageParaValue(1);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%d", index);
+    KnobProjectMode::GetInstance()->SetValue(6, value, ret);
+    ShowCurPageParaValue(1);
+    return (ret);
 }
 
 EKnobReturn ProjectCalc2D::ChangeEmissionPara(EKnobOper oper)
 {
-	int index = m_emitIndex;
-	if (oper == ROTATE)
-	{
-		if(index <= (ProbeDataPackageMan::MAX_GROUP - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			index = 1;
-		}
-	}
+    int index = m_emitIndex;
+    if (oper == ROTATE)
+    {
+        if(index <= (ProbeDataPackageMan::MAX_GROUP - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            index = 1;
+        }
+    }
 
-	else if (oper == ADD)
-	{
-		if (index <= (ProbeDataPackageMan::MAX_GROUP - 1))
-		{
-			index += 1;
-		}
-		else
-		{
-			return (MAX);
-		}
-	}
-	else if (oper == SUB)
-	{
-		if (index > 1)
-		{
-			index -= 1;
-		}
-		else
-		{
-			return (MIN);
-		}
-	}
-	else
-	{
-		return ERROR;
-	}
+    else if (oper == ADD)
+    {
+        if (index <= (ProbeDataPackageMan::MAX_GROUP - 1))
+        {
+            index += 1;
+        }
+        else
+        {
+            return (MAX);
+        }
+    }
+    else if (oper == SUB)
+    {
+        if (index > 1)
+        {
+            index -= 1;
+        }
+        else
+        {
+            return (MIN);
+        }
+    }
+    else
+    {
+        return ERROR;
+    }
     m_emitIndex = index;
     ProbeDataPackageMan::GetInstance()->SendEmissionPara(index);
 
-	EKnobReturn ret = OK;
-	if (index == 1)
-		ret = MIN;
-	else if (index == ProbeDataPackageMan::MAX_GROUP)
-		ret = MAX;
-	else
-		ret = OK;
+    EKnobReturn ret = OK;
+    if (index == 1)
+        ret = MIN;
+    else if (index == ProbeDataPackageMan::MAX_GROUP)
+        ret = MAX;
+    else
+        ret = OK;
 
-	///> draw
-	char value[64];
-	sprintf(value, "%d", index);
-	KnobProjectMode::GetInstance()->SetValue(7, value, ret);
-	return (ret);
+    ///> draw
+    char value[64];
+    sprintf(value, "%d", index);
+    KnobProjectMode::GetInstance()->SetValue(7, value, ret);
+    return (ret);
 }
 #endif
 #endif
 
 void ProjectCalc2D::SaveCalcPara2D(char* name)
 {
-	char path[256];
-	sprintf(path, "%s%s", CFG_RES_PATH, PROJECT_DEBUG_FILE);
-	IniFile ini(path);
+    char path[256];
+    sprintf(path, "%s%s", CFG_RES_PATH, PROJECT_DEBUG_FILE);
+    IniFile ini(path);
 
     Img2D* ptrImg2D = Img2D::GetInstance();
     string probe_type = TopArea::GetInstance()->GetProbeType();
@@ -1008,28 +1008,28 @@ void ProjectCalc2D::SaveCalcPara2D(char* name)
     }
 
     ExamItem em;
-	ExamItem::ProjectDebugParaItem debugParaItem;
+    ExamItem::ProjectDebugParaItem debugParaItem;
 
-	debugParaItem.mode = ScanMode::D2;
+    debugParaItem.mode = ScanMode::D2;
     debugParaItem.depth = ptrImg2D->GetDepthIndex();
     debugParaItem.statusTHI = ptrImg2D->GetStatusTHI();
     debugParaItem.freq_Index = freqIndex;
     debugParaItem.harmonic_Index = harmonicIndex;
     debugParaItem.probe_Index = probeIndex;
 
-	if (debugParaItem.statusTHI)
-		debugParaItem.freq = ProbeSocket::FREQ_THI[probeIndex][freqIndex];
-	else
-		debugParaItem.freq = ProbeSocket::FREQ2D[probeIndex][freqIndex].emit;
+    if (debugParaItem.statusTHI)
+        debugParaItem.freq = ProbeSocket::FREQ_THI[probeIndex][freqIndex];
+    else
+        debugParaItem.freq = ProbeSocket::FREQ2D[probeIndex][freqIndex].emit;
 
-	// write demod filter para
-	debugParaItem.defaultPara.mode = ScanMode::D2;
-	debugParaItem.defaultPara.pro2d.freq = debugParaItem.freq;
+    // write demod filter para
+    debugParaItem.defaultPara.mode = ScanMode::D2;
+    debugParaItem.defaultPara.pro2d.freq = debugParaItem.freq;
         debugParaItem.defaultPara.pro2d.FilterSection = m_projectCalcPara.filterSecIndex;
-	for (i = 0; i < ExamItem::BAND_PASS_SIZE_D2; i++)
-	{
-		debugParaItem.defaultPara.pro2d.BandPassW[i] = m_projectCalcPara.bandPassW[i];
-	}
+    for (i = 0; i < ExamItem::BAND_PASS_SIZE_D2; i++)
+    {
+        debugParaItem.defaultPara.pro2d.BandPassW[i] = m_projectCalcPara.bandPassW[i];
+    }
 
     debugParaItem.defaultPara.pro2d.txFNum = m_projectCalcPara.txFNum;
     debugParaItem.defaultPara.pro2d.wpScale = m_projectCalcPara.wpScale;
@@ -1039,31 +1039,31 @@ void ProjectCalc2D::SaveCalcPara2D(char* name)
     debugParaItem.defaultPara.probeR = m_projectCalcPara.probeR;
     debugParaItem.defaultPara.probeAngle = m_projectCalcPara.probeAngle;
 
-	char user[128];
-	int len = strlen(probe_type.c_str());
+    char user[128];
+    int len = strlen(probe_type.c_str());
         strncpy(user, name+len+1, strlen(name)-len);
 
-	em.WriteProDebugParaItem(&debugParaItem, probe_type.c_str(), user, &ini);
+    em.WriteProDebugParaItem(&debugParaItem, probe_type.c_str(), user, &ini);
 }
 
 void ProjectCalc2D::ReadCalcPara2D(const char* name)
 {
-	int i;
-	char path[256];
-	sprintf(path, "%s%s", CFG_RES_PATH, PROJECT_DEBUG_FILE);
-	IniFile ini(path);
+    int i;
+    char path[256];
+    sprintf(path, "%s%s", CFG_RES_PATH, PROJECT_DEBUG_FILE);
+    IniFile ini(path);
 
-	ProbeSocket::ProbePara para;
-	ProbeMan::GetInstance()->GetCurProbe(para);
+    ProbeSocket::ProbePara para;
+    ProbeMan::GetInstance()->GetCurProbe(para);
 
-	char user[128];
-	int len = strlen(para.model);
+    char user[128];
+    int len = strlen(para.model);
     strncpy(user, name+len+1, strlen(name)-len);
 
-	ExamItem em;
-	ExamItem::ProjectDebugParaItem debugParaItem;
-	em.ReadProDebugParaItem(&debugParaItem, para.model, user, &ini);
-	 if(debugParaItem.statusTHI)
+    ExamItem em;
+    ExamItem::ProjectDebugParaItem debugParaItem;
+    em.ReadProDebugParaItem(&debugParaItem, para.model, user, &ini);
+     if(debugParaItem.statusTHI)
     {
       printf("enter thi ----------------------\n");
         Img2D::GetInstance()->ChangeHTIForProject(debugParaItem.harmonic_Index);
@@ -1074,19 +1074,19 @@ void ProjectCalc2D::ReadCalcPara2D(const char* name)
     }
     Img2D::GetInstance()->Depth(debugParaItem.depth);
 
-	// read demod filter para
-	m_projectCalcPara.filterSecIndex = debugParaItem.defaultPara.pro2d.FilterSection;
-	for (i = 0; i < ExamItem::BAND_PASS_SIZE_D2; i++)
-	{
-		m_projectCalcPara.bandPassW[i] = debugParaItem.defaultPara.pro2d.BandPassW[i];
-	}
+    // read demod filter para
+    m_projectCalcPara.filterSecIndex = debugParaItem.defaultPara.pro2d.FilterSection;
+    for (i = 0; i < ExamItem::BAND_PASS_SIZE_D2; i++)
+    {
+        m_projectCalcPara.bandPassW[i] = debugParaItem.defaultPara.pro2d.BandPassW[i];
+    }
 
     m_projectCalcPara.txFNum = debugParaItem.defaultPara.pro2d.txFNum;
     m_projectCalcPara.wpScale = debugParaItem.defaultPara.pro2d.wpScale;
-	m_projectCalcPara.d2Pluse = debugParaItem.defaultPara.pro2d.d2Pluse;
-	m_projectCalcPara.cfmPluse = debugParaItem.defaultPara.pro2d.cfmPluse;
-	m_projectCalcPara.pwPluse = debugParaItem.defaultPara.pro2d.pwPluse;
-	m_projectCalcPara.probeR = debugParaItem.defaultPara.probeR;
+    m_projectCalcPara.d2Pluse = debugParaItem.defaultPara.pro2d.d2Pluse;
+    m_projectCalcPara.cfmPluse = debugParaItem.defaultPara.pro2d.cfmPluse;
+    m_projectCalcPara.pwPluse = debugParaItem.defaultPara.pro2d.pwPluse;
+    m_projectCalcPara.probeR = debugParaItem.defaultPara.probeR;
     m_projectCalcPara.probeAngle = debugParaItem.defaultPara.probeAngle;
     // realize Func
     Img2D::GetInstance()->InitProbeCalc2D();
@@ -1096,8 +1096,8 @@ void ProjectCalc2D::ReadCalcPara2D(const char* name)
     m_fpga.SendPWPulseNum(m_projectCalcPara.pwPluse);
     m_fpga.SendCFMPulseNum(m_projectCalcPara.cfmPluse);
 
-	// draw --- NULL
-	char value[64];
+    // draw --- NULL
+    char value[64];
     EKnobReturn ret = OK;
 
     if (m_projectCalcPara.filterSecIndex > 0)
@@ -1123,16 +1123,16 @@ void ProjectCalc2D::ReadCalcPara2D(const char* name)
     }
     else
     {
-    	for (i = 0; i < 9; i++)
-	{
-		sprintf(value, "%s", "");
-		KnobProjectMode::GetInstance()->SetValue(i, value, ret);
-	}
+        for (i = 0; i < 9; i++)
+    {
+        sprintf(value, "%s", "");
+        KnobProjectMode::GetInstance()->SetValue(i, value, ret);
+    }
 
     }
     // show cur page para vaule
-	unsigned int curLevel;
-	curLevel = KnobProjectMode::GetInstance()->GetCurPageLevel();
+    unsigned int curLevel;
+    curLevel = KnobProjectMode::GetInstance()->GetCurPageLevel();
     ShowCurPageParaValue(curLevel);
 
 }

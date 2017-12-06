@@ -8,22 +8,22 @@
 
 class MeaFactoryMainSingle
 {
-	public:
-		~MeaFactoryMainSingle();
-		static MeaFactoryMainSingle* GetInstance();
+    public:
+        ~MeaFactoryMainSingle();
+        static MeaFactoryMainSingle* GetInstance();
 
-		AbsMeasure* Create(int type);
+        AbsMeasure* Create(int type);
 
-		int GetType();
+        int GetType();
 
-	private:
-		MeaFactoryMainSingle();
+    private:
+        MeaFactoryMainSingle();
 
-		static MeaFactoryMainSingle* m_ptrInstance;
-		int m_type;
-		unsigned int NewSingleMeasure(const SingleItemInfo *ptrSingleItemInfo, MeasureFactory::EMeasureMode currMeaMode);
-		unsigned int NewMultiMeasure(const MultiItemInfo *ptrMultiItemInfo, MeasureFactory::EMeasureMode currMeaMode);
-		int SectionItem(int item, int *itemStart, const SingleItemInfo **ptrSingleItemInfo, const MultiItemInfo **ptrMultiItemInfo);
+        static MeaFactoryMainSingle* m_ptrInstance;
+        int m_type;
+        unsigned int NewSingleMeasure(const SingleItemInfo *ptrSingleItemInfo, MeasureFactory::EMeasureMode currMeaMode);
+        unsigned int NewMultiMeasure(const MultiItemInfo *ptrMultiItemInfo, MeasureFactory::EMeasureMode currMeaMode);
+        int SectionItem(int item, int *itemStart, const SingleItemInfo **ptrSingleItemInfo, const MultiItemInfo **ptrMultiItemInfo);
 };
 
 #endif

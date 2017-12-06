@@ -1,18 +1,3 @@
-/*****************************************************************************/
-/* osrfx2.c    A Driver for the OSR USB FX2 Learning Kit device              */
-/*                                                                           */
-/* Copyright (C) 2006 by Robin Callender                                     */
-/*                                                                           */
-/* This program is free software. You can redistribute it and/or             */
-/* modify it under the terms of the GNU General Public License as            */
-/* published by the Free Software Foundation, version 2.                     */
-/*                                                                           */
-/*****************************************************************************/
-
-/*****************************************************************************/
-/*				modified by QiuJiuming		 	     */
-/*****************************************************************************/
-
 #include <linux/version.h>
 //#include <linux/config.h>
 #include <linux/kernel.h>
@@ -37,13 +22,13 @@
 /*****************************************************************************/
 /* Define the vendor id and product id.                                      */
 /*****************************************************************************/
-#define VENDOR_ID   0x0547       
+#define VENDOR_ID   0x0547
 #define PRODUCT_ID  0x1005
 
 #define DEVICE_MINOR_BASE   192
 
-#define CYPRESS_MAX_REQSIZE	8
-             
+#define CYPRESS_MAX_REQSIZE 8
+
 #undef TRUE
 #define TRUE  (1)
 #undef FALSE
@@ -74,47 +59,47 @@ struct osrfx2 {
 
     struct usb_device    * udev;
     struct usb_interface * interface;
-    
+
     /*
      * This queue is used by the poll and irq methods
      */
     wait_queue_head_t FieldEventQueue;
-    
+
     /*
      *  Transfer Buffers
      */
     unsigned char * ep0_buffer;
     unsigned char * bulk_in_buffer;
     unsigned char * bulk_out_buffer;
-    
+
     /*
      *  Buffer sizes
      */
     size_t ep0_size;
     size_t bulk_in_size;
     size_t bulk_out_size;
-    
+
     /*
      *  USB Endpoints
      */
     __u8  ep0_endpointAddr;
     __u8  bulk_in_endpointAddr;
     __u8  bulk_out_endpointAddr;
-    
+
     /*
      *  Endpoint intervals
      */
     __u8  ep0_endpointInterval;
     __u8  bulk_in_endpointInterval;
     __u8  bulk_out_endpointInterval;
-    
+
     /*
      *  URBs
      */
     struct urb * bulk_in_urb;
     //struct urb * int_in_urb;
     struct urb * bulk_out_urb;
-    
+
     /*
      *  Refrence counter
      */
@@ -135,8 +120,8 @@ struct osrfx2 {
     atomic_t bulk_read_available;
 
     /*
-     *  Data tracking for Read/Write. 
-     *  Writes will add to the pending_data count and 
+     *  Data tracking for Read/Write.
+     *  Writes will add to the pending_data count and
      *  reads will deplete the pending_data count.
      *
      *  Note: The OSRFX2 device specs states that the firmware will buffer
@@ -144,7 +129,7 @@ struct osrfx2 {
      *        The buffers can be drained by issuing reads to EP8.
      *        The fifth outstanding write packet attempt will cause the write
      *        to block, waiting for the arrival of a read request to
-     *        effectively free a buffer into which the write data can be 
+     *        effectively free a buffer into which the write data can be
      *        held.
      */
     size_t  pending_data;
@@ -162,16 +147,16 @@ struct osrfx2 {
 static struct usb_driver osrfx2_driver;
 
 /* Send a vendor command to device */
-static int vendor_command(struct usb_device *dev, unsigned char request, 
-			  unsigned int value, unsigned int index,
-			  void *buf, int size)
+static int vendor_command(struct usb_device *dev, unsigned char request,
+              unsigned int value, unsigned int index,
+              void *buf, int size)
 {
-	return usb_control_msg(dev, usb_rcvctrlpipe(dev, 0),
-			       request, 
-			       USB_DIR_IN | USB_TYPE_VENDOR | USB_RECIP_OTHER,
-			       value, 
-			       index, buf, size,
-			       USB_CTRL_GET_TIMEOUT);
+    return usb_control_msg(dev, usb_rcvctrlpipe(dev, 0),
+                   request,
+                   USB_DIR_IN | USB_TYPE_VENDOR | USB_RECIP_OTHER,
+                   value,
+                   index, buf, size,
+                   USB_CTRL_GET_TIMEOUT);
 }
 
 /*****************************************************************************/
@@ -180,12 +165,12 @@ static int vendor_command(struct usb_device *dev, unsigned char request,
 /* Note the two different function defintions depending on kernel version.   */
 /*****************************************************************************/
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,13)
-static ssize_t set_xfer_start(struct device * dev, 
+static ssize_t set_xfer_start(struct device * dev,
                             const char * buf,
                             size_t count)
 #else
-static ssize_t set_xfer_start(struct device * dev, 
-                            struct device_attribute * attr, 
+static ssize_t set_xfer_start(struct device * dev,
+                            struct device_attribute * attr,
                             const char * buf,
                             size_t count)
 #endif
@@ -203,37 +188,37 @@ static ssize_t set_xfer_start(struct device * dev,
     if (buf == end) {
         value = 0;
     }
-	/* allocate some memory for the i/o buffer*/
-	iobuf = kzalloc(CYPRESS_MAX_REQSIZE, GFP_KERNEL);
+    /* allocate some memory for the i/o buffer*/
+    iobuf = kzalloc(CYPRESS_MAX_REQSIZE, GFP_KERNEL);
 /*
-    retval = usb_control_msg(fx2dev->udev, 
-                             usb_sndctrlpipe(fx2dev->udev, 0), 
-                             OSRFX2_SET_BARGRAPH_DISPLAY, 
+    retval = usb_control_msg(fx2dev->udev,
+                             usb_sndctrlpipe(fx2dev->udev, 0),
+                             OSRFX2_SET_BARGRAPH_DISPLAY,
                              USB_DIR_OUT | USB_TYPE_VENDOR,
                              0,
                              0,
-                             iobuf,//packet, 
+                             iobuf,//packet,
                              CYPRESS_MAX_REQSIZE,//sizeof(*packet),
                              USB_CTRL_GET_TIMEOUT);
 */
-		retval = vendor_command(fx2dev->udev, 
-			  OSRFX2_SET_XFER_START, 0, 0,
-			  iobuf, CYPRESS_MAX_REQSIZE);
+        retval = vendor_command(fx2dev->udev,
+              OSRFX2_SET_XFER_START, 0, 0,
+              iobuf, CYPRESS_MAX_REQSIZE);
 
     if (retval < 0) {
-        dev_err(&fx2dev->udev->dev, "%s - retval=%d\n", 
+        dev_err(&fx2dev->udev->dev, "%s - retval=%d\n",
                 __FUNCTION__, retval);
     }
-    
+
     //kfree(packet);
-		kfree(iobuf);
+        kfree(iobuf);
 
     return count;
 }
 
 ///////////////////////////////hzq///////////////////////
-static ssize_t start_show(struct device * dev, 
-                            struct device_attribute * attr, 
+static ssize_t start_show(struct device * dev,
+                            struct device_attribute * attr,
                             const char * buf)
 {
     return scnprintf(buf, PAGE_SIZE, "%s\n", "osrfx2_usb");
@@ -267,7 +252,7 @@ static int init_bulks(struct osrfx2 * fx2dev)
     sema_init( &fx2dev->sem, 1 );
     init_waitqueue_head( &fx2dev->FieldEventQueue );
 
-    return 0; 
+    return 0;
 }
 
 /*****************************************************************************/
@@ -310,10 +295,10 @@ static int find_endpoints(struct osrfx2 * fx2dev)
         }
     }
 
-    if (//fx2dev->int_in_endpointAddr   == 0 || 
+    if (//fx2dev->int_in_endpointAddr   == 0 ||
         fx2dev->bulk_in_endpointAddr  == 0 ||
         fx2dev->bulk_out_endpointAddr == 0) {
-        dev_err(&interface->dev, "%s - failed to find required endpoints\n", 
+        dev_err(&interface->dev, "%s - failed to find required endpoints\n",
                 __FUNCTION__);
         return -ENODEV;
     }
@@ -328,7 +313,7 @@ static void osrfx2_delete(struct kref * kref)
     struct osrfx2 * fx2dev = container_of(kref, struct osrfx2, kref);
 
     usb_put_dev( fx2dev->udev );
-    
+
     /*if (fx2dev->int_in_urb) {
         usb_free_urb(fx2dev->int_in_urb);
     }
@@ -365,18 +350,18 @@ static int osrfx2_open(struct inode * inode, struct file * file)
     struct osrfx2 * fx2dev;
     int retval;
     int flags;
-    
+
     interface = usb_find_interface(&osrfx2_driver, iminor(inode));
-    if (interface == NULL) 
+    if (interface == NULL)
         return -ENODEV;
 
     fx2dev = usb_get_intfdata(interface);
-    if (fx2dev == NULL) 
+    if (fx2dev == NULL)
         return -ENODEV;
 
     /*
      *   Serialize access to each of the bulk pipes.
-     */ 
+     */
     flags = (file->f_flags & O_ACCMODE);
 
     if ((flags == O_WRONLY) || (flags == O_RDWR)) {
@@ -390,7 +375,7 @@ static int osrfx2_open(struct inode * inode, struct file * file)
          */
         retval = usb_clear_halt(fx2dev->udev, fx2dev->bulk_out_endpointAddr);
         if ((retval != 0) && (retval != -EPIPE)) {
-            dev_err(&interface->dev, "%s - error(%d) usb_clear_halt(%02X)\n", 
+            dev_err(&interface->dev, "%s - error(%d) usb_clear_halt(%02X)\n",
                     __FUNCTION__, retval, fx2dev->bulk_out_endpointAddr);
         }
     }
@@ -398,7 +383,7 @@ static int osrfx2_open(struct inode * inode, struct file * file)
     if ((flags == O_RDONLY) || (flags == O_RDWR)) {
         if (atomic_dec_and_test( &fx2dev->bulk_read_available ) == 0) {
             atomic_inc( &fx2dev->bulk_read_available );
-            if (flags == O_RDWR) 
+            if (flags == O_RDWR)
                 atomic_inc( &fx2dev->bulk_write_available );
             return -EBUSY;
         }
@@ -408,14 +393,14 @@ static int osrfx2_open(struct inode * inode, struct file * file)
          */
         retval = usb_clear_halt(fx2dev->udev, fx2dev->bulk_in_endpointAddr);
         if ((retval != 0) && (retval != -EPIPE)) {
-            dev_err(&interface->dev, "%s - error(%d) usb_clear_halt(%02X)\n", 
+            dev_err(&interface->dev, "%s - error(%d) usb_clear_halt(%02X)\n",
                     __FUNCTION__, retval, fx2dev->bulk_in_endpointAddr);
         }
     }
 
     /*
      *   Set this device as non-seekable.
-     */ 
+     */
     retval = nonseekable_open(inode, file);
     if (retval != 0) {
         return retval;
@@ -446,7 +431,7 @@ static int osrfx2_release(struct inode * inode, struct file * file)
     if (fx2dev == NULL)
         return -ENODEV;
 
-    /* 
+    /*
      *  Release any bulk_[write|read]_available serialization.
      */
     flags = (file->f_flags & O_ACCMODE);
@@ -454,14 +439,14 @@ static int osrfx2_release(struct inode * inode, struct file * file)
     if ((flags == O_WRONLY) || (flags == O_RDWR))
         atomic_inc( &fx2dev->bulk_write_available );
 
-    if ((flags == O_RDONLY) || (flags == O_RDWR)) 
+    if ((flags == O_RDONLY) || (flags == O_RDWR))
         atomic_inc( &fx2dev->bulk_read_available );
 
-    /* 
+    /*
      *  Decrement the ref-count on the device instance.
      */
     kref_put(&fx2dev->kref, osrfx2_delete);
-    
+
     return 0;
 }
 
@@ -472,30 +457,30 @@ static void write_bulk_backend(struct urb * urb, struct pt_regs * regs)
 {
     struct osrfx2 * fx2dev = (struct osrfx2 *)urb->context;
 
-    /* 
+    /*
      *  Filter sync and async unlink events as non-errors.
      */
-    if (urb->status && 
-        !(urb->status == -ENOENT || 
+    if (urb->status &&
+        !(urb->status == -ENOENT ||
           urb->status == -ECONNRESET ||
           urb->status == -ESHUTDOWN)) {
-        dev_err(&fx2dev->interface->dev, 
+        dev_err(&fx2dev->interface->dev,
                 "%s - non-zero status received: %d\n",
                 __FUNCTION__, urb->status);
     }
-    /* 
+    /*
      *  Free the spent buffer.
      */
-    usb_buffer_free( urb->dev, 
-                     urb->transfer_buffer_length, 
-                     urb->transfer_buffer, 
+    usb_buffer_free( urb->dev,
+                     urb->transfer_buffer_length,
+                     urb->transfer_buffer,
                      urb->transfer_dma );
 }
 
 /*****************************************************************************/
 /*                                                                           */
 /*****************************************************************************/
-static ssize_t osrfx2_read(struct file * file, unsigned char * buffer, 
+static ssize_t osrfx2_read(struct file * file, unsigned char * buffer,
                            size_t count, loff_t * ppos)
 {
     struct osrfx2 * fx2dev;
@@ -507,24 +492,24 @@ static ssize_t osrfx2_read(struct file * file, unsigned char * buffer,
     fx2dev = (struct osrfx2 *)file->private_data;
     buff=kmalloc(count, GFP_KERNEL);
     pipe = usb_rcvbulkpipe(fx2dev->udev, fx2dev->bulk_in_endpointAddr),
-	//printk("bulk in size = %d\n", fx2dev->bulk_in_size);
-	//printk("pipe = %d, ep = %d\n", pipe, fx2dev>bulk_in_endpointAddr);
+    //printk("bulk in size = %d\n", fx2dev->bulk_in_size);
+    //printk("pipe = %d, ep = %d\n", pipe, fx2dev>bulk_in_endpointAddr);
 
-    /* 
-     *  Do a blocking bulk read to get data from the device 
+    /*
+     *  Do a blocking bulk read to get data from the device
      */
-    retval = usb_bulk_msg( fx2dev->udev, 
+    retval = usb_bulk_msg( fx2dev->udev,
                            pipe,
                            buff,
                            count,
-                           &bytes_read, 
+                           &bytes_read,
                         //   0);
-                           500 );	//ms
+                           500 );   //ms
 
-    /* 
-     *  If the read was successful, copy the data to userspace 
+    /*
+     *  If the read was successful, copy the data to userspace
      */
-	//printk("byte read = %d\n", bytes_read);
+    //printk("byte read = %d\n", bytes_read);
     if (!retval) {
         if (copy_to_user(buffer, buff, bytes_read)) {
             retval = -EFAULT;
@@ -544,7 +529,7 @@ static ssize_t osrfx2_read(struct file * file, unsigned char * buffer,
 /*****************************************************************************/
 /*                                                                           */
 /*****************************************************************************/
-static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer, 
+static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer,
                             size_t count, loff_t * ppos)
 
 {
@@ -558,7 +543,7 @@ static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer,
 
     if (count == 0)
         return count;
-    /* 
+    /*
      *  Create a urb, and a buffer for it, and copy the data to the urb.
      */
     urb = usb_alloc_urb(0, GFP_KERNEL);
@@ -567,9 +552,9 @@ static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer,
         goto error;
     }
 
-    buf = usb_buffer_alloc( fx2dev->udev, 
-                            count, 
-                            GFP_KERNEL, 
+    buf = usb_buffer_alloc( fx2dev->udev,
+                            count,
+                            GFP_KERNEL,
                             &urb->transfer_dma );
     if (!buf) {
         retval = -ENOMEM;
@@ -580,21 +565,21 @@ static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer,
         retval = -EFAULT;
         goto error;
     }
-    /* 
+    /*
      *  Initialize the urb properly.
      */
     pipe = usb_sndbulkpipe( fx2dev->udev, fx2dev->bulk_out_endpointAddr );
 
-    usb_fill_bulk_urb( urb, 
+    usb_fill_bulk_urb( urb,
                        fx2dev->udev,
                        pipe,
-                       buf, 
-                       count, 
-                       write_bulk_backend, 
+                       buf,
+                       count,
+                       write_bulk_backend,
                        fx2dev );
 
     urb->transfer_flags |= URB_NO_TRANSFER_DMA_MAP;
-    /* 
+    /*
      *  Send the data out the bulk port
      */
     retval = usb_submit_urb(urb, GFP_KERNEL);
@@ -607,7 +592,7 @@ static ssize_t osrfx2_write(struct file * file, unsigned char * user_buffer,
      *  Increment the pending_data counter by the byte count sent.
      */
     fx2dev->pending_data += count;
-    /* 
+    /*
      *  Release the reference to this urb, the USB core
      *  will eventually free it entirely.
      */
@@ -622,108 +607,108 @@ error:
 }
 
 /****************************************************************************/
-/*	        osrfx2_ioctl                                                */
+/*          osrfx2_ioctl                                                */
 /****************************************************************************/
 #if 1
 //static int osrfx2_ioctl (struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg)
 static int osrfx2_ioctl (struct file *file, unsigned int cmd, unsigned long arg)
 {
-	int ret = -1;
-	struct osrfx2 *fx2dev;
-	struct ezusb_control usb_ctl;
-	struct ezusb_control_probe usb_ctl_probe;
-	const int SIZE = 64;
-	unsigned char buf_tmp[SIZE];
-	//int i;
+    int ret = -1;
+    struct osrfx2 *fx2dev;
+    struct ezusb_control usb_ctl;
+    struct ezusb_control_probe usb_ctl_probe;
+    const int SIZE = 64;
+    unsigned char buf_tmp[SIZE];
+    //int i;
 
-	memset(buf_tmp, 0, SIZE);
-	fx2dev = (struct osrfx2 *)file->private_data;
-	switch(cmd)
-	{
-		case EZUSB_IOC_REQUEST:
-			copy_from_user(&usb_ctl, (struct ezusb_control *)(arg), sizeof(usb_ctl));
-			ret=vendor_command(fx2dev->udev, usb_ctl.request, (unsigned char)usb_ctl.value, 0xBEEF, buf_tmp, SIZE);
-			
-			if(ret<0)
-				return -1;
-			
-			if((ret==SIZE)&&(usb_ctl.buf!=NULL))
-			{
-				copy_to_user((struct ezusb_control *)(arg), &usb_ctl, sizeof(usb_ctl));
-				copy_to_user(usb_ctl.buf, buf_tmp, sizeof(buf_tmp));
-			}
-			return 0;
+    memset(buf_tmp, 0, SIZE);
+    fx2dev = (struct osrfx2 *)file->private_data;
+    switch(cmd)
+    {
+        case EZUSB_IOC_REQUEST:
+            copy_from_user(&usb_ctl, (struct ezusb_control *)(arg), sizeof(usb_ctl));
+            ret=vendor_command(fx2dev->udev, usb_ctl.request, (unsigned char)usb_ctl.value, 0xBEEF, buf_tmp, SIZE);
 
-		case EZUSB_IOC_READPROBE:
-			copy_from_user(&usb_ctl_probe, (struct ezusb_control_probe *)(arg), sizeof(usb_ctl_probe));
-			ret=vendor_command(fx2dev->udev, usb_ctl_probe.request, usb_ctl_probe.value, 0xBEEF, buf_tmp, SIZE);
-			
-			//for(i = 0; i < 64; i++)
-			//{	printk("read probe data: %d = %d\n", i, buf_tmp[i]);
-			//}	
-			if((ret<0) || (buf_tmp[63] != 0x5a))
-			//if((ret<0))
-				return -1;
+            if(ret<0)
+                return -1;
 
-			if((ret==SIZE)&&(usb_ctl_probe.buf!=NULL))
-			{	
-				copy_to_user((struct ezusb_control_probe *)(arg), &usb_ctl_probe, sizeof(usb_ctl_probe));
-				if (usb_ctl_probe.len > SIZE)
-					copy_to_user(usb_ctl_probe.buf, buf_tmp, SIZE);
-				else
-					copy_to_user(usb_ctl_probe.buf, buf_tmp, usb_ctl_probe.len);
-			}
-			return 0;
+            if((ret==SIZE)&&(usb_ctl.buf!=NULL))
+            {
+                copy_to_user((struct ezusb_control *)(arg), &usb_ctl, sizeof(usb_ctl));
+                copy_to_user(usb_ctl.buf, buf_tmp, sizeof(buf_tmp));
+            }
+            return 0;
 
-		default:
-			return -ENOTTY;
-	}
-	return -ENOTTY;
-	
+        case EZUSB_IOC_READPROBE:
+            copy_from_user(&usb_ctl_probe, (struct ezusb_control_probe *)(arg), sizeof(usb_ctl_probe));
+            ret=vendor_command(fx2dev->udev, usb_ctl_probe.request, usb_ctl_probe.value, 0xBEEF, buf_tmp, SIZE);
+
+            //for(i = 0; i < 64; i++)
+            //{ printk("read probe data: %d = %d\n", i, buf_tmp[i]);
+            //}
+            if((ret<0) || (buf_tmp[63] != 0x5a))
+            //if((ret<0))
+                return -1;
+
+            if((ret==SIZE)&&(usb_ctl_probe.buf!=NULL))
+            {
+                copy_to_user((struct ezusb_control_probe *)(arg), &usb_ctl_probe, sizeof(usb_ctl_probe));
+                if (usb_ctl_probe.len > SIZE)
+                    copy_to_user(usb_ctl_probe.buf, buf_tmp, SIZE);
+                else
+                    copy_to_user(usb_ctl_probe.buf, buf_tmp, usb_ctl_probe.len);
+            }
+            return 0;
+
+        default:
+            return -ENOTTY;
+    }
+    return -ENOTTY;
+
 }
 #endif
 
 #if 0
 static int osrfx2_ioctl (struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg)
 {
-	int ret = -1;
-	int i;
-	struct osrfx2 *fx2dev;
-	struct ezusb_control usb_ctl;
-	struct ezusb_control_probe usb_ctl_probe;
-	unsigned char buf_tmp[64];
-	unsigned char buf[100];
-	unsigned short offset;
-	
-	memset(buf_tmp, 0, 64);
-	fx2dev = (struct osrfx2 *)file->private_data;
-	switch(cmd)
-	{
-		case EZUSB_IOC_REQUEST:
-			copy_from_user(&usb_ctl, (struct ezusb_control *)(arg), sizeof(usb_ctl));
-			ret=vendor_command(fx2dev->udev, usb_ctl.request, (unsigned char)usb_ctl.value, 0xBEEF, buf_tmp, 64);
-			
-			if(ret<0)
-				return ret;
-			
-			if((ret==64)&&(usb_ctl.buf!=NULL))
-			{
-				copy_to_user((struct ezusb_control *)(arg), &usb_ctl, sizeof(usb_ctl));
-				copy_to_user(usb_ctl.buf, buf_tmp, sizeof(buf_tmp));
-			}
-			return 0;
+    int ret = -1;
+    int i;
+    struct osrfx2 *fx2dev;
+    struct ezusb_control usb_ctl;
+    struct ezusb_control_probe usb_ctl_probe;
+    unsigned char buf_tmp[64];
+    unsigned char buf[100];
+    unsigned short offset;
 
-		case EZUSB_IOC_READPROBE:
-			copy_from_user(&usb_ctl_probe, (struct ezusb_control_probe *)(arg), sizeof(usb_ctl_probe));
+    memset(buf_tmp, 0, 64);
+    fx2dev = (struct osrfx2 *)file->private_data;
+    switch(cmd)
+    {
+        case EZUSB_IOC_REQUEST:
+            copy_from_user(&usb_ctl, (struct ezusb_control *)(arg), sizeof(usb_ctl));
+            ret=vendor_command(fx2dev->udev, usb_ctl.request, (unsigned char)usb_ctl.value, 0xBEEF, buf_tmp, 64);
 
-			memset(buf, 0, usb_ctl_probe.len);
+            if(ret<0)
+                return ret;
 
-			for(offset=0;offset<(unsigned short)usb_ctl_probe.len;offset+=64)
-			{
-				ret=vendor_command(fx2dev->udev, usb_ctl_probe.request, (unsigned short)(usb_ctl_probe.value+offset), 0xBEEF, buf_tmp, 64);
-				
-				if(ret<0)
-					return ret;
+            if((ret==64)&&(usb_ctl.buf!=NULL))
+            {
+                copy_to_user((struct ezusb_control *)(arg), &usb_ctl, sizeof(usb_ctl));
+                copy_to_user(usb_ctl.buf, buf_tmp, sizeof(buf_tmp));
+            }
+            return 0;
+
+        case EZUSB_IOC_READPROBE:
+            copy_from_user(&usb_ctl_probe, (struct ezusb_control_probe *)(arg), sizeof(usb_ctl_probe));
+
+            memset(buf, 0, usb_ctl_probe.len);
+
+            for(offset=0;offset<(unsigned short)usb_ctl_probe.len;offset+=64)
+            {
+                ret=vendor_command(fx2dev->udev, usb_ctl_probe.request, (unsigned short)(usb_ctl_probe.value+offset), 0xBEEF, buf_tmp, 64);
+
+                if(ret<0)
+                    return ret;
 if((offset==64)&&(ret==64)&&(usb_ctl_probe.buf!=NULL))
 {
 
@@ -732,24 +717,24 @@ for(i=0;i<64;i++)
 dev_err(&fx2dev->interface->dev, "--------->buf_tmp[%d]= %d <---------\n", i,buf_tmp[i]);
 
 }
-				if((ret==64)&&(usb_ctl_probe.buf!=NULL))
-				{	
-					//if(usb_ctl_probe.len-offset>64)
-						memcpy(buf+(unsigned char)offset, buf_tmp, 64);
-					//else
-					//	memcpy(buf+offset, buf_tmp, usb_ctl_probe.len-offset);
-				}
+                if((ret==64)&&(usb_ctl_probe.buf!=NULL))
+                {
+                    //if(usb_ctl_probe.len-offset>64)
+                        memcpy(buf+(unsigned char)offset, buf_tmp, 64);
+                    //else
+                    //  memcpy(buf+offset, buf_tmp, usb_ctl_probe.len-offset);
+                }
 for(i=0;i<5000000;i++) {}
-			}
-			copy_to_user((struct ezusb_control_probe *)(arg), &usb_ctl_probe, sizeof(usb_ctl_probe));
-			copy_to_user(usb_ctl_probe.buf, buf, sizeof(buf));
-			return 0;
+            }
+            copy_to_user((struct ezusb_control_probe *)(arg), &usb_ctl_probe, sizeof(usb_ctl_probe));
+            copy_to_user(usb_ctl_probe.buf, buf, sizeof(buf));
+            return 0;
 
-		default:
-			return -ENOTTY;
-	}
-	return -ENOTTY;
-	
+        default:
+            return -ENOTTY;
+    }
+    return -ENOTTY;
+
 }
 #endif
 
@@ -765,7 +750,7 @@ static struct file_operations osrfx2_file_ops = {
     //.ioctl   = osrfx2_ioctl,
     .unlocked_ioctl   = osrfx2_ioctl,
 };
- 
+
 /*****************************************************************************/
 /* Usb class driver info in order to get a minor number from the usb core,   */
 /* and to have the device registered with devfs and the driver core.         */
@@ -783,7 +768,7 @@ static struct usb_class_driver osrfx2_class = {
 /*****************************************************************************/
 /* Event: un-bound device instance is querying for suitable owner driver.    */
 /*****************************************************************************/
-static int osrfx2_probe(struct usb_interface * interface, 
+static int osrfx2_probe(struct usb_interface * interface,
                         const struct usb_device_id * id)
 {
     struct usb_device * udev = interface_to_usbdev(interface);
@@ -810,7 +795,7 @@ static int osrfx2_probe(struct usb_interface * interface,
     device_create_file(&interface->dev, &dev_attr_start);
 
     retval = find_endpoints( fx2dev );
-    if (retval != 0) 
+    if (retval != 0)
         goto error;
 
     retval = init_bulks( fx2dev );
@@ -845,7 +830,7 @@ static void osrfx2_disconnect(struct usb_interface * interface)
     //lock_kernel();
 
     fx2dev = usb_get_intfdata(interface);
-    
+
     usb_set_intfdata(interface, NULL);
 
     device_remove_file(&interface->dev, &dev_attr_start);

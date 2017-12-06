@@ -62,19 +62,19 @@ class MultiFuncReplay: public AbsMultiFunc
  */
 class MultiFuncMInit: public AbsMultiFunc
 {
-	public:
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
+    public:
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
 };
 
 class MultiFuncM: public AbsMultiFunc
 {
-	public:
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
+    public:
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
 };
 
 /*
@@ -82,14 +82,14 @@ class MultiFuncM: public AbsMultiFunc
  */
 class MultiFuncPwInit: public AbsMultiFunc
 {
-	public:
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		void Value(EKnobOper oper);
+    public:
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        void Value(EKnobOper oper);
 };
 
 /*
@@ -97,14 +97,14 @@ class MultiFuncPwInit: public AbsMultiFunc
  */
 class MultiFuncPw: public AbsMultiFunc
 {
-	public:
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		void Value(EKnobOper oper);
+    public:
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        void Value(EKnobOper oper);
 };
 
 /*
@@ -112,13 +112,13 @@ class MultiFuncPw: public AbsMultiFunc
  */
 class MultiFuncCfm: public AbsMultiFunc
 {
-	public:
-		void Do();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
+    public:
+        void Do();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
 };
 
 /*
@@ -126,23 +126,23 @@ class MultiFuncCfm: public AbsMultiFunc
  */
 class MultiFuncPwCfmInit: public AbsMultiFunc
 {
-	public:
-		MultiFuncPwCfmInit()
-		{
-			m_change = 0;
-			ImgCfm::GetInstance()->SetBoxStatus(false);
-		}
-		void Do();
-		virtual void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		void Value(EKnobOper oper);
+    public:
+        MultiFuncPwCfmInit()
+        {
+            m_change = 0;
+            ImgCfm::GetInstance()->SetBoxStatus(false);
+        }
+        void Do();
+        virtual void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        void Value(EKnobOper oper);
 
-	private:
-		char m_change; ///< 0-SV; 1-BOX pos; 2-BOX size
+    private:
+        char m_change; ///< 0-SV; 1-BOX pos; 2-BOX size
 };
 
 /*
@@ -150,8 +150,8 @@ class MultiFuncPwCfmInit: public AbsMultiFunc
  */
 class MultiFuncPwCfm: public MultiFuncPwCfmInit
 {
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 /*
@@ -160,8 +160,8 @@ class MultiFuncPwCfm: public MultiFuncPwCfmInit
 class MultiFuncPwPdiInit: public MultiFuncPwCfmInit
 {
 
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 /*
@@ -169,8 +169,8 @@ class MultiFuncPwPdiInit: public MultiFuncPwCfmInit
  */
 class MultiFuncPwPdi: public MultiFuncPwCfmInit
 {
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 /*
@@ -178,25 +178,25 @@ class MultiFuncPwPdi: public MultiFuncPwCfmInit
  */
 class MultiFuncAnatomicM: public AbsMultiFunc
 {
-	public:
-		MultiFuncAnatomicM()
-		{
-			m_moveStatus = FALSE;
+    public:
+        MultiFuncAnatomicM()
+        {
+            m_moveStatus = FALSE;
             KnobAnatomicMCreate();
-		}
-		~MultiFuncAnatomicM()
-		{
-		}
+        }
+        ~MultiFuncAnatomicM()
+        {
+        }
 
-		void Mouse(int offsetX, int offsetY);
-		void Do();
-		void KeyUp();
-		void KeyDown();
-		void KeyLeft();
-		void KeyRight();
+        void Mouse(int offsetX, int offsetY);
+        void Do();
+        void KeyUp();
+        void KeyDown();
+        void KeyLeft();
+        void KeyRight();
 
-	private:
-		bool m_moveStatus;
+    private:
+        bool m_moveStatus;
 };
 
 /*
@@ -204,22 +204,22 @@ class MultiFuncAnatomicM: public AbsMultiFunc
  */
 class MultiFuncEFOV: public AbsMultiFunc
 {
-	public:
-		MultiFuncEFOV()
-		{
-		}
-		~MultiFuncEFOV()
-		{
-		}
+    public:
+        MultiFuncEFOV()
+        {
+        }
+        ~MultiFuncEFOV()
+        {
+        }
 
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void Undo();
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void Undo();
         void Do();
-		void KeyLeft();
-		void KeyRight();
+        void KeyLeft();
+        void KeyRight();
 
-	private:
+    private:
 };
 
 /*
@@ -227,14 +227,14 @@ class MultiFuncEFOV: public AbsMultiFunc
  */
 class MultiFuncCwInit: public AbsMultiFunc
 {
-	public:
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		CalcPw* m_ptrCalc;
+    public:
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        CalcPw* m_ptrCalc;
 };
 
 /*
@@ -243,16 +243,16 @@ class MultiFuncCwInit: public AbsMultiFunc
 class MultiFuncCw: public AbsMultiFunc
 {
     private:
-		//CalcPw* m_ptrCalc;
+        //CalcPw* m_ptrCalc;
 
-	public:
-		void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		CalcPw* m_ptrCalc;
+    public:
+        void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        CalcPw* m_ptrCalc;
 
 };
 
@@ -261,24 +261,24 @@ class MultiFuncCw: public AbsMultiFunc
  */
 class MultiFuncCwCfmInit: public AbsMultiFunc
 {
-	public:
-		MultiFuncCwCfmInit()
-		{
-			m_change = 0;
-			ImgCfm::GetInstance()->SetBoxStatus(false);
-		}
-		void Do();
-		virtual void Update();
-		void Mouse(int offsetX, int offsetY);
-		void KeyLeft();
-		void KeyRight();
-		void KeyUp();
-		void KeyDown();
-		CalcPw* m_ptrCalc;
-	private:
-		char m_change; ///< 0-SV; 1-BOX pos; 2-BOX size
+    public:
+        MultiFuncCwCfmInit()
+        {
+            m_change = 0;
+            ImgCfm::GetInstance()->SetBoxStatus(false);
+        }
+        void Do();
+        virtual void Update();
+        void Mouse(int offsetX, int offsetY);
+        void KeyLeft();
+        void KeyRight();
+        void KeyUp();
+        void KeyDown();
+        CalcPw* m_ptrCalc;
+    private:
+        char m_change; ///< 0-SV; 1-BOX pos; 2-BOX size
 
-	//	CalcPw* m_ptrCalc;
+    //  CalcPw* m_ptrCalc;
 };
 
 /*
@@ -287,8 +287,8 @@ class MultiFuncCwCfmInit: public AbsMultiFunc
 class MultiFuncCwCfm: public MultiFuncCwCfmInit
 {
 
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 /*
@@ -297,8 +297,8 @@ class MultiFuncCwCfm: public MultiFuncCwCfmInit
 class MultiFuncCwPdiInit: public MultiFuncCwCfmInit
 {
 
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 /*
@@ -306,10 +306,10 @@ class MultiFuncCwPdiInit: public MultiFuncCwCfmInit
  */
 class MultiFuncCwPdi: public MultiFuncCwCfmInit
 {  private:
-		CalcPw* m_ptrCalc;
+        CalcPw* m_ptrCalc;
 
-	public:
-		void Update();
+    public:
+        void Update();
 };
 
 #endif

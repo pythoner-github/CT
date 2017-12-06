@@ -54,18 +54,18 @@ public:
     enum DrawArea{SYMBOL, SPECTRA, PARA, PIXMAP, IMT};
     union DrawMode
     {
-	bool cvDraw; 		// OpenCV draw or eraser;
-	GdkFunction gdkMode;	// GDK drawing function
+    bool cvDraw;        // OpenCV draw or eraser;
+    GdkFunction gdkMode;    // GDK drawing function
     };
     struct DrawAttr{
-	DrawArea area;
-	DrawMode mode;
+    DrawArea area;
+    DrawMode mode;
     };
     struct RectArea {
-	int x;
-	int y;
-	int w;
-	int h;
+    int x;
+    int y;
+    int w;
+    int h;
     };
 
     static void DrawImgData(void* pBits, int nWidth, int nHeight);
@@ -76,7 +76,7 @@ public:
     inline void UpdateImgArea(void);
     void ClearArea(bool update = false);
     void ClearScreen(bool update=true);
-	void ClearScreenUnFreeze(bool update = false);
+    void ClearScreenUnFreeze(bool update = false);
     static void UpdateSymbolArea(int x, int y, int width, int height);
     static void UpdateSpectraArea(int x, int y, int width, int height);
     void UpdateMeaResultArea(int fontsize);
@@ -160,7 +160,7 @@ public:
 
     void DrawNoteText(const char *str, int x, int y, const GdkColor* const color, int font_size);
     void DrawString(GdkGC *gc, int x, int y, const char *str);
-	void DrawString(const char *str, int x, int y, const GdkColor* const color=g_white);
+    void DrawString(const char *str, int x, int y, const GdkColor* const color=g_white);
     void DrawString(const char *str, int x, int y, const GdkColor* const color, bool xorMode);
 
     void DrawStringFps(const char *str, int x, int y, const GdkColor* const color=g_white);
@@ -168,8 +168,8 @@ public:
     void DrawBodyMark(int x, int y, GdkPixbuf* pixbuf, double scale, guint colorIndex, guint index);
     void HideBodyMark(void);
     void ClearBodyMark(guint index);
-	void RedrawBodyMarkWhenModeChanged();
-	void ChangeCurrentBDMK(guint index);
+    void RedrawBodyMarkWhenModeChanged();
+    void ChangeCurrentBDMK(guint index);
 
     void DrawMagnifier(int x, int y);
 
@@ -201,7 +201,7 @@ public:
 private:
     ImageArea();
     void DrawMeasureResultCursor(GdkGC *gc, int type, const GdkColor* const color, int x, int y);
-	void DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* const color);
+    void DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* const color);
     void DrawFTBitmap(FT_Bitmap* bitmap, int x, int y, const GdkColor* const color, bool xorMode);
 
     static ImageArea* m_ptrInstance;
@@ -210,19 +210,19 @@ private:
 
     PangoFontDescription *m_baseFont;
 
-	GdkPixbuf *m_imgPixbuf;
+    GdkPixbuf *m_imgPixbuf;
 
-	GdkPixbuf *m_snapPixbufBak;
+    GdkPixbuf *m_snapPixbufBak;
 
-	//static unsigned char m_bitsImg[IMAGE_W*IMAGE_H*IMG_BPP];
-	//used for mix when in EFOV
-	static unsigned char m_bitsEFOV[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
-	//the last frame replay data
-	static unsigned char m_bitsLastReplay[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
-	//used for mix when in freeze mode
-	static unsigned char m_bitsReplayMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
-	//used for mix when in unfreeze mode
-	static unsigned char m_bitsMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
+    //static unsigned char m_bitsImg[IMAGE_W*IMAGE_H*IMG_BPP];
+    //used for mix when in EFOV
+    static unsigned char m_bitsEFOV[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
+    //the last frame replay data
+    static unsigned char m_bitsLastReplay[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
+    //used for mix when in freeze mode
+    static unsigned char m_bitsReplayMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
+    //used for mix when in unfreeze mode
+    static unsigned char m_bitsMix[IMG_AREA_W*IMG_AREA_H*IMG_BPP];
     static unsigned char m_bitsIMT[IMG_AREA_W*IMG_AREA_H*3];//hlx
     static int m_counts;
     bool m_drawPwTrace;
@@ -238,7 +238,7 @@ private:
     GdkPixbuf *m_mixReplayPixbuf;
     GdkPixbuf *m_frmPixbuf;
 
-    static RectArea m_symbolArea;	// update m_imageSymbol area
+    static RectArea m_symbolArea;   // update m_imageSymbol area
     static RectArea m_spectraArea;      // update m_imageSpectra area
     GdkPixmap *m_pixmapArea;
     GdkPixmap *m_pixmapReplayBar;
@@ -256,7 +256,7 @@ private:
     GdkPoint m_bdmkPos[4];
     int m_bdmkWidth[4];
     int m_bdmkHeight[4];
-	guint m_bdmkLast;
+    guint m_bdmkLast;
 
 #ifdef TRANSDUCER
     GdkPixmap *m_pixmapTransducer;
@@ -264,20 +264,20 @@ private:
 #endif
 
     struct MeasurePos {
-	int posY;
-	int lines;
-	int width;
+    int posY;
+    int lines;
+    int width;
     };
     std::vector<MeasurePos> m_meaResultPos;
-	int m_meaResultLineH; //测量结果每行高度（像素），通过pango_layout_get_size()得到，注意：调用该函数时如果layout中无字符，得到的结果可能不对
-	struct RectArea m_meaResultRect;
+    int m_meaResultLineH; //测量结果每行高度（像素），通过pango_layout_get_size()得到，注意：调用该函数时如果layout中无字符，得到的结果可能不对
+    struct RectArea m_meaResultRect;
     int m_curCountLines;
 
     guint m_tmFps;
     static int m_cineRemoveImg;
 
-	int m_slipPosEFOV;
-	bool m_speedbarDraw;
+    int m_slipPosEFOV;
+    bool m_speedbarDraw;
     int m_meaResultFontSize;
 
 //signal handle
@@ -286,9 +286,9 @@ private:
 
 //signal connect
     static gboolean HandleImageAreaConfigure(GtkWidget *widget, GdkEventConfigure *event, ImageArea *data)
-	{ data->ImageAreaConfigure(widget, event); return FALSE; }
+    { data->ImageAreaConfigure(widget, event); return FALSE; }
     static gboolean HandleImageAreaExpose(GtkWidget *widget, GdkEventExpose *event, ImageArea *data)
-	{ data->ImageAreaExpose(widget, event); return FALSE; }
+    { data->ImageAreaExpose(widget, event); return FALSE; }
 };
 
 void ImageArea::UpdateImgArea()

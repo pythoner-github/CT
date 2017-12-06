@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef _VIEW_ICON_H_
 #define _VIEW_ICON_H_
 

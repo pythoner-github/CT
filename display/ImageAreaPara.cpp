@@ -1,13 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: ImageAreaPara.cpp
- * @brief: display image parameter on image area
- *
- * version: V1.0
- * date: 2009-7-23
- * @author: yangneng
- */
 #include "display/ImageArea.h"
 #include "display/ImageAreaPara.h"
 #include "base/CalcTime.h"
@@ -61,7 +51,7 @@ ImageAreaPara::ImageAreaPara()
     m_svPosPw = 10;
     m_HPRFStatus = FALSE;
 #ifdef TRANSDUCER
- 	m_transducer=0;
+    m_transducer=0;
     m_transducerBak=0;
 #endif
     m_wfCw = 19;
@@ -127,13 +117,13 @@ void ImageAreaPara::UpdateGenFps(int receiveFps, int processFps, bool draw)
     if (ModeStatus::IsUnFreezeMode())
     {
 
-	//去掉1帧的波动。
-	if ((m_fps < m_fpsBak -2) || (m_fps > m_fpsBak +2))
-	{
-	    m_fpsBak = m_fps;
-	    if (draw)
-		DrawGeneralPara();
-	}
+    //去掉1帧的波动。
+    if ((m_fps < m_fpsBak -2) || (m_fps > m_fpsBak +2))
+    {
+        m_fpsBak = m_fps;
+        if (draw)
+        DrawGeneralPara();
+    }
     }
     else
     {
@@ -579,12 +569,12 @@ void ImageAreaPara::DrawPwGen2Para(void)
     if (ModeStatus::IsPWMode() || ModeStatus::IsPWColorMode())
     {
 #ifdef EMP_355
-		if(!ViewMain::GetInstance()->GetModeIsFlag())
-		{
-     	 	sprintf(m_bufText, "%.1fmm %dH", m_svPw, (int)m_HPRFStatus);
-      	 	m_ptrImg->DrawString(m_bufText, x, y);
-       	 	x = 85;
-		}
+        if(!ViewMain::GetInstance()->GetModeIsFlag())
+        {
+            sprintf(m_bufText, "%.1fmm %dH", m_svPw, (int)m_HPRFStatus);
+            m_ptrImg->DrawString(m_bufText, x, y);
+            x = 85;
+        }
 #else
         sprintf(m_bufText, "%.1fmm %dH", m_svPw, (int)m_HPRFStatus);
         m_ptrImg->DrawString(m_bufText, x, y);
@@ -601,10 +591,10 @@ void ImageAreaPara::DrawPwGen2Para(void)
 
     if (abs(m_anglePw) > 60) {
         sprintf(m_bufText, "%d°", m_anglePw);
-    	m_ptrImg->DrawString(m_bufText, x, y, g_red);
+        m_ptrImg->DrawString(m_bufText, x, y, g_red);
     } else {
-    	sprintf(m_bufText, "%d°", m_anglePw);
-    	m_ptrImg->DrawString(m_bufText, x, y, g_white);
+        sprintf(m_bufText, "%d°", m_anglePw);
+        m_ptrImg->DrawString(m_bufText, x, y, g_white);
     }
 }
 

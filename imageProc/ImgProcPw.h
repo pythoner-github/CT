@@ -8,48 +8,48 @@
 
 class ImgProcPw
 {
-	public:
-		~ImgProcPw();
+    public:
+        ~ImgProcPw();
 
-		static const int MAX_TIME_RES = 4;
+        static const int MAX_TIME_RES = 4;
 
-		static ImgProcPw* GetInstance();
-		void InitOptimize(ExamItem::ParaSpectrum* pw);
-		void Init(ExamItem::ParaSpectrum* pw);
-		void GetCurPara(ExamItem::ParaItem* ptrParaItem);
+        static ImgProcPw* GetInstance();
+        void InitOptimize(ExamItem::ParaSpectrum* pw);
+        void Init(ExamItem::ParaSpectrum* pw);
+        void GetCurPara(ExamItem::ParaItem* ptrParaItem);
 
-		EKnobReturn ChangeTimeSmooth(EKnobOper oper);
-		void ChangeTimeMark(bool on);
+        EKnobReturn ChangeTimeSmooth(EKnobOper oper);
+        void ChangeTimeMark(bool on);
 
-		bool GetTraceStatus();
-		bool GetDscTraceStatus();
+        bool GetTraceStatus();
+        bool GetDscTraceStatus();
         void SetDscTraceStatus(bool status);
-		vector<POINT> GetTraceData(void);
-		vector<POINT> GetTraceCalcData(void);
-		void GetTraceCycle(int &begin, int &end);
-		void SetTraceStatus(bool status);
-		void SetTraceType(unsigned char type);
-		void SetTraceDirection(unsigned char direction);
-		void SetTraceThreshold(unsigned char threshold);
-		void SetTraceSmooth(unsigned char smooth);
-		void SetTraceBaseline(char baseline);
-		void SetTraceFs(char fs);
+        vector<POINT> GetTraceData(void);
+        vector<POINT> GetTraceCalcData(void);
+        void GetTraceCycle(int &begin, int &end);
+        void SetTraceStatus(bool status);
+        void SetTraceType(unsigned char type);
+        void SetTraceDirection(unsigned char direction);
+        void SetTraceThreshold(unsigned char threshold);
+        void SetTraceSmooth(unsigned char smooth);
+        void SetTraceBaseline(char baseline);
+        void SetTraceFs(char fs);
         void SetAutoCalc(bool on);
         bool GetAutoCalc(void);
-	private:
-		ImgProcPw();
-		static ImgProcPw* m_ptrInstance;
+    private:
+        ImgProcPw();
+        static ImgProcPw* m_ptrInstance;
 
-		DSCCONTROLATTRIBUTES* m_ptrDscPara;
-		AbsUpdatePw* m_ptrUpdate;
+        DSCCONTROLATTRIBUTES* m_ptrDscPara;
+        AbsUpdatePw* m_ptrUpdate;
 
-		int m_timeSmooth;
-		bool m_TimeMark;
+        int m_timeSmooth;
+        bool m_TimeMark;
         bool m_autoCalc;
         bool m_drawTraceStatus;
 
-		void SetTimeSmooth(int data, EKnobReturn ret);
-		void SetTimeMark(bool on);
+        void SetTimeSmooth(int data, EKnobReturn ret);
+        void SetTimeMark(bool on);
 
 };
 

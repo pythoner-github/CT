@@ -7,45 +7,45 @@
 
 class FreezeMode
 {
-	public:
+    public:
         ///< freeze mode, REPLAY:冻结，曾经回放过，不论当前停在哪一帧; AUTOREPLAY：自动回放中，FREEZE：冻结，未曾回放过。
-		enum EFreezeMode{FREEZE, UNFREEZE, REPLAY, AUTOREPLAY};
+        enum EFreezeMode{FREEZE, UNFREEZE, REPLAY, AUTOREPLAY};
 
-		static FreezeMode* GetInstance();
-		~FreezeMode();
+        static FreezeMode* GetInstance();
+        ~FreezeMode();
 
-		void PressFreeze();
-		void PressUnFreeze();
+        void PressFreeze();
+        void PressUnFreeze();
 
-		EKnobReturn ChangeAutoReplay();
-		void EnterAutoReplayView();
-		void EnterAutoReplayReview();
-		void ExitAutoReplay();
-		void SetReplayMode();
+        EKnobReturn ChangeAutoReplay();
+        void EnterAutoReplayView();
+        void EnterAutoReplayReview();
+        void ExitAutoReplay();
+        void SetReplayMode();
 
-		void EnterReplayMode();
-		void ExitReplayMode();
-		void Freeze();
-		void UnFreeze();
-		EFreezeMode GetFreezeMode() {return m_freezeMode; }
+        void EnterReplayMode();
+        void ExitReplayMode();
+        void Freeze();
+        void UnFreeze();
+        EFreezeMode GetFreezeMode() {return m_freezeMode; }
         void UpdateHospitalandpart(int date_format, const char *hospital_name);
         void FreezeEFOV();
         void UnFreezeEFOV();
         void Freeze4D();
         void UnFreeze4D();
         void SetUnFreezeForbid(bool on);
-		bool GetUnFreezeForbidStatus(){return m_unFreezeForbidStatus;}
+        bool GetUnFreezeForbidStatus(){return m_unFreezeForbidStatus;}
 
-	private:
-		FreezeMode();
-		static FreezeMode* m_ptrInstance;
+    private:
+        FreezeMode();
+        static FreezeMode* m_ptrInstance;
 
-		// interface
-		AbsUpdateMix* m_ptrUpdate;
-		Replay* m_ptrReplay;
+        // interface
+        AbsUpdateMix* m_ptrUpdate;
+        Replay* m_ptrReplay;
 
-		EFreezeMode m_freezeMode;
-	    bool m_unFreezeForbidStatus;
+        EFreezeMode m_freezeMode;
+        bool m_unFreezeForbidStatus;
 
 };
 #endif

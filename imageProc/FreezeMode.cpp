@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: FreezeMode.cpp
- * @brief: control freeze mode
- *
- * version: V1.0
- * date: 2009-5-29
- * @author: zhanglei
- */
-
 #include "Def.h"
 #include "keyboard/LightDef.h"
 #include "imageProc/FreezeMode.h"
@@ -33,23 +22,23 @@ FreezeMode* FreezeMode::m_ptrInstance = NULL;
 
 FreezeMode* FreezeMode::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new FreezeMode;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new FreezeMode;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 FreezeMode::FreezeMode()
 {
-	m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
-	m_ptrReplay = Replay::GetInstance();
-	m_freezeMode = UNFREEZE;
-	m_unFreezeForbidStatus = FALSE;
+    m_ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
+    m_ptrReplay = Replay::GetInstance();
+    m_freezeMode = UNFREEZE;
+    m_unFreezeForbidStatus = FALSE;
 }
 FreezeMode::~FreezeMode()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 /*
@@ -57,26 +46,26 @@ FreezeMode::~FreezeMode()
  */
 void FreezeMode::PressFreeze()
 {
-	if (ModeStatus::IsEFOVMode())
-	{
-		FreezeEFOV();
-	}
-	else
-	{
-		// freeze
-		Freeze();
+    if (ModeStatus::IsEFOVMode())
+    {
+        FreezeEFOV();
+    }
+    else
+    {
+        // freeze
+        Freeze();
 
-		g_menu2D.Sensitive(false);
-		g_menuM.Sensitive(false);
-		g_menuCFM.Sensitive(false);
-		g_menuPW.Sensitive(false);
-		g_menuCW.Sensitive(false);
-		// draw
-		m_ptrUpdate->Freeze(); // draw, also use for delay
+        g_menu2D.Sensitive(false);
+        g_menuM.Sensitive(false);
+        g_menuCFM.Sensitive(false);
+        g_menuPW.Sensitive(false);
+        g_menuCW.Sensitive(false);
+        // draw
+        m_ptrUpdate->Freeze(); // draw, also use for delay
 
-		// enter replay mode
-		EnterReplayMode();
-	}
+        // enter replay mode
+        EnterReplayMode();
+    }
 }
 
 /*
@@ -84,147 +73,147 @@ void FreezeMode::PressFreeze()
  */
 void FreezeMode::PressUnFreeze()
 {
-	if (m_unFreezeForbidStatus)
-		return;
+    if (m_unFreezeForbidStatus)
+        return;
     // exit read mode
     Replay::GetInstance()->ExitReadSnap();
     Replay::GetInstance()->ExitReadCine();
 
-	if (ModeStatus::IsEFOVMode())
-	{
-		UnFreezeEFOV();
-	}
-	else
-	{
-		// exit auto replay
-		if (m_freezeMode == AUTOREPLAY)
-		{
-			m_ptrReplay->AutoReplayEnd();
-			ExitAutoReplay();
-		}
+    if (ModeStatus::IsEFOVMode())
+    {
+        UnFreezeEFOV();
+    }
+    else
+    {
+        // exit auto replay
+        if (m_freezeMode == AUTOREPLAY)
+        {
+            m_ptrReplay->AutoReplayEnd();
+            ExitAutoReplay();
+        }
 
-		// unfreeze
-		UnFreeze();
+        // unfreeze
+        UnFreeze();
 
-		g_menu2D.Sensitive(true);
-		g_menuM.Sensitive(true);
-		g_menuCFM.Sensitive(true);
+        g_menu2D.Sensitive(true);
+        g_menuM.Sensitive(true);
+        g_menuCFM.Sensitive(true);
         g_menuPW.Sensitive(true);
         g_menuCW.Sensitive(true);
         // exit replay mode
-		ExitReplayMode();
+        ExitReplayMode();
 
-		// draw
-		m_ptrUpdate->UnFreeze();
+        // draw
+        m_ptrUpdate->UnFreeze();
 
-		//clear
-		KeyClearScreen kcs;
-	//	kcs.Execute();
-		kcs.UnFreezeExecute();
-	}
+        //clear
+        KeyClearScreen kcs;
+    //  kcs.Execute();
+        kcs.UnFreezeExecute();
+    }
 }
 /*
  * @brief change image replay status
  */
 EKnobReturn FreezeMode::ChangeAutoReplay()
 {
-	if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
-	{
-		EnterAutoReplayView();
-	}
-	else if (m_freezeMode == AUTOREPLAY)
-	{
-		m_freezeMode = REPLAY;
-		m_ptrReplay->UpdateReplayCtrl(FALSE, PRESS);
-		m_ptrReplay->AutoReplayEnd();
-	}
+    if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
+    {
+        EnterAutoReplayView();
+    }
+    else if (m_freezeMode == AUTOREPLAY)
+    {
+        m_freezeMode = REPLAY;
+        m_ptrReplay->UpdateReplayCtrl(FALSE, PRESS);
+        m_ptrReplay->AutoReplayEnd();
+    }
 
-	return (PRESS);
+    return (PRESS);
 }
 
 void FreezeMode::EnterAutoReplayView()
 {
-	bool ret;
+    bool ret;
 
-	if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
-	{
-		ret = m_ptrReplay->AutoReplayStartView();
-		if (ret)
-		{
-			m_freezeMode = AUTOREPLAY;
+    if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
+    {
+        ret = m_ptrReplay->AutoReplayStartView();
+        if (ret)
+        {
+            m_freezeMode = AUTOREPLAY;
             m_ptrReplay->UpdateReplayCtrl(TRUE, PRESS);
-		}
-	}
+        }
+    }
 
 }
 
 void FreezeMode::EnterAutoReplayReview()
 {
-	bool ret;
+    bool ret;
 
-	if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
-	{
-		ret = m_ptrReplay->AutoReplayStartReview();
-		if (ret)
-		{
-			m_freezeMode = AUTOREPLAY;
+    if ((m_freezeMode == FREEZE) || (m_freezeMode == REPLAY))
+    {
+        ret = m_ptrReplay->AutoReplayStartReview();
+        if (ret)
+        {
+            m_freezeMode = AUTOREPLAY;
             m_ptrReplay->UpdateReplayCtrl(TRUE, PRESS);
-		}
-	}
+        }
+    }
 }
 
 void FreezeMode::EnterReplayMode()
 {
-	///> prepare for replay
-	MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::REPLAY);
-	m_ptrReplay->PrepareForReplay();
+    ///> prepare for replay
+    MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::REPLAY);
+    m_ptrReplay->PrepareForReplay();
 }
 
 void FreezeMode::ExitReplayMode()
 {
-	// clear current image's replay images
-	m_ptrReplay->PrepareForEndReplay();
-	MultiFuncUndo();
+    // clear current image's replay images
+    m_ptrReplay->PrepareForEndReplay();
+    MultiFuncUndo();
 }
 void FreezeMode::ExitAutoReplay()
 {
  //   FreezeMode::EFreezeMode freezemode = GetFreezeMode();
  //   printf("freezeMode = %d\n",freezemode);
-	if (m_freezeMode == AUTOREPLAY)
-	{
-		m_freezeMode = REPLAY;
+    if (m_freezeMode == AUTOREPLAY)
+    {
+        m_freezeMode = REPLAY;
         m_ptrReplay->UpdateReplayCtrl(FALSE, PRESS);
-		m_ptrReplay->AutoReplayEnd();
-	}
+        m_ptrReplay->AutoReplayEnd();
+    }
 }
 
 void FreezeMode::SetReplayMode()
 {
-	m_freezeMode = REPLAY;
+    m_freezeMode = REPLAY;
 }
 void FreezeMode::Freeze()
 {
-	// set fps
-	Replay::GetInstance()->SetReplayFps(ImageAreaPara::GetInstance()->GetGenFpsReplay());
-	///> lighten freeze lamp
-	m_freezeMode = FREEZE;
-	g_keyInterface.CtrlLight(TRUE, LIGHT_FREEZE);
+    // set fps
+    Replay::GetInstance()->SetReplayFps(ImageAreaPara::GetInstance()->GetGenFpsReplay());
+    ///> lighten freeze lamp
+    m_freezeMode = FREEZE;
+    g_keyInterface.CtrlLight(TRUE, LIGHT_FREEZE);
 
-	///> send to imaging system
-	IoCtrl io;
-	io.Freeze();
+    ///> send to imaging system
+    IoCtrl io;
+    io.Freeze();
     ImgPw::GetInstance()->OnCwImgCtrl(FALSE); //控制CW图像的实时与冻结。
 
-	// update icon
-	ViewIcon::GetInstance()->Replay(TRUE);
+    // update icon
+    ViewIcon::GetInstance()->Replay(TRUE);
     Update2D::SetCineRemoveImg(3);
 }
 extern bool system_save;
 extern bool review_pic;
 void FreezeMode::UnFreeze()
 {
-	///> darken freeze lamp
-	m_freezeMode = UNFREEZE;
+    ///> darken freeze lamp
+    m_freezeMode = UNFREEZE;
 #if  defined (EMP_322)
     if( (MenuArea::GetInstance()->GetMenuType() == MenuArea::CALC) || (MenuArea::GetInstance()->GetMenuType() == MenuArea::MEASURE))
         g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
@@ -263,13 +252,13 @@ void FreezeMode::UnFreeze()
 void FreezeMode::UpdateHospitalandpart(int date_format, const char *hospital_name)
 {
 
-		TopArea::GetInstance()->SetDateFormat(date_format);
+        TopArea::GetInstance()->SetDateFormat(date_format);
 
     g_patientInfo.UpdateTopArea();
 
-	TopArea::GetInstance()->UpdateHospitalName(hospital_name);
+    TopArea::GetInstance()->UpdateHospitalName(hospital_name);
 
-	ExamItem exam;
+    ExamItem exam;
     char str_path[256];
     sprintf(str_path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
     IniFile ini(str_path);
@@ -302,32 +291,32 @@ void FreezeMode::UpdateHospitalandpart(int date_format, const char *hospital_nam
 
 void FreezeMode::FreezeEFOV()
 {
-	if (ScanMode::GetInstance()->GetEFOVStatus() != ScanMode::CAPTURE)
-		return;
+    if (ScanMode::GetInstance()->GetEFOVStatus() != ScanMode::CAPTURE)
+        return;
 
-	///> lighten freeze lamp
-	m_freezeMode = FREEZE;
-	g_keyInterface.CtrlLight(TRUE, LIGHT_FREEZE);
+    ///> lighten freeze lamp
+    m_freezeMode = FREEZE;
+    g_keyInterface.CtrlLight(TRUE, LIGHT_FREEZE);
 
-	///> send to imaging system
-	IoCtrl io;
-	io.Freeze();
+    ///> send to imaging system
+    IoCtrl io;
+    io.Freeze();
 
-	ScanMode::GetInstance()->EnterEFOVView();
+    ScanMode::GetInstance()->EnterEFOVView();
 }
 
 void FreezeMode::UnFreezeEFOV()
 {
-	///> darken freeze lamp
-	m_freezeMode = UNFREEZE;
-	g_keyInterface.CtrlLight(FALSE, LIGHT_FREEZE);
+    ///> darken freeze lamp
+    m_freezeMode = UNFREEZE;
+    g_keyInterface.CtrlLight(FALSE, LIGHT_FREEZE);
 
-	///> send to imaging system
-	IoCtrl io;
-	io.Unfreeze();
+    ///> send to imaging system
+    IoCtrl io;
+    io.Unfreeze();
 
-	Replay::GetInstance()->EFOVAutoReviewEnd();
-	ScanMode::GetInstance()->EnterEFOVPrepare();
+    Replay::GetInstance()->EFOVAutoReviewEnd();
+    ScanMode::GetInstance()->EnterEFOVPrepare();
 }
 
 void FreezeMode::Freeze4D()
@@ -356,5 +345,5 @@ void FreezeMode::UnFreeze4D()
 
 void FreezeMode::SetUnFreezeForbid(bool on)
 {
-	m_unFreezeForbidStatus = on;
+    m_unFreezeForbidStatus = on;
 }

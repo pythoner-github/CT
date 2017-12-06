@@ -22,15 +22,15 @@ const char * Toggle_Pw[2] =
 
 UpdatePw::UpdatePw()
 {
-	m_ptrImgPara = ImageAreaPara::GetInstance();
-	m_ptrImgDraw = ImageAreaDraw::GetInstance();
-	m_ptrMenu = MenuArea::GetInstance();
-	m_timeMark = false;
+    m_ptrImgPara = ImageAreaPara::GetInstance();
+    m_ptrImgDraw = ImageAreaDraw::GetInstance();
+    m_ptrMenu = MenuArea::GetInstance();
+    m_timeMark = false;
 }
 
 void UpdatePw::SampleVolume(int line, int dotBegin, int dotEnd, vector<int> HPRFEmitPos)
 {
-	//if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
+    //if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
    if (ModeStatus::IsPWMode() || ModeStatus::IsPWColorMode())
     {
 #ifdef EMP_355
@@ -46,25 +46,25 @@ void UpdatePw::SampleVolume(int line, int dotBegin, int dotEnd, vector<int> HPRF
     }
     //vector<int>::iterator iter;
     //for (iter = HPRFEmitPos.begin(); iter != HPRFEmitPos.end(); iter++)
-    //	printf("**** HPRF pos = %d\n", *iter);
+    //  printf("**** HPRF pos = %d\n", *iter);
 
     if (ModeStatus::IsSpectrumColorMode()) {
-	    m_ptrImgDraw->ClearCfmBox();
-	    m_ptrImgDraw->ReDrawCfmBox();
-	}
+        m_ptrImgDraw->ClearCfmBox();
+        m_ptrImgDraw->ReDrawCfmBox();
+    }
 }
 
 void UpdatePw::SampleVolumeClear()
 {
-	m_ptrImgDraw->Update();
-	m_ptrImgDraw->ClearSV();
+    m_ptrImgDraw->Update();
+    m_ptrImgDraw->ClearSV();
 }
 void UpdatePw::SampleVolumeCW(int line, int dotPos)
 {
 #ifdef EMP_355
   if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
-	if (ModeStatus::IsCWMode() || ModeStatus::IsCWColorMode())
+    if (ModeStatus::IsCWMode() || ModeStatus::IsCWColorMode())
 #endif
     {
         m_ptrImgDraw->Update();
@@ -72,21 +72,21 @@ void UpdatePw::SampleVolumeCW(int line, int dotPos)
     }
     //vector<int>::iterator iter;
     //for (iter = HPRFEmitPos.begin(); iter != HPRFEmitPos.end(); iter++)
-    //	printf("**** HPRF pos = %d\n", *iter);
+    //  printf("**** HPRF pos = %d\n", *iter);
 
     if (ModeStatus::IsSpectrumColorMode()) {
-	    m_ptrImgDraw->ClearCfmBox();
-	    m_ptrImgDraw->ReDrawCfmBox();
-	}
+        m_ptrImgDraw->ClearCfmBox();
+        m_ptrImgDraw->ReDrawCfmBox();
+    }
 }
 
 void UpdatePw::SampleVolumeCWClear()
 {
-	m_ptrImgDraw->Update();
+    m_ptrImgDraw->Update();
 #ifdef EMP_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
 #endif
-	m_ptrImgDraw->ClearSVCW();
+    m_ptrImgDraw->ClearSVCW();
 }
 
 void UpdatePw::SpectrumInvert(bool on)
@@ -96,7 +96,7 @@ void UpdatePw::SpectrumInvert(bool on)
 
 void UpdatePw::GainPw(int gain)
 {
-	m_ptrImgPara->UpdatePwGain(gain);
+    m_ptrImgPara->UpdatePwGain(gain);
 }
 
 void UpdatePw::GainCw(int gain)
@@ -106,147 +106,147 @@ void UpdatePw::GainCw(int gain)
 
 void UpdatePw::SVLength(int len, EKnobReturn status)
 {
-	float length = (float)len/10;
-	sprintf(m_str, "%.1fmm", length);
-	SyncKnobPw(PW_SV_LEN, m_str, status);
-	m_ptrImgPara->UpdatePwSV(length);
+    float length = (float)len/10;
+    sprintf(m_str, "%.1fmm", length);
+    SyncKnobPw(PW_SV_LEN, m_str, status);
+    m_ptrImgPara->UpdatePwSV(length);
 }
 
 void  UpdatePw::SVPos(double depth)
 {
-	bool draw = TRUE;
+    bool draw = TRUE;
 
-	if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
-		draw = TRUE;
-	else
+    if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
+        draw = TRUE;
+    else
         draw = FALSE;
 
-	m_ptrImgPara->UpdatePwSVPos(depth, draw);
+    m_ptrImgPara->UpdatePwSVPos(depth, draw);
 }
 
 void UpdatePw::SetValueCorrectAngle(int angle)
 {
-	m_ptrImgDraw->SetAngleValue(angle);
+    m_ptrImgDraw->SetAngleValue(angle);
 }
 void UpdatePw::CorrectAngle(int angle, EKnobReturn status)
 {
-	bool draw = TRUE;
+    bool draw = TRUE;
     bool isCw = TRUE;
 
-	// para
-	if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
-		draw = TRUE;
-	else
-		draw = FALSE;
+    // para
+    if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
+        draw = TRUE;
+    else
+        draw = FALSE;
 
     if (ModeStatus::IsCWMode() || ModeStatus::IsCWColorMode())
         isCw = TRUE;
     else
         isCw = FALSE;
 
-	m_ptrImgPara->UpdatePwAngle(angle, draw);
-	m_ptrImgDraw->UpdateAngle(angle, isCw, draw);
+    m_ptrImgPara->UpdatePwAngle(angle, draw);
+    m_ptrImgDraw->UpdateAngle(angle, isCw, draw);
 
-	// knob
-	sprintf(m_str, "%d°", angle);
-	SyncKnobPw(PW_ANGLE, m_str, status);
+    // knob
+    sprintf(m_str, "%d°", angle);
+    SyncKnobPw(PW_ANGLE, m_str, status);
 
-	// image
-	if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
-	{
-		m_ptrImgDraw->Update();
-		m_ptrImgDraw->DrawScaleYPw();
-		if (m_timeMark)
-		    m_ptrImgDraw->DrawGridPw();
-	}
-	if (ModeStatus::IsSpectrumColorMode()) {
-	    m_ptrImgDraw->ClearCfmBox();
-	    m_ptrImgDraw->ReDrawCfmBox();
-	}
+    // image
+    if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
+    {
+        m_ptrImgDraw->Update();
+        m_ptrImgDraw->DrawScaleYPw();
+        if (m_timeMark)
+            m_ptrImgDraw->DrawGridPw();
+    }
+    if (ModeStatus::IsSpectrumColorMode()) {
+        m_ptrImgDraw->ClearCfmBox();
+        m_ptrImgDraw->ReDrawCfmBox();
+    }
 }
 
 void UpdatePw::PRF(int data, EKnobReturn status)
 {
-	bool draw = TRUE;
-	double prf = (float)data / 1000;
+    bool draw = TRUE;
+    double prf = (float)data / 1000;
 
-	// para
-	if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
-		draw = TRUE;
-	else
-		draw = FALSE;
-	m_ptrImgPara->UpdatePwPRF(prf, draw);
+    // para
+    if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
+        draw = TRUE;
+    else
+        draw = FALSE;
+    m_ptrImgPara->UpdatePwPRF(prf, draw);
 
-	// knob
-	sprintf(m_str, "%.2fKHz", prf);
-	SyncKnobPw(PW_SCALE, m_str, status);
+    // knob
+    sprintf(m_str, "%.2fKHz", prf);
+    SyncKnobPw(PW_SCALE, m_str, status);
 
-	// image
-	if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
-	{
-		m_ptrImgDraw->Update();
-		m_ptrImgDraw->DrawScaleXPw();
-		m_ptrImgDraw->DrawScaleYPw();
-		if (m_timeMark)
-			m_ptrImgDraw->DrawGridPw();
-	}
+    // image
+    if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
+    {
+        m_ptrImgDraw->Update();
+        m_ptrImgDraw->DrawScaleXPw();
+        m_ptrImgDraw->DrawScaleYPw();
+        if (m_timeMark)
+            m_ptrImgDraw->DrawGridPw();
+    }
 }
 void UpdatePw::PRFMax(int data, EKnobReturn status)
 {
-	double prf = (float)data / 1000;
-	// knob
-	sprintf(m_str, "%.2fKHz", prf);
-	SyncKnobPw(PW_SCALE, m_str, status);
+    double prf = (float)data / 1000;
+    // knob
+    sprintf(m_str, "%.2fKHz", prf);
+    SyncKnobPw(PW_SCALE, m_str, status);
 }
 
 void UpdatePw::PRFRange(int data, EKnobReturn status)
 {
-	// knob
-	double prf = (float)data / 1000;
-	sprintf(m_str, "%.2fKHz", prf);
-	SyncKnobPw(PW_SCALE, m_str, status);
+    // knob
+    double prf = (float)data / 1000;
+    sprintf(m_str, "%.2fKHz", prf);
+    SyncKnobPw(PW_SCALE, m_str, status);
 }
 
 void UpdatePw::Baseline(int index, int maxIndex, EKnobReturn status)
 {
     bool draw;
 
-	sprintf(m_str, "%d", index);
-	SyncKnobPw(PW_BASELINE, m_str, status);
-	if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
+    sprintf(m_str, "%d", index);
+    SyncKnobPw(PW_BASELINE, m_str, status);
+    if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
         draw = TRUE;
     else
         draw = FALSE;
     m_ptrImgDraw->SetPwBaseLine(index, maxIndex, draw);
 
-	if (m_timeMark)
-	    m_ptrImgDraw->DrawGridPw();
+    if (m_timeMark)
+        m_ptrImgDraw->DrawGridPw();
 
 }
 
 void UpdatePw::Steer(int angle, EKnobReturn status)
 {
-	sprintf(m_str, "%d°", angle);
+    sprintf(m_str, "%d°", angle);
     SyncKnobPw(PW_STEER, m_str, status);
-	SyncKnobCfm(CFM_STEER, m_str, status);
-	m_ptrImgDraw->SetSteerAngle(angle);
+    SyncKnobCfm(CFM_STEER, m_str, status);
+    m_ptrImgDraw->SetSteerAngle(angle);
 }
 void UpdatePw::WallFilter(int data, EKnobReturn status)
 {
-	bool draw = TRUE;
+    bool draw = TRUE;
 
-	// para
-	if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
-		draw = TRUE;
-	else
-		draw = FALSE;
+    // para
+    if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
+        draw = TRUE;
+    else
+        draw = FALSE;
 
-	m_ptrImgPara->UpdatePwWF(data, draw);
+    m_ptrImgPara->UpdatePwWF(data, draw);
 
-	// knob
-	sprintf(m_str, "%d", data);
-	SyncKnobPw(PW_WALL_FILTER, m_str, status);
-	ImageArea::GetInstance()->UpdateImgArea();
+    // knob
+    sprintf(m_str, "%d", data);
+    SyncKnobPw(PW_WALL_FILTER, m_str, status);
+    ImageArea::GetInstance()->UpdateImgArea();
 }
 
 void UpdatePw::DopFreq(int freq, EKnobReturn status)
@@ -272,16 +272,16 @@ void UpdatePw::DopFreq(int freq, EKnobReturn status)
             freq = 144;
     }
 #endif
-	sprintf(m_str, "%.1fMHz", (float)freq/20);
+    sprintf(m_str, "%.1fMHz", (float)freq/20);
     SyncKnobPw(PW_DOP_FREQ, m_str, status);
-	SyncKnobCfm(CFM_DOP_FREQ, m_str, status);
+    SyncKnobCfm(CFM_DOP_FREQ, m_str, status);
 
-	if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
-	{
-		m_ptrImgDraw->Update();
-		m_ptrImgDraw->DrawScaleYPw();
-		if (m_timeMark)
-			m_ptrImgDraw->DrawGridPw();
+    if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode())
+    {
+        m_ptrImgDraw->Update();
+        m_ptrImgDraw->DrawScaleYPw();
+        if (m_timeMark)
+            m_ptrImgDraw->DrawGridPw();
     }
     if(ModeStatus::IsCFMImgMode())
         m_ptrImgPara->UpdateCfmDopplerFreq(m_str);
@@ -293,11 +293,11 @@ void UpdatePw::DopFreq(int freq, EKnobReturn status)
 
 void UpdatePw::Speed(int index, EKnobReturn status)
 {
-	// knob
-	sprintf(m_str, "%d", index);
-	SyncKnobPw(PW_SPEED, m_str, status);
+    // knob
+    sprintf(m_str, "%d", index);
+    SyncKnobPw(PW_SPEED, m_str, status);
 
-	// image
+    // image
     if (ModeStatus::IsSpectrumImgMode() || ModeStatus::IsSpectrumColorImgMode()) {
         if (m_timeMark)
             m_ptrImgDraw->ClearGridPw();
@@ -310,54 +310,54 @@ void UpdatePw::Speed(int index, EKnobReturn status)
 
 void UpdatePw::SoundVolume(int index, EKnobReturn status)
 {
-	m_ptrImgPara->UpdateVolume(index);
+    m_ptrImgPara->UpdateVolume(index);
 }
 
 void UpdatePw::Simult(bool on, EKnobReturn status)
 {
     const char * Toggle[2] =
-	{
-		N_("OFF"),
-		N_("ON")
-	};
+    {
+        N_("OFF"),
+        N_("ON")
+    };
 
-	SyncKnobPw(PW_SIMULT, (char*)Toggle[on], status);
-	SyncKnobCfm(CFM_SIMULT, (char*)Toggle[on], status);
+    SyncKnobPw(PW_SIMULT, (char*)Toggle[on], status);
+    SyncKnobCfm(CFM_SIMULT, (char*)Toggle[on], status);
 }
 void UpdatePw::DynamicRange(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobPw(PW_DYN, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobPw(PW_DYN, m_str, status);
 }
 void UpdatePw::HPRF(bool on, EKnobReturn status)
 {
-	SyncKnobPw(PW_HPRF, (char*)Toggle_Pw[on], status);
-	m_ptrImgPara->UpdatePwHPRFStatus(on);
+    SyncKnobPw(PW_HPRF, (char*)Toggle_Pw[on], status);
+    m_ptrImgPara->UpdatePwHPRFStatus(on);
 }
 
 void UpdatePw::GrayMap(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobPw(PW_MAP, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobPw(PW_MAP, m_str, status);
 }
 
 void UpdatePw::SoundStatus(int index, EKnobReturn status)
 {
-	SyncKnobPw(PW_SOUNDSTATUS, Toggle_Pw[index], status);
-	ViewIcon::GetInstance()->Sound((bool)index);
+    SyncKnobPw(PW_SOUNDSTATUS, Toggle_Pw[index], status);
+    ViewIcon::GetInstance()->Sound((bool)index);
 }
 
 void UpdatePw::Noise(int data, EKnobReturn status)
 {
-	sprintf(m_str, "%d", data);
-	SyncKnobPw(PW_NOISE, m_str, status);
+    sprintf(m_str, "%d", data);
+    SyncKnobPw(PW_NOISE, m_str, status);
 }
 
 void UpdatePw::Log(int value, EKnobReturn status)
 {
-	PRINTF("update pw log = %d\n", value);
-	sprintf(m_str, "%d", value);
-	SyncKnobPw(PW_LOG, m_str, status);
+    PRINTF("update pw log = %d\n", value);
+    sprintf(m_str, "%d", value);
+    SyncKnobPw(PW_LOG, m_str, status);
 }
 
 void UpdatePw::AutoCalc(bool on)
@@ -410,13 +410,13 @@ void UpdatePw::UpdateCwMode(void)
 
 void UpdatePw::UpdateCwMenu(void)
 {
-	// change to pw menu
+    // change to pw menu
     m_ptrMenu->ShowCWMenu();
 }
 
 void UpdatePw::UpdatePwMenu(void)
 {
-	// change to pw menu
+    // change to pw menu
     m_ptrMenu->ShowPWMenu();
 }
 
@@ -438,7 +438,7 @@ void UpdatePw::UpdatePwImg()
     m_ptrImgPara->DrawPwPara();
     m_ptrImgDraw->ReDrawFocus();
     if (m_timeMark)
-	m_ptrImgDraw->DrawGridPw();
+    m_ptrImgDraw->DrawGridPw();
 #ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -509,7 +509,7 @@ void UpdatePw::UpdatePwCfmImg(void)
     m_ptrImgDraw->ReDrawCfmBox();
     m_ptrImgDraw->ReDrawFocus();
     if (m_timeMark)
-	m_ptrImgDraw->DrawGridPw();
+    m_ptrImgDraw->DrawGridPw();
 #ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -560,7 +560,7 @@ void UpdatePw::ChangeFormatPw(int format)
     m_ptrImgDraw->ReDrawSV();
     m_ptrImgDraw->ReDrawFocus();
     if (m_timeMark)
-	m_ptrImgDraw->DrawGridPw();
+    m_ptrImgDraw->DrawGridPw();
 #ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -569,8 +569,8 @@ void UpdatePw::ChangeFormatPw(int format)
 // pw post process
 void UpdatePw::TimeRes(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuPW.UpdateTimeRes(m_str, status);
+    sprintf(m_str, "%d", index);
+    g_menuPW.UpdateTimeRes(m_str, status);
 }
 
 void UpdatePw::TimeMarkPw(bool on)
@@ -578,14 +578,14 @@ void UpdatePw::TimeMarkPw(bool on)
     m_timeMark = on;
     g_menuPW.UpdateTimeMark(on);
     if (on)
-	m_ptrImgDraw->DrawGridPw();
+    m_ptrImgDraw->DrawGridPw();
     else
-	m_ptrImgDraw->ClearGridPw();
+    m_ptrImgDraw->ClearGridPw();
 }
 
 // for test
 void UpdatePw::SoundFilter(int data, EKnobReturn status)
 {
-	sprintf(m_str, "%d", data);
-	//SyncKnobPw(PW_SOUNDFILTER, m_str, status);
+    sprintf(m_str, "%d", data);
+    //SyncKnobPw(PW_SOUNDFILTER, m_str, status);
 }

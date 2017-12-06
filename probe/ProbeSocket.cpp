@@ -1,13 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: ProbeSocket.cpp
- * @brief: deal things relative to probe socket.
- * version: V1.0
- * date: 2009-5-15
- * @author: zhanglei
- */
-
 #include "probe/ProbeSocket.h"
 #include "Def.h"
 
@@ -156,7 +146,7 @@ enum EPROBELIST161 {P35CVP, P75LVSP, P65VMCP, P35MCP, P30P16AP};
 
 string PROBE_LIST[NUM_PROBE] =
 {
-	"3.5CV", "7.5LVS", "6.5VMC", "3.5MC", "30P16A"
+    "3.5CV", "7.5LVS", "6.5VMC", "3.5MC", "30P16A"
 };
 // class func
 const int ProbeSocket::FREQ2D_SUM[NUM_PROBE] = {5, 5, 5, 5, 6};
@@ -248,7 +238,7 @@ const int ProbeSocket::BAND_PASS_FILTER_FC1[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC
     {{79, 75, 64, 56, 51}, {83, 79, 71, 63, 54}, {99, 94, 90, 86, 77}}, //75L40K
     {{64, 60, 47, 39, 34}, {68, 60, 52, 40, 36}, {76, 68, 60, 40, 36}}, //65C10K
     {{34, 34, 30, 26, 21}, {36, 34, 32, 28, 20}, {40, 38, 36, 28, 20}}, //35C20H
-	{{23, 22, 20, 16, 15}, {26, 23, 21, 17, 16}, {27, 24, 22, 20, 17}}, //30P16A
+    {{23, 22, 20, 16, 15}, {26, 23, 21, 17, 16}, {27, 24, 22, 20, 17}}, //30P16A
 #endif
     {{34, 30, 27, 22, 18}, {39, 38, 33, 29, 26}, {45, 40, 34, 30, 25}}, //3.5CV
     {{73, 73, 68, 66, 64}, {82, 79, 69, 69, 67}, {99, 95, 92, 92, 99}}, //7.5LVS
@@ -310,7 +300,7 @@ ProbeSocket::FreqPair ProbeSocket::FREQ2D[NUM_PROBE][MAX_2D_FREQ] =
 const int ProbeSocket::FREQ_DOPPLER_SUM[NUM_PROBE] = {2, 2, 2, 2, 2, 2, 2, 1};
 const int ProbeSocket::FREQ_DOPPLER[NUM_PROBE][MAX_DOP_FREQ] = //used for system config
 {
-	{54, 66}, {118, 144}, {98, 116}, {54, 66}, {98, 116}, {150, 180}, {54, 66}, {56}
+    {54, 66}, {118, 144}, {98, 116}, {54, 66}, {98, 116}, {150, 180}, {54, 66}, {56}
 };
 const int ProbeSocket::BAND_PASS_FILTER_FC_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC] =
 {
@@ -474,7 +464,7 @@ enum EPROBELIST430 {P35C60EP, P65L40EP, P65C10EP, P65C15DP, P35D50DP};
 
 string PROBE_LIST[NUM_PROBE] =
 {
-	"35C60E", "65L40E", "65C10E", "65C15D", "35D50D"
+    "35C60E", "65L40E", "65C10E", "65C15D", "35D50D"
 };
 // class func
 const int ProbeSocket::FREQ2D_SUM[NUM_PROBE] = {3, 3, 3, 3, 4};
@@ -586,7 +576,7 @@ enum EPROBELIST440 {P35C60EP, P65L40EP, P65C10EP, P65C15DP};
 
 string PROBE_LIST[NUM_PROBE] =
 {
-	"35C60E", "65L40E", "65C10E",  "65C15D"
+    "35C60E", "65L40E", "65C10E",  "65C15D"
 };
 // class func
 const int ProbeSocket::FREQ2D_SUM[NUM_PROBE] = {3, 3, 3, 3};
@@ -971,7 +961,7 @@ const int ProbeSocket::BAND_PASS_FILTER_FC1_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MA
     {{25, 20, 18, 18, 18}, {30, 23, 18, 18, 18}, {32, 25, 18, 18, 18}, {32, 25, 20, 20, 18}, {32, 25, 20, 20, 18},
      {33, 30, 20, 20, 18}, {33, 30, 20, 20, 18}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50L
     /*{{16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {45, 40, 35, 30, 20}, {0, 0, 0, 0, 0},
-	  {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //75L40J */
+      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //75L40J */
     {{16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //70L40J
     {{16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26}, {16, 20, 24, 26, 26},
@@ -1222,8 +1212,8 @@ const int ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MA
 {
     {{60, 55, 28, 26, 24}, {65, 58, 36, 32, 30}, {67, 60, 36, 32, 30}, {67, 60, 45, 30, 30}, {67, 60, 45, 30, 30},
      {68, 65, 45, 30, 30}, {67, 60, 45, 30, 30}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K
-	//{{48, 45, 43, 34, 28}, {54, 48, 39, 35, 29}, {54, 48, 39, 35, 29}, {60, 50, 40, 33, 26}, {63, 55, 40, 35, 28},
-	// {66, 58, 40, 39, 34}, {68, 54, 38, 35, 33}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K--old
+    //{{48, 45, 43, 34, 28}, {54, 48, 39, 35, 29}, {54, 48, 39, 35, 29}, {60, 50, 40, 33, 26}, {63, 55, 40, 35, 28},
+    // {66, 58, 40, 39, 34}, {68, 54, 38, 35, 33}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K--old
     {{164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //75L40K
     {{131, 100, 80, 69, 58}, {131, 100, 80, 69, 58}, {131, 100, 80, 69, 58}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0},
@@ -1234,7 +1224,7 @@ const int ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MA
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //65C15D
     {{56, 47, 48, 42, 40}, {56, 47, 48, 42, 40}, {56, 47, 48, 42, 40}, {58, 52, 48, 42, 40},{58, 52, 48, 42, 40},
      {58, 52, 48, 42, 40}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //30P16A
-	//{{51, 46, 40, 32, 29}, {53, 45, 43, 43, 33}, {54, 47, 42, 37, 32}, {54, 46, 37, 34, 34},{57, 50, 42, 38, 35},
+    //{{51, 46, 40, 32, 29}, {53, 45, 43, 43, 33}, {54, 47, 42, 37, 32}, {54, 46, 37, 34, 34},{57, 50, 42, 38, 35},
      //{68, 56, 50, 47, 41}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //30P16A--old
     {{150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //90L25K
@@ -1411,8 +1401,8 @@ const int ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MA
 {
     {{60, 55, 28, 26, 24}, {65, 58, 36, 32, 30}, {67, 60, 36, 32, 30}, {67, 60, 45, 30, 30}, {67, 60, 45, 30, 30},
      {68, 65, 45, 30, 30}, {67, 60, 45, 30, 30}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K
-	//{{48, 45, 43, 34, 28}, {54, 48, 39, 35, 29}, {54, 48, 39, 35, 29}, {60, 50, 40, 33, 26}, {63, 55, 40, 35, 28},
-	// {66, 58, 40, 39, 34}, {68, 54, 38, 35, 33}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K--old
+    //{{48, 45, 43, 34, 28}, {54, 48, 39, 35, 29}, {54, 48, 39, 35, 29}, {60, 50, 40, 33, 26}, {63, 55, 40, 35, 28},
+    // {66, 58, 40, 39, 34}, {68, 54, 38, 35, 33}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K--old
     {{164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {164, 150, 78, 58, 30}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //75L40K
     {{131, 100, 80, 69, 58}, {131, 100, 80, 69, 58}, {131, 100, 80, 69, 58}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0},
@@ -1423,7 +1413,7 @@ const int ProbeSocket::BAND_PASS_FILTER_FC2_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MA
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //65C15D
     {{56, 47, 48, 42, 40}, {56, 47, 48, 42, 40}, {56, 47, 48, 42, 40}, {58, 52, 48, 42, 40},{58, 52, 48, 42, 40},
      {58, 52, 48, 42, 40}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //30P16A
-	//{{51, 46, 40, 32, 29}, {53, 45, 43, 43, 33}, {54, 47, 42, 37, 32}, {54, 46, 37, 34, 34},{57, 50, 42, 38, 35},
+    //{{51, 46, 40, 32, 29}, {53, 45, 43, 43, 33}, {54, 47, 42, 37, 32}, {54, 46, 37, 34, 34},{57, 50, 42, 38, 35},
      //{68, 56, 50, 47, 41}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //30P16A--old
     {{150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {150, 140, 100, 70, 50}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //90L25K
@@ -1438,7 +1428,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_F
 {
     {{50, 50, 48, 44, 32}, {50, 50, 48, 44, 32}, {50, 50, 48, 44, 32}, {50, 50, 48, 44, 32}, {50, 50, 48, 44, 32},
      {50, 50, 48, 44, 32}, {50, 50, 48, 44, 32}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K
-	//{{24, 24, 18, 16, 16}, {24, 24, 18, 16, 16}, {24, 24, 18, 16, 16}, {25, 25, 19, 17, 17},{26, 26, 20, 18, 18},
+    //{{24, 24, 18, 16, 16}, {24, 24, 18, 16, 16}, {24, 24, 18, 16, 16}, {25, 25, 19, 17, 17},{26, 26, 20, 18, 18},
      //{26, 26, 26, 26, 26}, {25, 25, 25, 25, 25}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //35C50K--old
     {{80, 70, 60, 50, 30}, {80, 70, 60, 50, 30}, {80, 70, 60, 50, 30}, {80, 70, 60, 50, 30}, {0, 0, 0, 0, 0},
      {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}}, //75L40K
@@ -1527,32 +1517,32 @@ IoCtrl ProbeSocket::m_io;
 ///> public
 void ProbeSocket::ReadProbePara()
 {
-	unsigned char para[PARA_LEN];
-	const int offset = 0;
+    unsigned char para[PARA_LEN];
+    const int offset = 0;
 
-	///> read probe parameter to para
-	memset(para, 0, PARA_LEN);
-	m_io.ReadOneProbe(m_cmdRead, para, PARA_LEN);
+    ///> read probe parameter to para
+    memset(para, 0, PARA_LEN);
+    m_io.ReadOneProbe(m_cmdRead, para, PARA_LEN);
 
-	///> judge if probe parameter is valid
-	unsigned char type = para[offset + 10];
+    ///> judge if probe parameter is valid
+    unsigned char type = para[offset + 10];
 
-	if ((type == 'C') || (type == 'L') || (type == 'N') || (type == 'T') || (type == 'P') || (type == 'V')
-		|| (type == 'c') || (type == 'l') || (type == 'n') || (type == 't') || (type == 'p') || (type == 'v')) // probe is valid
-	{
+    if ((type == 'C') || (type == 'L') || (type == 'N') || (type == 'T') || (type == 'P') || (type == 'V')
+        || (type == 'c') || (type == 'l') || (type == 'n') || (type == 't') || (type == 'p') || (type == 'v')) // probe is valid
+    {
         m_para.exist = TRUE;
-		int i;
-		for( i = 0; i < 10; i ++)
-		{
-			m_para.model[i] = para[offset + i];
-		}
-		m_para.model[i] = '\0';
+        int i;
+        for( i = 0; i < 10; i ++)
+        {
+            m_para.model[i] = para[offset + i];
+        }
+        m_para.model[i] = '\0';
 
-		m_para.type = type;
+        m_para.type = type;
 
-		m_para.array = para[offset + 11] * 100 + para[offset + 12];
+        m_para.array = para[offset + 11] * 100 + para[offset + 12];
 
-		m_para.lines = para[offset + 13] * 100 + para[offset + 14];
+        m_para.lines = para[offset + 13] * 100 + para[offset + 14];
 
         m_para.width = para[offset + 15] * 100 + para[offset + 16];
 
@@ -1604,53 +1594,53 @@ void ProbeSocket::ReadProbePara()
         m_para.volumeR = para[offset + 36] * 100 + para[offset + 37];
 
         m_para.volumeAngle = para[offset + 38] * 100 + para[offset + 39];
-	}
-	else // not valid
-	{
-		PRINTF("probe is not existed\n");
-		m_para.exist = FALSE;
+    }
+    else // not valid
+    {
+        PRINTF("probe is not existed\n");
+        m_para.exist = FALSE;
 #ifdef EMP_355
-		m_para.type= 'F';
+        m_para.type= 'F';
 #endif
-	}
+    }
     //--verify factory flag
-	    int j;
+        int j;
         char factoryFlag[4];
-		for( j = 0; j < 3; j ++)
-		{
-			factoryFlag[j] = para[offset + 60 + j];
-		}
-		factoryFlag[j] = '\0';
+        for( j = 0; j < 3; j ++)
+        {
+            factoryFlag[j] = para[offset + 60 + j];
+        }
+        factoryFlag[j] = '\0';
         strcpy(m_para.factoryFlag, (GetProbeFactoryFlag(factoryFlag, m_para.model)).c_str());
 }
 
 void ProbeSocket::ActiveSocket()
 {
-	///> send m_socketAddr to imging system
-	m_io.SetInterface(m_socketAddr);
+    ///> send m_socketAddr to imging system
+    m_io.SetInterface(m_socketAddr);
 }
 
 void ProbeSocket::ActiveHV(bool on)
 {
-	///> send high voltage status to imging system. on = TRUE, HV is on, else HV is off
+    ///> send high voltage status to imging system. on = TRUE, HV is on, else HV is off
     // printf("m_io send high valuge = %d\n",on);
     m_io.HighVoltage(on);
 }
 
 void ProbeSocket::GetProbePara(ProbePara &para)
 {
-	para = m_para;
-    PRINTF("m_para=%s",m_para.model);	//test--2016.08.12
+    para = m_para;
+    PRINTF("m_para=%s",m_para.model);   //test--2016.08.12
 }
 
 void ProbeSocket::SetProbePara(ProbePara para)
 {
-	m_para = para;
+    m_para = para;
 }
 void ProbeSocket::WriteProbePara(unsigned char* buf, unsigned int len)
 {
-	//ActiveSocket();
-	m_io.ProbeWrite(m_cmdRead, buf, len);
+    //ActiveSocket();
+    m_io.ProbeWrite(m_cmdRead, buf, len);
 }
 
 ///> private
@@ -1743,18 +1733,18 @@ int ProbeSocket::GetProbeIndex(char* model, unsigned char probeType)
  */
 void ProbeSocket::GetFreq2D(char* model, unsigned char probeType, vector<FreqPair> &freqPair)
 {
-	// get pair of freq
+    // get pair of freq
     int index = GetProbeIndex(model, probeType);
-	freqPair.clear();
+    freqPair.clear();
 
-	for (int i = 0; i < MAX_2D_FREQ; i ++)
-	{
-		PRINTF("emit = %d, rece = %d\n", FREQ2D[index][i].emit, FREQ2D[index][i].receive);
-		if ((FREQ2D[index][i].emit == 0) || (FREQ2D[index][i].receive == 0))
-			return;
+    for (int i = 0; i < MAX_2D_FREQ; i ++)
+    {
+        PRINTF("emit = %d, rece = %d\n", FREQ2D[index][i].emit, FREQ2D[index][i].receive);
+        if ((FREQ2D[index][i].emit == 0) || (FREQ2D[index][i].receive == 0))
+            return;
 
-		freqPair.push_back(FREQ2D[index][i]);
-	}
+        freqPair.push_back(FREQ2D[index][i]);
+    }
 }
 
 /*

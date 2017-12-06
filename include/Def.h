@@ -5,25 +5,20 @@
 #include <stdio.h>
 #include <cassert>
 
-/*
- * machine selection, one of three must be defined,
- * otherwise machine type is set to EMP-340
- * you can defined it in Makefile
- */
 //#define EMP_340//G70
 //#define EMP_360//G60
 //#define EMP_161//EMP-3000
 
 ///> general define
 #ifndef FALSE
-	#define FALSE 0
+    #define FALSE 0
 #endif
 #ifndef TRUE
-	#define TRUE 1
+    #define TRUE 1
 #endif
 
 #ifndef NULL
-	#define NULL 0
+    #define NULL 0
 #endif
 
 #define PI 3.1415926
@@ -32,11 +27,11 @@
 
 ///> output debug info
 #ifdef DEBUG
-	#define PRINTF(fmt, args...) printf(fmt, ##args);
-	#define ASSERT assert
+    #define PRINTF(fmt, args...) printf(fmt, ##args);
+    #define ASSERT assert
 #else
-	#define PRINTF(fmt, args...)
-	#define ASSERT
+    #define PRINTF(fmt, args...)
+    #define ASSERT
 #endif
 
 #define SCREEN_WIDTH 1024
@@ -54,7 +49,7 @@
 #define BDMK_MAX_SCALE 1.5
 #define BDMK_PROBE_MAX_SCALE 1.2
 
-#define BYTES_DOT 3	//每个像素点用3个字节表示
+#define BYTES_DOT 3 //每个像素点用3个字节表示
 #define USERCONFIG_LEN 50
 #define FONT_STRING "WenQuanYi Zen Hei, medium"
 
@@ -288,17 +283,17 @@ enum EStudy{ABD, OB, GYN, UR, CAR, SP, VES, ORT, EXTRA};
 #endif
 typedef struct tagPOINT
 {
-	int x;
-	int y;
+    int x;
+    int y;
 } POINT, *PPOINT;
 
 /* The RGBTRIPLE structure describes a color consisting of relative intensities of red, green, and blue.
 */
 typedef struct tagRGBTRIPLE
 {
-  unsigned char rgbtRed;			//!< Specifies the intensity of red in the color.
-  unsigned char rgbtGreen;			//!< Specifies the intensity of green in the color.
-  unsigned char rgbtBlue;			//!< Specifies the intensity of blue in the color.
+  unsigned char rgbtRed;            //!< Specifies the intensity of red in the color.
+  unsigned char rgbtGreen;          //!< Specifies the intensity of green in the color.
+  unsigned char rgbtBlue;           //!< Specifies the intensity of blue in the color.
 } RGBTRIPLE;
 typedef EKnobReturn (*pKeyFunc)(EKnobOper);
 

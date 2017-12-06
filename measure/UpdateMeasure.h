@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef UPDATE_MEASURE_H
 #define UPDATE_MEASURE_H
 
@@ -19,14 +18,14 @@ public:
     ~UpdateMeasure();
 
     struct ResultAttr {
-	int cursorType;
-	int curColor;		// color index
-	int confirmColor;	// color index
+    int cursorType;
+    int curColor;       // color index
+    int confirmColor;   // color index
     };
     struct Result {
-	string text;
-	int lines;
-	ResultAttr attr;
+    string text;
+    int lines;
+    ResultAttr attr;
     };
 
     void ClearPwResultUnFreeze(int cursorType);
@@ -74,7 +73,7 @@ public:
 
     ///< D
     //    void DVel(double vel, bool inMeasure=true);
-    //	void DPSED(char *name, double ps, double ed, bool inMeasure=true);
+    //  void DPSED(char *name, double ps, double ed, bool inMeasure=true);
     //    void DRI(char *name, double ps, double ed, double ri, bool inMeasure=true);
     void DSD(double ps, double ed, double sd, ResultAttr& attr, bool inMeasure=true);
     void DPI(double ps, double ed, double tamax, double pi, ResultAttr& attr, bool inMeasure=true);
@@ -84,7 +83,7 @@ public:
     //    void DHR(double hr, bool inMeasure=true);
     void DIntegralArea(double integralarea, ResultAttr& attr, bool inMeasure=true);
 
-    //	void DPGmax(const char *name, double vel, double pg, bool inMeasure=true);
+    //  void DPGmax(const char *name, double vel, double pg, bool inMeasure=true);
     void DPGmean(double pg, ResultAttr& attr, bool inMeasure=true);
     void IMTResult(SIMTPARA imt_para,ResultAttr& attr,  bool update=true);
     void UpdateResultForChgFont(void);
@@ -97,7 +96,7 @@ private:
     int m_resultX;
     int m_resultY;
     int m_dateFormat;
-		void NewLineSign(unsigned char newLineSign[2], int sign);
+        void NewLineSign(unsigned char newLineSign[2], int sign);
 
     static deque<Result> m_dequeResult;
     ImageArea* m_ptrImg;

@@ -36,20 +36,20 @@ void MenuM::Show(void)
 
 void MenuM::ForeachWidget(GtkWidget *widget)
 {
-	gtk_widget_set_sensitive(widget, (bool)m_sensitive);
+    gtk_widget_set_sensitive(widget, (bool)m_sensitive);
 }
 
 void MenuM::Sensitive(bool on)
 {
-	m_sensitive = on;
+    m_sensitive = on;
 
-	GList *list = NULL;
-	list = gtk_container_get_children(GTK_CONTAINER(m_table));
-	if(list)
-	{
-		g_list_foreach(list, (GFunc)(HandleForeachWidget), this);
-		g_list_free(list);
-	}
+    GList *list = NULL;
+    list = gtk_container_get_children(GTK_CONTAINER(m_table));
+    if(list)
+    {
+        g_list_foreach(list, (GFunc)(HandleForeachWidget), this);
+        g_list_free(list);
+    }
 }
 
 GtkWidget * MenuM::Create(void)
@@ -209,7 +209,7 @@ void MenuM::UpdateLabel(void)
 
 void MenuM::UpdatePolarity(bool on)
 {
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_polarity),on);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_polarity),on);
 }
 void MenuM::UpdateTimeMark(bool on)
 {
@@ -232,36 +232,36 @@ void MenuM::UpdateSmooth(const char* str, EKnobReturn status)
 
 void MenuM::BtnAnatomic(GtkButton *button)
 {
-	ScanMode::GetInstance()->EnterAnatomicM();
+    ScanMode::GetInstance()->EnterAnatomicM();
 }
 
 ///> private
 void MenuM::ChkPolarity(GtkButton *button)
 {
-	gboolean value;
-	value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
-	ImgProc2D::GetInstance()->ChangePolarity(value);
+    gboolean value;
+    value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
+    ImgProc2D::GetInstance()->ChangePolarity(value);
 }
 void MenuM::ChkTimemark(GtkButton *button)
 {
-	gboolean value;
-	value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
-	ImgProcM::GetInstance()->ChangeTimeMark(value);
+    gboolean value;
+    value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
+    ImgProcM::GetInstance()->ChangeTimeMark(value);
 }
 
 void MenuM::ChgLine(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeLineAver(oper);
+    ImgProc2D::GetInstance()->ChangeLineAver(oper);
 }
 
 void MenuM::ChgEnhanceM(EKnobOper oper)
 {
-	ImgProcM::GetInstance()->ChangeEnhanceM(oper);
+    ImgProcM::GetInstance()->ChangeEnhanceM(oper);
 }
 
 void MenuM::ChgSmooth(EKnobOper oper)
 {
-	ImgProcM::GetInstance()->ChangeMSmooth(oper);
+    ImgProcM::GetInstance()->ChangeMSmooth(oper);
 }
 
 //lhm

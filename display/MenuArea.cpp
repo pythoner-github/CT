@@ -46,10 +46,10 @@ MenuArea::MenuArea()
 
 GtkWidget* MenuArea::Create(void)
 {
-	const int widthMax = MENU_AREA_W - 5;
-	const int heightMax = MENU_AREA_H - TOP_AREA_H;
-	const int heightMaxNB = MENU_AREA_H - TOP_AREA_H - 30;
-	PangoFontDescription *font = pango_font_description_from_string("WenQuanYi Zen Hei, bold, 14");
+    const int widthMax = MENU_AREA_W - 5;
+    const int heightMax = MENU_AREA_H - TOP_AREA_H;
+    const int heightMaxNB = MENU_AREA_H - TOP_AREA_H - 30;
+    PangoFontDescription *font = pango_font_description_from_string("WenQuanYi Zen Hei, bold, 14");
     m_labelSub = create_label(_("Sub Menu"), widthMax, TOP_AREA_H, g_white, font);
     gtk_label_set_justify(GTK_LABEL(m_labelSub), GTK_JUSTIFY_CENTER);
     gtk_fixed_put(GTK_FIXED(ViewMain::GetInstance()->GetMainWindowFixed()), m_labelSub, 0, 0);
@@ -136,7 +136,7 @@ GtkWidget* MenuArea::Create(void)
     gtk_widget_set_usize(fixedNote, widthMax, heightMax);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), fixedNote, 0, 0);
 
-	//Other menu
+    //Other menu
     GtkWidget *vboxBiopsy = g_menuBiopsy.Create();
     gtk_widget_set_usize(vboxBiopsy, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), vboxBiopsy, 0, 0);
@@ -145,12 +145,12 @@ GtkWidget* MenuArea::Create(void)
     gtk_widget_set_usize(vboxBiopsyBracket, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), vboxBiopsyBracket, 0, 0);
 
-	GtkWidget *vboxBiopsyVerify = g_menuBiopsyVerify.Create();
+    GtkWidget *vboxBiopsyVerify = g_menuBiopsyVerify.Create();
     gtk_widget_set_usize(vboxBiopsyVerify, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), vboxBiopsyVerify, 0, 0);
 
 //-------------------------------------------------------------------//
-	GtkWidget *tableSystem = g_menuSystem.Create();
+    GtkWidget *tableSystem = g_menuSystem.Create();
     gtk_widget_set_usize(tableSystem, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), tableSystem, 0, 0);
 
@@ -179,7 +179,7 @@ void MenuArea::SwitchMenu(EMenuType type)
 #ifdef EMP_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
-		ShowProjectModeMenu();
+        ShowProjectModeMenu();
         return;
     }
 #endif
@@ -221,7 +221,7 @@ void MenuArea::SwitchMenu(EMenuType type)
             break;
         case REVIEW:
             ShowReviewMenu();
-			KeyReview::m_menuRead = TRUE; // must after ShowReviewMenu(HideAllMenu), be care of "HideMenuReview"
+            KeyReview::m_menuRead = TRUE; // must after ShowReviewMenu(HideAllMenu), be care of "HideMenuReview"
             break;
         case CALC:
             ShowCalcMenu();
@@ -267,60 +267,60 @@ void MenuArea::UpdateSubMenu(void)
 #ifdef EMP_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
-		gtk_label_set_text(GTK_LABEL(m_labelSub), _("Project Mode"));
+        gtk_label_set_text(GTK_LABEL(m_labelSub), _("Project Mode"));
         return;
     }
 #endif
 
     switch (m_menuType) {
-		case MAIN:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), "");
-			break;
-		case D2:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("2D Mode"));
-			break;
-		case M:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("M Mode"));
-			break;
-		case PW:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("PW Mode"));
-			break;
-		case CW:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Mode"));
-			break;
-		case CFM:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), "Color Mode");
-			break;
-		case PDI:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), "Color Mode");
-			break;
+        case MAIN:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), "");
+            break;
+        case D2:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("2D Mode"));
+            break;
+        case M:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("M Mode"));
+            break;
+        case PW:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("PW Mode"));
+            break;
+        case CW:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Mode"));
+            break;
+        case CFM:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), "Color Mode");
+            break;
+        case PDI:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), "Color Mode");
+            break;
         case PWCFM:
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("PW Color Mode"));
             break;
         case CWCFM:
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Color Mode"));
-			break;
-		case MEASURE:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("Measure"));
-			break;
-		case BDMK:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("BodyMark"));
-			break;
-		case REVIEW:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("Review"));
-			break;
-		case CALC:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("Calculate"));
-			break;
-		case NOTE:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("Note"));
-			break;
-		case SYSTEM:
-			gtk_label_set_text(GTK_LABEL(m_labelSub), _("System Setting"));
-			break;
-		default:
-			break;
-	}
+            break;
+        case MEASURE:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("Measure"));
+            break;
+        case BDMK:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("BodyMark"));
+            break;
+        case REVIEW:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("Review"));
+            break;
+        case CALC:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("Calculate"));
+            break;
+        case NOTE:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("Note"));
+            break;
+        case SYSTEM:
+            gtk_label_set_text(GTK_LABEL(m_labelSub), _("System Setting"));
+            break;
+        default:
+            break;
+    }
 }
 
 void MenuArea::UpdateLabel(void)
@@ -347,8 +347,8 @@ void MenuArea::UpdateLabel(void)
     g_menuBiopsy.UpdateLabel();
     g_menuSystem.UpdateLabel();
     g_menuEFOV.UpdateLabel();
-	g_menuBiopsy.UpdateLabel();//2016.11.02
-	g_menuBiopsyVerify.UpdateLabel();//2016.11.02
+    g_menuBiopsy.UpdateLabel();//2016.11.02
+    g_menuBiopsyVerify.UpdateLabel();//2016.11.02
     UpdateSubMenu();
 }
 
@@ -361,14 +361,14 @@ void MenuArea::HideCurMenuChild(void)
     }
     else
     {
-		g_menuProjectMode.Hide();
+        g_menuProjectMode.Hide();
     }
 #endif
 
     switch(m_menuType)
     {
         case MAIN:
-            //	g_menuMain.Hide();
+            //  g_menuMain.Hide();
             break;
         case D2:
             g_menu2D.Hide();
@@ -518,7 +518,7 @@ void MenuArea::ShowPWMenu(void)
 
     HideAllOtherMenu();
 #ifdef EMP_355
-	if(ViewMain::GetInstance()->GetModeIsFlag())
+    if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
     if (ModeStatus::IsCWImgMode())
 #endif
@@ -594,19 +594,19 @@ void MenuArea::ShowCWCFMMenu(bool currentCw)
 
     HideAllOtherMenu();
     if (currentCw) {
-    	gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Color Mode"));
-    	gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show();
-    	g_menuCW.Show();
-    	g_menuCFM.Show();
-    	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 3);
+        gtk_label_set_text(GTK_LABEL(m_labelSub), _("CW Color Mode"));
+        gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
+        g_menu2D.Show();
+        g_menuCW.Show();
+        g_menuCFM.Show();
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 3);
     } else {
-    	gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color CW Mode"));
-    	gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show();
-    	g_menuCW.Show();
-    	g_menuCFM.Show();
-    	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
+        gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color CW Mode"));
+        gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
+        g_menu2D.Show();
+        g_menuCW.Show();
+        g_menuCFM.Show();
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
     }
     PRINTF("-------------menu type = %d\n", m_menuType);
 }
@@ -640,13 +640,13 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
             gtk_label_set_text(GTK_LABEL(m_labelPW), _("PW"));
         }
         gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show();
-    	g_menuPW.Show();
-    	g_menuCFM.Show();
-    	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 2);
+        g_menu2D.Show();
+        g_menuPW.Show();
+        g_menuCFM.Show();
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 2);
     } else {
 #ifdef EMP_355
- 		if(ViewMain::GetInstance()->GetModeIsFlag())
+        if(ViewMain::GetInstance()->GetModeIsFlag())
         {
             gtk_label_set_text(GTK_LABEL(m_labelPW), _("CW"));
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color CW Mode"));
@@ -658,10 +658,10 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
         else
             gtk_label_set_text(GTK_LABEL(m_labelSub), _("Color PW Mode"));
         gtk_notebook_set_show_tabs (GTK_NOTEBOOK(m_noteBook), TRUE);
-    	g_menu2D.Show();
-    	g_menuPW.Show();
-    	g_menuCFM.Show();
-    	gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
+        g_menu2D.Show();
+        g_menuPW.Show();
+        g_menuCFM.Show();
+        gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 4);
     }
     PRINTF("-------------menu type = %d\n", m_menuType);
 }
@@ -781,7 +781,7 @@ void MenuArea::ShowBiopsyMenu(void)
 }
 void MenuArea::ShowBioBracketMenu(void)
 {
-	m_menuType = BIOPSYBRACKET;
+    m_menuType = BIOPSYBRACKET;
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("Biopsy Bracket"));
     g_menuBiopsyBracket.Show();
@@ -903,19 +903,19 @@ void MenuArea::HideAllOtherMenu(void)
     if(m_menuType != NOTE)
         g_menuNote.Hide();
     if(m_menuType != MAIN);
-    //	g_menuMain.Hide();
+    //  g_menuMain.Hide();
     if(m_menuType != BIOPSY)
         g_menuBiopsy.Hide();
     if(m_menuType != SYSTEM)
         g_menuSystem.Hide();
     if (m_menuType != EFOV)
         g_menuEFOV.Hide();
-	//-----------------------------//
-	 if(m_menuType != BIOPSYBRACKET)
+    //-----------------------------//
+     if(m_menuType != BIOPSYBRACKET)
         g_menuBiopsyBracket.Hide();
-	 if(m_menuType != BIOPSYVERIFY)
+     if(m_menuType != BIOPSYVERIFY)
         g_menuBiopsyVerify.Hide();
-	//-------------------------------------//
+    //-------------------------------------//
 
 #ifdef EMP_PROJECT
   g_menuProjectMode.Hide();
@@ -968,66 +968,66 @@ void MenuShowUndo()
     ScanMode::EScanMode mode = s.GetScanMode();
     MenuArea::EMenuType type = MenuArea::D2;
 
-	if(Replay::GetInstance()->GetReadSnapStatus())
-	{
-		type = MenuArea::REVIEW;
-	}
-	else
-	{
-		switch(mode)
-		{
-			case ScanMode::D2:
-			case ScanMode::M_INIT:
-			case ScanMode::PW_INIT:
-			case ScanMode::CW_INIT:
-				type = MenuArea::D2;
-				break;
+    if(Replay::GetInstance()->GetReadSnapStatus())
+    {
+        type = MenuArea::REVIEW;
+    }
+    else
+    {
+        switch(mode)
+        {
+            case ScanMode::D2:
+            case ScanMode::M_INIT:
+            case ScanMode::PW_INIT:
+            case ScanMode::CW_INIT:
+                type = MenuArea::D2;
+                break;
 
-			case ScanMode::M:
-			case ScanMode::ANATOMIC_M:
-				type = MenuArea::M;
-				break;
+            case ScanMode::M:
+            case ScanMode::ANATOMIC_M:
+                type = MenuArea::M;
+                break;
 
-			case ScanMode::PW:
-			case ScanMode::PW_SIMULT:
-				type = MenuArea::PW;
-				break;
+            case ScanMode::PW:
+            case ScanMode::PW_SIMULT:
+                type = MenuArea::PW;
+                break;
 
-			case ScanMode::CW:
-				type = MenuArea::CW;
-				break;
+            case ScanMode::CW:
+                type = MenuArea::CW;
+                break;
 
-			case ScanMode::CFM:
-			case ScanMode::PDI:
-			case ScanMode::PWCFM_INIT:
-			case ScanMode::PWPDI_INIT:
-			case ScanMode::CFM_VS_2D:
-			case ScanMode::PDI_VS_2D:
+            case ScanMode::CFM:
+            case ScanMode::PDI:
+            case ScanMode::PWCFM_INIT:
+            case ScanMode::PWPDI_INIT:
+            case ScanMode::CFM_VS_2D:
+            case ScanMode::PDI_VS_2D:
             case ScanMode::CWCFM_INIT:
             case ScanMode::CWPDI_INIT:
-				type = MenuArea::CFM;
-				break;
+                type = MenuArea::CFM;
+                break;
 
-			case ScanMode::PWCFM:
-			case ScanMode::PWCFM_SIMULT:
-			case ScanMode::PWPDI:
-			case ScanMode::PWPDI_SIMULT:
-				type = MenuArea::PWCFM;
-				break;
+            case ScanMode::PWCFM:
+            case ScanMode::PWCFM_SIMULT:
+            case ScanMode::PWPDI:
+            case ScanMode::PWPDI_SIMULT:
+                type = MenuArea::PWCFM;
+                break;
 
             case ScanMode::CWCFM:
-			case ScanMode::CWPDI:
-				type = MenuArea::CWCFM;
-				break;
+            case ScanMode::CWPDI:
+                type = MenuArea::CWCFM;
+                break;
 
-			case ScanMode::EFOV:
-				type = MenuArea::EFOV;
-				break;
-			default:
-				type = MenuArea::D2;
-				break;
-		}
-	}
+            case ScanMode::EFOV:
+                type = MenuArea::EFOV;
+                break;
+            default:
+                type = MenuArea::D2;
+                break;
+        }
+    }
     MenuArea::GetInstance()->SwitchMenu(type);
 }
 

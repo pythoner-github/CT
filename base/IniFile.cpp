@@ -8,10 +8,10 @@ IniFile::IniFile(const char* file)
     GError *error = NULL;
     m_fileName = file;
 
-	if (!g_file_test(file, G_FILE_TEST_EXISTS))
-	{
-		g_build_filename(file, NULL);
-	}
+    if (!g_file_test(file, G_FILE_TEST_EXISTS))
+    {
+        g_build_filename(file, NULL);
+    }
     gchar *contents;
     gsize length;
     if (!g_file_get_contents(file, &contents, &length, &error)) {
@@ -37,14 +37,14 @@ IniFile::~IniFile()
 string IniFile::ReadString(const char *group, const char *key)
 {
     GError *error = NULL;
-	string value("");
+    string value("");
 
     gchar *ret_val = g_key_file_get_string(m_keyFile, group, key, &error);
-	if (ret_val != NULL)
-		value = ret_val;
+    if (ret_val != NULL)
+        value = ret_val;
     if (error) {
-	PRINTF("%s\n", error->message);
-	g_error_free(error);
+    PRINTF("%s\n", error->message);
+    g_error_free(error);
     }
     return value;
 }
@@ -54,8 +54,8 @@ int IniFile::ReadInt(const char *group, const char *key)
     GError *error = NULL;
     int value = g_key_file_get_integer(m_keyFile, group, key, &error);
     if (error) {
-	PRINTF("%s\n", error->message);
-	g_error_free(error);
+    PRINTF("%s\n", error->message);
+    g_error_free(error);
     }
     return value;
 }
@@ -65,8 +65,8 @@ bool IniFile::ReadBool(const char *group, const char *key)
     GError *error = NULL;
     bool value = g_key_file_get_boolean(m_keyFile, group, key, &error);
     if (error) {
-	PRINTF("%s\n", error->message);
-	g_error_free(error);
+    PRINTF("%s\n", error->message);
+    g_error_free(error);
     }
     return value;
 }
@@ -76,8 +76,8 @@ double IniFile::ReadDouble(const char *group, const char *key)
     GError *error = NULL;
     double value = g_key_file_get_double(m_keyFile, group, key, &error);
     if (error) {
-	PRINTF("%s\n", error->message);
-	g_error_free(error);
+    PRINTF("%s\n", error->message);
+    g_error_free(error);
     }
     return value;
 }
@@ -204,10 +204,10 @@ bool IniFile::SyncConfigFile(void)
     GError *error = NULL;
     gchar *contents = g_key_file_to_data(m_keyFile, &length, NULL);
     if (!g_file_set_contents (m_fileName.c_str(), contents, length, &error)) {
-	PRINTF("%s\n", error->message);
-	g_error_free(error);
-	g_free(contents);
-	return false;
+    PRINTF("%s\n", error->message);
+    g_error_free(error);
+    g_free(contents);
+    return false;
     }
     g_free(contents);
     return true;

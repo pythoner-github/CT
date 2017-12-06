@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef _KNOB_MENU_H_
 #define _KNOB_MENU_H_
 
@@ -14,15 +13,15 @@ class KnobMenu
 public:
     ~KnobMenu(){ if (m_ptrInstance != NULL) delete m_ptrInstance; }
 
-	typedef EKnobReturn (*pKnobFunc)(EKnobOper);
-	typedef EKnobReturn (*pKnobFuncPress)(void);
-	struct KnobItem{
+    typedef EKnobReturn (*pKnobFunc)(EKnobOper);
+    typedef EKnobReturn (*pKnobFuncPress)(void);
+    struct KnobItem{
         char *name;
         char value[20];
-		EKnobReturn status;
-		pKnobFunc pf;
-		pKnobFuncPress pfPress;
-	};
+        EKnobReturn status;
+        pKnobFunc pf;
+        pKnobFuncPress pfPress;
+    };
 
     enum EKnobType {NONE, D2, M, PW, CFM, REPLAY, SNAP, ARROW, BDMK, ANATOMIC_M, EFOV};
 
@@ -43,7 +42,7 @@ public:
     void Knob4_Screw(int cw);
     void Knob5_Screw(int cw);
 
-	void Knob1_Press(void);
+    void Knob1_Press(void);
     void Knob2_Press(void);
     void Knob3_Press(void);
     void Knob4_Press(void);
@@ -90,15 +89,15 @@ private:
 //     void KnobPress_5(GtkWidget *widget, GdkEventButton *event);
 
 //     static gboolean HandleKnobPress_1(GtkWidget *widget, GdkEventButton *event, KnobMenu *data)
-// 	{ data->KnobPress_1(widget, event); return FALSE; }
+//  { data->KnobPress_1(widget, event); return FALSE; }
 //     static gboolean HandleKnobPress_2(GtkWidget *widget, GdkEventButton *event, KnobMenu *data)
-// 	{ data->KnobPress_2(widget, event); return FALSE; }
+//  { data->KnobPress_2(widget, event); return FALSE; }
 //     static gboolean HandleKnobPress_3(GtkWidget *widget, GdkEventButton *event, KnobMenu *data)
-// 	{ data->KnobPress_3(widget, event); return FALSE; }
+//  { data->KnobPress_3(widget, event); return FALSE; }
 //     static gboolean HandleKnobPress_4(GtkWidget *widget, GdkEventButton *event, KnobMenu *data)
-// 	{ data->KnobPress_4(widget, event); return FALSE; }
+//  { data->KnobPress_4(widget, event); return FALSE; }
 //     static gboolean HandleKnobPress_5(GtkWidget *widget, GdkEventButton *event, KnobMenu *data)
-// 	{ data->KnobPress_5(widget, event); return FALSE; }
+//  { data->KnobPress_5(widget, event); return FALSE; }
 
 };
 

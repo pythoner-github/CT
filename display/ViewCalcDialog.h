@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef _VIEWCALCDIALOG_H_
 #define _VIEWCALCDIALOG_H_
 
@@ -40,13 +39,13 @@ private:
 // signal connect
     static gboolean on_window_delete_event(GtkWidget *widget, GdkEvent *event, ViewCalcDialog *data) { return data->WindowDeleteEvent(widget, event); }
     static void on_button_ok_clicked(GtkButton *button, ViewCalcDialog *data)
-    	{ data->BtnOkClicked(button); }
+        { data->BtnOkClicked(button); }
     static void on_button_cancel_clicked(GtkButton *button, ViewCalcDialog *data)
-    	{ data->BtnCancelClicked(button); }
+        { data->BtnCancelClicked(button); }
     static void on_radio_manual_toggled(GtkToggleButton *togglebutton, ViewCalcDialog *data)
-	{ data->RadioManualToggled(togglebutton); }
+    { data->RadioManualToggled(togglebutton); }
     static void on_entry_manual_input(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewCalcDialog *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
 };
 
 #endif /* _VIEWCALCDIALOG_H_ */

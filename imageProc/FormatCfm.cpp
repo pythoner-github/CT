@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: FormatCfm.cpp
- * @brief: control cfm/pdi diplay format and current image
- *
- * version: V1.0
- * date: 2009-5-27
- * @author: zhanglei
- */
-
 #include "imageProc/FormatCfm.h"
 #include "imageProc/Format2D.h"
 #include "imageProc/GlobalClassMan.h"
@@ -17,31 +6,31 @@ FormatCfm* FormatCfm::m_ptrInstance = NULL;
 
 FormatCfm* FormatCfm::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new FormatCfm;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new FormatCfm;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 FormatCfm::FormatCfm()
 {
-	GlobalClassMan* ptrGcm = GlobalClassMan::GetInstance();
-	m_ptrUpdate = ptrGcm->GetUpdateCfm();
+    GlobalClassMan* ptrGcm = GlobalClassMan::GetInstance();
+    m_ptrUpdate = ptrGcm->GetUpdateCfm();
 
-	m_ptrDsc = DscMan::GetInstance();
-	m_ptrDscPara = m_ptrDsc->GetDscPara();
+    m_ptrDsc = DscMan::GetInstance();
+    m_ptrDscPara = m_ptrDsc->GetDscPara();
 
-	m_ptrReplay = Replay::GetInstance();
-	m_ptrImg = ImgCfm::GetInstance();
+    m_ptrReplay = Replay::GetInstance();
+    m_ptrImg = ImgCfm::GetInstance();
 
-	m_format = B;
-	m_formatSnap = B;
-	m_curB = 0;
+    m_format = B;
+    m_formatSnap = B;
+    m_curB = 0;
 }
 FormatCfm::~FormatCfm()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 /*
@@ -51,27 +40,27 @@ FormatCfm::~FormatCfm()
  */
 void FormatCfm::ChangeFormat(enum EFormatCfm format)
 {
-	m_format = format;
+    m_format = format;
 
-	m_curB = Format2D::GetInstance()->ChangeFormat((Format2D::EFormat2D)format);
+    m_curB = Format2D::GetInstance()->ChangeFormat((Format2D::EFormat2D)format);
 
-	if (m_format == B)
-	{
-		m_ptrDsc->CreateDscObj(DscMan::CFMB);
-	}
-	else if (m_format == BB)
-	{
-		m_ptrDsc->CreateDscObj(DscMan::CFMBB);
-	}
-	else if (m_format == B4)
-	{
-		m_ptrDsc->CreateDscObj(DscMan::CFMB4);
-	}
+    if (m_format == B)
+    {
+        m_ptrDsc->CreateDscObj(DscMan::CFMB);
+    }
+    else if (m_format == BB)
+    {
+        m_ptrDsc->CreateDscObj(DscMan::CFMBB);
+    }
+    else if (m_format == B4)
+    {
+        m_ptrDsc->CreateDscObj(DscMan::CFMB4);
+    }
 
-	m_ptrImg->SetBoxStatus(false);
+    m_ptrImg->SetBoxStatus(false);
 
-	///> update view
-	m_ptrUpdate->ChangeFormatCfm(m_format);
+    ///> update view
+    m_ptrUpdate->ChangeFormatCfm(m_format);
 }
 
 //在2B冻结下，切换区域，当当前不等于冻结前最后区域时解冻后要切换重绘zjx
@@ -154,7 +143,7 @@ int FormatCfm::SwitchB4()
     {
         m_curB = Format2D::GetInstance()->SwitchB4();
     }
-	return m_curB;
+    return m_curB;
 
 }
 

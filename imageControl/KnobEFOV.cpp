@@ -191,32 +191,32 @@ EKnobReturn KnobEFOVRotate(EKnobOper oper)
 
 EKnobReturn KnobEFOVReviewPressForG30(EKnobOper oper)
 {
-	Replay::GetInstance()->EnterEFOVReview();
-	return PRESS;
+    Replay::GetInstance()->EnterEFOVReview();
+    return PRESS;
 }
 
 EKnobReturn KnobEFOVReplayPressForG30(EKnobOper oper)
 {
-	Replay::GetInstance()->ChangeEFOVAutoReviewFlag();
-	return PRESS;
+    Replay::GetInstance()->ChangeEFOVAutoReviewFlag();
+    return PRESS;
 }
 EKnobReturn KnobEFOVReviewPress(void)
 {
-	Replay::GetInstance()->EnterEFOVReview();
-	return PRESS;
+    Replay::GetInstance()->EnterEFOVReview();
+    return PRESS;
 }
 
 EKnobReturn KnobEFOVReplayPress(void)
 {
-	Replay::GetInstance()->ChangeEFOVAutoReviewFlag();
-	return PRESS;
+    Replay::GetInstance()->ChangeEFOVAutoReviewFlag();
+    return PRESS;
 }
 
 static gboolean DelayToSaveCine(gpointer data)
 {
-	VideoMan::GetInstance()->SaveEFOVVideo(0, (char*)data, STORE_PATH);
-	free(data);
-	return FALSE;
+    VideoMan::GetInstance()->SaveEFOVVideo(0, (char*)data, STORE_PATH);
+    free(data);
+    return FALSE;
 }
 
 static int SaveCine(gpointer data)
@@ -251,27 +251,27 @@ EKnobReturn KnobEFOVSavePress(void)
     } else {
         return ReplayChgSaveCine();
     }
-	// Replay::GetInstance()->EFOVAutoReviewEnd();
+    // Replay::GetInstance()->EFOVAutoReviewEnd();
 
-	// SysOptions so;
-	// if(!so.GetCineAutoName()) {
-	// 	ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
-	// 			ViewDialog::FILENAME,
-	// 			_("Please input the file name(without suffix)"),
-	// 			&SaveCine);
-	// } else {
-	// 	time_t at;
-	// 	at = time(&at);
+    // SysOptions so;
+    // if(!so.GetCineAutoName()) {
+    //  ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
+    //          ViewDialog::FILENAME,
+    //          _("Please input the file name(without suffix)"),
+    //          &SaveCine);
+    // } else {
+    //  time_t at;
+    //  at = time(&at);
 
-	// 	struct tm* ct;
-	// 	ct = localtime(&at);
+    //  struct tm* ct;
+    //  ct = localtime(&at);
 
-	// 	char *fileName = (char*)malloc(256);
-	// 	memset(fileName, 0, 255);
-	// 	sprintf(fileName, "%d%d%d%d%d%d%d%d%d%d%d", (ct->tm_year+1900), (ct->tm_mon+1)/10, (ct->tm_mon+1)%10, (ct->tm_mday)/10, (ct->tm_mday)%10, (ct->tm_hour)/10, (ct->tm_hour)%10, (ct->tm_min)/10, (ct->tm_min)%10, (ct->tm_sec)/10, (ct->tm_sec)%10);
-	// 	SaveCine(fileName);
-	// }
-	// return PRESS;
+    //  char *fileName = (char*)malloc(256);
+    //  memset(fileName, 0, 255);
+    //  sprintf(fileName, "%d%d%d%d%d%d%d%d%d%d%d", (ct->tm_year+1900), (ct->tm_mon+1)/10, (ct->tm_mon+1)%10, (ct->tm_mday)/10, (ct->tm_mday)%10, (ct->tm_hour)/10, (ct->tm_hour)%10, (ct->tm_min)/10, (ct->tm_min)%10, (ct->tm_sec)/10, (ct->tm_sec)%10);
+    //  SaveCine(fileName);
+    // }
+    // return PRESS;
 }
 
 EKnobReturn KnobEFOVReadPress(void)

@@ -13,21 +13,21 @@ using namespace std;
 class MenuBiopsyBracket
 {
 public:
-	 MenuBiopsyBracket();
+     MenuBiopsyBracket();
     ~MenuBiopsyBracket() {}
     GtkWidget * Create(void);
     void UpdateLabel(void);
     void Show(void);
     void Hide(void);
-	void UpdateMenuBiopsyBracket(void);
+    void UpdateMenuBiopsyBracket(void);
 private:
 
     GtkWidget *m_vboxBioBracketType;
-	GtkWidget *m_menuBar;
-	//---------------------------------------//
-	vector<GtkWidget*> m_vecMenuItem;
-//	vector<GtkWidget*> m_vecMenuItem;
-	//-------------------------------------------//
+    GtkWidget *m_menuBar;
+    //---------------------------------------//
+    vector<GtkWidget*> m_vecMenuItem;
+//  vector<GtkWidget*> m_vecMenuItem;
+    //-------------------------------------------//
  //signal handle
     void MenuItemTypeActivate(GtkMenuItem *menuitem);
     void MenuItemExitActivate(GtkMenuItem *menuitem);

@@ -5,30 +5,30 @@
 
 class CalcTime
 {
-	public:
-		CalcTime();
-		~CalcTime() {}
+    public:
+        CalcTime();
+        ~CalcTime() {}
 
-		struct Time
-		{
-			int year;
-			int mon;
-			int day;
-			int hour;
-			int min;
-			int sec;
-		};
+        struct Time
+        {
+            int year;
+            int mon;
+            int day;
+            int hour;
+            int min;
+            int sec;
+        };
 
-		void Begin();
-		void Restart();
-		float End();
+        void Begin();
+        void Restart();
+        float End();
 
-		void GetCurrentTime(Time time);
+        void GetCurrentTime(Time time);
 
-	private:
-		struct timeval m_start;
-		struct timeval m_end;
+    private:
+        struct timeval m_start;
+        struct timeval m_end;
 
-		void Init();
+        void Init();
 };
 #endif

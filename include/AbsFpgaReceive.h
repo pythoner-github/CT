@@ -3,12 +3,12 @@
 
 class AbsFpgaReceive
 {
-	public:
+    public:
 
-	/**
-	* @brief service routine only used to receive data from usb device
-	*/
-	virtual void UsbServiceRoutine(void *arg)=0;
+    /**
+    * @brief service routine only used to receive data from usb device
+    */
+    virtual void UsbServiceRoutine(void *arg)=0;
 
 };
 

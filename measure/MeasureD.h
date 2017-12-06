@@ -11,114 +11,114 @@
 class DMeasureManualTrack: public AbsMeasure
 {
     public:
-	DMeasureManualTrack();
-	~DMeasureManualTrack();
+    DMeasureManualTrack();
+    ~DMeasureManualTrack();
 
-	void Init();
-	void PressLeft(POINT p); ///< do
-	void PressRight(POINT p); ///< undo
-	void MouseMove(POINT p);
+    void Init();
+    void PressLeft(POINT p); ///< do
+    void PressRight(POINT p); ///< undo
+    void MouseMove(POINT p);
     void Value(EKnobOper opr);
     void Change();
-	void Esc();
+    void Esc();
 
     private:
-	double m_ps;
-	double m_ed;
-	double m_sd;
-	double m_ri;
-	double m_tamax;
-	double m_pi;
-	int m_hr;
-	POINT m_psTmp;
-	POINT m_psP;
-	POINT m_edP;
+    double m_ps;
+    double m_ed;
+    double m_sd;
+    double m_ri;
+    double m_tamax;
+    double m_pi;
+    int m_hr;
+    POINT m_psTmp;
+    POINT m_psP;
+    POINT m_edP;
 
-	vector<POINT> m_track;//存储轨迹用于擦除
-	vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
+    vector<POINT> m_track;//存储轨迹用于擦除
+    vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
 
-	MeasureCalc m_calc;
-	MeasureDraw m_draw;
-	UpdateMeasure m_update;
-	MeasureMan* m_ptrMan;
+    MeasureCalc m_calc;
+    MeasureDraw m_draw;
+    UpdateMeasure m_update;
+    MeasureMan* m_ptrMan;
 
-	int m_step; ///< current status(step)
-	bool m_isDraw;
-	POINT m_line_tempP;
-	POINT m_tempP;
-	POINT m_p1;
+    int m_step; ///< current status(step)
+    bool m_isDraw;
+    POINT m_line_tempP;
+    POINT m_tempP;
+    POINT m_p1;
 
-	const unsigned char MOUSE_INTERVAL;
-	unsigned char m_mouse_count;
+    const unsigned char MOUSE_INTERVAL;
+    unsigned char m_mouse_count;
 };
 
 class DMeasureManualDot: public AbsMeasure
 {
     public:
-	DMeasureManualDot();
-	~DMeasureManualDot();
+    DMeasureManualDot();
+    ~DMeasureManualDot();
 
-	void Init();
-	void PressLeft(POINT p); ///< do
-	void PressRight(POINT p); ///< undo
-	void MouseMove(POINT p);
-	void Change();
-	void Esc();
+    void Init();
+    void PressLeft(POINT p); ///< do
+    void PressRight(POINT p); ///< undo
+    void MouseMove(POINT p);
+    void Change();
+    void Esc();
 
     private:
-	double m_ps;
-	double m_ed;
-	double m_sd;
-	double m_ri;
-	double m_tamax;
-	double m_pi;
-	int m_hr;
-	POINT m_psTmp;
-	vector<POINT> m_dot;//存储描点位置用于擦除
-	POINT m_psP;
-	POINT m_edP;
+    double m_ps;
+    double m_ed;
+    double m_sd;
+    double m_ri;
+    double m_tamax;
+    double m_pi;
+    int m_hr;
+    POINT m_psTmp;
+    vector<POINT> m_dot;//存储描点位置用于擦除
+    POINT m_psP;
+    POINT m_edP;
 
-	MeasureCalc m_calc;
-	MeasureDraw m_draw;
-	UpdateMeasure m_update;
-	MeasureMan* m_ptrMan;
+    MeasureCalc m_calc;
+    MeasureDraw m_draw;
+    UpdateMeasure m_update;
+    MeasureMan* m_ptrMan;
 
-	int m_step; ///< current status(step)
-	bool m_isDraw;
-	POINT m_tempP;
-	POINT m_p1;
+    int m_step; ///< current status(step)
+    bool m_isDraw;
+    POINT m_tempP;
+    POINT m_p1;
 };
 
 class DMeasureManualAuto: public AbsMeasure
 {
     public:
-	DMeasureManualAuto();
-	~DMeasureManualAuto();
+    DMeasureManualAuto();
+    ~DMeasureManualAuto();
 
-	void Init();
-	void PressLeft(POINT p); ///< do
-	void PressRight(POINT p); ///< undo
-	void MouseMove(POINT p);
+    void Init();
+    void PressLeft(POINT p); ///< do
+    void PressRight(POINT p); ///< undo
+    void MouseMove(POINT p);
     void Value(EKnobOper opr);
     void Change();
-	void Esc();
+    void Esc();
 
     private:
-	POINT m_startP;
-	POINT m_endP;
-	vector<POINT> m_track;//存储轨迹用于擦除
-	POINT m_psP;
-	POINT m_edP;
+    POINT m_startP;
+    POINT m_endP;
+    vector<POINT> m_track;//存储轨迹用于擦除
+    POINT m_psP;
+    POINT m_edP;
     POINT m_cursor;
     bool m_cursorTypeChg;
     bool m_auto;
 
-	MeasureCalc m_calc;
-	MeasureDraw m_draw;
-	UpdateMeasure m_update;
-	MeasureMan* m_ptrMan;
+    MeasureCalc m_calc;
+    MeasureDraw m_draw;
+    UpdateMeasure m_update;
+    MeasureMan* m_ptrMan;
 
-	int m_step; ///< current status(step)
+    int m_step; ///< current status(step)
     bool m_isDraw;
     //const static int MAX_OPT = 4;
 
@@ -130,25 +130,25 @@ class DMeasureManualAuto: public AbsMeasure
 class DMeasureIntegralTrack: public AbsMeasure
 {
     public:
-	DMeasureIntegralTrack(const SingleItemInfo *ptrSingleItemInfo);
-	~DMeasureIntegralTrack();
+    DMeasureIntegralTrack(const SingleItemInfo *ptrSingleItemInfo);
+    ~DMeasureIntegralTrack();
 
-	void Init();
-	void PressLeft(POINT p); ///< do
-	void PressRight(POINT p); ///< undo
-	void MouseMove(POINT p);
-	void Change();
-	void Esc();
+    void Init();
+    void PressLeft(POINT p); ///< do
+    void PressRight(POINT p); ///< undo
+    void MouseMove(POINT p);
+    void Change();
+    void Esc();
 
     private:
-	double m_integral_area;
-	double m_perimeter;
-	vector<POINT> m_track;//存储轨迹用于擦除
+    double m_integral_area;
+    double m_perimeter;
+    vector<POINT> m_track;//存储轨迹用于擦除
 
-	MeasureCalc m_calc;
-	MeasureDraw m_draw;
-	UpdateMeasure m_update;
-	MeasureMan* m_ptrMan;
+    MeasureCalc m_calc;
+    MeasureDraw m_draw;
+    UpdateMeasure m_update;
+    MeasureMan* m_ptrMan;
 
     int m_step; ///< current status(step)
     bool m_isDraw;
@@ -159,8 +159,8 @@ class DMeasureIntegralTrack: public AbsMeasure
     int m_item;
     const SingleItemInfo *m_itemInfo;
 
-	const unsigned char MOUSE_INTERVAL;
-	unsigned char m_mouse_count;
+    const unsigned char MOUSE_INTERVAL;
+    unsigned char m_mouse_count;
 };
 
 /*
@@ -168,29 +168,29 @@ class DMeasureIntegralTrack: public AbsMeasure
  */
 class DMeasureVel :public AbsMeasure
 {
-	public:
-		DMeasureVel(const SingleItemInfo *ptrSingleItemInfo);
-		~DMeasureVel();
+    public:
+        DMeasureVel(const SingleItemInfo *ptrSingleItemInfo);
+        ~DMeasureVel();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_method;
-		bool m_isDraw;
-		POINT m_tempP;
-		double m_vel;
-		double m_PGmax;
-		int m_item;
-		const SingleItemInfo *m_itemInfo;
+        int m_method;
+        bool m_isDraw;
+        POINT m_tempP;
+        double m_vel;
+        double m_PGmax;
+        int m_item;
+        const SingleItemInfo *m_itemInfo;
 };
 
 /*
@@ -198,29 +198,29 @@ class DMeasureVel :public AbsMeasure
  */
 class DMeasurePGmax :public AbsMeasure
 {
-	public:
-		DMeasurePGmax(const MultiItemInfo *ptrMultiItemInfo);
-		~DMeasurePGmax();
+    public:
+        DMeasurePGmax(const MultiItemInfo *ptrMultiItemInfo);
+        ~DMeasurePGmax();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_method;
-		bool m_isDraw;
-		POINT m_tempP;
-		double m_vel;
-		double m_PGmax;
-		int m_item;
-		const MultiItemInfo *m_itemInfo;
+        int m_method;
+        bool m_isDraw;
+        POINT m_tempP;
+        double m_vel;
+        double m_PGmax;
+        int m_item;
+        const MultiItemInfo *m_itemInfo;
 };
 
 /*
@@ -228,34 +228,34 @@ class DMeasurePGmax :public AbsMeasure
  */
 class DMeasureRI :public AbsMeasure
 {
-	public:
-		DMeasureRI(const MultiItemInfo *ptrMultiItemInfo);
-		~DMeasureRI();
+    public:
+        DMeasureRI(const MultiItemInfo *ptrMultiItemInfo);
+        ~DMeasureRI();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_ps;
-		double m_ed;
-		double m_ri;
-		double m_sd;
-		char m_name[20];
-		int m_item;
-		int m_method; //0: PS+ED  1: PS+ED+RI  2: PS+ED+RI+S/D
-		const MultiItemInfo *m_itemInfo;
+        int m_step;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_ps;
+        double m_ed;
+        double m_ri;
+        double m_sd;
+        char m_name[20];
+        int m_item;
+        int m_method; //0: PS+ED  1: PS+ED+RI  2: PS+ED+RI+S/D
+        const MultiItemInfo *m_itemInfo;
 };
 
 /*
@@ -263,29 +263,29 @@ class DMeasureRI :public AbsMeasure
  */
 class DMeasureSD :public AbsMeasure
 {
-	public:
-		DMeasureSD();
-		~DMeasureSD();
+    public:
+        DMeasureSD();
+        ~DMeasureSD();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_ps;
-		double m_ed;
-		double m_sd;
+        int m_step;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_ps;
+        double m_ed;
+        double m_sd;
 };
 
 /*
@@ -293,31 +293,31 @@ class DMeasureSD :public AbsMeasure
  */
 class DMeasureTime :public AbsMeasure
 {
-	public:
-		DMeasureTime(const SingleItemInfo *ptrSingleItemInfo);
-		~DMeasureTime();
+    public:
+        DMeasureTime(const SingleItemInfo *ptrSingleItemInfo);
+        ~DMeasureTime();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Change();
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Change();
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		int m_method;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_time;
-		int m_item;
-		const SingleItemInfo *m_itemInfo;
+        int m_step;
+        int m_method;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_time;
+        int m_item;
+        const SingleItemInfo *m_itemInfo;
 };
 
 #if 1
@@ -326,64 +326,64 @@ class DMeasureTime :public AbsMeasure
  */
 class DMeasureHR :public AbsMeasure
 {
-	public:
-		DMeasureHR(const MultiItemInfo *ptrMultiItemInfo);
-		~DMeasureHR();
+    public:
+        DMeasureHR(const MultiItemInfo *ptrMultiItemInfo);
+        ~DMeasureHR();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Change();
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Change();
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		int m_method;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_time;
-		double m_hr;
-		int m_item;
-		const MultiItemInfo *m_itemInfo;
+        int m_step;
+        int m_method;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_time;
+        double m_hr;
+        int m_item;
+        const MultiItemInfo *m_itemInfo;
 };
 #endif
 
 #if 0
 class DMeasureHR :public AbsMeasure
 {
-	public:
-		DMeasureHR(const SingleItemInfo *ptrSingleItemInfo);
-		~DMeasureHR();
+    public:
+        DMeasureHR(const SingleItemInfo *ptrSingleItemInfo);
+        ~DMeasureHR();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Change();
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Change();
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		int m_method;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_time;
-		double m_hr;
-		int m_item;
-		const SingleItemInfo *m_itemInfo;
+        int m_step;
+        int m_method;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_time;
+        double m_hr;
+        int m_item;
+        const SingleItemInfo *m_itemInfo;
 };
 #endif
 
@@ -392,29 +392,29 @@ class DMeasureHR :public AbsMeasure
  */
 class DMeasureAccel :public AbsMeasure
 {
-	public:
-		DMeasureAccel(const SingleItemInfo *ptrSingleItemInfo);
-		~DMeasureAccel();
+    public:
+        DMeasureAccel(const SingleItemInfo *ptrSingleItemInfo);
+        ~DMeasureAccel();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_result;
-		int m_item;
-		const SingleItemInfo *m_itemInfo;
+        int m_step;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_result;
+        int m_item;
+        const SingleItemInfo *m_itemInfo;
 };
 
 /*
@@ -422,31 +422,31 @@ class DMeasureAccel :public AbsMeasure
  */
 class DMeasureP12t :public AbsMeasure
 {
-	public:
-		DMeasureP12t(const MultiItemInfo *ptrMultiItemInfo);
-		~DMeasureP12t();
+    public:
+        DMeasureP12t(const MultiItemInfo *ptrMultiItemInfo);
+        ~DMeasureP12t();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
-		void Esc();
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
+        void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
-		UpdateMeasure m_update;
-		MeasureMan* m_ptrMan;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
+        UpdateMeasure m_update;
+        MeasureMan* m_ptrMan;
 
-		int m_step;
-		bool m_isDraw;
-		POINT m_tempP;
-		POINT m_p1;
-		double m_Vmax;
-		double m_slope;
-		double m_p12t;
-		int m_item;
-		const MultiItemInfo *m_itemInfo;
+        int m_step;
+        bool m_isDraw;
+        POINT m_tempP;
+        POINT m_p1;
+        double m_Vmax;
+        double m_slope;
+        double m_p12t;
+        int m_item;
+        const MultiItemInfo *m_itemInfo;
 
     void Result(int saveR, UpdateMeasure::ResultAttr& attr);
 };
@@ -458,39 +458,39 @@ class DMeasureP12t :public AbsMeasure
  */
 class DMeasurePI :public AbsMeasure//应该再加入鼠标反向运动时自动往前擦除轨迹线
 {
-	public:
-		DMeasurePI(int method,const SingleItemInfo *ptrSingleItemInfo);
-		~DMeasurePI();
+    public:
+        DMeasurePI(int method,const SingleItemInfo *ptrSingleItemInfo);
+        ~DMeasurePI();
 
-		void Init();
-		void PressLeft(POINT p); ///< do
-		void PressRight(POINT p); ///< undo
-		void MouseMove(POINT p);
+        void Init();
+        void PressLeft(POINT p); ///< do
+        void PressRight(POINT p); ///< undo
+        void MouseMove(POINT p);
         void Value(EKnobOper opr);
         void Esc();
 
-	private:
-		MeasureCalc m_calc;
-		MeasureDraw m_draw;
+    private:
+        MeasureCalc m_calc;
+        MeasureDraw m_draw;
         UpdateMeasure m_update;
         MeasureMan* m_ptrMan;
 
         int m_item;
         const SingleItemInfo *m_itemInfo;
 
-		int m_method;
-		int m_step;
-		bool m_isDraw;
-		POINT m_tempP;
-		vector<POINT> m_vec;
+        int m_method;
+        int m_step;
+        bool m_isDraw;
+        POINT m_tempP;
+        vector<POINT> m_vec;
         vector<POINT> m_trackTemp;//临时存储擦除了的轨迹,用于重绘
         POINT m_psP;
-		POINT m_edP;
-		double m_ps;
-		double m_ed;
-		double m_tamax;
-		double m_pi;
-		double m_pgmean;
+        POINT m_edP;
+        double m_ps;
+        double m_ed;
+        double m_tamax;
+        double m_pi;
+        double m_pgmean;
 };
 
 /*
@@ -498,27 +498,27 @@ class DMeasurePI :public AbsMeasure//应该再加入鼠标反向运动时自动�
  */
 // class DMeasurePGmean :public AbsMeasure
 // {
-// 	public:
-// 		DMeasurePGmean();
-// 		~DMeasurePGmean();
+//  public:
+//      DMeasurePGmean();
+//      ~DMeasurePGmean();
 
-// 		void Init();
-// 		void PressLeft(POINT p); ///< do
-// 		void PressRight(POINT p); ///< undo
-// 		void MouseMove(POINT p);
-// 		void Esc();
+//      void Init();
+//      void PressLeft(POINT p); ///< do
+//      void PressRight(POINT p); ///< undo
+//      void MouseMove(POINT p);
+//      void Esc();
 
-// 	private:
-// 		MeasureCalc m_calc;
-// 		MeasureDraw m_draw;
-// 		UpdateMeasure m_update;
-// 		MeasureMan* m_ptrMan;
+//  private:
+//      MeasureCalc m_calc;
+//      MeasureDraw m_draw;
+//      UpdateMeasure m_update;
+//      MeasureMan* m_ptrMan;
 
-// 		int m_step;
-// 		bool m_isDraw;
-// 		POINT m_tempP;
-// 		vector<POINT> m_vec;
-// 		double m_pg;
+//      int m_step;
+//      bool m_isDraw;
+//      POINT m_tempP;
+//      vector<POINT> m_vec;
+//      double m_pg;
 // };
 
 #endif

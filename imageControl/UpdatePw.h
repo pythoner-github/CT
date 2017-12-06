@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef UPDATE_PW_H
 #define UPDATE_PW_H
 
@@ -32,10 +31,10 @@ public:
     void SampleVolumeCW(int line, int dotPos);
     void SampleVolumeCWClear();
 
-	void SpectrumInvert(bool on);
+    void SpectrumInvert(bool on);
     /*
-	 * @brief update Pw total gain when it changed
-	 * @para gain value of pw gain
+     * @brief update Pw total gain when it changed
+     * @para gain value of pw gain
      */
     void GainPw(int gain);
 
@@ -45,32 +44,32 @@ public:
     void  SVLength(int len, EKnobReturn status);
     void  SVPos(double depth);
     /*
-	 * @brief update when correct angle is changed
-	 *
-	 * @para angle real angle, when angle is larger than 60 or less than -60, value display changed color to red
-	 */
-	void SetValueCorrectAngle(int angle);
-	void CorrectAngle(int angle, EKnobReturn status);
-	void PRF(int data, EKnobReturn status);
-	void PRFMax(int data, EKnobReturn status);
+     * @brief update when correct angle is changed
+     *
+     * @para angle real angle, when angle is larger than 60 or less than -60, value display changed color to red
+     */
+    void SetValueCorrectAngle(int angle);
+    void CorrectAngle(int angle, EKnobReturn status);
+    void PRF(int data, EKnobReturn status);
+    void PRFMax(int data, EKnobReturn status);
     void PRFRange(int data, EKnobReturn status);
-	void Baseline(int index, int maxIndex, EKnobReturn status);
-	void Steer(int angle, EKnobReturn status);
-	void WallFilter(int index, EKnobReturn status);
-	void DynamicRange(int index, EKnobReturn status);
-	void Speed(int index, EKnobReturn status);
-	void SoundVolume(int index, EKnobReturn status);
-	void Simult(bool on, EKnobReturn status);
-	void HPRF(bool on, EKnobReturn status);
-	void GrayMap(int index, EKnobReturn status);
-	void SoundStatus(int index, EKnobReturn status);
-	void Noise(int data, EKnobReturn status);
-	void Log(int value, EKnobReturn status);
+    void Baseline(int index, int maxIndex, EKnobReturn status);
+    void Steer(int angle, EKnobReturn status);
+    void WallFilter(int index, EKnobReturn status);
+    void DynamicRange(int index, EKnobReturn status);
+    void Speed(int index, EKnobReturn status);
+    void SoundVolume(int index, EKnobReturn status);
+    void Simult(bool on, EKnobReturn status);
+    void HPRF(bool on, EKnobReturn status);
+    void GrayMap(int index, EKnobReturn status);
+    void SoundStatus(int index, EKnobReturn status);
+    void Noise(int data, EKnobReturn status);
+    void Log(int value, EKnobReturn status);
     void AutoCalc(bool on);
     void AutoStatus(bool on);
 
-	void DisablePRF();
-	// for test
+    void DisablePRF();
+    // for test
     void SoundFilter(int data, EKnobReturn status);
 
     void EnterPwMode();
@@ -96,10 +95,10 @@ public:
 
     void ChangeFormatPw(int format);
 
-	// pw post process
-	void TimeRes(int index, EKnobReturn status);
+    // pw post process
+    void TimeRes(int index, EKnobReturn status);
 
-	void TimeMarkPw(bool on);
+    void TimeMarkPw(bool on);
 
 private:
     ImageAreaPara *m_ptrImgPara;

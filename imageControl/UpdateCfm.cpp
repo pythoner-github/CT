@@ -5,8 +5,9 @@
 #include "display/ImageAreaPara.h"
 #include "display/ImageAreaDraw.h"
 #include "display/KnobMenu.h"
-#include "probe/MenuBiopsy.h"//2016.09.18--hy
+#include "probe/MenuBiopsy.h"
 #include "ViewMain.h"
+
 const char * Toggle_Cfm[2] =
 {
     N_("OFF"),
@@ -22,9 +23,9 @@ UpdateCfm::UpdateCfm()
 
 void UpdateCfm::SetBoxStatus(bool changeSize)
 {
-	m_ptrImgDraw->ClearCfmBox();
-	m_ptrImgDraw->SetCfmBoxDashStatus(changeSize);
-	m_ptrImgDraw->ReDrawCfmBoxForFreeze();
+    m_ptrImgDraw->ClearCfmBox();
+    m_ptrImgDraw->SetCfmBoxDashStatus(changeSize);
+    m_ptrImgDraw->ReDrawCfmBoxForFreeze();
 }
 
 void UpdateCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
@@ -45,8 +46,8 @@ void UpdateCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
             m_ptrImgDraw->ReDrawSV();
         }
 #else
-	m_ptrImgDraw->ClearSV();
-	m_ptrImgDraw->ReDrawSV();
+    m_ptrImgDraw->ClearSV();
+    m_ptrImgDraw->ReDrawSV();
 #endif
     }
     else if (ModeStatus::IsCWColorMode()) {
@@ -56,50 +57,50 @@ void UpdateCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
 }
 void UpdateCfm::BoxClear()
 {
-	m_ptrImgDraw->Update();
-	m_ptrImgDraw->ClearCfmBox();
+    m_ptrImgDraw->Update();
+    m_ptrImgDraw->ClearCfmBox();
 }
 void UpdateCfm::BoxReDraw()
 {
-	m_ptrImgDraw->Update();
-	m_ptrImgDraw->ReDrawCfmBox();
+    m_ptrImgDraw->Update();
+    m_ptrImgDraw->ReDrawCfmBox();
 }
 void UpdateCfm::GainCfm(int gain)
 {
-	m_ptrImgPara->UpdateCfmGain(gain);
+    m_ptrImgPara->UpdateCfmGain(gain);
 }
 void UpdateCfm::PRF(int data, EKnobReturn status)
 {
     bool draw;
 
-	sprintf(m_str, "%.2fKHz", (float)data/1000);
-	SyncKnobCfm(CFM_SCALE, m_str, status);
-	if (ModeStatus::IsColorImgMode() || ModeStatus::IsSpectrumColorMode())
+    sprintf(m_str, "%.2fKHz", (float)data/1000);
+    SyncKnobCfm(CFM_SCALE, m_str, status);
+    if (ModeStatus::IsColorImgMode() || ModeStatus::IsSpectrumColorMode())
         draw = TRUE;
-	else
+    else
         draw = FALSE;
     m_ptrImgPara->UpdateCfmPRF(data, draw);
 }
 void UpdateCfm::PRFRange(int data, EKnobReturn status)
 {
-	sprintf(m_str, "%.2fKHz", (float)data/1000);
-	SyncKnobCfm(CFM_SCALE, m_str, status);
+    sprintf(m_str, "%.2fKHz", (float)data/1000);
+    SyncKnobCfm(CFM_SCALE, m_str, status);
 }
 void UpdateCfm::Baseline(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_BASELINE, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_BASELINE, m_str, status);
 }
 void UpdateCfm::WallFilter(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_WALL_FILTER, m_str, status);
-	m_ptrImgPara->UpdateCfmWF(index);
-	ImageArea::GetInstance()->UpdateImgArea();
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_WALL_FILTER, m_str, status);
+    m_ptrImgPara->UpdateCfmWF(index);
+    ImageArea::GetInstance()->UpdateImgArea();
 }
 #if 0
 char * LineDensityLevel[] = {
-	_("LOW"),
+    _("LOW"),
     _("HIGH")
 };
 #endif
@@ -107,28 +108,28 @@ void UpdateCfm::LineDensity(int index, EKnobReturn status)
 {
 
     const char * Level[2] = {
- 	N_("LOW"),
-	N_("HIGH")
+    N_("LOW"),
+    N_("HIGH")
     };
 
-	SyncKnobCfm(CFM_LINE_DENSITY,(char*)Level[index], status);
+    SyncKnobCfm(CFM_LINE_DENSITY,(char*)Level[index], status);
     //m_ptrImgPara->Update2DLineDensity(index);
 }
 void UpdateCfm::PacketSize(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_SENSITIVE, m_str, status);
-	m_ptrImgPara->UpdateCfmSensitive(index);
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_SENSITIVE, m_str, status);
+    m_ptrImgPara->UpdateCfmSensitive(index);
 }
 void UpdateCfm::ColorMap(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_MAP, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_MAP, m_str, status);
 }
 void UpdateCfm::Turbo(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_TURBO, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_TURBO, m_str, status);
 }
 
 void UpdateCfm::ScanLines()
@@ -152,12 +153,12 @@ void UpdateCfm::SetVelRange(double max, double min, double maxKHz, double minKHz
 
 void UpdateCfm::ColorInvert(bool data, EKnobReturn status)
 {
-	SyncKnobCfm(CFM_INVERT, (char*)Toggle_Cfm[data], status);
+    SyncKnobCfm(CFM_INVERT, (char*)Toggle_Cfm[data], status);
 }
 void UpdateCfm::FlowOpt(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	SyncKnobCfm(CFM_FLOW_OPT, m_str, status);
+    sprintf(m_str, "%d", index);
+    SyncKnobCfm(CFM_FLOW_OPT, m_str, status);
 }
 
 void UpdateCfm::FocPosRatio(int index, EKnobReturn status)
@@ -168,7 +169,7 @@ void UpdateCfm::FocPosRatio(int index, EKnobReturn status)
         sprintf(m_str, "1/2");
     else
         sprintf(m_str, "3/4");
-	SyncKnobCfm(CFM_FOC_POS, m_str, status);
+    SyncKnobCfm(CFM_FOC_POS, m_str, status);
 }
 
 void UpdateCfm::EnterCfm()
@@ -219,13 +220,13 @@ void UpdateCfm::EnterCfmImg(bool update)
     m_ptrImgPara->ReDrawTransducer();
 #endif
 
-	 g_menuBiopsy.UpdateBiopsyLine();//2016.09.18--hy
+     g_menuBiopsy.UpdateBiopsyLine();//2016.09.18--hy
 
 }
 
 void UpdateCfm::EnterPdi()
 {
-	EnterCfm();
+    EnterCfm();
 }
 
 void UpdateCfm::EnterCfmVs2D(void)
@@ -246,7 +247,7 @@ void UpdateCfm::ChangeFormatCfm(int format)
     m_ptrImgDraw->ReDrawCfmBox();
     m_ptrImgDraw->ReDrawFocus();
 
-	ImageArea::GetInstance()->RedrawBodyMarkWhenModeChanged();
+    ImageArea::GetInstance()->RedrawBodyMarkWhenModeChanged();
 #ifdef TRANSDUCER
     m_ptrImgPara->ReDrawTransducer();
 #endif
@@ -259,7 +260,7 @@ void UpdateCfm::ChangeCurrentImgBB(int current)
     m_ptrImgDraw->UnSetCfmBoxFreeze();
     m_ptrImgDraw->ReDrawCfmBox();
 
-//	ImageArea::GetInstance()->ChangeCurrentBDMK(current);
+//  ImageArea::GetInstance()->ChangeCurrentBDMK(current);
 }
 
 //解决解冻后box有错误的问题 zjx
@@ -270,7 +271,7 @@ void UpdateCfm::ChangeCurrentImg4BForFreeze(int current)
     m_ptrImgDraw->UnSetCfmBoxFreeze();
     m_ptrImgDraw->ReDrawCfmBox();
 
-    //	ImageArea::GetInstance()->ChangeCurrentBDMK(current);
+    //  ImageArea::GetInstance()->ChangeCurrentBDMK(current);
 }
 
 void UpdateCfm::ChangeCurrentImg4B(int current)
@@ -287,7 +288,7 @@ void UpdateCfm::ChangeCurrentImg4B(int current)
     m_ptrImgDraw->UnSetCfmBoxFreeze();
     m_ptrImgDraw->ReDrawCfmBox();
 
-//	ImageArea::GetInstance()->ChangeCurrentBDMK(current);
+//  ImageArea::GetInstance()->ChangeCurrentBDMK(current);
 }
 
 void UpdateCfm::ColorTable(unsigned char table[][4], int len, int width, int bitDepth)
@@ -298,77 +299,77 @@ void UpdateCfm::ColorTable(unsigned char table[][4], int len, int width, int bit
 // post process
 void UpdateCfm::BackgroundHide(bool on)
 {
-	g_menuCFM.UpdateBackgroundHide(on);
+    g_menuCFM.UpdateBackgroundHide(on);
 }
 void UpdateCfm::BCWidth(bool on)
 {
-	g_menuCFM.UpdateBCWidth(on);
+    g_menuCFM.UpdateBCWidth(on);
 }
 void UpdateCfm::CfmCompare(bool on)
 {
-	g_menuCFM.UpdateCfmCompare(on);
+    g_menuCFM.UpdateCfmCompare(on);
 }
 void UpdateCfm::PdiDirStatus(bool on)
 {
-	g_menuCFM.UpdatePdiDir(on);
+    g_menuCFM.UpdatePdiDir(on);
 }
 void UpdateCfm::Threshold(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuCFM.UpdateThreshold(m_str, status);
+    sprintf(m_str, "%d", index);
+    g_menuCFM.UpdateThreshold(m_str, status);
 }
 void UpdateCfm::Persist(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuCFM.UpdatePersist(m_str, status);
-	m_ptrImgPara->UpdateCfmPersist(index);
+    sprintf(m_str, "%d", index);
+    g_menuCFM.UpdatePersist(m_str, status);
+    m_ptrImgPara->UpdateCfmPersist(index);
 }
 
 void UpdateCfm::Reject(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuCFM.UpdateReject(m_str, status);
+    sprintf(m_str, "%d", index);
+    g_menuCFM.UpdateReject(m_str, status);
 }
 
 void UpdateCfm::Smooth(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuCFM.UpdateSmooth(m_str, status);
+    sprintf(m_str, "%d", index);
+    g_menuCFM.UpdateSmooth(m_str, status);
 }
 
 void UpdateCfm::Artifact(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-	g_menuCFM.UpdateArtifact(m_str, status);
+    sprintf(m_str, "%d", index);
+    g_menuCFM.UpdateArtifact(m_str, status);
 }
 
 ///////////////////////////////  test  //////////////////////////////////////
 void UpdateCfm::TissueGate(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-//	SyncKnobCfm(CFM_TISSUE, m_str, status);
+    sprintf(m_str, "%d", index);
+//  SyncKnobCfm(CFM_TISSUE, m_str, status);
 }
 
 void UpdateCfm::NoiseGate(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-//	SyncKnobCfm(CFM_NOISE, m_str, status);
+    sprintf(m_str, "%d", index);
+//  SyncKnobCfm(CFM_NOISE, m_str, status);
 }
 
 void UpdateCfm::SpeedGate(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-//	SyncKnobCfm(CFM_RATE, m_str, status);
+    sprintf(m_str, "%d", index);
+//  SyncKnobCfm(CFM_RATE, m_str, status);
 }
 
 void UpdateCfm::VarianceGate(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-//	SyncKnobCfm(CFM_VARIANCE, m_str, status);
+    sprintf(m_str, "%d", index);
+//  SyncKnobCfm(CFM_VARIANCE, m_str, status);
 }
 
 void UpdateCfm::GainGate(int index, EKnobReturn status)
 {
-	sprintf(m_str, "%d", index);
-//	SyncKnobCfm(CFM_GAIN_GATE, m_str, status);
+    sprintf(m_str, "%d", index);
+//  SyncKnobCfm(CFM_GAIN_GATE, m_str, status);
 }

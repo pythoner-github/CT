@@ -27,7 +27,7 @@ public:
 
 private:
     static ExamItem::EItem m_itemIndex;
-	static int m_socketIndex;
+    static int m_socketIndex;
 
     ProbeMan* m_ptrProbe;
     ExamItem m_e;

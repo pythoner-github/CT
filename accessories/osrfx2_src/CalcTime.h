@@ -5,15 +5,15 @@
 
 class CalcTime
 {
-	public:
-		CalcTime();
-		~CalcTime() {}
+    public:
+        CalcTime();
+        ~CalcTime() {}
 
-		void Begin();
-		float End();
+        void Begin();
+        float End();
 
-	private:
-		struct timeval m_start;
-		struct timeval m_end;
+    private:
+        struct timeval m_start;
+        struct timeval m_end;
 };
 #endif

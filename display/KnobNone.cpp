@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: KnobNone.cpp
- * @brief: knob in no knob func
- *
- * version: V1.0
- * date: 2009-11-30
- * @author: zhanglei
- */
-
 #include "display/KnobMenu.h"
 #include "display/KnobNone.h"
 #include "imageProc/KnobReplay.h"
@@ -20,22 +9,23 @@
 #include "imageProc/ModeStatus.h"
 #include "imageProc/ScanMode.h"
 #include "imageControl/KnobEFOV.h"
+
 #ifdef EMP_322
 KnobMenu::KnobItem KnobNoneMenu[6] = {
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 };
 #else
 KnobMenu::KnobItem KnobNoneMenu[5] = {
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL},
 };
 #endif
 void KnobNoneCreate()
@@ -45,8 +35,8 @@ void KnobNoneCreate()
 
 void KnobUndo()
 {
-	ModeStatus ms;
-	ScanMode::EScanMode mode = ms.GetScanMode();
+    ModeStatus ms;
+    ScanMode::EScanMode mode = ms.GetScanMode();
 
     if ((mode == ScanMode::EFOV) && !(Replay::GetInstance()->GetReadSnapStatus())) {
         ScanMode::EFOVStatus status = ScanMode::GetInstance()->GetEFOVStatus();
@@ -108,9 +98,9 @@ void KnobUndo()
             break;
         }
     } else {
-		if(Replay::GetInstance()->GetReadSnapStatus())
-			KnobLoadSnapCreate();
-		else
-			KnobReplayCreate();
+        if(Replay::GetInstance()->GetReadSnapStatus())
+            KnobLoadSnapCreate();
+        else
+            KnobReplayCreate();
     }
 }

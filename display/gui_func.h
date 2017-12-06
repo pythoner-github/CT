@@ -50,10 +50,10 @@ GtkWidget* create_combobox(guint width, guint height, const char *layouttype, Gt
 GtkWidget* create_combo_box_with_text(const int width, const int height, const std::vector<std::string> text);
 GtkWidget* create_pixmap(const gchar *filename);
 PangoLayout * create_pango_text(GtkWidget *widget,
-				const char *text,
-				int width,
-				PangoFontDescription *font,
-				const GdkColor* const color);
+                const char *text,
+                int width,
+                PangoFontDescription *font,
+                const GdkColor* const color);
 
 void doKeyEvent(const unsigned int keycode, int is_press);
 void doBtnEvent(const unsigned int button, int is_press);

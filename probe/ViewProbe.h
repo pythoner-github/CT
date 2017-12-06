@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef VIEWPROBE_H
 #define VIEWPROBE_H
 
@@ -90,7 +89,7 @@ private:
 
     static gboolean HandleTreeViewButtonClick(GtkWidget *widget, GdkEventButton *event, ViewProbe *data) {
             data->TreeViewBtnClicked(widget, event);
-			return TRUE;
+            return TRUE;
     }
 };
 #endif

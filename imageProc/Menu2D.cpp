@@ -25,17 +25,17 @@ CusSpin::CusSpinItem Menu2D::item_imgEhn = {N_("ePure"), "0", OK, ChgImgEhn};
 
 Menu2D::Menu2D(void)
 {
-	m_table = 0;
+    m_table = 0;
 }
 
 void Menu2D::Hide(void)
 {
-	gtk_widget_hide_all(m_table);
+    gtk_widget_hide_all(m_table);
 }
 
 void Menu2D::Show(void)
 {
-	gtk_widget_show_all(m_table);
+    gtk_widget_show_all(m_table);
 
     if (ModeStatus::IsSpectrumColorMode())
     {
@@ -47,21 +47,21 @@ void Menu2D::Show(void)
 
 void Menu2D::ForeachWidget(GtkWidget *widget)
 {
-	if(widget != m_btn4B)
-		gtk_widget_set_sensitive(widget, (bool)m_sensitive);
+    if(widget != m_btn4B)
+        gtk_widget_set_sensitive(widget, (bool)m_sensitive);
 }
 
 void Menu2D::Sensitive(bool on)
 {
-	m_sensitive = on;
+    m_sensitive = on;
 
-	GList *list = NULL;
-	list = gtk_container_get_children(GTK_CONTAINER(m_table));
-	if(list)
-	{
-		g_list_foreach(list, (GFunc)(HandleForeachWidget), this);
-		g_list_free(list);
-	}
+    GList *list = NULL;
+    list = gtk_container_get_children(GTK_CONTAINER(m_table));
+    if(list)
+    {
+        g_list_foreach(list, (GFunc)(HandleForeachWidget), this);
+        g_list_free(list);
+    }
 }
 
 GtkWidget* Menu2D::Create(void)
@@ -127,7 +127,7 @@ GtkWidget* Menu2D::Create(void)
     gtk_table_attach_defaults(GTK_TABLE(m_table), btn_gray_trans, 0, 1, 9, 10);
     g_signal_connect(btn_gray_trans, "clicked", G_CALLBACK(HandleBtnTrans), this);
     gtk_button_set_focus_on_click(GTK_BUTTON(btn_gray_trans), FALSE);
-//	gtk_button_set_focus_on_click(GTK_BUTTON(btn_gray_trans), true);//test-2016.08.11
+//  gtk_button_set_focus_on_click(GTK_BUTTON(btn_gray_trans), true);//test-2016.08.11
 
     //gray rejection
     m_labelGrayReject = create_label("", 0, 0, g_lightGray, NULL);
@@ -223,11 +223,11 @@ void Menu2D::UpdateLabel(void)
 
 void Menu2D::UpdatePolarity(bool on)
 {
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_polarity),on);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_polarity),on);
 }
 void Menu2D::UpdateNoiseReject(bool on)
 {
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_restric),on);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_check_btn_restric),on);
 }
 void Menu2D::UpdateFrame(const char* str, EKnobReturn status)
 {
@@ -236,49 +236,49 @@ void Menu2D::UpdateFrame(const char* str, EKnobReturn status)
 
 void Menu2D::UpdateRotate(const char* str, EKnobReturn status)
 {
-	spin_rotate.SetValue(str, status);
+    spin_rotate.SetValue(str, status);
 }
 
 void Menu2D::UpdateLine(const char* str, EKnobReturn status)
 {
-	spin_line.SetValue(str, status);
+    spin_line.SetValue(str, status);
 }
 
 void Menu2D::UpdateSmooth(const char* str, EKnobReturn status)
 {
-	spin_smooth.SetValue(str, status);
+    spin_smooth.SetValue(str, status);
 }
 
 void Menu2D::UpdateGamma(const char* str, EKnobReturn status)
 {
-	spin_gamma.SetValue(str, status);
+    spin_gamma.SetValue(str, status);
 }
 
 void Menu2D::UpdateImgEhn(const char* str, EKnobReturn status)
 {
-	spin_imgEhn.SetValue(str, status);
+    spin_imgEhn.SetValue(str, status);
 }
 
 ///> private
 void Menu2D::ChkPolarity(GtkButton *button)
 {
-	gboolean value;
-	value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
-	ImgProc2D::GetInstance()->ChangePolarity(value);
+    gboolean value;
+    value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
+    ImgProc2D::GetInstance()->ChangePolarity(value);
 }
 
 void Menu2D::ChkNoiseReject(GtkButton *button)
 {
-	gboolean value;
-	value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
-	ImgProc2D::GetInstance()->ChangeNoiseReject(value);
+    gboolean value;
+    value = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button));
+    ImgProc2D::GetInstance()->ChangeNoiseReject(value);
 }
 
 void Menu2D::BtnTrans(GtkButton *button)
 {
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::GRAY_TRANS);
-	//KeyEndExam kee;
-	//kee.Execute();
+    //KeyEndExam kee;
+    //kee.Execute();
 }
 
 void Menu2D::BtnReject(GtkButton *button)
@@ -291,7 +291,7 @@ void Menu2D::BtnReject(GtkButton *button)
 void Menu2D::BtnGlobalZoom(GtkButton *button)
 {
     int rotate = ImgProc2D::GetInstance()->GetRotate();
-	ModeStatus ms;
+    ModeStatus ms;
     if (ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B) && ms.IsUnFreezeMode())
     {
         if (rotate == 0)
@@ -311,15 +311,15 @@ void Menu2D::BtnGlobalZoom(GtkButton *button)
 
 void Menu2D::BtnPIP(GtkButton *button)
 {
-	ModeStatus ms;
+    ModeStatus ms;
     if (ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B) && ms.IsUnFreezeMode())
     {
         MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::PIP_ZOOM);
     }
-	else
+    else
     {
 #if (defined(EMP_322) || defined(EMP_313))
-		HintArea::GetInstance()->UpdateHint(_("[PIP]: Only valid in B mode and UnFreeze status."), 1);
+        HintArea::GetInstance()->UpdateHint(_("[PIP]: Only valid in B mode and UnFreeze status."), 1);
 #else
         HintArea::GetInstance()->UpdateHint(_("[PIP]: Only valid in 2D B mode and UnFreeze status."), 1);
 #endif
@@ -368,8 +368,8 @@ void Menu2D::Btn4B(GtkButton *button)
 
 void Menu2D::ChgRotate(EKnobOper oper)
 {
-	ModeStatus ms;
-	if ((ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B)))
+    ModeStatus ms;
+    if ((ms.IsD2Mode() && (ms.GetFormat2D() == Format2D::B)))
     {
 #if 0
         if (CDrawIMT::GetInstance()->UpdateIMTStatus())
@@ -391,27 +391,27 @@ void Menu2D::ChgRotate(EKnobOper oper)
 
 void Menu2D::ChgFrame(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeFrameAver(oper);
+    ImgProc2D::GetInstance()->ChangeFrameAver(oper);
 }
 
 void Menu2D::ChgLine(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeLineAver(oper);
+    ImgProc2D::GetInstance()->ChangeLineAver(oper);
 }
 
 void Menu2D::ChgSmooth(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeSmooth(oper);
+    ImgProc2D::GetInstance()->ChangeSmooth(oper);
 }
 
 void Menu2D::ChgGamma(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeGamma(oper);
+    ImgProc2D::GetInstance()->ChangeGamma(oper);
 }
 
 void Menu2D::ChgImgEhn(EKnobOper oper)
 {
-	ImgProc2D::GetInstance()->ChangeImgEhn(oper);
+    ImgProc2D::GetInstance()->ChangeImgEhn(oper);
 }
 
 void Menu2D::BtnEnterEFOV(GtkButton *button)
