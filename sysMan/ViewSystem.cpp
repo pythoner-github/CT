@@ -6278,7 +6278,7 @@ GtkWidget* ViewSystem::create_note_image(void)
     }
 
     // image enhance
-    label_imgEnh = gtk_label_new (_("ePure:"));
+    label_imgEnh = gtk_label_new (_("iPurity:"));
     gtk_widget_show (label_imgEnh);
     //gtk_fixed_put (GTK_FIXED (fixed_2d_m_mode), label_imgEnh, 5, 490);
     gtk_widget_set_size_request (label_imgEnh, -1, 30);

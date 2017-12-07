@@ -21,7 +21,7 @@ CusSpin::CusSpinItem Menu2D::item_frame = {N_("Frame aver."), "1", OK, ChgFrame}
 CusSpin::CusSpinItem Menu2D::item_line = {N_("Line aver."), "1", OK, ChgLine};
 CusSpin::CusSpinItem Menu2D::item_smooth = {N_("Smooth"), "1", OK, ChgSmooth};
 CusSpin::CusSpinItem Menu2D::item_gamma = {N_("Gamma"), "1", OK, ChgGamma};
-CusSpin::CusSpinItem Menu2D::item_imgEhn = {N_("ePure"), "0", OK, ChgImgEhn};
+CusSpin::CusSpinItem Menu2D::item_imgEhn = {N_("iPurity"), "0", OK, ChgImgEhn};
 
 Menu2D::Menu2D(void)
 {
@@ -175,7 +175,7 @@ GtkWidget* Menu2D::Create(void)
 
     // EFOV
 #ifdef EMP_3410
-    if(CManRegister::GetInstance()->IsAuthorize("eView"))
+    if(CManRegister::GetInstance()->IsAuthorize("pScape"))
     {
         m_labelEFOV = create_label("", 0, 0, g_lightGray, NULL);
         GtkWidget *btn_efov_mode = create_button(m_labelEFOV, 0, 0, g_deep);
@@ -214,10 +214,10 @@ void Menu2D::UpdateLabel(void)
     gtk_label_set_text(GTK_LABEL(m_labelPIP), _("Picture In Picture"));
     gtk_label_set_text(GTK_LABEL(m_label4B), _("4B"));
 #ifdef EMP_3410
-    if(CManRegister::GetInstance()->IsAuthorize("eView"))
-        gtk_label_set_text(GTK_LABEL(m_labelEFOV), _("eView Mode"));
+    if(CManRegister::GetInstance()->IsAuthorize("pScape"))
+        gtk_label_set_text(GTK_LABEL(m_labelEFOV), _("pScape Mode"));
 #else
-    gtk_label_set_text(GTK_LABEL(m_labelEFOV), _("eView Mode"));
+    gtk_label_set_text(GTK_LABEL(m_labelEFOV), _("pScape Mode"));
 #endif
 }
 

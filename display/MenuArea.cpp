@@ -825,7 +825,7 @@ void MenuArea::ShowEFOVPrepare(void)
 #endif
 
     HideAllOtherMenu();
-    gtk_label_set_text(GTK_LABEL(m_labelSub), _("eView Mode\n\nPrepare Status"));
+    gtk_label_set_text(GTK_LABEL(m_labelSub), _("pScape Mode\n\nPrepare Status"));
     g_menuEFOV.ShowPrepare();
 }
 void MenuArea::ShowEFOVCapture(void)
@@ -841,7 +841,7 @@ void MenuArea::ShowEFOVCapture(void)
 #endif
 
     HideAllOtherMenu();
-    gtk_label_set_text(GTK_LABEL(m_labelSub), _("eView Mode\n\nCapture Status"));
+    gtk_label_set_text(GTK_LABEL(m_labelSub), _("pScape Mode\n\nCapture Status"));
     g_menuEFOV.ShowCapture();
 }
 
@@ -858,7 +858,7 @@ void MenuArea::ShowEFOVView(void)
 #endif
 
     HideAllOtherMenu();
-    gtk_label_set_text(GTK_LABEL(m_labelSub), _("eView Mode\n\nView Status"));
+    gtk_label_set_text(GTK_LABEL(m_labelSub), _("pScape Mode\n\nView Status"));
     g_menuEFOV.ShowView();
 }
 
@@ -875,7 +875,7 @@ void MenuArea::ShowEFOVReview(void)
 #endif
 
     HideAllOtherMenu();
-    gtk_label_set_text(GTK_LABEL(m_labelSub), _("eView Mode\n\nReview Status"));
+    gtk_label_set_text(GTK_LABEL(m_labelSub), _("pScape Mode\n\nReview Status"));
     printf("---%s---\n", __FUNCTION__);
     g_menuEFOV.ShowReview();
 }

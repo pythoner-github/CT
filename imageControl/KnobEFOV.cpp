@@ -231,7 +231,7 @@ EKnobReturn KnobEFOVSavePressForG30(EKnobOper oper)
     {
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
                 ViewDialog::QUESTION,
-                _("eView cine is oversized. Intercept the cine automatically?"),
+                _("pScape cine is oversized. Intercept the cine automatically?"),
                 &SaveCine);
         return PRESS;
     } else {
@@ -245,7 +245,7 @@ EKnobReturn KnobEFOVSavePress(void)
     {
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
                 ViewDialog::QUESTION,
-                _("eView cine is oversized. Intercept the cine automatically?"),
+                _("pScape cine is oversized. Intercept the cine automatically?"),
                 &SaveCine);
         return PRESS;
     } else {

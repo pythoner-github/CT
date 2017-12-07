@@ -35,7 +35,7 @@ const string CManRegister::Optional[MAX_OPTIONAL_NUM] =
     "Anatomic M",
     "CW",
     "eFci",
-    "eView",
+    "pScape",
     "IMT",
 };
 
