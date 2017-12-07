@@ -133,10 +133,10 @@ class ImgPw
         static const int MIN_NOISE = 2;//add by yangyq
         static const int MAX_BASELINE_INDEX = 8; // range is (-MAX_BASELINE, MAX_BASELINE)
         static const int MAX_BASELINE = 128;
-#ifdef EMP_430
+#ifdef CT_430
         static const int MAX_GAIN_PW = 300;
         static const int FOC_LOW_TIME = 60;//20;//60;
-#elif defined EMP_355
+#elif defined CT_355
         static const int MAX_GAIN_PW = 400;
         static const int FOC_LOW_TIME = 20;
 #else

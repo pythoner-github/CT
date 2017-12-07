@@ -7,7 +7,7 @@ using namespace std;
 
 struct FpgaCtrl2D::FpgaAddrVariable2D FpgaCtrl2D::fpga;
 
-#ifdef EMP_460 //G40
+#ifdef CT_460 //G40
     AbsUltraInterface* FpgaCtrl2D::m_ptrInterface = PcieControl::GetInstance();
 #else
     AbsUltraInterface* FpgaCtrl2D::m_ptrInterface = EzUsb::GetInstance();
@@ -19,7 +19,7 @@ struct FpgaCtrl2D::FpgaAddrVariable2D FpgaCtrl2D::fpga;
 int FpgaCtrl2D::SendFocusPosition(INT32U focusBegin[4], INT32U focusEnd[4])
 {
     INT32U addr[4];
-#ifdef EMP_355
+#ifdef CT_355
     INT32U data[5];
 #else
     INT32U data[4];
@@ -37,7 +37,7 @@ int FpgaCtrl2D::SendFocusPosition(INT32U focusBegin[4], INT32U focusEnd[4])
     fpga.m_focus2 = ((focusEnd[1] & 0x3ff) << 16) + (focusBegin[1] & 0x3ff);
     fpga.m_focus3 = ((focusEnd[2] & 0x3ff) << 16) + (focusBegin[2] & 0x3ff);
     fpga.m_focus4 = ((focusEnd[3] & 0x3ff) << 16) + (focusBegin[3] & 0x3ff);
-#ifdef EMP_355
+#ifdef CT_355
     data[0] = focusBegin[0] & 0x3ff;
     data[1] = focusEnd[0] & 0x3ff;
     data[2] = focusEnd[1] & 0x3ff;
@@ -54,7 +54,7 @@ int FpgaCtrl2D::SendFocusPosition(INT32U focusBegin[4], INT32U focusEnd[4])
     PRINTF("0: focus2 addr--data: 0x%x--0x%x\n", addr[1], data[1]);
     PRINTF("0: focus3 addr--data: 0x%x--0x%x\n", addr[2], data[2]);
     PRINTF("0: focus4 addr--data: 0x%x--0x%x\n", addr[3], data[3]);
-#ifdef EMP_355
+#ifdef CT_355
     //focus 1
     INT8U focusIndex = 0;
     ret = m_ptrInterface->WriteOneDataToFpga(addr[0], focusIndex);
@@ -2804,7 +2804,7 @@ int FpgaCtrl2D::VGADisplay(INT16U para)
 
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 int FpgaCtrl2D::SendWaveData(INT8U *emitWave, INT32U pulseWidth, INT32U pulseNum, INT16U size)
 {
     INT32U addr;

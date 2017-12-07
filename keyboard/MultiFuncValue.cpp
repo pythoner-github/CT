@@ -130,7 +130,7 @@ void MultiFuncDepth::Undo()
 }
 
 ///> local zoom
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 void MultiFuncLocalZoom::Do()
 {
     n1++;
@@ -390,7 +390,7 @@ void MultiFuncGrayTrans::Value(EKnobOper opr)
 
 void MultiFuncGrayTrans::Do()
 {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
     ImgProc2D::GetInstance()->ResetGrayTrans();
 #endif
 

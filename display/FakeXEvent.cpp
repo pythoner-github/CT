@@ -5,14 +5,14 @@
 
 void FakeXEvent::KeyEvent(unsigned char keyValue)
 {
-#if defined(EMP_322)
+#if defined(CT_322)
     if(keyValue == KEY_CTRL_SHIFT_SPACE)
     {
         KeySwitchIM ksim;
         ksim.ExcuteChange(TRUE);
         return;
     }
-#elif defined(EMP_313)
+#elif defined(CT_313)
     {
         if (keyValue == KEY_ONE)
         {

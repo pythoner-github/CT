@@ -6,7 +6,7 @@
 #include "projectMode/KnobProjectMode.h"
 #include "display/KnobMenu.h"
 #include "projectMode/ProjectCalc2D.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 
 #if 1
 EKnobReturn D2ChgDemodSection(EKnobOper oper)

@@ -84,7 +84,7 @@ float Calc2DLinear::TIS_PW_BASIC[2][15] = //freq-prf
 ///>
 Calc2DLinear::Calc2DLinear()
 {
-#if defined(EMP_355)
+#if defined(CT_355)
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     if (strcmp("55L60G", para.model)==0)
@@ -354,7 +354,7 @@ void Calc2DLinear::CalcFilterBandPass(int order)
     depth[3] = 100;
     depth[4] = 120;
 
-#if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+#if (defined(CT_340) || defined(CT_430) || defined(CT_360) || (defined(CT_161)) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     float fc_bandpass_filter1[5], fc_bandpass_filter2[5];
 
         if(m_calcPara->harmonic)
@@ -455,7 +455,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
 
     if(freq < 100)
     {
-#ifdef EMP_430
+#ifdef CT_430
         fd[0] = 7.5;
         fd[1] = 6.5;
         fd[2] = 5.0;
@@ -466,7 +466,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
         fd_harmonic[2] = 7.5;
         fd_harmonic[3] = 7.0;
         fd_harmonic[4] = 6.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
         fd[0] = 7.0;
         fd[1] = 6.5;
         fd[2] = 6.2;
@@ -492,7 +492,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
     }
     else if(freq >= 100 && freq < 115)
     {
-#ifdef EMP_430
+#ifdef CT_430
         fd[0] = 7.5;
         fd[1] = 6.5;
         fd[2] = 5.0;
@@ -503,7 +503,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
         fd_harmonic[2] = 8.0;
         fd_harmonic[3] = 7.5;
         fd_harmonic[4] = 7.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
         fd[0] = 7.0;
         fd[1] = 6.5;
         fd[2] = 5.5;//6.2;
@@ -530,7 +530,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
     }
     else if (freq>=115 && freq<130)
     {
-#ifdef EMP_430
+#ifdef CT_430
         fd[0] = 7.5;
         fd[1] = 6.5;
         fd[2] = 5.0;
@@ -541,7 +541,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
         fd_harmonic[2] = 10.9;
         fd_harmonic[3] = 10.9;
         fd_harmonic[4] = 11.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
         fd[0] = 7.5;
         fd[1] = 7.0;
         fd[2] = 6.5;
@@ -567,13 +567,13 @@ void Calc2DLinear::CalcDynamicDemod(int order)
     }
     else if (freq>=130 && freq<150)
     {
-#ifdef EMP_430
+#ifdef CT_430
         fd[0] = 8.0;//7.5;//9.0;//10.2;// 6.2;
         fd[1] = 6.8;//7.0;//8.0;//8.6;// 5.5;
         fd[2] = 3.8;//6.5;//5.0;//7.2;// 5.3;
         fd[3] = 3.2;//6.0;//2.9;//5.6;// 5.1;
         fd[4] = 3.0;//5.0;//2.4;//5.2;// 3.6;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
         fd[0] = 7.5;
         fd[1] = 7.0;
         fd[2] = 6.5;
@@ -594,13 +594,13 @@ void Calc2DLinear::CalcDynamicDemod(int order)
     }
     else if (freq>=150 && freq<180)
     {
-#ifdef EMP_430
+#ifdef CT_430
         fd[0] = 8.8;
         fd[1] = 7.2;
         fd[2] = 4.4;
         fd[3] = 3.4;
         fd[4] = 3.2;//3.2;//5.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
         fd[0] = 9.0;
         fd[1] = 8.5;
         fd[2] = 7.5;
@@ -656,7 +656,7 @@ void Calc2DLinear::CalcDynamicDemod(int order)
             if (strcmp(probe_type.c_str(), PROBE_LIST[i].c_str()) == 0)
                 probeIndex = i;
         }
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         if (m_projectCalcPara->filterSecIndex)
         {
             for(i = 0; i < 5; i++)

@@ -92,7 +92,7 @@ void ViewIcon::Create(void)
     gtk_table_attach_defaults (GTK_TABLE (m_table), m_printer, 5, 6, 0, 1);
 #endif
 
-#ifdef EMP_355
+#ifdef CT_355
     InitCharge();
 #endif
 

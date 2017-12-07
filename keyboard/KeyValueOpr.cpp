@@ -237,7 +237,7 @@ void KeyValueOpr::SendKeyValue( unsigned char *keyValue )
                 else if (y < -128)
                     y = -128;
 
-#ifdef EMP_355
+#ifdef CT_355
                 WinOprStack[total-1]->MouseEvent(-x, -y);
 #else
                 WinOprStack[total-1]->MouseEvent(x, y);
@@ -245,7 +245,7 @@ void KeyValueOpr::SendKeyValue( unsigned char *keyValue )
             }
             else if (s_enableMouse == m_mouseSpeed)
             {
-#ifdef EMP_355
+#ifdef CT_355
                 WinOprStack[total-1]->MouseEvent(-keyValue[1], -keyValue[2]);
 #else
                 WinOprStack[total-1]->MouseEvent(keyValue[1], keyValue[2]);

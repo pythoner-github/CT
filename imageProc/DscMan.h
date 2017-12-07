@@ -40,7 +40,7 @@ class DscMan
 
         DSCCONTROLATTRIBUTES m_dscPara;
         CDSC* m_ptrDsc;
-#ifdef EMP_355
+#ifdef CT_355
         CReceive *m_receive;
 #endif
         FpgaReceive m_fpgaReceive;
@@ -48,7 +48,7 @@ class DscMan
         //pthread
         bool m_lockIsCreate; // if or not the lock is create.
         pthread_mutex_t m_pthreadLock;
-#ifdef EMP_355
+#ifdef CT_355
         pthread_mutex_t m_pthreadLock1;
         pthread_mutex_t m_pthreadLock2;
 #endif
@@ -81,7 +81,7 @@ inline CDSC* DscMan::GetDsc()
 
 inline bool DscMan::GetWriteLock()
 {
-#ifdef EMP_355
+#ifdef CT_355
     pthread_mutex_lock(&m_pthreadLock1);
 #endif
     if (m_lockIsCreate)
@@ -95,7 +95,7 @@ inline bool DscMan::GetWriteLock()
 }
 inline bool DscMan::ReadWriteUnlock()
 {
-#ifdef EMP_355
+#ifdef CT_355
     pthread_mutex_unlock(&m_pthreadLock1);
 #endif
     if (m_lockIsCreate)

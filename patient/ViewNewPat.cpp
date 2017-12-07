@@ -649,7 +649,7 @@ void ViewNewPat::CreateWindow(void)
     button_new_exam = create_button_icon(label_new_exam, image_new_exam);
     gtk_fixed_put (GTK_FIXED (fixed_window), button_new_exam, 280, 560);
 #ifndef VET
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -2099,7 +2099,7 @@ void ViewNewPat::BtnOkClicked(GtkButton *button)
     db.GetExamIDNext(info.e.examNum);
 #ifndef VET
     //MPPS
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -2401,7 +2401,7 @@ void ViewNewPat::BtnExamEndClicked(GtkButton *button)
 
     g_patientInfo.SetInfo(info);
 #ifndef VET
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())

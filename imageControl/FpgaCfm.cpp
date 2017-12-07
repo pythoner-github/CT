@@ -4,7 +4,7 @@
 
 struct FpgaCfm::FpgaAddrVariableCfm FpgaCfm::fpgaCfm;
 
-#ifdef EMP_460 //G40
+#ifdef CT_460 //G40
     AbsUltraInterface* FpgaCfm::m_ptrInterface = PcieControl::GetInstance();
 #else
     AbsUltraInterface* FpgaCfm::m_ptrInterface = EzUsb::GetInstance();

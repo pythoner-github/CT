@@ -19,7 +19,7 @@ const Calc2D::LogPair Calc2D::m_logPara[MAX_DYNAMIC_INDEX] = {
 ///> tgc
 const int Calc2D::TGC_X[8] = {0, 15, 30, 60, 90, 130, 170, 210};    //240点 8段
 const int Calc2D::TGC_CTL_DEFAULT[4] = {90,140,12,60};
-#ifdef EMP_430
+#ifdef CT_430
 //A60 tgc curve
 const int Calc2D::TGC_FIEXD_35C60E[TGC_DOTS] = {
 //black-white
@@ -74,7 +74,7 @@ const int Calc2D::TGC_FIEXD_65C15D[TGC_DOTS] = {
     256, 256, 257, 257, 257, 257, 258, 258, 258, 258, 259, 259
 };
 //线阵
-//#ifdef EMP_430
+//#ifdef CT_430
 const int Calc2D::TGC_FIEXD_65L40E[TGC_DOTS] = {
     84, 90, 95, 100, 106, 111, 115, 115,
     115, 115, 115, 115, 115, 115, 115, 116,
@@ -189,7 +189,7 @@ const int Calc2D::EMIT_CH_NUM_C[20] =   {6, 8, 10, 12, 14, 16, 18,  20, 22, 24, 
 //variable
 struct Calc2D::CalcPara* Calc2D::m_calcPara = NULL;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 struct Calc2D::ProjectCalcPara* Calc2D::m_projectCalcPara = NULL;
 #endif
 
@@ -321,7 +321,7 @@ void Calc2D::CalcSample()
     int depth = m_calcPara->depth;
     int depthDots = m_calcPara->depthDots;
     double speed = m_calcPara->soundSpeed;
-#ifdef EMP_355
+#ifdef CT_355
     int sample60 = (int)(speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);  //60MHz采样频率, 采样数据
 #else
     int sample60 = (int)(INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5); //60MHz采样频率, 采样数据
@@ -404,7 +404,7 @@ float Calc2D::CalcRealScanAngle()
     }
     else
     {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         {
 
@@ -447,7 +447,7 @@ int Calc2D::CalcFPS(void)
 void Calc2D::CalcCwLinesDelay(void)
 {
     bool isCw = m_calcPara->modeCw;
-#ifdef EMP_355
+#ifdef CT_355
    if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
     if (isCw)
@@ -556,7 +556,7 @@ void Calc2D::CalcReceiveDelayColor()
 void Calc2D::CalcReceiveAperture()
 {
     bool compound = m_calcPara->compoundSpaceCtrl || m_calcPara->compoundFreqCtrl;
-#ifdef EMP_430
+#ifdef CT_430
     CReceiveApertureU16(compound);
 #else
     CReceiveAperture(compound);
@@ -576,7 +576,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
 {
     //digital tgc cycle
     int depth = m_calcPara->depth;
-#ifdef EMP_355
+#ifdef CT_355
     int dots = IMG_H * INIT_SCALE;
 #else
     int dots = IMG_H;
@@ -601,10 +601,10 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
     int min;
     if ((section == 0) || (section == 1)) //2D or M
     {
-#ifdef EMP_430
+#ifdef CT_430
         max = 300;
         min = 4;
-#elif defined EMP_355
+#elif defined CT_355
         max = 500;
         min = 4;
 #else
@@ -617,7 +617,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
                 tgc = m_tgcFlexibel[0];
             else
             {
-#ifdef EMP_430
+#ifdef CT_430
                 int y = (int) (i -delayDot) * size1 / dots;
                 if (y >= TGC_DOTS)
                     y = TGC_DOTS - 1;
@@ -633,7 +633,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
             digitalTgc[i] = value;
         }
 
-#ifdef EMP_430
+#ifdef CT_430
         //解决tgc在调节的时候突变太大，导致有黑白条问题。
         int digitalTgcTemp[size];
         int sum = 0;
@@ -654,7 +654,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
             digitalTgc[i] = digitalTgcTemp[i];
         }
 #endif
-#ifdef EMP_355
+#ifdef CT_355
         PRINTF("tgc:\n");
         for(int i = dots; i < size; i++)
         {
@@ -670,7 +670,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
     }
     else if (section == 2) //PW
     {
-#if (defined(EMP_430))
+#if (defined(CT_430))
       {
           max = 160;
           min = 128;
@@ -682,7 +682,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
           }
       }
 #else
-#if (defined(EMP_340) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_355) || defined(CT_322))
         max = 160;
         min = 128;
 #else
@@ -700,7 +700,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
     }
     else  //cfm
     {
-#if (defined(EMP_430))
+#if (defined(CT_430))
         {
             int zero_num;
             zero_num = size / depth * 10;
@@ -716,7 +716,7 @@ void Calc2D::CalcTgcDigital(int gain, int section, int maxValue)
             }
         }
 #else
-#if (defined(EMP_340) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_355) || defined(CT_322))
         max = 160;
         min = 100;
 #else
@@ -745,7 +745,7 @@ void Calc2D::CalcFocPos()
 
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
-#if (defined(EMP_340) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_322))
     if(((strcmp(para.model, "35D40J")) == 0) || ((strcmp(para.model, "30P16A")) == 0))
     {
         m_fpga.Send2DPulseNum(1);
@@ -755,7 +755,7 @@ void Calc2D::CalcFocPos()
         m_fpga.Send2DPulseNum(2);
 
     }
-#elif (defined(EMP_430))
+#elif (defined(CT_430))
     if((strcmp(para.model, "35D40J")) == 0)
     {
         m_fpga.Send2DPulseNum(2);
@@ -927,7 +927,7 @@ void Calc2D::CalcExtendedImaging(bool on)
  */
 void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section)
 {
-#ifdef EMP_430
+#ifdef CT_430
     int tgcFixedTemp[TGC_DOTS];
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
@@ -1229,7 +1229,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
 
     // total tgc
     memset(m_tgcTotal2D, 0, TGC_DOTS+TGC_EXTRA_DOTS);
-#ifdef EMP_430
+#ifdef CT_430
     memset(m_tgcFlexibel, 0, TGC_DOTS+TGC_EXTRA_DOTS);
 #endif
     unsigned int tempTotal = 0;
@@ -1237,7 +1237,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
     int y;
     int lastTgc;
 
-#ifdef EMP_430
+#ifdef CT_430
     int maxDepth = m_calcPara->depthMax;
 
     //for(x = 0; x < size - 2; x++)
@@ -1248,7 +1248,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
         if (x1 >= TGC_DOTS)
             x1 = TGC_DOTS -1;
         y = x * scale;
-#ifdef EMP_430
+#ifdef CT_430
         tempTotal = (unsigned int) (((float)tgcFlexibel[y] * tgcFixedTemp[x1] * 1.0)/255);
 #else
         tempTotal = (unsigned int) (((float)tgcFlexibel[y] * tgcFixedTemp[x1] * 1.2)/255);
@@ -1314,7 +1314,7 @@ void Calc2D::Tgc(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgc
  */
 void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fixedTgcControl[4], AbsUpdate2D* ptrUpdate, int section)
 {
-#ifdef EMP_430
+#ifdef CT_430
     int smoothNum = 20;
     int tgcFixedTemp[TGC_DOTS];
 
@@ -1384,7 +1384,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
     {
         theta = (tgcYKey[x] / (float)255) * (PI / (float)2);
         tgcY[x] = sin(theta) * 255;
-#ifdef EMP_430
+#ifdef CT_430
         tgcY[x] = 181 * log10((tgcYKey[x] +10)/ (float)10);
 #else
         weighting = (k * log10((x+1)*10/(float)8) + A) / (float)MAX; //使8个滑动电位器排程竖线就能获得排程斜线的效果.
@@ -1404,7 +1404,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
     for( x = 0; x < TGC_DOTS; x++)
     {
         tgcFlexibel[x] = gain;
-#ifndef EMP_430
+#ifndef CT_430
 // fixed tgc
         if(x > c)
             k0 = ((float)(255 - b)) / a * x + b;
@@ -1424,7 +1424,7 @@ void Calc2D::TgcColor(const int tgcX[8], int gain, int tgcYKey[8], const int fix
     int y;
     int lastTgc;
 
-#ifdef EMP_430
+#ifdef CT_430
     int maxDepth = m_calcPara->depthMax;
 
     for(x = 0; x < size; x++)
@@ -1781,7 +1781,7 @@ void Calc2D::CReceiveDelay(bool compound)
         m_fpga.SendReceiveDelayBnSpaceCompound2(delayBn, sizeof(delayBn) / sizeof(short));
     }
     //计算变迹孔径
-#ifdef EMP_430
+#ifdef CT_430
     CReceiveApertureU16(compound);
 #else
     CReceiveAperture(compound);
@@ -2048,7 +2048,7 @@ void Calc2D::LReceiveDelay(bool compound)
     }
 
     // calc receive aperture
-#ifdef EMP_430
+#ifdef CT_430
     LReceiveApertureU16(compound);
 #else
     LReceiveAperture(compound);
@@ -2090,7 +2090,7 @@ void Calc2D::LReceiveDelayColor(bool compound)
         }
 
         // calc receive aperture
-#ifdef EMP_430
+#ifdef CT_430
         LReceiveApertureU16(compound);
 #else
         LReceiveAperture(compound);
@@ -2318,7 +2318,7 @@ void Calc2D::PEmitDelayPw(float focPos, const int CH_NUM[], int size)
         int j;
         for (i = 0; i < PHASELINE; i ++)
         {
-#ifdef EMP_360
+#ifdef CT_360
             for (j = 0; j <24; j ++)
             {
                 delayEmitPhase[i*APERTURE_HALF*2 + j] = 0;
@@ -2430,7 +2430,7 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
      float probeAngle;
      probeAngle = m_calcPara->probeWidth / 100.0;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -2451,7 +2451,7 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
     if (fabs(angle) < ZERO)
         wrOffset = 10;
     else
-#ifdef EMP_355
+#ifdef CT_355
         wrOffset = 10 + APERTURE_HALF * interval / sin(angle)  * (1.0 - cos(angle)) * 1000 / speed / (float)NS_PER_UNIT_RECIVE;
 #else
        wrOffset = 10 + APERTURE_HALF * interval / sin(angle)  * (1.0 - cos(angle)) * 1000 / speed / (float)NS_PER_UNIT;
@@ -2507,7 +2507,7 @@ void Calc2D::PCalcReceiveDelayCtrlParam(bool compound)
  */
 bool Calc2D::FocPulse(int power, int freqEmit)
 {
-#ifdef EMP_355
+#ifdef CT_355
     float width = (float)CLOCK_EMIT * 20 / freqEmit / 2;
 #else
     float width = (float)SAMPLE_FREQ * 20 / freqEmit / 2;
@@ -2532,7 +2532,7 @@ bool Calc2D::FocPulse(int power, int freqEmit)
     CalcWeightingEmit(pulseWidth);
 
     //send foc pulse for test
-#ifdef EMP_355
+#ifdef CT_355
     m_fpga.SendPulseWidthBak(pulseWidth);
 #endif
 
@@ -2558,7 +2558,7 @@ bool Calc2D::FocPulse(int power, int freqEmit)
  */
 int  Calc2D::FocPulseFreqCompound(int power, int freqEmit, int order)
 {
-#ifdef EMP_355
+#ifdef CT_355
     float width = (float)CLOCK_EMIT * 20 / freqEmit / 2;
 #else
     float width = (float)SAMPLE_FREQ * 20 / freqEmit / 2;
@@ -2576,7 +2576,7 @@ int  Calc2D::FocPulseFreqCompound(int power, int freqEmit, int order)
     //send foc pulse
     m_fpga.SendPulseCycleFreqCompound(pulseCycle, order);
     CalcWeightingEmitFreqCompound(pulseWidth, order);
-#ifdef EMP_355
+#ifdef CT_355
     m_fpga.SendPulseWidthFreqCompound(pulseWidth, order);
 #endif
 
@@ -2878,7 +2878,7 @@ void Calc2D::BandPassFilterSelect_test(float freq1[5], float freq2[5], int freqD
     const int size = FREQ_SECTION * 32;
     unsigned short *ptrFilter = new unsigned short[size];
     memset(ptrFilter, 0, sizeof(ptrFilter));
-#ifdef EMP_355
+#ifdef CT_355
     float fs = SAMPLE_FREQ;
 #else
     float fs = 60;
@@ -3223,7 +3223,7 @@ void Calc2D::Valid2DImage(void)
     //int dots = 460;//m_calcPara->depthDots;
     //int value = depth * 2 * SAMPLE_FREQ / speed / (dots * INIT_SCALE);
     int startColor;
-#ifdef EMP_355
+#ifdef CT_355
     startColor = 740 - 46 - 32 + 100-70;// - 5 * value;
 #else
     startColor = 740 - 46 - 32;// - 5 * value;
@@ -3531,7 +3531,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     const int size = FREQ_SECTION * 32;
     unsigned short *ptrFilter = new unsigned short[size];
     memset(ptrFilter, 0, sizeof(ptrFilter));
-#ifdef EMP_355
+#ifdef CT_355
     float fs = SAMPLE_FREQ;
 #else
     float fs = 60;
@@ -3543,7 +3543,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
     int depth = m_calcPara->depth;
     float wp;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     int dots = IMG_H;
         int sample_freq = SAMPLE_FREQ;
         float speed = SOUND_SPEED;
@@ -3579,7 +3579,7 @@ void Calc2D::DynamicFilter_test(float freq[5], int freqDepth[5], int freqCompoun
 
     for(i = 0; i < FREQ_SECTION; i++)
     {
-#ifndef EMP_PROJECT
+#ifndef CT_PROJECT
         temp = i * depth / FREQ_SECTION;
         if (temp < freqDepth[0])
         {
@@ -3687,7 +3687,7 @@ void Calc2D::ExtendedImagingSampleC(void)
 
     const int SIZE = 256;
     unsigned short buffer[SIZE];
-#ifdef EMP_355
+#ifdef CT_355
     unsigned short sample60 = (int)(speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #else
     unsigned short sample60 = (int)(INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
@@ -3709,7 +3709,7 @@ void Calc2D::ExtendedImagingSampleL(void)
     double speed = m_calcPara->soundSpeed;
     float probeWidth;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
  if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth =(float) m_projectCalcPara->probeAngle /100.0;
     else
@@ -3735,7 +3735,7 @@ void Calc2D::ExtendedImagingSampleL(void)
         else
             steer = atan(pos2center/oHeight);
 
-#ifdef EMP_355
+#ifdef CT_355
         buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
 #else
         buffer[(MAX_LINES+lineNo-1) % MAX_LINES] = (int)(cos(steer) * INIT_SCALE * speed * SAMPLE_NUM * depthDots / 2 / FREQ / depth + 0.5);
@@ -3918,7 +3918,7 @@ void Calc2D::CEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
     float probeR;
     float probeWidth;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
 
@@ -3945,7 +3945,7 @@ if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
    //计算实际发射孔径
     perAngle = ((float)probeWidth) / ((float)probeArray-1) * PI / 180.0;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     int sendChNum;
     float F_num_Tx = 4.0;
 
@@ -4031,22 +4031,22 @@ int sendChNum;
             activeLength = sqrt((double)(4 * probeR * probeR * sin(b/2) * sin(b/2)
                         - 4 * probeR * focPos * sin(b/2) * sin(steer - b/2)
                         + focPos * focPos));
-#ifdef EMP_355
+#ifdef CT_355
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
 
-#if (defined(EMP_340) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_322))
             temp += 180 - (int)(60 / (m_calcPara->freq.emit / 20.0)) * PULSE_NUM;
-#elif defined(EMP_355)
+#elif defined(CT_355)
             temp += 220 -40;//- (int)(60 / (m_calcPara->freq.emit / 20.0)) * PULSE_NUM;
 #else
             temp += 160-40;
 #endif
 
             if(temp < 0)    temp = 0;
-#ifdef EMP_355
+#ifdef CT_355
             delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 #else
             if(temp > 255)  temp = 255;
@@ -4084,7 +4084,7 @@ void Calc2D::CReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
     float probeR;
     float probeWidth;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
  if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
      probeR = m_projectCalcPara->probeR;;
@@ -4242,7 +4242,7 @@ void Calc2D::CReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
     scale = ((float)m_calcPara->depth / APERTURE_DOTS);
 
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth =(float) m_projectCalcPara->probeAngle;
@@ -4300,7 +4300,7 @@ void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
     int probeArray = m_calcPara->probeArray;
     float probeWidth;
     float probeR;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
  if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth =(float) m_calcPara->probeWidth/100.0;
@@ -4325,7 +4325,7 @@ void Calc2D::CCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
         correct = - 0.5;
     else
         correct = 0.5;
-#ifdef EMP_355
+#ifdef CT_355
     float dotInterval = (float)depth / (float)dots;
 #else
     float dotInterval = (float)depth / (dots * INIT_SCALE);
@@ -4374,7 +4374,7 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
 
     ///> extern para used in calc计算中使用的外部参数
    float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
 
@@ -4440,7 +4440,7 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
             b = (float)(( APERTURE_HALF  - ofset2center )*interval);
 
         int offset_init_delay;
-#ifdef EMP_355
+#ifdef CT_355
         offset_init_delay = APERTURE_HALF * interval * sin(fabs(steer)) / speed / NS_PER_UNIT_EMIT / 2;
 #else
         offset_init_delay = APERTURE_HALF * interval * sin(fabs(steer)) / speed / NS_PER_UNIT / 2;
@@ -4448,23 +4448,23 @@ void Calc2D::LEmitDelayCalc(float probeFocPos, float steerAngle, const int CH_NU
     for( i =  0; i < APERTURE_HALF * 2; i++ )
         {
             activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(steer) ) );
-#ifdef EMP_355
+#ifdef CT_355
         temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
         temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
 #endif
            // temp += (160-40);
 
-#if (defined(EMP_340) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_322))
            temp += 180 - (int)(60 / (m_calcPara->freq.emit / 20.0)) * PULSE_NUM + offset_init_delay;
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
            temp += (260-40+offset_init_delay);
 #else
            temp += (160-40+offset_init_delay);
 #endif
 
             if(temp < 0)    temp = 0;
-#ifdef EMP_355
+#ifdef CT_355
             delay[(odd_even-1)*APERTURE_HALF*2 + APERTURE_HALF * 2 - 1 - i] = temp;
 #else
             if(temp > 255)  temp = 0;   //255;
@@ -4494,7 +4494,7 @@ void Calc2D::LReceiveDelayCalc(float steerAngle, int An[MAX_MBP * APERTURE_HALF 
     float b, interval, temp;
     double speed = m_calcPara->soundSpeedTsi;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -4540,7 +4540,7 @@ void Calc2D::LReceiveApertureCalcU16(float steerAngle, short delayAperture[APERT
 
     endPix = APERTURE_DOTS;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -4644,7 +4644,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
 
     endPix = APERTURE_DOTS;
     float  probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -4684,7 +4684,7 @@ void Calc2D::LReceiveApertureCalc(float steerAngle, unsigned char delayAperture[
         {
             span = APERTURE_SPAN_L[11];
         }
-#ifdef EMP_355
+#ifdef CT_355
          ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     if (strcmp("55L60J",para.model)==0)
@@ -4743,7 +4743,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
 
     ///> extern para used in calc计算中使用的外部参数
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth =(float) m_projectCalcPara->probeAngle /100.0;
     else
@@ -4773,7 +4773,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
     int temp;
     float b;
     int sendChNum;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 
    float F_num_Tx = 5.0;
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
@@ -4849,7 +4849,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
         for( i =  0; i < APERTURE_HALF * 2; i++ )
         {
             activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(angle) ) );
-#ifdef EMP_355
+#ifdef CT_355
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
@@ -4877,7 +4877,7 @@ void Calc2D::PEmitDelayCalc(float probeFocPos, EMODE mode, const int CH_NUM[], i
             for( i =  0; i < APERTURE_HALF * 2; i++ )
             {
                 activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(angle) ) );
-#ifdef EMP_355
+#ifdef CT_355
                 temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
                 temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
@@ -4907,7 +4907,7 @@ void Calc2D::PReceiveDelayCalc(int An[APERTURE_HALF * 2 * PHASELINE], short Bn[A
     float b, interval, temp;
     double speed = m_calcPara->soundSpeedTsi;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth =(float) m_projectCalcPara->probeAngle /100.0;
     else
@@ -4980,7 +4980,7 @@ void Calc2D::PReceiveApertureCalc(unsigned char delayAperture[APERTURE_DOTS * AP
 
     endPix = APERTURE_DOTS;
     float  probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth =(float) m_projectCalcPara->probeAngle;
     else
@@ -5064,7 +5064,7 @@ void Calc2D::PReceiveApertureCalcU16(short delayAperture[APERTURE_DOTS * APERTUR
     const int MAX_SUM_VALUE = 8192*2;
     endPix = APERTURE_DOTS;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth =(float) m_projectCalcPara->probeAngle;
     else
@@ -5241,7 +5241,7 @@ void Calc2D::CompoundParaCalc(const float steer, const float angle, int& line, i
 {
     const int value = 1024;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -5259,7 +5259,7 @@ void Calc2D::CompoundParaCalc(const float steer, const float angle, int& line, i
         correct = - 0.5;
     else
         correct = 0.5;
-#ifdef EMP_355
+#ifdef CT_355
     line = 0 - (depth / (float)dots * tan(steer) * 2.0 / interval * value + correct);
 #else
     line = 0 - (depth / (dots * INIT_SCALE) * tan(steer) * 2.0 / interval * value + correct);
@@ -5276,7 +5276,7 @@ void Calc2D::LCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
 {
     const int value = 1024;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
         probeWidth = m_projectCalcPara->probeAngle;
     else
@@ -5295,7 +5295,7 @@ void Calc2D::LCompoundParaAdderCalc(const float steer, unsigned int *addr, int s
         correct = - 0.5;
     else
         correct = 0.5;
-#ifdef EMP_355
+#ifdef CT_355
     int line = (depth / (float)dots * tan(steer) * 2.0 / interval * value + correct);
 #else
     int line = (depth / (dots * INIT_SCALE) * tan(steer) * 2.0 / interval * value + correct);
@@ -5329,7 +5329,7 @@ void Calc2D::CFocusParaCalc(const float steer, short& startTime, short& wrOffset
     int probeArray = m_calcPara->probeArray;
     float speed = m_calcPara->soundSpeedTsi;
     float probeR;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeR = m_projectCalcPara->probeR;
@@ -5348,7 +5348,7 @@ void Calc2D::CFocusParaCalc(const float steer, short& startTime, short& wrOffset
     float focusBegin = 0;
 
     startTime = (int)(focusBegin * 2.0 * (float)FREQ / speed + 0.5);
-#ifdef EMP_355
+#ifdef CT_355
     wrOffset = 10 + probeR * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT_RECIVE;
 #else
      wrOffset = 10 + probeR * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT;
@@ -5362,7 +5362,7 @@ void Calc2D::LFocusParaCalc(const float steer, short& startTime, short& wrOffset
 {
     const int FREQ = SAMPLE_FREQ; //mhz
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
  if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth = m_projectCalcPara->probeAngle;;
@@ -5381,7 +5381,7 @@ void Calc2D::LFocusParaCalc(const float steer, short& startTime, short& wrOffset
     if (fabs(steer) < ZERO)
         wrOffset = 10;
     else
-#ifdef EMP_355
+#ifdef CT_355
         wrOffset = 20 + APERTURE_HALF * interval / sin(fabs(steer))  * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT_RECIVE;
 #else
          wrOffset = 20 + APERTURE_HALF * interval / sin(fabs(steer))  * (1.0 - cos(fabs(steer))) * 1000 / speed / (float)NS_PER_UNIT;
@@ -5531,7 +5531,7 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
     ///> extern para used in calc计算中使用的外部参数
     float probeR;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth = m_projectCalcPara->probeAngle;;
@@ -5555,7 +5555,7 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
    //计算实际发射孔径
     perAngle = ((float)probeWidth / 100.0) / ((float)probeArray-1) * PI / 180.0;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 
     int sendChNum;
     float F_num_Tx = 5.0;
@@ -5688,7 +5688,7 @@ void Calc2D::CEmitDelayCalcExtended(float probeFocPos, const int CH_NUM[], int s
         for( i = 0; i < APERTURE_HALF * 2; i++ )
         {
             activeLength = sqrt((double)(4 * probeR * (probeR + focPos) * sin(b/2) * sin(b/2) + focPos * focPos));
-#ifdef EMP_355
+#ifdef CT_355
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );
@@ -5728,7 +5728,7 @@ void Calc2D::CReceiveDelayCalcExtended(int An[MAX_LINES * APERTURE_HALF * 2], sh
     double speed = m_calcPara->soundSpeedTsi;
     float probeR;
     float probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth = m_projectCalcPara->probeAngle;;
@@ -5806,7 +5806,7 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
     ///> extern para used in calc计算中使用的外部参数
 
     float  probeWidth;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         probeWidth =(float) m_projectCalcPara->probeAngle/100.0;
@@ -5828,7 +5828,7 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
     int temp;
     float b;
     int sendChNum;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 
    float F_num_Tx = 5.0;
 
@@ -5944,7 +5944,7 @@ void Calc2D::LEmitDelayCalcExtended(float probeFocPos, float steerAngle, const i
         for( i =  0; i < APERTURE_HALF * 2; i++ )
         {
             activeLength= (float)sqrt ( (float) ( sqFocPos + b * b - 2 * focPos * b * sin(tpSteer) ) );
-#ifdef EMP_355
+#ifdef CT_355
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT_EMIT );
 #else
             temp = ( ( (activeMaxLength - activeLength ) / speed) / NS_PER_UNIT );

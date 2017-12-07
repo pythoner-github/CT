@@ -56,7 +56,7 @@ GtkWidget* MenuEFOV::Create(void)
     m_labelPress = create_label("", 100, 30, g_lightGray, NULL);
     gtk_misc_set_alignment (GTK_MISC (m_labelPress), 0.1, 0.5);
     gtk_fixed_put(GTK_FIXED(m_fixedPrepare), m_labelPress, 5, 0);
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     GtkWidget *image_update = create_pixmap("./res/icon/set.png");
 #else
     GtkWidget *image_update = create_pixmap("./res/icon/update.png");
@@ -89,7 +89,7 @@ GtkWidget* MenuEFOV::Create(void)
     m_labelPress3 = create_label("", 100, 30, g_lightGray, NULL);
     gtk_misc_set_alignment (GTK_MISC (m_labelPress3), 0.1, 0.5);
     gtk_fixed_put(GTK_FIXED(m_fixedCapture), m_labelPress3, 5, 170);
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     GtkWidget *image_update2 = create_pixmap("./res/icon/set.png");
 #else
 GtkWidget *image_update2 = create_pixmap("./res/icon/update.png");

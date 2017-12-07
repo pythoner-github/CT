@@ -795,7 +795,7 @@ const PtrOfCalcInfo OBCalcInfoPtr[OB_CALC_END - OB_CALC_START] = {
 };
 
 const MultiItemInfo OBMultiInfo[] = {
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {OB_DESC_AO, OB_DESC_AO_MULTI, RI, "Desc Ao", RiInfo, NULL },
     {OB_L_MCA, OB_L_MCA_MULTI, PSED, "L MCA", PsEdInfo, NULL },
@@ -820,7 +820,7 @@ const SingleItemInfo OBInfo[] = {
     {OB_ULNA, DIST_DOT, N_("Ulna"), CM, &OBUlnaCalc},
     {OB_FIBULA, DIST_DOT, N_("Fibula"), CM, NULL},
     {OB_NUCHFOLD, DIST_DOT, N_("Nuch Fold"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {OB_UMBILICAL_A, RI, N_("Umbilical A"), OB_UMBILICAL_A_MULTI, NULL},
     {OB_L_MCA, PSED, N_("L MCA"), OB_L_MCA_MULTI, NULL},
@@ -872,7 +872,7 @@ const SingleItemInfo OBInfo[] = {
     {OB_AOR_DIAM, DIST_DOT, N_("AoR Diam"), CM, &OBAoRDiamCalc},
     {OB_AO_ANNUL, DIST_DOT, N_("Ao Annul Diam"), CM, NULL},
     {OB_ASC_AO_DIAM, DIST_DOT, N_("Asc Ao Diam(2D)"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {OB_DESC_AO, RI, N_("Desc Ao"), OB_DESC_AO_MULTI, NULL},
 #endif
@@ -882,7 +882,7 @@ const SingleItemInfo OBInfo[] = {
     {OB_MV_ANNUL_DIAM, DIST_DOT, N_("MV Annul Diam"), CM, NULL},
     {OB_TV_ANNUL_DIAM, DIST_DOT, N_("TV Annul Diam"), CM, NULL},
     {OB_MPA_DIAM, DIST_DOT, N_("MPA Diam(2D)"), CM, &OBMPADiamCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {OB_THORACIC_AO, RI, N_("Thoracic Ao"), OB_THORACIC_AO_MULTI, NULL},//胸主动脉
 #endif
@@ -928,7 +928,7 @@ const SingleItemInfo OBInfo[] = {
     {OB_URETER_TR, DIST_DOT, N_("Ureter Tr"), CM, NULL},
     {OB_L_LUNG_DIAM, DIST_DOT, N_("L Lung Diam"), CM, NULL},
     {OB_R_LUNG_DIAM, DIST_DOT, N_("R Lung Diam"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {OB_L_UTERINE_A, RI, N_("L Uterine A"), OB_L_UTERINE_A_MULTI, NULL},//子宫动脉，没写清测啥
     {OB_R_UTERINE_A, RI, N_("R Uterine A"), OB_R_UTERINE_A_MULTI, NULL},//子宫动脉，没写清测啥
@@ -1062,7 +1062,7 @@ const PtrOfCalcInfo GYNCalcInfoPtr[GYN_CALC_END - GYN_CALC_START] = {
 };
 
 const MultiItemInfo GYNMultiInfo[] = {
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {GYN_L_OVARIAN_A, GYN_L_OVARIAN_A_MULTI, SD, "L OV A", SdInfo, NULL },
     {GYN_R_OVARIAN_A, GYN_R_OVARIAN_A_MULTI, SD, "R OV A", SdInfo, NULL },
@@ -1084,7 +1084,7 @@ const SingleItemInfo GYNInfo[] = {
     {GYN_L_OV_HEIGHT, DIST_DOT, N_("L Ov Height"), CM, &GYNLOvCalc},
     {GYN_L_OV_LENGTH, DIST_DOT, N_("L Ov Length"), CM, &GYNLOvCalc},
     {GYN_L_OV_WIDTH, DIST_DOT, N_("L Ov Width"), CM, &GYNLOvCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {GYN_L_OVARIAN_A, SD, N_("L Ovarian A"), GYN_L_OVARIAN_A_MULTI, NULL},
 #endif
@@ -1092,7 +1092,7 @@ const SingleItemInfo GYNInfo[] = {
     {GYN_R_OV_HEIGHT, DIST_DOT, N_("R Ov Height"), CM, &GYNROvCalc},
     {GYN_R_OV_LENGTH, DIST_DOT, N_("R Ov Length"), CM, &GYNROvCalc},
     {GYN_R_OV_WIDTH, DIST_DOT, N_("R Ov Width"), CM, &GYNROvCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {GYN_R_OVARIAN_A, SD, N_("R Ovarian A"), GYN_R_OVARIAN_A_MULTI, NULL},
 #endif
@@ -1103,12 +1103,12 @@ const SingleItemInfo GYNInfo[] = {
     {GYN_UTERUS_LENGTH, DIST_DOT, N_("Uterus Length"), CM, &GYNUterusCalc},
     {GYN_UTERUS_WIDTH, DIST_DOT, N_("Uterus Width"), CM, &GYNUterusCalc},
     {GYN_L_UTERINE_A_DIAM, DIST_DOT, N_("L Uterine A Diam"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {GYN_L_UTERINE_A, SD, N_("L Uterine A"), GYN_L_UTERINE_A_MULTI, NULL},
 #endif
     {GYN_R_UTERINE_A_DIAM, DIST_DOT, N_("R Uterine A Diam"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {GYN_R_UTERINE_A, SD, N_("R Uterine A"), GYN_R_UTERINE_A_MULTI, NULL},
 #endif
@@ -1167,7 +1167,7 @@ const PtrOfCalcInfo URCalcInfoPtr[UR_CALC_END - UR_CALC_START] = {
 };
 
 const MultiItemInfo URMultiInfo[] = {
-#ifdef EMP_322
+#ifdef CT_322
 #else
     { UR_L_DIST_REN_A, UR_L_DIST_REN_A_MULTI, RI, "L Dist Ren A", RiInfo, NULL },
     { UR_L_MAIN_REN_A, UR_L_MAIN_REN_A_MULTI, RI, "L Main Ren A", RiInfo, NULL },
@@ -1195,7 +1195,7 @@ const SingleItemInfo URInfo[] = {
     {UR_L_KID_H, DIST_DOT, N_("L Kid H"), CM, &URLKidVolCalc},
     {UR_L_KID_L, DIST_DOT, N_("L Kid L"), CM, &URLKidVolCalc},
     {UR_L_KID_W, DIST_DOT, N_("L Kid W"), CM, &URLKidVolCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {UR_L_DIST_REN_A, RI, N_("L Dist Ren A"), UR_L_DIST_REN_A_MULTI, NULL},
     {UR_L_MAIN_REN_A, RI, N_("L Main Ren A"), UR_L_MAIN_REN_A_MULTI, NULL},
@@ -1207,7 +1207,7 @@ const SingleItemInfo URInfo[] = {
     {UR_R_KID_H, DIST_DOT, N_("R Kid H"), CM, &URRKidVolCalc},
     {UR_R_KID_L, DIST_DOT, N_("R Kid L"), CM, &URRKidVolCalc},
     {UR_R_KID_W, DIST_DOT, N_("R Kid W"), CM, &URRKidVolCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {UR_R_DIST_REN_A, RI, N_("R Dist Ren A"), UR_R_DIST_REN_A_MULTI, NULL},
     {UR_R_MAIN_REN_A, RI, N_("R Main Ren A"), UR_R_MAIN_REN_A_MULTI, NULL},
@@ -1413,7 +1413,7 @@ const PtrOfCalcInfo SPCalcInfoPtr[SP_CALC_END - SP_CALC_START] = {
 };
 #endif
 const MultiItemInfo SPMultiInfo[] = {
-#ifdef EMP_322
+#ifdef CT_322
 #else
     { SP_L_TESTIS_ARTERY, SP_L_TESTIS_ARTERY_MULTI, SD, "L Testis A", SdInfo, NULL },
     { SP_R_TESTIS_ARTERY, SP_R_TESTIS_ARTERY_MULTI, SD, "R Testis A", SdInfo, NULL },
@@ -1472,7 +1472,7 @@ const SingleItemInfo SPInfo[] = {
     {SP_L_TESTIS_L, DIST_DOT, N_("L Testis L"), CM, &SPLTesVolCalc},
     {SP_L_TESTIS_W, DIST_DOT, N_("L Testis W"), CM, &SPLTesVolCalc},
     {SP_L_TESTIS_H, DIST_DOT, N_("L Testis H"), CM, &SPLTesVolCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {SP_L_TESTIS_ARTERY, SD, N_("L Testis Artery"), SP_L_TESTIS_ARTERY_MULTI, NULL},
 #endif
@@ -1480,7 +1480,7 @@ const SingleItemInfo SPInfo[] = {
     {SP_R_TESTIS_L, DIST_DOT, N_("R Testis L"), CM, &SPRTesVolCalc},
     {SP_R_TESTIS_W, DIST_DOT, N_("R Testis W"), CM, &SPRTesVolCalc},
     {SP_R_TESTIS_H, DIST_DOT, N_("R Testis H"), CM, &SPRTesVolCalc},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {SP_R_TESTIS_ARTERY, SD, N_("R Testis Artery"), SP_R_TESTIS_ARTERY_MULTI, NULL},
 #endif
@@ -1531,7 +1531,7 @@ const SingleItemInfo SPInfo[] = {
     {SP_LONG_R_LOBE, DIST_DOT, N_("Long R Lobe"), CM, NULL},
     {SP_AP_R_LOBE, DIST_DOT, N_("AP R Lobe"), CM, NULL},
     {SP_TR_R_LOBE, DIST_DOT, N_("Tr R Lobe"), CM, NULL},
-#ifdef EMP_322
+#ifdef CT_322
 #else
     {SP_SUPA_L_LOBE, SD, N_("Supa L Lobe"), SP_SUPA_L_LOBE_MULTI, NULL},
     {SP_INFA_L_LOBE, SD, N_("Infa L Lobe"), SP_INFA_L_LOBE_MULTI, NULL},

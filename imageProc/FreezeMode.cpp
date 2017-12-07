@@ -214,11 +214,11 @@ void FreezeMode::UnFreeze()
 {
     ///> darken freeze lamp
     m_freezeMode = UNFREEZE;
-#if  defined (EMP_322)
+#if  defined (CT_322)
     if( (MenuArea::GetInstance()->GetMenuType() == MenuArea::CALC) || (MenuArea::GetInstance()->GetMenuType() == MenuArea::MEASURE))
         g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
         g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
-#elif defined (EMP_313)
+#elif defined (CT_313)
         if (MenuArea::GetInstance()->GetMenuType() == MenuArea::CALC)
             g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
 #endif

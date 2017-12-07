@@ -19,7 +19,7 @@
 #include "sysMan/CalcSetting.h"
 
 using std::vector;
-#ifdef EMP_322
+#ifdef CT_322
 extern const char *examType_calc[];
 #endif
 //MeasureSetting g_menuCalcExamType;
@@ -456,7 +456,7 @@ void MeasureSetting::ChangeExamBoxDelete(void)
     //系统默认的检查部位
     for (int i=0; i<= EXAM_NUM; i++)
     {
-#ifdef EMP_322
+#ifdef CT_322
         vecExamItem_calc.push_back(examType_calc[i]);
 #else
         vecExamItem_calc.push_back(examType[i]);
@@ -521,7 +521,7 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
    //系统默认的检查部位
     for (int i=0; i<= EXAM_NUM; i++)
     {
-#ifdef EMP_322
+#ifdef CT_322
         vecExamItem_calc.push_back(examType_calc[i]);
 #else
         vecExamItem_calc.push_back(examType[i]);

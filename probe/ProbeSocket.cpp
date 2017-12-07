@@ -2,7 +2,7 @@
 #include "Def.h"
 
 // global var
-#if defined(EMP_360)
+#if defined(CT_360)
 enum EPROBELIST360 {P35CVP, P75LVSP, P65VMCP, P35MCP, P65MCP, P30P16AP, P35D40JP };
 string PROBE_LIST[NUM_PROBE] =
 {
@@ -141,7 +141,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
     {{23, 23, 20, 18, 18}, {25, 24, 21, 18, 16}, {25, 25, 25, 25, 25}}, //30P16A
     {{60, 55, 55, 50, 40}, {60, 55, 55, 50, 40}, {60, 55, 55, 50, 40}}, //35D40J
 };
-#elif defined(EMP_161)
+#elif defined(CT_161)
 enum EPROBELIST161 {P35CVP, P75LVSP, P65VMCP, P35MCP, P30P16AP};
 
 string PROBE_LIST[NUM_PROBE] =
@@ -276,7 +276,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
     {{30, 30, 30, 30, 30}, {30, 30, 30, 30, 30}, {30, 30, 30, 30, 30}}, //30P16A
 #endif
 };
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
 
 enum EPROBELIST322313 {P35C50JP, P75L40JP, P65C10JP, P35C20GP, P65C20GP, P90L40JP, P35D40JP, P30P16AP};
 
@@ -458,7 +458,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
     {{60, 55, 55, 50, 40}, {60, 55, 55, 50, 40}, {60, 55, 55, 50, 40}}, //35D40J
     {{23, 23, 20, 18, 18}, {25, 24, 21, 18, 16}, {25, 25, 25, 25, 25}}, //30P16A
 };
-#elif defined(EMP_430)
+#elif defined(CT_430)
 // A60 Optimization Para Test, 2014.12.18
 enum EPROBELIST430 {P35C60EP, P65L40EP, P65C10EP, P65C15DP, P35D50DP};
 
@@ -570,7 +570,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
     {{30, 30, 30, 30, 30}, {30, 30, 30, 30, 30}, {30, 30, 30, 30, 30}}, //65C15D
     {{23, 23, 20, 18, 18}, {25, 25, 25, 25, 25}, {26, 26, 26, 26, 26}}, //35D40J
 };
-#elif defined(EMP_440)
+#elif defined(CT_440)
 // copy A60
 enum EPROBELIST440 {P35C60EP, P65L40EP, P65C10EP, P65C15DP};
 
@@ -669,7 +669,7 @@ const int ProbeSocket::DYNAMIC_FILTER_FC[NUM_PROBE][MAX_HARMONIC_FREQ][MAX_FC] =
     {{80, 75, 70, 65, 50}, {80, 75, 70, 65, 50}, {80, 75, 70, 65, 50}}, //6.5VMC
     {{70, 60, 60, 50, 50}, {70, 60, 60, 50, 50}, {70, 60, 60, 50, 50}}, //6.5MC
 };
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
 #ifdef VET
 // global var
 enum EPROBELIST355VET {P35C50LP, P70L40JP, P75L40JP, P90L40JP, P65C10LP, P35C20IP, P65C15EP, P30P16BP, P10L25KP,  P65C10IP, P55L60GP};
@@ -1599,7 +1599,7 @@ void ProbeSocket::ReadProbePara()
     {
         PRINTF("probe is not existed\n");
         m_para.exist = FALSE;
-#ifdef EMP_355
+#ifdef CT_355
         m_para.type= 'F';
 #endif
     }
@@ -1664,7 +1664,7 @@ int ProbeSocket::GetProbeIndex(char* model, unsigned char probeType)
     PRINTF("index = %d\n", index);
     if (index == NUM_PROBE)
     {
-#if defined(EMP_430)
+#if defined(CT_430)
         if ((type == 'C') || (type == 'V'))
         {
             index = CONVEX_35R60; // convex
@@ -1793,7 +1793,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
         else
         {
 
-#if defined(EMP_360)
+#if defined(CT_360)
             switch((EPROBELIST360)index)
             {
                 case P35CVP:
@@ -1813,7 +1813,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     strFlag="EMP";
                     break;
             }
-#elif defined(EMP_161)
+#elif defined(CT_161)
 
             switch((EPROBELIST161)index)
             {
@@ -1829,7 +1829,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     break;
             }
 
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
 
             switch((EPROBELIST322313)index)
             {
@@ -1852,7 +1852,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     break;
             }
 
-#elif defined(EMP_430)
+#elif defined(CT_430)
 
             switch((EPROBELIST430)index)
             {
@@ -1866,7 +1866,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     break;
             }
 
-#elif defined(EMP_440)
+#elif defined(CT_440)
 
             switch((EPROBELIST440)index)
             {
@@ -1878,7 +1878,7 @@ void ProbeSocket::GetHarmonicFreq(char* model, unsigned char probeType)
                     strFlag="EMP";
                     break;
             }
-#elif defined(EMP_355)
+#elif defined(CT_355)
 
 #ifdef VET
 

@@ -195,7 +195,7 @@ void NoteArea::Exit()
 void NoteArea::KeyEvent(unsigned char keyValue)
 {
     //  FakeXEvent::KeyEvent(keyValue);
-#if defined (EMP_322)
+#if defined (CT_322)
     if(keyValue==KEY_CTRL_SHIFT_SPACE)
     {
         key_note = keyValue;
@@ -203,7 +203,7 @@ void NoteArea::KeyEvent(unsigned char keyValue)
         ksim.ExcuteChange(TRUE);
         return;
     }
-#elif defined(EMP_313)
+#elif defined(CT_313)
     if (keyValue == KEY_ONE)
     {
         key_note = keyValue;
@@ -232,8 +232,8 @@ void NoteArea::KeyEvent(unsigned char keyValue)
     switch(keyValue)
     {
 #if not defined (K24C)
-#if not defined (EMP_322)
-#if not defined (EMP_313)
+#if not defined (CT_322)
+#if not defined (CT_313)
         case KEY_MENU:
             break;
 #endif
@@ -283,7 +283,7 @@ void NoteArea::KeyEvent(unsigned char keyValue)
         case KEY_F4:
         case KEY_F5:
             break;
-#if defined(EMP_322)
+#if defined(CT_322)
         //case KEY_DEL:
         //    DeleteLastTextItem();
         //    ListAllTextItem(m_listItem);
@@ -297,7 +297,7 @@ void NoteArea::KeyEvent(unsigned char keyValue)
             break;
         case KEY_F6:
             break;
-#elif defined(EMP_313)
+#elif defined(CT_313)
         case KEY_F6:
             break;
 #else
@@ -305,7 +305,7 @@ void NoteArea::KeyEvent(unsigned char keyValue)
             break;
 #endif
 
-#ifdef EMP_355
+#ifdef CT_355
         case KEY_F1ADD:
         case KEY_F1SUB:
         case KEY_F2ADD:
@@ -636,9 +636,9 @@ gboolean NoteArea::ImageItemButtonPress(GooCanvasItem *item,
 
 gboolean time_out(gpointer data)
 {
-#if defined(EMP_322)
+#if defined(CT_322)
     if (key_note == KEY_CTRL_SHIFT_SPACE)
-#elif defined(EMP_313)
+#elif defined(CT_313)
     if (key_note == KEY_ONE)
 #else
     if (key_note == KEY_SHIFT_CTRL)
@@ -672,7 +672,7 @@ gboolean NoteArea::ImageItemKeyPress(GooCanvasItem *item,
         PRINTF("111111111111111111111\n");
         {
             StartEdit(m_sysCursor.x-IMG_AREA_X-IMAGE_X, m_sysCursor.y-IMG_AREA_Y-IMAGE_Y-1);
-#ifdef EMP_322
+#ifdef CT_322
             /* if(!FakeAlphabet(key_note))
                {
                if(!FakeNumKey(key_note))

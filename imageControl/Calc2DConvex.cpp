@@ -225,7 +225,7 @@ void Calc2DConvex::CalcFilterBandPass(int order)
         depth[4] = 250;
     }
 
-#if (defined(EMP_340) || defined(EMP_430) || defined(EMP_161)||defined(EMP_360) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+#if (defined(CT_340) || defined(CT_430) || defined(CT_161)||defined(CT_360) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     float fc_bandpass_filter1[5], fc_bandpass_filter2[5];
     if(m_calcPara->harmonic)
         {
@@ -430,7 +430,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
     {
         if (freq < 35)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -441,7 +441,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic[2] = 3.4;
             fd_harmonic[3] = 2.9;
             fd_harmonic[4] = 2.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.0;
             fd[1] = 3.8;
             fd[2] = 3.0;
@@ -478,7 +478,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq >= 35 && freq < 40)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -489,7 +489,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic[2] = 3.4;
             fd_harmonic[3] = 2.9;
             fd_harmonic[4] = 2.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -526,7 +526,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq >= 40 && freq < 45)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -537,7 +537,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic[2] = 3.4;
             fd_harmonic[3] = 2.9;
             fd_harmonic[4] = 2.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.0;
             fd[1] = 3.8;
             fd[2] = 3.0;
@@ -575,7 +575,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         else if (freq >= 45 && freq < 50)
         {
 
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -586,7 +586,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic[2] = 4.0;
             fd_harmonic[3] = 3.5;
             fd_harmonic[4] = 3.1;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.0;
             fd[1] = 3.8;
             fd[2] = 3.0;
@@ -624,7 +624,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq >= 50 && freq < 55)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
@@ -635,7 +635,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic[2] = 4.3;
             fd_harmonic[3] = 3.7;
             fd_harmonic[4] = 2.9;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.0;
             fd[1] = 3.8;
             fd[2] = 3.0;
@@ -673,13 +673,13 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq>=55 && freq<65)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 3.5;
             fd[1] = 3.5;
             fd[2] = 3.0;
             fd[3] = 2.8;
             fd[4] = 2.5;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.0;
             fd[1] = 3.8;
             fd[2] = 3.0;
@@ -713,13 +713,13 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq>=65 && freq<75)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 4.3;
             fd[1] = 4.3;
             fd[2] = 3.8;
             fd[3] = 3.3;
             fd[4] = 2.6;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 4.8;
             fd[1] = 4.5;
             fd[2] = 3.5;
@@ -753,13 +753,13 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq>=75 && freq<90)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 4.3;
             fd[1] = 4.3;
             fd[2] = 3.8;
             fd[3] = 3.3;
             fd[4] = 2.6;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 5.3;
             fd[1] = 4.8;
             fd[2] = 4.0;
@@ -793,7 +793,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if (freq>=90 && freq<100)
         {
-#ifdef EMP_322
+#ifdef CT_322
             fd[0] = 5.3;
             fd[1] = 4.6;
             fd[2] = 3.2;
@@ -809,7 +809,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic_35D40J[2] = 4.0;
             fd_harmonic_35D40J[3] = 3.5;
             fd_harmonic_35D40J[4] = 2.9;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 5.3;
             fd[1] = 4.8;
             fd[2] = 4.0;
@@ -825,7 +825,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic_35D40J[2] = 4.0;
             fd_harmonic_35D40J[3] = 3.5;
             fd_harmonic_35D40J[4] = 2.9;
-#elif EMP_430
+#elif CT_430
             fd[0] = 4.3;
             fd[1] = 4.3;
             fd[2] = 3.8;
@@ -869,7 +869,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
         }
         else if(freq >=100 && freq <110)
         {
-#ifdef EMP_322
+#ifdef CT_322
             fd[0] = 5.4;
             fd[1] = 4.3;
             fd[2] = 3.0;
@@ -885,7 +885,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic_35D40J[2] = 3.4;
             fd_harmonic_35D40J[3] = 2.8;
             fd_harmonic_35D40J[4] = 2.2;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 5.8;
             fd[1] = 5.2;
             fd[2] = 4.5;
@@ -927,7 +927,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
           }
         else if (freq>=110)
         {
-#ifdef EMP_322
+#ifdef CT_322
             fd[0] = 5.4;
             fd[1] = 4.3;
             fd[2] = 3.0;
@@ -943,7 +943,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_harmonic_35D40J[2] = 3.4;
             fd_harmonic_35D40J[3] = 2.8;
             fd_harmonic_35D40J[4] = 2.2;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 6.0;
             fd[1] = 4.6;//5.4;
             fd[2] = 4.1;//4.5;
@@ -1177,7 +1177,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             fd_35D40J[i] = fd[i];
     }
 
-#if (defined(EMP_340) || defined(EMP_430) || defined(EMP_161)||defined(EMP_360) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+#if (defined(CT_340) || defined(CT_430) || defined(CT_161)||defined(CT_360) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     int freqIndex = Img2D::GetInstance()->GetFreqIndex();
     int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
     int probeIndex = 0;
@@ -1188,7 +1188,7 @@ void Calc2DConvex::CalcDynamicDemod(int order)
             probeIndex = i;
     }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if (m_projectCalcPara->filterSecIndex)
     {
         for(i = 0; i < 5; i++)

@@ -23,7 +23,7 @@ const int ImgPw::SV_POS_PRF[2][POS_PRF_SUM] =
 
 const int ImgPw::DYNAMIC_RANGE[2] = {5, 120};// {1, 121};
 
-#ifdef EMP_355
+#ifdef CT_355
 const unsigned int ImgPw::WALL_FILTER_FREQ[MAX_PRF][MAX_WALL_FILTER] =  //hz
 {
     {7,10,14,17,21,28,35,52}, //350
@@ -176,7 +176,7 @@ ImgPw::ImgPw()
 
     m_ctGainPw.Begin();
     m_tGainPw = 0;
-#ifdef EMP_355
+#ifdef CT_355
     m_HPRF = TRUE;
 #else
     m_HPRF = FALSE;
@@ -205,7 +205,7 @@ ImgPw::ImgPw()
     m_grayMap = 0;
     m_offSetX = 0;
     m_offSetY = 0;
-#ifdef EMP_355
+#ifdef CT_355
    m_oper = ADD;
 #endif
     int i;
@@ -372,7 +372,7 @@ void ImgPw::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIte
 
     //volume
     m_soundVolumeIndex = ptrParaItem->spectrum.soundVolume;
-#ifdef EMP_430
+#ifdef CT_430
     m_soundStatus = FALSE;
 #else
     m_soundStatus = TRUE;
@@ -459,7 +459,7 @@ void ImgPw::InitProbe(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptrPa
     Simult2(m_simult2, ret);
 
     // high pulse repeat frequency
-#ifdef EMP_355
+#ifdef CT_355
     m_HPRF = TRUE;
 #else
     m_HPRF = FALSE;
@@ -507,7 +507,7 @@ void ImgPw::EnterPw()
 
     // resend pw speed and prf value to FPGA
 //  SpectrumSpeed(m_speedIndex, m_PRFIndex, ret);
-#ifdef EMP_355
+#ifdef CT_355
 if(ViewMain::GetInstance()->GetModeIsFlag())
     {
         ret = OK;
@@ -959,7 +959,7 @@ void ImgPw::SetScale(int prfIndex)
 EKnobReturn ImgPw::ChangeScale(EKnobOper oper)
 {
     EKnobReturn ret;
-#ifdef EMP_355
+#ifdef CT_355
     bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(!mode)
     {
@@ -1955,7 +1955,7 @@ bool ImgPw::ChangePwSV(int offsetX, int offsetY)
 EKnobReturn ImgPw::ChangeSVLength(EKnobOper oper)
 {
     EKnobReturn ret = OK;
-#ifdef EMP_355
+#ifdef CT_355
   if(!ViewMain::GetInstance()->GetModeIsFlag())
     {
         int index = m_svLen;
@@ -2257,7 +2257,7 @@ void ImgPw::DopplerFreq(int freq, EKnobReturn ret)
 {
     int power = Img2D::GetInstance()->GetOutputPower();
      m_pulseCycle = CalcFocPulse(freq, power);
-#ifdef EMP_355
+#ifdef CT_355
     float fc_offset = 2.4;
     m_ptrCalc->CalcBandPassFilter_new(m_pulseCycle, fc_offset);
 #else
@@ -2273,7 +2273,7 @@ void ImgPw::GainPw(int data)
 
     //update view
     m_ptrUpdate->GainPw(data);
-#ifdef EMP_430
+#ifdef CT_430
     data = data/2 + 50;
 #endif
     m_ptrImg2D->CalcTgc(data*MAX_GAIN_PW/100, m_tgc, 2);
@@ -2495,7 +2495,7 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
     int svLenDot = (float)svLen / 10 / scale;
     dotBegin = svPos - svLenDot/2;
     dotEnd = svPos + svLenDot/2;
-#ifdef EMP_355
+#ifdef CT_355
  if (dotEnd >= m_ptrImg2D->GetDepthDots()) // out of range
     {
         dotEnd = m_ptrImg2D->GetDepthDots();
@@ -2538,7 +2538,7 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
     //calc prf is not connection to current depth
    // depthToSample = Img2D::GetInstance()->GetDepth();
     m_depthToSample = depthToSample;
-#ifdef EMP_355
+#ifdef CT_355
     double newScale =  depthToSample / m_ptrImg2D->GetDepthDots(); //mm/p
 #else
     double newScale =  depthToSample / IMG_H; //mm/p
@@ -2557,7 +2557,7 @@ void ImgPw::SVCalc(int pwLine, int svPos, int svLen, int &dotBegin, int &dotEnd,
 
     if (SendFpga)
     {
-#ifdef EMP_355
+#ifdef CT_355
     // send sample begin and end
         if(!ViewMain::GetInstance()->GetModeIsFlag())
         {
@@ -2613,7 +2613,7 @@ void ImgPw::GetSvPosRange(int &begin, int &end)
 
     int svLenDot = (float)m_svLen / 10 / scale;
     begin = svLenDot / 2;
-#ifdef EMP_355
+#ifdef CT_355
     end = m_ptrImg2D->GetDepthDots() - offset - svLenDot / 2;
 #else
     end = IMG_H - offset - svLenDot / 2;
@@ -2624,7 +2624,7 @@ void ImgPw::GetSvPosRange(int &begin, int &end)
 void ImgPw::SpectrumSpeed(int speedIndex, int prfIndex, EKnobReturn ret)
 {
 
-#ifdef EMP_355
+#ifdef CT_355
    bool mode = ViewMain::GetInstance()->GetModeIsFlag();
    int num;
     if(mode)
@@ -2667,7 +2667,7 @@ void ImgPw::SoundStatus(bool data, EKnobReturn ret)
 {
     m_ptrCalc->CalcSoundStatus((int)data);
     m_ptrUpdate->SoundStatus((int)data, ret);
-#ifdef EMP_355
+#ifdef CT_355
     bool mode = ViewMain::GetInstance()->GetModeIsFlag();
 #endif
 
@@ -2677,7 +2677,7 @@ void ImgPw::SoundStatus(bool data, EKnobReturn ret)
         usleep(1);
         SoundVolume(m_soundVolumeIndex, OK);
         int speed = GetSpeed(m_speedIndex, GetPRFValue(m_PRFIndex));
-#ifdef EMP_355
+#ifdef CT_355
         if(mode)
             m_ptrCalc->CalcSoundInterpolation(GetHPRFValue(m_PRFIndex), speed);
         else
@@ -2764,7 +2764,7 @@ void ImgPw::Simult3(bool on, EKnobReturn ret)
 void ImgPw::HPRF(bool on, EKnobReturn ret)
 {
     m_HPRF = on;
-#ifdef EMP_355
+#ifdef CT_355
 bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(!mode)
     {
@@ -2873,7 +2873,7 @@ EKnobReturn ImgPw::PRF(int index)
     io.Freeze();
     EKnobReturn ret = OK;
 
-#ifdef EMP_355
+#ifdef CT_355
     bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(!mode)
     {
@@ -3107,7 +3107,7 @@ bool ImgPw::CalcPRFSimult3(int prfSimult, int samplePos)
     // calc
     float depth2D = m_ptrImg2D->GetDepth();
     float speed = Img2D::GetInstance()->GetSoundSpeed();
-#ifdef EMP_430
+#ifdef CT_430
     int maxPeriod2D = depth2D * 2 / speed +10;// 5 ; //us
     int maxPeriodPw = samplePos * 2 / speed + 10;//5 ;//us
 #else
@@ -3192,7 +3192,7 @@ void ImgPw::WhenPRFChanged(int index)
     EKnobReturn ret = OK;
 
     // sound stop dot
-#ifdef EMP_355
+#ifdef CT_355
  if(ViewMain::GetInstance()->GetModeIsFlag())
     {
         m_ptrCalc->CalcSoundStopDot(GetHPRFValue(index));
@@ -3387,7 +3387,7 @@ int ImgPw::SwitchHPRF(bool on, float svPos)
     int num = 0;
     int dotBegin;
     int dotEnd;
-#ifdef EMP_355
+#ifdef CT_355
  if(on)
     {
         float svBegin = svPos - (float)m_svLen/20;
@@ -3614,7 +3614,7 @@ int ImgPw::CalcTraceFs(int wallFilterIndex, int prfIndex, int baseline, int angl
 {
     double speed = SOUND_SPEED * 1000;
     int wf;
-#ifdef EMP_355
+#ifdef CT_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
         wf = WALL_FILTER_FREQ_CW[m_PRFIndex][wallFilterIndex];//unit:hz
     else
@@ -3676,7 +3676,7 @@ int ImgPw::CalcFocPulse(int freq, int power)
 
 void ImgPw::SVCorrect(int begin, int end)
 {
-#ifdef EMP_355
+#ifdef CT_355
     int offset = 0;//-15;
 #else
     int offset = -15;
@@ -3733,7 +3733,7 @@ void ImgPw::BalanceCfmInfo(int pwLine, int pwSvPos, int pwSvLen)
     {
         cfmDot[0] = pwDotBegin;
         cfmDot[1] = cfmDot[0] + offset;
-#ifdef EMP_355
+#ifdef CT_355
     if (cfmDot[1] > m_ptrImg2D->GetDepthDots())
         cfmDot[1] = m_ptrImg2D->GetDepthDots();
 #else
@@ -3968,7 +3968,7 @@ int ImgPw::GetHPRFValue(int prfIndex)
 
 void ImgPw::UpdateSV(int line, int dotBegin, int dotEnd, vector<int> HPRFEmitPos)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if (m_specMode == SPECTRUM_PW)
     {
         if(!ViewMain::GetInstance()->GetModeIsFlag())
@@ -3985,7 +3985,7 @@ void ImgPw::UpdateSV(int line, int dotBegin, int dotEnd, vector<int> HPRFEmitPos
 }
 void ImgPw::UpdateSVClear(void)
 {
-#ifdef EMP_355
+#ifdef CT_355
    if (m_specMode == SPECTRUM_PW)
     {
         if(!ViewMain::GetInstance()->GetModeIsFlag())

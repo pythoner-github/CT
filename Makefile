@@ -14,7 +14,7 @@ SRCDIRS   += ./periDevice ./sysMan ./projectMode
 
 SRCEXTS   := .c .cpp
 
-CPPFLAGS  := -Wall -ggdb3 -DEMP_355
+CPPFLAGS  := -Wall -ggdb3 -DCT_355
 CPPFLAGS  += -D_IPP_PRIVATE_STRUCTURES
 CPPFLAGS  += -DREPORTPICS_6 #for add 6 pictures to report, if no define add 2 pictures to report
 

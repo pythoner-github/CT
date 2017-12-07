@@ -163,7 +163,7 @@ GtkWidget* Menu2D::Create(void)
     //gtk_button_set_focus_on_click(GTK_BUTTON(btn_4B), FALSE);
 #else
     // 4B
-#ifndef EMP_355
+#ifndef CT_355
     m_label4B = create_label("", 0, 0, g_lightGray, NULL);
     m_btn4B = create_button(m_label4B, 0, 0, g_deep);
     gtk_widget_modify_bg(m_btn4B, GTK_STATE_INSENSITIVE, g_deepGray);
@@ -174,7 +174,7 @@ GtkWidget* Menu2D::Create(void)
 #endif
 
     // EFOV
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize("pScape"))
     {
         m_labelEFOV = create_label("", 0, 0, g_lightGray, NULL);
@@ -213,7 +213,7 @@ void Menu2D::UpdateLabel(void)
     gtk_label_set_text(GTK_LABEL(m_labelGlobalZoom), _("Global Zoom"));
     gtk_label_set_text(GTK_LABEL(m_labelPIP), _("Picture In Picture"));
     gtk_label_set_text(GTK_LABEL(m_label4B), _("4B"));
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize("pScape"))
         gtk_label_set_text(GTK_LABEL(m_labelEFOV), _("pScape Mode"));
 #else
@@ -301,7 +301,7 @@ void Menu2D::BtnGlobalZoom(GtkButton *button)
     }
     else
     {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: Only valid in B mode and UnFreeze status."), 1);
 #else
         HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: Only valid in 2D B mode and UnFreeze status."), 1);
@@ -318,7 +318,7 @@ void Menu2D::BtnPIP(GtkButton *button)
     }
     else
     {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         HintArea::GetInstance()->UpdateHint(_("[PIP]: Only valid in B mode and UnFreeze status."), 1);
 #else
         HintArea::GetInstance()->UpdateHint(_("[PIP]: Only valid in 2D B mode and UnFreeze status."), 1);
@@ -381,7 +381,7 @@ void Menu2D::ChgRotate(EKnobOper oper)
     }
     else
     {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         HintArea::GetInstance()->UpdateHint(_("[Rotate]: Only valid in B mode."), 1);
 #else
         HintArea::GetInstance()->UpdateHint(_("[Rotate]: Only valid in 2D B mode."), 1);
@@ -431,7 +431,7 @@ void Menu2D::BtnEnterEFOV(GtkButton *button)
     }
     else
     {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         HintArea::GetInstance()->UpdateHint(_("[eView]: Only valid in B/BB mode, unfreeze status, linear probe."), 2);
 #else
         HintArea::GetInstance()->UpdateHint(_("[eView]: Only valid in 2D mode, unfreeze status, linear probe."), 2);

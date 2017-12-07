@@ -9,7 +9,7 @@
 #include "display/ViewDialog.h"
 #include "projectMode/ProjectCalc2D.h"
 #include "sysMan/ViewSuperuser.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 using std::vector;
 using std::string;
 

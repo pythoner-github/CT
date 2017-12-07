@@ -17,7 +17,7 @@
 #else
 #define BDMK_PATH "res/bdmk_scaled"
 
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
 static const char* examItem[] = {N_("Abdomen"), N_("Obstetrics"), N_("Gynecology"), N_("Urology"), N_("Cardiac"), N_("Small Part"), N_("Orthopedic"), N_("EXTRA")};
 #else
 static const char* examItem[] = {N_("Abdomen"), N_("Obstetrics"), N_("Gynecology"), N_("Urology"), N_("Cardiac"), N_("Small Part"), N_("Vascular"), N_("Orthopedic"), N_("EXTRA")};
@@ -93,12 +93,12 @@ void MenuBDMK::Show(void)
         case ExamItem::GLANDS:
         case ExamItem::THYROID:
         case ExamItem::EYE:
-#ifdef EMP_355
+#ifdef CT_355
         case ExamItem::MSK:
 #endif
             study = SP;
             break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         case ExamItem::HIP_JOINT:
         case ExamItem::JOINT_CAVITY:
         case ExamItem::MENISCUS:
@@ -348,7 +348,7 @@ void MenuBDMK::ChangeBDMKStudy(guchar study)
         case UR:    path = GetBdmkPath("UR");   break;
         case CAR:   path = GetBdmkPath("CAR");  break;
         case SP:    path = GetBdmkPath("SP");   break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         case ORT:   path = GetBdmkPath("ORT");  break;
         case EXTRA: path = GetBdmkPath("EXTRA");break;
 #else
@@ -416,7 +416,7 @@ void MenuBDMK::StudyChanged(GtkComboBox *combobox)
     else if(!strcmp(str, _(examItem[3])))   study = UR;
     else if(!strcmp(str, _(examItem[4])))   study = CAR;
     else if(!strcmp(str, _(examItem[5])))   study = SP;
-#if (defined(EMP_322)|| defined(EMP_313))
+#if (defined(CT_322)|| defined(CT_313))
     else if(!strcmp(str, _(examItem[6])))   study = ORT;
     else if(!strcmp(str, _(examItem[7])))   study = EXTRA;
 #else
@@ -473,7 +473,7 @@ void MenuBDMK::BDMKClicked(GtkButton *button)
         case UR:    path = GetBdmkPath("UR");   break;
         case CAR:   path = GetBdmkPath("CAR");  break;
         case SP:    path = GetBdmkPath("SP");   break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         case ORT:   path = GetBdmkPath("ORT");  break;
         case EXTRA: path = GetBdmkPath("EXTRA");break;
 #else
@@ -539,7 +539,7 @@ void MenuBDMK::LeftClicked(GtkButton *button)
         case UR:    path = GetBdmkPath("UR");   break;
         case CAR:   path = GetBdmkPath("CAR");  break;
         case SP:    path = GetBdmkPath("SP");   break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         case ORT:   path = GetBdmkPath("ORT");  break;
         case EXTRA: path = GetBdmkPath("EXTRA");break;
 #else
@@ -580,7 +580,7 @@ void MenuBDMK::RightClicked(GtkButton *button)
         case UR:    path = GetBdmkPath("UR");   break;
         case CAR:   path = GetBdmkPath("CAR");  break;
         case SP:    path = GetBdmkPath("SP");   break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
         case ORT:   path = GetBdmkPath("ORT");  break;
         case EXTRA: path = GetBdmkPath("EXTRA");break;
 #else

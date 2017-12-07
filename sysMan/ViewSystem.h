@@ -44,7 +44,7 @@ class ViewSystem : public FakeXEvent
 public:
     ~ViewSystem();
 
-#if defined(EMP_322)
+#if defined(CT_322)
         static const int MAX_KEY = 6;
 #else
         static const int MAX_KEY = 10;//8;//9;
@@ -379,7 +379,7 @@ private:
     void TransEnglish(char *strname, char str[256],char *str_indexname,char str_index[256]);
 
     std::vector <string> GetUserGroup(void);
-#ifdef EMP_355
+#ifdef CT_355
    static void  on_combobox_video_changed(GtkComboBox *widget,ViewSystem *data)
    {data->BtnComboVideoChanged();}
 #endif

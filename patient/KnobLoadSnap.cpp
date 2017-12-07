@@ -3,7 +3,7 @@
 #include "Def.h"
 #include "imageProc/MenuReview.h"
 
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 KnobMenu::KnobItem KnobLoadSnapMenu[6] = {
     {N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
     {N_("Previous Snap"), N_("Press"), PRESS, NULL, ReviewPreviousSnap},

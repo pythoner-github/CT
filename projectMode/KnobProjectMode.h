@@ -1,6 +1,6 @@
 #ifndef __KNOB_PROJECTMODE_H__
 #define __KNOB_PROJECTMODE_H__
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 #include "Def.h"
 #include "display/HintArea.h"
 

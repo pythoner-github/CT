@@ -23,7 +23,7 @@
 #include "probe/ViewProbe.h"
 #include "calcPeople/MenuCalcNew.h"
 #include "measure/MenuMeasure.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 #include "projectMode/ProjectCalc2D.h"
 #endif
 /*
@@ -175,7 +175,7 @@ void ProbeSelect::UserItemOfProbeInit(int indexSocket, ExamItem::EItem indexItem
     g_menuCalc.ChangeExamItem(item);
     g_menuMeasure.ChangeExamItem(item);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         // init project optimization para
     ProjectCalc2D::GetInstance()->SetProjectCalc2D(GlobalClassMan::GetInstance()->GetCalc2D(curPara.model));
 #endif
@@ -189,7 +189,7 @@ void ProbeSelect::UserItemOfProbeInit(int indexSocket, ExamItem::EItem indexItem
     // init M
     ptrImg2D->InitProbeM(&curPara, &paraItem);
     ImgProcM::GetInstance()->Init(&(paraItem.d2));
-#if not defined(EMP_322) && not defined(EMP_313)
+#if not defined(CT_322) && not defined(CT_313)
     // init pw
     ImgPw* ptrImgPw = ImgPw::GetInstance();
     ptrImgPw->SetCalcPw( GlobalClassMan::GetInstance()->GetCalcPw(curPara.model) );
@@ -206,7 +206,7 @@ void ProbeSelect::UserItemOfProbeInit(int indexSocket, ExamItem::EItem indexItem
     BiopsyLine::GetInstance()->Create();
 
     // enter 2D scan mode
-#if (defined(EMP_322) || defined (EMP_313))
+#if (defined(CT_322) || defined (CT_313))
     ScanMode::GetInstance()->DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE,LIGHT_D2);
 #endif
@@ -276,7 +276,7 @@ void ProbeSelect::ProbeInit(int indexSocket, ExamItem::EItem indexItem)
 
     // get real probe and item parameter
     m_ptrProbe->SetProbeSocket(indexSocket);
-#ifdef EMP_430
+#ifdef CT_430
     ActiveHV(TRUE);
     usleep(50000);
 #endif
@@ -300,7 +300,7 @@ void ProbeSelect::ProbeInit(int indexSocket, ExamItem::EItem indexItem)
     g_menuCalc.ChangeExamItem(m_e.ITEM_LIB[indexItem]);
     g_menuMeasure.ChangeExamItem(m_e.ITEM_LIB[indexItem]);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         // init project optimization para
     ProjectCalc2D::GetInstance()->SetProjectCalc2D( GlobalClassMan::GetInstance()->GetCalc2D(curPara.model) );
 #endif
@@ -314,8 +314,8 @@ void ProbeSelect::ProbeInit(int indexSocket, ExamItem::EItem indexItem)
     // init M
     ptrImg2D->InitProbeM(&curPara, &paraItem);
     ImgProcM::GetInstance()->Init(&(paraItem.d2));
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     // init pw
     ImgPw* ptrImgPw = ImgPw::GetInstance();
     ptrImgPw->SetCalcPw( GlobalClassMan::GetInstance()->GetCalcPw(curPara.model) );

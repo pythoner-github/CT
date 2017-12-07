@@ -110,9 +110,9 @@ void Calc2DTV::CalcFocPos()
         ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
 
-#if (defined(EMP_340) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_340) || defined(CT_355) || defined(CT_322))
     m_fpga.Send2DPulseNum(1);
-#elif (defined(EMP_430))
+#elif (defined(CT_430))
     if((strcmp(para.model, "65C15D")) == 0)
     {
         m_fpga.Send2DPulseNum(2);
@@ -219,7 +219,7 @@ void Calc2DTV::CalcFilterBandPass(int order)
             probeIndex = i;
     }
 
-#if defined(EMP_340)
+#if defined(CT_340)
     depth[0] = 10;
     depth[1] = 25;
     depth[2] = 40;
@@ -232,7 +232,7 @@ void Calc2DTV::CalcFilterBandPass(int order)
     depth[3] = 100;
          depth[4] = 120;
 #endif
- #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || defined(EMP_161) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+ #if (defined(CT_340) || defined(CT_430) || defined(CT_360) || defined(CT_161) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     float fc_bandpass_filter1[5], fc_bandpass_filter2[5];
     if(m_calcPara->harmonic)
     {
@@ -338,7 +338,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
     {
         if (freq < 90)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 6.8;
             fd[1] = 5.5;
             fd[2] = 3.8;
@@ -349,7 +349,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 4.0;
             fd_harmonic[4] = 3.0;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 5.5;
             fd[1] = 5.3;
             fd[2] = 5.0;
@@ -376,7 +376,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else if (freq >= 90 && freq < 100)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 6.8;
             fd[1] = 5.5;
             fd[2] = 3.8;
@@ -387,7 +387,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 3.6;
             fd_harmonic[4] = 2.8;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 5.5;
             fd[1] = 5.3;
             fd[2] = 5.0;
@@ -415,7 +415,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else if (freq >= 100 && freq < 110)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 6.8;
             fd[1] = 5.5;
             fd[2] = 3.8;
@@ -427,7 +427,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 3.6;
             fd_harmonic[4] = 2.8;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 6.5;
             fd[1] = 6.0;
             fd[2] = 5.5;
@@ -454,7 +454,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else if (freq>=110 && freq<135)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 7.0;
             fd[1] = 5.6;
             fd[2] = 3.6;
@@ -465,7 +465,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 3.6;
             fd_harmonic[4] = 2.8;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 7.5;
             fd[1] = 6.8;
             fd[2] = 6.0;
@@ -492,7 +492,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else if (freq>=135 && freq<150)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 7.0;
             fd[1] = 5.6;
             fd[2] = 3.6;
@@ -503,7 +503,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 3.6;
             fd_harmonic[4] = 2.8;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 8.0;
             fd[1] = 7.0;
             fd[2] = 6.5;
@@ -529,7 +529,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else if (freq>=150 && freq<165)
         {
-#ifdef EMP_430
+#ifdef CT_430
             fd[0] = 7.5;
             fd[1] = 6.0;
             fd[2] = 4.0;
@@ -540,7 +540,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 5.0;
             fd_harmonic[3] = 3.6;
             fd_harmonic[4] = 2.8;
-#elif (EMP_161 || EMP_360)
+#elif (CT_161 || CT_360)
             fd[0] = 8.0;
             fd[1] = 7.0;
             fd[2] = 6.5;
@@ -566,7 +566,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         }
         else
         {
-#ifdef EMP_161
+#ifdef CT_161
             fd[0] = 8.5;
             fd[1] = 8.5;
             fd[2] = 7.5;
@@ -577,7 +577,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             fd_harmonic[2] = 7.2;
             fd_harmonic[3] = 7.1;
             fd_harmonic[4] = 5.6;
-#elif EMP_360
+#elif CT_360
             fd[0] = 8.3;//8.5;
             fd[1] = 7.0;//8.0;//8.5;
             fd[2] = 6.5;//7.3;//7.5;
@@ -705,7 +705,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
         fd_harmonic[4] = (float)freq/20.0*5.5/10.0;
     }
 
- #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || defined(EMP_161) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+ #if (defined(CT_340) || defined(CT_430) || defined(CT_360) || defined(CT_161) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     int freqIndex = Img2D::GetInstance()->GetFreqIndex();
     int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
     int probeIndex = 0;
@@ -716,7 +716,7 @@ void Calc2DTV::CalcDynamicDemod(int order)
             probeIndex = i;
     }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if (m_projectCalcPara->filterSecIndex)
     {
         for(i = 0; i < 5; i++)

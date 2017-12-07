@@ -16,7 +16,7 @@ class Calc2D
 
         ///> type
         static const int FOC_MAX = 4; ///< max num of focus
-#ifdef EMP_355
+#ifdef CT_355
         static const float INIT_SCALE = 0.95;//1.0;
 #else
         static const float INIT_SCALE = 1.0;//0.95;
@@ -73,7 +73,7 @@ class Calc2D
             int thiFreq; ///< harmonic frequency * 20, unit: MHZ
         };
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
       struct ProjectCalcPara
         {
             bool onDemodParaPrintf;
@@ -292,7 +292,7 @@ class Calc2D
         static const float NS_PER_UNIT = 16.67; ///<60Mhz
         static const float NS_PER_UNIT_RECIVE = 20; ///<60Mhz using to calculate recive delay
         static const float NS_PER_UNIT_EMIT = 10; ///<60Mhz using to calculate emition delay
-#ifdef EMP_355
+#ifdef CT_355
         static const int SAMPLE_FREQ = 50; ///<50Mhz  AD采样时钟及解调工作时钟
 #else
         static const int SAMPLE_FREQ = 60; ///<60Mhz
@@ -306,7 +306,7 @@ class Calc2D
         static const int EMIT_CH_NUM_C[20]; ///< control calculating emit delay
 
         ///> tgc
-#ifdef EMP_355
+#ifdef CT_355
         static const int TGC_DOTS = 240;
 #else
         static const int TGC_DOTS = 240;
@@ -314,7 +314,7 @@ class Calc2D
         static const int TGC_EXTRA_DOTS = 15; //fpga访问可能会越界（240）
         unsigned char m_tgcTotal2D[TGC_DOTS + TGC_EXTRA_DOTS];
         unsigned char m_tgcFlexibel[TGC_DOTS + TGC_EXTRA_DOTS] ;
-#ifdef EMP_430
+#ifdef CT_430
         static const int TGC_FIEXD_35C60E[TGC_DOTS];
         static const int TGC_FIEXD_65C15D[TGC_DOTS];
         static const int TGC_FIEXD_65L40E[TGC_DOTS];
@@ -413,7 +413,7 @@ inline double Calc2D::CalcScale2D()
 {
     int depth = m_calcPara->depth;
     int depthDots = m_calcPara->depthDots;
-#ifdef EMP_355
+#ifdef CT_355
     double scale = (float)depth / depthDots;
 #else
     double scale = (float)depth / depthDots / INIT_SCALE;

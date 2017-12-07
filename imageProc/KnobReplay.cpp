@@ -15,7 +15,7 @@
 #include "sysMan/ViewSuperuser.h"
 
 using std::deque;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 KnobMenu::KnobItem KnobReplayMenu[6] = {
     {N_("Replay"), "", MIN, NULL, ReplayChgCtrl},
     {N_("Replay Speed"), "", MIN, NULL, PressChgSpeed},
@@ -28,7 +28,7 @@ KnobMenu::KnobItem KnobReplayMenu[6] = {
     //{"", "", ERROR, NULL, NULL},
     //{"", "", ERROR, NULL, NULL}
 };
-#elif (defined (EMP_460) || defined(EMP_355))
+#elif (defined (CT_460) || defined(CT_355))
 KnobMenu::KnobItem KnobReplayMenu[5] = {
     {N_("Replay"), "", MIN, ReplayChgSpeed, NULL},
     {N_("Trim Left"),"", PRESS, ReplayChgTrimLeft460, NULL},
@@ -134,8 +134,8 @@ EKnobReturn PressChgSpeed(void)
 
 EKnobReturn ReplayChgTrimLeft(void)
 {
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
     Replay::GetInstance()->SetTrimLeft();
 #endif
 #endif
@@ -144,8 +144,8 @@ EKnobReturn ReplayChgTrimLeft(void)
 
 EKnobReturn ReplayChgTrimRight(void)
 {
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
     Replay::GetInstance()->SetTrimRight();
 #endif
 #endif
@@ -154,15 +154,15 @@ EKnobReturn ReplayChgTrimRight(void)
 
 EKnobReturn ReplayChgResetTrim(void)
 {
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
     Replay::GetInstance()->ResetTrim();
 #endif
 #endif
     return PRESS;
 }
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 EKnobReturn ReplayChgTrimLeft460(EKnobOper oper)
 {
     Replay::GetInstance()->SetTrimLeft(oper);
@@ -272,7 +272,7 @@ EKnobReturn ReplayChgSaveCine(void)
 
     return PRESS;
 }
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 EKnobReturn ReplayChgSaveCine460(EKnobOper oper)
 {
     //get current image para

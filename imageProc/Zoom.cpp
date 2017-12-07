@@ -164,7 +164,7 @@ void Zoom::PIPZoomCtrl(bool on)
 {
     if (on)
     {
-#ifdef EMP_355
+#ifdef CT_355
         ImageAreaDraw::GetInstance()->SetClearStatus(false);
 #endif
         m_PIPScale = 0;
@@ -178,7 +178,7 @@ void Zoom::PIPZoomCtrl(bool on)
     }
     else
     {
-#ifdef EMP_355
+#ifdef CT_355
         if(m_timeout > 0)
         {
             g_source_remove(m_timeout);
@@ -258,7 +258,7 @@ bool Zoom::PIPZoomPos(int offsetX, int offsetY)
 
     m_ptrUpdate->PIPMagnifier(m_PIPPos);
 
-#ifdef EMP_355
+#ifdef CT_355
     if (m_timeout == 0)
         m_timeout = g_timeout_add(200, HandleSetPos, this);
 #else

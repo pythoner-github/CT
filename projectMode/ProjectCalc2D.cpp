@@ -5,7 +5,7 @@
 #include "probe/ExamItem.h"
 #include "imageProc/ScanMode.h"
 #include "probe/ProbeSocket.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 ProjectCalc2D* ProjectCalc2D::m_ptrInstance = NULL;
 FpgaCtrl2D ProjectCalc2D::m_fpga;
 

@@ -9,7 +9,7 @@
 
 FpgaPw CalcPw::m_fpga;
 FpgaCtrl2D CalcPw::m_fpga2D;
-#if (defined(EMP_355))
+#if (defined(CT_355))
 const short CalcPw::SOUND_FILTER[MAX_SOUND_FILTER][SOUND_FILTER_ORDER+4] =
 {
      {350,254,15,-1288,-49,-49,-50,-50,-51,-51,-51,-51,-51,-51,-51,-51,-50,-50,-49,-48,-47,-46,-45,-44,-43,-41,-40,-38,-36,-34,-32,-30,-28,-26,-23,-21,-18,-15,-12,-10,-6,-3,2,4,8,12,16,20,24,28,32,37,41,46,51,56,60,66,71,76,81,86,92,97,103,108,114,120,125,131,137,143,149,154,160,166,172,178,184,190,196,202,208,214,220,226,231,237,243,248,254,260,265,270,276,281,286,291,296,301,306,310,315,319,323,328,332,335,339,343,346,350,353,356,359,361,364,366,368,370,372,374,375,377,378,379,380,381,381,381,381,381,381,381,380,379,378,377,375,374,372,370,368,366,364,361,359,356,353,350,346,343,339,335,332,328,323,319,315,310,306,301,296,291,286,281,276,270,265,260,254,248,243,237,231,226,220,214,208,202,196,190,184,178,172,166,160,154,149,143,137,131,125,120,114,108,103,97,92,86,81,76,71,66,60,56,51,46,41,37,32,28,24,20,16,12,8,4,2,-3,-6,-10,-12,-15,-18,-21,-23,-26,-28,-30,-32,-34,-36,-38,-40,-41,-43,-44,-45,-46,-47,-48,-49,-50,-50,-51,-51,-51,-51,-51,-51,-51,-51,-50,-50,-49,-49,-1288},
@@ -83,7 +83,7 @@ void CalcPw::CalcPwLine(int line)
 }
 void CalcPw::CalcSvPos(int dotBegin, int dotEnd)
 {
-#ifdef EMP_355
+#ifdef CT_355
     int dots = IMG_H * Calc2D::INIT_SCALE;
 #else
     int dots = IMG_H;
@@ -135,7 +135,7 @@ void CalcPw::CalcSoundVolume(int data)
 
 void CalcPw::CalcSoundFilter(int prf)
 {
-#if (defined(EMP_355) || defined(EMP_340))
+#if (defined(CT_355) || defined(CT_340))
     int index = 0;
     for (int i = 0; i < MAX_SOUND_FILTER; i++)
     {
@@ -226,7 +226,7 @@ void CalcPw::CalcSoundInterpolation(int prf, int spectrumSpeed)
     else
         numIntp_c = numIntp;
 
-#if (defined(EMP_355) || defined(EMP_340))
+#if (defined(CT_355) || defined(CT_340))
     CalcSoundFilter(prf);
 #else
     CalcSoundFilter((int)numIntp_c - 3);
@@ -257,7 +257,7 @@ int CalcPw::CalcFocPulse(int freq, int power, int &pulseWidth)
         freqTemp = 150;
     else
         freqTemp = freq;
-#ifdef EMP_355
+#ifdef CT_355
     int pulseCycle = (int)((float)(CLOCK_EMIT * 10) /  freqTemp + 0.5);
 #else
     int pulseCycle = (int)((float)600 /  freqTemp + 0.5);
@@ -425,7 +425,7 @@ double CalcPw::CalcMaxVel(int prf, int colorFreq, int angle, double soundSpeed)
  */
 void CalcPw::CalcHDotSample(int depth, double soundSpeed)
 {
-#ifdef EMP_355
+#ifdef CT_355
     const int DOTS = IMG_H * Calc2D::INIT_SCALE;
 #else
     const int DOTS = IMG_H;
@@ -537,7 +537,7 @@ int CalcPw::GetHPRFEmitNum(float emitT, float recvT)
 
 int CalcPw::SVPosPRFToHPRF(float &depthBegin, float &depthEnd, int prf, int prfIndex)
 {
-#ifdef EMP_355
+#ifdef CT_355
     bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(mode)
     {

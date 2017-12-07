@@ -42,7 +42,7 @@ void DMeasureManualTrack::PressLeft(POINT p)
     switch(m_step)
     {
         case 0: // first
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[ManualTrack]: <Auto> to cancel or redraw. <Update> to AutoTrack."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[ManualTrack]: <Value> to cancel or redraw. <Update> to AutoTrack."));
@@ -570,7 +570,7 @@ void DMeasureManualAuto::Init()
     g_curOper = 1;
     g_setFunc = 3;
     m_ptrMan->SetManualAutoTrace(m_startP, m_endP, m_psP, m_edP);
-#ifdef EMP_355
+#ifdef CT_355
     HintArea::GetInstance()->UpdateHint(_("[SemiAuto]: <Update> to switch to ManualTrack. <Auto> press to adjust."));
 #else
     HintArea::GetInstance()->UpdateHint(_("[SemiAuto]: <Update> to switch to ManualTrack. <Value> press to adjust."));
@@ -636,7 +636,7 @@ void DMeasureManualAuto::AutoCalc()
         }
         orderNum = m_draw.GetOrderNumber();
 #endif
-#ifdef EMP_355
+#ifdef CT_355
         HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Auto> press to adjust."));
 #else
         HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Value> press to adjust."));
@@ -690,7 +690,7 @@ void DMeasureManualAuto::PressLeft(POINT p)
         case 0: //start point
             // set
             if(m_auto)
-#ifdef EMP_355
+#ifdef CT_355
                 HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Auto> press to adjust."));
 #else
                 HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Value> press to adjust."));
@@ -902,7 +902,7 @@ void DMeasureManualAuto::PressLeft(POINT p)
                 g_setFunc = 3;
                 m_ptrMan->SetManualAutoTrace(m_startP, m_endP, m_psP, m_edP);
                 if(m_auto)
-#ifdef EMP_355
+#ifdef CT_355
                     HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Auto> press to adjust."));
 #else
                     HintArea::GetInstance()->UpdateHint(_("[AutoTrack]: <Update> to switch to SemiAuto. <Value> press to adjust."));
@@ -914,7 +914,7 @@ void DMeasureManualAuto::PressLeft(POINT p)
 
         case 1: //end point
             {
-#ifdef EMP_355
+#ifdef CT_355
                 HintArea::GetInstance()->UpdateHint(_("[SemiAuto]: <Update> to switch to ManualTrack. <Auto> press to adjust."));
 #else
                 HintArea::GetInstance()->UpdateHint(_("[SemiAuto]: <Update> to switch to ManualTrack. <Value> press to adjust."));
@@ -3438,13 +3438,13 @@ void DMeasurePI::PressLeft(POINT p)
     {
         case 0:
             if(m_method == 0)
-#ifdef EMP_355
+#ifdef CT_355
                 HintArea::GetInstance()->UpdateHint(_("[PI]: <Auto> to cancel or redraw."));
 #else
                 HintArea::GetInstance()->UpdateHint(_("[PI]: <Value> to cancel or redraw."));
 #endif
             else
-#ifdef EMP_355
+#ifdef CT_355
                 HintArea::GetInstance()->UpdateHint(_("[PG Mean]: <Auto> to cancel or redraw."));
 #else
                 HintArea::GetInstance()->UpdateHint(_("[PG Mean]: <Value> to cancel or redraw."));

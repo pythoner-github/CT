@@ -168,7 +168,7 @@ void TestMode(unsigned char keyValue)
 
 void ViewMain::KeyEvent(unsigned char keyValue)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if(QuickAdjustmentPw::m_onQAPw)
     {
         return;
@@ -181,7 +181,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     char type = Img2D::GetInstance()->ReviseProbeType(para.type);
-#ifdef EMP_355
+#ifdef CT_355
     //////////monitor control///////////////
     MonitorControl monitorCtl;
 
@@ -242,8 +242,8 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     kc.Execute();
                 }
                 break;
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
             case KEY_F1:
             case KEY_F2:
             case KEY_F3:
@@ -255,7 +255,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 #endif
             default:
                 {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
             if (keyValue == 'q')
             {
                 if (ModeStatus::IsUnFreezeMode())
@@ -303,7 +303,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 //----------------------------------------------------------------//
                 if (ModeStatus::IsUnFreezeMode())
                 {
-#ifdef EMP_355
+#ifdef CT_355
                     QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
 #endif
                     FreezeMode::GetInstance()->PressFreeze();
@@ -324,10 +324,10 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     AbsUpdateMix* ptrUpdate = GlobalClassMan::GetInstance()->GetUpdateMix();
                     ptrUpdate->EnterCalc();
                     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
-#if defined (EMP_322)
+#if defined (CT_322)
                     g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
                     g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
-#elif defined(EMP_313)
+#elif defined(CT_313)
                     g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #endif
                 }
@@ -341,10 +341,10 @@ void ViewMain::KeyEvent(unsigned char keyValue)
             }
             break;
 
-#ifdef EMP_322
+#ifdef CT_322
         case KEY_4D:
             {
-#ifdef EMP3D
+#ifdef CT3D
                 if ( para.type == 'v' || para.type == 'V' ||
                      para.type == 'c' || para.type == 'C' ||
                      para.type == 'l' || para.type == 'L')
@@ -360,7 +360,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_2D:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
 #endif
 
@@ -370,7 +370,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     zoom.ExitLocalZoom();
                 }
                 ScanMode::GetInstance()->ExitSpecialMeasure();
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
                 ScanMode::GetInstance()->DarkAllModeLight();
                 g_keyInterface.CtrlLight(TRUE,LIGHT_D2);
 #endif
@@ -379,7 +379,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
             break;
 
         case KEY_PAGEUP:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
                         if(ViewSuperuser::GetInstance()->GetProjectModeStatus() && m_ptrKnobProjectMode->GetKnobStatus())
                             m_ptrKnobProjectMode->PageUp();
                         else
@@ -390,7 +390,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
  break;
 
         case KEY_PAGEDOWM:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
                         if(ViewSuperuser::GetInstance()->GetProjectModeStatus() && m_ptrKnobProjectMode->GetKnobStatus())
                             m_ptrKnobProjectMode->PageDown();
                         else
@@ -399,8 +399,8 @@ void ViewMain::KeyEvent(unsigned char keyValue)
             ptrKnob->PageDown();
 #endif
                         break;
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
         case KEY_B:
             if (MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::PIP_ZOOM)
             {
@@ -530,9 +530,9 @@ void ViewMain::KeyEvent(unsigned char keyValue)
         case KEY_CW:
             {
 
-#ifdef EMP_3410
+#ifdef CT_3410
                 if (type == 'P' && CManRegister::GetInstance()->IsAuthorize("CW"))
-//#elif EMP_355
+//#elif CT_355
             //      if (1)        //G30暂时屏蔽CW功能
 #else
                     if (type == 'P')
@@ -551,7 +551,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     ModeStatus s;
                     Format2D::EFormat2D format2D = s.GetFormat2D();
                     int mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
                   if(mode == ScanMode::PW_INIT || mode == ScanMode::PWCFM_INIT || mode == ScanMode::PWPDI_INIT)
                         {
                             ptrMultiFunc->Update();
@@ -590,7 +590,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 }
                 else
                 {
-#ifdef EMP_3D
+#ifdef CT_3D
 
                     if ( para.type == 'v' || para.type == 'V' ||
                          para.type == 'c' || para.type == 'C' ||
@@ -653,7 +653,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     ScanMode* ptrS = ScanMode::GetInstance();
                 ModeStatus s;
                 int mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
                 ImgPw::GetInstance()->ChangeHPRF(FALSE);
 #endif
 
@@ -745,7 +745,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 }
             }
             break;
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
         case KEY_F1ADD:
         case KEY_F1SUB:
         case KEY_F2ADD:
@@ -892,7 +892,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_CW:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
                 //if(1)
                 if (type == 'P')
@@ -909,7 +909,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     ModeStatus s;
                     int mode = s.GetScanMode();
                     Format2D::EFormat2D format2D = s.GetFormat2D();
-#ifdef EMP_355
+#ifdef CT_355
                     bool mode_bak = m_modeIsFlag;
                     m_modeIsFlag = true;
                     // before enter cw
@@ -966,7 +966,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_PDI:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
 #endif
                 ScanMode::GetInstance()->ExitSpecialMeasure();
@@ -998,7 +998,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_PW:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 bool mode_bak = m_modeIsFlag;
                 m_modeIsFlag = false;
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
@@ -1012,7 +1012,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 ScanMode* ptrS = ScanMode::GetInstance();
                 ModeStatus s;
                 int mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
                 if((mode == ScanMode::PW_INIT || mode == ScanMode::PWCFM_INIT || mode == ScanMode::PWPDI_INIT)&&(m_modeIsFlag == mode_bak))
 #else
                     if(mode == ScanMode::PW_INIT || mode == ScanMode::PWCFM_INIT || mode == ScanMode::PWPDI_INIT)
@@ -1033,13 +1033,13 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                         ptrS->EnterPwCfmFromCfm();
                     else if ((mode == ScanMode::PDI) && (format2D == Format2D::B))
                         ptrS->EnterPwPdiFromPdi();
-#ifdef EMP_355
+#ifdef CT_355
                     else if ((!mode_bak) && ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT)))
 #else
                     else if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_SIMULT))
 #endif
                         ptrS->EnterCfm();
-#ifdef EMP_355
+#ifdef CT_355
                     else if ((!mode_bak) && ((mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT)))
 #else
                     else if ((mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_SIMULT))
@@ -1054,7 +1054,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_CFM:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
 #endif
                 ScanMode::GetInstance()->ExitSpecialMeasure();
@@ -1086,7 +1086,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
 
         case KEY_M:
             {
-#ifdef EMP_355
+#ifdef CT_355
                 QuickAdjustmentPw::GetInstance()->QuickAdjustmentPwOff();
 #endif
                 ModeStatus s;
@@ -1206,7 +1206,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
             }
             break;
 
-#elif defined(EMP_322)
+#elif defined(CT_322)
         case KEY_F6:
             {
                 KnobKeyEvent(keyValue);
@@ -1406,7 +1406,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
             }
             break;
 
-#elif defined(EMP_313)
+#elif defined(CT_313)
         case KEY_BB:
             if (MultiFuncFactory::GetInstance()->GetMultiFuncType() != MultiFuncFactory::PIP_ZOOM)
             {
@@ -1665,7 +1665,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
         case KEY_CW:
             {
 
-#ifdef EMP_3410
+#ifdef CT_3410
                 if (type == 'P' && CManRegister::GetInstance()->IsAuthorize("CW"))
 #else
                 if (type == 'P')
@@ -1699,7 +1699,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 }
                 else
                 {
-#if defined(EMP3D)
+#if defined(CT3D)
                     if ( para.type == 'v' || para.type == 'V' ||
                          para.type == 'c' || para.type == 'C' ||
                          para.type == 'l' || para.type == 'L')
@@ -1765,7 +1765,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 ScanMode* ptrS = ScanMode::GetInstance();
                 ModeStatus s;
                 int mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
                 ImgPw::GetInstance()->ChangeHPRF(FALSE);
 #endif
                 if(mode == ScanMode::PW_INIT || mode == ScanMode::PWCFM_INIT || mode == ScanMode::PWPDI_INIT)
@@ -1975,7 +1975,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 kee.Execute();
             }
             break;
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         case KEY_MENU:
 #else
         case KEY_REVIEW:        // change between menu and read image
@@ -2064,7 +2064,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                         break;
 
                 case KEY_UP:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
                         if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
                         {
                             if(!m_ptrKnobProjectMode->GetKnobStatus())
@@ -2082,7 +2082,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                         break;
 
                 case KEY_DOWN:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
                         if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
                         {
                             if(m_ptrKnobProjectMode->GetKnobStatus())
@@ -2256,7 +2256,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     break;
                 }
 #if 0
-#ifdef EMP_430
+#ifdef CT_430
                 if(ModeStatus::IsAllSpectrumImgMode())
                 {
                     ImgPw::GetInstance()->ChangeDopplerSoundStatus(false);
@@ -2267,7 +2267,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                 if (ModeStatus::IsUnFreezeMode())
                     FreezeMode::GetInstance()->PressFreeze();
 #if  0
-#ifdef EMP_430
+#ifdef CT_430
                 //close hv
                 ProbeMan::GetInstance()->ActiveHV(FALSE);
                 usleep(50000);
@@ -2462,7 +2462,7 @@ void ViewMain::KeyEvent(unsigned char keyValue)
                     m_vecSuperAuthenInfo.push_back(keyValue);
             }
             break;
-#ifndef EMP_3410
+#ifndef CT_3410
             case KEY_D:
             {
                 m_vecAuthenInfo.clear();
@@ -2636,7 +2636,7 @@ void ViewMain::KnobEvent(unsigned char keyValue, unsigned char offset)
 
     switch (keyValue)
     {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         case KNOB_VALUE:
 #endif
             {
@@ -2644,8 +2644,8 @@ void ViewMain::KnobEvent(unsigned char keyValue, unsigned char offset)
             }
             break;
 
-#ifndef EMP_460
-#ifndef EMP_355
+#ifndef CT_460
+#ifndef CT_355
         case KNOB_2D: // 2D
           if (ModeStatus::IsEFOVMode()) {
                         HintArea::GetInstance()->UpdateHint(_("Invalid in current mode."), 1);
@@ -2703,7 +2703,7 @@ void ViewMain::KnobEvent(unsigned char keyValue, unsigned char offset)
 #endif
 #endif
 
-#if defined(EMP_322)
+#if defined(CT_322)
         case KNOB_GAIN:
             {
                 ModeStatus MStatus;
@@ -2739,7 +2739,7 @@ void ViewMain::KnobEvent(unsigned char keyValue, unsigned char offset)
                 }
             }
             break;
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
      case KNOB_GAIN:
             {
                 ModeStatus MStatus;
@@ -2775,7 +2775,7 @@ void ViewMain::KnobEvent(unsigned char keyValue, unsigned char offset)
             }
           break;
 
-#elif defined(EMP_313)
+#elif defined(CT_313)
       case KNOB_VALUE: // value
             {
                 if (g_ptrKeyFunc == NULL)
@@ -2852,7 +2852,7 @@ void ViewMain::SliderEvent(unsigned char keyValue, unsigned char offset)
         int interval = 10;
         g_tgcTimer = g_timeout_add(interval, TgcCallBack, NULL);
     }
-#if defined (EMP_313)
+#if defined (CT_313)
     else if (offset == (SLIDER_OFF + 8))
     {
         g_tgcSlider[offset - SLIDER_OFF] = keyValue;
@@ -2876,7 +2876,7 @@ void ViewMain::SliderEvent(unsigned char keyValue, unsigned char offset)
 
 void ViewMain::MouseEvent(char offsetX, char offsetY)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if(QuickAdjustmentPw::m_onQAPw)
     {
         return;
@@ -2889,7 +2889,7 @@ void ViewMain::MouseEvent(char offsetX, char offsetY)
 
 void ViewMain::KnobKeyEvent(unsigned char keyValue)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if(QuickAdjustmentPw::m_onQAPw)
     {
         return;
@@ -2901,7 +2901,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
     switch(keyValue)
     {
         case KEY_F1:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
             if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&m_ptrKnobProjectMode->GetKnobStatus())
                 m_ptrKnobProjectMode->Knob1_Press();
             else
@@ -2912,7 +2912,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
             break;
 
         case KEY_F2:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
             if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&m_ptrKnobProjectMode->GetKnobStatus())
                 m_ptrKnobProjectMode->Knob2_Press();
             else
@@ -2923,7 +2923,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
             break;
 
         case KEY_F3:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
             if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&m_ptrKnobProjectMode->GetKnobStatus())
                 m_ptrKnobProjectMode->Knob3_Press();
             else
@@ -2934,7 +2934,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
             break;
 
         case KEY_F4:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
             if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&m_ptrKnobProjectMode->GetKnobStatus())
                 m_ptrKnobProjectMode->Knob4_Press();
             else
@@ -2945,7 +2945,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
             break;
 
         case KEY_F5:
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
             if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&m_ptrKnobProjectMode->GetKnobStatus())
                 m_ptrKnobProjectMode->Knob5_Press();
             else
@@ -2954,7 +2954,7 @@ void ViewMain::KnobKeyEvent(unsigned char keyValue)
  ptrKnob->Knob5_Press();
 #endif
             break;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         case KEY_F6:
             ptrKnob->Knob6_Press();
             break;
@@ -2987,7 +2987,7 @@ ViewMain::ViewMain()
     m_ptrMenuArea = MenuArea::GetInstance();
     m_ptrNoteArea = NoteArea::GetInstance();
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     m_ptrKnobProjectMode = KnobProjectMode::GetInstance();
 #endif
 
@@ -3115,7 +3115,7 @@ void ViewMain::Create(void)
     da_hintArea = m_ptrHintArea->Create();
     gtk_fixed_put(GTK_FIXED(m_fixedWindow), da_hintArea, HINT_X, HINT_Y);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     GtkWidget *knobProjectMode;
     knobProjectMode = m_ptrKnobProjectMode->Create();
     gtk_fixed_put(GTK_FIXED(m_fixedWindow), knobProjectMode, HINT_X, HINT_Y);
@@ -3130,7 +3130,7 @@ void ViewMain::Create(void)
     Show();
     gtk_widget_hide(m_daMenu);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(!ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         m_ptrMenuArea->HideProjectModeMenu();
@@ -3170,7 +3170,7 @@ void ViewMain::Create(void)
     //ClickArchive(NULL);
     //test(NULL);
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if(g_authorizationOn)
         CEmpAuthorization::Create(&g_keyInterface, REGISTER_FILE_PATH, 0);
 #else

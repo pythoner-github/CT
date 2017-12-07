@@ -4,7 +4,7 @@
 #include "imageControl/UsbControl.h"
 
 struct FpgaPw::FpgaAddrVariablePw FpgaPw::fpgaPw;
-#ifdef EMP_460
+#ifdef CT_460
     AbsUltraInterface* FpgaPw::m_ptrInterface = PcieControl::GetInstance();
 #else
     AbsUltraInterface* FpgaPw::m_ptrInterface = EzUsb::GetInstance();

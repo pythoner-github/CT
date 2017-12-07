@@ -257,7 +257,7 @@ void MultiFuncPwInit::Update()
 
 void MultiFuncPwInit::Value(EKnobOper oper)
 {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
      if (ModeStatus::IsUnFreezeMode())
      {
          ImgPw::GetInstance()->ChangeCorrectAngle(oper);
@@ -321,7 +321,7 @@ void MultiFuncPw::Update()
 
 void MultiFuncPw::Value(EKnobOper oper)
 {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
      if (ModeStatus::IsUnFreezeMode())
      {
          ImgPw::GetInstance()->ChangeCorrectAngle(oper);
@@ -449,7 +449,7 @@ void MultiFuncPwCfmInit::Update()
 
 void MultiFuncPwCfmInit::Value(EKnobOper oper)
 {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
      if (ModeStatus::IsUnFreezeMode())
      {
          ImgPw::GetInstance()->ChangeCorrectAngle(oper);

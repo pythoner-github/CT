@@ -92,7 +92,7 @@ int PowerOff(gpointer data)
 
 bool KeyPowerOff::Execute()
 {
-#ifdef EMP_355
+#ifdef CT_355
     FpgaCtrl2D ctrl2D;
     ctrl2D.SendPowerOff();
 #endif
@@ -141,7 +141,7 @@ bool KeyAutoOptimize::Execute()
     if(m_autoOn == FALSE)
     {
         m_autoOn = TRUE;
-#ifndef EMP_355
+#ifndef CT_355
         g_keyInterface.CtrlLight(m_autoOn, LIGHT_AUTO);
 #endif
         Do();
@@ -149,7 +149,7 @@ bool KeyAutoOptimize::Execute()
     else
     {
         m_autoOn = FALSE;
-#ifndef EMP_355
+#ifndef CT_355
         g_keyInterface.CtrlLight(m_autoOn, LIGHT_AUTO);
 #endif
         Undo();
@@ -182,7 +182,7 @@ bool KeyAutoOptimize::Do()
     ExamItem e;
     ExamItem::ParaItem ePara;
     e.GetImgOptimize(pPara.model, ePara);
-#ifndef EMP_340
+#ifndef CT_340
     if(!ModeStatus::IsD2Mode())
         ePara.d2.spaceCompoundIndex = 0;
 #endif
@@ -220,7 +220,7 @@ void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i
         else
             ScanMode::GetInstance()->EnterPwCfmSimult(FALSE);
     }
-#if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
+#if (defined(CT_440)||defined(CT_161)||defined(CT_360))
     IoCtrl io;
     io.Freeze();
     usleep(700000);
@@ -236,7 +236,7 @@ void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i
     // init M
     ptrImg2D->InitProbeMOptimize(&p, &i);
     ImgProcM::GetInstance()->InitOptimize(&(i.d2));
-#ifndef EMP_322
+#ifndef CT_322
     // init pw
     ImgPw* ptrImgPw = ImgPw::GetInstance();
     ptrImgPw->InitProbeOptimize(&p, &i);
@@ -247,7 +247,7 @@ void KeyAutoOptimize::ImgOptimize(ProbeSocket::ProbePara p, ExamItem::ParaItem i
     ptrImgCfm->InitProbeOptimize(&p, &i);
     ImgProcCfm::GetInstance()->InitOptimize(&(i.color));
 #endif
-#if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
+#if (defined(CT_440)||defined(CT_161)||defined(CT_360))
     usleep(200000);
     io.Unfreeze();
 #endif
@@ -301,14 +301,14 @@ void KeyAutoOptimize::BackupPara()
 {
     Img2D::GetInstance()->GetCurPara(&m_itemPara);
     ImgProc2D::GetInstance()->GetCurPara(&m_itemPara);
-#ifndef EMP_340
+#ifndef CT_340
     if(!ModeStatus::IsD2Mode())
     {
         m_itemPara.d2.spaceCompoundIndex = 0;
         Img2D::GetInstance()->SetCompoundSpace(0);
     }
 #endif
-#ifndef EMP_322
+#ifndef CT_322
     ImgPw::GetInstance()->GetCurPara(&m_itemPara);
     ImgCfm::GetInstance()->GetCurPara(&m_itemPara);
 
@@ -333,7 +333,7 @@ bool KeyMeasure::Execute()
         }
         m_ptrUpdate->ExitMeasure();
         MultiFuncUndo();
-#if defined (EMP_322)
+#if defined (CT_322)
         g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
 #endif
     }
@@ -342,7 +342,7 @@ bool KeyMeasure::Execute()
         if (g_menuReview.GetLimit() == 2) //note: pic read from external media can not measure
         {
             HintArea::GetInstance()->UpdateHint(_("[Measure]: Measure is disable in current image."), 2);
-#if defined (EMP_322)
+#if defined (CT_322)
             g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
 #endif
         }
@@ -358,7 +358,7 @@ bool KeyMeasure::Execute()
             //SetChangePointerMeasure();
             m_ptrUpdate->EnterMeasure();
             //DarkFucusLight();
-#if defined (EMP_322)
+#if defined (CT_322)
             MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
             g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
             g_keyInterface.CtrlLight(TRUE,LIGHT_MEASURE);
@@ -382,7 +382,7 @@ bool KeyCalc::Execute()
         }
         m_ptrUpdate->ExitCalc();
         MultiFuncUndo();
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
 #endif
     }
@@ -403,10 +403,10 @@ bool KeyCalc::Execute()
             }
         //    SetChangePointerCalc();
             m_ptrUpdate->EnterCalc();
-#if defined (EMP_322)
+#if defined (CT_322)
             g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
             g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
-#elif defined(EMP_313)
+#elif defined(CT_313)
             g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #endif
         }
@@ -515,7 +515,7 @@ bool KeyArrow::Execute()
         MultiFuncUndo();
     else
     {
-#ifdef EMP_355
+#ifdef CT_355
         HintArea::GetInstance()->UpdateHint(_("[Arrow]: <Auto> to change arrow direction."), 2);
 #else
         HintArea::GetInstance()->UpdateHint(_("[Arrow]: <Value> to change arrow direction."), 2);
@@ -553,7 +553,7 @@ bool KeyBiopsy::Execute()
         }
         else
         {
-#ifdef EMP_322
+#ifdef CT_322
             HintArea::GetInstance()->UpdateHint(_("[Biopsy]: Only valid in B mode and UnFreeze status."), 1);
 #else
             HintArea::GetInstance()->UpdateHint(_("[Biopsy]: Only valid in B mode,CFM,PDI and UnFreeze status."), 1);
@@ -718,7 +718,7 @@ bool KeyReview::Execute()
         //FreezeMode::GetInstance()->PressUnFreeze();
         MenuShowUndo();
         m_menuRead = FALSE;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
 #endif
     }
@@ -730,7 +730,7 @@ bool KeyReview::Execute()
         ptrMenu->ShowReviewMenu();
         ptrFunc->Create(MultiFuncFactory::NONE);
         m_menuRead = TRUE; // must after ShowReviewMenu(HideAllMenu), be care of "HideMenuReview"
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(TRUE,LIGHT_READ);
 #endif
     }
@@ -752,7 +752,7 @@ void KeyReview::ExitMenuReivew()
         m_menuRead = FALSE;
 
         FreezeMode::GetInstance()->PressUnFreeze();
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(m_menuRead,LIGHT_READ);
 #endif
 
@@ -821,7 +821,7 @@ bool KeyLocalZoom::Execute()
     {
         MultiFuncUndo();
         Zoom::GetInstance()->LocalZoomCtrl(FALSE);
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
 #endif
     }
@@ -853,7 +853,7 @@ bool KeyLocalZoom::Execute()
                     if (rotate == 0)
                     {
                         MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::LOCAL_ZOOM);
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
                         g_keyInterface.CtrlLight(TRUE,LIGHT_ZOOM);
 #endif
                     }
@@ -868,7 +868,7 @@ bool KeyLocalZoom::Execute()
         }
         else
         {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
             HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Only valid in B mode and not replay status."), 1);
 #else
             HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Only valid in 2D B mode and not replay status."), 1);
@@ -885,7 +885,7 @@ bool KeyLocalZoom::ExitLocalZoom()
 
     if (Zoom::GetInstance()->GetLocalZoomStatus())
     {
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
 #endif
         if(MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)
@@ -942,7 +942,7 @@ bool KeyFocus::Execute()
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FOCUS)
     {
         MultiFuncUndo();
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_FOCUS);
 #endif
     }
@@ -957,7 +957,7 @@ bool KeyFocus::Execute()
         {
             MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::FOCUS);
             // DarkFucusLight();
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
             g_keyInterface.CtrlLight(TRUE,LIGHT_FOCUS);
 #endif
         }
@@ -1037,13 +1037,13 @@ bool KeyDepth::Execute()
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::DEPTH)
     {
         MultiFuncUndo();
-#if defined (EMP_313)
+#if defined (CT_313)
         g_keyInterface.CtrlLight(FALSE,LIGHT_DEPTH);
 #endif
     }
     else
     {
-#if defined (EMP_313)
+#if defined (CT_313)
         g_keyInterface.CtrlLight(TRUE,LIGHT_DEPTH);
 #endif
         MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::DEPTH);
@@ -1058,7 +1058,7 @@ bool KeyFreq::Execute()
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::FREQ)
     {
         MultiFuncUndo();
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
         g_keyInterface.CtrlLight(FALSE,LIGHT_FREQ);
 #endif
     }
@@ -1071,7 +1071,7 @@ bool KeyFreq::Execute()
         }
         else
         {
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
             // DarkFucusLight();
             g_keyInterface.CtrlLight(TRUE,LIGHT_FREQ);
 #endif
@@ -1087,14 +1087,14 @@ bool KeyChroma::Execute()
     if (MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::CHROMA)
     {
         MultiFuncUndo();
-#if defined (EMP_322)
+#if defined (CT_322)
         g_keyInterface.CtrlLight(FALSE,LIGHT_CHROMA);
 #endif
     }
     else
     {
         MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::CHROMA);
-#if defined (EMP_322)
+#if defined (CT_322)
         // DarkFucusLight();
         g_keyInterface.CtrlLight(TRUE,LIGHT_CHROMA);
 #endif
@@ -1483,7 +1483,7 @@ void ChangeTis()
 }
 void DarkFucusLight()
 {
-#if defined (EMP_322)
+#if defined (CT_322)
     g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
     g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
     g_keyInterface.CtrlLight(FALSE,LIGHT_SYSTEM);
@@ -1492,7 +1492,7 @@ void DarkFucusLight()
     g_keyInterface.CtrlLight(FALSE,LIGHT_READ);
     g_keyInterface.CtrlLight(FALSE,LIGHT_SAVE);
     g_keyInterface.CtrlLight(FALSE,LIGHT_TSI);
-#elif defined (EMP_313)
+#elif defined (CT_313)
     g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
     g_keyInterface.CtrlLight(FALSE,LIGHT_CURSOR);
     g_keyInterface.CtrlLight(FALSE,LIGHT_READ);

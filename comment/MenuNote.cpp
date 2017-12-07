@@ -109,7 +109,7 @@ UpdateLabel();
             case ExamItem::EYE:
                 index = 6;
                 break;
-#ifdef EMP_322
+#ifdef CT_322
             case ExamItem::HIP_JOINT:
             case ExamItem::JOINT_CAVITY:
             case ExamItem::MENISCUS:
@@ -167,7 +167,7 @@ UpdateLabel();
 }
 void MenuNote::ShowMenu(int index, char *department)
 {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         MenuArea::GetInstance()->ShowProjectModeMenu();
@@ -256,7 +256,7 @@ void MenuNote::ShowMenu(int index, char *department)
 
 #endif
 
-#ifdef EMP_322
+#ifdef CT_322
     else if(index==7)
     {
         gtk_tree_view_set_model(GTK_TREE_VIEW(m_treeview_item_ortho_comment), NULL);
@@ -356,7 +356,7 @@ void MenuNote::UpdateScaleModel(void)
 #endif
     gtk_tree_model_iter_next(m_modelDept, &iter);
     gtk_list_store_set(store, &iter, 0, _("Small Part"), -1);
-#ifndef EMP_322
+#ifndef CT_322
     gtk_tree_model_iter_next(m_modelDept, &iter);
     gtk_list_store_set(store, &iter, 0, _("Vascular"), -1);
 #endif
@@ -407,7 +407,7 @@ GtkWidget* MenuNote::Create(void)
 #endif
     GtkWidget *MenuSP = create_sp_item();
     gtk_table_attach_defaults(GTK_TABLE(m_table), MenuSP, 0, 6, 1, 18);
-#ifndef EMP_322
+#ifndef CT_322
     GtkWidget *MenuVS = create_vs_item();
     gtk_table_attach_defaults(GTK_TABLE(m_table), MenuVS, 0, 6, 1, 18);
 #endif
@@ -651,7 +651,7 @@ GtkWidget * MenuNote::create_sp_item()
 
 }
 
-#ifdef EMP_322
+#ifdef CT_322
 GtkWidget * MenuNote::create_ortho_item()
 {
   scrolledwindow_item_ortho_comment = gtk_scrolled_window_new (NULL, NULL);
@@ -809,7 +809,7 @@ GtkTreeModel* MenuNote::CreateDeptModel(void)
 #endif
     gtk_list_store_append(liststore, &iter);
     gtk_list_store_set(liststore, &iter, 0, _("Small Part"), -1);
-#ifndef EMP_322
+#ifndef CT_322
     gtk_list_store_append(liststore, &iter);
     gtk_list_store_set(liststore, &iter, 0, _("Vascular"), -1);
 #endif
@@ -862,7 +862,7 @@ void MenuNote::HideMenu(void)
     gtk_widget_hide(scrolledwindow_item_ob_comment);
     gtk_widget_hide(scrolledwindow_item_gyn_comment);
     gtk_widget_hide(scrolledwindow_item_sp_comment);
-#ifndef EMP_322
+#ifndef CT_322
     gtk_widget_hide(scrolledwindow_item_vs_comment);
 #endif
     gtk_widget_hide(scrolledwindow_item_ortho_comment);
@@ -974,7 +974,7 @@ void MenuNote::DepartmentName(char department[256], int index)
     {
         strcpy(department, "Obstetrics");
     }
-#ifdef EMP_322
+#ifdef CT_322
  else if(index == 5)
     {
         strcpy(department, "Gynecology");
@@ -1044,7 +1044,7 @@ void MenuNote::Focus(void)
     gtk_widget_set_sensitive(m_treeview_item_gyn_comment, TRUE);
 #endif
     gtk_widget_set_sensitive(m_treeview_item_ortho_comment, TRUE);
-#ifndef EMP_322
+#ifndef CT_322
     gtk_widget_set_sensitive(m_treeview_item_vs_comment, TRUE);
 #endif
 
@@ -1085,7 +1085,7 @@ void MenuNote::Focus(void)
         gtk_widget_grab_focus(m_treeview_item_sp_comment);
     }
 #endif
-#ifdef EMP_322
+#ifdef CT_322
       else if(index == 7)
     {
         gtk_widget_grab_focus(m_treeview_item_ortho_comment);

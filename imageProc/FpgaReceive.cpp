@@ -11,7 +11,7 @@
 #include "keyboard/MultiFuncMode.h"
 #include "imageControl/QuickAdjustmentPw.h"
 
-#ifdef EMP_460 //G40
+#ifdef CT_460 //G40
     PcieControl* FpgaReceive::m_ptrUsb = PcieControl::GetInstance();
 #else
     EzUsb* FpgaReceive::m_ptrUsb = EzUsb::GetInstance();
@@ -22,7 +22,7 @@ ScanMode* FpgaReceive::m_ptrScanMode = ScanMode::GetInstance();
 extern int tempoffsound;
 extern bool updateoffsound;
 
-#ifdef EMP_355
+#ifdef CT_355
 int g_fps = 0;
 #endif
 /**
@@ -32,7 +32,7 @@ void FpgaReceive::UsbServiceRoutine(void *arg)
 {
     DscMan* ptrDscMan = DscMan::GetInstance();
     const int pktSize = 512;
-#ifdef EMP_355
+#ifdef CT_355
     const int pktPerBlockMax = 16;
     int pktPerBlock = 16;
 #else
@@ -129,7 +129,7 @@ begin:
                     PRINTF("---flag=%d autoOn=%d\n", ptrTemp[16], QuickAdjustmentPw::m_onQAPw);
                     if (ptrTemp[16] == 2) //第17位标识是模式
                     {
-#ifdef EMP_430
+#ifdef CT_430
                         memset(ptrTemp+450, 0, 52);
 #endif
                         //memset(ptrTemp+450, 0, 62);
@@ -160,7 +160,7 @@ begin:
                 printf("\n");
 #endif
 
-#ifdef EMP_355
+#ifdef CT_355
                 boxRange[1] = m_ptrDscPara->dcaCFMScanLEnd;
                 scanRange[1] = m_ptrDscPara->dcaCurScanEnd;
 
@@ -183,7 +183,7 @@ begin:
                 }
                 else
                 {
-#ifdef EMP_355
+#ifdef CT_355
                     if (QuickAdjustmentPw::m_onQAPw)
                     {
                         if (ptrTemp[16] == 4)

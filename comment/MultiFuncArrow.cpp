@@ -11,7 +11,7 @@
 MultiFuncArrow * MultiFuncArrow::m_pThis = NULL;
 
 enum EKnobArrow {ARROW_SHAPE, ARROW_SIZE, ARROW_COLOR};
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 KnobMenu::KnobItem KnobArrowMenu[6] =
 {
     {_("Shape"), "", MIN, MultiFuncArrow::SetShape, MultiFuncArrow::PressSetShape},
@@ -265,7 +265,7 @@ void MultiFuncArrow::KeyEvent(unsigned char keyValue)
         case KEY_F3:
         case KEY_F4:
         case KEY_F5:
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         case KEY_F6:
             ViewMain::GetInstance()->KnobKeyEvent(keyValue);
 #else
@@ -273,7 +273,7 @@ void MultiFuncArrow::KeyEvent(unsigned char keyValue)
 #endif
             break;
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         case KEY_F1ADD:
         case KEY_F1SUB:
         case KEY_F2ADD:
@@ -293,8 +293,8 @@ void MultiFuncArrow::KeyEvent(unsigned char keyValue)
         default:
             switch(keyValue)
             {
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
                 case KEY_PAGEUP:
                 case KEY_PAGEDOWM:
 #endif

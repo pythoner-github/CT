@@ -92,7 +92,7 @@ GtkWidget * MenuM::Create(void)
     spin_enhanceM.Show();
 
     //anatomic
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[1]))
     {
         m_labelAnatomicM = create_label("", 0, 0, g_lightGray, NULL);
@@ -198,7 +198,7 @@ void MenuM::UpdateLabel(void)
     spin_line.UpdateLabel();
     spin_smooth.UpdateLabel();
     spin_enhanceM.UpdateLabel();
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize("Anatomic M"))
         gtk_label_set_text(GTK_LABEL(m_labelAnatomicM), _("Anatomic M"));
 #else

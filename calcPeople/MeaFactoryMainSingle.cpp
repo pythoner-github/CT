@@ -92,7 +92,7 @@ int MeaFactoryMainSingle::SectionItem(int item, int *itemStart, const SingleItem
         *itemStart = FETAL_MEA_START;
         return FETAL_M;
     }
-#ifdef EMP_322
+#ifdef CT_322
 #else
     else if ((item >= VS_MEA_START)&&(item < VS_MEA_END))
     {

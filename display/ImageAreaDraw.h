@@ -150,7 +150,7 @@ public:
     void EFOVScaleY(int scale_x, int scale_y, int height, double ratio);
     void EFOVScaleX(int scale_x, int scale_y, int height, double ratio);
     char* GetCalcAutoPara();
-#ifdef EMP_355
+#ifdef CT_355
     void SetClearStatus(bool on);
 #endif
 private:
@@ -190,7 +190,7 @@ void BiopsyLine(double xDist, double yDist, bool LRStatus, bool UDStatus, int ro
 
     //    void PwTrace(const vector<POINT>& trace);
     //    void PwCycle(int begin, int end);
-#ifdef EMP_355
+#ifdef CT_355
     bool m_clear;
 #endif
     POINT m_EFOVZoomMiniatureBox[2];

@@ -47,7 +47,7 @@ bool g_flagImageData = true;
 ImageArea* ImageArea::m_ptrInstance = NULL;
 int ImageArea::m_cineRemoveImg = 0;
 
-#ifdef EMP_355
+#ifdef CT_355
 extern int g_fps;
 #endif
 
@@ -2601,7 +2601,7 @@ void ImageArea::DrawBodyMark(int x, int y, GdkPixbuf* pixbuf, double scale, guin
 
 gboolean ImageArea::UpdateFps()
 {
-#ifndef EMP_355
+#ifndef CT_355
     ImageAreaPara::GetInstance()->UpdateGenFps(m_counts, TRUE);
 #else
     ImageAreaPara::GetInstance()->UpdateGenFps(g_fps, m_counts, TRUE);
@@ -2614,7 +2614,7 @@ gboolean ImageArea::UpdateFps()
 void ImageArea::ClearUpdateCounts()
 {
     m_counts = 0;
-#ifdef EMP_355
+#ifdef CT_355
     g_fps = 0;
 #endif
 }

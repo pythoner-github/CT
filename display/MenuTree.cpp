@@ -501,7 +501,7 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem)
             G_TYPE_INT, // toggle value
             G_TYPE_POINTER); /* Union */
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if(pItem->name != NULL)
         if(!CManRegister::GetInstance()->IsAuthorize("IMT"))
             if(strcmp(pItem->name, "IMT") == 0)
@@ -533,7 +533,7 @@ GtkTreeModel* TreeMenu::CreateModel(GUIMenu *pItem)
                     -1);
         }
         pItem++;
-#ifdef EMP_3410
+#ifdef CT_3410
         if(pItem->name != NULL)
             if(!CManRegister::GetInstance()->IsAuthorize("IMT"))
                 if(strcmp(pItem->name, "IMT") == 0)

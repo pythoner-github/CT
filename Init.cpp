@@ -155,7 +155,7 @@ void Init::SystemInit(int argc, char *argv[])
    // setlocale(LC_NUMERIC, "en_US.UTF-8");
 
 #if 0
-#if not defined (EMP3D)
+#if not defined (CT3D)
     string command;
     if (tvout_format == 0)
         command = "--mode 1024x768 --pos 0x0";
@@ -191,7 +191,7 @@ void Init::SystemInit(int argc, char *argv[])
 
     ///> upgrade manage
     UpgradeMan::GetInstance()->SetRebootState("1");
-#if (defined (EMP_430) || defined(EMP_355))
+#if (defined (CT_430) || defined(CT_355))
     //5805 AD control para
     CFpgaGeneral::GetInstance()->AD5805ControlInit();
 #else
@@ -329,9 +329,9 @@ void Init::WriteLogHead()
         (*sysLog) << "software work in portable mode." << endl;
 
     ///> get realse configure version of software
-    if (version->GetRealse() == VersionConfig::EMP_CHI)
+    if (version->GetRealse() == VersionConfig::CT_CHI)
         (*sysLog) << "software is config to chinese language of emperor." << endl;
-    else if (version->GetRealse() == VersionConfig::EMP_EN)
+    else if (version->GetRealse() == VersionConfig::CT_EN)
         (*sysLog) << "software is config to english language of emperor." << endl;
 }
 
@@ -346,7 +346,7 @@ void Init::ExitSystem()
 
     // destroy global color
     free_init_colors();
-#ifdef EMP_3410
+#ifdef CT_3410
     CManRegister::GetInstance()->Destroy();
 #endif
 }

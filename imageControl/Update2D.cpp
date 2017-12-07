@@ -26,7 +26,7 @@ const char * Toggle[2] =
 
 const char * Toggle_THI[2] =
 {
-#if(defined(EMP_460) || defined(EMP_355))
+#if(defined(CT_460) || defined(CT_355))
     N_("Freq"),
     N_("Freq")
 #else
@@ -101,14 +101,14 @@ void Update2D::ExamItem(int index)
 //> knob
 void Update2D::Freq(int freq, EKnobReturn status)
 {
-#if(defined(EMP_460) || defined(EMP_355))
+#if(defined(CT_460) || defined(CT_355))
     sprintf(m_str, "%.1fMHz", (float)freq/20);
 #else
    sprintf(m_str, "F:%.1fMHz", (float)freq/20);
 #endif
    //sprintf(m_str, "%.1fMHz", (float)freq/20);
 
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     TopArea::GetInstance()->UpdateFreq(m_str);
 #else
     SyncKnobD2(D2_FREQ, m_str, status);
@@ -151,8 +151,8 @@ void  Update2D::Harmonic(bool on, EKnobReturn status)
 
 void  Update2D::HarmonicStatus(bool on, EKnobReturn status)
 {
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     SyncKnobD2StatusTHI(D2_FREQ, Toggle_THI[on]);
 #endif
 #endif
@@ -160,9 +160,9 @@ void  Update2D::HarmonicStatus(bool on, EKnobReturn status)
 
 void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
 {
-#if(defined(EMP_460))
+#if(defined(CT_460))
     sprintf(m_str, "H:%.1fMHz", (float)harFreq/20.0*2);
-#elif (defined(EMP_355)||defined(EMP_340))
+#elif (defined(CT_355)||defined(CT_340))
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
    int freq_tmp;
@@ -224,8 +224,8 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
 #else
     sprintf(m_str, "FH:%.1fMHz", (float)harFreq/20.0*2);
 #endif
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     SyncKnobD2(D2_FREQ, m_str, status);
     SyncKnobM(M_FREQ, m_str, status);
 #endif
@@ -235,7 +235,7 @@ void  Update2D::HarmonicFreq(int harFreq, EKnobReturn status)
 
 void Update2D::Tsi(const char* data, EKnobReturn status)
 {
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     m_ptrImgPara->Update2DTSI(data);
 #else
     SyncKnobD2(D2_TSI, data, status);
@@ -253,7 +253,7 @@ void Update2D::MBP(int mbp, EKnobReturn status)
 {
     if(Img2D::GetInstance()->GetLDensity() == 0)
         mbp *= 2;
-#if (defined (EMP_322) ||defined(EMP_313))
+#if (defined (CT_322) ||defined(CT_313))
     sprintf(m_str, "%d", mbp);
     SyncKnobD2(D2_MBP,m_str,status);
     SyncKnobM(M_MBP, m_str, status);
@@ -295,8 +295,8 @@ void Update2D::Depth(int depth)
 
 void  Update2D::FocInfo(int focSum, int focPos[])
 {
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     EKnobReturn status = OK;
     if (focSum == 1)
         status = MIN;
@@ -351,13 +351,13 @@ void  Update2D::GainM(int total)
 void Update2D::SoundPower(int power, EKnobReturn status)
 {
     PRINTF("power = %d\n", power);
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     sprintf(m_str, "%d", power);
     SyncKnobD2(D2_SOUND_POWER,m_str,status);
     SyncKnobM(M_SOUND_POWER, m_str, status);
     PRINTF("power = %d\n", power);
     m_ptrImgPara->UpdateGenPwr(power);
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
     sprintf(m_str, "%d", power);
     SyncKnobD2(D2_SOUND_POWER,m_str,status);
    //   SyncKnobM(M_SOUND_POWER, m_str, status);
@@ -717,7 +717,7 @@ void Update2D::LeftRight(bool on)
 {
     ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
     bool mode_bak = ViewMain::GetInstance()->GetModeIsFlag();
 #endif
     if (mode == ScanMode::D2) {
@@ -747,7 +747,7 @@ void Update2D::LeftRight(bool on)
             m_ptrImgDraw->ReDrawBMLine();
     }
     else if ((mode == ScanMode::PW) || (mode == ScanMode::PW_INIT) || (mode == ScanMode::PW_SIMULT)) {
-#ifdef EMP_355
+#ifdef CT_355
  if(mode_bak)
             m_ptrImgDraw->ClearSVCW();
         else
@@ -759,7 +759,7 @@ void Update2D::LeftRight(bool on)
         m_ptrImgDraw->Update();
         m_ptrImgDraw->ReDrawFocus();
         m_ptrImgDraw->DrawScaleY();
-#ifdef EMP_355
+#ifdef CT_355
   if(mode_bak)
             m_ptrImgDraw->ReDrawSVCW();
         else
@@ -790,7 +790,7 @@ void Update2D::LeftRight(bool on)
     }
     else if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT)) {
         m_ptrImgDraw->ClearCfmBox();
-#ifdef EMP_355
+#ifdef CT_355
     if(mode_bak)
             m_ptrImgDraw->ClearSVCW();
         else
@@ -803,7 +803,7 @@ void Update2D::LeftRight(bool on)
         m_ptrImgDraw->ReDrawFocus();
         m_ptrImgDraw->DrawScaleY();
         m_ptrImgDraw->ReDrawCfmBox();
-#ifdef EMP_355
+#ifdef CT_355
    if(mode_bak)
             m_ptrImgDraw->ReDrawSVCW();
         else
@@ -831,7 +831,7 @@ void Update2D::UpDown(bool on)
     //  AbsUpdateCfm* ptrUpdateCfm = GlobalClassMan::GetInstance()->GetUpdateCfm();
     ModeStatus s;
     ScanMode::EScanMode mode = s.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
     bool mode_bak = ViewMain::GetInstance()->GetModeIsFlag();
 #endif
     if (mode == ScanMode::D2) {
@@ -866,7 +866,7 @@ void Update2D::UpDown(bool on)
         m_ptrImgDraw->DrawScanDirection();
     }
     else if ((mode == ScanMode::PW) || (mode == ScanMode::PW_INIT) || (mode == ScanMode::PW_SIMULT)) {
-#ifdef EMP_355
+#ifdef CT_355
        if(mode_bak)
             m_ptrImgDraw->ClearSVCW();
         else
@@ -879,7 +879,7 @@ void Update2D::UpDown(bool on)
         m_ptrImgDraw->ReDrawFocus();
         m_ptrImgDraw->DrawScaleY();
         m_ptrImgDraw->DrawScanDirection();
-#ifdef EMP_355
+#ifdef CT_355
         if(mode_bak)
             m_ptrImgDraw->ReDrawSVCW();
         else
@@ -910,7 +910,7 @@ void Update2D::UpDown(bool on)
     }
     else if ((mode == ScanMode::PWCFM) || (mode == ScanMode::PWCFM_INIT) || (mode == ScanMode::PWPDI) || (mode == ScanMode::PWPDI_INIT) || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT)) {
         m_ptrImgDraw->ClearCfmBox();
-#ifdef EMP_355
+#ifdef CT_355
         if(mode_bak)
             m_ptrImgDraw->ClearSVCW();
         else
@@ -923,7 +923,7 @@ void Update2D::UpDown(bool on)
         m_ptrImgDraw->ReDrawFocus();
         m_ptrImgDraw->DrawScaleY();
         m_ptrImgDraw->ReDrawCfmBox();
-#ifdef EMP_355
+#ifdef CT_355
         if(mode_bak)
             m_ptrImgDraw->ReDrawSVCW();
         else
@@ -1000,8 +1000,8 @@ void Update2D::Gamma(int data, EKnobReturn status)
 
 void Update2D::Chroma(const char* data, EKnobReturn status)
 {
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
     SyncKnobD2(D2_CHROMA, data, status, TRUE);
     SyncKnobM(M_CHROMA, data, status, TRUE);
 #endif

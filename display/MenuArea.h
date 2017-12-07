@@ -14,7 +14,7 @@ public:
 
 // enum EMenuType {MAIN, D2, M, PW, CW, CFM, PDI, PWCFM, CWCFM, MEASURE, BDMK, REVIEW, CALC, NOTE, BIOPSY, SYSTEM, EFOV};
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     enum EMenuType {MAIN, D2, M, PW, CW, CFM, PDI, PWCFM, CWCFM, MEASURE, BDMK, REVIEW, CALC, NOTE, BIOPSY, SYSTEM, EFOV,PROJECTMODE, BIOPSYBRACKET,BIOPSYVERIFY};
 #else
   enum EMenuType {MAIN, D2, M, PW, CW, CFM, PDI, PWCFM, CWCFM, MEASURE, BDMK, REVIEW, CALC, NOTE, BIOPSY, SYSTEM, EFOV,BIOPSYBRACKET,BIOPSYVERIFY};
@@ -50,7 +50,7 @@ void ShowEFOVPrepare(void);
     void ShowBiopsyMenu(void);
     void ShowSystemMenu(void);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     void ShowProjectModeMenu(void);
     void HideProjectModeMenu(void);
 #endif
@@ -66,7 +66,7 @@ private:
 
     EMenuType m_menuType;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     EMenuType m_menuTypePre;
 #endif
 

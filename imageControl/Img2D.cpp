@@ -250,7 +250,7 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
     if (m_freqIndex == 0)
         ret = MIN;
     else if (m_freqIndex == (int)(m_vecFreqRange.size()-1))
-#if (defined(EMP_322) || defined(EMP_355))
+#if (defined(CT_322) || defined(CT_355))
         ret = OK;
 #else
         ret = MAX;
@@ -261,7 +261,7 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
 
     //sound power
     m_soundPowerIndex = ptrParaItem->common.powerIndex;
-#ifdef EMP_340
+#ifdef CT_340
     if(!strcmp(ptrPara->model, "10L25J"))
     {
         if(m_freq.receive == 180) //9MHz
@@ -390,7 +390,7 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
     if(m_harmonicFreqIndex <= 0)
     {
         m_harmonicFreqIndex = 0;
-#if (defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_355) || defined(CT_322))
         ret = OK;
 #else
         ret = MIN;
@@ -436,7 +436,7 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
         m_calcPara.freq.emit = m_freq.emit;
         m_calcPara.freq.receive = m_freq.receive;
     }
-#if (defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_355) || defined(CT_322))
     m_fc01 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][0] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][0]) / 20.0);
     m_fc02 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][1] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][1]) / 20.0);
     m_fc03 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][2] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][2]) / 20.0);
@@ -508,7 +508,7 @@ void Img2D::InitProbe2DOptimizePara(ProbeSocket::ProbePara* ptrPara, ExamItem::P
 
     // steer
     m_steerIndex = ptrParaItem->d2.steerIndex; // index = 3, angle = 0;
-#ifdef EMP_430
+#ifdef CT_430
     m_steerIndex = 3;
 #endif
     m_steerIndexbak = ptrParaItem->d2.steerIndex; // index = 3, angle = 0;
@@ -561,7 +561,7 @@ void Img2D::InitProbe2D(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptr
     m_ptrDscPara->dcaSamplePoints = dots;
 
     ///> set dsc para
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         m_ptrDscPara->dcaProbeR =(float)(m_projectCalcPara.probeR / 100.0);
@@ -642,7 +642,7 @@ void Img2D::InitProbe2D(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptr
     ///> set calc parameter
     m_calcPara.probeArray = ptrPara->array;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
  if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         ProbeSocket::ProbePara para;
@@ -675,7 +675,7 @@ void Img2D::InitProbe2D(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaItem* ptr
 #endif
     m_calcPara.depthMax = ptrPara->depth;
     //set extendedAngle
-#ifdef EMP_355
+#ifdef CT_355
     m_calcPara.extendedAngle = ptrPara->width + 1800;//1000;//8800  为了解决在腔体探头下打开EFVI功能时角度变成和凸阵探头的角度一样的问题。改成了在原来的物理宽度上加上18；不超过180即可。
 #else
     m_calcPara.extendedAngle = ptrPara->width + 1000;//8800  为了解决在腔体探头下打开EFVI功能时角度变成和凸阵探头的角度一样的问题。改成了在原来的物理宽度上加上10；不超过180即可。
@@ -797,7 +797,7 @@ EKnobReturn Img2D::ChangeFreq(EKnobOper oper)
         }
         else
         {
-#if (defined(EMP_460) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_460) || defined(CT_355) || defined(CT_322))
             IoCtrl io;
             io.Freeze();
             usleep(50000);
@@ -838,7 +838,7 @@ EKnobReturn Img2D::ChangeFreq(EKnobOper oper)
         ret = MIN;
     else if (m_freqIndex == (size-1))
     {
-#if (defined(EMP_460) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_460) || defined(CT_355) || defined(CT_322))
         ret = OK;
 #else
         ret = MAX;
@@ -847,7 +847,7 @@ EKnobReturn Img2D::ChangeFreq(EKnobOper oper)
     else
         ret = OK;
 
-#if (defined(EMP_340) || defined(EMP_355))
+#if (defined(CT_340) || defined(CT_355))
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     if((strcmp(para.model, "10L25J")) == 0)
@@ -975,13 +975,13 @@ EKnobReturn Img2D::ChangeDepth(EKnobOper oper)
         ret = MAX;
     else
         ret = OK;
-#if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
+#if (defined(CT_440)||defined(CT_161)||defined(CT_360))
     IoCtrl io;
     io.Freeze();
     usleep(100000);
 #endif
     Depth(m_imgScaleIndex);
-#if (defined(EMP_440)||defined(EMP_161)||defined(EMP_360))
+#if (defined(CT_440)||defined(CT_161)||defined(CT_360))
     usleep(84000);
     io.Unfreeze();
 #endif
@@ -1895,7 +1895,7 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
 
     EKnobReturn ret = OK;
 
-#if (defined(EMP_460) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_460) || defined(CT_355) || defined(CT_322))
     if(!m_harmonic)
     {
         size = m_vecFreqRange.size();
@@ -1979,7 +1979,7 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
 
         //draw
         m_ptrUpdate->Freq(m_freq.receive, ret);
-#if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
+#if (defined(CT_360) || defined(CT_161) || defined(CT_440))
         IoCtrl io;
         io.Freeze();
         usleep(150000);
@@ -1998,7 +1998,7 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
             CompoundFreqCtrl(TRUE);
         }
 
-#if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
+#if (defined(CT_360) || defined(CT_161) || defined(CT_440))
         usleep(150000);
         io.Unfreeze();
 #endif
@@ -2020,7 +2020,7 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
 
         IoCtrl io;
         io.Freeze();
-#ifdef EMP_340
+#ifdef CT_340
         usleep(90000);
 #else
         usleep(200000);
@@ -2051,7 +2051,7 @@ EKnobReturn Img2D::ChangeHarmonicStatus(EKnobOper oper)
             m_calcPara.freq.receive = m_vecFreqRange[index].receive;
 
         }
-#if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
+#if (defined(CT_360) || defined(CT_161) || defined(CT_440))
         usleep(100000);
 #endif
         io.Unfreeze();
@@ -2099,7 +2099,7 @@ EKnobReturn Img2D::ChangeD2HarmonicFreq(EKnobOper oper)
         }
         else
         {
-#if (defined(EMP_460) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_460) || defined(CT_355) || defined(CT_322))
         IoCtrl io;
         io.Freeze();
         usleep(50000);
@@ -2123,7 +2123,7 @@ EKnobReturn Img2D::ChangeD2HarmonicFreq(EKnobOper oper)
     EKnobReturn ret = OK;
     if (m_harmonicFreqIndex == 0)
     {
-#if (defined(EMP_460) || defined(EMP_355) || defined(EMP_322))
+#if (defined(CT_460) || defined(CT_355) || defined(CT_322))
         ret = OK;
 #else
         ret = MIN;
@@ -2145,7 +2145,7 @@ EKnobReturn Img2D::ChangeD2HarmonicFreq(EKnobOper oper)
     HarmonicFreq(m_freq, ret);
     // send harmonic status to imging system
     m_calcPara.harmonic = m_harmonic;
-#if (defined(EMP_322) || defined(EMP_355))
+#if (defined(CT_322) || defined(CT_355))
         m_fc01 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][0] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][0]) / 20.0);
         m_fc02 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][1] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][1]) / 20.0);
         m_fc03 = float((ProbeSocket::BAND_PASS_FILTER_FC1[m_curProbeIndex][m_harmonicFreqIndex][2] + ProbeSocket::BAND_PASS_FILTER_FC2[m_curProbeIndex][m_harmonicFreqIndex][2]) / 20.0);
@@ -2610,7 +2610,7 @@ void Img2D::ChangeGainM(int gain)
     ///> calc tgc
     m_ptrCalc->CalcTgc(m_gainM*MAX_GAIN_M/100, m_tgc, m_ptrUpdate, 1);
 
-#ifdef EMP_430
+#ifdef CT_430
     //2D and M have the same tgc digital in fpga 2014.04.05
     //m_ptrCalc->CalcTgcDigital(m_gainM*MAX_GAIN_M/100, 0, MAX_GAIN_M);
 #else
@@ -2679,7 +2679,7 @@ EKnobReturn Img2D::ChangeGainM(EKnobOper oper)
 
     ///> calc tgc
     m_ptrCalc->CalcTgc(m_gainM*MAX_GAIN_M/100, m_tgc, m_ptrUpdate, 1);
-#ifdef EMP_430
+#ifdef CT_430
     //m_ptrCalc->CalcTgcDigital(m_gainM*MAX_GAIN_M/100, 1, MAX_GAIN_M);
 #else
     m_ptrCalc->CalcTgcDigital(m_gainM*MAX_GAIN_M/100, 1, MAX_GAIN_M);
@@ -3757,7 +3757,7 @@ void Img2D::Freq(ProbeSocket::FreqPair freq, EKnobReturn ret)
     }
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 void Img2D::ChangeFreqForProject(int freq_index)
 {
      if(m_harmonic)
@@ -3915,7 +3915,7 @@ void Img2D::Depth(int scaleIndex)
     m_ptrCalc->CalcExtendedImagingSample();
 
     ///> filter
-#if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
+#if (defined(CT_360) || defined(CT_161) || defined(CT_440))
     CalcFilter();
 #else
     //float zero = 0.0;
@@ -4413,13 +4413,13 @@ void Img2D::Enter2D()
                 SetSteer(m_steerIndexbak);
             else
             {
-#ifndef EMP_355
+#ifndef CT_355
                 IoCtrl io;
                 io.Freeze();
                 usleep(55000);
 #endif
                 SetCompoundSpace(m_spaceCompoundIndexBak);
-#ifndef EMP_355
+#ifndef CT_355
                 usleep(50000);//solve the problem of showing white splots from cfm mode to switch to 2D mode.
                 io.Unfreeze();
 #endif
@@ -5283,7 +5283,7 @@ void Img2D::DefaultFreqBandPassFilter(int probeindex, int thi)
 {
     ASSERT(probeindex < NUM_PROBE);
     ASSERT(thi < ProbeSocket::MAX_HARMONIC_FREQ);
-#if ((defined EMP_430) || (defined EMP_340) || (defined(EMP_360)) ||(defined(EMP_161)) || defined(EMP_355) || defined(EMP_322) ||(defined (EMP_440)))
+#if ((defined CT_430) || (defined CT_340) || (defined(CT_360)) ||(defined(CT_161)) || defined(CT_355) || defined(CT_322) ||(defined (CT_440)))
     m_ptrCalc->DefaultFreqBPFilter(ProbeSocket::BAND_PASS_FILTER_FC1[probeindex][thi], ProbeSocket::BAND_PASS_FILTER_FC2[probeindex][thi]);
 #else
     m_ptrCalc->DefaultFreqBPFilter(ProbeSocket::BAND_PASS_FILTER_FC[probeindex][thi]);
@@ -5310,7 +5310,7 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
  //       return;
 
     int num = 0;
-#if defined(EMP_430)
+#if defined(CT_430)
     if(probeindex == 0)
     {
         switch(thi)
@@ -5371,7 +5371,7 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
     {
         m_ptrCalc->ChangeBPFilter(1);
     }
-#elif EMP_161
+#elif CT_161
     if(probeindex == 0)
     {//3.5CV
         num = 5;
@@ -5417,7 +5417,7 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
         num = 1;
     }
     m_ptrCalc->ChangeBPFilter(num);
-#elif EMP_440
+#elif CT_440
  if(probeindex == 0)
     {//3.5CV
         num = 5;
@@ -5448,7 +5448,7 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
     }
     m_ptrCalc->ChangeBPFilter(num);
 
-#elif EMP_360
+#elif CT_360
     if(probeindex == 0)
     {//3.5CV
         num = 5;
@@ -5659,7 +5659,7 @@ void Img2D::DefaultIndexBandPassFilter(int probeindex, int thi)
 void Img2D::DefaultIndexBandPassFilterBaseFreq(int probeindex, int freqindex)
 {
     int num = 0;
-#if (defined(EMP_430))
+#if (defined(CT_430))
     if(probeindex == 0)
     {//35C60E
         switch(freqindex)
@@ -5724,7 +5724,7 @@ void Img2D::DefaultIndexBandPassFilterBaseFreq(int probeindex, int freqindex)
     {
         m_ptrCalc->ChangeBPFilter(1);
     }
-#elif EMP_161
+#elif CT_161
     if(probeindex == 0)
     {//3.5CV
         switch(freqindex)
@@ -5789,7 +5789,7 @@ void Img2D::DefaultIndexBandPassFilterBaseFreq(int probeindex, int freqindex)
     }
     m_ptrCalc->ChangeBPFilter(num);
 
-#elif EMP_440
+#elif CT_440
     if(probeindex == 0)
     {//3.5CV
         switch(freqindex)
@@ -5837,7 +5837,7 @@ void Img2D::DefaultIndexBandPassFilterBaseFreq(int probeindex, int freqindex)
     }
     m_ptrCalc->ChangeBPFilter(num);
 
-#elif EMP_360
+#elif CT_360
     if(probeindex == 0)
     {//3.5CV
         switch(freqindex)
@@ -6088,7 +6088,7 @@ void Img2D::Set4DDepth(int depth_scale)
     m_imgScaleIndex = depth_scale;
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 int Img2D::GetFreq()
 {
     return (m_vecFreqRange[m_freqIndex].emit);

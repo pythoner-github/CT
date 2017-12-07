@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <cassert>
 
-//#define EMP_340//G70
-//#define EMP_360//G60
-//#define EMP_161//EMP-3000
+//#define CT_340//G70
+//#define CT_360//G60
+//#define CT_161//CT-3000
 
 ///> general define
 #ifndef FALSE
@@ -80,7 +80,7 @@
 
 //#define COMMENT_FILE "res/config/CommentSetting.ini"
 ///> system config file
-#if defined(EMP_360)
+#if defined(CT_360)
 #define SYS_SETTING_FILE "res/config-360/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-360/"
 #define USERCONFIG_PATH      "./res/config-360/userconfig/"
@@ -99,7 +99,7 @@
 #define MEASURE_FILE "res/config-360/measuresetting/DSMeasureSetting.ini"
 #define BIOPSY_SETTING_FILE "res/config-360/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-360/DefaultBiopsySetting.ini"
-#elif defined(EMP_161)
+#elif defined(CT_161)
 #define SYS_SETTING_FILE "res/config-161/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-161/"
 #define USERCONFIG_PATH      "./res/config-161/userconfig/"
@@ -118,7 +118,7 @@
 #define MEASURE_FILE "res/config-161/measuresetting/DSMeasureSetting.ini"
 #define BIOPSY_SETTING_FILE "res/config-161/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-161/DefaultBiopsySetting.ini"
-#elif defined(EMP_440)
+#elif defined(CT_440)
 #define SYS_SETTING_FILE "res/config-440/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-440/"
 #define USERCONFIG_PATH      "./res/config-440/userconfig/"
@@ -137,7 +137,7 @@
 #define MEASURE_FILE "res/config-440/measuresetting/DSMeasureSetting.ini"
 #define BIOPSY_SETTING_FILE "res/config-440/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-440/DefaultBiopsySetting.ini"
-#elif defined(EMP_322)
+#elif defined(CT_322)
 #define SYS_SETTING_FILE "res/config-322/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-322/"
 #define USERCONFIG_PATH      "./res/config-322/userconfig/"
@@ -156,7 +156,7 @@
 #define MEASURE_FILE "res/config-322/measuresetting/DSMeasureSetting.ini"
 #define BIOPSY_SETTING_FILE "res/config-322/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-322/DefaultBiopsySetting.ini"
-#elif defined(EMP_313)
+#elif defined(CT_313)
 #define SYS_SETTING_FILE "res/config-313/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-313/"
 #define USERCONFIG_PATH      "./res/config-313/userconfig/"
@@ -173,7 +173,7 @@
 #define BIOPSY_SETTING_FILE "res/config-313/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-313/DefaultBiopsySetting.ini"
 
-#elif defined(EMP_430)
+#elif defined(CT_430)
 #define SYS_SETTING_FILE "res/config-430/SysSetting.ini"
 #define USERCONFIG_PARENT_PATH  "res/config-430/"
 #define USERCONFIG_PATH      "./res/config-430/userconfig/"
@@ -193,7 +193,7 @@
 #define BIOPSY_SETTING_FILE "res/config-430/BiopsySetting.ini"
 #define DEFAULT_SETTING_FILE "res/config-430/DefaultBiopsySetting.ini"
 
-#elif defined(EMP_355)
+#elif defined(CT_355)
 #define SYS_SETTING_FILE "res/config-355/SysSetting.ini"
 #define USER_PATH  "./res/config-355/username"
 #define KB_CAL_SETTING_FILE "res/config-355/KbCalcSetting.ini"
@@ -274,7 +274,7 @@ enum EDrawMode{COPY, XOR};
 enum EStudy{ANIMAL, PART};
 #else
 
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
 enum EStudy{ABD, OB, GYN, UR, CAR, SP, ORT, EXTRA};
 #else
 enum EStudy{ABD, OB, GYN, UR, CAR, SP, VES, ORT, EXTRA};

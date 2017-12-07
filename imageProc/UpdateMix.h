@@ -30,7 +30,7 @@ class UpdateMix: public AbsUpdateMix
         void ClearReplayBar();
 
         void ReplayCtrl(bool on );
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         void SpeedCtrl(int indexSpeed);
 #endif
         void ReplayCtrl(bool on, int indexSpeed, EKnobReturn status);

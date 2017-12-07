@@ -113,7 +113,7 @@ void MenuReview::Hide(void)
 
     gtk_widget_hide_all(m_fixed);
     ExitSlide();
-#ifdef EMP_355
+#ifdef CT_355
     ExitSlideDemo();
 #endif
     SetLimit(0);

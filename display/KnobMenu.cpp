@@ -40,7 +40,7 @@ KnobMenu::KnobItem* KnobMenu::GetItem(void)
 
 GtkWidget * KnobMenu::Create(void)
 {
-#if defined (EMP_322)
+#if defined (CT_322)
    GtkWidget *m_tableKnob = gtk_table_new(1, 20, TRUE);
    m_labelLeft = create_label("≪", 0, 0, g_lightGray, NULL);
    gtk_widget_modify_fg(m_labelLeft, GTK_STATE_PRELIGHT, g_lightGray);
@@ -129,7 +129,7 @@ GtkWidget * KnobMenu::Create(void)
    gtk_widget_modify_bg(btn_right, GTK_STATE_INSENSITIVE, g_deepGray);
 
    gtk_widget_set_usize(m_tableKnob, WIDTH_KNOB_MENU, HEIGHT_KNOB_MENU);
-#elif defined (EMP_313)
+#elif defined (CT_313)
    GtkWidget *m_tableKnob = gtk_table_new(1, 20, TRUE);
 
    m_labelLeft = create_label("≪", 0, 0, g_lightGray, NULL);
@@ -367,7 +367,7 @@ void KnobMenu::Refresh(void)
             if(strcmp( m_KnobItem[m_CurLevel * KNOB_NUM + i].name, "Simult") == 0)
                 gtk_widget_modify_fg(m_labelKnob[i], GTK_STATE_NORMAL, g_deepGray);
         }
-#ifdef EMP_355
+#ifdef CT_355
         if(ViewMain::GetInstance()->GetModeIsFlag())
         {
             if(strcmp( m_KnobItem[m_CurLevel * KNOB_NUM + i].name, "SV Length") == 0)
@@ -583,7 +583,7 @@ void KnobMenu::Update(void)
     for (i = 0; i < KNOB_NUM; i ++)
     {
 
-#ifdef EMP_3410
+#ifdef CT_3410
         if(!CManRegister::GetInstance()->IsAuthorize("eFci"))
             if(strcmp(m_KnobItem[m_CurLevel * KNOB_NUM + i].name, "Freq. Compound") == 0)
             {

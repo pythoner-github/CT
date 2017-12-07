@@ -37,7 +37,7 @@ class KnobMenu;
 class MenuArea;
 class TopArea;
 class NoteArea;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 class KnobProjectMode;
 #endif
 class ViewMain:public CKnobEvent
@@ -82,7 +82,7 @@ private:
     HintArea* m_ptrHintArea;
     MenuArea* m_ptrMenuArea;
     NoteArea* m_ptrNoteArea;
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     KnobProjectMode *m_ptrKnobProjectMode;
 #endif
     //signal handle

@@ -13,7 +13,7 @@
 #include "imageProc/KnobReplay.h"
 
 extern const char * EFOVROISizeName[3];
-#if defined (EMP_322) || defined(EMP_313)
+#if defined (CT_322) || defined(CT_313)
 KnobMenu::KnobItem KnobEFOVNone[6] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL},
@@ -50,7 +50,7 @@ KnobMenu::KnobItem KnobEFOVReviewMenu[6] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL}
 };
-#elif defined(EMP_355)
+#elif defined(CT_355)
 KnobMenu::KnobItem KnobEFOVNone[5] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL},

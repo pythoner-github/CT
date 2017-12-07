@@ -27,7 +27,7 @@ extern unsigned char *g_pshm_data0, *g_pshm_data1;
 
 extern CUIS4DReceiveInterface g_uis4d_ri;
 
-#ifdef EMP_355
+#ifdef CT_355
 bool g_printProcessFps = false;
 #endif
 
@@ -72,7 +72,7 @@ void IngPipe(int signo)
 
 int main(int argc, char*argv[])
 {
-#ifdef EMP_355
+#ifdef CT_355
     if (argc > 1)
     {
         if (strcmp(argv[1], "PrintProcessFps") == 0)
@@ -106,7 +106,7 @@ int main(int argc, char*argv[])
     ChangeKeymap();
 
     ASSERT(init_colors());
-#ifdef EMP_3410
+#ifdef CT_3410
     CManRegister::GetInstance()->Create(OPTIONAL_DIR);
 #endif
 

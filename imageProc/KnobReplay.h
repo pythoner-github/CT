@@ -2,7 +2,7 @@
 #define KNOB_REPLAY_H
 
 #include "Def.h"
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 enum EKnobReplay {REPLAY_CTRL, REPLAY_SPEED, REPLAY_TRIM_LEFT, REPLAY_TRIM_RIGHT, REPLAY_RESET_TRIM, REPLAY_CINE};
 #else
 enum EKnobReplay {REPLAY_CTRL, REPLAY_TRIM_LEFT, REPLAY_TRIM_RIGHT, REPLAY_RESET_TRIM, REPLAY_CINE};
@@ -27,7 +27,7 @@ EKnobReturn ReplayChgResetTrim(void);
 
 EKnobReturn ReplayChgSaveCine(void);
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 EKnobReturn ReplayChgTrimLeft460(EKnobOper);
 
 EKnobReturn ReplayChgTrimRight460(EKnobOper);

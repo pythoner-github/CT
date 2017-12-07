@@ -307,7 +307,7 @@ int KbdHandShake(int fdcom)
 
     count = 1;
     timeout.tv_sec = 0;
-#ifdef EMP_355
+#ifdef CT_355
     timeout.tv_usec = 200000;
 #else
     timeout.tv_usec = 200000;
@@ -327,7 +327,7 @@ int KbdHandShake(int fdcom)
         return 0;
     }
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if (recvbuf[0] == 0x58)
     {
         init_comm = 0x60;
@@ -372,7 +372,7 @@ int KbdHandShake(int fdcom)
     }
 #endif
 /*
-#ifdef EMP_3410
+#ifdef CT_3410
     if (recvbuf[0] == 0x58)
     {
         g_authorizationOn = true;

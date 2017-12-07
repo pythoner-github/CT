@@ -26,7 +26,7 @@ class MultiFuncFocus: public AbsMultiFunc
             if (ptrImg->IsCompoundSpaceOn() || ptrImg->IsCompoundFreqOn() || Zoom::GetInstance()->GetLocalZoomStatus()|| ptrImg->GetTpViewStatus() || ptrImg->GetEFVIStatus())
                 HintArea::GetInstance()->UpdateHint(_("[Focus]: Mouse to move focus. When zoom, compound imaging, Tp-View or EFVI is on, it only has one focus."));
             else
-#ifndef EMP_355
+#ifndef CT_355
                 HintArea::GetInstance()->UpdateHint(_("[Focus]: Mouse to move focus, <Value> to change focus sum."));
 #endif
             g_ptrKeyFunc = ChgFocusNum;
@@ -37,7 +37,7 @@ class MultiFuncFocus: public AbsMultiFunc
         {
             HintArea::GetInstance()->ClearHint();
             g_ptrKeyFunc = NULL;
-#if (defined (EMP_322)|| defined(EMP_313))
+#if (defined (CT_322)|| defined(CT_313))
             g_keyInterface.CtrlLight(FALSE,LIGHT_FOCUS);
 #endif
         }
@@ -56,7 +56,7 @@ class MultiFuncDepth: public AbsMultiFunc
     public:
         MultiFuncDepth()
         {
-#ifndef EMP_355
+#ifndef CT_355
             HintArea::GetInstance()->UpdateHint(_("[Depth]: <Value> to change depth size."));
 #endif
             g_ptrKeyFunc = D2PressDepth;
@@ -67,7 +67,7 @@ class MultiFuncDepth: public AbsMultiFunc
         {
             HintArea::GetInstance()->ClearHint();
             g_ptrKeyFunc = NULL;
-#if (defined (EMP_322)|| defined(EMP_313))
+#if (defined (CT_322)|| defined(CT_313))
             g_keyInterface.CtrlLight(FALSE,LIGHT_DEPTH);
 #endif
 
@@ -84,7 +84,7 @@ class MultiFuncLocalZoom: public AbsMultiFunc
     public:
         MultiFuncLocalZoom()
         {
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Mouse to move box, <Set> to change box size and to zoom."));
 #else
         HintArea::GetInstance()->UpdateHint(_("[Local Zoom]: Mouse to move box, <Set> to change box size, <Update> to zoom."));
@@ -101,7 +101,7 @@ class MultiFuncLocalZoom: public AbsMultiFunc
             Zoom::GetInstance()->ClearLocalZoom();
             if((MultiFuncFactory::GetInstance()->GetMultiFuncType() == MultiFuncFactory::LOCAL_ZOOM)&&(!(Zoom::GetInstance()->GetLocalZoomStatus())))
             {
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
             g_keyInterface.CtrlLight(FALSE,LIGHT_ZOOM);
 #endif
             }
@@ -129,7 +129,7 @@ class MultiFuncGlobalZoom: public AbsMultiFunc
     public:
         MultiFuncGlobalZoom()
         {
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: <Auto> to change scale, Mouse to scroll."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[Global Zoom]: <Value> to change scale, Mouse to scroll."));
@@ -163,7 +163,7 @@ class MultiFuncPIPZoom: public AbsMultiFunc
     public:
         MultiFuncPIPZoom()
         {
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[PIP]: <Auto> to change scale, Mouse to Move Magnifier."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[PIP]: <Value> to change scale, Mouse to Move Magnifier."));
@@ -252,7 +252,7 @@ class MultiFuncCalc: public AbsMultiFunc
             }
 
             m_ptrUpdateCal->ExitCalc();
-#if defined (EMP_322)
+#if defined (CT_322)
             g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
 #endif
         }
@@ -290,9 +290,9 @@ class MultiFuncGrayTrans: public AbsMultiFunc
     public:
         MultiFuncGrayTrans()
         {
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
             HintArea::GetInstance()->UpdateHint(_("[Gray Transform]: Mouse to move dot, <Value> to select dot, <Set> to select curve."));
-#elif defined EMP_355
+#elif defined CT_355
             HintArea::GetInstance()->UpdateHint(_("[Gray Transform]: Mouse to move dot, <Auto> to select dot, <Update> to select curve."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[Gray Transform]: Mouse to move dot, <Value> to select dot, <Update> to select curve."));
@@ -356,7 +356,7 @@ class MultiFuncFreq: public AbsMultiFunc
         {
             HintArea::GetInstance()->ClearHint();
             g_ptrKeyFunc = NULL;
-#if (defined (EMP_322)|| defined(EMP_313))
+#if (defined (CT_322)|| defined(CT_313))
             g_keyInterface.CtrlLight(FALSE,LIGHT_FREQ);
 #endif
         }
@@ -380,7 +380,7 @@ class MultiFuncChroma: public AbsMultiFunc
         {
             HintArea::GetInstance()->ClearHint();
             g_ptrKeyFunc = NULL;
-#if defined (EMP_322)
+#if defined (CT_322)
             g_keyInterface.CtrlLight(FALSE,LIGHT_CHROMA);
 #endif
         }
@@ -433,7 +433,7 @@ class MultiFuncBiopsyVerify: public AbsMultiFunc
     public:
         MultiFuncBiopsyVerify()
         {
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[Verify]: <Auto> to adjust angle, Mouse to adjust position."));
         #else
  HintArea::GetInstance()->UpdateHint(_("[Verify]: <Value> to adjust angle, Mouse to adjust position."));

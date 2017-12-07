@@ -24,7 +24,7 @@ using std::vector;
 
 extern MenuPW g_menuPW;
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
 const char* examType[] =
 {
     N_("Dog"),
@@ -134,7 +134,7 @@ void ViewProbe::ReadProbe(void)
     if (!m_pKps.ProbeRead()) // no probe is found
     {
         HintArea::GetInstance()->UpdateHint(_("[Probe Select]: No Probe was found."), 2);
-#ifdef EMP_430
+#ifdef CT_430
         if(ModeStatus::IsAllSpectrumImgMode())
         {
             ImgPw::GetInstance()->ChangeDopplerSoundStatus(true);
@@ -187,7 +187,7 @@ bool ViewProbe::Create(void)
     {
         gtk_main_iteration();
         ///> 解决pw冻结，屏幕上有pw trace计算时，不能读探头。
-#ifdef EMP_430
+#ifdef CT_430
         break;
 #endif
     }
@@ -224,7 +224,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
 
     m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-#ifdef EMP_355
+#ifdef CT_355
     gtk_widget_set_size_request (m_window, 550, 610);
 #else
     gtk_widget_set_size_request (m_window, 730, 610);
@@ -245,7 +245,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     label_user_select = gtk_label_new (_("<b>Current User: </b>"));
     gtk_label_set_use_markup (GTK_LABEL (label_user_select), TRUE);
     gtk_widget_show (label_user_select);
-#ifdef EMP_355
+#ifdef CT_355
     gtk_fixed_put (GTK_FIXED (fixed_window), label_user_select, 20, 530+15);
 #else
     gtk_fixed_put (GTK_FIXED (fixed_window), label_user_select, 200, 530+15);
@@ -254,7 +254,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
 
     m_combobox_user_select = gtk_combo_box_new_text();
     gtk_widget_show (m_combobox_user_select);
-#ifdef EMP_355
+#ifdef CT_355
     gtk_fixed_put (GTK_FIXED (fixed_window), m_combobox_user_select, 180, 530+15);
 #else
     gtk_fixed_put (GTK_FIXED (fixed_window), m_combobox_user_select, 360, 530+15);
@@ -316,7 +316,7 @@ void ViewProbe::CreateWindow(ProbeSocket::ProbePara* para, vector<ExamItem::EIte
     image_button_cancel = gtk_image_new_from_stock("gtk-quit", GTK_ICON_SIZE_BUTTON);
     label_button_cancel = gtk_label_new_with_mnemonic(_("Exit"));
     button_cancel = create_button_icon (label_button_cancel, image_button_cancel);
-#ifdef EMP_355
+#ifdef CT_355
     gtk_fixed_put (GTK_FIXED (fixed_window), button_cancel, 380, 530);
 #else
     gtk_fixed_put (GTK_FIXED (fixed_window), button_cancel, 590, 530);
@@ -447,7 +447,7 @@ GtkWidget* ViewProbe::CreateProbe(const char *probe_name, const char probeType,
         case 'L':
         case 'l':
             {
-#ifdef EMP_355
+#ifdef CT_355
                 if(!strcmp(probe_name, "55L60G"))
 #else
                 if(!strcmp(probe_name, "55L60H"))
@@ -460,7 +460,7 @@ GtkWidget* ViewProbe::CreateProbe(const char *probe_name, const char probeType,
         case 'T':
         case 't':
             {
-#ifdef EMP_440
+#ifdef CT_440
                     sprintf(image_path, "%s/%s", CFG_RES_PATH, "res/probe/65C10K.png");
 #else
                 if((strcmp(probe_name, "65C10H") == 0)||(strcmp(probe_name, "65C10E") == 0))
@@ -724,10 +724,10 @@ void ViewProbe::KeyEvent(unsigned char keyValue)
 void ViewProbe::Destroy(void)
 {
     gtk_combo_box_popdown(GTK_COMBO_BOX(m_combobox_user_select));
-#ifndef EMP_430
+#ifndef CT_430
     m_pKps.ActiveHV(TRUE);
 #endif
-#ifdef EMP_430
+#ifdef CT_430
     if(ModeStatus::IsAllSpectrumImgMode())
     {
         ImgPw::GetInstance()->ChangeDopplerSoundStatus(true);
@@ -761,7 +761,7 @@ void ViewProbe::Destroy(void)
 
 void ViewProbe::BtnCancelClicked(GtkButton *button)
 {
-#if (defined(EMP_322) || defined(EMP_313) || (EMP_430) ||(EMP_355))
+#if (defined(CT_322) || defined(CT_313) || (CT_430) ||(CT_355))
     m_probe_index = ProbeMan::GetInstance()->GetCurProbeSocket();
     ProbeMan::GetInstance()->SetProbeSocket(m_probe_index);
 #endif

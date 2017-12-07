@@ -3,7 +3,7 @@
 
 ///> probe list A60
 #define PROBE_INFO_SIZE  128
-#ifdef EMP_430
+#ifdef CT_430
 enum EProbeList430 {P35C60E, P65L40E, P65C10E, PT65C15D, P35D50D}; // P35C20H, P28P16, P90L25K, P10L25J, P35D50D}; //80 阵元
 
 unsigned char Probe35C60E[PROBE_INFO_SIZE] = //35C60E convex

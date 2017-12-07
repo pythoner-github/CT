@@ -229,7 +229,7 @@ class Img2D
         int GetHarmonicFreqIndex() { return  (m_harmonicFreqIndex); }
         int GetFreqIndex() { return m_freqIndex; }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
      int GetFreq();
         int GetHarmonicFreq();
         void ChangeFreqForProject(int freq_index);
@@ -244,7 +244,7 @@ class Img2D
         {
             return m_scanAngleIndex;
         }
-#ifdef EMP_355
+#ifdef CT_355
     int GetDepthDots() { return m_calcPara.depthDots; }
 #endif
 
@@ -258,7 +258,7 @@ class Img2D
         static const unsigned char TWO_FOC_POS[11][2];
         static const unsigned char THREE_FOC_POS[8][3];
         static const unsigned char FOUR_FOC_POS[6][4];
-#ifdef EMP_355
+#ifdef CT_355
         static const int MAX_GAIN_2D = 140;
         static const int MAX_GAIN_M = 140;
 #else
@@ -417,7 +417,7 @@ class Img2D
         EKnobReturn EFVIView(bool on);
         void SetPolarity(bool on, EKnobReturn status);
         void UpdateDsc(void);
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         Calc2D::ProjectCalcPara m_projectCalcPara;
  #endif
         // for 4d tgc

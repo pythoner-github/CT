@@ -20,7 +20,7 @@ CalcCfm::~CalcCfm()
 void CalcCfm::CalcBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
 {
 //  printf("----------CFM BOX fpga:lineb = %d, linee = %d, dotb = %d, dote = %d\n", lineBegin, lineEnd, dotBegin, dotEnd);
-#ifdef EMP_355
+#ifdef CT_355
     int dots = IMG_H * Calc2D::INIT_SCALE;
 #else
     int dots = IMG_H;
@@ -61,7 +61,7 @@ int CalcCfm::CalcMaxPeriod(int prf, int clusterSize)
     const char* type = para.model;
 
     //此时本来应该是60，但是为了解决线阵左侧干扰故改成了20
-#ifdef EMP_430
+#ifdef CT_430
     int maxPeriod;
     if ((strcmp(type, "65L40E") == 0) || (strcmp(type, "65C10E") == 0) || (strcmp(type, "65C15D") == 0))
         maxPeriod = 1000000 / (prf * clusterSize) - 20;//FOC_LOW_TIME; //20; //us
@@ -383,7 +383,7 @@ int CalcCfm::CalcClusterSize(int prf, int depth, double soundSpeed, int mbp, int
 
     int maxValue = 100;
     if (mbp <= 2)
-#ifdef EMP_430
+#ifdef CT_430
         maxValue = 100;
 #else
         maxValue = 80;

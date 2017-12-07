@@ -17,37 +17,37 @@
 #include "display/MenuArea.h"
 #include "display/TopArea.h"
 #include "periDevice/MonitorControl.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 #include "projectMode/ProjectCalc2D.h"
 #endif
 using namespace std;
 
-#if defined(EMP_360)
+#if defined(CT_360)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
     "3.5CV", "6.5VMC", "7.5LVS", "3.5MC", "30P16A", "6.5MC", "35D40J(SNR)", "35D40J(NDK)"
 };
-#elif defined(EMP_161)
+#elif defined(CT_161)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
     "3.5CV", "6.5VMC", "7.5LVS", "3.5MC", "30P16A"
 };
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
     "35C50J", "75L40J", "65C10J", "35C20G", "65C20G", "90L40J", "35D40J(SNR)", "35D40J(NDK)", "30P16A"
 };
-#elif defined(EMP_430)
+#elif defined(CT_430)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
     "35C60E", "65L40E", "65C10E", "65C15D", "35D50D"
 };
-#elif defined(EMP_440)
+#elif defined(CT_440)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
     "35C60E", "65C10E", "65L40E",  "65C15D"
 };
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
 #ifdef VET
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
@@ -87,7 +87,7 @@ ViewSuperuser::ViewSuperuser()
    m_tranPressCorrect = 0;
 #endif
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    m_statusProjectMode = false;
 #endif
 
@@ -148,7 +148,7 @@ void ViewSuperuser::Authenticate(void)
     m_statusAuthen = TRUE;
     m_statusDemo = TRUE;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     m_statusProjectMode = false;
 #endif
 
@@ -214,7 +214,7 @@ void ViewSuperuser::CreateWindow(void)
     gtk_widget_show (label_monitor);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (m_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (m_notebook), notebook_counter++), label_monitor);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     //>create note project
     GtkWidget *fixed_project;
     fixed_project = CreateNoteProject();
@@ -305,7 +305,7 @@ GtkWidget *ViewSuperuser::create_probe_treeview(void)
             NULL);
 
     render = gtk_cell_renderer_text_new();
-#ifdef EMP_355
+#ifdef CT_355
     gtk_cell_renderer_set_fixed_size(render, -1, 33);
 #else
     gtk_cell_renderer_set_fixed_size(render, -1, 25);
@@ -595,7 +595,7 @@ void ViewSuperuser::BtnChgMonitorClicked2(GtkButton *button)
     ScreenSaver::GetInstance()->EnterScreenSaver3();
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 /**
  * test for projectMode
  */
@@ -651,17 +651,17 @@ GtkWidget* ViewSuperuser::CreateNoteProbe(void)
     GtkWidget *comboboxMachine = gtk_combo_box_new_text();
     gtk_table_attach_defaults(GTK_TABLE(tableProbe), comboboxMachine, 0, 1, 0, 1);
 
-#if defined(EMP_360)
+#if defined(CT_360)
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G60");
-#elif defined(EMP_161)
+#elif defined(CT_161)
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-3000");
-#elif defined(EMP_322)
+#elif defined(CT_322)
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2900Plus");
-#elif defined(EMP_313)
+#elif defined(CT_313)
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2800");
-#elif (defined(EMP_430)|| defined(EMP_440))
+#elif (defined(CT_430)|| defined(CT_440))
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "A60");
-#elif defined(EMP_355)
+#elif defined(CT_355)
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G30Plus");
 #else
     gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G70");
@@ -869,7 +869,7 @@ GtkWidget* ViewSuperuser::CreateNoteMonitor(void)
     return fixed;
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 GtkWidget* ViewSuperuser::CreateNoteProject(void)
 {
     GtkWidget *fixed = gtk_fixed_new();

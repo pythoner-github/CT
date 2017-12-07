@@ -9,12 +9,12 @@ class VersionConfig
         ///> product type: protable or trolley. portable run in powerpc platform, while trolley run in x86 platform
         enum Product{PORTABLE, TROLLEY};
         ///> realse version, use for different customer
-        enum Realse{EMP_EN, EMP_CHI, ABOARD_EN, ABOARD_CHI, OEM_EN, OEM_CHI};
+        enum Realse{CT_EN, CT_CHI, ABOARD_EN, ABOARD_CHI, OEM_EN, OEM_CHI};
 
         ///> static member
         static class VersionConfig* Instance();
 
-        inline void Init(enum Product p = TROLLEY, enum Realse r = EMP_CHI);
+        inline void Init(enum Product p = TROLLEY, enum Realse r = CT_CHI);
 
         ///> get config info in high level
         enum Product GetProduct() const {return m_p;}
@@ -27,7 +27,7 @@ class VersionConfig
         VersionConfig()
         {
             m_p = TROLLEY;
-            m_r = EMP_CHI;
+            m_r = CT_CHI;
         }
 
         enum Product m_p;

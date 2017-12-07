@@ -10,7 +10,7 @@
 #include "imageProc/ScanMode.h"
 #include "imageControl/KnobEFOV.h"
 
-#ifdef EMP_322
+#ifdef CT_322
 KnobMenu::KnobItem KnobNoneMenu[6] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL},

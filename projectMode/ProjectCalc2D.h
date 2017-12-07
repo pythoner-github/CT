@@ -1,6 +1,6 @@
 #ifndef __PROJECT_CALC2D_H__
 #define __PROJECT_CALC2D_H__
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 #include "imageControl/Calc2D.h"
 #include <DSCTypes.h>
 #include <DSC.h>

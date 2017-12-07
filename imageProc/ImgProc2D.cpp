@@ -93,7 +93,7 @@ void ImgProc2D::ChangeLR()
         m_LR = FALSE;
     else
         m_LR = TRUE;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     g_keyInterface.CtrlLight(m_LR,LIGHT_LEFTRIGHT);
 #endif
     //set to DSC
@@ -114,7 +114,7 @@ void ImgProc2D::ChangeUD()
         m_UD = TRUE;
 
     //set to DSC
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     g_keyInterface.CtrlLight(m_UD,LIGHT_UPDOWN);
 #endif
     SetUD(m_UD);
@@ -426,7 +426,7 @@ enum EKnobReturn ImgProc2D::ChangeGamma(enum EKnobOper oper)
  */
 enum EKnobReturn ImgProc2D::ChangeChroma(enum EKnobOper oper)
 {
-#ifdef EMP_355
+#ifdef CT_355
     int index = m_Chroma;
     if(oper == ADD)
     {

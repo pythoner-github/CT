@@ -11,7 +11,7 @@
 #include "ViewMain.h"
 #include "imageProc/GlobalClassMan.h"
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 KnobMenu::KnobItem KnobPwMenu[15] = {
     {_("SV Length"), "", MIN, PwChgSVLength, NULL},
     {_("Fast Angle"), "", MIN, PwChgAngleFast, PwPressAngleFast},
@@ -134,7 +134,7 @@ EKnobReturn PwChgScale(EKnobOper oper)
             ret = ImgPw::GetInstance()->ChangeScaleSimult3(oper);
         else
             ret = ImgPw::GetInstance()->ChangeScale(oper);
-#ifdef EMP_355
+#ifdef CT_355
     if(!ViewMain::GetInstance()->GetModeIsFlag())
         {
             if (ret != ERROR)
@@ -288,7 +288,7 @@ EKnobReturn PwChgNoise(EKnobOper oper)
 }
 EKnobReturn PwChgSimult(EKnobOper oper)
 {
-#ifdef EMP_355
+#ifdef CT_355
   int mode = ViewMain::GetInstance()->GetModeIsFlag();
     if (PwOperValid()&&(!mode))
 #else
@@ -394,7 +394,7 @@ EKnobReturn PwChgMap(EKnobOper oper)
 
 EKnobReturn PwChgHPRF(EKnobOper oper)
 {
-#ifdef EMP_355
+#ifdef CT_355
    bool mode = ViewMain::GetInstance()->GetModeIsFlag();
     if ((PwOperValid() || CwOperValid())&&(!mode))
 #else

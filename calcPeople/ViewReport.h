@@ -134,7 +134,7 @@ private:
         };
 #else
 
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
 enum{
         NB_ABD,
         NB_UR,
@@ -209,8 +209,8 @@ enum{
 
     GtkWidget *m_btnTransfer;
 
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
         GtkWidget *m_viewportTCD,*m_viewportVES;
 #endif
 #endif

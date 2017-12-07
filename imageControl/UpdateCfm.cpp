@@ -34,7 +34,7 @@ void UpdateCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd)
     m_ptrImgDraw->Update();
     m_ptrImgDraw->DrawCfmBox(lineBegin, lineEnd, dotBegin, dotEnd);
     if (ModeStatus::IsSpectrumColorMode()) {
-#ifdef EMP_355
+#ifdef CT_355
  int mode = ViewMain::GetInstance()->GetModeIsFlag();
         if(mode)
         {

@@ -45,7 +45,7 @@ gboolean HandleClearHint(gpointer data)
  */
 void HintArea::UpdateHint(const char *text, int timeout)
 {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         g_menuProjectMode.AddMessage(text);
@@ -83,7 +83,7 @@ void HintArea::UpdateHint(const char *text, int timeout)
 
 void HintArea::ClearHint(void)
 {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         g_menuProjectMode.SetMessage("");
@@ -161,7 +161,7 @@ void HintArea::DrawString(const char *str, int x, int y, GdkColor *color, PangoF
 
 void HintArea::UpdateHintArea(void)
 {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
     {
         gtk_widget_hide_all(m_hintArea);

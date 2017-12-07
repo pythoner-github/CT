@@ -10,24 +10,24 @@ using std::string;
 using std::vector;
 
 ///> total number of probe
-#if defined(EMP_360)
+#if defined(CT_360)
 //static const int NUM_PROBE = 6;
 static const int NUM_PROBE = 7;
-#elif defined(EMP_161)
+#elif defined(CT_161)
 static const int NUM_PROBE = 5; //4; ///< total number of probe
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
 static const int NUM_PROBE = 8; //7; ///< total number of probe
-#elif defined(EMP_430)
+#elif defined(CT_430)
 static const int NUM_PROBE = 5; ///< total number of probe
-#elif defined(EMP_440)
+#elif defined(CT_440)
 static const int NUM_PROBE = 4; ///< total number of probe
-#elif defined(EMP_355)
+#elif defined(CT_355)
 static const int NUM_PROBE = 11; //11;//11; //11; ///< total number of probe
 #else
 static const int NUM_PROBE = 10; ///< total number of probe
 #endif
 extern string PROBE_LIST[NUM_PROBE]; // probe's name list
-#if defined(EMP_430)
+#if defined(CT_430)
 enum PROBE_TYPE{CONVEX_35R60, LINEAR_65W40, TV_65R10, TINYCONVEX_65R15, VOLUME_35R50}; ///< order must identical to PROBE_LIST
 #else
 enum PROBE_TYPE{CONVEX_35R50, LINEAR_75W40, TV_65R10, TINYCONVEX_35R20, TINYCONVEX_65R15, PHASE_30P16A, LINEAR_90W25, LINEAR_10W25, VOLUME_35R40}; ///< order must identical to PROBE_LIST
@@ -73,7 +73,7 @@ class ProbeSocket
         static FreqPair FREQ2D[NUM_PROBE][MAX_2D_FREQ];
         static const int BAND_PASS_FILTER_FC_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC];
         static const int BAND_PASS_FILTER_FC1_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC];
-#ifdef EMP_355
+#ifdef CT_355
         static const int BAND_PASS_FILTER_FC_DOPPLER[NUM_PROBE][MAX_DOP_FREQ];
 #endif
         static const int BAND_PASS_FILTER_FC2_BASE_FREQ[NUM_PROBE][MAX_2D_FREQ][MAX_FC];

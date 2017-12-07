@@ -8,7 +8,7 @@
 #include "probe/ExamItem.h"
 
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
 static const int EXAM_NUM = 5;
 #else
 static const int EXAM_NUM = 9;
@@ -17,7 +17,7 @@ static const int SECTION_NUM =22;
 static const int ETYPE_NUM =35;
 static const int MAX_METHOD = 17;
 #else
-#ifdef EMP_322
+#ifdef CT_322
 static const int EXAM_NUM = 18;
 static const int SECTION_NUM =12;
 static const int ETYPE_NUM =28;

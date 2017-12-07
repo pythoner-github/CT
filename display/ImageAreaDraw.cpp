@@ -4206,7 +4206,7 @@ void ImageAreaDraw::ReDrawAnatomicalM(bool update)
 // ========================= [PW] =========================
 void ImageAreaDraw::DrawSV(int curPwLine, int dotBegin, int dotEnd, vector<int> HPRFEmitPos, bool update)
 {
-#ifdef EMP_430
+#ifdef CT_430
     if (ModeStatus::IsSpectrumColorMode())
     {
         if (curPwLine < m_curBox.lineBegin)
@@ -5288,7 +5288,7 @@ void ImageAreaDraw::UnSetCfmBoxFreeze(void)
 // other
 void ImageAreaDraw::DrawPIPBox(int x, int y, int width, int height, bool update)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if (m_clear)
         return;
 #endif
@@ -5324,7 +5324,7 @@ void ImageAreaDraw::ClearPIPBox(bool update)
     }
     if (update)
         m_ptrImg->UpdateImgArea();
-#ifdef EMP_355
+#ifdef CT_355
     m_clear=true;
 #endif
 }
@@ -6758,7 +6758,7 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
 {
     //printf("lineEnd = %d, lineBegin = %d, dotBegin = %d, dotEnd = %d\n", lineEnd, lineBegin, dotBegin, dotEnd);
     PRINTF("probeLines:%d\n", m_probeLines);
-#ifdef EMP_430
+#ifdef CT_430
     if ((lineBegin == 8) && (lineBegin > 0))
         lineBegin--;
 #endif
@@ -7391,7 +7391,7 @@ void ImageAreaDraw::DrawEFOVScaleX(void)
     // g_object_unref(gc);
 }
 
-#ifdef EMP_355
+#ifdef CT_355
 void ImageAreaDraw::SetClearStatus(bool on)
 {
     m_clear=on;

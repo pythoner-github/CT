@@ -146,7 +146,7 @@ void Calc2DPhase::CalcFilterBandPass(int order)
         depth[4] = 250;
     }
 
- #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || defined(EMP_161) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+ #if (defined(CT_340) || defined(CT_430) || defined(CT_360) || defined(CT_161) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     float fc_bandpass_filter1[5], fc_bandpass_filter2[5];
     if(m_calcPara->harmonic)
     {
@@ -378,7 +378,7 @@ void Calc2DPhase::CalcDynamicDemod(int order)
     }
 
     // 30P16A---G70
- #if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || defined(EMP_161) || defined(EMP_355) || defined(EMP_322) || defined(EMP_440))
+ #if (defined(CT_340) || defined(CT_430) || defined(CT_360) || defined(CT_161) || defined(CT_355) || defined(CT_322) || defined(CT_440))
     int freqIndex = Img2D::GetInstance()->GetFreqIndex();
     int harmonicIndex = Img2D::GetInstance()->GetHarmonicFreqIndex();
     int probeIndex = 0;
@@ -390,7 +390,7 @@ void Calc2DPhase::CalcDynamicDemod(int order)
                 probeIndex = i;
         }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         if (m_projectCalcPara->filterSecIndex)
         {
             for(i = 0; i < 5; i++)

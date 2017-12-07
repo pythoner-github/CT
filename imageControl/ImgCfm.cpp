@@ -228,7 +228,7 @@ void ImgCfm::InitProbeOptimize(ProbeSocket::ProbePara* ptrPara, ExamItem::ParaIt
     m_ptrUpdate->WallFilter(m_wallFilterIndex, OK);
 
     // flow opt
-#ifdef EMP_430
+#ifdef CT_430
     m_flowOptIndex = 6; //4
 #else
     m_flowOptIndex = ptrParaItem->color.flowOpt;
@@ -550,7 +550,7 @@ void ImgCfm::ChangeTgcCfm(int tgcY[8])
 {
     memcpy(m_tgc, tgcY, 8*sizeof(int));
 
-#ifdef EMP_430
+#ifdef CT_430
     m_ptrImg2D->ChangeTgc2D(tgcY);
 #endif
 
@@ -1224,9 +1224,9 @@ void ImgCfm::SetScanLines()
         m_ptrImg2D->GetDisplayScanRange(boxLineRange);
         m_boxLine[0] = boxLineRange[0];
         m_boxLine[1] = boxLineRange[1];
-#if defined(EMP_430)
+#if defined(CT_430)
         BoxDotCorrect(0, (IMG_H-1));
-#elif defined(EMP_355)
+#elif defined(CT_355)
         int dots = IMG_H * Calc2D::INIT_SCALE - 1;
         m_boxDotBak[0] = 0;
         m_boxDotBak[1] = dots;
@@ -1290,7 +1290,7 @@ void ImgCfm::ChangeDepth()
         if ((m_boxDotBefore[1] - m_boxDotBefore[0]) < 20)
         {
             m_boxDotBefore[1] = m_boxDotBefore[0] + 20;
-#ifdef EMP_355
+#ifdef CT_355
             if (m_boxDotBefore[1] > dots)
             {
                 m_boxDotBefore[1] = dots;
@@ -1481,7 +1481,7 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
         boxLineTemp[1] = boxLineTemp[0] + 1;
 
     // send to fapa
-#ifdef EMP_355
+#ifdef CT_355
     int offset = 4; //0;     //-6;//0-2;
 #else
     int offset = 0;     //-6;//0-2;
@@ -1546,7 +1546,7 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
     if ((dotEnd - dotBegin) < 1)
     {
         dotEnd += 1;
-#ifdef EMP_355
+#ifdef CT_355
         int dots = IMG_H * Calc2D::INIT_SCALE;
         if (dotEnd > dots)
         {
@@ -1562,7 +1562,7 @@ void ImgCfm::Box(int lineBegin, int lineEnd, int dotBegin, int dotEnd, bool draw
 
     PRINTF("--------------CFM BOX dsc :lineb = %d, linee = %d, dotb = %d, dote = %d\n", m_ptrDscPara->dcaCFMScanLStart,  m_ptrDscPara->dcaCFMScanLEnd, m_ptrDscPara->dcaCFMSampPtStart, m_ptrDscPara->dcaCFMSampPtEnd);
     m_ptrDscPara->dcaCFMScanLStart = boxLineDsc[0];
-#ifdef EMP_355
+#ifdef CT_355
     if(mbp == 4)
         m_ptrDscPara->dcaCFMScanLEnd = boxLineDsc[1];
     else
@@ -1613,10 +1613,10 @@ void ImgCfm::MaxBox()
     m_boxLine[0] = scanRange[0];
     m_boxLine[1] = scanRange[1];
 
-#if defined(EMP_430)
+#if defined(CT_430)
     //exit BCWidth the height is not (IMG_W-1)
     BoxDotCorrect(0, (IMG_H-1));
-#elif defined(EMP_355)
+#elif defined(CT_355)
     int dots = IMG_H * Calc2D::INIT_SCALE - 1;
      m_boxDotBak[0] = 0;
      m_boxDotBak[1] = dots;
@@ -1648,7 +1648,7 @@ void ImgCfm::ExitMaxBox()
         m_boxLine[1] = m_boxLineBak[0];
         m_boxLine[1] = m_boxLineBak[1];
     }
-#ifdef EMP_430
+#ifdef CT_430
     m_boxLineBak[0] = 0;
     m_boxLineBak[1] = 150;
 #endif
@@ -1664,7 +1664,7 @@ void ImgCfm::GainCfm(int data)
     // udpate view
     m_ptrUpdate->GainCfm(data);
 
-#ifdef EMP_430
+#ifdef CT_430
     data = data/2 + 50;
 #endif
     // calc tgc
@@ -2436,7 +2436,7 @@ void ImgCfm::GetBoxDotRange(int &begin, int &end)
     int interval = 1;
 
     begin = 0 + interval;
-#ifdef EMP_355
+#ifdef CT_355
     end = IMG_H*Calc2D::INIT_SCALE - interval;
 #else
     end = IMG_H - interval;

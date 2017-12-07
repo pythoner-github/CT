@@ -123,9 +123,9 @@ class ImgCfm
         static const int COLOR_MAP_PDI[MAX_COLOR_MAP_PDI];
         static const int MAX_COLOR_MAP_PDIDIR = 6;
         static const int COLOR_MAP_PDIDIR[MAX_COLOR_MAP_PDIDIR];
-#if defined (EMP_430)
+#if defined (CT_430)
         static const int MAX_GAIN_CFM =  300; //500; // linear = 256; //300; //500;
-#elif defined(EMP_355)
+#elif defined(CT_355)
         static const int MAX_GAIN_CFM =  400;
 #else
         static const int MAX_GAIN_CFM = 1084 ;

@@ -14,7 +14,7 @@
 
 MultiFuncBodyMark* MultiFuncBodyMark::m_ptrThis = NULL;
 enum EKnobBodymark {BDMK_BODYSIZE, BDMK_PROBECOLOR};
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 KnobMenu::KnobItem KnobBodymarkMenu[6] =
 {
     {_("BodyMark Size"), "", MIN, MultiFuncBodyMark::SetBodyMarkSize, MultiFuncBodyMark::PressSetBodyMarkSize},
@@ -24,7 +24,7 @@ KnobMenu::KnobItem KnobBodymarkMenu[6] =
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL}
 };
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
 KnobMenu::KnobItem KnobBodymarkMenu[5] =
 {
     {_("BodyMark Size"), "", MIN, MultiFuncBodyMark::SetBodyMarkSize, NULL},
@@ -91,7 +91,7 @@ MultiFuncBodyMark::MultiFuncBodyMark()
     m_ptrThis = this;
     KnobBodyMarkCreate();
     DarkFucusLight();
-#if defined (EMP_322)
+#if defined (CT_322)
     g_keyInterface.CtrlLight(TRUE,LIGHT_BODYMARK);
 #endif
 }
@@ -104,7 +104,7 @@ MultiFuncBodyMark::~MultiFuncBodyMark()
         m_ptrBodyMark = NULL;
     }
     g_keyInterface.Pop();
-#if defined (EMP_322)
+#if defined (CT_322)
    g_keyInterface.CtrlLight(FALSE,LIGHT_BODYMARK);
 #endif
    KnobUndo();
@@ -125,8 +125,8 @@ void MultiFuncBodyMark::KeyEvent(unsigned char keyValue)
         m_ptrBodyMark = new BodyMark(m_bodyPos[m_active], m_probePos[m_active]);
     switch(keyValue)
     {
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
         case KEY_UPDATE:
             if (m_bodyOpr == MOVE_PROBE)
             {
@@ -194,7 +194,7 @@ void MultiFuncBodyMark::KeyEvent(unsigned char keyValue)
         case KEY_F5:
             ViewMain::GetInstance()->KnobKeyEvent(keyValue);
             break;
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         case KEY_F1ADD:
         case KEY_F1SUB:
         case KEY_F2ADD:

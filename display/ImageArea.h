@@ -22,7 +22,7 @@
 #define EFOV_SPEEDBAR_X 600
 #define EFOV_SPEEDBAR_Y 10
 
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
 #define FPS_POS_X 85
 #else
 #define FPS_POS_X 109

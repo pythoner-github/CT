@@ -16,7 +16,7 @@ public:
     void DestroyWindow(void);
     bool GetDemoStatus() { return !m_statusDemo; }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     bool GetProjectModeStatus(void) { return m_statusProjectMode; }
 #endif
 
@@ -34,18 +34,18 @@ private:
     static const unsigned int AUTHEN_NUM = 11;
     static const unsigned int DEMO_NUM = 5;
 
-#if defined(EMP_360)
+#if defined(CT_360)
     //static const int WPORBE_NUM = 6;
     static const int WPORBE_NUM = 8;
-#elif defined(EMP_161)
+#elif defined(CT_161)
     static const int WPORBE_NUM = 5; //4;
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
     static const int WPORBE_NUM = 9; //7;
-#elif defined(EMP_430)
+#elif defined(CT_430)
     static const int WPORBE_NUM = 5;
-#elif defined(EMP_440)
+#elif defined(CT_440)
     static const int WPORBE_NUM = 4;
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
 #ifdef VET
     static const int WPORBE_NUM = 15;
 #else
@@ -71,7 +71,7 @@ private:
     bool m_statusAuthen;
     bool m_statusDemo;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     bool m_statusProjectMode;
 #endif
 
@@ -101,7 +101,7 @@ private:
     GtkWidget* CreateNoteProbe(void);
     GtkWidget* CreateNoteMonitor(void);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     GtkWidget* CreateNoteProject(void);
 #endif
 
@@ -150,7 +150,7 @@ private:
     static gboolean HandleAuthen(gpointer data) { return m_ptrInstance->IsAuthenValid(); }
     static gboolean HandleWriteProbe(gpointer data) { return m_ptrInstance->WriteProbe(); }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     //ProjectMode
     static void HandleProjectModeClicked(GtkButton *widget, ViewSuperuser *data) { return data->BtnProjectModeClicked(widget); }
 

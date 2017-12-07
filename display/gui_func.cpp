@@ -493,7 +493,7 @@ GtkWidget *create_button(GtkWidget *label, guint width, guint height, const GdkC
 GtkWidget* create_button_icon(GtkWidget *label, GtkWidget *icon_image)
 {
     int size =0;
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -869,7 +869,7 @@ gboolean FakeNumKey(unsigned char key)
     return FALSE;
 }
 
-#if defined(EMP_355) || defined(EMP_322)
+#if defined(CT_355) || defined(CT_322)
 gboolean FakeAlphabet(unsigned char key)
 {
     key_note=key;
@@ -1718,7 +1718,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
             case 0xAC:          // femalesymbol
                 doKeysymEvent(GDK_femalesymbol, 1); doKeysymEvent(GDK_femalesymbol, 0); return TRUE;
-#if defined(EMP_313)
+#if defined(CT_313)
             case 0xE7:          // page up
                 doKeyEvent(112, 1); doKeyEvent(112, 0); return TRUE;
             case 0xE0:          // page down
@@ -1858,7 +1858,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
             case 0xAC:          // femalesymbol
                 doKeysymEvent(GDK_femalesymbol, 1); doKeysymEvent(GDK_femalesymbol, 0); return TRUE;
-#if defined(EMP_313)
+#if defined(CT_313)
             case 0xE7:          // page up
                 doKeyEvent(112, 1); doKeyEvent(112, 0); return TRUE;
             case 0xE0:          // page down
@@ -2002,7 +2002,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
             case 0xAC:          // femalesymbol
                 doKeysymEvent(GDK_femalesymbol, 1); doKeysymEvent(GDK_femalesymbol, 0); return TRUE;
-#if defined(EMP_313)
+#if defined(CT_313)
             case 0xE7:          // page up
                 doKeyEvent(112, 1); doKeyEvent(112, 0); return TRUE;
             case 0xE0:          // page down
@@ -2140,7 +2140,7 @@ gboolean FakePunctuation(unsigned char key)
                 doKeysymEvent(GDK_malesymbol, 1); doKeysymEvent(GDK_malesymbol, 0); return TRUE;
             case 0xAC:          // femalesymbol
                 doKeysymEvent(GDK_femalesymbol, 1); doKeysymEvent(GDK_femalesymbol, 0); return TRUE;
-#if defined(EMP_313)
+#if defined(CT_313)
             case 0xE7:          // page up
                 doKeyEvent(112, 1); doKeyEvent(112, 0); return TRUE;
             case 0xE0:          // page down

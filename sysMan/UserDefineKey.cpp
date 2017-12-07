@@ -15,7 +15,7 @@
 #include "display/MenuArea.h"
 #include "keyboard/KeyFunc.h" //2016.09.07
 
-#if defined(EMP_322)
+#if defined(CT_322)
 const string UserDefineKey::KeyFunctionList[MAX_KEY] = {
     N_("NULL"),
     //N_("THI"),
@@ -123,7 +123,7 @@ void UserDefineKey::FactoryCreate(EKeyFunc type)
         case NONE:
             break;
 /*
-#if defined(EMP_322)
+#if defined(CT_322)
         case THI:
             if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
             {
@@ -159,7 +159,7 @@ void UserDefineKey::FactoryCreate(EKeyFunc type)
             }
             break;
 
-#if defined(EMP_322)
+#if defined(CT_322)
         case PIP:
             g_menu2D.BtnPIP(NULL);
             break;
@@ -199,7 +199,7 @@ void UserDefineKey::FactoryCreate(EKeyFunc type)
                     FreezeMode::GetInstance()->PressFreeze();
 
                 ViewSystem::GetInstance()->CreateWindow();
-#ifndef EMP_355        //按自定义键进入systemsetting时，保持冻结
+#ifndef CT_355        //按自定义键进入systemsetting时，保持冻结
                 FreezeMode::GetInstance()->PressUnFreeze();
 #endif
             }

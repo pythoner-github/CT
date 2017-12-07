@@ -3,7 +3,7 @@
 
 ///> probe list G70
 #define PROBE_INFO_SIZE  128
-#ifndef EMP_440
+#ifndef CT_440
 enum EProbeList360 {P35CV, P65VMC, P75LVS, P35MC, PT30P16A, P65MC, PT35D40JSNR, PT35D40JNDK};
 unsigned char Probe35CV[PROBE_INFO_SIZE] = //3.5CV
 {

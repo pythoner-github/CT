@@ -339,7 +339,7 @@ class FpgaCtrl2D
     int SendExtendImaging(INT32U on);
     int SendExtendImagingSample(INT16U* value, INT32U size);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     int SendWaveData(INT8U *emitWave, INT32U pulseWidth, INT32U pulseNum, INT16U size);
     int Send2DPulseNumFreq0(INT32U pulseNum);
     int Send2DPulseNumFreq1(INT32U pulseNum);
@@ -493,7 +493,7 @@ class FpgaCtrl2D
     int DemodCombineBuf(INT16U* data, INT32U size, INT32U clear);
     int CwCombine(INT16U clear, INT16U para);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     ///emission wave paraments
     int EmissionPulseNum(INT32U clear, INT32U pulseNum);
     int EmissionPulseWidth(INT32U clear, INT32U pulseWidth);

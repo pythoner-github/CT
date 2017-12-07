@@ -24,7 +24,7 @@ class Replay
         void SetReplayFps(int fps);
         //void ChangeReplayStatus();
         EKnobReturn ChangeSpeed(EKnobOper oper);
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         void SetTrimLeft(EKnobOper oper);
         void SetTrimRight(EKnobOper oper);
         void ResetTrim(EKnobOper oper);
@@ -106,7 +106,7 @@ class Replay
         static Replay* m_ptrInstance;
         static const int TOTAL_REPLAY = 1024;//500;
         static const int MAX_AREA = 4;
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         static const int MAX_SPEED = 4;
 #else
         static const int MAX_SPEED = 3;

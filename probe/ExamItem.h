@@ -14,7 +14,7 @@ using std::vector;
 #define DEFAULT_NOTE_FILE "res/DefaultNote.ini"
 ///> file path and name
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
 #define EXAM_FILE "res/config-355/vet/VetItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-355/vet/default/VetItemPara.ini"
 #define DEFAULT_EXAM_FILE "res/config-355/vet/VetDefaultItemPara.ini"
@@ -51,7 +51,7 @@ using std::vector;
 #endif
 #else
 ///> file path and name
-#if defined(EMP_360) //360
+#if defined(CT_360) //360
 #define EXAM_FILE "res/config-360/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-360/default/ItemPara.ini"
 #define EXAM_FILE_DIR "res/config-360/"
@@ -69,7 +69,7 @@ using std::vector;
 #define PROJECT_DEFAULT_FILE "res/config-360/ProjectDefaultPara.ini"
 #define PROJECT_DEBUG_FILE "res/config-360/ProjectDebugPara.ini"
 #define PROBE_ALIAS_FILE "res/config-360/ProbeModelAlias.ini"
-#elif defined(EMP_322) //322
+#elif defined(CT_322) //322
 #define EXAM_FILE "res/config-322/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-322/default/ItemPara.ini"
 #define EXAM_FILE_DIR "res/config-322/"
@@ -88,7 +88,7 @@ using std::vector;
 #define PROJECT_DEBUG_FILE "res/config-322/ProjectDebugPara.ini"
 #define PROBE_ALIAS_FILE "res/config-322/ProbeModelAlias.ini"
 
-#elif defined(EMP_313) //313
+#elif defined(CT_313) //313
 #define EXAM_FILE "res/config-313/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-313/default/ItemPara.ini"
 #define EXAM_FILE_DIR "res/config-313/"
@@ -104,7 +104,7 @@ using std::vector;
 #define PROJECT_DEFAULT_FILE "res/config-313/ProjectDefaultPara.ini"
 #define PROJECT_DEBUG_FILE "res/config-313/ProjectDebugPara.ini"
 #define PROBE_ALIAS_FILE "res/config-313/ProbeModelAlias.ini"
-#elif defined(EMP_161) //161
+#elif defined(CT_161) //161
 #define EXAM_FILE "res/config-161/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-161/default/ItemPara.ini"
 #define EXAM_FILE_DIR "res/config-161/"
@@ -122,7 +122,7 @@ using std::vector;
 #define PROJECT_DEFAULT_FILE "res/config-161/ProjectDefaultPara.ini"
 #define PROJECT_DEBUG_FILE "res/config-161/ProjectDebugPara.ini"
 #define PROBE_ALIAS_FILE "res/config-161/ProbeModelAlias.ini"
-#elif defined(EMP_440) //440
+#elif defined(CT_440) //440
 #define EXAM_FILE "res/config-440/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-440/default/ItemPara.ini"
 #define EXAM_FILE_DIR "res/config-440/"
@@ -140,7 +140,7 @@ using std::vector;
 #define MEASURE_ITEM_PATH "res/config-440/measureitemsetting/DSMeasureItemSetting.ini"
 #define DEFAULT_MEASURE_ITEM_FILE "res/config-440/DefaultMeasureItemSetting.ini"
 #define PROBE_ALIAS_FILE "res/config-440/ProbeModelAlias.ini"
-#elif defined(EMP_430) //430
+#elif defined(CT_430) //430
 #define EXAM_FILE "res/config-430/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-430/default/ItemPara.ini"
 #define EXAM_ITEM_FILE "res/config-430/defineditem/"
@@ -158,7 +158,7 @@ using std::vector;
 #define MEASURE_ITEM_PATH "res/config-430/measureitemsetting/DSMeasureItemSetting.ini"
 #define DEFAULT_MEASURE_ITEM_FILE "res/config-430/DefaultMeasureItemSetting.ini"
 #define PROBE_ALIAS_FILE "res/config-430/ProbeModelAlias.ini"
-#elif defined(EMP_355) //355
+#elif defined(CT_355) //355
 #define EXAM_FILE "res/config-355/ItemPara.ini"
 #define EXAM_FILE_OTHER "res/config-355/default/ItemPara.ini"
 #define EXAM_ITEM_FILE "res/config-355/defineditem/"
@@ -200,7 +200,7 @@ class ExamItem
 {
     public:
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
         enum EItem {DOG, CAT, BOVINE, EQUINE, SWINE, SHEEP, USERNAME,USER};
 #else
         enum EItem {USER1, USER2, USER3, USER4, USER5, USER6,USER7, USER8, USER9, USER10,USERNAME,USER};
@@ -293,7 +293,7 @@ class ExamItem
             ParaSpectrum spectrum;
             ParaColor color;
         };
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         //project mode para
         static const int BAND_PASS_SIZE_D2 = 5;
         static const int WALL_FILTER_SIZE_COLOR = 3;
@@ -412,7 +412,7 @@ class ExamItem
         ///>read user item flag
         bool ReadUserItemFlag(IniFile* ptrIni);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
         //vector<ExamItem::ProjectDefaultParaItem> ReadProjectPara(const char* model, const char* user, IniFile* ptrIni);
         void WriteProjectPara(ProjectDefaultParaItem *paraItem, const char* model, const char* user, IniFile* ptrIni);
         void RemoveUserFromFile(const char* model, const char* user, IniFile* ptrIni);
@@ -423,7 +423,7 @@ class ExamItem
         std::string GetFirstGenItem() { return m_genFirstItem; }
 
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
         static const int NUM_ITEM = 6; ///< total number of item
 #else
         static const int NUM_ITEM = 10; ///< total number of item

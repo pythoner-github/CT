@@ -35,10 +35,10 @@ void CKnobEvent::FEvent(unsigned char keyValue)
 
     KnobMenu* ptrKnob = KnobMenu::GetInstance();
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     KnobProjectMode* ptrKnobProjectMode = KnobProjectMode::GetInstance();
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
     switch (keyValue)
     {
         case KEY_F1ADD: //F1
@@ -104,7 +104,7 @@ void CKnobEvent::FEvent(unsigned char keyValue)
     }
 #endif
 #else
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
         switch (keyValue)
         {
             case KEY_F1ADD: //F1

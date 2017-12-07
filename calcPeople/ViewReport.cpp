@@ -317,7 +317,7 @@ void ViewReport::CreateWindow(void)
 #endif
 
     m_viewportSP = CreateSW2NB(m_notebook, NB_SP, _("Small Part"));
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
     m_viewportFE = CreateSW2NB(m_notebook, NB_FE, _("Fetal Cardio"));
 #else
     m_viewportVES = CreateSW2NB(m_notebook, NB_VES, _("Vascular"));
@@ -400,7 +400,7 @@ void ViewReport::CreateWindow(void)
         case ExamItem::EYE:
             index = NB_SP;
             break;
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
     case ExamItem::CAR_FETUS:
             index = NB_FE;
             break;
@@ -457,7 +457,7 @@ void ViewReport::ShowMeasureData(guint page_num)
     gtk_widget_hide_all(m_viewportGYN);
 #endif
     gtk_widget_hide_all(m_viewportSP);
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
 #else
     gtk_widget_hide_all(m_viewportTCD);
     gtk_widget_hide_all(m_viewportVES);
@@ -496,7 +496,7 @@ void ViewReport::ShowMeasureData(guint page_num)
         case NB_SP:
             gtk_widget_show_all(m_viewportSP);
             break;
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
 #else
         case NB_TCD:
             gtk_widget_show_all(m_viewportTCD);
@@ -640,7 +640,7 @@ void ViewReport::LoadMeasureData(void)
         fixed = CreateNotePageSP();
         gtk_container_add (GTK_CONTAINER (m_viewportSP), fixed);
     }
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
 #else
     if(!gtk_bin_get_child(GTK_BIN(m_viewportTCD)))
     {
@@ -689,7 +689,7 @@ void ViewReport::LoadMeasureDataForArchive(void)
     CreateNotePageOB();
     CreateNotePageGYN();
     CreateNotePageSP();
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
 #else
     CreateNotePageTCD();
     CreateNotePageVES();
@@ -1628,7 +1628,7 @@ void CheckBoxToggleClicked(GtkCellRendererToggle *cell, gchar *path_str, gpointe
     gtk_tree_model_get (model, &iter, 1, &title, 2, &value, -1);
     ViewReport *ptrRes = ViewReport::GetInstance();
     id = ptrRes->SearchIDFromCalcArr(iter.stamp, atoi((char*)path_str));
-#ifdef EMP_322
+#ifdef CT_322
     if(!((id >= OB_AFI_LUQ && id <= OB_AFI_RLQ)||(id >= OB_RA_DIMEN && id <= OB_MPA_DIAM)||(id >= OB_EAR && id <= OB_SCAPULA)))
 
 #else
@@ -2598,7 +2598,7 @@ GtkWidget* ViewReport::CreateGeneralTable(int section, int start, int end, int m
                     calc_start = SP_CALC_START;
                     ptrCalcInfo = SPCalcInfoPtr;
                     break;
-#ifndef EMP_322
+#ifndef CT_322
                 case VS_M:
                     calc_start = VS_CALC_START;
                     ptrCalcInfo = VSCalcInfoPtr;
@@ -3107,11 +3107,11 @@ void ViewReport::AddTable(GtkWidget *fixed, guint *y, const char *title, int sec
         case OB_M:      map_start = OB_MEA_START;       break;
         case GYN_M:     map_start = GYN_MEA_START;      break;
         case SP_M:      map_start = SP_MEA_START;       break;
-#ifndef EMP_322
+#ifndef CT_322
         case VS_M:      map_start = VS_MEA_START;       break;
 #endif
         case FETAL_M:   map_start = FETAL_MEA_START;    break;
-#ifndef EMP_322
+#ifndef CT_322
         case TCD_M:     map_start = TCD_MEA_START;      break;
 #endif
         case ORTHO_M:   map_start = ORTHO_MEA_START;    break;
@@ -4159,7 +4159,7 @@ GtkWidget* ViewReport::CreateNotePageSP()
     AddTable(fixed, &y, _("<i><b>User</b></i>"), SP_M, USER_START, USER_END, m_TableUser);
     return fixed;
 }
-#ifdef EMP_322
+#ifdef CT_322
 #else
 GtkWidget* ViewReport::CreateNotePageVES()
 {
@@ -4215,7 +4215,7 @@ GtkWidget* ViewReport::CreateNotePageFE()
 
     return fixed;
 }
-#ifdef EMP_322
+#ifdef CT_322
 #else
 GtkWidget* ViewReport::CreateNotePageTCD()
 {

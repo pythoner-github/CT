@@ -1,7 +1,7 @@
 #ifndef LIGHT_DEF_H
 #define LIGHT_DEF_H
 
-#if defined (EMP_322)
+#if defined (CT_322)
 enum ELightValue
 {
     LIGHT_CHROMA = 8,
@@ -28,7 +28,7 @@ enum ELightValue
     LIGHT_SYSTEM = 29,
     LIGHT_DEPTH = 30, //reserve
 };
-#elif defined (EMP_313)
+#elif defined (CT_313)
 enum ELightValue
 {
     LIGHT_ARROW = 8,
@@ -55,7 +55,7 @@ enum ELightValue
     LIGHT_SYSTEM = 29,
 };
 
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
 enum ELightValue
 {
 #if 0

@@ -17,15 +17,15 @@ class ProbeMan
         static ProbeMan* GetInstance();
 
         ///> static const
-#if defined(EMP_360)
+#if defined(CT_360)
         static const int MAX_SOCKET = 4;
-#elif (defined(EMP_440))
+#elif (defined(CT_440))
         static const int MAX_SOCKET = 4;
-#elif (defined(EMP_161))
+#elif (defined(CT_161))
         static const int MAX_SOCKET = 3;
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
         static const int MAX_SOCKET = 3;
-#elif defined(EMP_355)
+#elif defined(CT_355)
         static const int MAX_SOCKET = 3;
 #else
         static const int MAX_SOCKET = 4;

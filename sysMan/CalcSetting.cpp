@@ -20,7 +20,7 @@
 using std::vector;
 
 char export_name[256];
-#ifdef EMP_322
+#ifdef CT_322
 const string section[SECTION_NUM]={
     N_("Abdomen-General") ,
     N_("Gynecology") ,
@@ -939,7 +939,7 @@ void CalcSetting::ChangeExamBoxDelete(void)
     //系统默认的检查部位
     for (int i=0; i<= EXAM_NUM; i++)
     {
-#ifdef EMP_322
+#ifdef CT_322
         vecExamItem_calc.push_back(examType_calc[i]);
 #else
         vecExamItem_calc.push_back(examType[i]);
@@ -1004,7 +1004,7 @@ GtkWidget* CalcSetting::CreateCalcWindow(GtkWidget *parent)
    //系统默认的检查部位
     for (int i=0; i<= EXAM_NUM; i++)
     {
-#ifdef EMP_322
+#ifdef CT_322
         vecExamItem_calc.push_back(examType_calc[i]);
 #else
         vecExamItem_calc.push_back(examType[i]);
@@ -2493,7 +2493,7 @@ const CustomTypeAndMethod CustomEtypeArray[ETYPE_NUM] =
 {
     {0, N_("Dist-Dot"), DIST_DOT},
     {0, N_("Dist-Line"), DIST_LINE},
-#ifndef EMP_322
+#ifndef CT_322
     {1, N_("Length-Track"), LENGTH_TRACK},
     {1, N_("Length-Dot"), LENGTH_DOT},
 #endif
@@ -2501,7 +2501,7 @@ const CustomTypeAndMethod CustomEtypeArray[ETYPE_NUM] =
     {2, N_("Peri-Track"), PERI_TRACK},
     {2, N_("Peri-Ellipse"), PERI_ELLIPSE},
     {3, N_("Area-Track"), AREA_TRACK},
-#ifndef EMP_322
+#ifndef CT_322
     {3, N_("Area-Dot"), AREA_TRACK},
 #endif
     {3, N_("Area-Rectangle"), AREA_REC},
@@ -2523,18 +2523,18 @@ const CustomTypeAndMethod CustomEtypeArray[ETYPE_NUM] =
     {9, N_("Profile"), PROFILE},
     {10, N_("Histogram"), HISTOGRAM},
     {11, N_("Time-M"), TIME_M},
-#ifndef EMP_322
+#ifndef CT_322
     {11, N_("Time-D"), TIME_D},
 #endif
     {12, N_("Slope"), SLOPE},
     {13, N_("Vel-M"), VEL_M},
-#ifdef EMP_322
+#ifdef CT_322
     {14, N_("HR-M"), HR_M}
 #else
     {13, N_("Vel-D"), VEL_D},
     {14, N_("HR-M"), HR_M},
 #endif
-#ifndef EMP_322
+#ifndef CT_322
     {15, N_("Acceleration"), ACCEL},
     {16, N_("PG Mean"), PGMEAN}
 #endif
@@ -3624,14 +3624,14 @@ static gboolean ExitCustomeCalc(gpointer data)
 void CustomCalc::KeyEvent(unsigned char keyValue)
 {
     //FakeXEvent::KeyEvent(keyValue);
-#if defined(EMP_322)
+#if defined(CT_322)
     if(keyValue==KEY_CTRL_SHIFT_SPACE)
     {
         KeySwitchIM ksim;
         ksim.ExcuteChange(FALSE);
         return;
     }
-#elif defined(EMP_313)
+#elif defined(CT_313)
     {
         if (keyValue == KEY_ONE)
         {

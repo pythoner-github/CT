@@ -2,7 +2,7 @@
 #define KNOB_M_H
 
 #include "Def.h"
-#if ((defined (EMP_322) || defined(EMP_313)))
+#if ((defined (CT_322) || defined(CT_313)))
 enum EKnobM {M_SPEED, M_MBP, M_SOUND_POWER};
 #else
 enum EKnobM {M_FREQ, M_SPEED, M_CHROMA};

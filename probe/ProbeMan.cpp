@@ -11,19 +11,19 @@
 #include "base/IniFile.h"
 
 ProbeMan* ProbeMan::m_ptrInstance = NULL;
-#if (defined(EMP_360)||defined(EMP_440))
+#if (defined(CT_360)||defined(CT_440))
 const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x0, 0x2, 0x1, 0x3};
 const int ProbeMan::SOCKET_ADDR[MAX_SOCKET] = {0x0, 0x2, 0x1, 0x3};
-#elif defined(EMP_161)
+#elif defined(CT_161)
 const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x0, 0x2, 0x1};
 const int ProbeMan::SOCKET_ADDR[MAX_SOCKET] = {0x0, 0x2, 0x1};
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
 const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x0, 0x0, 0x0};//探头地址
 const int ProbeMan::SOCKET_ADDR[MAX_SOCKET] = {0x2, 0x1, 0x0}; //探头座切换，继电器切换
-#elif (defined(EMP_430))
+#elif (defined(CT_430))
 const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x0, 0x0, 0x0, 0x0};
 const int ProbeMan::SOCKET_ADDR[MAX_SOCKET] = {0x3, 0x1, 0x2, 0x0};
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
 const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x2, 0x2, 0x2};// 0x3};
 //const int ProbeMan::CMD_READ_PARA[MAX_SOCKET] = {0x1, 0x2, 0x0};// 0x3};
 const int ProbeMan::SOCKET_ADDR[MAX_SOCKET] = {0x0, 0x2, 0x1};// 0x3};
@@ -44,28 +44,28 @@ ProbeMan::ProbeMan()
     int size;
 
     para.exist = TRUE;
-#if (defined(EMP_360) || defined(EMP_161) || defined(EMP_440))
+#if (defined(CT_360) || defined(CT_161) || defined(CT_440))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
     para.model[3] = '6';
     para.model[4] = '0';
     para.model[5] = 'E';
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
     para.model[3] = '5';
     para.model[4] = '0';
     para.model[5] = 'J';
-#elif defined(EMP_430)
+#elif defined(CT_430)
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
     para.model[3] = '6';
     para.model[4] = '0';
     para.model[5] = 'E';
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
@@ -82,7 +82,7 @@ ProbeMan::ProbeMan()
 #endif
     para.model[6] = 0;
     para.type = 'C';
-#if defined (EMP_430)
+#if defined (CT_430)
     para.width = 6000;
     para.array = 80;
     para.lines = 160;
@@ -141,28 +141,28 @@ ProbeMan::ProbeMan()
     //35C50K
 #if 0
     para.exist = TRUE;
-#if (defined(EMP_360) || defined(EMP_161))
+#if (defined(CT_360) || defined(CT_161))
     para.model[0] = '3';
     para.model[1] = '.';
     para.model[2] = '5';
     para.model[3] = 'C';
     para.model[4] = 'V';
     para.model[5] = 0;
-#elif (defined(EMP_313) || defined(EMP_322))
+#elif (defined(CT_313) || defined(CT_322))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
     para.model[3] = '5';
     para.model[4] = '0';
     para.model[5] = 'J';
-#elif (defined(EMP_430))
+#elif (defined(CT_430))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
     para.model[3] = '6';
     para.model[4] = '0';
     para.model[5] = 'E';
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
     para.model[0] = '3';
     para.model[1] = '5';
     para.model[2] = 'C';
@@ -179,7 +179,7 @@ ProbeMan::ProbeMan()
 #endif
     para.model[6] = 0;
     para.type = 'C';
-#if defined (EMP_430)
+#if defined (CT_430)
    para.width = 6000;
     para.array = 80;
     para.lines = 160;
@@ -208,21 +208,21 @@ ProbeMan::ProbeMan()
 // 75L40K
 #if 1
     para.exist = TRUE;
-#if (defined(EMP_360) || defined(EMP_161))
+#if (defined(CT_360) || defined(CT_161))
     para.model[0] = '7';
     para.model[1] = '.';
     para.model[2] = '5';
     para.model[3] = 'L';
     para.model[4] = 'V';
     para.model[5] = 'S';
-#elif (defined(EMP_430))
+#elif (defined(CT_430))
     para.model[0] = '6';
     para.model[1] = '5';
     para.model[2] = 'L';
     para.model[3] = '4';
     para.model[4] = '0';
     para.model[5] = 'E';
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
     para.model[0] = '7';
     para.model[1] = '0';
     para.model[2] = 'L';
@@ -239,7 +239,7 @@ ProbeMan::ProbeMan()
 #endif
     para.model[6] = 0;
     para.type = 'l';
-#ifdef EMP_430
+#ifdef CT_430
     para.width = 4000;
     para.array = 80;
     para.lines = 160;
@@ -376,7 +376,7 @@ ProbeMan::ProbeMan()
 #endif
  //10L25J
 #if 0
-#ifdef EMP_340
+#ifdef CT_340
     para.exist = TRUE;
     para.model[0] = '1';
     para.model[1] = '0';
@@ -485,19 +485,19 @@ void ProbeMan::GetAllProbe(ProbeSocket::ProbePara para[MAX_SOCKET])
         IniFile ini(path);
         strcpy(defaultModel, ReadDefaultProbe(&ini).c_str());
     }
-#ifdef EMP_355
+#ifdef CT_355
         m_vecSockets[2].ActiveSocket();
         usleep(430000);//
 #endif
     int i;
     for (i = 0; i < MAX_SOCKET; i ++)
     {
-#if (defined(EMP_322) || defined(EMP_313)|| defined(EMP_430))
+#if (defined(CT_322) || defined(CT_313)|| defined(CT_430))
         m_vecSockets[i].ActiveSocket();
         usleep(900000);//
 #endif
 
-#ifdef EMP_355
+#ifdef CT_355
         m_vecSockets[i].ActiveSocket();
         usleep(430000);//
 #endif
@@ -509,7 +509,7 @@ void ProbeMan::GetAllProbe(ProbeSocket::ProbePara para[MAX_SOCKET])
                 m_defaultSocket = i;
         }
     }
-#ifdef EMP_355
+#ifdef CT_355
     if ((para[0].type==para[1].type)&&(para[1].type==para[2].type))       //the same as one probe addr
     {
         para[1].exist=false;
@@ -554,7 +554,7 @@ int ProbeMan::SetProbeSocket(int socket)
 void ProbeMan::WriteProbeManual()
 {
     unsigned char* buf = NULL;
-    // EMP-360
+    // CT-360
     //buf = Probe35CV;
     //buf = Probe35MC;
     //buf = Probe75LVS;
@@ -562,13 +562,13 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe65MC;
     //buf = Probe30P16A;
 
-    // EMP-161
+    // CT-161
     //buf = Probe35CV;
     //buf = Probe35MC;
     //buf = Probe75LVS;
     //buf = Probe65VMC;
 
-    // EMP-322
+    // CT-322
     //buf = Probe35C50J;
     //buf = Probe35C20G;
     //buf = Probe75L40J;
@@ -576,7 +576,7 @@ void ProbeMan::WriteProbeManual()
     //buf = Probe65C20G;
     //buf = Probe90L40J;
 
-    // EMP-340
+    // CT-340
     buf = Probe35C50K;
     //buf = Probe35C20H;
     //buf = Probe75L40K;
@@ -594,7 +594,7 @@ void ProbeMan::WriteProbeManual()
     int i;
     for (i = 0; i < MAX_SOCKET; i ++)
     {
-#if (defined(EMP_430) || defined(EMP_322))
+#if (defined(CT_430) || defined(CT_322))
         if (i > 0)
         {
             m_vecSockets[i].ActiveSocket();
@@ -611,7 +611,7 @@ void ProbeMan::WriteProbe(int type)
 {
     unsigned char* buf = NULL;
 
-#if (defined(EMP_360) || defined(EMP_161))
+#if (defined(CT_360) || defined(CT_161))
     switch((EProbeList360)type)
     {
         case P35CV:
@@ -650,7 +650,7 @@ void ProbeMan::WriteProbe(int type)
             buf = Probe35CV;
             break;
     }
-#elif (defined(EMP_322) || defined(EMP_313))
+#elif (defined(CT_322) || defined(CT_313))
     switch((EProbeList322)type)
     {
 
@@ -694,7 +694,7 @@ void ProbeMan::WriteProbe(int type)
             buf = Probe35C50J;
             break;
     }
-#elif defined(EMP_430)
+#elif defined(CT_430)
     switch((EProbeList430)type)
     {
         case P35C60E:
@@ -722,7 +722,7 @@ void ProbeMan::WriteProbe(int type)
             break;
     }
 
-#elif defined(EMP_440)
+#elif defined(CT_440)
     switch((EProbeList440)type)
     {
 
@@ -746,7 +746,7 @@ void ProbeMan::WriteProbe(int type)
             buf = Probe35CV;
             break;
     }
-#elif defined(EMP_355)
+#elif defined(CT_355)
     switch((EProbeList355)type)
     {
         case P35C50LAPX:
@@ -879,7 +879,7 @@ void ProbeMan::WriteProbe(int type)
     int i;
     for (i = 0; i < MAX_SOCKET; i ++)
     {
-#if (defined(EMP_430) || defined(EMP_322))
+#if (defined(CT_430) || defined(CT_322))
         if (i > 0)
         {
             m_vecSockets[i].ActiveSocket();

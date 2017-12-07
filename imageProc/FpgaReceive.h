@@ -23,7 +23,7 @@ class FpgaReceive:public AbsFpgaReceive
     void SetDsc(CDSC *ptrDsc);
 
     private:
-#ifdef EMP_460
+#ifdef CT_460
     static PcieControl* m_ptrUsb;
 #else
     static EzUsb* m_ptrUsb;

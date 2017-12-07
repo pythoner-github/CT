@@ -27,7 +27,7 @@ class AbsUpdateMix
         virtual void ReplayBar(int cur, int total, int trimLeft, int trimRight) = 0;
 
         virtual void ClearReplayBar() = 0;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         virtual void SpeedCtrl(int indexSpeed) = 0;
 #endif
         virtual void ReplayCtrl(bool on) = 0;

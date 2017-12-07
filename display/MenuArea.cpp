@@ -158,7 +158,7 @@ GtkWidget* MenuArea::Create(void)
     gtk_widget_set_usize(tableEFOV, widthMax, heightMaxNB);
     gtk_fixed_put(GTK_FIXED(m_fixedMenu), tableEFOV, 0, 0);
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     //ProjectMode menu
     GtkWidget *fixedProjectMode = g_menuProjectMode.Create();
     gtk_widget_set_usize(fixedProjectMode, widthMax, heightMax);
@@ -176,7 +176,7 @@ MenuArea::EMenuType MenuArea::GetMenuType(void)
 void MenuArea::SwitchMenu(EMenuType type)
 {
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -264,7 +264,7 @@ void MenuArea::UpdateSubMenu(void)
     if(m_labelSub == NULL)
         return;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         gtk_label_set_text(GTK_LABEL(m_labelSub), _("Project Mode"));
@@ -326,7 +326,7 @@ void MenuArea::UpdateSubMenu(void)
 void MenuArea::UpdateLabel(void)
 {
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         g_menuProjectMode.UpdateLabel();
@@ -355,7 +355,7 @@ void MenuArea::UpdateLabel(void)
 void MenuArea::HideCurMenuChild(void)
 {
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
     }
@@ -424,7 +424,7 @@ void MenuArea::HideMenu(void)
     ViewMain::GetInstance()->HideMenu();
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 void MenuArea::ShowProjectModeMenu(void)
 {
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus())
@@ -447,7 +447,7 @@ void MenuArea::ShowMainMenu(void)
 {
     m_menuType = MAIN;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
    if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -466,7 +466,7 @@ void MenuArea::Show2DMenu(void)
     m_in2DOnly = true;
     m_menuType = D2;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -487,7 +487,7 @@ void MenuArea::ShowMMenu(void)
     m_in2DOnly = false;
     m_menuType = M;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -508,7 +508,7 @@ void MenuArea::ShowPWMenu(void)
     m_in2DOnly = false;
     m_menuType = PW;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -517,7 +517,7 @@ void MenuArea::ShowPWMenu(void)
 #endif
 
     HideAllOtherMenu();
-#ifdef EMP_355
+#ifdef CT_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
     if (ModeStatus::IsCWImgMode())
@@ -542,7 +542,7 @@ void MenuArea::ShowCWMenu(void)
     m_in2DOnly = false;
     m_menuType = CW;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -563,7 +563,7 @@ void MenuArea::ShowCFMMenu(void)
     m_in2DOnly = false;
     m_menuType = CFM;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -584,7 +584,7 @@ void MenuArea::ShowCWCFMMenu(bool currentCw)
     m_in2DOnly = false;
     m_menuType = CWCFM;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -615,7 +615,7 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
     m_in2DOnly = false;
     m_menuType = PWCFM;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -625,7 +625,7 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
 
     HideAllOtherMenu();
     if (currentPw) {
-#ifdef EMP_355
+#ifdef CT_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
         if(ModeStatus::IsCWImgMode())
@@ -645,7 +645,7 @@ void MenuArea::ShowPWCFMMenu(bool currentPw)
         g_menuCFM.Show();
         gtk_notebook_set_current_page(GTK_NOTEBOOK(m_noteBook), 2);
     } else {
-#ifdef EMP_355
+#ifdef CT_355
         if(ViewMain::GetInstance()->GetModeIsFlag())
         {
             gtk_label_set_text(GTK_LABEL(m_labelPW), _("CW"));
@@ -670,7 +670,7 @@ void MenuArea::ShowMeasureMenu(void)
 {
     m_menuType = MEASURE;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -680,7 +680,7 @@ void MenuArea::ShowMeasureMenu(void)
 
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("Measure"));
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(TRUE,LIGHT_MEASURE);
 #endif
     g_menuMeasure.Show();
@@ -690,7 +690,7 @@ void MenuArea::ShowBDMKMenu(void)
 {
     m_menuType = BDMK;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -699,7 +699,7 @@ void MenuArea::ShowBDMKMenu(void)
 #endif
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("BodyMark"));
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(TRUE,LIGHT_BODYMARK);
 #endif
     g_menuBDMK.Show();
@@ -709,7 +709,7 @@ void MenuArea::ShowReviewMenu(void)
 {
     m_menuType = REVIEW;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -726,7 +726,7 @@ void MenuArea::ShowCalcMenu(void)
 {
     m_menuType = CALC;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -736,7 +736,7 @@ void MenuArea::ShowCalcMenu(void)
 
     HideAllOtherMenu();
     gtk_label_set_text(GTK_LABEL(m_labelSub), _("Calculate"));
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
     g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #endif
     g_menuCalc.Show();
@@ -747,7 +747,7 @@ void MenuArea::ShowNoteMenu(void)
     PRINTF("==============enter shownotemenu");
     m_menuType = NOTE;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -766,7 +766,7 @@ void MenuArea::ShowBiopsyMenu(void)
 {
     m_menuType = BIOPSY;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -798,7 +798,7 @@ void MenuArea::ShowSystemMenu(void)
 {
     m_menuType = SYSTEM;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -816,7 +816,7 @@ void MenuArea::ShowEFOVPrepare(void)
 {
     m_menuType = EFOV;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -832,7 +832,7 @@ void MenuArea::ShowEFOVCapture(void)
 {
     m_menuType = EFOV;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -849,7 +849,7 @@ void MenuArea::ShowEFOVView(void)
 {
     m_menuType = EFOV;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -866,7 +866,7 @@ void MenuArea::ShowEFOVReview(void)
 {
     m_menuType = EFOV;
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus()&&g_menuProjectMode.ShowStatus())
     {
         ShowProjectModeMenu();
@@ -917,7 +917,7 @@ void MenuArea::HideAllOtherMenu(void)
         g_menuBiopsyVerify.Hide();
     //-------------------------------------//
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
   g_menuProjectMode.Hide();
 #endif
 

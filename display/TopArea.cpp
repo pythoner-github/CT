@@ -188,7 +188,7 @@ void TopArea::UpdateSysInfo(void)
 
 	//tis = m_TIS;
 	float tis = m_TIS;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 	if (tis < 0.0001) {
 		sprintf(other_info, "          ");
 	} else {
@@ -251,7 +251,7 @@ void TopArea::GetCheckPart(string& ExamType)
     ExamType = m_checkPart;
 }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 void TopArea::GetFreq(std::string& freq)
 {
     freq = m_freq;

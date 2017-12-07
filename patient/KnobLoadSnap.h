@@ -3,7 +3,7 @@
 
 #include "Def.h"
 
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     enum EKnobReview {REVIEW_NEXT, REVIEW_PREVIOUS, REVIEW_SLIDE_PLAY, REVIEW_SLIDE_SPEED};
 #else
     enum EKnobReview {REVIEW_NEXT, REVIEW_SLIDE_PLAY, REVIEW_SLIDE_SPEED};

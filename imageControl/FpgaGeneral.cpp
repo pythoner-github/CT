@@ -234,7 +234,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //bit7-4:channel 3
     //bit3-0:channel 4
     //0000=0 db(default), 0001=1db,0010=2db,0011=3db,0100=4db,0101=5db,0110=6db,0111=7db,1000=8db,1001=9db,1010=10db,1011=11db,1100=12db, other=do not use
-#ifdef EMP_355
+#ifdef CT_355
     SpiControlSetting(0xff,0x2a,0x8888);    //from new g30
 #else
     SpiControlSetting(0xff,0x2a, 0x0000);
@@ -251,7 +251,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
     //bit7-4:channel 7
     //bit3-0:channel 8
     //0000=0 db(default), 0001=1db,0010=2db,0011=3db,0100=4db,0101=5db,0110=6db,0111=7db,1000=8db,1001=9db,1010=10db,1011=11db,1100=12db, other=do not use
-#ifdef EMP_355
+#ifdef CT_355
     SpiControlSetting(0xff,0x2b,0x8888);    //from new g30
 #else
    SpiControlSetting(0xff,0x2b, 0x0000);
@@ -283,7 +283,7 @@ void CFpgaGeneral::AD5805ControlInit() //5805 init
 //    SpiControlSetting(0xff,0x42,0x80e5);
     //16'b1000_0000_1100_1101----exe_ref mode of afe5805 is useless
     // SpiControlSetting(0xff,0x42, 0x80cd);
-#ifdef EMP_355
+#ifdef CT_355
       SpiControlSetting(0xff, 0x42, 0x80c5);
 #else
       SpiControlSetting(0x03, 0x42, 0x8085 | (2<<5));   //F11B, ab 片 相位2
@@ -375,14 +375,14 @@ void  CFpgaGeneral::SpiControlSetting(unsigned int chipcs, unsigned int regaddr,
 {
     INT32U value;
     value = (chipcs <<8) + regaddr;
-#ifdef EMP_460
+#ifdef CT_460
     PcieControl::GetInstance()->WriteOneDataToFpga(AdcCtrlAddr, value);
 #else
     EzUsb::GetInstance()->WriteOneDataToFpga(AdcCtrlAddr, value);
 #endif
 
     value = data;
-#ifdef EMP_460
+#ifdef CT_460
     PcieControl::GetInstance()->WriteOneDataToFpga(AdcCtrlData, value);
 #else
     EzUsb::GetInstance()->WriteOneDataToFpga(AdcCtrlData, value);
@@ -392,7 +392,7 @@ void  CFpgaGeneral::SpiControlSetting(unsigned int chipcs, unsigned int regaddr,
 void  CFpgaGeneral::AD9273_TestChNo(U32 ChipNo, U32 ChNoInChip)
 {
     int data = ChipNo*8 + ChNoInChip;
-#ifdef EMP_460
+#ifdef CT_460
     PcieControl::GetInstance()->WriteOneDataToFpga(TESTLVDSCHADDR, data);;
 #else
     EzUsb::GetInstance()->WriteOneDataToFpga(TESTLVDSCHADDR, data);;

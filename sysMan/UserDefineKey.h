@@ -9,7 +9,7 @@ class UserDefineKey
     public:
         UserDefineKey();
         ~UserDefineKey();
-#if defined(EMP_322)
+#if defined(CT_322)
         static const int MAX_KEY = 6;//6
 #else
         static const int MAX_KEY = 10;//8;//9;
@@ -24,7 +24,7 @@ class UserDefineKey
         void PressKeyP3(void);
 
     private:
-#if defined(EMP_322)
+#if defined(CT_322)
         //enum EKeyFunc {NONE, THI, TSI, SAVE_CINE, PRINT, PIP};
         enum EKeyFunc {NONE, TSI, SAVE_CINE, PRINT, PIP, BIOPSY};
 #else

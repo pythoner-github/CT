@@ -74,7 +74,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, UR_L_KID_H, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_L_KID_L, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_L_KID_W, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, UR_L_DIST_REN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_L_MAIN_REN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_L_REN_V, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
@@ -85,7 +85,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, UR_R_KID_H, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_R_KID_L, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_R_KID_W, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, UR_R_DIST_REN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_R_MAIN_REN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, UR_R_REN_V, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
@@ -348,7 +348,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, OB_ULNA, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},//Ulna
     {NULL, OB_FIBULA, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},//Fibula
     {NULL, OB_NUCHFOLD, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, OB_UMBILICAL_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_L_MCA, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_R_MCA, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
@@ -393,7 +393,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, OB_AOR_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_AO_ANNUL, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_ASC_AO_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, OB_DESC_AO, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, OB_DESC_AO_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
@@ -402,7 +402,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, OB_MV_ANNUL_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_TV_ANNUL_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_MPA_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, OB_THORACIC_AO, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, OB_GS, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
@@ -446,7 +446,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, OB_URETER_TR, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_L_LUNG_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_R_LUNG_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, OB_L_UTERINE_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, OB_R_UTERINE_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
@@ -466,14 +466,14 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, GYN_L_OV_HEIGHT, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_L_OV_LENGTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_L_OV_WIDTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, GYN_L_OVARIAN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, GYN_R_OV_VOL, MEA_2D, TEXT_ONLY, true, {ExpandChildMenu}},
     {NULL, GYN_R_OV_HEIGHT, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_R_OV_LENGTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_R_OV_WIDTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, GYN_R_OVARIAN_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, GYN_CERV_LENGTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
@@ -483,11 +483,11 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, GYN_UTERUS_LENGTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_UTERUS_WIDTH, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, GYN_L_UTERINE_A_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, GYN_L_UTERINE_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, GYN_R_UTERINE_A_DIAM, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, GYN_R_UTERINE_A, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, GYN_FHR, MEA_M, TEXT_ONLY, true, {MeasureFunc}},
@@ -675,14 +675,14 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, SP_L_TESTIS_L, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_L_TESTIS_W, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_L_TESTIS_H, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, SP_L_TESTIS_ARTERY, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, SP_R_TESTIS_VOL, MEA_2D, TEXT_ONLY, true, {ExpandChildMenu}},
     {NULL, SP_R_TESTIS_L, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_R_TESTIS_W, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_R_TESTIS_H, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, SP_R_TESTIS_ARTERY, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
 #endif
     {NULL, SP_TES_L_LESION1_VOL, MEA_2D, TEXT_ONLY, true, {ExpandChildMenu}},
@@ -732,7 +732,7 @@ GUIMenuNew g_calcAllDefaultItem[] = {
     {NULL, SP_LONG_R_LOBE, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_AP_R_LOBE, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_TR_R_LOBE, MEA_2D, TEXT_ONLY, true, {MeasureFunc}},
-#ifndef EMP_322
+#ifndef CT_322
     {NULL, SP_SUPA_L_LOBE, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_INFA_L_LOBE, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
     {NULL, SP_SUPA_R_LOBE, MEA_D, TEXT_ONLY, true, {MeasureFunc}},
@@ -1707,7 +1707,7 @@ void MenuCalcNew::UpdateLabel()
 
 void MenuCalcNew::Show()
 {
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     if(ViewSuperuser::GetInstance()->GetProjectModeStatus() && g_menuProjectMode.ShowStatus())
     {
         MenuArea::GetInstance()->ShowProjectModeMenu();

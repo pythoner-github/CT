@@ -74,7 +74,7 @@ class CalcPw
     private:
         static FpgaPw m_fpga;
         static FpgaCtrl2D m_fpga2D;
-#if (defined(EMP_355))
+#if (defined(CT_355))
         static const int MAX_SOUND_FILTER = 25+8;
         static const int SOUND_FILTER_ORDER = 254;
         static const short SOUND_FILTER[MAX_SOUND_FILTER][SOUND_FILTER_ORDER+4];
@@ -83,12 +83,12 @@ class CalcPw
         static const unsigned short SOUND_FILTER[MAX_SOUND_FILTER][16];
 #endif
         static const int HPRF_CORRECT = 5; //us
-#ifdef EMP_430
+#ifdef CT_430
         static const int FOC_LOW_TIME = 60; //us
 #else
         static const int FOC_LOW_TIME = 20;
 #endif
-#ifdef EMP_355
+#ifdef CT_355
         static const int CLOCK_EMIT = 100; ///<100Mhz 发射模块的工作时钟
         static const int SAMPLE_FREQ = 50; ///<50Mhz  AD采样时钟及解调工作时钟
 #else

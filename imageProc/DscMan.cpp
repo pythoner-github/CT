@@ -40,7 +40,7 @@ DscMan::DscMan()
     }
     else
         m_lockIsCreate = FALSE;
-#ifdef EMP_355
+#ifdef CT_355
     pthread_mutex_init(&m_pthreadLock1, NULL);
     pthread_mutex_init(&m_pthreadLock2, NULL);
 #endif
@@ -53,7 +53,7 @@ DscMan::DscMan()
     else
         m_replayLockIsCreate= FALSE;
 
-#ifdef EMP_355
+#ifdef CT_355
     m_receive = new CReceive(&m_ptrDsc, m_pthreadLock, m_pthreadLock1);
 #endif
 }
@@ -65,14 +65,14 @@ DscMan::~DscMan()
 
     if (m_lockIsCreate)
         pthread_mutex_destroy(&m_pthreadLock);
-#ifdef EMP_355
+#ifdef CT_355
     pthread_mutex_destroy(&m_pthreadLock1);
     pthread_mutex_destroy(&m_pthreadLock2);
 #endif
     if (m_replayLockIsCreate)
         pthread_mutex_destroy(&m_replayLock);
 
-#ifdef EMP_355
+#ifdef CT_355
     delete m_receive;
 #endif
 }
@@ -89,7 +89,7 @@ void DscMan::SendDataToDsc(const unsigned char *pData)
 {
     if((m_ptrInstance != NULL) && (m_ptrDsc != NULL))
     {
-#ifndef EMP_355
+#ifndef CT_355
         GetWriteLock();
         m_ptrDsc->GetUSBDatas(pData);//数据由何好处理，一次发送512，分16次发完一包
         ReadWriteUnlock();
@@ -104,7 +104,7 @@ void DscMan::SendDataToDsc(const unsigned char *pData)
 CDSC* DscMan::CreateDscObj(EDSCObj type)
 {
     // lock for multi-thread
-#ifdef EMP_355
+#ifdef CT_355
     pthread_mutex_lock(&m_pthreadLock2);
 #endif
     GetWriteLock();
@@ -122,70 +122,70 @@ CDSC* DscMan::CreateDscObj(EDSCObj type)
     switch(type)
     {
         case B:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_2D);
 #endif
             m_ptrDsc = CBDSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case BB:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_2D);
 #endif
             m_ptrDsc = CBBDSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case B4:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_2D);
 #endif
             m_ptrDsc = CB4DSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case M:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_M);
 #endif
             m_ptrDsc = CMDSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case PW:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_PW);
 #endif
             m_ptrDsc = CPWDSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case CFMB:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_CFM);
 #endif
             m_ptrDsc = CCFMDSC_R::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case CFMBB:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_CFM);
 #endif
             m_ptrDsc = CCFMBBDSC_R::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case CFMB4:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_CFM);
 #endif
             m_ptrDsc = CCFMB4DSC_R::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case PWCFM:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_PWCFM);
 #endif
             m_ptrDsc = CPWCFMDSC_R::Create(m_dscPara, m_ptrFuncUpdateFrame);
             break;
 
         case CFMVS2D:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_CFM);
 #endif
             m_ptrDsc = CCFMVS2DDSC_R::Create(m_dscPara, m_ptrFuncUpdateFrame);
@@ -197,14 +197,14 @@ CDSC* DscMan::CreateDscObj(EDSCObj type)
             p1.y = 100;
             p2.x = 200;
             p2.y = 200;
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_2D);
 #endif
             m_ptrDsc = CCMMDSC::Create(m_dscPara, m_ptrFuncUpdateFrame, p1, p2);
             break;
 
         case EFOV:
-#ifdef EMP_355
+#ifdef CT_355
             m_receive->SetScanMode(CReceive::MODE_2D);
 #endif
             m_ptrDsc = CEFOVDSC::Create(m_dscPara, m_ptrFuncUpdateFrame);
@@ -222,7 +222,7 @@ CDSC* DscMan::CreateDscObj(EDSCObj type)
 
     // unlock
     ReadWriteUnlock();
-#ifdef EMP_355
+#ifdef CT_355
         pthread_mutex_unlock(&m_pthreadLock2);
 #endif
 

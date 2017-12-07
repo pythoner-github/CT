@@ -50,7 +50,7 @@ public:
     void SetDateFormat(int DateFormat) { m_dateFormat = DateFormat; }
     std::string GetProbeType(void) { return m_probeType_old; }
 
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
     void GetFreq(std::string& freq);
 #endif
 

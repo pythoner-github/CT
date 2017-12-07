@@ -7,7 +7,7 @@
 #include "display/HintArea.h"
 #include "keyboard/KeyFunc.h"
 
-#if defined (EMP_322) || defined(EMP_313)
+#if defined (CT_322) || defined(CT_313)
 KnobMenu::KnobItem KnobMMenu[6] = {
 //  {_("Freq."), "", MIN, MChgFreq, NULL},
     {_("M Speed"), "", MIN, MChgSpeed, MPressChgSpeed},
@@ -61,7 +61,7 @@ void SyncKnobM(EKnobM type, const char* s, EKnobReturn status, bool draw)
 {
     sprintf(KnobMMenu[type].value, "%s", s);
     KnobMMenu[type].status = status;
-#if not defined(EMP_322)
+#if not defined(CT_322)
     if (type == M_FREQ)
     {
         sprintf(KnobAnatomicMMenu[type].value, "%s", s);

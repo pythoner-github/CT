@@ -45,7 +45,7 @@
 // 28: "User4": 用户自定义4
 
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
 const string ExamItem::ITEM_LIB[NUM_ITEM] =
 {
     "Dog","Cat","Bovine","Equine","Swine","Sheep"
@@ -1093,7 +1093,7 @@ void ExamItem::InitItemPara(ParaItem* paraItem)
 void ExamItem::InitItemOfProbe()
 {
 #ifdef VET
-#ifdef EMP_355
+#ifdef CT_355
     ///35C50L
     m_vecItemIndex[0].push_back(DOG);
     m_vecItemIndex[0].push_back(CAT);
@@ -1325,12 +1325,12 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[1].push_back(MENISCUS);
     m_vecItemIndex[1].push_back(JOINT_CAVITY);
     m_vecItemIndex[1].push_back(SPINE);
-#if (defined(EMP_340) || defined(EMP_430) || defined(EMP_360) || (defined(EMP_161)) || defined(EMP_440))
+#if (defined(CT_340) || defined(CT_430) || defined(CT_360) || (defined(CT_161)) || defined(CT_440))
     m_vecItemIndex[1].push_back(CAROTID);
     m_vecItemIndex[1].push_back(JUGULAR);
     m_vecItemIndex[1].push_back(PERI_ARTERY);
     m_vecItemIndex[1].push_back(PERI_VEIN);
-#elif (defined(EMP_355)) //70L40J
+#elif (defined(CT_355)) //70L40J
     m_vecItemIndex[1].push_back(CAROTID);
     m_vecItemIndex[1].push_back(JUGULAR);
     m_vecItemIndex[1].push_back(PERI_ARTERY);
@@ -1339,9 +1339,9 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[1].push_back(MSK);
 
     // probe 2 65C10K 2
-#if defined(EMP_322)
+#if defined(CT_322)
     m_vecItemIndex[2].push_back(GYN);
-#elif (defined EMP_355)
+#elif (defined CT_355)
    //75L40J
     m_vecItemIndex[2].push_back(GLANDS);
     m_vecItemIndex[2].push_back(THYROID);
@@ -1377,15 +1377,15 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[2].push_back(KIDNEY);
     m_vecItemIndex[2].push_back(BLADDER);
 #endif
-#ifdef EMP_355
+#ifdef CT_355
     m_vecItemIndex[3].push_back(MSK);
 #endif
-#if defined(EMP_430)
+#if defined(CT_430)
     //probe 3 65C15D
     m_vecItemIndex[3].push_back(ABDO_KID);
     m_vecItemIndex[3].push_back(CAR_ADULT);
     m_vecItemIndex[3].push_back(CAR_KID);
-#elif (defined EMP_355)
+#elif (defined CT_355)
     //90L40J
     m_vecItemIndex[4].push_back(GLANDS);
     m_vecItemIndex[4].push_back(THYROID);
@@ -1407,7 +1407,7 @@ void ExamItem::InitItemOfProbe()
     m_vecItemIndex[3].push_back(CAR_KID);
 #endif
 
-#if (defined(EMP_161))
+#if (defined(CT_161))
     //30P16A
     if(NUM_PROBE > 4)
     {
@@ -1415,11 +1415,11 @@ void ExamItem::InitItemOfProbe()
         m_vecItemIndex[4].push_back(CAR_KID);
         m_vecItemIndex[4].push_back(CAR_FETUS);
     }
-#elif (defined EMP_430)
+#elif (defined CT_430)
     {
         m_vecItemIndex[4].push_back(ABDO_ADULT);
     }
-#elif (defined EMP_355)
+#elif (defined CT_355)
     m_vecItemIndex[5].push_back(GYN);
     m_vecItemIndex[5].push_back(EARLY_PREG);
     m_vecItemIndex[5].push_back(LATER_PREG);
@@ -1436,7 +1436,7 @@ void ExamItem::InitItemOfProbe()
     }
 #endif
 
-#if (defined(EMP_313) || defined(EMP_322))
+#if (defined(CT_313) || defined(CT_322))
     // probe 5 90L40J
     if (NUM_PROBE > 5)
     {
@@ -1457,7 +1457,7 @@ void ExamItem::InitItemOfProbe()
        m_vecItemIndex[7].push_back(CAR_FETUS);
    }
 
-#elif defined(EMP_360)
+#elif defined(CT_360)
     // probe 5 30P16A
     if (NUM_PROBE > 5)
     {
@@ -1474,7 +1474,7 @@ void ExamItem::InitItemOfProbe()
        m_vecItemIndex[6].push_back(LATER_PREG);
    }
 
-#elif defined(EMP_355)
+#elif defined(CT_355)
    ///probe6 35C20I
     if (NUM_PROBE > 5)
     {
@@ -1885,7 +1885,7 @@ void ExamItem::TransItemName(const char *str_index,char str_name[256])
         strcpy(str_name,str_index);
     }
 #else
-#ifdef EMP_355
+#ifdef CT_355
     string user1 =_("Dog");
     string user2 =_("Cat");
     string user3 =_("Bovine");
@@ -2109,8 +2109,8 @@ void ExamItem::WriteConfigOther(ParaItem* paraItem, string section, IniFile* ptr
     ptrIni->WriteInt(ptrSection, "D2-ImageEhn", paraItem->d2.imgEhn);
     ptrIni->WriteInt(ptrSection, "D2-GrayTransIndex", paraItem->d2.grayTransIndex);
     ptrIni->WriteInt(ptrSection, "D2-Scanline", paraItem->d2.scanline);
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
     // spectrum
     ptrIni->WriteInt(ptrSection, "Spectrum-Freq", paraItem->spectrum.freq);
     ptrIni->WriteInt(ptrSection, "Spectrum-Gain", paraItem->spectrum.gain);
@@ -2194,8 +2194,8 @@ void ExamItem::ReadConfigOther(ParaItem* paraItem, string section, IniFile* ptrI
     paraItem->d2.freqCompoundIndex = ptrIni->ReadInt(ptrSection, "D2-FreqCompoundIndex");
     paraItem->d2.thiFreqIndex = ptrIni->ReadInt(ptrSection, "D2-ThiFreqIndex");
     paraItem->d2.scanline = ptrIni->ReadInt(ptrSection, "D2-Scanline");
-#if not defined(EMP_322)
-#if not defined(EMP_313)
+#if not defined(CT_322)
+#if not defined(CT_313)
     // spectrum
     paraItem->spectrum.freq = ptrIni->ReadInt(ptrSection, "Spectrum-Freq");
     paraItem->spectrum.gain = ptrIni->ReadInt(ptrSection, "Spectrum-Gain");
@@ -2313,7 +2313,7 @@ bool ExamItem::ReadUserItemFlag(IniFile* ptrIni)
 {
     return (ptrIni->ReadBool("UserItemFlag", "UserFlag"));
 }
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 /*vector<ExamItem::ProjectDefaultParaItem> ExamItem::ReadProjectPara(const char* model, const char* user, IniFile* ptrIni)
 {
     vector<ExamItem::ProjectDefaultParaItem> projectPara;

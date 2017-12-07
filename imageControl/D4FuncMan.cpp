@@ -124,7 +124,7 @@ void D4FuncMan::Exit4D()
     Img2D::GetInstance()->SetLineDensity(1);
     Img2D::GetInstance()->SetMBP(1);
 
-#ifndef EMP_322
+#ifndef CT_322
     g_keyInterface.CtrlLight(FALSE, LIGHT_CW);
 #endif
 
@@ -189,7 +189,7 @@ void D4FuncMan::Exit4D()
     else
     {
         ScanMode::GetInstance()->ExitSpecialMeasure();
-#if (defined (EMP_322) || defined (EMP_313))
+#if (defined (CT_322) || defined (CT_313))
         ScanMode::GetInstance()->DarkAllModeLight();
         g_keyInterface.CtrlLight(TRUE,LIGHT_D2);
 #endif

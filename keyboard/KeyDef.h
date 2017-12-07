@@ -38,7 +38,7 @@
 #define KEY_P1 0xD5
 #define KEY_P2 0xD6
 
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
 #define KNOB_GAIN 0x0B
 #define KEY_FOCUS 0xAB
 #define KEY_DUAL 0x81
@@ -85,7 +85,7 @@
 #define KEY_AUTOBALANCE     0xF1
 #define KEY_AUTO 0xD6
 
-#elif defined(EMP_322)
+#elif defined(CT_322)
 #define KEY_F6 0xE6
 #define KEY_4D 0XD0
 #define KEY_TSI 0xD1
@@ -117,7 +117,7 @@
 #define KEY_P1 0xD5
 #define KEY_P2 0xD6
 
-#elif defined(EMP_313)
+#elif defined(CT_313)
 #define KEY_BB 0x81
 #define KEY_BM 0x82
 #define KEY_REVIEW 0x8E //读取
@@ -195,7 +195,7 @@
 #define KEY_PWRSUB 0xDE
 #define KEY_MBP 0xE9
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 #define KEY_SHIFT_CTRL 0xF0 //CTRL_SPACE
 #define KEY_VOLUMEADD 0xDC
 #define KEY_VOLUMESUB 0xDB

@@ -3,7 +3,7 @@
 
 ///> probe list 2900plus
 #define PROBE_INFO_SIZE  128
-#ifdef EMP_322
+#ifdef CT_322
 enum EProbeList322 {P35C50J, P75L40J, P65C10J, P35C20G, P65C20G, P90L40J, PL35D40JSNR, PL35D40JNDK, PL30P16A};
 
 unsigned char Probe35C50J[PROBE_INFO_SIZE] = //35C50J convex

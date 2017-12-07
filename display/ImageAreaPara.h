@@ -24,7 +24,7 @@ public:
 
     void UpdateGenPwr(int data, bool draw = TRUE);
     void UpdateGenZoomScale(double data, bool draw = TRUE);
-#ifndef EMP_355
+#ifndef CT_355
     void UpdateGenFps(int data, bool draw = TRUE);
 #else
     void UpdateGenFps(int receiveFps, int processFps, bool draw = TRUE);

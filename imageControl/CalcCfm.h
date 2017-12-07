@@ -58,7 +58,7 @@ class CalcCfm
 
         static const unsigned char m_filterLowPass[30720];
         static const int FREQ_SECTION = 64;
-#ifdef EMP_430
+#ifdef CT_430
         static const int FOC_LOW_TIME = 60;
 #else
         static const int FOC_LOW_TIME = 20;

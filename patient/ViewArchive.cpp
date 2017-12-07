@@ -735,7 +735,7 @@ void ViewArchive::CreateWindow(void)
     gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Month"));
     g_signal_connect(G_OBJECT(comboboxQSearch), "changed", G_CALLBACK(HandleComboQSearch), this);
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -1212,7 +1212,7 @@ void ViewArchive::BtnUdiskClicked(GtkButton *button)
 {
     SelectUdiskData();
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -3351,7 +3351,7 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
     gtk_widget_show (vbox_type);
     gtk_fixed_put (GTK_FIXED (fixed1), vbox_type, 150, 40+20);
 
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())
@@ -3554,7 +3554,7 @@ void CustomType::PROGRESSSTATUS(int nPos)
 
 void CustomType::BtnOkClicked(GtkButton *button)
 {
-#ifdef EMP_3410
+#ifdef CT_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
 #else
         if(CDCMRegister::GetMe()->IsAuthorize())

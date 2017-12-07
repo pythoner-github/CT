@@ -4,7 +4,7 @@
 #include "display/FakeXEvent.h"
 #include <gtk/gtk.h>
 #include "probe/ExamItem.h"
-#ifdef EMP_PROJECT
+#ifdef CT_PROJECT
 using std::vector;
 using std::string;
 

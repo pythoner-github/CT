@@ -126,7 +126,7 @@ void MeaResult::InitResultInfo(void)
     SecResultInfo[SP_M].ptrSingleResult = (SingleResult)(&MeaResultSP);
     SecResultInfo[SP_M].ptrMultiResult = (MultiResult)(&SPResultMulti);
     SecResultInfo[SP_M].ptrCalcResult = (CalcResult)(&CalcResultSP);
-#ifdef EMP_322
+#ifdef CT_322
 #else
     SecResultInfo[VS_M].secOrder = VS_M;
     SecResultInfo[VS_M].singleStart = VS_MEA_START;
@@ -153,7 +153,7 @@ void MeaResult::InitResultInfo(void)
     SecResultInfo[FETAL_M].ptrSingleResult = (SingleResult)(&MeaResultFetal);
     SecResultInfo[FETAL_M].ptrMultiResult = (MultiResult)(&FetalResultMulti);
     SecResultInfo[FETAL_M].ptrCalcResult = (CalcResult)(&CalcResultFetal);
-#ifdef EMP_322
+#ifdef CT_322
 #else
     SecResultInfo[TCD_M].secOrder = TCD_M;
     SecResultInfo[TCD_M].singleStart =  TCD_MEA_START;
@@ -2039,7 +2039,7 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
             }
             return(-1);
             break;
-#ifdef EMP_322
+#ifdef CT_322
 #else
         case VS_M:
             itemTmp = item - VS_MEA_START;
@@ -2088,7 +2088,7 @@ int MeaResult::FindSingleMeaInfo(int section, int item)
             }
             return(-1);
             break;
-#ifdef EMP_322
+#ifdef CT_322
 #else
         case TCD_M:
             itemTmp = item - TCD_MEA_START;
@@ -2308,7 +2308,7 @@ int MeaResult::FindDoubleMeaInfo(int section, int multiItem)
             {
                 if ((i==0) && (j==OB_MULTI_END - OB_MULTI_START - 1))
                 {
-#ifdef EMP_322
+#ifdef CT_322
                     return 0;
 #else
                     break;
@@ -2378,7 +2378,7 @@ int MeaResult::FindDoubleMeaInfo(int section, int multiItem)
             }
             return(-1);
             break;
-#ifdef EMP_322
+#ifdef CT_322
 #else
         case VS_M:
             itemTmp = multiItem - VS_MULTI_START;
@@ -2427,7 +2427,7 @@ int MeaResult::FindDoubleMeaInfo(int section, int multiItem)
             }
             return(-1);
             break;
-#ifdef EMP_322
+#ifdef CT_322
 #else
         case TCD_M:
             itemTmp = multiItem - TCD_MULTI_START;

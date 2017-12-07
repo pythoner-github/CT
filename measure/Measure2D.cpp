@@ -501,7 +501,7 @@ void D2MeasureLengthTrack::Init()
 
 void D2MeasureLengthTrack::PressLeft(POINT p)
 {
-#ifdef EMP_355
+#ifdef CT_355
     HintArea::GetInstance()->UpdateHint(_("[Length]: <Auto> to cancel or redraw."));
 #else
     HintArea::GetInstance()->UpdateHint(_("[Length]: <Value> to cancel or redraw."));
@@ -1014,7 +1014,7 @@ void D2MeasureAreaTrack::Init()
 
 void D2MeasureAreaTrack::PressLeft(POINT p)
 {
-#ifdef EMP_355
+#ifdef CT_355
     HintArea::GetInstance()->UpdateHint(_("[AreaTrack]: <Auto> to cancel or redraw."));
 #else
     HintArea::GetInstance()->UpdateHint(_("[AreaTrack]: <Value> to cancel or redraw."));
@@ -1399,7 +1399,7 @@ void D2MeasureSimpson::PressLeft(POINT p)
     switch(m_step)
     {
         case 0: // first
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[Simpsom]: <Auto> to cancle or redraw."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[Simpsom]: <Value> to cancle or redraw."));
@@ -2147,7 +2147,7 @@ void D2MeasureAL::PressLeft(POINT p)
     switch(m_step)
     {
         case 0: // first
-#ifdef EMP_355
+#ifdef CT_355
             HintArea::GetInstance()->UpdateHint(_("[A/L]: <Auto> to cancle or redraw."));
 #else
             HintArea::GetInstance()->UpdateHint(_("[A/L]: <Value> to cancle or redraw."));

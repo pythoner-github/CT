@@ -33,7 +33,7 @@ void UpdatePw::SampleVolume(int line, int dotBegin, int dotEnd, vector<int> HPRF
     //if (ModeStatus::IsSpectrumMode() || ModeStatus::IsSpectrumColorMode())
    if (ModeStatus::IsPWMode() || ModeStatus::IsPWColorMode())
     {
-#ifdef EMP_355
+#ifdef CT_355
        if(!ViewMain::GetInstance()->GetModeIsFlag())
         {
             m_ptrImgDraw->Update();
@@ -61,7 +61,7 @@ void UpdatePw::SampleVolumeClear()
 }
 void UpdatePw::SampleVolumeCW(int line, int dotPos)
 {
-#ifdef EMP_355
+#ifdef CT_355
   if(ViewMain::GetInstance()->GetModeIsFlag())
 #else
     if (ModeStatus::IsCWMode() || ModeStatus::IsCWColorMode())
@@ -83,7 +83,7 @@ void UpdatePw::SampleVolumeCW(int line, int dotPos)
 void UpdatePw::SampleVolumeCWClear()
 {
     m_ptrImgDraw->Update();
-#ifdef EMP_355
+#ifdef CT_355
     if(ViewMain::GetInstance()->GetModeIsFlag())
 #endif
     m_ptrImgDraw->ClearSVCW();
@@ -251,7 +251,7 @@ void UpdatePw::WallFilter(int data, EKnobReturn status)
 
 void UpdatePw::DopFreq(int freq, EKnobReturn status)
 {
-#ifdef EMP_430
+#ifdef CT_430
     ProbeSocket::ProbePara para;
     ProbeMan::GetInstance()->GetCurProbe(para);
     const char* probeModel = para.model;

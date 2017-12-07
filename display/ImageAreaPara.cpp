@@ -17,7 +17,7 @@ char * ImageAreaPara::Level[2] = {
     _("High")
 };
 
-#ifdef EMP_355
+#ifdef CT_355
 extern bool g_printProcessFps;
 #endif
 
@@ -107,7 +107,7 @@ void ImageAreaPara::UpdateGenZoomScale(double data, bool draw)
         DrawGeneralPara();
 }
 
-#ifdef EMP_355
+#ifdef CT_355
 void ImageAreaPara::UpdateGenFps(int receiveFps, int processFps, bool draw)
 {
     m_fps = receiveFps;
@@ -469,7 +469,7 @@ void ImageAreaPara::DrawGeneralPara()
     int y = 5;
 
     FillRectangle(x, y, m_eareWl, m_eareH);
-#if (defined(EMP_322) || defined(EMP_313))
+#if (defined(CT_322) || defined(CT_313))
     sprintf(m_bufText, "%3dP %3.1fX %3dfps", m_pwr, m_zoomScale, m_fps);
     if (m_optimize)
         sprintf(m_bufText, "%3dP %3.1fX %3dfps eSpeed", m_pwr, m_zoomScale, m_fps);
@@ -541,7 +541,7 @@ void ImageAreaPara::DrawPwGenPara(void)
     FillRectangle(x, y, m_eareWl, m_eareH);
     ModeStatus s1;
      ScanMode::EScanMode mode = s1.GetScanMode();
-#ifdef EMP_355
+#ifdef CT_355
    if (ModeStatus::IsPWMode() || ModeStatus::IsPWColorMode())
     {
        sprintf(m_bufText, "%dG %.2fKHz WF%d %.1fcm", m_gainPw, m_PRFPw, m_wfPw, m_svPosPw/10);
@@ -568,7 +568,7 @@ void ImageAreaPara::DrawPwGen2Para(void)
     ScanMode::EScanMode mode = s1.GetScanMode();
     if (ModeStatus::IsPWMode() || ModeStatus::IsPWColorMode())
     {
-#ifdef EMP_355
+#ifdef CT_355
         if(!ViewMain::GetInstance()->GetModeIsFlag())
         {
             sprintf(m_bufText, "%.1fmm %dH", m_svPw, (int)m_HPRFStatus);

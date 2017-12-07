@@ -9,7 +9,7 @@
 
 const char * Toggle_Mix[2] =
 {
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
     N_("Speed"),
     N_("Speed")
 #else
@@ -56,7 +56,7 @@ void UpdateMix::UnFreeze()
 void UpdateMix::EnterMeasure()
 {
     m_ptrMenu->ShowMeasureMenu();
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(TRUE,LIGHT_MEASURE);
 #endif
 }
@@ -64,7 +64,7 @@ void UpdateMix::EnterMeasure()
 void UpdateMix::ExitMeasure()
 {
     MenuShowUndo();
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(FALSE,LIGHT_MEASURE);
 #endif
 
@@ -72,7 +72,7 @@ void UpdateMix::ExitMeasure()
 
 void UpdateMix::EnterCalc()
 {
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(TRUE,LIGHT_CALC);
 #endif
     m_ptrMenu->ShowCalcMenu();
@@ -80,7 +80,7 @@ void UpdateMix::EnterCalc()
 
 void UpdateMix::ExitCalc()
 {
-#if defined(EMP_322)
+#if defined(CT_322)
     g_keyInterface.CtrlLight(FALSE,LIGHT_CALC);
 #endif
     MenuShowUndo();
@@ -113,7 +113,7 @@ void UpdateMix::ReplayCtrl(bool on)
     sprintf(m_str, "%s", Toggle_Mix[on]);
     SyncKnobReplay(REPLAY_CTRL, m_str, PRESS);
 }
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
 void UpdateMix::SpeedCtrl(int indexSpeed)
 {
     sprintf(m_str, "%d", indexSpeed);

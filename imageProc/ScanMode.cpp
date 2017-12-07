@@ -86,7 +86,7 @@ void ScanMode::Enter2D()
         ImgPw::GetInstance()->ChangeSimult2(FALSE);
     if (ImgPw::GetInstance()->GetSimut3Status())
         ImgPw::GetInstance()->ChangeSimult3(FALSE);
-#ifdef EMP_355
+#ifdef CT_355
     m_ptrImgPw->SetSpectrumModeCW(TRUE);
 #endif
 
@@ -111,8 +111,8 @@ void ScanMode::Enter2D()
     m_ptrUpdate2D->Enter2DMode();
 
     ///> control light
-#if not defined (EMP_322)
-#if not defined (EMP_313)
+#if not defined (CT_322)
+#if not defined (CT_313)
     DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE, LIGHT_D2);
 #endif
@@ -147,8 +147,8 @@ void ScanMode::EnterM()
     ///> reset bm line
     m_ptrImg2D->ResetMLine();
     m_ptrUpdate2D->EnterMMode();
-#if not defined (EMP_322)
-#if not defined (EMP_313)
+#if not defined (CT_322)
+#if not defined (CT_313)
     ///> control light
     DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE, LIGHT_M);
@@ -250,11 +250,11 @@ void ScanMode::EnterPw()
     ///> control light
     DarkAllModeLight();
 
-#if (defined(EMP_340) || defined(EMP_161) || defined(EMP_360) || defined(EMP_440) || defined(EMP_430))
+#if (defined(CT_340) || defined(CT_161) || defined(CT_360) || defined(CT_440) || defined(CT_430))
     g_keyInterface.CtrlLight(TRUE, LIGHT_PW);
 #endif
 
-#ifdef EMP_355
+#ifdef CT_355
     int mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(mode)
         g_keyInterface.CtrlLight(TRUE, LIGHT_CW);
@@ -373,7 +373,7 @@ void ScanMode::EnterCfm()
         ImgPw::GetInstance()->ChangeSimult3(FALSE);
 
     m_ptrMultiFuncFactory->Create(MultiFuncFactory::CFM);
-#ifdef EMP_355
+#ifdef CT_355
     m_ptrImgPw->SetSpectrumModeCW(TRUE);
 #endif
 
@@ -399,15 +399,15 @@ void ScanMode::EnterCfm()
 
     ///> control light
     DarkAllModeLight();
-#if not defined (EMP_322)
-#if not defined (EMP_313)
+#if not defined (CT_322)
+#if not defined (CT_313)
     g_keyInterface.CtrlLight(TRUE, LIGHT_CFM);
 #endif
 #endif
     ///> change tis
     ChangeTis();
 
-#ifdef EMP_355
+#ifdef CT_355
     Img2D::GetInstance()->UpdateGain();  //解决调节M增益后，进入CFM时，增益错误的问题
 #endif
 
@@ -437,7 +437,7 @@ void ScanMode::EnterPdi()
     // enter PDI mode
     m_scanMode = PDI;
     SetScanMode(m_scanMode);
-#ifdef EMP_355
+#ifdef CT_355
     m_ptrImgPw->SetSpectrumModeCW(TRUE);
 #endif
     m_ptrImgPw->SetBalanceStatus(FALSE);
@@ -455,8 +455,8 @@ void ScanMode::EnterPdi()
 
     ///> control light
     DarkAllModeLight();
-#if not defined (EMP_322)
-#if not defined (EMP_313)
+#if not defined (CT_322)
+#if not defined (CT_313)
     g_keyInterface.CtrlLight(TRUE, LIGHT_PDI);
 #endif
 #endif
@@ -498,10 +498,10 @@ void ScanMode::EnterPwCfmFromCfm()
 
     ///> control light
     DarkAllModeLight();
-#if (defined(EMP_340) || defined(EMP_161) || defined(EMP_360) || defined(EMP_440)|| defined(EMP_430))
+#if (defined(CT_340) || defined(CT_161) || defined(CT_360) || defined(CT_440)|| defined(CT_430))
     g_keyInterface.CtrlLight(TRUE, LIGHT_PW);
     g_keyInterface.CtrlLight(TRUE, LIGHT_CFM);
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
     int mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(mode)
         g_keyInterface.CtrlLight(TRUE, LIGHT_CW);
@@ -628,10 +628,10 @@ void ScanMode::EnterPwPdiFromPdi()
 
     ///> control light
     DarkAllModeLight();
-#if (defined(EMP_340) || defined(EMP_161) || defined(EMP_360) || defined(EMP_440) || defined(EMP_430))
+#if (defined(CT_340) || defined(CT_161) || defined(CT_360) || defined(CT_440) || defined(CT_430))
     g_keyInterface.CtrlLight(TRUE, LIGHT_PW);
     g_keyInterface.CtrlLight(TRUE, LIGHT_PDI);
-#elif (defined(EMP_355))
+#elif (defined(CT_355))
     int mode = ViewMain::GetInstance()->GetModeIsFlag();
     if(mode)
         g_keyInterface.CtrlLight(TRUE, LIGHT_CW);
@@ -801,7 +801,7 @@ void ScanMode::PrepareEnterCw(void)
         ImgPw::GetInstance()->ChangeSimult2(FALSE);
     if (ImgPw::GetInstance()->GetSimut3Status())
         ImgPw::GetInstance()->ChangeSimult3(FALSE);
-#ifdef EMP_355
+#ifdef CT_355
     if (!(ImgPw::GetInstance()->GetHPRFStatus()))
     {
         ImgPw::GetInstance()->ChangeHPRF(TRUE);
@@ -837,8 +837,8 @@ void ScanMode::EnterCw()
     m_ptrImgPw->ReSendSv();
     m_ptrUpdatePw->EnterPwMode();
 
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     ///> control light
     DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE, LIGHT_CW);
@@ -953,7 +953,7 @@ void ScanMode::EnterCwCfmFromCfm()
     FreezeMode::EFreezeMode freeze = s.GetFreezeMode();
     if (freeze != FreezeMode::UNFREEZE)
         FreezeMode::GetInstance()->PressUnFreeze();
-#ifdef EMP_355
+#ifdef CT_355
     m_ptrMultiFuncFactory->Create(MultiFuncFactory::PWCFM_INIT);
 
 #else
@@ -972,15 +972,15 @@ void ScanMode::EnterCwCfmFromCfm()
 
     // update
 //  m_ptrUpdatePw->EnterPwCfmFromCfm();
-#ifdef EMP_355
+#ifdef CT_355
     m_ptrUpdatePw->EnterPwCfmFromCfm();
 #else
     m_ptrUpdatePw->EnterCwCfmFromCfm();
 #endif
 
     ///> control light
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE, LIGHT_PW);
     g_keyInterface.CtrlLight(TRUE, LIGHT_CFM);
@@ -1109,8 +1109,8 @@ void ScanMode::EnterCwPdiFromPdi()
     //m_ptrUpdatePw->EnterCwPdiFromPdi();
 
     ///> control light
-#ifndef EMP_322
-#ifndef EMP_313
+#ifndef CT_322
+#ifndef CT_313
     DarkAllModeLight();
     g_keyInterface.CtrlLight(TRUE, LIGHT_PW);
     g_keyInterface.CtrlLight(TRUE, LIGHT_PDI);
@@ -1613,7 +1613,7 @@ void ScanMode::SetPWPulseNum(void)
 {
     if (ImgPw::GetInstance()->GetRealPRF() <= 1500)//3000)
     {
-#ifdef EMP_355
+#ifdef CT_355
         m_pulseNum = 4;
 #else
         m_pulseNum = 8;
@@ -1621,7 +1621,7 @@ void ScanMode::SetPWPulseNum(void)
     }
     else
     {
-#ifdef EMP_355
+#ifdef CT_355
         m_pulseNum = 3;
 #else
         m_pulseNum = 5;
@@ -1691,7 +1691,7 @@ void ScanMode::SetScanMode(EScanMode mode)
     }
     //A60
     //open doppler sound just in pw mode
-#ifdef EMP_430
+#ifdef CT_430
     if (((mode == ScanMode::PW) || (mode == ScanMode::CW) || (mode == ScanMode::PWCFM) || (mode == ScanMode::PWPDI)
                 || (mode == ScanMode::CWCFM) || (mode == ScanMode::CWPDI) || (mode == ScanMode::PW_SIMULT)
                 || (mode == ScanMode::PWCFM_SIMULT) || (mode == ScanMode::PWPDI_SIMULT))
@@ -1944,7 +1944,7 @@ void ScanMode::SetScanMode(EScanMode mode)
             m_fpgaScanMode = D2;
             break;
     }
-#ifdef EMP_430
+#ifdef CT_430
     if(mode != m_preScanMode)
     {
         ProbeMan::GetInstance()->ActiveHV(TRUE);
@@ -1971,7 +1971,7 @@ void ScanMode::SetScanMode(EScanMode mode)
 
 void ScanMode::DarkAllModeLight()
 {
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
         g_keyInterface.CtrlLight(FALSE, LIGHT_D2);
         g_keyInterface.CtrlLight(FALSE, LIGHT_M);
         g_keyInterface.CtrlLight(FALSE, LIGHT_BM);

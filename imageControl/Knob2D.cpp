@@ -27,7 +27,7 @@ KnobMenu::KnobItem Knob2DMenu[15] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL},
 };
-#elif defined(EMP_322) || defined(EMP_313)
+#elif defined(CT_322) || defined(CT_313)
 KnobMenu::KnobItem Knob2DMenu[12] = {
    // {N_("Freq."), "", MIN, D2ChgFreq, NULL},
     {N_("Scan Angle"), "", MIN, D2ChgScanAngle, D2PressChgScanAngle},
@@ -47,7 +47,7 @@ KnobMenu::KnobItem Knob2DMenu[12] = {
     //{"", "", ERROR, NULL, NULL},
    // {"", "", ERROR, NULL, NULL},
 };
-#elif (defined(EMP_460) || defined(EMP_355))
+#elif (defined(CT_460) || defined(CT_355))
 KnobMenu::KnobItem Knob2DMenu[20] = {
     {N_("Freq."), "", MIN, D2ChgFreq, D2PresssChgStatusTHI},
     {N_("Dynamic Range"), "", MIN, D2ChgDynamicRange, NULL},
@@ -70,7 +70,7 @@ KnobMenu::KnobItem Knob2DMenu[20] = {
     {"", "", ERROR, NULL, NULL},
     {"", "", ERROR, NULL, NULL},
 };
-#elif defined(EMP_3410)
+#elif defined(CT_3410)
 KnobMenu::KnobItem Knob2DMenu[15] = {
     {N_("Freq."), "", MIN, D2ChgFreq, D2PresssChgStatusTHI},
     {N_("Dynamic Range"), "", MIN, D2ChgDynamicRange, NULL},
@@ -250,7 +250,7 @@ EKnobReturn D2ChgScanAngle(EKnobOper oper)
     return ret;
 }
 
-//EMP5800 按键相应切换，改变动态范围(0 -- 7)
+//CT5800 按键相应切换，改变动态范围(0 -- 7)
 EKnobReturn D2PressChgDynamicRange(void)
 {
 
@@ -399,7 +399,7 @@ EKnobReturn D2ChgEdge(EKnobOper oper)
 EKnobReturn D2ChgSteer(EKnobOper oper)
 {
     EKnobReturn ret  = ERROR;
-#ifdef EMP_430
+#ifdef CT_430
     HintArea::GetInstance()->UpdateHint(_("Invalid in current mode."), 1);
     return ret;
 #endif
@@ -535,7 +535,7 @@ EKnobReturn ChgFocusNum(EKnobOper  oper)
 
 EKnobReturn D2ChgFocPos(EKnobOper  oper)
 {
-#ifdef EMP_355
+#ifdef CT_355
     if (SUB==oper)
         oper=ADD;
     else if (ADD==oper)
@@ -562,7 +562,7 @@ void ParepareForCompound(void)
     }
 }
 
-//EMP5800 直接按按键来切换
+//CT5800 直接按按键来切换
 EKnobReturn D2PressChgSpaceCompound(void)
 {
     EKnobReturn ret = ERROR;
@@ -640,7 +640,7 @@ EKnobReturn D2PressChgFreqCompound(void)
 }
 EKnobReturn D2ChgFreqCompound(EKnobOper oper)
 {
-#ifdef EMP_3410
+#ifdef CT_3410
     if(!CManRegister::GetInstance()->IsAuthorize("eFci"))
         return ERROR;
 #endif

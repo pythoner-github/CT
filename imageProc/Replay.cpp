@@ -34,7 +34,7 @@ gboolean EFOVReviewCallBack(gpointer data)
 }
 
 Replay* Replay::m_ptrInstance = NULL;
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 const float Replay::REPLAY_SPEED[MAX_SPEED] = {0, 2.0,1.0,0.5};
 #else
 const float Replay::REPLAY_SPEED[MAX_SPEED] = {0.5, 1.0, 2.0};
@@ -102,7 +102,7 @@ void Replay::Init()
         retSpeed = MIN;
     else
         retSpeed = OK;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     m_ptrUpdate->ReplayCtrl(FALSE);
     m_ptrUpdate->SpeedCtrl(m_speedIndex);
 #else
@@ -161,7 +161,7 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
     {
         return ERROR;
     }
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
     if (on&&(m_speedIndex==0))
             FreezeMode::GetInstance()->ChangeAutoReplay();
     if ((!on)&&(m_speedIndex>0))
@@ -194,7 +194,7 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
             m_tagTimer = g_timeout_add(interval, ReviewCallBack, NULL);
     }
 
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     m_ptrUpdate->ReplayCtrl(on);
     m_ptrUpdate->SpeedCtrl(m_speedIndex);
 #else
@@ -203,7 +203,7 @@ EKnobReturn Replay::ChangeSpeed(EKnobOper oper)
     return (ret);
 }
 
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 void Replay::SetTrimLeft(EKnobOper oper)
 #else
 void Replay::SetTrimLeft()
@@ -219,7 +219,7 @@ void Replay::SetTrimLeft()
     m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
     m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
 }
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 void Replay::SetTrimRight(EKnobOper oper)
 #else
 void Replay::SetTrimRight()
@@ -238,7 +238,7 @@ void Replay::SetTrimRight()
         m_ptrUpdate->ReplayBar(m_imgIndex[m_areaIndex]+1, size, m_trimLeft, m_trimRight);
     }
 }
-#if (defined(EMP_460) || defined(EMP_355))
+#if (defined(CT_460) || defined(CT_355))
 void Replay::ResetTrim(EKnobOper oper)
 #else
 void Replay::ResetTrim()
@@ -465,7 +465,7 @@ void Replay::UpdateReplayCtrl(bool on, EKnobReturn ret)
         retSpeed = MIN;
     else
         retSpeed = OK;
-#if (defined (EMP_322) || defined(EMP_313))
+#if (defined (CT_322) || defined(CT_313))
     m_ptrUpdate->ReplayCtrl(on);
 #else
     m_ptrUpdate->ReplayCtrl(on, m_speedIndex, retSpeed);
@@ -500,7 +500,7 @@ void Replay::PrepareForEndReplay()
 void Replay::PrepareForReplay()
 {
     int size = m_deq[m_areaIndex].size();
-#ifdef EMP_355
+#ifdef CT_355
     m_speedIndex=0;
     m_ptrUpdate->ReplayCtrl(false, m_speedIndex, MIN);
     m_ptrUpdate->ReplayTrimLeft(m_trimLeft+1);
