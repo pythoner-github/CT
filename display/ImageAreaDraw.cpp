@@ -7072,8 +7072,8 @@ void ImageAreaDraw::CfmBox(int lineBegin, int lineEnd, int dotBegin, int dotEnd,
             //m_ptrImg->DrawArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false);
             //m_ptrImg->DrawArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false);
 
-            m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false, 2);
-            m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false, 2);
+            m_ptrImg->DrawDashArc(attr, color, arcPoint1.x, arcPoint1.y, arcWidth1, arcWidth1, angle1, angle2, false, 1, 0.9);
+            m_ptrImg->DrawDashArc(attr, color, arcPoint2.x, arcPoint2.y, arcWidth2, arcWidth2, angle1, angle2, false, 1, 0.9);
         }
     }
 

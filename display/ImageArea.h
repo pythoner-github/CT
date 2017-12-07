@@ -118,7 +118,7 @@ public:
 
     // void DrawArc(int x, int y, int width, int height, double angle1, double angle2, bool draw, const GdkColor* const color);
     void DrawArc(DrawAttr &attr, const GdkColor* const color, int x, int y, int width, int height, double angle1, double angle2, bool update=true);
-    void DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, int y, int width, int height, double angle1, double angle2, bool update=true, double step = 5);
+    void DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, int y, int width, int height, double angle1, double angle2, bool update=true, double step = 5, double size = 1);
 
     // void DrawRectangle(int x, int y, int width, int height, bool filled, const GdkColor* const color);
     // void DrawRectangle(GdkFunction mode, const GdkColor* const color, gboolean filled, int x, int y, int width, int height);

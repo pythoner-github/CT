@@ -1380,7 +1380,7 @@ void ImageArea::DrawArc(DrawAttr &attr, const GdkColor* const color, int x, int 
         UpdateImgArea();
 }
 
-void ImageArea::DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, int y, int width, int height, double angle1, double angle2, bool update, double step)
+void ImageArea::DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, int y, int width, int height, double angle1, double angle2, bool update, double step, double size)
 {
     if (width == 0)
         return;
@@ -1390,34 +1390,34 @@ void ImageArea::DrawDashArc(DrawAttr &attr, const GdkColor* const color, int x, 
     int xPos = 0, yPos = 0;
     for (i = (double)0; i < (double)fabs(angle2-angle1); i+=a)
     {
-        xPos = x + cos((angle1 + i) * PI / 180) * width / 2 + (double)width / 2 + 0.5;
-        yPos = y - sin((angle1 + i) * PI / 180) * width / 2 + (double)height / 2 + 0.5;
+        xPos = x + cos((angle1 + i) * PI / 180) * width / 2 + (double)width / 2;
+        yPos = y - sin((angle1 + i) * PI / 180) * width / 2 + (double)height / 2;
 
         switch (attr.area) {
             case SYMBOL:
                 if (attr.mode.cvDraw)
-                    cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
+                    cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
                 else
-                    cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
+                    cvRectangle(m_imageSymbol, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(0, 0, 0), 1);
                 break;
             case SPECTRA:
                 if (attr.mode.cvDraw)
-                    cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
+                    cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
                 else
-                    cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
+                    cvRectangle(m_imageSpectra, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(0, 0, 0), 1);
                 break;
             case PARA:
                 if (attr.mode.cvDraw)
-                    cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
+                    cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(color->blue>>8, color->green>>8, color->red>>8), 1);
                 else
-                    cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+1, yPos+1), CV_RGB(0, 0, 0), 1);
+                    cvRectangle(m_imagePara, cvPoint(xPos, yPos), cvPoint(xPos+size, yPos+size), CV_RGB(0, 0, 0), 1);
                 break;
             case PIXMAP:
                 {
                     GdkGC *gc = gdk_gc_new(m_pixmapArea);
                     gdk_gc_set_foreground(gc, color);
                     gdk_gc_set_function(gc, attr.mode.gdkMode);
-                    gdk_draw_rectangle(m_pixmapArea, gc, true, xPos, yPos, 2, 2);
+                    gdk_draw_rectangle(m_pixmapArea, gc, true, xPos, yPos, size * 2, size * 2);
                     g_object_unref(gc);
                 }
                 break;
