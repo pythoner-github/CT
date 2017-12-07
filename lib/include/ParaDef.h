@@ -1,12 +1,3 @@
-/***************************************************************
- * Name:      ParaDef.h
- * Purpose:   Code for definition of variances
- * Author:    ZCT (zct826@126.com)
- * Created:   2009-04-06
- * Copyright: ZCT
- * License:
- **************************************************************/
-
 #include "WinDef.h"
 
 #ifndef	PARADEF_H_INCLUDE
@@ -54,9 +45,9 @@
 
 typedef struct tagRGBQUAD
 {
-	BYTE rgbBlue;		// 蓝色的亮度(值范围为0-255) 
-	BYTE rgbGreen;		// 绿色的亮度(值范围为0-255) 
-	BYTE rgbRed;		// 红色的亮度(值范围为0-255) 
+	BYTE rgbBlue;		// 蓝色的亮度(值范围为0-255)
+	BYTE rgbGreen;		// 绿色的亮度(值范围为0-255)
+	BYTE rgbRed;		// 红色的亮度(值范围为0-255)
 	BYTE rgbReserved;	// 保留，必须为0
 } RGBQUAD;
 

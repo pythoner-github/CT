@@ -1,12 +1,3 @@
-/**
-* @brief DSC.h: interface for the CDSC class.
-* CDSC is a abstract base class. 
-*
-* @version: 1.0
-* @author: hehao
-* @date: 2009-6-10
-*/
-
 #ifndef DSC_H
 #define DSC_H
 
@@ -31,9 +22,9 @@ public:
 
 	virtual void SetGlobalZoomState(POINT zoomPoint, float zoomScale);
 	virtual RECT SetPIPZoomState(POINT PIPPoint, float zoomScale);
-	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart, 
+	virtual void SetLocalZoomState(unsigned int scanLStart, unsigned int scanLEnd, unsigned int sampStart,
 		unsigned int sampEnd, float zoomScale);
-	
+
 	virtual void UpdateProbeWidth(void);
 	virtual void UpdateProbeR(void);
 	virtual void UpdateProbeType(void);
@@ -69,6 +60,6 @@ public:
 	virtual float GetEFOVScale(void);
 	virtual RECT GetEFOVZoomBoxRect(void);
     virtual void SetROISize(int size);
-    virtual void UpdateTpViewStatus(void);        
+    virtual void UpdateTpViewStatus(void);
 };
 #endif	//DSC_H

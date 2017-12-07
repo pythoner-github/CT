@@ -1,16 +1,7 @@
 /***************************************************************
- * Project:	  libImageMix.so
- * Name:      ImageMix.h
- * Purpose:   Code for Application Class
- * Author:    ZCT (zhouchuantao@emperor1997.com)
- * Created:   2010-11-24
- * Copyright: EMP
- * License:
- *
  * Note: interface for the image_enhance mix.
  * image size：628*440*3byte
- * other:该文件与libImageMix.so(.a)、libippi.so.6.1
- *       libippiv8.so.6.1一起使用
+ * other:该文件与libImageMix.so(.a), libippi.so.6.1, libippiv8.so.6.1一起使用
  **************************************************************/
 ////////////////////////////////////////////////////////////////
 
@@ -63,14 +54,14 @@ DLL_API void ImageMixC4R(unsigned char* pImageDst, 			 		// output mixed image d
 
 // four and three channels(input:32bits and 24 bits  output:32bits)
 DLL_API void ImageMixC4C3R(unsigned char* pImageDst, 				// output mixed image data  32bits
-					  const unsigned char* pImageSrc0, 				// input image data         32bits         
+					  const unsigned char* pImageSrc0, 				// input image data         32bits
 					  const unsigned char* pImageSrc1, 				// input image data         24bits
 					  const int widthDst, const int heightDst, 		// destination image width and height
 					  const int widthSrc0, const int heightSrc0,	// source0 image width and height
 					  const int widthSrc1, const int heightSrc1, 	// source1 image width and height
 					  const int roiWidthSrc, const int roiHeightSrc,// roi of source image width and height
 					  unsigned char colorKey[4], 					// key color for mask
-                      int order[4]                                  // Src1中彩色的位置相对于Src0的位置  
+                      int order[4]                                  // Src1中彩色的位置相对于Src0的位置
 					 );
 
 // three and four channels(input:24bits and 32 bits  output:24bits)

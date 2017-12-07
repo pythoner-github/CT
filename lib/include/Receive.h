@@ -1,12 +1,3 @@
-/**
-* @brief Receive.h: interface for the CReceive class.
-* CReceive is a class used to receive several image mode data from fpga. 
-*
-* @version: 1.0
-* @author: hehao
-* @date: 2016-04-07
-*/
-
 #ifndef __RECEIVE_H__
 #define __RECEIVE_H__
 #include <pthread.h>

@@ -1,13 +1,3 @@
-/**
- * \mainpage Sentinel HASP Run-time API
- * \file hasp_api.h Sentinel HASP Run-time API declarations
- *
- * Copyright (C) 2010, SafeNet, Inc. All rights reserved.
- *
- * $Id: hasp_api.h,v 1.74 2010-06-02 07:38:19 pwang Exp $
- */
-
-
 #ifndef __HASP_API_H__
 #define __HASP_API_H__
 
@@ -392,7 +382,7 @@ enum hasp_error_codes
     /** Invalid Product information */
     HASP_INV_PRODUCT = 61,
 
-    /** Unknown Recipient; update can only be applied to the 
+    /** Unknown Recipient; update can only be applied to the
      * Recipient specified in hasp_detach(), and not to this computer */
     HASP_UNKNOWN_RECIPIENT = 62,
 
@@ -474,7 +464,7 @@ typedef hasp_u32_t hasp_feature_t;
 /** HASP File ID */
 typedef hasp_u32_t hasp_fileid_t;
 
-/** HASP timestamp, representing elapsed seconds since 
+/** HASP timestamp, representing elapsed seconds since
  * Jan-01-1970 0:00:00 GMT */
 typedef hasp_u64_t hasp_time_t;
 
@@ -548,7 +538,7 @@ typedef const void *hasp_vendor_code_t;
  * For local prognum Features, concurrency is not handled and each login
  * performs a decrement if it is a counting license.
  *
- * Network "prognum" features continue to use the old HASP LM login logic, 
+ * Network "prognum" features continue to use the old HASP LM login logic,
  * with its inherent limitations.
  *
  * There is only support for concurrent usage of <b>one</b> server (global
@@ -615,7 +605,7 @@ typedef const void *hasp_vendor_code_t;
  * \sa hasp_logout()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_login(hasp_feature_t feature_id, 
+hasp_status_t HASP_CALLCONV hasp_login(hasp_feature_t feature_id,
                 hasp_vendor_code_t vendor_code,
                 hasp_handle_t *handle);
 
@@ -692,7 +682,7 @@ hasp_status_t HASP_CALLCONV hasp_login(hasp_feature_t feature_id,
  * \sa hasp_get_info()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_login_scope(hasp_feature_t feature_id, 
+hasp_status_t HASP_CALLCONV hasp_login_scope(hasp_feature_t feature_id,
                 const char *scope,
                 hasp_vendor_code_t vendor_code,
                 hasp_handle_t *handle);
@@ -728,7 +718,7 @@ hasp_status_t HASP_CALLCONV hasp_logout(hasp_handle_t handle);
  * \brief Encrypts a buffer.
  *
  * <b>Sentinel HASP Run-time API Usage Notes</b><br>
- * Encrypts data using the encryption engine in the Sentinel HASP protection 
+ * Encrypts data using the encryption engine in the Sentinel HASP protection
  * key.
  * The specific session handle determines which Sentinel HASP protection key and
  * which Feature ID encrypts the data buffer. The encryption key remains
@@ -768,7 +758,7 @@ hasp_status_t HASP_CALLCONV hasp_logout(hasp_handle_t handle);
  * \sa hasp_decrypt()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_encrypt(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_encrypt(hasp_handle_t handle,
                 void *buffer,
                 hasp_size_t length);
 
@@ -776,7 +766,7 @@ hasp_status_t HASP_CALLCONV hasp_encrypt(hasp_handle_t handle,
  * \brief Decrypts a buffer.
  *
  * <b>Sentinel HASP Run-time API Usage Notes</b><br>
- * Decrypts data using the decryption engine in the Sentinel HASP protection 
+ * Decrypts data using the decryption engine in the Sentinel HASP protection
  * key.
  * The specific session handle determines which Sentinel HASP protection key and
  * which Feature ID decrypts the data buffer. The decryption key remains
@@ -816,7 +806,7 @@ hasp_status_t HASP_CALLCONV hasp_encrypt(hasp_handle_t handle,
  * \sa hasp_encrypt()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_decrypt(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_decrypt(hasp_handle_t handle,
                 void *buffer,
                 hasp_size_t length);
 
@@ -864,7 +854,7 @@ hasp_status_t HASP_CALLCONV hasp_decrypt(hasp_handle_t handle,
  * \sa hasp_get_size()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_read(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_read(hasp_handle_t handle,
                 hasp_fileid_t fileid,
                 hasp_size_t offset,
                 hasp_size_t length,
@@ -916,7 +906,7 @@ hasp_status_t HASP_CALLCONV hasp_read(hasp_handle_t handle,
  * \sa hasp_get_size()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_write(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_write(hasp_handle_t handle,
                 hasp_fileid_t fileid,
                 hasp_size_t offset,
                 hasp_size_t length,
@@ -952,7 +942,7 @@ hasp_status_t HASP_CALLCONV hasp_write(hasp_handle_t handle,
  * \sa hasp_write()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_get_size(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_get_size(hasp_handle_t handle,
                 hasp_fileid_t fileid,
                 hasp_size_t *size);
 
@@ -996,7 +986,7 @@ hasp_status_t HASP_CALLCONV hasp_get_size(hasp_handle_t handle,
  * \sa hasp_hasptime_to_datetime()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_get_rtc(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_get_rtc(hasp_handle_t handle,
                 hasp_time_t *time);
 
 /**
@@ -1042,7 +1032,7 @@ hasp_status_t HASP_CALLCONV hasp_get_rtc(hasp_handle_t handle,
  * \sa hasp_decrypt()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_legacy_encrypt(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_legacy_encrypt(hasp_handle_t handle,
                 void *buffer,
                 hasp_size_t length);
 
@@ -1077,7 +1067,7 @@ hasp_status_t HASP_CALLCONV hasp_legacy_encrypt(hasp_handle_t handle,
  * \sa hasp_encrypt()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_legacy_decrypt(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_legacy_decrypt(hasp_handle_t handle,
                 void *buffer,
                 hasp_size_t length);
 
@@ -1112,7 +1102,7 @@ hasp_status_t HASP_CALLCONV hasp_legacy_decrypt(hasp_handle_t handle,
  * \sa hasp_hasptime_to_datetime()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_legacy_set_rtc(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_legacy_set_rtc(hasp_handle_t handle,
                 hasp_time_t new_time);
 
 /**
@@ -1139,7 +1129,7 @@ hasp_status_t HASP_CALLCONV hasp_legacy_set_rtc(hasp_handle_t handle,
  *                    </ul>
  *
  */
-hasp_status_t HASP_CALLCONV hasp_legacy_set_idletime(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_legacy_set_idletime(hasp_handle_t handle,
                 hasp_u16_t idle_time);
 
 /**
@@ -1183,14 +1173,14 @@ hasp_status_t HASP_CALLCONV hasp_legacy_set_idletime(hasp_handle_t handle,
  * This function cannot be used to retrieve legacy HASP Features.
  *
  * \param scope       Definition of the data that is to be searched, in XML
- *                      format. For more information, see the accompanying 
+ *                      format. For more information, see the accompanying
  *                      Sentinel HASP Run-time API help documentation
  * \param format      Definition of the format in which the data is to be
  *                      displayed, in XML format. For more information, see the
- *                      accompanying Sentinel HASP Run-time API help 
+ *                      accompanying Sentinel HASP Run-time API help
  *                      documentation
  * \param vendor_code Pointer to the Vendor Code
- * \param info        Pointer to the information that is retrieved, in XML 
+ * \param info        Pointer to the information that is retrieved, in XML
  *                      format
  *
  * \return            <ul>
@@ -1220,7 +1210,7 @@ hasp_status_t HASP_CALLCONV hasp_legacy_set_idletime(hasp_handle_t handle,
  * \sa hasp_free()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_get_info(const char *scope, 
+hasp_status_t HASP_CALLCONV hasp_get_info(const char *scope,
                 const char *format,
                 hasp_vendor_code_t vendor_code,
                 char **info);
@@ -1233,7 +1223,7 @@ hasp_status_t HASP_CALLCONV hasp_get_info(const char *scope,
  * be freed with the \ref hasp_free function.
  *
  * \param handle      Handle for the session
- * \param format      Definition for the type of output data structure, in 
+ * \param format      Definition for the type of output data structure, in
  *                      XML format.
  *                    There are three format options:
  *                    <ul>
@@ -1273,7 +1263,7 @@ hasp_status_t HASP_CALLCONV hasp_get_info(const char *scope,
  *  \sa HASP_SESSIONINFO
  *  \sa HASP_KEYINFO
  */
-hasp_status_t HASP_CALLCONV hasp_get_sessioninfo(hasp_handle_t handle, 
+hasp_status_t HASP_CALLCONV hasp_get_sessioninfo(hasp_handle_t handle,
                 const char *format,
                 char **info);
 
@@ -1296,22 +1286,22 @@ void HASP_CALLCONV hasp_free(char *info);
 /**
  * \brief Updates a Sentinel HASP protection key.
  *
- * This function writes update information. Note that the Sentinel HASP 
+ * This function writes update information. Note that the Sentinel HASP
  * protection key must be locally connected.
  *
  * The update code contains all necessary data to perform the update on
  * a deployed Sentinel HASP protection key including:
  * <ul>
- *   <li>The Sentinel HASP protection key on which the updated information is 
+ *   <li>The Sentinel HASP protection key on which the updated information is
  *      to be written</li>
- *   <li>The necessary Vendor Code that is required to access the 
+ *   <li>The necessary Vendor Code that is required to access the
  *      Sentinel HASP key</li>
  *   <li>The actual update information</li>
  * </ul>
  *
  * Depending on the update data, the function returns an acknowledgement
  * code that is signed/encrypted by the key. The code is evidence that
- * an update has been applied to a license. This function allocates memory 
+ * an update has been applied to a license. This function allocates memory
  * for the acknowledge data. To release allocated memory resources, use
  * \a hasp_free().
  *
@@ -1321,7 +1311,7 @@ void HASP_CALLCONV hasp_free(char *info);
  * \return            <ul>
  *                      <li>HASP_STATUS_OK</li> Request was successfully
  *                        completed
- *                      <li>HASP_KEYID_NOT_FOUND</li> The HASP protection 
+ *                      <li>HASP_KEYID_NOT_FOUND</li> The HASP protection
  *                        key was not found
  *                      <li>HASP_INV_UPDATE_DATA</li> Required XML tags
  *                        not found; Contents in binary data are missing
@@ -1362,58 +1352,58 @@ void HASP_CALLCONV hasp_free(char *info);
  *                        than 1 greater than the value in the Sentinel HASP
  *                        protection key
  *                      <li>HASP_UNKNOWN_RECIPIENT</li> In case of an H2R:
- *                        Update can only be applied to the Recipient 
+ *                        Update can only be applied to the Recipient
  *                        specified in hasp_detach(), not to this machine
  *                    </ul>
  *
  * \sa hasp_free()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_update(const char *update_data, 
+hasp_status_t HASP_CALLCONV hasp_update(const char *update_data,
                 char **ack_data);
 
 
 /**
- * \brief Detaches or cancels an attached license, according to customizable 
+ * \brief Detaches or cancels an attached license, according to customizable
  * parameters
  *
  * <b>Sentinel HASP Run-time API Usage Notes</b><br>
  * You do not need to be logged in to a Sentinel HASP Feature in order to use
  * this function.
  *
- * This function is used to detach a license for a Product (i.e. all Sentinel 
- * HASP Features and Memory files which belong to this Product) from a HASP 
- * SL Protection key. The function returns a H2R file which must then be 
+ * This function is used to detach a license for a Product (i.e. all Sentinel
+ * HASP Features and Memory files which belong to this Product) from a HASP
+ * SL Protection key. The function returns a H2R file which must then be
  * applied on the recipient machine using hasp_update() or the ACC.
  *
- * This function only works with HASP SL Protection Keys; HASP HL 
+ * This function only works with HASP SL Protection Keys; HASP HL
  * Protection Keys are ignored.
  *
- * This function can also be used on the recipient machine to cancel an 
- * attached license. In this case, the recipient parameter is ignored and 
- * should be set to NULL. For cancelling, the function returns a R2H file 
- * which must be applied on the host machine using hasp_update() or the 
- * ACC. If the detached Product is already expired, no R2H file will be 
+ * This function can also be used on the recipient machine to cancel an
+ * attached license. In this case, the recipient parameter is ignored and
+ * should be set to NULL. For cancelling, the function returns a R2H file
+ * which must be applied on the host machine using hasp_update() or the
+ * ACC. If the detached Product is already expired, no R2H file will be
  * returned.
  *
  * The required Vendor Codes are stored in a VendorCodes folder in
- * your system. Without the correct Vendor Code, the function call 
- * cannot succeed. 
+ * your system. Without the correct Vendor Code, the function call
+ * cannot succeed.
  *
  * \param detach_action Parameters for the operation, in XML format. For
  *                      more information, see the accompanying
  *                      Sentinel HASP Run-time API help documentation.
- * \param scope       Search parameters for the Product that is to be 
+ * \param scope       Search parameters for the Product that is to be
  *                      detached
  * \param vc          Pointer to the Vendor Code
  * \param recipient   Definition in XML format of the recipient computer,
  *                      on which the detached Product will be installed.
- *                      This information can be retrieved using either 
+ *                      This information can be retrieved using either
  *                      @a hasp_get_info or @a hasp_get_sessioninfo
- *                      together with the format specifier 
+ *                      together with the format specifier
  *                      @a HASP_RECIPIENT.
  *                      Set to NULL if an attached protection key is cancelled.
- * \param info        Pointer to the information that is retrieved, in 
+ * \param info        Pointer to the information that is retrieved, in
  *                      XML format. This information is a V2C, which can
  *                      then be installed on the recipient computer
  *                      via @a hasp_update. Use @a hasp_free to release this
@@ -1422,7 +1412,7 @@ hasp_status_t HASP_CALLCONV hasp_update(const char *update_data,
  * \return            <ul>
  *                      <li>HASP_STATUS_OK</li> Request was successfully
  *                        completed
- *                      <li>HASP_INV_DETACH_ACTION</li> Invalid XML 
+ *                      <li>HASP_INV_DETACH_ACTION</li> Invalid XML
  *                        "detach_action" parameter
  *                      <li>HASP_INV_RECIPIENT</li> Invalid XML "recipient"
  *                        parameter
@@ -1457,7 +1447,7 @@ hasp_status_t HASP_CALLCONV hasp_update(const char *update_data,
  * \sa hasp_update()
  * \sa hasp_free()
  */
-hasp_status_t HASP_CALLCONV hasp_detach(const char *detach_action, 
+hasp_status_t HASP_CALLCONV hasp_detach(const char *detach_action,
                 const char *scope,
                 hasp_vendor_code_t vc,
                 const char *recipient,
@@ -1493,7 +1483,7 @@ hasp_status_t HASP_CALLCONV hasp_detach(const char *detach_action,
  * information is not required.
  *
  */
-hasp_status_t HASP_CALLCONV hasp_get_version(unsigned int *major_version, 
+hasp_status_t HASP_CALLCONV hasp_get_version(unsigned int *major_version,
                 unsigned int *minor_version,
                 unsigned int *build_server,
                 unsigned int *build_number,
@@ -1523,7 +1513,7 @@ hasp_status_t HASP_CALLCONV hasp_get_version(unsigned int *major_version,
  * \sa hasp_hasptime_to_datetime()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_datetime_to_hasptime(unsigned int day, 
+hasp_status_t HASP_CALLCONV hasp_datetime_to_hasptime(unsigned int day,
                 unsigned int month,
                 unsigned int year,
                 unsigned int hour,
@@ -1555,7 +1545,7 @@ hasp_status_t HASP_CALLCONV hasp_datetime_to_hasptime(unsigned int day,
  * \sa hasp_datetime_to_hasptime()
  *
  */
-hasp_status_t HASP_CALLCONV hasp_hasptime_to_datetime(hasp_time_t time, 
+hasp_status_t HASP_CALLCONV hasp_hasptime_to_datetime(hasp_time_t time,
                 unsigned int *day,
                 unsigned int *month,
                 unsigned int *year,

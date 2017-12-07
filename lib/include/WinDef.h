@@ -1,12 +1,3 @@
-/***************************************************************
- * Name:      WinDef.h
- * Purpose:   Code for compatible between VC and GCC
- * Author:    ZCT (zct826@126.com)
- * Created:   2008-07-31
- * Copyright: ZCT
- * License:
- **************************************************************/
-
 #ifndef WINSTYLE_H_INCLUDED
 #define WINSTYLE_H_INCLUDED
 
@@ -39,7 +30,7 @@
 #define BOOL        int
 #endif
 
-#ifndef INT 
+#ifndef INT
 #define INT         int
 #endif
 

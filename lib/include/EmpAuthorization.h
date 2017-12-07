@@ -1,12 +1,3 @@
-/**
-* @brief EmpAuthorization.h: interface for the CEmpAuthorization class. It can decide that whether the ultrasound system is usable, and it  generate unique register key for each computer,
-* and it can generate license file, and judge that whether the inputing key is authorised.
-*
-* @version: 1.0
-* @author: hehao
-* @date: 2014-09-11
-*/
-
 #ifndef __EMP_AUTHORIZATION_H__
 #define __EMP_AUTHORIZATION_H__
 
