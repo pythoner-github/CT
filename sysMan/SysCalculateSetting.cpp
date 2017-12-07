@@ -16,8 +16,8 @@ SysCalculateSetting::SysCalculateSetting()
 SysCalculateSetting::~SysCalculateSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 
@@ -36,94 +36,94 @@ const int GetGWMethod(const int item)
 
     switch(item) {
     case OB_CER:
-	method = g_obSetting.cer;
-	method += CER_START - 1;
-	break;
+    method = g_obSetting.cer;
+    method += CER_START - 1;
+    break;
 
     case OB_HL:
-	method = g_obSetting.hl;
-	method += HL_START - 1;
-	break;
+    method = g_obSetting.hl;
+    method += HL_START - 1;
+    break;
 
     case OB_BPD:
-	method = g_obSetting.bpd;
-	method += BPD_START - 1;
-	break;
+    method = g_obSetting.bpd;
+    method += BPD_START - 1;
+    break;
 
     case OB_FL:
-	method = g_obSetting.fl;
-	method += FL_START - 1;
-	break;
+    method = g_obSetting.fl;
+    method += FL_START - 1;
+    break;
 
     case OB_CRL:
-	method = g_obSetting.crl;
-	method += CRL_START - 1;
-	break;
+    method = g_obSetting.crl;
+    method += CRL_START - 1;
+    break;
 
     case OB_GS:
-	method = g_obSetting.gs;
-	method += GS_START - 1;
-	break;
+    method = g_obSetting.gs;
+    method += GS_START - 1;
+    break;
 
     case OB_AC:
-	method = g_obSetting.ac;
-	method += AC_START - 1;
-	break;
+    method = g_obSetting.ac;
+    method += AC_START - 1;
+    break;
 
     case OB_HC:
-	method = g_obSetting.hc;
-	method += HC_START - 1;
-	break;
+    method = g_obSetting.hc;
+    method += HC_START - 1;
+    break;
 
     case OB_TAD:
-	method = g_obSetting.tad;
-	method += TAD_START - 1;
-	break;
+    method = g_obSetting.tad;
+    method += TAD_START - 1;
+    break;
 
     case OB_APAD:
-	method = g_obSetting.apad;
-	method += APAD_START - 1;
-	break;
+    method = g_obSetting.apad;
+    method += APAD_START - 1;
+    break;
 
     case OB_THD:
-	method = g_obSetting.thd;
-	method += THD_START - 1;
-	break;
+    method = g_obSetting.thd;
+    method += THD_START - 1;
+    break;
 
     case OB_OFD:
-	method = g_obSetting.ofd;
-	method += OFD_START - 1;
-	break;
+    method = g_obSetting.ofd;
+    method += OFD_START - 1;
+    break;
 
     case OB_OOD:
-	//	method = GetOodMethod();
-	//	method += OOD_START - 1;
-	method = OOD_START - 1;
-	break;
+    //  method = GetOodMethod();
+    //  method += OOD_START - 1;
+    method = OOD_START - 1;
+    break;
 
     case OB_TIBIA:
-	//	method = GetTibiaMethod();
-	//	method += TIBIA_START - 1;
-	method = TIBIA_START - 1;
-	break;
+    //  method = GetTibiaMethod();
+    //  method += TIBIA_START - 1;
+    method = TIBIA_START - 1;
+    break;
 
     case OB_TTD:
-	//	method = GetTtdMethod();
-	//	method += TTD_START - 1;
-	method = TTD_START - 1;
-	break;
+    //  method = GetTtdMethod();
+    //  method += TTD_START - 1;
+    method = TTD_START - 1;
+    break;
 
     case OB_ULNA:
-	//	method = GetUlnaMethod();
-	//	method += ULNA_START - 1;
-	method = ULNA_START - 1;
-	break;
+    //  method = GetUlnaMethod();
+    //  method += ULNA_START - 1;
+    method = ULNA_START - 1;
+    break;
     case OB_FTA:
-		method = FTA_START - 1;
-	break;
+        method = FTA_START - 1;
+    break;
 
     default:
-	break;
+    break;
     }
 
     return(method);

@@ -22,7 +22,7 @@ ViewPrintSetting* ViewPrintSetting::m_ptrInstance = NULL;
 ViewPrintSetting* ViewPrintSetting::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new ViewPrintSetting;
+    m_ptrInstance = new ViewPrintSetting;
     return m_ptrInstance;
 }
 
@@ -33,7 +33,7 @@ ViewPrintSetting::ViewPrintSetting(void)
 ViewPrintSetting::~ViewPrintSetting(void)
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 bool ViewPrintSetting::SonyURI(void)
@@ -53,10 +53,10 @@ void ViewPrintSetting::KeyEvent(unsigned char keyValue)
 
     switch(keyValue) {
     case KEY_ESC:
-	BtnCancelClicked(NULL);
-	break;
+    BtnCancelClicked(NULL);
+    break;
     default:
-	break;
+    break;
     }
 }
 
@@ -104,68 +104,68 @@ void ViewPrintSetting::CreateWindow(GtkWindow *parent)
     gtk_widget_set_size_request (label_copies, 100, 30);
 
     if(SonyURI()){
-		m_comboboxLandscade = gtk_combo_box_new_text ();
-		gtk_fixed_put (GTK_FIXED (fixed), m_comboboxLandscade, 130, 80);
-		gtk_widget_set_size_request (m_comboboxLandscade, 100, 30);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxLandscade), PrinterDirection[0]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxLandscade), PrinterDirection[1]);
-		label_landscade = gtk_label_new (_("Direction:"));
-		gtk_fixed_put (GTK_FIXED (fixed), label_landscade, 30, 80);
-		gtk_widget_set_size_request (label_landscade, 100, 30);
+        m_comboboxLandscade = gtk_combo_box_new_text ();
+        gtk_fixed_put (GTK_FIXED (fixed), m_comboboxLandscade, 130, 80);
+        gtk_widget_set_size_request (m_comboboxLandscade, 100, 30);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxLandscade), PrinterDirection[0]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxLandscade), PrinterDirection[1]);
+        label_landscade = gtk_label_new (_("Direction:"));
+        gtk_fixed_put (GTK_FIXED (fixed), label_landscade, 30, 80);
+        gtk_widget_set_size_request (label_landscade, 100, 30);
 
-		m_comboboxPageSize = gtk_combo_box_new_text ();
-		gtk_fixed_put (GTK_FIXED (fixed), m_comboboxPageSize, 130, 130);
-		gtk_widget_set_size_request (m_comboboxPageSize, 100, 30);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[0]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[1]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[2]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[3]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[4]);
-		label_pagesize = gtk_label_new (_("PageSize:"));
-		gtk_fixed_put (GTK_FIXED (fixed), label_pagesize, 30, 130);
-		gtk_widget_set_size_request (label_pagesize, 100, 30);
+        m_comboboxPageSize = gtk_combo_box_new_text ();
+        gtk_fixed_put (GTK_FIXED (fixed), m_comboboxPageSize, 130, 130);
+        gtk_widget_set_size_request (m_comboboxPageSize, 100, 30);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[0]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[1]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[2]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[3]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxPageSize), PrinterPageSize[4]);
+        label_pagesize = gtk_label_new (_("PageSize:"));
+        gtk_fixed_put (GTK_FIXED (fixed), label_pagesize, 30, 130);
+        gtk_widget_set_size_request (label_pagesize, 100, 30);
 
-		m_comboboxSonyGamma = gtk_combo_box_new_text ();
-		gtk_fixed_put (GTK_FIXED (fixed), m_comboboxSonyGamma, 360, 30);
-		gtk_widget_set_size_request (m_comboboxSonyGamma, 100, 30);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[0]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[1]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[2]);
-		gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[3]);
-		label_pagesize = gtk_label_new (_("SonyGamma:"));
-		gtk_fixed_put (GTK_FIXED (fixed), label_pagesize, 260, 30);
-		gtk_widget_set_size_request (label_pagesize, 100, 30);
-	}
+        m_comboboxSonyGamma = gtk_combo_box_new_text ();
+        gtk_fixed_put (GTK_FIXED (fixed), m_comboboxSonyGamma, 360, 30);
+        gtk_widget_set_size_request (m_comboboxSonyGamma, 100, 30);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[0]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[1]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[2]);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxSonyGamma), PrinterSonyGamma[3]);
+        label_pagesize = gtk_label_new (_("SonyGamma:"));
+        gtk_fixed_put (GTK_FIXED (fixed), label_pagesize, 260, 30);
+        gtk_widget_set_size_request (label_pagesize, 100, 30);
+    }
     else{
-			spinbutton_gamma_adj = gtk_adjustment_new (1000, 0, 10000, 500, 500, 0);
-    	    m_spinbuttonGamma = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_gamma_adj), 1, 0);
-    	    gtk_fixed_put (GTK_FIXED (fixed), m_spinbuttonGamma, 130, 80);
-    	    gtk_widget_set_size_request (m_spinbuttonGamma, 80, 27);
-    	    label_gamma = gtk_label_new (_("Gamma:"));
-    	    gtk_fixed_put (GTK_FIXED (fixed), label_gamma, 30, 80);
-    	    gtk_widget_set_size_request (label_gamma, 100, 30);
+            spinbutton_gamma_adj = gtk_adjustment_new (1000, 0, 10000, 500, 500, 0);
+            m_spinbuttonGamma = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_gamma_adj), 1, 0);
+            gtk_fixed_put (GTK_FIXED (fixed), m_spinbuttonGamma, 130, 80);
+            gtk_widget_set_size_request (m_spinbuttonGamma, 80, 27);
+            label_gamma = gtk_label_new (_("Gamma:"));
+            gtk_fixed_put (GTK_FIXED (fixed), label_gamma, 30, 80);
+            gtk_widget_set_size_request (label_gamma, 100, 30);
 
-    	    spinbutton_brightness_adj = gtk_adjustment_new (100, 0, 200, 10, 10, 0);
-    	    m_spinbuttonBrightness = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_brightness_adj), 1, 0);
-    	    gtk_fixed_put (GTK_FIXED (fixed), m_spinbuttonBrightness, 130, 130);
-    	    gtk_widget_set_size_request (m_spinbuttonBrightness, 80, 27);
-    	    // gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), 1);
-    	    // g_signal_connect(G_OBJECT(m_spinbuttonBrightness), "insert_text", G_CALLBACK(on_spinbutton_insert_brightness), this);
-    	    label_brightness = gtk_label_new (_("Brightness:"));
-    	    gtk_fixed_put (GTK_FIXED (fixed), label_brightness, 30, 130);
-    	    gtk_widget_set_size_request (label_brightness, 100, 30);
+            spinbutton_brightness_adj = gtk_adjustment_new (100, 0, 200, 10, 10, 0);
+            m_spinbuttonBrightness = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_brightness_adj), 1, 0);
+            gtk_fixed_put (GTK_FIXED (fixed), m_spinbuttonBrightness, 130, 130);
+            gtk_widget_set_size_request (m_spinbuttonBrightness, 80, 27);
+            // gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), 1);
+            // g_signal_connect(G_OBJECT(m_spinbuttonBrightness), "insert_text", G_CALLBACK(on_spinbutton_insert_brightness), this);
+            label_brightness = gtk_label_new (_("Brightness:"));
+            gtk_fixed_put (GTK_FIXED (fixed), label_brightness, 30, 130);
+            gtk_widget_set_size_request (label_brightness, 100, 30);
 
-    	    m_comboboxMedia = gtk_combo_box_new_text ();
-    	    gtk_fixed_put (GTK_FIXED (fixed), m_comboboxMedia, 360+12, 30);
-    	    gtk_widget_set_size_request (m_comboboxMedia, 100, 30);
-    	    gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[0]);
-    	    gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[1]);
-    	    gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[2]);
-    	    gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[3]);
-    	    gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[4]);
-    	    label_media = gtk_label_new (_("Media Size:"));
-    	    gtk_fixed_put (GTK_FIXED (fixed), label_media, 260, 30);
-    	    gtk_widget_set_size_request (label_media, 100+12, 30);
+            m_comboboxMedia = gtk_combo_box_new_text ();
+            gtk_fixed_put (GTK_FIXED (fixed), m_comboboxMedia, 360+12, 30);
+            gtk_widget_set_size_request (m_comboboxMedia, 100, 30);
+            gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[0]);
+            gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[1]);
+            gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[2]);
+            gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[3]);
+            gtk_combo_box_append_text (GTK_COMBO_BOX (m_comboboxMedia), PrinterMediaSize[4]);
+            label_media = gtk_label_new (_("Media Size:"));
+            gtk_fixed_put (GTK_FIXED (fixed), label_media, 260, 30);
+            gtk_widget_set_size_request (label_media, 100+12, 30);
     }
 
     label_title = gtk_label_new (_("<b>Printer Setting</b>"));
@@ -208,11 +208,11 @@ void ViewPrintSetting::BtnOkClicked(GtkButton *button)
     SysPrinterSetting sps;
 
     int copies = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m_spinbuttonCopies));
-	sps.SetCopies(copies);
+    sps.SetCopies(copies);
     if(SonyURI()){
-    	int landscape_ang = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxLandscade));
-    	int pagesize = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxPageSize));
-    	int sonygamma = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSonyGamma));
+        int landscape_ang = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxLandscade));
+        int pagesize = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxPageSize));
+        int sonygamma = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSonyGamma));
         sps.SetLandscape(landscape_ang);
         sps.SetPageSize(pagesize);
         sps.SetSonyGamma(sonygamma);
@@ -221,9 +221,9 @@ void ViewPrintSetting::BtnOkClicked(GtkButton *button)
         int gamma = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m_spinbuttonGamma));
         int brightness = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(m_spinbuttonBrightness));
         int index_media_size = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxMedia));
-		sps.SetGamma(gamma);
-		sps.SetBrightness(brightness);
-		sps.SetMediaSize(index_media_size);
+        sps.SetGamma(gamma);
+        sps.SetBrightness(brightness);
+        sps.SetMediaSize(index_media_size);
     }
 
     sps.SyncFile();
@@ -244,9 +244,9 @@ void ViewPrintSetting::BtnDefaultClicked(GtkButton *button)
         gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxSonyGamma), sps.GetSonyGamma());
     }
     else {
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonGamma), sps.GetGamma());
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), sps.GetBrightness());
-		gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxMedia), sps.GetMediaSize());
+        gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonGamma), sps.GetGamma());
+        gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), sps.GetBrightness());
+        gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxMedia), sps.GetMediaSize());
     }
 
 }
@@ -262,8 +262,8 @@ void ViewPrintSetting::UpdateSetting(void)
         gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxSonyGamma), sps.GetSonyGamma());
     }
     else{
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonGamma), sps.GetGamma());
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), sps.GetBrightness());
-		gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxMedia), sps.GetMediaSize());
+        gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonGamma), sps.GetGamma());
+        gtk_spin_button_set_value (GTK_SPIN_BUTTON(m_spinbuttonBrightness), sps.GetBrightness());
+        gtk_combo_box_set_active (GTK_COMBO_BOX(m_comboboxMedia), sps.GetMediaSize());
     }
 }

@@ -32,7 +32,7 @@ void  ButtonPrintAddClicked(GtkButton *button,GtkWidget *m_combobox_worklist_dev
 
 void ButtonPrintClearClicked(GtkButton *button,GtkWidget *m_combobox_worklist_device,GtkWidget *m_entry_worklist_name,GtkWidget *m_entry_worklist_AE,GtkWidget *m_entry_worklist_port);
 bool ButtonPrintDeleteClicked(GtkButton *button,GtkWidget *m_treeview_worklist);
-	static ButtonCallBack *m_pInstance;
+    static ButtonCallBack *m_pInstance;
 void ButtonPrintDefaultClicked(GtkButton *button,GtkWidget *m_treeview_worklist);
 void ButtonPrintConnectClicked(GtkButton *button,GtkWidget *m_treeview_worklist);
 void PrintDeviceChanged(GtkComboBox *combobox,GtkWidget *m_combobox_worklist_device,GtkWidget *m_entry_worklist_name);

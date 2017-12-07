@@ -1,11 +1,3 @@
-/**
-* @file ViewArchive.h
-* @brief popup Archive manage dialog, and deal user's request
-*
-* @version: 1.0
-* @author: liudan reviseed by zhanglei 100317
-*/
-
 #include <iostream>
 #include <sstream>
 #include <string.h>
@@ -66,16 +58,16 @@ ViewArchive::ViewArchive()
 
 ViewArchive::~ViewArchive()
 {
-	if(m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if(m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 ViewArchive* ViewArchive::GetInstance()
 {
-	if(m_ptrInstance == NULL)
-		m_ptrInstance = new ViewArchive;
+    if(m_ptrInstance == NULL)
+        m_ptrInstance = new ViewArchive;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 GtkWidget* ViewArchive::GetWindow(void)
@@ -89,84 +81,84 @@ GtkWidget* ViewArchive::GetWindow(void)
 extern KeyValueOpr keyInterface;
 void ViewArchive::CreateWindow(void)
 {
-	GtkWidget *fixedWin;
-	GtkWidget *frameSearch;
-	GtkWidget *alignmentSearch;
-	GtkWidget *fixedSearch;
-	GtkWidget *imgCalendarStart;
-	GtkWidget *eventboxCalendarStart;
-	GtkWidget *labelName;
+    GtkWidget *fixedWin;
+    GtkWidget *frameSearch;
+    GtkWidget *alignmentSearch;
+    GtkWidget *fixedSearch;
+    GtkWidget *imgCalendarStart;
+    GtkWidget *eventboxCalendarStart;
+    GtkWidget *labelName;
     //hlx
 #ifdef VET
     GtkWidget *labelOwnerName;
     GtkWidget *labelSpecies;
 #endif
 
-	GtkWidget *labelDateStart;
-	GtkWidget *labelDateEnd;
-	GtkWidget *eventboxCalendarEnd;
-	GtkWidget *imgCalendarEnd;
-	GtkWidget *labelAge;
-	GtkWidget *labelSex;
-	GtkWidget *btnClear;
-	GtkWidget *alignmentBtnClear;
-	GtkWidget *hboxBtnClear;
-	GtkWidget *imgBtnClear;
-	GtkWidget *labelBtnClear;
-	GtkWidget *labelID;
-	GtkWidget *btnSearch;
-	GtkWidget *alignmentBtnSearch;
-	GtkWidget *hboxBtnSearch;
-	GtkWidget *imgSearch;
-	GtkWidget *labelBtnSearch;
-	GtkWidget *labelSearch;
-	GtkWidget *btnSelectAll;
-//	GtkWidget *alignmentBtnSelectAll;
-//	GtkWidget *hboxBtnSelectAll;
-	GtkWidget *imgSelectAll;
-	GtkWidget *labelSelectAll;
-	GtkWidget *btnUnselectAll;
-//	GtkWidget *alignmentBtnUnselectAll;
-//	GtkWidget *hboxBtnUnselectAll;
-	GtkWidget *imgUnselectAll;
-	GtkWidget *labelUnselectAll;
-	GtkWidget *btnSend;
-//	GtkWidget *alignmentBtnSend;
-//	GtkWidget *hboxBtnSend;
-	GtkWidget *imgSend;
-	GtkWidget *labelSend;
-	GtkWidget *btnExport;
-//	GtkWidget *alignmentBtnExport;
-//	GtkWidget *hboxBtnExport;
-	GtkWidget *imgExport;
-	GtkWidget *labelExport;
-	GtkWidget *btnExit;
-//	GtkWidget *alignmentBtnExit;
-//	GtkWidget *hboxBtnExit;
-	GtkWidget *imgExit;
-	GtkWidget *labelExit;
-	GtkWidget *frameQSearch;
-	GtkWidget *alignmentQSearch;
-	GtkWidget *fixedQSearch;
-	GtkWidget *labelQSearchMode;
-	//GtkWidget *comboboxQSearch;
-	GtkWidget *labelQSearch;
-	GtkWidget *frameSource;
-	GtkWidget *alignmentSource;
-	GtkWidget *fixedSource;
-	GtkWidget *tableSource;
-	GtkWidget *labelFreeSpace;
-	GtkWidget *labelEndtalSpace;
-	GSList *m_radiobtnKb_group = NULL;
-	GtkWidget *labelSource;
-	GtkWidget *btnDisplay;
-//	GtkWidget *alignmentBtnDisplay;
-//	GtkWidget *hboxBtnDisplay;
-	GtkWidget *imgDisplay;
-	GtkWidget *labelDisplay;
-	GtkWidget *btnDelete;
-//	GtkWidget *alignmentBtnDelete;
-//	GtkWidget *hboxBtnDelete;
+    GtkWidget *labelDateStart;
+    GtkWidget *labelDateEnd;
+    GtkWidget *eventboxCalendarEnd;
+    GtkWidget *imgCalendarEnd;
+    GtkWidget *labelAge;
+    GtkWidget *labelSex;
+    GtkWidget *btnClear;
+    GtkWidget *alignmentBtnClear;
+    GtkWidget *hboxBtnClear;
+    GtkWidget *imgBtnClear;
+    GtkWidget *labelBtnClear;
+    GtkWidget *labelID;
+    GtkWidget *btnSearch;
+    GtkWidget *alignmentBtnSearch;
+    GtkWidget *hboxBtnSearch;
+    GtkWidget *imgSearch;
+    GtkWidget *labelBtnSearch;
+    GtkWidget *labelSearch;
+    GtkWidget *btnSelectAll;
+//  GtkWidget *alignmentBtnSelectAll;
+//  GtkWidget *hboxBtnSelectAll;
+    GtkWidget *imgSelectAll;
+    GtkWidget *labelSelectAll;
+    GtkWidget *btnUnselectAll;
+//  GtkWidget *alignmentBtnUnselectAll;
+//  GtkWidget *hboxBtnUnselectAll;
+    GtkWidget *imgUnselectAll;
+    GtkWidget *labelUnselectAll;
+    GtkWidget *btnSend;
+//  GtkWidget *alignmentBtnSend;
+//  GtkWidget *hboxBtnSend;
+    GtkWidget *imgSend;
+    GtkWidget *labelSend;
+    GtkWidget *btnExport;
+//  GtkWidget *alignmentBtnExport;
+//  GtkWidget *hboxBtnExport;
+    GtkWidget *imgExport;
+    GtkWidget *labelExport;
+    GtkWidget *btnExit;
+//  GtkWidget *alignmentBtnExit;
+//  GtkWidget *hboxBtnExit;
+    GtkWidget *imgExit;
+    GtkWidget *labelExit;
+    GtkWidget *frameQSearch;
+    GtkWidget *alignmentQSearch;
+    GtkWidget *fixedQSearch;
+    GtkWidget *labelQSearchMode;
+    //GtkWidget *comboboxQSearch;
+    GtkWidget *labelQSearch;
+    GtkWidget *frameSource;
+    GtkWidget *alignmentSource;
+    GtkWidget *fixedSource;
+    GtkWidget *tableSource;
+    GtkWidget *labelFreeSpace;
+    GtkWidget *labelEndtalSpace;
+    GSList *m_radiobtnKb_group = NULL;
+    GtkWidget *labelSource;
+    GtkWidget *btnDisplay;
+//  GtkWidget *alignmentBtnDisplay;
+//  GtkWidget *hboxBtnDisplay;
+    GtkWidget *imgDisplay;
+    GtkWidget *labelDisplay;
+    GtkWidget *btnDelete;
+//  GtkWidget *alignmentBtnDelete;
+//  GtkWidget *hboxBtnDelete;
     GtkWidget *imgDelete;
     GtkWidget *labelDelete;
     GtkWidget *imgUdisk;
@@ -180,124 +172,124 @@ void ViewArchive::CreateWindow(void)
     GetCurrentDate(m_curYear, m_curMonth, m_curDay);
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
 
-	//create window
-	m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_widget_set_size_request (m_window, SCREEN_WIDTH, SCREEN_HEIGHT);
-//	gtk_window_set_title (GTK_WINDOW (m_window), _("m_window"));
-	gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER_ALWAYS);
-	gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
-	gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
-	gtk_window_set_decorated (GTK_WINDOW (m_window), FALSE);
-	gtk_window_set_transient_for (GTK_WINDOW (m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
+    //create window
+    m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_widget_set_size_request (m_window, SCREEN_WIDTH, SCREEN_HEIGHT);
+//  gtk_window_set_title (GTK_WINDOW (m_window), _("m_window"));
+    gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER_ALWAYS);
+    gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
+    gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
+    gtk_window_set_decorated (GTK_WINDOW (m_window), FALSE);
+    gtk_window_set_transient_for (GTK_WINDOW (m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
 
-	fixedWin = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (m_window), fixedWin);
+    fixedWin = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (m_window), fixedWin);
 
-	//create source area
-	frameSource = gtk_frame_new (NULL);
-	gtk_fixed_put (GTK_FIXED (fixedWin), frameSource, 20, 20);
-	gtk_widget_set_size_request (frameSource, 200, 170);
-	gtk_frame_set_shadow_type (GTK_FRAME (frameSource), GTK_SHADOW_ETCHED_OUT);
+    //create source area
+    frameSource = gtk_frame_new (NULL);
+    gtk_fixed_put (GTK_FIXED (fixedWin), frameSource, 20, 20);
+    gtk_widget_set_size_request (frameSource, 200, 170);
+    gtk_frame_set_shadow_type (GTK_FRAME (frameSource), GTK_SHADOW_ETCHED_OUT);
 
-	labelSource = gtk_label_new (_("<b>Disk Info</b>"));
-	gtk_frame_set_label_widget (GTK_FRAME (frameSource), labelSource);
-	gtk_label_set_use_markup (GTK_LABEL (labelSource), TRUE);
+    labelSource = gtk_label_new (_("<b>Disk Info</b>"));
+    gtk_frame_set_label_widget (GTK_FRAME (frameSource), labelSource);
+    gtk_label_set_use_markup (GTK_LABEL (labelSource), TRUE);
 
-	alignmentSource = gtk_alignment_new (0.5, 0.5, 1, 1);
-	gtk_container_add (GTK_CONTAINER (frameSource), alignmentSource);
-	gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentSource), 0, 0, 12, 0);
+    alignmentSource = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_container_add (GTK_CONTAINER (frameSource), alignmentSource);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentSource), 0, 0, 12, 0);
 
-	fixedSource = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (alignmentSource), fixedSource);
+    fixedSource = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (alignmentSource), fixedSource);
 
-	tableSource = gtk_table_new (6, 3, FALSE);
-	gtk_fixed_put (GTK_FIXED (fixedSource), tableSource, 5, 5);
-	gtk_widget_set_size_request (tableSource, 120, 145);
+    tableSource = gtk_table_new (6, 3, FALSE);
+    gtk_fixed_put (GTK_FIXED (fixedSource), tableSource, 5, 5);
+    gtk_widget_set_size_request (tableSource, 120, 145);
 
-	labelFreeSpace = gtk_label_new (_("Free Space:"));
-	gtk_table_attach (GTK_TABLE (tableSource), labelFreeSpace, 0, 3, 0, 1,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_misc_set_alignment (GTK_MISC (labelFreeSpace), 0, 0.5);
+    labelFreeSpace = gtk_label_new (_("Free Space:"));
+    gtk_table_attach (GTK_TABLE (tableSource), labelFreeSpace, 0, 3, 0, 1,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (labelFreeSpace), 0, 0.5);
 
-	m_labelFreeSize = gtk_label_new ("0Kb");
-	gtk_table_attach (GTK_TABLE (tableSource), m_labelFreeSize, 0, 3, 1, 2,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_misc_set_alignment (GTK_MISC (m_labelFreeSize), 0.9, 0.5);
+    m_labelFreeSize = gtk_label_new ("0Kb");
+    gtk_table_attach (GTK_TABLE (tableSource), m_labelFreeSize, 0, 3, 1, 2,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (m_labelFreeSize), 0.9, 0.5);
 
-	labelEndtalSpace = gtk_label_new (_("Total Space:"));
-	gtk_table_attach (GTK_TABLE (tableSource), labelEndtalSpace, 0, 3, 2, 3,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_misc_set_alignment (GTK_MISC (labelEndtalSpace), 0, 0.5);
+    labelEndtalSpace = gtk_label_new (_("Total Space:"));
+    gtk_table_attach (GTK_TABLE (tableSource), labelEndtalSpace, 0, 3, 2, 3,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (labelEndtalSpace), 0, 0.5);
 
-	m_labelEndtalSize = gtk_label_new ("0Kb");
-	gtk_table_attach (GTK_TABLE (tableSource), m_labelEndtalSize, 0, 3, 3, 4,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_misc_set_alignment (GTK_MISC (m_labelEndtalSize), 0.9, 0.5);
+    m_labelEndtalSize = gtk_label_new ("0Kb");
+    gtk_table_attach (GTK_TABLE (tableSource), m_labelEndtalSize, 0, 3, 3, 4,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (m_labelEndtalSize), 0.9, 0.5);
 
-	m_radiobtnKb = gtk_radio_button_new_with_mnemonic (NULL, "KB");
-	gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnKb, 0, 1, 4, 5,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnKb), m_radiobtnKb_group);
-	m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnKb));
-	g_signal_connect(G_OBJECT(m_radiobtnKb), "toggled", G_CALLBACK(HandleBtnToggleKb), this);
+    m_radiobtnKb = gtk_radio_button_new_with_mnemonic (NULL, "KB");
+    gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnKb, 0, 1, 4, 5,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnKb), m_radiobtnKb_group);
+    m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnKb));
+    g_signal_connect(G_OBJECT(m_radiobtnKb), "toggled", G_CALLBACK(HandleBtnToggleKb), this);
 
-	m_radiobtnMb = gtk_radio_button_new_with_mnemonic (NULL, "MB");
-	gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnMb, 1, 2, 4, 5,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnMb), m_radiobtnKb_group);
-	m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnMb));
-	g_signal_connect(G_OBJECT(m_radiobtnMb), "toggled", G_CALLBACK(HandleBtnToggleMb), this);
+    m_radiobtnMb = gtk_radio_button_new_with_mnemonic (NULL, "MB");
+    gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnMb, 1, 2, 4, 5,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnMb), m_radiobtnKb_group);
+    m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnMb));
+    g_signal_connect(G_OBJECT(m_radiobtnMb), "toggled", G_CALLBACK(HandleBtnToggleMb), this);
 
-	m_radiobtnGb = gtk_radio_button_new_with_mnemonic (NULL, "GB");
-	gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnGb, 2, 3, 4, 5,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
-	gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnGb), m_radiobtnKb_group);
-	m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnGb));
-	g_signal_connect(G_OBJECT(m_radiobtnGb), "toggled", G_CALLBACK(HandleBtnToggleGb), this);
+    m_radiobtnGb = gtk_radio_button_new_with_mnemonic (NULL, "GB");
+    gtk_table_attach (GTK_TABLE (tableSource), m_radiobtnGb, 2, 3, 4, 5,
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+            (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+    gtk_radio_button_set_group (GTK_RADIO_BUTTON (m_radiobtnGb), m_radiobtnKb_group);
+    m_radiobtnKb_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobtnGb));
+    g_signal_connect(G_OBJECT(m_radiobtnGb), "toggled", G_CALLBACK(HandleBtnToggleGb), this);
 
-	m_progressbarSource = gtk_progress_bar_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSource), m_progressbarSource, 145, 5);
-	gtk_widget_set_size_request (m_progressbarSource, 30, 140);
-	gtk_progress_bar_set_orientation (GTK_PROGRESS_BAR (m_progressbarSource), GTK_PROGRESS_BOTTOM_TO_TOP);
-	gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (m_progressbarSource), 0.5);
-	gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (m_progressbarSource), 0.01);
-	gtk_progress_bar_set_text (GTK_PROGRESS_BAR (m_progressbarSource), "50%");
+    m_progressbarSource = gtk_progress_bar_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSource), m_progressbarSource, 145, 5);
+    gtk_widget_set_size_request (m_progressbarSource, 30, 140);
+    gtk_progress_bar_set_orientation (GTK_PROGRESS_BAR (m_progressbarSource), GTK_PROGRESS_BOTTOM_TO_TOP);
+    gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (m_progressbarSource), 0.5);
+    gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (m_progressbarSource), 0.01);
+    gtk_progress_bar_set_text (GTK_PROGRESS_BAR (m_progressbarSource), "50%");
 
-	// init of source
-//	gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxSource), 0);
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (m_radiobtnGb), TRUE);
-	FillDiskSpace();
+    // init of source
+//  gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxSource), 0);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (m_radiobtnGb), TRUE);
+    FillDiskSpace();
 
-	//create search area
-	frameSearch = gtk_frame_new (NULL);
-	gtk_fixed_put (GTK_FIXED (fixedWin), frameSearch, 230, 20);
-	gtk_widget_set_size_request (frameSearch, 560, 170);
-	gtk_frame_set_shadow_type (GTK_FRAME (frameSearch), GTK_SHADOW_ETCHED_OUT);
+    //create search area
+    frameSearch = gtk_frame_new (NULL);
+    gtk_fixed_put (GTK_FIXED (fixedWin), frameSearch, 230, 20);
+    gtk_widget_set_size_request (frameSearch, 560, 170);
+    gtk_frame_set_shadow_type (GTK_FRAME (frameSearch), GTK_SHADOW_ETCHED_OUT);
 
-	alignmentSearch = gtk_alignment_new (0.5, 0.5, 1, 1);
-	gtk_container_add (GTK_CONTAINER (frameSearch), alignmentSearch);
-	gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentSearch), 0, 0, 12, 0);
+    alignmentSearch = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_container_add (GTK_CONTAINER (frameSearch), alignmentSearch);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentSearch), 0, 0, 12, 0);
 
-	fixedSearch = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (alignmentSearch), fixedSearch);
+    fixedSearch = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (alignmentSearch), fixedSearch);
     //修改 动物超 档案管理 界面
     //hlx
 #ifdef VET
     labelID = gtk_label_new (_("ID:"));
     gtk_fixed_put (GTK_FIXED (fixedSearch), labelID, 10, 5);
-    //	gtk_widget_set_size_request (labelID, 90, 30);
+    //  gtk_widget_set_size_request (labelID, 90, 30);
     gtk_widget_set_size_request (labelID, 40, 30);
     gtk_misc_set_alignment (GTK_MISC (labelID), 0, 0.5);
 
     m_entryID = gtk_entry_new ();
-    //	gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryID, 100, 5);
+    //  gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryID, 100, 5);
     gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryID, 50, 5);
     gtk_widget_set_size_request (m_entryID, 140, 30);
     gtk_entry_set_max_length(GTK_ENTRY(m_entryID), 15);
@@ -305,16 +297,16 @@ void ViewArchive::CreateWindow(void)
     g_signal_connect(G_OBJECT(m_entryID), "insert_text", G_CALLBACK(HandleEntryOnlyNumInsert), this);
 
     labelSex = gtk_label_new (_("Gender:"));
-    //	gtk_fixed_put (GTK_FIXED (fixedSearch), labelSex, 365, 5);
+    //  gtk_fixed_put (GTK_FIXED (fixedSearch), labelSex, 365, 5);
     gtk_fixed_put (GTK_FIXED (fixedSearch), labelSex, 225, 5);
-    //	gtk_widget_set_size_request (labelSex, 90, 30);
+    //  gtk_widget_set_size_request (labelSex, 90, 30);
     gtk_widget_set_size_request (labelSex, 60, 30);
     gtk_misc_set_alignment (GTK_MISC (labelSex), 0, 0.5);
 
     m_comboboxSex = gtk_combo_box_new_text();
-    //	gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxSex, 425, 5);
+    //  gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxSex, 425, 5);
     gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxSex, 285, 5);
-    //	gtk_widget_set_size_request(m_comboboxSex, 90, 30);
+    //  gtk_widget_set_size_request(m_comboboxSex, 90, 30);
     gtk_widget_set_size_request(m_comboboxSex, 70, 30);
     gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("All"));
 #ifdef VET
@@ -388,69 +380,69 @@ void ViewArchive::CreateWindow(void)
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxSpecies), 0);
 #else
 
-	labelID = gtk_label_new (_("ID:"));
-	gtk_fixed_put (GTK_FIXED (fixedSearch), labelID, 8, 5);
-	gtk_widget_set_size_request (labelID, 90-12, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelID), 0, 0.5);
+    labelID = gtk_label_new (_("ID:"));
+    gtk_fixed_put (GTK_FIXED (fixedSearch), labelID, 8, 5);
+    gtk_widget_set_size_request (labelID, 90-12, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelID), 0, 0.5);
 
-	m_entryID = gtk_entry_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryID, 100-12, 5);
-	gtk_widget_set_size_request (m_entryID, 240, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entryID), 8226);
-	g_signal_connect(G_OBJECT(m_entryID), "insert_text", G_CALLBACK(HandleEntryOnlyNumInsert), this);
+    m_entryID = gtk_entry_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryID, 100-12, 5);
+    gtk_widget_set_size_request (m_entryID, 240, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entryID), 8226);
+    g_signal_connect(G_OBJECT(m_entryID), "insert_text", G_CALLBACK(HandleEntryOnlyNumInsert), this);
 
    labelSex = gtk_label_new (_("Gender:"));
-	gtk_fixed_put (GTK_FIXED (fixedSearch), labelSex, 365, 5);
-	gtk_widget_set_size_request (labelSex, 90, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelSex), 0, 0.5);
+    gtk_fixed_put (GTK_FIXED (fixedSearch), labelSex, 365, 5);
+    gtk_widget_set_size_request (labelSex, 90, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelSex), 0, 0.5);
 
-	m_comboboxSex = gtk_combo_box_new_text();
-	gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxSex, 425, 5);
-	gtk_widget_set_size_request(m_comboboxSex, 90, 30);
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("All"));
+    m_comboboxSex = gtk_combo_box_new_text();
+    gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxSex, 425, 5);
+    gtk_widget_set_size_request(m_comboboxSex, 90, 30);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("All"));
 #ifdef VET
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Female "));
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Male "));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Female "));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Male "));
 #else
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Female"));
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Male"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Female"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Male"));
 #endif
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Other"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxSex), _("Other"));
 
-	labelName = gtk_label_new (_("Name:"));
-	gtk_fixed_put (GTK_FIXED (fixedSearch), labelName, 8, 40);
-	gtk_widget_set_size_request (labelName, 90-12, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelName), 0, 0.5);
+    labelName = gtk_label_new (_("Name:"));
+    gtk_fixed_put (GTK_FIXED (fixedSearch), labelName, 8, 40);
+    gtk_widget_set_size_request (labelName, 90-12, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelName), 0, 0.5);
 
-	m_entryName = gtk_entry_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryName, 100-12, 40);
-	gtk_widget_set_size_request (m_entryName, 250-10, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entryName), 8226);
-	//gtk_entry_set_visible_char (GTK_ENTRY (m_entryName), 2);
+    m_entryName = gtk_entry_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryName, 100-12, 40);
+    gtk_widget_set_size_request (m_entryName, 250-10, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entryName), 8226);
+    //gtk_entry_set_visible_char (GTK_ENTRY (m_entryName), 2);
 
-	labelAge = gtk_label_new (_("Age:"));
-	gtk_fixed_put (GTK_FIXED (fixedSearch), labelAge, 365, 40);
-	gtk_widget_set_size_request (labelAge, 60, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelAge), 0, 0.5);
+    labelAge = gtk_label_new (_("Age:"));
+    gtk_fixed_put (GTK_FIXED (fixedSearch), labelAge, 365, 40);
+    gtk_widget_set_size_request (labelAge, 60, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelAge), 0, 0.5);
 
-	m_entryAge = gtk_entry_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryAge, 425, 40);
-	gtk_widget_set_size_request (m_entryAge, 35, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entryAge), 8226);
-	g_signal_connect(G_OBJECT(m_entryAge), "insert_text", G_CALLBACK(HandleEntryOnlyNumInsert), this);
+    m_entryAge = gtk_entry_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSearch), m_entryAge, 425, 40);
+    gtk_widget_set_size_request (m_entryAge, 35, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entryAge), 8226);
+    g_signal_connect(G_OBJECT(m_entryAge), "insert_text", G_CALLBACK(HandleEntryOnlyNumInsert), this);
 
-	m_comboboxAgeUnit = gtk_combo_box_new_text();
-	gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxAgeUnit, 460, 40);
-	gtk_widget_set_size_request(m_comboboxAgeUnit, 55, 30);
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("Y"));
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("M"));
-	gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("D"));
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAgeUnit), 0);
+    m_comboboxAgeUnit = gtk_combo_box_new_text();
+    gtk_fixed_put(GTK_FIXED(fixedSearch), m_comboboxAgeUnit, 460, 40);
+    gtk_widget_set_size_request(m_comboboxAgeUnit, 55, 30);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("Y"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("M"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(m_comboboxAgeUnit), _("D"));
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAgeUnit), 0);
 #endif
-	labelDateStart = gtk_label_new (_("Date Start:"));
-	gtk_fixed_put (GTK_FIXED (fixedSearch), labelDateStart, 8, 75);
-	gtk_widget_set_size_request (labelDateStart, 90-12, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelDateStart), 0, 0.5);
+    labelDateStart = gtk_label_new (_("Date Start:"));
+    gtk_fixed_put (GTK_FIXED (fixedSearch), labelDateStart, 8, 75);
+    gtk_widget_set_size_request (labelDateStart, 90-12, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelDateStart), 0, 0.5);
 
     labelDateEnd = gtk_label_new (_("Date End:"));
     gtk_fixed_put (GTK_FIXED (fixedSearch), labelDateEnd, 8, 110);
@@ -668,80 +660,80 @@ void ViewArchive::CreateWindow(void)
     gtk_widget_set_size_request (eventboxCalendarEnd, 40, 30);
     gtk_container_add (GTK_CONTAINER (eventboxCalendarEnd), imgCalendarEnd);
     gtk_fixed_put (GTK_FIXED (fixedSearch), eventboxCalendarEnd, 243+30-12, 112);
-	g_signal_connect (G_OBJECT (eventboxCalendarEnd),
-			"button_press_event",
-			G_CALLBACK (HandleEventBoxCalendarEndPress),
-			this);
+    g_signal_connect (G_OBJECT (eventboxCalendarEnd),
+            "button_press_event",
+            G_CALLBACK (HandleEventBoxCalendarEndPress),
+            this);
 
-	btnClear = gtk_button_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSearch), btnClear, 310, 80);
-	gtk_widget_set_size_request (btnClear, 100, 60);
-	g_signal_connect(G_OBJECT(btnClear), "clicked", G_CALLBACK(HandleBtnClearClicked), this);
+    btnClear = gtk_button_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSearch), btnClear, 310, 80);
+    gtk_widget_set_size_request (btnClear, 100, 60);
+    g_signal_connect(G_OBJECT(btnClear), "clicked", G_CALLBACK(HandleBtnClearClicked), this);
 
-	alignmentBtnClear = gtk_alignment_new (0.5, 0.5, 0, 0);
-	gtk_container_add (GTK_CONTAINER (btnClear), alignmentBtnClear);
+    alignmentBtnClear = gtk_alignment_new (0.5, 0.5, 0, 0);
+    gtk_container_add (GTK_CONTAINER (btnClear), alignmentBtnClear);
 
-	hboxBtnClear = gtk_hbox_new (FALSE, 2);
-	gtk_container_add (GTK_CONTAINER (alignmentBtnClear), hboxBtnClear);
+    hboxBtnClear = gtk_hbox_new (FALSE, 2);
+    gtk_container_add (GTK_CONTAINER (alignmentBtnClear), hboxBtnClear);
 
-	imgBtnClear = gtk_image_new_from_stock ("gtk-clear", GTK_ICON_SIZE_BUTTON);
-	gtk_box_pack_start (GTK_BOX (hboxBtnClear), imgBtnClear, FALSE, FALSE, 0);
+    imgBtnClear = gtk_image_new_from_stock ("gtk-clear", GTK_ICON_SIZE_BUTTON);
+    gtk_box_pack_start (GTK_BOX (hboxBtnClear), imgBtnClear, FALSE, FALSE, 0);
 
-	labelBtnClear = gtk_label_new_with_mnemonic (_("Clear"));
-	gtk_box_pack_start (GTK_BOX (hboxBtnClear), labelBtnClear, FALSE, FALSE, 0);
+    labelBtnClear = gtk_label_new_with_mnemonic (_("Clear"));
+    gtk_box_pack_start (GTK_BOX (hboxBtnClear), labelBtnClear, FALSE, FALSE, 0);
 
-	btnSearch = gtk_button_new ();
-	gtk_fixed_put (GTK_FIXED (fixedSearch), btnSearch, 420, 80);
-	gtk_widget_set_size_request (btnSearch, 100, 60);
-	g_signal_connect(G_OBJECT(btnSearch), "clicked", G_CALLBACK(HandleBtnSearchClicked), this);
+    btnSearch = gtk_button_new ();
+    gtk_fixed_put (GTK_FIXED (fixedSearch), btnSearch, 420, 80);
+    gtk_widget_set_size_request (btnSearch, 100, 60);
+    g_signal_connect(G_OBJECT(btnSearch), "clicked", G_CALLBACK(HandleBtnSearchClicked), this);
 
-	alignmentBtnSearch = gtk_alignment_new (0.5, 0.5, 0, 0);
-	gtk_container_add (GTK_CONTAINER (btnSearch), alignmentBtnSearch);
+    alignmentBtnSearch = gtk_alignment_new (0.5, 0.5, 0, 0);
+    gtk_container_add (GTK_CONTAINER (btnSearch), alignmentBtnSearch);
 
-	hboxBtnSearch = gtk_hbox_new (FALSE, 2);
-	gtk_container_add (GTK_CONTAINER (alignmentBtnSearch), hboxBtnSearch);
+    hboxBtnSearch = gtk_hbox_new (FALSE, 2);
+    gtk_container_add (GTK_CONTAINER (alignmentBtnSearch), hboxBtnSearch);
 
-	imgSearch = gtk_image_new_from_stock ("gtk-find", GTK_ICON_SIZE_BUTTON);
-	gtk_box_pack_start (GTK_BOX (hboxBtnSearch), imgSearch, FALSE, FALSE, 0);
+    imgSearch = gtk_image_new_from_stock ("gtk-find", GTK_ICON_SIZE_BUTTON);
+    gtk_box_pack_start (GTK_BOX (hboxBtnSearch), imgSearch, FALSE, FALSE, 0);
 
-	labelBtnSearch = gtk_label_new_with_mnemonic (_("Search"));
-	gtk_box_pack_start (GTK_BOX (hboxBtnSearch), labelBtnSearch, FALSE, FALSE, 0);
+    labelBtnSearch = gtk_label_new_with_mnemonic (_("Search"));
+    gtk_box_pack_start (GTK_BOX (hboxBtnSearch), labelBtnSearch, FALSE, FALSE, 0);
 
-	labelSearch = gtk_label_new (_("<b>Search</b>"));
-	gtk_frame_set_label_widget (GTK_FRAME (frameSearch), labelSearch);
-	gtk_label_set_use_markup (GTK_LABEL (labelSearch), TRUE);
+    labelSearch = gtk_label_new (_("<b>Search</b>"));
+    gtk_frame_set_label_widget (GTK_FRAME (frameSearch), labelSearch);
+    gtk_label_set_use_markup (GTK_LABEL (labelSearch), TRUE);
 
-	//create quick search area
-	frameQSearch = gtk_frame_new (NULL);
-	gtk_fixed_put (GTK_FIXED (fixedWin), frameQSearch, 800, 20);
-	gtk_widget_set_size_request (frameQSearch, 200, 170);
-	gtk_frame_set_shadow_type (GTK_FRAME (frameQSearch), GTK_SHADOW_ETCHED_OUT);
+    //create quick search area
+    frameQSearch = gtk_frame_new (NULL);
+    gtk_fixed_put (GTK_FIXED (fixedWin), frameQSearch, 800, 20);
+    gtk_widget_set_size_request (frameQSearch, 200, 170);
+    gtk_frame_set_shadow_type (GTK_FRAME (frameQSearch), GTK_SHADOW_ETCHED_OUT);
 
-	labelQSearch = gtk_label_new (_("<b>Quick Search</b>"));
-	gtk_frame_set_label_widget (GTK_FRAME (frameQSearch), labelQSearch);
-	gtk_label_set_use_markup (GTK_LABEL (labelQSearch), TRUE);
+    labelQSearch = gtk_label_new (_("<b>Quick Search</b>"));
+    gtk_frame_set_label_widget (GTK_FRAME (frameQSearch), labelQSearch);
+    gtk_label_set_use_markup (GTK_LABEL (labelQSearch), TRUE);
 
-	alignmentQSearch = gtk_alignment_new (0.5, 0.5, 1, 1);
-	gtk_container_add (GTK_CONTAINER (frameQSearch), alignmentQSearch);
-	gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentQSearch), 0, 0, 12, 0);
+    alignmentQSearch = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_container_add (GTK_CONTAINER (frameQSearch), alignmentQSearch);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignmentQSearch), 0, 0, 12, 0);
 
-	fixedQSearch = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (alignmentQSearch), fixedQSearch);
+    fixedQSearch = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (alignmentQSearch), fixedQSearch);
 
-	labelQSearchMode = gtk_label_new (_("Select Method:"));
-	gtk_fixed_put (GTK_FIXED (fixedQSearch), labelQSearchMode, 5, 16);
-	gtk_widget_set_size_request (labelQSearchMode, 160, 30);
-	gtk_misc_set_alignment (GTK_MISC (labelQSearchMode), 0, 0.5);
+    labelQSearchMode = gtk_label_new (_("Select Method:"));
+    gtk_fixed_put (GTK_FIXED (fixedQSearch), labelQSearchMode, 5, 16);
+    gtk_widget_set_size_request (labelQSearchMode, 160, 30);
+    gtk_misc_set_alignment (GTK_MISC (labelQSearchMode), 0, 0.5);
 
-	comboboxQSearch = gtk_combo_box_new_text ();
-	gtk_fixed_put (GTK_FIXED (fixedQSearch), comboboxQSearch, 5, 56);
-	gtk_widget_set_size_request (comboboxQSearch, 160, 30);
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show All"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Today"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Three Days"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Week"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Month"));
-	g_signal_connect(G_OBJECT(comboboxQSearch), "changed", G_CALLBACK(HandleComboQSearch), this);
+    comboboxQSearch = gtk_combo_box_new_text ();
+    gtk_fixed_put (GTK_FIXED (fixedQSearch), comboboxQSearch, 5, 56);
+    gtk_widget_set_size_request (comboboxQSearch, 160, 30);
+    gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show All"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Today"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Three Days"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Week"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxQSearch), _("Show Latest Month"));
+    g_signal_connect(G_OBJECT(comboboxQSearch), "changed", G_CALLBACK(HandleComboQSearch), this);
 
 #ifdef EMP_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
@@ -774,11 +766,11 @@ void ViewArchive::CreateWindow(void)
         gtk_fixed_put (GTK_FIXED (fixedWin), btnUnselectAll, 20, 410-30);
         g_signal_connect(G_OBJECT(btnUnselectAll), "clicked", G_CALLBACK(HandleBtnUnselectAllClicked), this);
 
-		DicomSend::GetInstance()->createPopup(_("DICOM Server"),ViewArchive::HandleBtnSendDicomClicked);
+        DicomSend::GetInstance()->createPopup(_("DICOM Server"),ViewArchive::HandleBtnSendDicomClicked);
 
-	 	DicomSend::GetInstance()->createPopup(_("DICOM Printer"),DicomSendPrinter::HandleDicomSendPrinterClicked);
+        DicomSend::GetInstance()->createPopup(_("DICOM Printer"),DicomSendPrinter::HandleDicomSendPrinterClicked);
 
-		labelSend = gtk_label_new_with_mnemonic (_("SendTo DICOM"));
+        labelSend = gtk_label_new_with_mnemonic (_("SendTo DICOM"));
         imgSend = gtk_image_new_from_stock (GTK_STOCK_REVERT_TO_SAVED, GTK_ICON_SIZE_BUTTON);
         btnSend = create_button_icon(labelSend, imgSend);
         gtk_fixed_put (GTK_FIXED (fixedWin), btnSend, 20, (480-40));
@@ -878,51 +870,51 @@ void ViewArchive::CreateWindow(void)
         g_signal_connect(G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
     }
     //create popup-menu
-	m_menu = gtk_menu_new();
+    m_menu = gtk_menu_new();
 
-	GtkWidget *itemFlash = gtk_menu_item_new_with_label(_("Export to USB storage"));
-	gtk_menu_shell_append(GTK_MENU_SHELL(m_menu), itemFlash);
-	g_signal_connect(G_OBJECT (itemFlash), "activate", G_CALLBACK(HandleMenuItemFlashActivate), this);
-	gtk_widget_show(itemFlash);
+    GtkWidget *itemFlash = gtk_menu_item_new_with_label(_("Export to USB storage"));
+    gtk_menu_shell_append(GTK_MENU_SHELL(m_menu), itemFlash);
+    g_signal_connect(G_OBJECT (itemFlash), "activate", G_CALLBACK(HandleMenuItemFlashActivate), this);
+    gtk_widget_show(itemFlash);
 
-	GtkWidget *itemCD = gtk_menu_item_new_with_label(_("Export to CD/DVD"));
-	gtk_menu_shell_append(GTK_MENU_SHELL(m_menu), itemCD);
-	g_signal_connect(G_OBJECT (itemCD), "activate", G_CALLBACK(HandleMenuItemCDActivate), this);
-	gtk_widget_show(itemCD);
+    GtkWidget *itemCD = gtk_menu_item_new_with_label(_("Export to CD/DVD"));
+    gtk_menu_shell_append(GTK_MENU_SHELL(m_menu), itemCD);
+    g_signal_connect(G_OBJECT (itemCD), "activate", G_CALLBACK(HandleMenuItemCDActivate), this);
+    gtk_widget_show(itemCD);
 
-	//create record area
-	GtkWidget *scrollWin = gtk_scrolled_window_new(NULL, NULL);
-	gtk_fixed_put (GTK_FIXED (fixedWin), scrollWin, 150, 200);
+    //create record area
+    GtkWidget *scrollWin = gtk_scrolled_window_new(NULL, NULL);
+    gtk_fixed_put (GTK_FIXED (fixedWin), scrollWin, 150, 200);
 
-	m_treeview = create_record_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview);
-	gtk_widget_set_size_request (m_treeview, 834, 528);
+    m_treeview = create_record_treeview();
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview);
+    gtk_widget_set_size_request (m_treeview, 834, 528);
 
-	//create preivew
-	m_framePreview = CreatePreview();
-	gtk_fixed_put (GTK_FIXED (fixedWin), m_framePreview, 150, 620);
+    //create preivew
+    m_framePreview = CreatePreview();
+    gtk_fixed_put (GTK_FIXED (fixedWin), m_framePreview, 150, 620);
 
-	gtk_widget_show_all (m_window);
-	gtk_widget_hide_all (m_framePreview);
+    gtk_widget_show_all (m_window);
+    gtk_widget_hide_all (m_framePreview);
 
-	g_keyInterface.Push(this);
-	SetSystemCursorToCenter();
+    g_keyInterface.Push(this);
+    SetSystemCursorToCenter();
 }
 
 void ViewArchive::DestroyWindow(void)
 {
-	ClearPreview();
+    ClearPreview();
 
-	if(GTK_IS_WIDGET(m_window))
-	{
-		g_keyInterface.Pop();
-		gtk_widget_destroy(m_window);
-		DicomSend::GetInstance()->destroyItem();
+    if(GTK_IS_WIDGET(m_window))
+    {
+        g_keyInterface.Pop();
+        gtk_widget_destroy(m_window);
+        DicomSend::GetInstance()->destroyItem();
 
-		if (g_keyInterface.Size() == 1)
-			SetSystemCursor(SYSCURSOR_X, SYSCUROSR_Y);
+        if (g_keyInterface.Size() == 1)
+            SetSystemCursor(SYSCURSOR_X, SYSCUROSR_Y);
         m_window = NULL;
-	}
+    }
 }
 
 static gboolean ExitWindow(gpointer data)
@@ -935,45 +927,45 @@ static gboolean ExitWindow(gpointer data)
 
 void ViewArchive::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-		case KEY_ARCHIVE:
-		    g_timeout_add(100, ExitWindow, this);
-		    FakeEscKey();
-		    break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+        case KEY_ARCHIVE:
+            g_timeout_add(100, ExitWindow, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 
 void ViewArchive::DisplaySearchResult(vector<Database::NewPatSearchResult> &Result)
 {
-	int len = Result.size();
-	int i;
-	GtkTreeModel *model;
+    int len = Result.size();
+    int i;
+    GtkTreeModel *model;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
-	gtk_list_store_clear(GTK_LIST_STORE(model));
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
 
-	for (i = 0; i < len; i ++)
-	{
+    for (i = 0; i < len; i ++)
+    {
         /*
 #ifdef VET
-		cout << "name =" << Result[i].animal_name << endl;
-		cout << "id = " << Result[i].ID << endl;
-		cout << "sex = " << Result[i].gender << endl;
-		cout << "examDate = " << Result[i].examDate << endl;
-		cout << "examType = " << Result[i].examType << endl;
+        cout << "name =" << Result[i].animal_name << endl;
+        cout << "id = " << Result[i].ID << endl;
+        cout << "sex = " << Result[i].gender << endl;
+        cout << "examDate = " << Result[i].examDate << endl;
+        cout << "examType = " << Result[i].examType << endl;
 #else
-		cout << "name =" << Result[i].name << endl;
-		cout << "id = " << Result[i].ID << endl;
-		cout << "sex = " << Result[i].gender << endl;
-		cout << "examDate = " << Result[i].examDate << endl;
-		cout << "examType = " << Result[i].examType << endl;
+        cout << "name =" << Result[i].name << endl;
+        cout << "id = " << Result[i].ID << endl;
+        cout << "sex = " << Result[i].gender << endl;
+        cout << "examDate = " << Result[i].examDate << endl;
+        cout << "examType = " << Result[i].examType << endl;
 #endif
         */
 #ifndef VET
@@ -985,8 +977,8 @@ void ViewArchive::DisplaySearchResult(vector<Database::NewPatSearchResult> &Resu
         else
             backupStatus = " ";
 #endif
-		GtkTreeIter iter;
-		gtk_list_store_append(GTK_LIST_STORE(model), &iter);
+        GtkTreeIter iter;
+        gtk_list_store_append(GTK_LIST_STORE(model), &iter);
 
 #ifdef VET
         gtk_list_store_set(GTK_LIST_STORE(model), &iter,
@@ -1017,24 +1009,24 @@ void ViewArchive::DisplaySearchResult(vector<Database::NewPatSearchResult> &Resu
                 -1);
 
 #endif
-	}
+    }
 }
 
 void ViewArchive::GetTimeBefore(int daysBefore, int &year, int &mon, int &day)
 {
-	string sYear, sMon, sDay;
+    string sYear, sMon, sDay;
 
-	time_t now;
-	time(&now);
+    time_t now;
+    time(&now);
 
-	now -= daysBefore*24*60*60;
+    now -= daysBefore*24*60*60;
 
-	struct tm* ct;
-	ct = localtime(&now);
+    struct tm* ct;
+    ct = localtime(&now);
 
-	year = ct->tm_year + 1900;
-	mon = ct->tm_mon + 1;
-	day = ct->tm_mday;
+    year = ct->tm_year + 1900;
+    mon = ct->tm_mon + 1;
+    day = ct->tm_mday;
 }
 
 /*
@@ -1045,180 +1037,180 @@ void ViewArchive::GetTimeBefore(int daysBefore, int &year, int &mon, int &day)
  */
 void ViewArchive::FillDiskSpace(void)
 {
-	// get disk type
-	const char* path = STORE_PATH;
+    // get disk type
+    const char* path = STORE_PATH;
 #if 0
-	int diskType;
-	diskType = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSource));
-	if (diskType == -1)
-	{
-		PRINTF("Invalid disk type\n");
-		return;
-	}
+    int diskType;
+    diskType = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSource));
+    if (diskType == -1)
+    {
+        PRINTF("Invalid disk type\n");
+        return;
+    }
 
-	const char* path = "/mnt/harddisk";
-	if (diskType == HARDDISK)
-		path = "/mnt/harddisk";
-		//path = "/boot";
-	else if (diskType == FLASH)
-		path = "/mnt/udisk";
-//		path = "/media/disk";
-		//path = "/home";
+    const char* path = "/mnt/harddisk";
+    if (diskType == HARDDISK)
+        path = "/mnt/harddisk";
+        //path = "/boot";
+    else if (diskType == FLASH)
+        path = "/mnt/udisk";
+//      path = "/media/disk";
+        //path = "/home";
 #endif
 
-//	PRINTF("DISK space: path = %s\n", path);
-	// get disk space
-	struct statfs stat;
-	if (statfs(path, &stat) == -1)
-	{
-		perror("statfs error:");
-		return;
-	}
+//  PRINTF("DISK space: path = %s\n", path);
+    // get disk space
+    struct statfs stat;
+    if (statfs(path, &stat) == -1)
+    {
+        perror("statfs error:");
+        return;
+    }
 
-	//PRINTF("+++++++++++++++++++++total blocks = %ld, free block = %ld, avail block = %ld, size of block size = %d\n", stat.f_blocks, stat.f_bfree, stat.f_bavail, stat.f_bsize);
-	unsigned long totalSize;
-	unsigned long availSize;
-	float devide = 1.0;
-	gchar buf[100];
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobtnKb))) //Kb
-	{
-		devide = 1024;
-		totalSize = stat.f_blocks / devide * stat.f_bsize;
-		availSize = stat.f_bavail / devide * stat.f_bsize;
+    //PRINTF("+++++++++++++++++++++total blocks = %ld, free block = %ld, avail block = %ld, size of block size = %d\n", stat.f_blocks, stat.f_bfree, stat.f_bavail, stat.f_bsize);
+    unsigned long totalSize;
+    unsigned long availSize;
+    float devide = 1.0;
+    gchar buf[100];
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobtnKb))) //Kb
+    {
+        devide = 1024;
+        totalSize = stat.f_blocks / devide * stat.f_bsize;
+        availSize = stat.f_bavail / devide * stat.f_bsize;
 
-		// display
-		sprintf(buf, "%ld KB\n", totalSize);
-		gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
-		sprintf(buf, "%ld KB\n", availSize);
-		gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
-	}
-	else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobtnMb))) //Mb
-	{
-		devide = 1024*1024;
-		totalSize = stat.f_blocks / devide * stat.f_bsize;
-		availSize = stat.f_bavail / devide * stat.f_bsize;
+        // display
+        sprintf(buf, "%ld KB\n", totalSize);
+        gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
+        sprintf(buf, "%ld KB\n", availSize);
+        gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
+    }
+    else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobtnMb))) //Mb
+    {
+        devide = 1024*1024;
+        totalSize = stat.f_blocks / devide * stat.f_bsize;
+        availSize = stat.f_bavail / devide * stat.f_bsize;
 
-		// display
-		sprintf(buf, "%ld MB\n", totalSize);
-		gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
-		sprintf(buf, "%ld MB\n", availSize);
-		gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
-	}
-	else //Gb
-	{
-		devide = 1024*1024*1024;
-		totalSize = stat.f_blocks / devide * stat.f_bsize;
-		availSize = stat.f_bavail / devide * stat.f_bsize;
+        // display
+        sprintf(buf, "%ld MB\n", totalSize);
+        gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
+        sprintf(buf, "%ld MB\n", availSize);
+        gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
+    }
+    else //Gb
+    {
+        devide = 1024*1024*1024;
+        totalSize = stat.f_blocks / devide * stat.f_bsize;
+        availSize = stat.f_bavail / devide * stat.f_bsize;
 
-		// display
-		sprintf(buf, "%ld GB\n", totalSize);
-		gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
-		sprintf(buf, "%ld GB\n", availSize);
-		gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
-	}
+        // display
+        sprintf(buf, "%ld GB\n", totalSize);
+        gtk_label_set_text(GTK_LABEL(m_labelEndtalSize), buf);
+        sprintf(buf, "%ld GB\n", availSize);
+        gtk_label_set_text(GTK_LABEL(m_labelFreeSize), buf);
+    }
 
-	gdouble fraction = (totalSize - availSize ) / (gdouble)totalSize;
-	sprintf(buf, "%d%%\n", (int)(fraction*100));
-	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(m_progressbarSource), fraction);
-	gtk_progress_bar_set_text(GTK_PROGRESS_BAR(m_progressbarSource), buf);
+    gdouble fraction = (totalSize - availSize ) / (gdouble)totalSize;
+    sprintf(buf, "%d%%\n", (int)(fraction*100));
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(m_progressbarSource), fraction);
+    gtk_progress_bar_set_text(GTK_PROGRESS_BAR(m_progressbarSource), buf);
 
 }
 void ViewArchive::EventBoxCalendarStartPress(GtkWidget *widget, GdkEventButton *event)
 {
-	ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
+    ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
 }
 
 void ViewArchive::EventBoxCalendarEndPress(GtkWidget *widget, GdkEventButton *event)
 {
-	ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::END, this);
+    ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::END, this);
 }
 
 #if 1
 static gboolean LoadUdiskData(gpointer data)
 {
-	PeripheralMan *ptr = PeripheralMan::GetInstance();
+    PeripheralMan *ptr = PeripheralMan::GetInstance();
 
-	if(!ptr->CheckUsbStorageState())
-	{
-		ViewDialog::GetInstance()->Destroy();
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
-				ViewDialog::ERROR,
-				_("No USB storage is found!"),
-				NULL);
-		return FALSE;
-	}
-	else
-	{
-		if(!ptr->MountUsbStorage())
-		{
-			ViewDialog::GetInstance()->Destroy();
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
-					ViewDialog::ERROR,
-					_("Failed to mount USB storage!"),
-					NULL);
-			return FALSE;
-		}
-	}
+    if(!ptr->CheckUsbStorageState())
+    {
+        ViewDialog::GetInstance()->Destroy();
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                ViewDialog::ERROR,
+                _("No USB storage is found!"),
+                NULL);
+        return FALSE;
+    }
+    else
+    {
+        if(!ptr->MountUsbStorage())
+        {
+            ViewDialog::GetInstance()->Destroy();
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::ERROR,
+                    _("Failed to mount USB storage!"),
+                    NULL);
+            return FALSE;
+        }
+    }
 
-	//copy show image/cine to harddisk
-	char *src = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, NULL);
-	char *dest = g_build_path(G_DIR_SEPARATOR_S, SLIDE_PATH, NULL);
-	FileMan fm;
-	fm.DelDirectory(dest);
-	int ret = fm.CopyDirectory(src, dest);
-	g_free(src);
-	g_free(dest);
-	ptr->UmountUsbStorage();
-	ViewDialog::GetInstance()->Destroy();
-	if(ret < 0)
-	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
-				ViewDialog::INFO,
-				_("Failed to load data from USB storage!"),
-				NULL);
-		return FALSE;
-	}
+    //copy show image/cine to harddisk
+    char *src = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, NULL);
+    char *dest = g_build_path(G_DIR_SEPARATOR_S, SLIDE_PATH, NULL);
+    FileMan fm;
+    fm.DelDirectory(dest);
+    int ret = fm.CopyDirectory(src, dest);
+    g_free(src);
+    g_free(dest);
+    ptr->UmountUsbStorage();
+    ViewDialog::GetInstance()->Destroy();
+    if(ret < 0)
+    {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                ViewDialog::INFO,
+                _("Failed to load data from USB storage!"),
+                NULL);
+        return FALSE;
+    }
 
-	vector<string> vecPatExamID;
-	vecPatExamID.clear();
-	ViewArchiveImgMan::GetInstance()->CreateWindow(vecPatExamID);
+    vector<string> vecPatExamID;
+    vecPatExamID.clear();
+    ViewArchiveImgMan::GetInstance()->CreateWindow(vecPatExamID);
 
-	return FALSE;
+    return FALSE;
 }
 #endif
 
 void SelectUdiskData(void)
 {
-	PeripheralMan *ptr = PeripheralMan::GetInstance();
+    PeripheralMan *ptr = PeripheralMan::GetInstance();
 
-	if(!ptr->CheckUsbStorageState())
-	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
-				ViewDialog::ERROR,
-				_("No USB storage is found!"),
-				NULL);
-		return;
-	}
-	else
-	{
-		if(!ptr->MountUsbStorage())
-		{
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
-					ViewDialog::ERROR,
-					_("Failed to mount USB storage!"),
-					NULL);
-			return;
-		}
-	}
+    if(!ptr->CheckUsbStorageState())
+    {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                ViewDialog::ERROR,
+                _("No USB storage is found!"),
+                NULL);
+        return;
+    }
+    else
+    {
+        if(!ptr->MountUsbStorage())
+        {
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
+                    ViewDialog::ERROR,
+                    _("Failed to mount USB storage!"),
+                    NULL);
+            return;
+        }
+    }
 
-	ViewUdiskDataSelect::GetInstance()->CreateWindow(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()));
+    ViewUdiskDataSelect::GetInstance()->CreateWindow(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()));
 
-	ptr->UmountUsbStorage();
+    ptr->UmountUsbStorage();
 }
 
 void ViewArchive::BtnUdiskClicked(GtkButton *button)
 {
-	SelectUdiskData();
+    SelectUdiskData();
 
 #ifdef EMP_3410
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[0]))
@@ -1236,17 +1228,17 @@ void ViewArchive::BtnUdiskClicked(GtkButton *button)
 
 void ViewArchive::BtnClearClicked(GtkButton *button)
 {
-	gtk_entry_set_text(GTK_ENTRY(m_entryID), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryName), "");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxSex), -1);
-	gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAgeUnit), 0);
-	gtk_entry_set_text(GTK_ENTRY(m_entryYearStart), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryMonthStart), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryDayStart), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryYearEnd), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryMonthEnd), "");
-	gtk_entry_set_text(GTK_ENTRY(m_entryDayEnd), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryID), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryName), "");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxSex), -1);
+    gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAgeUnit), 0);
+    gtk_entry_set_text(GTK_ENTRY(m_entryYearStart), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryMonthStart), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryDayStart), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryYearEnd), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryMonthEnd), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryDayEnd), "");
 #ifdef VET
     //clear  Owner,species,Gender
     gtk_entry_set_text(GTK_ENTRY(m_entryOwnerName),"");
@@ -1263,10 +1255,10 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
     if (combQItem != -1)
         gtk_combo_box_set_active(GTK_COMBO_BOX (comboboxQSearch),-1); //设置"快速搜索"方式为null
 
-	// get search conditions
-	Database::NewPatSearchTerm searchInfo;
-	GetEntryTextForDB(m_entryID, searchInfo.id);
-//	GetEntryTextForDB(m_entryName, searchInfo.totalName);
+    // get search conditions
+    Database::NewPatSearchTerm searchInfo;
+    GetEntryTextForDB(m_entryID, searchInfo.id);
+//  GetEntryTextForDB(m_entryName, searchInfo.totalName);
 
 #ifdef VET
     GetEntryTextForDB(m_entryName, searchInfo.animal_name);
@@ -1279,50 +1271,50 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
         sprintf(buf, "%d", species);
     searchInfo.species = buf;
 #else
-	string pat_name;
-	GetEntryTextForDB(m_entryName, pat_name);
-	if (pat_name == "%") {
-		searchInfo.totalName = pat_name;
-	} else {
-		string::size_type pos = 0;
-		while ((pos = pat_name.find_first_of(' ', pos)) != string::npos) {
-			pat_name[pos] = '%';
-			++pos;
-		}
-		searchInfo.totalName = "%" + pat_name + "%";
-	}
+    string pat_name;
+    GetEntryTextForDB(m_entryName, pat_name);
+    if (pat_name == "%") {
+        searchInfo.totalName = pat_name;
+    } else {
+        string::size_type pos = 0;
+        while ((pos = pat_name.find_first_of(' ', pos)) != string::npos) {
+            pat_name[pos] = '%';
+            ++pos;
+        }
+        searchInfo.totalName = "%" + pat_name + "%";
+    }
 #endif
-	int gender;
-	gender = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSex)) - 1;
-	if (gender < 0)
-		sprintf(buf, "%%");
-	else
-		sprintf(buf, "%d", gender);
-	searchInfo.gender = buf;
+    int gender;
+    gender = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSex)) - 1;
+    if (gender < 0)
+        sprintf(buf, "%%");
+    else
+        sprintf(buf, "%d", gender);
+    searchInfo.gender = buf;
 
-	GetEntryTextForDB(m_entryAge, searchInfo.age);
+    GetEntryTextForDB(m_entryAge, searchInfo.age);
         if (searchInfo.age != "%") {
             int ageUnit = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxAgeUnit));
             sprintf(buf, "%d", ageUnit);
         } else {
             sprintf(buf, "%%");
         }
-	searchInfo.ageUnit = buf;
+    searchInfo.ageUnit = buf;
 
-	// examDateBegin
-	string year, mon, day;
-	GetEntryTextForDB(m_entryYearStart, year);
-	if (strcmp(year.c_str(), "%") == 0) //if value is not set
-		year = "0000";
-	GetEntryTextForDB(m_entryMonthStart, mon);
-	if (strcmp(mon.c_str(), "%") == 0)
-		mon = "00";
-	GetEntryTextForDB(m_entryDayStart, day);
-	if (strcmp(day.c_str(), "%") == 0)
-		day = "00";
-	searchInfo.examDateStartYear = year;
-	searchInfo.examDateStartMonth = mon;
-	searchInfo.examDateStartDay = day;
+    // examDateBegin
+    string year, mon, day;
+    GetEntryTextForDB(m_entryYearStart, year);
+    if (strcmp(year.c_str(), "%") == 0) //if value is not set
+        year = "0000";
+    GetEntryTextForDB(m_entryMonthStart, mon);
+    if (strcmp(mon.c_str(), "%") == 0)
+        mon = "00";
+    GetEntryTextForDB(m_entryDayStart, day);
+    if (strcmp(day.c_str(), "%") == 0)
+        day = "00";
+    searchInfo.examDateStartYear = year;
+    searchInfo.examDateStartMonth = mon;
+    searchInfo.examDateStartDay = day;
 
     // examDateEnd
     int iYear, iMon, iDay;
@@ -1353,53 +1345,53 @@ void ViewArchive::BtnSearchClicked(GtkButton *button)
 
 vector<string> ViewArchive::GetSelExamID(void)
 {
-	vector<string> vec;
-	vec.clear();
+    vector<string> vec;
+    vec.clear();
 
-	// get all selected patient's id from tree model
-	GtkTreeModel *model;
-	gboolean exist;
-	GtkTreeIter iter;
-	gboolean isSelect;
-	char* temp;
+    // get all selected patient's id from tree model
+    GtkTreeModel *model;
+    gboolean exist;
+    GtkTreeIter iter;
+    gboolean isSelect;
+    char* temp;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
-	exist = gtk_tree_model_get_iter_first(model, &iter);
-	while(exist)
-	{
-		gtk_tree_model_get(model, &iter, COL_CHECKED, &isSelect, -1);
-		if (isSelect)
-		{
-			//delete from database
-			gtk_tree_model_get(model, &iter, COL_EXAMID, &temp, -1);
-			string examID = temp;
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
+    exist = gtk_tree_model_get_iter_first(model, &iter);
+    while(exist)
+    {
+        gtk_tree_model_get(model, &iter, COL_CHECKED, &isSelect, -1);
+        if (isSelect)
+        {
+            //delete from database
+            gtk_tree_model_get(model, &iter, COL_EXAMID, &temp, -1);
+            string examID = temp;
             //for (int ii = 0; ii <strlen(temp); ii++)
             // printf("select the ID is %c\n",temp[ii]);
-			free(temp);
+            free(temp);
 
-			vec.push_back(examID);
-		}
-		exist = gtk_tree_model_iter_next(model, &iter);
-	}
-	PRINTF("ViewArchive:: size of selected patient is %d\n", vec.size());
+            vec.push_back(examID);
+        }
+        exist = gtk_tree_model_iter_next(model, &iter);
+    }
+    PRINTF("ViewArchive:: size of selected patient is %d\n", vec.size());
 
-	return vec;
+    return vec;
 }
 
 void ViewArchive::BtnDisplayClicked(GtkButton *button)
 {
-	vector<string> vecPatExamID = GetSelExamID();
+    vector<string> vecPatExamID = GetSelExamID();
 
-	// display image management dialog
-	if (vecPatExamID.size() == 0)
-	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No record is selected!"), NULL);
-	}
-	else
-	{
-		ViewArchiveImgMan::GetInstance()->CreateWindow(vecPatExamID);
-		PRINTF("exit ViewArchive.cpp : displayClicked\n");
-	}
+    // display image management dialog
+    if (vecPatExamID.size() == 0)
+    {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No record is selected!"), NULL);
+    }
+    else
+    {
+        ViewArchiveImgMan::GetInstance()->CreateWindow(vecPatExamID);
+        PRINTF("exit ViewArchive.cpp : displayClicked\n");
+    }
 }
 #ifndef VET
 void ViewArchive::BtnQueryRetrieveClicked(GtkButton *button)
@@ -1416,41 +1408,41 @@ void ViewArchive::BtnQueryRetrieveClicked(GtkButton *button)
 #endif
 int SureToDelete(gpointer data)
 {
-	GtkTreeView *treeview;
-	GtkTreeModel *model;
-	gboolean exist;
-	GtkTreeIter iter;
-	gboolean isSelect;
-	char* sid;
+    GtkTreeView *treeview;
+    GtkTreeModel *model;
+    gboolean exist;
+    GtkTreeIter iter;
+    gboolean isSelect;
+    char* sid;
 
-	treeview = GTK_TREE_VIEW(ViewArchive::GetInstance()->GetTreeView());
-	model = gtk_tree_view_get_model(treeview);
-	exist = gtk_tree_model_get_iter_first(model, &iter);
-	while(exist)
-	{
-		gtk_tree_model_get(model, &iter, ViewArchive::COL_CHECKED, &isSelect, -1);
-		if (isSelect)
-		{
-			gtk_tree_model_get(model, &iter, ViewArchive::COL_EXAMID, &sid, -1);
+    treeview = GTK_TREE_VIEW(ViewArchive::GetInstance()->GetTreeView());
+    model = gtk_tree_view_get_model(treeview);
+    exist = gtk_tree_model_get_iter_first(model, &iter);
+    while(exist)
+    {
+        gtk_tree_model_get(model, &iter, ViewArchive::COL_CHECKED, &isSelect, -1);
+        if (isSelect)
+        {
+            gtk_tree_model_get(model, &iter, ViewArchive::COL_EXAMID, &sid, -1);
 
-			//delete from model
-			exist = gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
+            //delete from model
+            exist = gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
 
-			//delete user image
-			char *path = g_build_filename(STORE_PATH, sid, NULL);
-			FileMan fm;
-			if(fm.DelDirectory(path) < 0)
-			{
-				g_free(path);
-				free(sid);
-				continue;
-			}
-			g_free(path);
+            //delete user image
+            char *path = g_build_filename(STORE_PATH, sid, NULL);
+            FileMan fm;
+            if(fm.DelDirectory(path) < 0)
+            {
+                g_free(path);
+                free(sid);
+                continue;
+            }
+            g_free(path);
 
-			//delete from database
-			string examID = sid;
-			Database db;
-			db.DeleteRecord(examID);
+            //delete from database
+            string examID = sid;
+            Database db;
+            db.DeleteRecord(examID);
 
             int studyID = atoi(sid);
             if(CDCMMan::GetMe()->DeleteStudy(studyID))
@@ -1458,18 +1450,18 @@ int SureToDelete(gpointer data)
                 PRINTF("------DeleteStudy successfully\n");
             }
 
-			free(sid);
-		}
-		else
-		{
-			exist = gtk_tree_model_iter_next(model, &iter);
-		}
-	}
+            free(sid);
+        }
+        else
+        {
+            exist = gtk_tree_model_iter_next(model, &iter);
+        }
+    }
 
-	GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
-	ViewArchive::GetInstance()->TreeSelectionChanged(selection);
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
+    ViewArchive::GetInstance()->TreeSelectionChanged(selection);
 
-	return 0;
+    return 0;
 }
 
 /*
@@ -1477,46 +1469,46 @@ int SureToDelete(gpointer data)
  */
 void ViewArchive::BtnDeleteClicked(GtkButton *button)
 {
-	vector<string> vecPatExamID = GetSelExamID();
-	if (vecPatExamID.size() == 0)
-	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No Record is selected!"), NULL);
-	}
-	else
-	{
-		const char* info = N_("Warnning: The patient data will be permanently deleted!\nSure to delete?");
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::QUESTION, _(info), SureToDelete);
-	}
+    vector<string> vecPatExamID = GetSelExamID();
+    if (vecPatExamID.size() == 0)
+    {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No Record is selected!"), NULL);
+    }
+    else
+    {
+        const char* info = N_("Warnning: The patient data will be permanently deleted!\nSure to delete?");
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::QUESTION, _(info), SureToDelete);
+    }
 }
 
 void ViewArchive::BtnSelectAllClicked(GtkButton *button)
 {
-	gboolean valid;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
+    gboolean valid;
+    GtkTreeIter iter;
+    GtkTreeModel *model;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
-	valid = gtk_tree_model_get_iter_first(model, &iter);
-	while(valid)
-	{
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_CHECKED, TRUE, -1);
-		valid = gtk_tree_model_iter_next (model, &iter);
-	}
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
+    valid = gtk_tree_model_get_iter_first(model, &iter);
+    while(valid)
+    {
+        gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_CHECKED, TRUE, -1);
+        valid = gtk_tree_model_iter_next (model, &iter);
+    }
 }
 
 void ViewArchive::BtnUnselectAllClicked(GtkButton *button)
 {
-	gboolean valid;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
+    gboolean valid;
+    GtkTreeIter iter;
+    GtkTreeModel *model;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
-	valid = gtk_tree_model_get_iter_first(model, &iter);
-	while(valid)
-	{
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_CHECKED, FALSE, -1);
-		valid = gtk_tree_model_iter_next (model, &iter);
-	}
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
+    valid = gtk_tree_model_get_iter_first(model, &iter);
+    while(valid)
+    {
+        gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_CHECKED, FALSE, -1);
+        valid = gtk_tree_model_iter_next (model, &iter);
+    }
 }
 
 void ViewArchive::BtnComboboxQSearch(GtkComboBox *combobox)
@@ -1548,45 +1540,45 @@ void ViewArchive::BtnComboboxQSearch(GtkComboBox *combobox)
     searchInfo.examDateEndMonth = sMon;
     searchInfo.examDateEndDay = sDay;
     switch(item)
-	{
-		case -1:
-			return;
-			break;
+    {
+        case -1:
+            return;
+            break;
 
-		case 0: //show all
-			ChangeDateFormatToString(0, 0, 0, sYear, sMon, sDay);
-			break;
+        case 0: //show all
+            ChangeDateFormatToString(0, 0, 0, sYear, sMon, sDay);
+            break;
 
-		case 1: // show today
-			break;
+        case 1: // show today
+            break;
 
         case 2: //show latest three days
-			GetTimeBefore(3, year, mon, day);
-			ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
-			break;
+            GetTimeBefore(3, year, mon, day);
+            ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
+            break;
 
-		case 3: // show latest week
-			//GetTimeBefore(14, year, mon, day);
-			GetTimeBefore(7, year, mon, day);
-			ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
-			break;
+        case 3: // show latest week
+            //GetTimeBefore(14, year, mon, day);
+            GetTimeBefore(7, year, mon, day);
+            ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
+            break;
 
-		case 4: // show latest month
-			GetTimeBefore(30, year, mon, day);
-			ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
-			break;
+        case 4: // show latest month
+            GetTimeBefore(30, year, mon, day);
+            ChangeDateFormatToString(year, mon, day, sYear, sMon, sDay);
+            break;
 
-		default:
-			break;
-	}
-	searchInfo.examDateStartYear = sYear;
-	searchInfo.examDateStartMonth = sMon;
-	searchInfo.examDateStartDay = sDay;
+        default:
+            break;
+    }
+    searchInfo.examDateStartYear = sYear;
+    searchInfo.examDateStartMonth = sMon;
+    searchInfo.examDateStartDay = sDay;
 
-	// search
+    // search
     vector<Database::NewPatSearchResult> dbResult;
-	Database db;
-	db.QuichSearch(searchInfo, dbResult);
+    Database db;
+    db.QuichSearch(searchInfo, dbResult);
 
     //display
     DisplaySearchResult(dbResult);
@@ -1596,16 +1588,16 @@ void ViewArchive::BtnComboboxQSearch(GtkComboBox *combobox)
 #if 0
 void ViewArchive::BtnComboboxSource(GtkComboBox *combobox)
 {
-	FillDiskSpace();
+    FillDiskSpace();
 }
 
 void ViewArchive::BtnToggleKb(GtkToggleButton *toggleButton)
 {
-	FillDiskSpace();
+    FillDiskSpace();
 }
 void ViewArchive::BtnToggleMb(GtkToggleButton *toggleButton)
 {
-	FillDiskSpace();
+    FillDiskSpace();
 }
 #endif
 
@@ -1619,21 +1611,21 @@ static int CancelCopyToFlash(gpointer data)
 
 gboolean SendToDicom(gpointer data)
 {
-	ViewArchive *tmp;
-	tmp = (ViewArchive *)data;
-	tmp->GetSelToDicom();
-	return FALSE;
+    ViewArchive *tmp;
+    tmp = (ViewArchive *)data;
+    tmp->GetSelToDicom();
+    return FALSE;
 }
 
 void ViewArchive::BtnSendClicked()
 {
-	vector<string> vecPatExamID = GetSelExamID();
-	if (vecPatExamID.size() == 0)
-	{
-		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No Record is selected!"), NULL);
-	}
-	else
-	{
+    vector<string> vecPatExamID = GetSelExamID();
+    if (vecPatExamID.size() == 0)
+    {
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No Record is selected!"), NULL);
+    }
+    else
+    {
            // ViewHintDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()), _("Sending..."));
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()),
                 ViewDialog::PRG_CANCEL,
@@ -1646,24 +1638,24 @@ void ViewArchive::BtnSendClicked()
 
 int ViewArchive::BtnExportEvent(GtkWidget *widget, GdkEvent *event)
 {
-	if (event->type == GDK_BUTTON_PRESS) {
-		GdkEventButton *bevent = (GdkEventButton *) event;
-		gtk_menu_popup (GTK_MENU (m_menu), NULL, NULL, NULL, NULL,
-				bevent->button, bevent->time);
-		return TRUE;
-	}
-	return FALSE;
+    if (event->type == GDK_BUTTON_PRESS) {
+        GdkEventButton *bevent = (GdkEventButton *) event;
+        gtk_menu_popup (GTK_MENU (m_menu), NULL, NULL, NULL, NULL,
+                bevent->button, bevent->time);
+        return TRUE;
+    }
+    return FALSE;
 }
 
 int ViewArchive::BtnImportEvent(GtkWidget *widget, GdkEvent *event)
 {
-	if (event->type == GDK_BUTTON_PRESS) {
-		GdkEventButton *bevent = (GdkEventButton *) event;
-		gtk_menu_popup (GTK_MENU (m_menu_udisk), NULL, NULL, NULL, NULL,
-				bevent->button, bevent->time);
-		return TRUE;
-	}
-	return FALSE;
+    if (event->type == GDK_BUTTON_PRESS) {
+        GdkEventButton *bevent = (GdkEventButton *) event;
+        gtk_menu_popup (GTK_MENU (m_menu_udisk), NULL, NULL, NULL, NULL,
+                bevent->button, bevent->time);
+        return TRUE;
+    }
+    return FALSE;
 }
 
 void ViewArchive::BtnExitClicked(GtkButton *button)
@@ -1736,7 +1728,7 @@ void ViewArchive::SetStartDate(int year, int month, int day)
 
 void ViewArchive::SetEndDate(int year, int month, int day)
 {
-	guint i;
+    guint i;
     int pos, iCurrent;
     char tmp[10];
     char str[2];
@@ -1979,27 +1971,27 @@ void ViewArchive::EntryOnlyNumInsert(GtkEditable *editable, gchar *new_text, gin
                 g_signal_stop_emission_by_name((gpointer)editable, "insert_text");
         }
 
-        //	if(!g_ascii_isdigit(*new_text))
-        //		gtk_signal_emit_stop(GTK_OBJECT(editable), g_signal_lookup("insert-text", GTK_TYPE_EDITABLE));
+        //  if(!g_ascii_isdigit(*new_text))
+        //      gtk_signal_emit_stop(GTK_OBJECT(editable), g_signal_lookup("insert-text", GTK_TYPE_EDITABLE));
     }
 }
 
 GtkWidget* ViewArchive::create_record_treeview()
 {
-	GtkWidget *treeview;
+    GtkWidget *treeview;
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
 
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
-	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
 
-	renderer = gtk_cell_renderer_toggle_new ();
-	g_signal_connect (G_OBJECT(renderer), "toggled", G_CALLBACK (HandleToggleRecord), this);
-	column = gtk_tree_view_column_new_with_attributes ("", renderer, "active", COL_CHECKED, NULL);
+    renderer = gtk_cell_renderer_toggle_new ();
+    g_signal_connect (G_OBJECT(renderer), "toggled", G_CALLBACK (HandleToggleRecord), this);
+    column = gtk_tree_view_column_new_with_attributes ("", renderer, "active", COL_CHECKED, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 30, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 30, NULL);
 #ifdef VET
     renderer = gtk_cell_renderer_text_new();
     //column = gtk_tree_view_column_new_with_attributes(_("ID"), renderer, "text", COL_ID, NULL);
@@ -2026,70 +2018,70 @@ GtkWidget* ViewArchive::create_record_treeview()
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Name"), renderer, "text", COL_NAME, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("ID"), renderer, "text", COL_ID, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120+10, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120+10, NULL);
 #endif
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Gender"), renderer, "text", COL_SEX, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 60, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 60, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Date of Birth"), renderer, "text", COL_BIRTHDAY, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width",100, NULL);//80
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width",100, NULL);//80
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Age"), renderer, "text", COL_AGE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 40, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 40, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Exam Date"), renderer, "text", COL_EXAMDATE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
-
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Exam Type"), renderer, "text", COL_EXAMTYPE, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 160,NULL);
-
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Exam ID"),renderer, "text", COL_EXAMID, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
 
     renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Backup Status"),renderer, "text", COL_BACKUPSTATUS, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 130, NULL);
+    column = gtk_tree_view_column_new_with_attributes(_("Exam Type"), renderer, "text", COL_EXAMTYPE, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+    g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 160,NULL);
+
+    renderer = gtk_cell_renderer_text_new();
+    column = gtk_tree_view_column_new_with_attributes(_("Exam ID"),renderer, "text", COL_EXAMID, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+    g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
+
+    renderer = gtk_cell_renderer_text_new();
+    column = gtk_tree_view_column_new_with_attributes(_("Backup Status"),renderer, "text", COL_BACKUPSTATUS, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+    g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 130, NULL);
 
 #if 0
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Doctor"), renderer, "text", COL_DOCTOR, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
 #endif
     model = create_record_model();
     if (model != NULL)
-		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
+        gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
     g_object_unref (model);
 
-	GtkTreeSelection *select;
+    GtkTreeSelection *select;
     select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
     gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
     g_signal_connect(select, "changed", G_CALLBACK(HandleTreeSelectionChanged), this);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* ViewArchive::create_record_model()
 {
-	GtkListStore *store;
+    GtkListStore *store;
  //hlx 2012.1.4
 #ifdef VET
     store = gtk_list_store_new(NUM_COLS,
@@ -2103,95 +2095,95 @@ GtkTreeModel* ViewArchive::create_record_model()
             G_TYPE_STRING,
             G_TYPE_STRING,
             G_TYPE_STRING,
-	         G_TYPE_STRING,
+             G_TYPE_STRING,
             G_TYPE_STRING);
 #else
     store = gtk_list_store_new(NUM_COLS,
-			G_TYPE_BOOLEAN,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING);
+            G_TYPE_BOOLEAN,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING);
 #endif
 #if 0
     GtkTreeIter iter;
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set(store, &iter,
-			   COL_CHECKED, FALSE,
-			   COL_NAME, "James",
-			   COL_ID, "000000",
-			   COL_SEX, "male",
-			   COL_AGE, "30",
-			   COL_EXAMDATE, "2009/10/20",
-			   COL_EXAMTYPE, "OB.",
-			   COL_EXAMID, "1234567890",
-			   COL_DOCTOR, "Kate",
-			   -1);
+    gtk_list_store_append (store, &iter);
+    gtk_list_store_set(store, &iter,
+               COL_CHECKED, FALSE,
+               COL_NAME, "James",
+               COL_ID, "000000",
+               COL_SEX, "male",
+               COL_AGE, "30",
+               COL_EXAMDATE, "2009/10/20",
+               COL_EXAMTYPE, "OB.",
+               COL_EXAMID, "1234567890",
+               COL_DOCTOR, "Kate",
+               -1);
 #endif
 #if 0
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set(store, &iter,
-			   COL_CHECKED, FALSE,
-			   COL_SID, "1",
-			   COL_NAME, "Test",
-			   COL_ID, "000001",
-			   COL_SEX, "male",
-			   COL_AGE, "23",
-			   COL_EXAMDATE, "2009/11/18",
-			   COL_DOCTOR, "Kate",
-			   -1);
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set(store, &iter,
-			   COL_CHECKED, FALSE,
-			   COL_SID, "2",
-			   COL_NAME, "Test",
-			   COL_ID, "000001",
-			   COL_SEX, "male",
-			   COL_AGE, "43",
-			   COL_EXAMDATE, "2009/11/28",
-			   COL_DOCTOR, "Kate",
-			   -1);
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set(store, &iter,
-			   COL_CHECKED, FALSE,
-			   COL_SID, "3",
-			   COL_NAME, "Test",
-			   COL_ID, "000001",
-			   COL_SEX, "male",
-			   COL_AGE, "43",
-			   COL_EXAMDATE, "2009/11/28",
-			   COL_DOCTOR, "Kate",
-			   -1);
+    gtk_list_store_append (store, &iter);
+    gtk_list_store_set(store, &iter,
+               COL_CHECKED, FALSE,
+               COL_SID, "1",
+               COL_NAME, "Test",
+               COL_ID, "000001",
+               COL_SEX, "male",
+               COL_AGE, "23",
+               COL_EXAMDATE, "2009/11/18",
+               COL_DOCTOR, "Kate",
+               -1);
+    gtk_list_store_append (store, &iter);
+    gtk_list_store_set(store, &iter,
+               COL_CHECKED, FALSE,
+               COL_SID, "2",
+               COL_NAME, "Test",
+               COL_ID, "000001",
+               COL_SEX, "male",
+               COL_AGE, "43",
+               COL_EXAMDATE, "2009/11/28",
+               COL_DOCTOR, "Kate",
+               -1);
+    gtk_list_store_append (store, &iter);
+    gtk_list_store_set(store, &iter,
+               COL_CHECKED, FALSE,
+               COL_SID, "3",
+               COL_NAME, "Test",
+               COL_ID, "000001",
+               COL_SEX, "male",
+               COL_AGE, "43",
+               COL_EXAMDATE, "2009/11/28",
+               COL_DOCTOR, "Kate",
+               -1);
 
 #endif
 
-	return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL (store);
 }
 
 void ViewArchive::ToggleRecord(GtkCellRendererToggle *cell, gchar *path_str)
 {
-	GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(m_treeview));
-	GtkTreeIter  iter;
-	GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
-	gboolean checked;
+    GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(m_treeview));
+    GtkTreeIter  iter;
+    GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
+    gboolean checked;
 
-	/* get toggled iter */
-	gtk_tree_model_get_iter (model, &iter, path);
-	gtk_tree_model_get (model, &iter, COL_CHECKED, &checked, -1);
+    /* get toggled iter */
+    gtk_tree_model_get_iter (model, &iter, path);
+    gtk_tree_model_get (model, &iter, COL_CHECKED, &checked, -1);
 
-	/* do something with the value */
-	checked ^= 1; //按位异或
+    /* do something with the value */
+    checked ^= 1; //按位异或
 
-	/* set new value */
-	gtk_list_store_set (GTK_LIST_STORE (model), &iter, COL_CHECKED, checked, -1);
+    /* set new value */
+    gtk_list_store_set (GTK_LIST_STORE (model), &iter, COL_CHECKED, checked, -1);
 
-	/* clean up */
-	gtk_tree_path_free (path);
+    /* clean up */
+    gtk_tree_path_free (path);
 }
 
 void ViewArchive::MenuItemFlashActivate(GtkMenuItem *menuitem)
@@ -2199,41 +2191,41 @@ void ViewArchive::MenuItemFlashActivate(GtkMenuItem *menuitem)
     //GetSelToFlash();
     //和光盘做一样的处理，出现文件选择框
     vector<string> vec;
-	gboolean valid;
-	gboolean value;
-	gchar *sid;
+    gboolean valid;
+    gboolean value;
+    gchar *sid;
     gchar *name;
     gchar *id;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreeModel *model;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
-	valid = gtk_tree_model_get_iter_first(model, &iter);
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview));
+    valid = gtk_tree_model_get_iter_first(model, &iter);
 
     char name_id[256] = {0};
     m_vecCheckId.clear();
     m_vecFlashItem.clear();
-	vec.clear();
-	while(valid)
-	{
-		gtk_tree_model_get(model, &iter, COL_CHECKED, &value, -1);
-		if(value)
-		{
-			gtk_tree_model_get(model, &iter, COL_EXAMID, &sid, -1);
-			gtk_tree_model_get(model, &iter, COL_NAME, &name, -1);
-			gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
+    vec.clear();
+    while(valid)
+    {
+        gtk_tree_model_get(model, &iter, COL_CHECKED, &value, -1);
+        if(value)
+        {
+            gtk_tree_model_get(model, &iter, COL_EXAMID, &sid, -1);
+            gtk_tree_model_get(model, &iter, COL_NAME, &name, -1);
+            gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
             //strcpy(name_id, name);
             //strcat(name_id, id);
             sprintf(name_id, "%s%s", name, id);
-			m_vecFlashItem.push_back(name_id);
+            m_vecFlashItem.push_back(name_id);
             m_vecCheckId.push_back(sid);
             vec.push_back(sid);
-			g_free(name);
+            g_free(name);
             g_free(id);
             g_free(sid);
         }
-		valid = gtk_tree_model_iter_next (model, &iter);
-	}
+        valid = gtk_tree_model_iter_next (model, &iter);
+    }
 
     if(vec.empty())
     {
@@ -2278,7 +2270,7 @@ void ViewArchive::MenuItemCDActivate(GtkMenuItem *menuitem)
             m_vecFlashItem.push_back(name_id);
             m_vecCheckId.push_back(sid);
             vec.push_back(sid);
-			g_free(name);
+            g_free(name);
             g_free(id);
             g_free(sid);
         }
@@ -2300,7 +2292,7 @@ void ViewArchive::MenuItemCDActivate(GtkMenuItem *menuitem)
 
 void ViewArchive::MenuItemEmpActivate(GtkMenuItem *menuitem)
 {
-	SelectUdiskData();
+    SelectUdiskData();
 }
 
 void ViewArchive::MenuItemDicomActivate(GtkMenuItem *menuitem)
@@ -2344,11 +2336,11 @@ void ViewArchive::PROGRESSSTATUS(int nPos)
     }
     else
         frac = nPos*0.01;
-	gdk_threads_enter();
+    gdk_threads_enter();
     ViewDialog::GetInstance()->SetProgressBar(frac);
     while(gtk_events_pending())
         gtk_main_iteration();
-	gdk_threads_leave();
+    gdk_threads_leave();
 
 }
 
@@ -2525,34 +2517,34 @@ void ViewArchive::GetSelToDicom()
 
             ChangeDateFormatToString(info.p.birthDate.year, info.p.birthDate.month, info.p.birthDate.day, year, mon, day);
             date = year+mon+day;
-            dcmData.SetBirthDate(date);	//YMD 19990807
+            dcmData.SetBirthDate(date); //YMD 19990807
 
             string age = "";
-			string ageUnit = "";
-			if (info.p.ageUnit == 0)
-				ageUnit = "Y";
-			else if (info.p.ageUnit == 1)
-				ageUnit = "M";
-			else if (info.p.ageUnit == 2)
-				ageUnit = "D";
+            string ageUnit = "";
+            if (info.p.ageUnit == 0)
+                ageUnit = "Y";
+            else if (info.p.ageUnit == 1)
+                ageUnit = "M";
+            else if (info.p.ageUnit == 2)
+                ageUnit = "D";
 
-			char ageTemp[4];
-			if (info.p.age > 999 || info.p.age <= 0)
-				age = "";
-			else
-			{
-				sprintf(ageTemp, "%03d", info.p.age);
-				age = ageTemp + ageUnit;
-			}
+            char ageTemp[4];
+            if (info.p.age > 999 || info.p.age <= 0)
+                age = "";
+            else
+            {
+                sprintf(ageTemp, "%03d", info.p.age);
+                age = ageTemp + ageUnit;
+            }
             dcmData.SetAge(age);
 
             string sex;
             if (info.p.sex == 0)
-                dcmData.SetSex("F");	//F/M/O
+                dcmData.SetSex("F");    //F/M/O
             else if (info.p.sex == 1)
-                dcmData.SetSex("M");	//F/M/O
+                dcmData.SetSex("M");    //F/M/O
             else
-                dcmData.SetSex("O");	//F/M/O
+                dcmData.SetSex("O");    //F/M/O
 
             ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, mon, day);
             date = year + mon + day;
@@ -2561,25 +2553,25 @@ void ViewArchive::GetSelToDicom()
             string hour, min, sec, time;
             ChangeTimeFormatToString(info.e.examTime.hour, info.e.examTime.minute, info.e.examTime.second, hour, min, sec);
             time = hour + min + sec;
-            dcmData.SetStudyTime(time);		//HMS
+            dcmData.SetStudyTime(time);     //HMS
 
-  			   dcmData.SetStudyDr(info.e.examDoctor); // to be continu
+               dcmData.SetStudyDr(info.e.examDoctor); // to be continu
 
             dcmData.SetSID(sid);
 
- 		//		dcmData.SetPart(part);	//OB/GY/UR/CA/AB/SP
-			string partTemp = "";
-			if (strcmp(part, _("Abdomen")) == 0 || strcmp(part, _("Adult Abdomen")) == 0 || strcmp(part, _("Adult Liver")) == 0 || strcmp(part, _("Kid Abdomen")) == 0 || strcmp(part, _("Kidney Ureter")) == 0
-					 || strcmp(part, _("Bladder Prostate")) == 0 || strcmp(part, _("Abdo-adult")) == 0 || strcmp(part, _("Abdo-liver")) == 0 || strcmp(part, _("Abdo-kid")) == 0)
-				partTemp = "ABDOMEN";
-			else if (strcmp(part, _("Cardiac")) == 0 || strcmp(part, _("Adult Cardio")) == 0 || strcmp(part, _("Kid Cardio")) == 0 || strcmp(part, _("Fetus Cardio")) == 0 || strcmp(part, _("Car-adult")) == 0 || strcmp(part, _("Car-kid")) == 0 || strcmp(part, _("Car-fetus")) == 0)
-				partTemp = "HEART";
-			else if (strcmp(part, _("Hip Joint")) == 0 || strcmp(part, _("Hip-joint")) == 0)
-				partTemp = "HIP";
-			else if (strcmp(part, _("Mammary Glands")) == 0 || strcmp(part, _("Glands")) == 0)
-				partTemp = "BREAST";
-			else
-				partTemp = "";
+        //      dcmData.SetPart(part);  //OB/GY/UR/CA/AB/SP
+            string partTemp = "";
+            if (strcmp(part, _("Abdomen")) == 0 || strcmp(part, _("Adult Abdomen")) == 0 || strcmp(part, _("Adult Liver")) == 0 || strcmp(part, _("Kid Abdomen")) == 0 || strcmp(part, _("Kidney Ureter")) == 0
+                     || strcmp(part, _("Bladder Prostate")) == 0 || strcmp(part, _("Abdo-adult")) == 0 || strcmp(part, _("Abdo-liver")) == 0 || strcmp(part, _("Abdo-kid")) == 0)
+                partTemp = "ABDOMEN";
+            else if (strcmp(part, _("Cardiac")) == 0 || strcmp(part, _("Adult Cardio")) == 0 || strcmp(part, _("Kid Cardio")) == 0 || strcmp(part, _("Fetus Cardio")) == 0 || strcmp(part, _("Car-adult")) == 0 || strcmp(part, _("Car-kid")) == 0 || strcmp(part, _("Car-fetus")) == 0)
+                partTemp = "HEART";
+            else if (strcmp(part, _("Hip Joint")) == 0 || strcmp(part, _("Hip-joint")) == 0)
+                partTemp = "HIP";
+            else if (strcmp(part, _("Mammary Glands")) == 0 || strcmp(part, _("Glands")) == 0)
+                partTemp = "BREAST";
+            else
+                partTemp = "";
             dcmData.SetPart(partTemp);
 
             string hospital;
@@ -2628,7 +2620,7 @@ void ViewArchive::GetSelToDicom()
 
     char info[256];
     sprintf(info, "%s\n%s %d\n%s %d", _("Sending finished!"), _("Success:"), count_success,  _("Fail:"), count_failed);
-    //	ViewDialog::GetInstance()->Destroy();
+    //  ViewDialog::GetInstance()->Destroy();
     ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
             info,
@@ -2644,7 +2636,7 @@ static void progress_callback(goffset current, goffset total, gpointer data)
         return;
 
     double prac = (double)current/total;
-    //	PRINTF("prac = %f\n", prac);
+    //  PRINTF("prac = %f\n", prac);
     if(prac >= 0 && prac <= 1.0)
     {
         gdk_threads_enter();
@@ -2704,7 +2696,7 @@ static gboolean SendToFlash(gpointer data)
         total = vec_abs.size();
 
         //check the dest dir, if not exist create it
-        //	sprintf(str_path, "%s/%s", UDISK_PATH, (*iteSid).c_str());
+        //  sprintf(str_path, "%s/%s", UDISK_PATH, (*iteSid).c_str());
         gchar *path = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, (*iteSid).c_str(), NULL);
         GFile *dir = g_file_new_for_path(path);
         g_free(path);
@@ -2732,10 +2724,10 @@ static gboolean SendToFlash(gpointer data)
                 gchar name[256];
                 switch(i)
                 {
-                    case 0:	//BMP,JPG,EMP
+                    case 0: //BMP,JPG,EMP
                         sprintf(name , "%s", (*ite_abs).c_str());
                         break;
-                    case 1:	//INI
+                    case 1: //INI
                         fm.GetIniFilePath((*ite_abs).c_str(), name);
                         break;
                     default:
@@ -2743,7 +2735,7 @@ static gboolean SendToFlash(gpointer data)
                         break;
                 }
 
-                //	sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), (*iteName).c_str(), count, total, _("Please wait..."));
+                //  sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), (*iteName).c_str(), count, total, _("Please wait..."));
                 sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), name, count, total, _("Please wait..."));
                 ViewDialog::GetInstance()->SetText(str_info);
                 ViewDialog::GetInstance()->SetProgressBar(0);
@@ -2813,7 +2805,7 @@ static gboolean SendToFlash(gpointer data)
         }
         sprintf(result, "%s %s", _("Success to export to USB storage.\nPath: "), array);
         g_free(basePath);
-        //	g_free(storePath);
+        //  g_free(storePath);
     }
     ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
@@ -3000,11 +2992,11 @@ static gboolean ExportToFlashNew(gpointer data)
             gchar name_src[256];
             switch(i)
             {
-                case 0:	//BMP,JPG,EMP
+                case 0: //BMP,JPG,EMP
                     sprintf(name_dest , "%s", (*ite_name).c_str());
                     sprintf(name_src , "%s", (*ite_name_src).c_str());
                     break;
-                case 1:	//INI
+                case 1: //INI
                     fm.GetIniFilePath((*ite_name).c_str(), name_dest);
                     fm.GetIniFilePath((*ite_name_src).c_str(), name_src);
                     break;
@@ -3178,10 +3170,10 @@ static gboolean ExportToFlash(gpointer data)
             gchar name[256];
             switch(i)
             {
-                case 0:	//BMP,JPG,EMP
+                case 0: //BMP,JPG,EMP
                     sprintf(name , "%s", (*ite_name).c_str());
                     break;
-                case 1:	//INI
+                case 1: //INI
                     fm.GetIniFilePath((*ite_name).c_str(), name);
                     break;
                 default:
@@ -3189,7 +3181,7 @@ static gboolean ExportToFlash(gpointer data)
                     break;
             }
 
-            //	sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), (*iteName).c_str(), count, total, _("Please wait..."));
+            //  sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), (*iteName).c_str(), count, total, _("Please wait..."));
             sprintf(str_info, "%s %s   %d/%d\n%s", _("Exporting"), name, count, total, _("Please wait..."));
             ViewDialog::GetInstance()->SetText(str_info);
             ViewDialog::GetInstance()->SetProgressBar(0);
@@ -3257,7 +3249,7 @@ static gboolean ExportToFlash(gpointer data)
         }
         sprintf(result, "%s %s", _("Success to export to USB storage.\nPath: "), array);
         g_free(basepath);
-        //	g_free(storepath);
+        //  g_free(storepath);
     }
     ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewArchive::GetInstance()->GetWindow()),
             ViewDialog::INFO,
@@ -3284,15 +3276,15 @@ string ViewArchive::GetExamType()
     TopArea::GetInstance()->GetCheckPart(part);
     if (strcmp(part.c_str(), _("Abdomen")) == 0 || strcmp(part.c_str(), _("Adult Abdomen")) == 0 || strcmp(part.c_str(), _("Adult Liver")) == 0 || strcmp(part.c_str(), _("Kid Abdomen")) == 0 || strcmp(part.c_str(), _("Kidney Ureter")) == 0
             || strcmp(part.c_str(), _("Bladder Prostate")) == 0 || strcmp(part.c_str(), _("Abdo-adult")) == 0 || strcmp(part.c_str(), _("Abdo-liver")) == 0 || strcmp(part.c_str(), _("Abdo-kid")) == 0)
-				partTemp = "ABDOMEN";
-			else if (strcmp(part.c_str(), _("Cardiac")) == 0 || strcmp(part.c_str(), _("Adult Cardio")) == 0 || strcmp(part.c_str(), _("Kid Cardio")) == 0 || strcmp(part.c_str(), _("Fetus Cardio")) == 0 || strcmp(part.c_str(), _("Car-adult")) == 0 || strcmp(part.c_str(), _("Car-kid")) == 0 || strcmp(part.c_str(), _("Car-fetus")) == 0)
-				partTemp = "HEART";
-			else if (strcmp(part.c_str(), _("Hip Joint")) == 0 || strcmp(part.c_str(), _("Hip-joint")) == 0)
-				partTemp = "HIP";
-			else if (strcmp(part.c_str(), _("Mammary Glands")) == 0 || strcmp(part.c_str(), _("Glands")) == 0)
-				partTemp = "BREAST";
-			else
-				partTemp = "";
+                partTemp = "ABDOMEN";
+            else if (strcmp(part.c_str(), _("Cardiac")) == 0 || strcmp(part.c_str(), _("Adult Cardio")) == 0 || strcmp(part.c_str(), _("Kid Cardio")) == 0 || strcmp(part.c_str(), _("Fetus Cardio")) == 0 || strcmp(part.c_str(), _("Car-adult")) == 0 || strcmp(part.c_str(), _("Car-kid")) == 0 || strcmp(part.c_str(), _("Car-fetus")) == 0)
+                partTemp = "HEART";
+            else if (strcmp(part.c_str(), _("Hip Joint")) == 0 || strcmp(part.c_str(), _("Hip-joint")) == 0)
+                partTemp = "HIP";
+            else if (strcmp(part.c_str(), _("Mammary Glands")) == 0 || strcmp(part.c_str(), _("Glands")) == 0)
+                partTemp = "BREAST";
+            else
+                partTemp = "";
             return partTemp;
 }
 
@@ -3380,17 +3372,17 @@ GtkWidget* CustomType::CreateWin(GtkWidget *parent)
     radiobutton_data_type_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (m_radiobutton_emp));
     g_signal_connect((gpointer)m_radiobutton_emp, "toggled", G_CALLBACK (on_emp_radio_button_toggled), this);
 
-	label_ok = gtk_label_new_with_mnemonic (_("OK"));
+    label_ok = gtk_label_new_with_mnemonic (_("OK"));
     image_ok = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
-	btnOk = create_button_icon(label_ok, image_ok);
-	gtk_fixed_put (GTK_FIXED (fixed1), btnOk, 40, 180 - 40);
-	g_signal_connect(G_OBJECT(btnOk), "clicked", G_CALLBACK(HandleBtnOkClicked), this);
+    btnOk = create_button_icon(label_ok, image_ok);
+    gtk_fixed_put (GTK_FIXED (fixed1), btnOk, 40, 180 - 40);
+    g_signal_connect(G_OBJECT(btnOk), "clicked", G_CALLBACK(HandleBtnOkClicked), this);
 
     label_cancel = gtk_label_new_with_mnemonic (_("Cancel"));
     image_cancel = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-	btnCancel = create_button_icon(label_cancel, image_cancel);
-	gtk_fixed_put (GTK_FIXED (fixed1), btnCancel, 220, 180 - 40);
-	g_signal_connect(G_OBJECT(btnCancel), "clicked", G_CALLBACK(HandleBtnCancelClicked), this);
+    btnCancel = create_button_icon(label_cancel, image_cancel);
+    gtk_fixed_put (GTK_FIXED (fixed1), btnCancel, 220, 180 - 40);
+    g_signal_connect(G_OBJECT(btnCancel), "clicked", G_CALLBACK(HandleBtnCancelClicked), this);
 
     gtk_widget_show_all(window_type);
 
@@ -3414,10 +3406,10 @@ void CustomType::EmpRadioToggled(GtkToggleButton *togglebutton)
 
 gboolean ExportStudyForDicom(gpointer data)
 {
-	CustomType *tmp;
-	tmp = (CustomType *)data;
-	tmp->ExportStudy();
-	return FALSE;
+    CustomType *tmp;
+    tmp = (CustomType *)data;
+    tmp->ExportStudy();
+    return FALSE;
 }
 
 void CustomType::ExportStudy(void)
@@ -3552,11 +3544,11 @@ void CustomType::PROGRESSSTATUS(int nPos)
     }
     else
         frac = nPos*0.01;
-	gdk_threads_enter();
+    gdk_threads_enter();
     ViewDialog::GetInstance()->SetProgressBar(frac);
     while(gtk_events_pending())
         gtk_main_iteration();
-	gdk_threads_leave();
+    gdk_threads_leave();
 
 }
 
@@ -3628,56 +3620,56 @@ static gboolean DestroyWindow(gpointer data)
 
 void CustomType::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-		    g_timeout_add(100, DestroyWindow, this);
-		    FakeEscKey();
-		    break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+            g_timeout_add(100, DestroyWindow, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 
 GtkWidget* ViewArchive::CreatePreview(void)
 {
-	GtkWidget *frame = gtk_frame_new (NULL);
-	gtk_widget_set_size_request (frame, 834, 130);
-	gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_IN);
+    GtkWidget *frame = gtk_frame_new (NULL);
+    gtk_widget_set_size_request (frame, 834, 130);
+    gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_IN);
 
-	GtkWidget *fixed = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (frame), fixed);
+    GtkWidget *fixed = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (frame), fixed);
 
-	GtkWidget *sw = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_set_size_request (sw, 820, 120);
-	gtk_fixed_put (GTK_FIXED (fixed), sw, 5, 5);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw), GTK_POLICY_ALWAYS, GTK_POLICY_NEVER);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sw), GTK_SHADOW_IN);
+    GtkWidget *sw = gtk_scrolled_window_new (NULL, NULL);
+    gtk_widget_set_size_request (sw, 820, 120);
+    gtk_fixed_put (GTK_FIXED (fixed), sw, 5, 5);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw), GTK_POLICY_ALWAYS, GTK_POLICY_NEVER);
+    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sw), GTK_SHADOW_IN);
 
-	m_viewportPreview = gtk_viewport_new (NULL, NULL);
-	gtk_widget_show (m_viewportPreview);
-	gtk_container_add (GTK_CONTAINER (sw), m_viewportPreview);
+    m_viewportPreview = gtk_viewport_new (NULL, NULL);
+    gtk_widget_show (m_viewportPreview);
+    gtk_container_add (GTK_CONTAINER (sw), m_viewportPreview);
 
-	m_tablePreview = gtk_table_new (1, 1, TRUE);
-	gtk_widget_show (m_tablePreview);
-	gtk_container_add (GTK_CONTAINER(m_viewportPreview), m_tablePreview);
+    m_tablePreview = gtk_table_new (1, 1, TRUE);
+    gtk_widget_show (m_tablePreview);
+    gtk_container_add (GTK_CONTAINER(m_viewportPreview), m_tablePreview);
 
-	return frame;
+    return frame;
 }
 
 void ViewArchive::ShowPreview(void)
 {
-	gtk_widget_set_size_request (m_treeview, 834, 400);
-	gtk_widget_show_all (m_framePreview);
+    gtk_widget_set_size_request (m_treeview, 834, 400);
+    gtk_widget_show_all (m_framePreview);
 }
 
 void ViewArchive::HidePreview(void)
 {
-	gtk_widget_set_size_request (m_treeview, 834, 528);
-	gtk_widget_hide_all (m_framePreview);
+    gtk_widget_set_size_request (m_treeview, 834, 528);
+    gtk_widget_hide_all (m_framePreview);
 }
 
 void ViewArchive::TreeSelectionChanged(GtkTreeSelection *selection)
@@ -3688,169 +3680,169 @@ void ViewArchive::TreeSelectionChanged(GtkTreeSelection *selection)
 
     if(gtk_tree_selection_get_selected(selection, &model, &iter))
     {
-		gtk_tree_model_get(model, &iter, COL_EXAMID, &sid, -1);
+        gtk_tree_model_get(model, &iter, COL_EXAMID, &sid, -1);
         GtkTreePath* path = gtk_tree_model_get_path(model, &iter);
         gtk_tree_path_free (path);
 
-		//Show Preview
-		LoadPreview(atoi(sid));
+        //Show Preview
+        LoadPreview(atoi(sid));
 
         g_free(sid);
     }
-	else
-	{
-		HidePreview();
-	}
+    else
+    {
+        HidePreview();
+    }
 }
 
 void ViewArchive::ClearPreview()
 {
-	int i, total;
-	m_vecImage.clear();
-	total = m_vecItem.size();
-	for(i=0; i<total; i++)
-		gtk_widget_destroy(m_vecItem[i]);
-	m_vecItem.clear();
+    int i, total;
+    m_vecImage.clear();
+    total = m_vecItem.size();
+    for(i=0; i<total; i++)
+        gtk_widget_destroy(m_vecItem[i]);
+    m_vecItem.clear();
 }
 
 void ViewArchive::LoadPreview(int sid)
 {
-	//clear previous
-	ClearPreview();
+    //clear previous
+    ClearPreview();
 
-	//load new
-	ImgMan::GetInstance()->LoadSnap(sid, STORE_PATH, &m_vecImage);
-	VideoMan::GetInstance()->LoadVideo(sid, STORE_PATH, &m_vecImage);
-	sort(m_vecImage.begin(), m_vecImage.end(), Sort);
-	//printf("Sid=%d, size=%d\n", sid, m_vecImage.size());
+    //load new
+    ImgMan::GetInstance()->LoadSnap(sid, STORE_PATH, &m_vecImage);
+    VideoMan::GetInstance()->LoadVideo(sid, STORE_PATH, &m_vecImage);
+    sort(m_vecImage.begin(), m_vecImage.end(), Sort);
+    //printf("Sid=%d, size=%d\n", sid, m_vecImage.size());
 
-	//
-	GtkWidget *item;
-	int total = m_vecImage.size();
-	if(total > 0)
-	{
-		gtk_table_resize(GTK_TABLE(m_tablePreview), 1, total);
-		for (int i=0; i<total; i++)
-		{
-			item = CreateImageItem(sid, i);
-			if(item)
-			{
-				gtk_table_attach(GTK_TABLE(m_tablePreview), item, i, 1+i, 0, 2, (GtkAttachOptions)(GTK_FILL), (GtkAttachOptions)(GTK_EXPAND | GTK_FILL), 5, 5);
-				m_vecItem.push_back(item);
-			}
-		}
-		ShowPreview();
-	}
-	else
-	{
-		HidePreview();
-	}
+    //
+    GtkWidget *item;
+    int total = m_vecImage.size();
+    if(total > 0)
+    {
+        gtk_table_resize(GTK_TABLE(m_tablePreview), 1, total);
+        for (int i=0; i<total; i++)
+        {
+            item = CreateImageItem(sid, i);
+            if(item)
+            {
+                gtk_table_attach(GTK_TABLE(m_tablePreview), item, i, 1+i, 0, 2, (GtkAttachOptions)(GTK_FILL), (GtkAttachOptions)(GTK_EXPAND | GTK_FILL), 5, 5);
+                m_vecItem.push_back(item);
+            }
+        }
+        ShowPreview();
+    }
+    else
+    {
+        HidePreview();
+    }
 
 }
 
 bool ViewArchive::Sort(const string s1, const string s2)
 {
-	int i;
-	int len;
-	char str1[255], str2[255];
+    int i;
+    int len;
+    char str1[255], str2[255];
 
-	len = strlen(s1.c_str());
-	for(i=0; i<len; i++)
-	{
-		if(s1.c_str()[i]=='.')
-			break;
-	}
-	strncpy(str1, s1.c_str(), i);
-	str1[i] = '\0';
+    len = strlen(s1.c_str());
+    for(i=0; i<len; i++)
+    {
+        if(s1.c_str()[i]=='.')
+            break;
+    }
+    strncpy(str1, s1.c_str(), i);
+    str1[i] = '\0';
 
-	len = strlen(s2.c_str());
-	for(i=0; i<len; i++)
-	{
-		if(s2.c_str()[i]=='.')
-			break;
-	}
-	strncpy(str2, s2.c_str(), i);
-	str2[i] = '\0';
+    len = strlen(s2.c_str());
+    for(i=0; i<len; i++)
+    {
+        if(s2.c_str()[i]=='.')
+            break;
+    }
+    strncpy(str2, s2.c_str(), i);
+    str2[i] = '\0';
 
-	return atof(str1) > atof(str2);
-//	return atoi(s1.c_str()) < atoi(s2.c_str());int i;
+    return atof(str1) > atof(str2);
+//  return atoi(s1.c_str()) < atoi(s2.c_str());int i;
 }
 
 GtkWidget* ViewArchive::CreateImageItem(int sid, int id)
 {
-	GtkWidget *image;
-	GtkWidget *button;
-	GdkPixbuf *pixbuf = NULL;
+    GtkWidget *image;
+    GtkWidget *button;
+    GdkPixbuf *pixbuf = NULL;
 
-	string ext = m_vecImage[id].substr(m_vecImage[id].rfind('.') == string::npos ? m_vecImage[id].length() : m_vecImage[id].rfind('.') + 1);
-	//printf("Image %d: %s\n", id, m_vecImage[id].c_str());
-	//printf("ext : %s\n", ext.c_str());
+    string ext = m_vecImage[id].substr(m_vecImage[id].rfind('.') == string::npos ? m_vecImage[id].length() : m_vecImage[id].rfind('.') + 1);
+    //printf("Image %d: %s\n", id, m_vecImage[id].c_str());
+    //printf("ext : %s\n", ext.c_str());
 
-	if(ext == "avi" || ext == "cine")
-	{
-		VideoMan::VideoItem video_item;
-		if(VideoMan::GetInstance()->ReadVideoInfo(sid, m_vecImage[id].c_str(), STORE_PATH, &video_item) != 0)
-		{
-			PRINTF("%s: ReadVideoInfo Error!\n", __FUNCTION__);
-			return NULL;
-		}
-		GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB,
-				false, 8, video_item.width, video_item.height, video_item.width*3, NULL, NULL);
-		pixbuf = gdk_pixbuf_scale_simple(pb, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
-		GdkPixmap *pixmap = gdk_pixmap_new(NULL, SNAP_W, SNAP_H, 24);
-		GdkGC *gc = gdk_gc_new(pixmap);
-		gdk_draw_pixbuf(pixmap, gc, pixbuf, 0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
-		GdkPixbuf *film	= gdk_pixbuf_new_from_file("res/film.png", NULL);
-		int w = gdk_pixbuf_get_width(film);
-		gdk_draw_pixbuf(pixmap, gc, film, 0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
-		gdk_draw_pixbuf(pixmap, gc, film, 0, 0, SNAP_W-w, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
+    if(ext == "avi" || ext == "cine")
+    {
+        VideoMan::VideoItem video_item;
+        if(VideoMan::GetInstance()->ReadVideoInfo(sid, m_vecImage[id].c_str(), STORE_PATH, &video_item) != 0)
+        {
+            PRINTF("%s: ReadVideoInfo Error!\n", __FUNCTION__);
+            return NULL;
+        }
+        GdkPixbuf *pb = gdk_pixbuf_new_from_data(video_item.data, GDK_COLORSPACE_RGB,
+                false, 8, video_item.width, video_item.height, video_item.width*3, NULL, NULL);
+        pixbuf = gdk_pixbuf_scale_simple(pb, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
+        GdkPixmap *pixmap = gdk_pixmap_new(NULL, SNAP_W, SNAP_H, 24);
+        GdkGC *gc = gdk_gc_new(pixmap);
+        gdk_draw_pixbuf(pixmap, gc, pixbuf, 0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
+        GdkPixbuf *film = gdk_pixbuf_new_from_file("res/film.png", NULL);
+        int w = gdk_pixbuf_get_width(film);
+        gdk_draw_pixbuf(pixmap, gc, film, 0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
+        gdk_draw_pixbuf(pixmap, gc, film, 0, 0, SNAP_W-w, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
 
-		g_object_unref(pb);
-		g_object_unref(pixbuf);
-		g_object_unref(film);
-		g_free(video_item.data);
+        g_object_unref(pb);
+        g_object_unref(pixbuf);
+        g_object_unref(film);
+        g_free(video_item.data);
 
-		image = gtk_image_new();
-		gtk_image_set_from_pixmap(GTK_IMAGE(image), pixmap, NULL);
-		g_object_unref(pixmap);
-	}
-	else
-	{
-		ImgMan::ImgItem img_item;
-		if(ImgMan::GetInstance()->ReadSnap(sid, m_vecImage[id].c_str(), STORE_PATH, &img_item) != 0)
-		{
-			PRINTF("%s: ReadSnap %s Error!\n", __FUNCTION__, m_vecName[i].c_str());
-			return NULL;
-		}
-		pixbuf = gdk_pixbuf_scale_simple(img_item.pixbuf, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
-		g_object_unref(img_item.pixbuf);
+        image = gtk_image_new();
+        gtk_image_set_from_pixmap(GTK_IMAGE(image), pixmap, NULL);
+        g_object_unref(pixmap);
+    }
+    else
+    {
+        ImgMan::ImgItem img_item;
+        if(ImgMan::GetInstance()->ReadSnap(sid, m_vecImage[id].c_str(), STORE_PATH, &img_item) != 0)
+        {
+            PRINTF("%s: ReadSnap %s Error!\n", __FUNCTION__, m_vecName[i].c_str());
+            return NULL;
+        }
+        pixbuf = gdk_pixbuf_scale_simple(img_item.pixbuf, SNAP_W, SNAP_H, GDK_INTERP_BILINEAR);
+        g_object_unref(img_item.pixbuf);
 
-		image = gtk_image_new();
-		gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
-		g_object_unref(pixbuf);
-	}
+        image = gtk_image_new();
+        gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
+        g_object_unref(pixbuf);
+    }
 
-	button = gtk_button_new();
-	g_object_set_data(G_OBJECT(button), "sid", GINT_TO_POINTER(sid));
-	g_object_set_data(G_OBJECT(button), "filename", (void*)(m_vecImage[id].c_str()));
-	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(HandleBtnPreviewClicked), this);
-	gtk_button_set_image(GTK_BUTTON(button), image);
-	gtk_widget_show(button);
+    button = gtk_button_new();
+    g_object_set_data(G_OBJECT(button), "sid", GINT_TO_POINTER(sid));
+    g_object_set_data(G_OBJECT(button), "filename", (void*)(m_vecImage[id].c_str()));
+    g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(HandleBtnPreviewClicked), this);
+    gtk_button_set_image(GTK_BUTTON(button), image);
+    gtk_widget_show(button);
 
-	return button;
+    return button;
 }
 
 void ViewArchive::BtnPreviewClicked(GtkButton *button)
 {
-//	BtnDisplayClicked(NULL);
-	vector<string> vec;
-	char buf[100];
-	string str;
-	int sid = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "sid"));
-	sprintf(buf, "%d", sid);
-	str = buf;
-	vec.push_back(str);
-	char *filename = (char*)(g_object_get_data(G_OBJECT(button), "filename"));
+//  BtnDisplayClicked(NULL);
+    vector<string> vec;
+    char buf[100];
+    string str;
+    int sid = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "sid"));
+    sprintf(buf, "%d", sid);
+    str = buf;
+    vec.push_back(str);
+    char *filename = (char*)(g_object_get_data(G_OBJECT(button), "filename"));
 
-	ViewArchiveImgMan::GetInstance()->CreateWindow(vec, filename);
+    ViewArchiveImgMan::GetInstance()->CreateWindow(vec, filename);
 }

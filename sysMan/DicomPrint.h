@@ -8,6 +8,7 @@
 #include "periDevice/DCMMan.h"
 #include "sysMan/ButtonCallBack.h"
 #include <string.h>
+
 using namespace std;
 #include "Def.h"
 
@@ -141,9 +142,9 @@ class DicomPrint
 };
 
 static char *device;
-static 	char *service;
-static 	char *ae;
-static 	char *port;
+static  char *service;
+static  char *ae;
+static  char *port;
 static DCMPRINTCONFIGELEMENT element;
 
 static void HandleListClicked(GtkTreeSelection *treeselection,gpointer  user_data)

@@ -19,8 +19,8 @@ public:
 
     bool GetPrinters(void);
     void GetJobs(void);
-	bool IsSonyPrinter();
-	char* GetDefaultPrinterPPD(void);
+    bool IsSonyPrinter();
+    char* GetDefaultPrinterPPD(void);
     bool SetDefault(const char *printer);
     int print(char *printer, const char* filename, const char *grp_options, int copies);
     bool CancelAllJobs(void);
@@ -28,7 +28,7 @@ public:
     bool AddPrinter(const char* printer, const char* device_uri, const char* ppd_file);
     const std::vector<printer_attr>* get_printers(void) { return &m_printers; }
     bool DeletePrinter(const char *printer);
-	void LoadFirmware(const std::string uri);
+    void LoadFirmware(const std::string uri);
 private:
     bool SetDevice(const char* printer, const char* device_uri);
     bool SetPPDFile(const char *printer, const char *file);

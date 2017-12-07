@@ -131,8 +131,8 @@ class ViewWorkList:public FakeXEvent, public AbsCalendarOpr
         void SetStartDate(int year, int month, int day);
         void SetEndDate(int year, int month, int day);
 
-		void ChangePersonNameFormat(string wlPersonName, string &firstName, string &lastName, string &midName);
-		void ChangePersonNameFormatForShow(string wlPersonName, string &name);
+        void ChangePersonNameFormat(string wlPersonName, string &firstName, string &lastName, string &midName);
+        void ChangePersonNameFormatForShow(string wlPersonName, string &name);
 
         void ButtonQueryClicked(GtkButton *button);
         void ButtonClearClicked(GtkButton *button);

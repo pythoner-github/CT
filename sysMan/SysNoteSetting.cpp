@@ -11,8 +11,8 @@ SysNoteSetting::SysNoteSetting()
 SysNoteSetting::~SysNoteSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 

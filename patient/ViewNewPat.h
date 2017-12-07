@@ -149,7 +149,7 @@ private:
     void EntryNumInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     void EntryAlNumInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     void EntryNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
-	//void EntryTextInsert(GtkTextBuffer *textbuffer, GtkTextIter *location, gchar *text, gint len);
+    //void EntryTextInsert(GtkTextBuffer *textbuffer, GtkTextIter *location, gchar *text, gint len);
 
 #ifdef VET
     void EntryOwnerNameInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
@@ -185,22 +185,22 @@ private:
     static void on_button_worklist_clicked(GtkButton *button, ViewNewPat *data) { data->BtnWorkListClicked(button); }
 
     static void on_entry_pat_id(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryAlNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryAlNumInsert(editable, new_text, new_text_length, position); }
     static void on_entry_name_insert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNameInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNameInsert(editable, new_text, new_text_length, position); }
     static void on_entry_age(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
     static gboolean HandlePatIDFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewNewPat *data)
-	{ data->PatIDFocusOut(widget, event); return FALSE;}
+    { data->PatIDFocusOut(widget, event); return FALSE;}
     static gboolean HandleOBFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewNewPat *data)
-	{ data->OBFocusOut(widget, event); return FALSE;}
+    { data->OBFocusOut(widget, event); return FALSE;}
     static gboolean HandleStatureFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewNewPat *data)
-	{ data->StatureFocusOut(widget, event); return FALSE;}
+    { data->StatureFocusOut(widget, event); return FALSE;}
     static gboolean HandleWeightFocusOut(GtkWidget *widget, GdkEventFocus *event, ViewNewPat *data)
-	{ data->WeightFocusOut(widget, event); return FALSE;}
+    { data->WeightFocusOut(widget, event); return FALSE;}
 
 //    static void on_entry_age(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-//	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+//  { data->EntryNumInsert(editable, new_text, new_text_length, position); }
 
     static void on_textview_comment_insert(GtkTextBuffer *textbuffer, GtkTextIter *location, gchar *text, gint len, ViewNewPat *data)
     {
@@ -211,31 +211,31 @@ private:
     static void on_entry_delete_birth_date_year(GtkEditable *editable, gint start_pos, gint end_pos, ViewNewPat *data)
         { data->BirthDateYearDelete(editable, start_pos, end_pos); }
     static void on_entry_birth_date_month(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->BirthDateMonthInsert(editable, new_text, new_text_length, position); }
+    { data->BirthDateMonthInsert(editable, new_text, new_text_length, position); }
     static void on_entry_delete_birth_date_month(GtkEditable *editable, gint start_pos, gint end_pos, ViewNewPat *data)
         { data->BirthDateMonthDelete(editable, start_pos, end_pos); }
     static void on_entry_birth_date_day(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->BirthDateDayInsert(editable, new_text, new_text_length, position); }
+    { data->BirthDateDayInsert(editable, new_text, new_text_length, position); }
     static void on_entry_delete_birth_date_day(GtkEditable *editable, gint start_pos, gint end_pos, ViewNewPat *data)
         { data->BirthDateDayDelete(editable, start_pos, end_pos); }
 
     static void on_entry_stature(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
     static void on_entry_weight(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
 
     static void on_combobox_ob_date_changed(GtkComboBox *widget, ViewNewPat *data)
         { data->ComboboxOBDateChanged(widget); }
     static void on_entry_ob_year(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
     static void on_entry_ob_month(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
     static void on_entry_ob_day(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
 
     static void on_entry_hr(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewNewPat *data)
-	{ data->EntryNumInsert(editable, new_text, new_text_length, position); }
-	static void HandleEventBoxCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewNewPat *data) { data->EventBoxCalendarPress(widget, event); }
+    { data->EntryNumInsert(editable, new_text, new_text_length, position); }
+    static void HandleEventBoxCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewNewPat *data) { data->EventBoxCalendarPress(widget, event); }
 
 };
 

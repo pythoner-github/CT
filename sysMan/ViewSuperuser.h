@@ -8,8 +8,8 @@
 class ViewSuperuser:public FakeXEvent
 {
 public:
-	~ViewSuperuser();
-	static ViewSuperuser* GetInstance();
+    ~ViewSuperuser();
+    static ViewSuperuser* GetInstance();
     void Authenticate(void);
     void CreateWindow(void);
     void CreateDemoWindow(void);
@@ -28,9 +28,9 @@ public:
 
     enum {EPM_COLUMN, EPA_COLUMN, END_COLUMN};
 private:
-	ViewSuperuser();
+    ViewSuperuser();
 
-	static ViewSuperuser* m_ptrInstance;
+    static ViewSuperuser* m_ptrInstance;
     static const unsigned int AUTHEN_NUM = 11;
     static const unsigned int DEMO_NUM = 5;
 
@@ -87,12 +87,12 @@ private:
     char m_probeAlias[256];
     //transducer press value correct
     int m_tranPressCorrect;
-	GtkWidget* create_probe_treeview(void);
-	GtkTreeModel* create_probe_model(void);
+    GtkWidget* create_probe_treeview(void);
+    GtkTreeModel* create_probe_model(void);
     virtual void KeyEvent(unsigned char keyValue);
 
     // probe
-	gboolean UpdateProbeStatus(const char* socket, const char* status);
+    gboolean UpdateProbeStatus(const char* socket, const char* status);
     gboolean IsAuthenValid(void);
     gboolean WriteProbe(void);
     bool ConfirmAuthen(void);
@@ -107,11 +107,11 @@ private:
 
 // signal handle
     gboolean WindowDeleteEvent(GtkWidget *widget, GdkEvent *event);
-	void MachineChanged(GtkComboBox *combobox);
-	void ProbeChanged(GtkComboBox *combobox);
-	void BtnWriteClicked(GtkButton *button);
-	void BtnExitClicked(GtkButton *button);
-	void ChgAperture(GtkComboBox *combobox);
+    void MachineChanged(GtkComboBox *combobox);
+    void ProbeChanged(GtkComboBox *combobox);
+    void BtnWriteClicked(GtkButton *button);
+    void BtnExitClicked(GtkButton *button);
+    void ChgAperture(GtkComboBox *combobox);
 
 #ifdef TRANSDUCER
     void SpinbuttonPressAdjust(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
@@ -119,13 +119,13 @@ private:
 
     //demo
     void BtnEnterDemoClicked(GtkButton *button);
-	void BtnChgMonitorClicked(GtkButton *button);
-	void BtnChgMonitorClicked2(GtkButton *button);
+    void BtnChgMonitorClicked(GtkButton *button);
+    void BtnChgMonitorClicked2(GtkButton *button);
 
     void BtnEditClicked(GtkButton *button);
     void BtnFactoryClicked(GtkButton *button);
     void TreeSelectionChanged(GtkTreeSelection *selection);
-	void EditedCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text);
+    void EditedCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text);
     void EntryProbeAliasInsert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path);
     void EntryProbeAliasLengthInsert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
 
@@ -161,9 +161,9 @@ public:
     static void HandleTreeSelectionChanged(GtkTreeSelection *selection, ViewSuperuser *data) { data->TreeSelectionChanged(selection); }
     static void on_button_edit_clicked(GtkButton *button, ViewSuperuser *data) { data->BtnEditClicked(button); }
     static void on_button_factory_clicked(GtkButton *button, ViewSuperuser *data) { data->BtnFactoryClicked(button); }
-	static void on_edited_cell_callback(GtkCellRendererText *cell, gchar *path_string, gchar *new_text, ViewSuperuser *data){
-		data->EditedCellChanged(cell, path_string, new_text);
-	}
+    static void on_edited_cell_callback(GtkCellRendererText *cell, gchar *path_string, gchar *new_text, ViewSuperuser *data){
+        data->EditedCellChanged(cell, path_string, new_text);
+    }
     static void  on_entry_probe_alias_insert(GtkCellRenderer *cell, GtkCellEditable *editable, const gchar *path, ViewSuperuser *data)
     { data->EntryProbeAliasInsert(cell, editable, path); }
 

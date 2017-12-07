@@ -66,7 +66,7 @@ void MenuSystem::BtnGeneral(GtkButton *button)
     if (ModeStatus::IsAutoReplayMode())
         FreezeMode::GetInstance()->ChangeAutoReplay();
     else if (ModeStatus::IsUnFreezeMode())
-		FreezeMode::GetInstance()->PressFreeze();
+        FreezeMode::GetInstance()->PressFreeze();
 
     ViewSystem::GetInstance()->CreateWindow();
     ViewSystem::GetInstance()->ChangeNoteBookPage(0);

@@ -4,42 +4,42 @@
 //#include <vector>
 //#include <string>
 
-#define REPORT_WIDTH 900	//打印报告图片的宽度（像素点数）
-#define REPORT_HEIGHT 1300	//打印报告图片的高度（像素点数）
-#define BYTES_PER_PIXEL	3	//每个像素点占用的字节数
-#define REPORT_WIDTH_BYTES	(REPORT_WIDTH*BYTES_PER_PIXEL)	//打印报告图片的一行的字节数
+#define REPORT_WIDTH 900    //打印报告图片的宽度（像素点数）
+#define REPORT_HEIGHT 1300  //打印报告图片的高度（像素点数）
+#define BYTES_PER_PIXEL 3   //每个像素点占用的字节数
+#define REPORT_WIDTH_BYTES  (REPORT_WIDTH*BYTES_PER_PIXEL)  //打印报告图片的一行的字节数
 #define PRINTDIR "./res/printer/"
 //#define PRINTIMAGE "/tmp/report.bmp"
 
 #define PRINTIMAGE STORE_PATH "/0/" "report"
 //#define PRINTIMAGE "/home/yang/001.png"
-#define PRINT_FONTPATH	"./res/printer/wqy-zenhei.ttf"
+#define PRINT_FONTPATH  "./res/printer/wqy-zenhei.ttf"
 
 /*
 打印报告各项的内容
 */
 struct print_re_item{
-	char *id;
-	char *name;
+    char *id;
+    char *name;
 //hlx
 #ifdef VET
-	char *species;
-	char *owner;
+    char *species;
+    char *owner;
 #endif
 
-	char *check_num;
-	char *sex;
+    char *check_num;
+    char *sex;
     char *ageUnit;
-	char *age;
-	char *section;
-	char *diag_date;
-	char *hospital;
-	char *diag_doctor;
-	char *report_doctor;
-	char *ul_idea;
-	char *comment;
-	char *image_data[2];//报告中图像的数据
-//	vector<string> imageName;
+    char *age;
+    char *section;
+    char *diag_date;
+    char *hospital;
+    char *diag_doctor;
+    char *report_doctor;
+    char *ul_idea;
+    char *comment;
+    char *image_data[2];//报告中图像的数据
+//  vector<string> imageName;
 };
 
 /*************************************************************

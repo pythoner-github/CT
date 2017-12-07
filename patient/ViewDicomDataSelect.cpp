@@ -27,14 +27,14 @@ ViewDicomDataSelect* ViewDicomDataSelect::m_ptrInstance = NULL;
 PatientInfo ViewDicomDataSelect::m_patientInfo;
 ViewDicomDataSelect::ViewDicomDataSelect()
 {
-	m_listBranch = NULL;
+    m_listBranch = NULL;
     m_studyNo = 0;
 }
 
 ViewDicomDataSelect::~ViewDicomDataSelect()
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 ViewDicomDataSelect* ViewDicomDataSelect::GetInstance()
@@ -78,14 +78,14 @@ void ViewDicomDataSelect::CreateWindow(GtkWindow *parent)
     gtk_fixed_put (GTK_FIXED (fixed), label_list, 30, 10);
     gtk_label_set_use_markup (GTK_LABEL (label_list), TRUE);
     gtk_widget_set_size_request (label_list, 150, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_list), 0, 0.5);
+    gtk_misc_set_alignment (GTK_MISC (label_list), 0, 0.5);
 
     dataSrc = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_show (dataSrc);
-	gtk_fixed_put (GTK_FIXED (fixed), dataSrc, 20+10, 10+30);
-	gtk_widget_set_size_request (dataSrc, 200+45, 300+20);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (dataSrc), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (dataSrc), GTK_SHADOW_IN);
+    gtk_widget_show (dataSrc);
+    gtk_fixed_put (GTK_FIXED (fixed), dataSrc, 20+10, 10+30);
+    gtk_widget_set_size_request (dataSrc, 200+45, 300+20);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (dataSrc), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (dataSrc), GTK_SHADOW_IN);
 
     GtkTreeModel *modelRoot = create_root_model();
     m_treeSrc = gtk_tree_view_new_with_model (modelRoot);
@@ -100,36 +100,36 @@ void ViewDicomDataSelect::CreateWindow(GtkWindow *parent)
     gtk_fixed_put (GTK_FIXED (fixed), label_quality, 300, 10);
     gtk_label_set_use_markup (GTK_LABEL (label_quality), TRUE);
     gtk_widget_set_size_request (label_quality, 150, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_quality), 0, 0.5);
+    gtk_misc_set_alignment (GTK_MISC (label_quality), 0, 0.5);
 
     dataDe = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_show (dataDe);
-	gtk_fixed_put (GTK_FIXED (fixed), dataDe, 300, 10+30);
-	gtk_widget_set_size_request (dataDe, 250+60, 300+20);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (dataDe), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (dataDe), GTK_SHADOW_IN);
+    gtk_widget_show (dataDe);
+    gtk_fixed_put (GTK_FIXED (fixed), dataDe, 300, 10+30);
+    gtk_widget_set_size_request (dataDe, 250+60, 300+20);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (dataDe), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (dataDe), GTK_SHADOW_IN);
 
-	m_treeDe = create_treeview_list();
-	gtk_widget_show (m_treeDe);
-	gtk_container_add (GTK_CONTAINER (dataDe), m_treeDe);
+    m_treeDe = create_treeview_list();
+    gtk_widget_show (m_treeDe);
+    gtk_container_add (GTK_CONTAINER (dataDe), m_treeDe);
 
     label_import = gtk_label_new_with_mnemonic (_("Import"));
-	image_import= gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
-	m_button_import = create_button_icon(label_import, image_import);
+    image_import= gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
+    m_button_import = create_button_icon(label_import, image_import);
     gtk_fixed_put (GTK_FIXED (fixed), m_button_import, 250+40, 410);
     //gtk_widget_set_size_request (m_button_import, 100, 35);
     g_signal_connect(m_button_import, "clicked", G_CALLBACK(HandleButtonImportClicked), this);
 
     label_cancel = gtk_label_new_with_mnemonic (_("Exit"));
     image_cancel = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-	button_cancel = create_button_icon(label_cancel, image_cancel);
-	gtk_fixed_put (GTK_FIXED (fixed), button_cancel, 320+130, 410);
+    button_cancel = create_button_icon(label_cancel, image_cancel);
+    gtk_fixed_put (GTK_FIXED (fixed), button_cancel, 320+130, 410);
     g_signal_connect(button_cancel, "clicked", G_CALLBACK(HandleButtonCancelClicked), this);
 
     UpdateDicomDirList();
-	gtk_widget_show_all(m_window);
+    gtk_widget_show_all(m_window);
 
-	g_keyInterface.Push(this);
+    g_keyInterface.Push(this);
     SetSystemCursorToCenter();
 
 }
@@ -212,7 +212,7 @@ void ViewDicomDataSelect::add_column(GtkTreeView *treeview)
 
 GtkTreeModel* ViewDicomDataSelect::create_root_model()
 {
-	GtkTreeIter iter;
+    GtkTreeIter iter;
     GtkTreeStore *store = gtk_tree_store_new(2, G_TYPE_STRING,G_TYPE_INT);
 #if 0
     string destDirStorageMedia = UDISK_PATH;
@@ -268,24 +268,24 @@ GtkWidget* ViewDicomDataSelect::create_treeview_list()
 
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
-	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Property"), renderer, "text", COL_QUALITY, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 150, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Value"), renderer, "text", COL_VALUE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 450, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 450, NULL);
 
     model = create_model_list();
     if (model != NULL)
-		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
+        gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
     g_object_unref (model);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* ViewDicomDataSelect::create_model_list()
@@ -293,10 +293,10 @@ GtkTreeModel* ViewDicomDataSelect::create_model_list()
     GtkListStore *store;
 
     store = gtk_list_store_new(NUM_COL,
-			G_TYPE_STRING,
-			G_TYPE_STRING);
+            G_TYPE_STRING,
+            G_TYPE_STRING);
 
-	return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL (store);
 }
 
 void ViewDicomDataSelect::TreeSelectionChanged(GtkTreeSelection *selection)
@@ -355,11 +355,11 @@ void ViewDicomDataSelect::TreeSelectionChanged(GtkTreeSelection *selection)
 }
 void ViewDicomDataSelect::InsertInfo1(int index)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
 
-	string patientName;
-	ViewQueryRetrieve::ChangePersonNameFormatForShow(vecStudyLevel[index].patientName, patientName);
+    string patientName;
+    ViewQueryRetrieve::ChangePersonNameFormatForShow(vecStudyLevel[index].patientName, patientName);
 
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeDe));
     gtk_list_store_clear(GTK_LIST_STORE(model));
@@ -434,11 +434,11 @@ void ViewDicomDataSelect::PROGRESSSTATUS(int nPos)
     double frac;
     frac = nPos*0.01;
 
-	gdk_threads_enter();
+    gdk_threads_enter();
     ViewDialog::GetInstance()->SetProgressBar(frac);
     while(gtk_events_pending())
         gtk_main_iteration();
-	gdk_threads_leave();
+    gdk_threads_leave();
 
 }
 gboolean ImportStudyForDicom(gpointer data)
@@ -452,9 +452,9 @@ gboolean ImportStudyForDicom(gpointer data)
 unsigned int ViewDicomDataSelect::GetDCMStudyElement(DCMSTUDYELEMENT element)
 {
     PatientInfo::Info info;
-	info.p.id = element.stPatientID;
-	string firstName, midName, lastName;
-	ViewQueryRetrieve::ChangePersonNameFormat(element.stPatientName, firstName, lastName, midName);
+    info.p.id = element.stPatientID;
+    string firstName, midName, lastName;
+    ViewQueryRetrieve::ChangePersonNameFormat(element.stPatientName, firstName, lastName, midName);
     info.p.name.last = lastName;
     info.p.name.first = firstName;
     info.p.name.mid = midName;
@@ -585,7 +585,7 @@ unsigned int ViewDicomDataSelect::GetDCMStudyElement(DCMSTUDYELEMENT element)
         info.e.examTime.second = 0;
         info.e.examTime.minute = 0;
     }
-	ViewQueryRetrieve::ChangePersonNameFormatForShow(element.stStudyDoctor, info.e.examDoctor);
+    ViewQueryRetrieve::ChangePersonNameFormatForShow(element.stStudyDoctor, info.e.examDoctor);
     info.e.comment = element.stStudyDescription;
     info.e.reportDoctor = "";
 
@@ -624,31 +624,31 @@ unsigned int ViewDicomDataSelect::GetDCMStudyElement(DCMSTUDYELEMENT element)
 void ViewDicomDataSelect::CreateExamDir(int examNum)
 {
     gchar *path;
-	gchar buf[100];
+    gchar buf[100];
 
     char strExamNum[100];
     sprintf(strExamNum, "%d", examNum);
-	path = g_build_path(G_DIR_SEPARATOR_S, STORE_PATH, strExamNum, NULL);
-	if (g_access(path, F_OK) == 0)
-	{
-		PRINTF("-----------------------folder of store path %d is exist, path = %s\n", examNum, path);
-		sprintf(buf, "rm -rf %s\n", path);
-		FileMan fm;
-		if (fm.DelDirectory(buf) == -1)
-		{
-			perror("rmdir fail!");
-			PRINTF("delete folder of store path 0 error\n");
-			g_free(path);
-			return;
-		}
-	}
+    path = g_build_path(G_DIR_SEPARATOR_S, STORE_PATH, strExamNum, NULL);
+    if (g_access(path, F_OK) == 0)
+    {
+        PRINTF("-----------------------folder of store path %d is exist, path = %s\n", examNum, path);
+        sprintf(buf, "rm -rf %s\n", path);
+        FileMan fm;
+        if (fm.DelDirectory(buf) == -1)
+        {
+            perror("rmdir fail!");
+            PRINTF("delete folder of store path 0 error\n");
+            g_free(path);
+            return;
+        }
+    }
 
-	if (g_mkdir(path, 0755) == -1)
-	{
-		PRINTF("create folder of store path %d error\n", examNum);
-	}
+    if (g_mkdir(path, 0755) == -1)
+    {
+        PRINTF("create folder of store path %d error\n", examNum);
+    }
 
-	g_free(path);
+    g_free(path);
 
 }
 
@@ -947,18 +947,18 @@ static gboolean DestroyWin(gpointer data)
 
 void ViewDicomDataSelect::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-		    g_timeout_add(100, DestroyWin, this);
-		    FakeEscKey();
-		    break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+            g_timeout_add(100, DestroyWin, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 
 #endif

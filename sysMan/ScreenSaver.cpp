@@ -16,72 +16,72 @@ ScreenSaver* ScreenSaver::m_ptrInstance = NULL;
 
 ScreenSaver* ScreenSaver::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new ScreenSaver;
-	return m_ptrInstance;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new ScreenSaver;
+    return m_ptrInstance;
 }
 
 ScreenSaver::ScreenSaver()
 {
-	m_state = FALSE;
-	m_timer = 0;
-	m_count = 0;
-	m_period = 600;
+    m_state = FALSE;
+    m_timer = 0;
+    m_count = 0;
+    m_period = 600;
 }
 
 gboolean ScreenSaver::Timer()
 {
-	m_count ++;
-//	PRINTF("ScreenSaver: After %d seconds into the Screensaver state !\n", m_period-(m_count*m_interval));
+    m_count ++;
+//  PRINTF("ScreenSaver: After %d seconds into the Screensaver state !\n", m_period-(m_count*m_interval));
 
-	if(m_state)
-	{
-		m_count = 0;
-		DrawHintMessage();
-	}
-	else
-	{
-		//if(m_count * m_interval == 20) //for test
-		if(m_count * m_interval == m_period)
-		{
-		//	m_timer = 0;
-			m_count = 0;
+    if(m_state)
+    {
+        m_count = 0;
+        DrawHintMessage();
+    }
+    else
+    {
+        //if(m_count * m_interval == 20) //for test
+        if(m_count * m_interval == m_period)
+        {
+        //  m_timer = 0;
+            m_count = 0;
 
-			//screen saver
-			EnterScreenSaver();
-		}
-	}
+            //screen saver
+            EnterScreenSaver();
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 gboolean HandlerTimer(gpointer data)
 {
-	return ((ScreenSaver*)data)->Timer();
+    return ((ScreenSaver*)data)->Timer();
 }
 
 void ScreenSaver::SetPeriod(guint time)
 {
-	m_period = time;
-	Reset();
+    m_period = time;
+    Reset();
 }
 
 void ScreenSaver::Init()
 {
-	if(m_timer > 0)
-		g_source_remove(m_timer);
+    if(m_timer > 0)
+        g_source_remove(m_timer);
 
-	if(m_period > 0)
-		m_timer = g_timeout_add_seconds(m_interval, HandlerTimer, this);
+    if(m_period > 0)
+        m_timer = g_timeout_add_seconds(m_interval, HandlerTimer, this);
 }
 
 void ScreenSaver::Reset()
 {
-	m_count = 0;
+    m_count = 0;
 
-	if(m_state)
-		ExitScreenSaver();
-	Init();
+    if(m_state)
+        ExitScreenSaver();
+    Init();
 }
 
 void ScreenSaver::EnterScreenSaver()
@@ -101,20 +101,20 @@ void ScreenSaver::EnterScreenSaver()
     {
         return;
     }
-	FreezeMode *ptrFreezeMode = FreezeMode::GetInstance();
+    FreezeMode *ptrFreezeMode = FreezeMode::GetInstance();
 
     if (ModeStatus::IsAutoReplayMode())
-	{
-		Reset();
-		return;
-	}
+    {
+        Reset();
+        return;
+    }
     else if (ModeStatus::IsUnFreezeMode())
-	{
-		ptrFreezeMode->PressFreeze();
-		MenuShowUndo();//solve the segment of exiting screensaver in bodymark func.
-	}
+    {
+        ptrFreezeMode->PressFreeze();
+        MenuShowUndo();//solve the segment of exiting screensaver in bodymark func.
+    }
 
-	BlackScreen();
+    BlackScreen();
 }
 
 void ScreenSaver::ExitScreenSaver()
@@ -158,10 +158,10 @@ void ScreenSaver::BlackScreen()
     XColor black, dummy;
 
     if(!(m_dpy = XOpenDisplay(0)))
-	{
-	    PRINTF("ScreenSaver: cannot open display\n");
-	    return;
-	}
+    {
+        PRINTF("ScreenSaver: cannot open display\n");
+        return;
+    }
     screen = DefaultScreen(m_dpy);
     root = RootWindow(m_dpy, screen);
 
@@ -169,10 +169,10 @@ void ScreenSaver::BlackScreen()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
-			  CWOverrideRedirect | CWBackPixel, &wa);
+              0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
+              CWOverrideRedirect | CWBackPixel, &wa);
     XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
-	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
+     pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
     XMapRaised(m_dpy, m_win);
@@ -181,98 +181,98 @@ void ScreenSaver::BlackScreen()
 
     m_state = TRUE;
 
-	DrawHintMessage();
+    DrawHintMessage();
 }
 
 void ScreenSaver::DrawHintMessage()
 {
 #if 0
-	int screen;
-	XGCValues gcvalue;
-	Colormap colormap;
-	XColor fg;
-	GC gc;
-//	char *string = "Press any key to resume!";
-	char *string = "按任意键恢复!";
+    int screen;
+    XGCValues gcvalue;
+    Colormap colormap;
+    XColor fg;
+    GC gc;
+//  char *string = "Press any key to resume!";
+    char *string = "按任意键恢复!";
 
-	screen = DefaultScreen(m_dpy);
-	gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
-	colormap = DefaultColormap(m_dpy, screen);
-	fg.red = fg.green = fg.blue = 65535;
-	fg.flags = DoRed | DoGreen | DoBlue;
-	XAllocColor(m_dpy, colormap, &fg);
-	XSetForeground(m_dpy, gc, fg.pixel);
+    screen = DefaultScreen(m_dpy);
+    gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
+    colormap = DefaultColormap(m_dpy, screen);
+    fg.red = fg.green = fg.blue = 65535;
+    fg.flags = DoRed | DoGreen | DoBlue;
+    XAllocColor(m_dpy, colormap, &fg);
+    XSetForeground(m_dpy, gc, fg.pixel);
 
-	XDrawString(m_dpy, m_win, gc, DisplayWidth(m_dpy, screen)/2, DisplayHeight(m_dpy, screen)/2, string, strlen(string));
-	XFlush(m_dpy);
+    XDrawString(m_dpy, m_win, gc, DisplayWidth(m_dpy, screen)/2, DisplayHeight(m_dpy, screen)/2, string, strlen(string));
+    XFlush(m_dpy);
 #endif
 
-	const char *string = N_("Press any key to resume!");
-	int screen;
-	Colormap colormap;
-	Visual *visual;
-	XftDraw *xftDraw = NULL;
-	XftColor xftColor;
-	XRenderColor renderColor;
-	XftPattern *pattern = NULL;
-	XftResult result;
-	XftFont *xftFont = NULL;
-	SysGeneralSetting sysGS;
+    const char *string = N_("Press any key to resume!");
+    int screen;
+    Colormap colormap;
+    Visual *visual;
+    XftDraw *xftDraw = NULL;
+    XftColor xftColor;
+    XRenderColor renderColor;
+    XftPattern *pattern = NULL;
+    XftResult result;
+    XftFont *xftFont = NULL;
+    SysGeneralSetting sysGS;
 
-	renderColor.red = 0xFFFF;
-	renderColor.green = 0xFFFF;
-	renderColor.blue = 0xFFFF;
-	renderColor.alpha = 0xFFFF;
-	screen = DefaultScreen(m_dpy);
-	colormap = DefaultColormap(m_dpy, screen);
-	visual = DefaultVisual(m_dpy, screen);
+    renderColor.red = 0xFFFF;
+    renderColor.green = 0xFFFF;
+    renderColor.blue = 0xFFFF;
+    renderColor.alpha = 0xFFFF;
+    screen = DefaultScreen(m_dpy);
+    colormap = DefaultColormap(m_dpy, screen);
+    visual = DefaultVisual(m_dpy, screen);
 
-	xftDraw = XftDrawCreate(m_dpy, m_win, visual, colormap);
-	if(!xftDraw)
-	{
-		PRINTF("%s: Error with XftDrawCreate\n", __FUNCTION__);
-		return;
-	}
+    xftDraw = XftDrawCreate(m_dpy, m_win, visual, colormap);
+    if(!xftDraw)
+    {
+        PRINTF("%s: Error with XftDrawCreate\n", __FUNCTION__);
+        return;
+    }
 
-	XftColorAllocValue (m_dpy, visual, colormap, &renderColor, &xftColor);
+    XftColorAllocValue (m_dpy, visual, colormap, &renderColor, &xftColor);
 
-	pattern = XftPatternCreate();
-	if(!pattern)
-	{
-		PRINTF("%s: Error with XftPatternCreate\n", __FUNCTION__);
-		return;
-	}
-	if(ZH == sysGS.GetLanguage())
-	{
-		XftPatternAddString(pattern, "family", "WenQuanYi");
-		XftPatternAddInteger(pattern, "pixelsize", 24);
-	}
-	else
-	{
-		XftPatternAddString(pattern, "family", "DejaVu Sans");
-		XftPatternAddInteger(pattern, "pixelsize", 20);
-	}
-	XftPatternAddBool(pattern, "antialias", 1);
-	xftFont = XftFontOpenPattern(m_dpy, XftFontMatch(m_dpy, screen, pattern, &result));
-	if(!xftFont)
-	{
-		PRINTF("%s: Error with XftFontOpenPattern\n", __FUNCTION__);
-		return;
-	}
+    pattern = XftPatternCreate();
+    if(!pattern)
+    {
+        PRINTF("%s: Error with XftPatternCreate\n", __FUNCTION__);
+        return;
+    }
+    if(ZH == sysGS.GetLanguage())
+    {
+        XftPatternAddString(pattern, "family", "WenQuanYi");
+        XftPatternAddInteger(pattern, "pixelsize", 24);
+    }
+    else
+    {
+        XftPatternAddString(pattern, "family", "DejaVu Sans");
+        XftPatternAddInteger(pattern, "pixelsize", 20);
+    }
+    XftPatternAddBool(pattern, "antialias", 1);
+    xftFont = XftFontOpenPattern(m_dpy, XftFontMatch(m_dpy, screen, pattern, &result));
+    if(!xftFont)
+    {
+        PRINTF("%s: Error with XftFontOpenPattern\n", __FUNCTION__);
+        return;
+    }
 
-	int i = rand() % (DisplayWidth(m_dpy, screen)-300);
-	int j = rand() % (DisplayHeight(m_dpy, screen)-50);
+    int i = rand() % (DisplayWidth(m_dpy, screen)-300);
+    int j = rand() % (DisplayHeight(m_dpy, screen)-50);
 
-	XClearWindow(m_dpy, m_win);
-	XftDrawStringUtf8 (xftDraw, &xftColor, xftFont,
-			i < 100 ? 100 : i,
-			j < 50 ? 50 : j,
-			(XftChar8 *)(_(string)), strlen (_(string)));
-//	PRINTF("random num %d %d\n", i, j);
+    XClearWindow(m_dpy, m_win);
+    XftDrawStringUtf8 (xftDraw, &xftColor, xftFont,
+            i < 100 ? 100 : i,
+            j < 50 ? 50 : j,
+            (XftChar8 *)(_(string)), strlen (_(string)));
+//  PRINTF("random num %d %d\n", i, j);
 
-	XFlush(m_dpy);
-	XftPatternDestroy(pattern);
-	XftDrawDestroy(xftDraw);
+    XFlush(m_dpy);
+    XftPatternDestroy(pattern);
+    XftDrawDestroy(xftDraw);
 }
 
 /*
@@ -289,10 +289,10 @@ void ScreenSaver::BlackScreen2()
     XColor black, dummy;
 
     if(!(m_dpy = XOpenDisplay(0)))
-	{
-	    PRINTF("ScreenSaver: cannot open display\n");
-	    return;
-	}
+    {
+        PRINTF("ScreenSaver: cannot open display\n");
+        return;
+    }
     screen = DefaultScreen(m_dpy);
     root = RootWindow(m_dpy, screen);
 
@@ -300,23 +300,23 @@ void ScreenSaver::BlackScreen2()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
-			  CWOverrideRedirect | CWBackPixel, &wa);
+              0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
+              CWOverrideRedirect | CWBackPixel, &wa);
     XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
-	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
+     pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
     XMapRaised(m_dpy, m_win);
     XSync(m_dpy, False);
     XFreePixmap(m_dpy, pmap);
 
-	XGCValues gcvalue;
-	Colormap colormap;
+    XGCValues gcvalue;
+    Colormap colormap;
     XColor white;
-	GC gc;
+    GC gc;
 
     XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy);
-	gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
+    gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
     colormap = DefaultColormap(m_dpy, screen);
     XAllocColor(m_dpy, colormap, &white);
     XSetForeground(m_dpy, gc, white.pixel);
@@ -337,7 +337,7 @@ void ScreenSaver::BlackScreen2()
         y += 50;
     }
     //printf("display(%d, %d)\n", DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen));
-	XFlush(m_dpy);
+    XFlush(m_dpy);
 
     m_state = TRUE;
 }
@@ -354,19 +354,19 @@ void ScreenSaver::EnterScreenSaver2()
     FreezeMode *ptrFreezeMode = FreezeMode::GetInstance();
 
     if (ModeStatus::IsAutoReplayMode())
-	{
-		Reset();
-		return;
-	}
+    {
+        Reset();
+        return;
+    }
     else if (ModeStatus::IsUnFreezeMode())
-	{
-		ptrFreezeMode->PressFreeze();
-		BlackScreen2();
-	}
-	else
-	{
-		BlackScreen2();
-	}
+    {
+        ptrFreezeMode->PressFreeze();
+        BlackScreen2();
+    }
+    else
+    {
+        BlackScreen2();
+    }
 }
 
 void ScreenSaver::BlackScreen3()
@@ -380,10 +380,10 @@ void ScreenSaver::BlackScreen3()
     XColor black, dummy;
 
     if(!(m_dpy = XOpenDisplay(0)))
-	{
-	    PRINTF("ScreenSaver: cannot open display\n");
-	    return;
-	}
+    {
+        PRINTF("ScreenSaver: cannot open display\n");
+        return;
+    }
     screen = DefaultScreen(m_dpy);
     root = RootWindow(m_dpy, screen);
 
@@ -391,23 +391,23 @@ void ScreenSaver::BlackScreen3()
     wa.background_pixel = BlackPixel(m_dpy, screen);
 
     m_win = XCreateWindow(m_dpy, root, 0, 0, DisplayWidth(m_dpy, screen), DisplayHeight(m_dpy, screen),
-			  0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
-			  CWOverrideRedirect | CWBackPixel, &wa);
+              0, DefaultDepth(m_dpy, screen), CopyFromParent, DefaultVisual(m_dpy, screen),
+              CWOverrideRedirect | CWBackPixel, &wa);
     XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "black", &black, &dummy);
-	 pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
+     pmap = XCreateBitmapFromData(m_dpy, m_win, curs, 8, 8);
     invisible = XCreatePixmapCursor(m_dpy, pmap, pmap, &black, &black, 0, 0);
     XDefineCursor(m_dpy, m_win, invisible);
     XMapRaised(m_dpy, m_win);
     XSync(m_dpy, False);
     XFreePixmap(m_dpy, pmap);
 
-	XGCValues gcvalue;
-	Colormap colormap;
+    XGCValues gcvalue;
+    Colormap colormap;
     XColor white;
-	GC gc;
+    GC gc;
 
     XAllocNamedColor(m_dpy, DefaultColormap(m_dpy, screen), "white", &white, &dummy);
-	gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
+    gc = XCreateGC(m_dpy, m_win, 0, &gcvalue);
     colormap = DefaultColormap(m_dpy, screen);
     XAllocColor(m_dpy, colormap, &white);
     XSetForeground(m_dpy, gc, white.pixel);
@@ -426,7 +426,7 @@ void ScreenSaver::BlackScreen3()
         x += 100;
     }
 
-	XFlush(m_dpy);
+    XFlush(m_dpy);
 
     m_state = TRUE;
 }
@@ -440,20 +440,20 @@ void ScreenSaver::EnterScreenSaver3()
     }
 #endif
 
-	FreezeMode *ptrFreezeMode = FreezeMode::GetInstance();
+    FreezeMode *ptrFreezeMode = FreezeMode::GetInstance();
 
     if (ModeStatus::IsAutoReplayMode())
-	{
-		Reset();
-		return;
-	}
+    {
+        Reset();
+        return;
+    }
     else if (ModeStatus::IsUnFreezeMode())
-	{
-		ptrFreezeMode->PressFreeze();
-		BlackScreen3();
-	}
-	else
-	{
-		BlackScreen3();
-	}
+    {
+        ptrFreezeMode->PressFreeze();
+        BlackScreen3();
+    }
+    else
+    {
+        BlackScreen3();
+    }
 }

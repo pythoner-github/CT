@@ -57,8 +57,8 @@ class ViewQueryRetrieve:public FakeXEvent,public AbsCalendarOpr
         //static unsigned int  GetDCMStudyElement(DCMSTUDYELEMENT element);
         //static string  GetDCMImageElement(DCMIMAGEELEMENT element,unsigned char *pImageBuf, unsigned long bufLen);
        //static void  GetDCMSRElement(DCMSRELEMENT element);
-		static void ChangePersonNameFormat(string wlPersonName, string &firstName, string &lastName, string &midName);
-		static void ChangePersonNameFormatForShow(string wlPersonName, string &name);
+        static void ChangePersonNameFormat(string wlPersonName, string &firstName, string &lastName, string &midName);
+        static void ChangePersonNameFormatForShow(string wlPersonName, string &name);
     private:
         static ViewQueryRetrieve* m_ptrInstance;
         GtkWidget* m_window;
@@ -93,7 +93,7 @@ class ViewQueryRetrieve:public FakeXEvent,public AbsCalendarOpr
         PatientInfo::Info m_info;
         vector<DCMQRQUERYRES> QueryRes;
         vector<int> vecIndex;
-        deque<Image> deq;	///< each frames in deque (input)
+        deque<Image> deq;   ///< each frames in deque (input)
         GtkWidget* create_query_treeview();
         GtkTreeModel* create_query_model();
         GtkWidget* create_retrieve_treeview();
@@ -143,7 +143,7 @@ class ViewQueryRetrieve:public FakeXEvent,public AbsCalendarOpr
 
         static void HandleEndCalendarPress(GtkWidget *widget, GdkEventButton *event, ViewQueryRetrieve *data) { data->EndCalendarPress(widget, event); }
 
-		static void HandleToggleRecord(GtkCellRendererToggle *cell, gchar *path_str, ViewQueryRetrieve *data) { data->ToggleRecord(cell, path_str);
+        static void HandleToggleRecord(GtkCellRendererToggle *cell, gchar *path_str, ViewQueryRetrieve *data) { data->ToggleRecord(cell, path_str);
         }
         static void HandleSelectAllToggled(GtkToggleButton *togglebutton, ViewQueryRetrieve *data) { data->ChkSelectAllToggled(togglebutton); }
         static unsigned int  GetDCMStudyElement(DCMSTUDYELEMENT element);

@@ -37,7 +37,7 @@ ViewDicomSupervise* ViewDicomSupervise::GetInstance()
 
 void ViewDicomSupervise::DestroyWindow(void)
 {
-    if(GTK_IS_WIDGET(m_window))	{
+    if(GTK_IS_WIDGET(m_window)) {
         Exit();
         gtk_widget_destroy(m_window);
         if (g_keyInterface.Size() == 1)
@@ -75,14 +75,14 @@ void ViewDicomSupervise::CreateWindow(void)
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
 
     m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_widget_set_size_request (m_window, 480, 400);
-	gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
-	gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
-	gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
+    gtk_widget_set_size_request (m_window, 480, 400);
+    gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
+    gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
+    gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
     gtk_window_set_title (GTK_WINDOW (m_window), _("DICOM Register"));
-	gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
-	//gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(parent));
-	g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
+    gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
+    //gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(parent));
+    g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
 
     fixed = gtk_fixed_new ();
     gtk_container_add (GTK_CONTAINER (m_window), fixed);
@@ -102,7 +102,7 @@ void ViewDicomSupervise::CreateWindow(void)
     btnExport = gtk_button_new_with_mnemonic(_("Export License File"));
     gtk_fixed_put (GTK_FIXED (fixed), btnExport, 250, 155);
     gtk_widget_set_size_request (btnExport, 200, 35);
-	g_signal_connect (G_OBJECT(btnExport), "clicked", G_CALLBACK(HandleBtnExportClicked), this);
+    g_signal_connect (G_OBJECT(btnExport), "clicked", G_CALLBACK(HandleBtnExportClicked), this);
     hseparator1 = gtk_hseparator_new ();
     gtk_widget_show (hseparator1);
     gtk_fixed_put (GTK_FIXED (fixed), hseparator1, 8, 200);
@@ -128,7 +128,7 @@ void ViewDicomSupervise::CreateWindow(void)
     btnRegister = gtk_button_new_with_mnemonic(_("Register"));
     gtk_fixed_put (GTK_FIXED (fixed), btnRegister, 300+45, 300);
     gtk_widget_set_size_request (btnRegister, 100, 35);
-	g_signal_connect (G_OBJECT(btnRegister), "clicked", G_CALLBACK(HandleBtnRegisterClicked), this);
+    g_signal_connect (G_OBJECT(btnRegister), "clicked", G_CALLBACK(HandleBtnRegisterClicked), this);
 
     hseparator2 = gtk_hseparator_new ();
     gtk_widget_show (hseparator2);
@@ -138,7 +138,7 @@ void ViewDicomSupervise::CreateWindow(void)
     btnExit = gtk_button_new_with_mnemonic(_("Exit"));
     gtk_fixed_put (GTK_FIXED (fixed), btnExit, 300+45, 360);
     gtk_widget_set_size_request (btnExit, 100, 35);
-	g_signal_connect (G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
+    g_signal_connect (G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
 
     gtk_widget_show_all(m_window);
     window_register = m_window;
@@ -281,12 +281,12 @@ void ViewDicomSupervise::KeyEvent(unsigned char keyValue)
     {
         case KEY_ESC:
             g_timeout_add(100, ExitWindow, this);
-			FakeEscKey();
-			break;
+            FakeEscKey();
+            break;
 
-		default:
+        default:
             FakeXEvent::KeyEvent(keyValue);
-			break;
+            break;
 
 #if 0
             if (m_statusAuthen)

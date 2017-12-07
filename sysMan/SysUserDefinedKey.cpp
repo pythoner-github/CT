@@ -11,8 +11,8 @@ SysUserDefinedKey::SysUserDefinedKey()
 SysUserDefinedKey::~SysUserDefinedKey()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 #if 0

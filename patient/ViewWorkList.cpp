@@ -118,11 +118,11 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_container_add (GTK_CONTAINER (frame_query), fixed);
 
 #ifdef VET
-	 label_ID = gtk_label_new (_("ID :"));
+     label_ID = gtk_label_new (_("ID :"));
 #else
     label_ID = gtk_label_new (_("Patient ID :"));
 #endif
-	gtk_widget_show (label_ID);
+    gtk_widget_show (label_ID);
     gtk_fixed_put (GTK_FIXED (fixed), label_ID, 10-10, 8);
     gtk_label_set_use_markup (GTK_LABEL (label_ID), TRUE);
 #ifdef VET
@@ -135,7 +135,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     m_entry_ID = gtk_entry_new ();
     gtk_widget_show (m_entry_ID);
 #ifdef VET
- 	gtk_fixed_put (GTK_FIXED (fixed), m_entry_ID, 65-10, 8);
+    gtk_fixed_put (GTK_FIXED (fixed), m_entry_ID, 65-10, 8);
 #else
     gtk_fixed_put (GTK_FIXED (fixed), m_entry_ID, 110+8-10, 8);
 #endif
@@ -210,16 +210,16 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed), label_date, 10-10, 82);
     gtk_label_set_use_markup (GTK_LABEL (label_date), TRUE);
 //#ifdef VET
-  	gtk_widget_set_size_request (label_date, 130+40, 30);
+    gtk_widget_set_size_request (label_date, 130+40, 30);
 //#else
   //  gtk_widget_set_size_request (label_date, 130, 30);
 //#endif
-  	gtk_misc_set_alignment (GTK_MISC (label_date), 0.9, 0.5);
+    gtk_misc_set_alignment (GTK_MISC (label_date), 0.9, 0.5);
 
     m_entry_date1 = gtk_entry_new ();
     gtk_widget_show (m_entry_date1);
 //#ifdef VET
-	gtk_fixed_put (GTK_FIXED (fixed), m_entry_date1, 140+30+10, 82);
+    gtk_fixed_put (GTK_FIXED (fixed), m_entry_date1, 140+30+10, 82);
 //#else
   //  gtk_fixed_put (GTK_FIXED (fixed), m_entry_date1, 140-10, 82);
 //#endif
@@ -237,11 +237,11 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_widget_set_size_request (eventbox_start_calendar, 40, 30);
     gtk_container_add (GTK_CONTAINER (eventbox_start_calendar), img_start_calendar);
 //#ifdef VET
- 	gtk_fixed_put (GTK_FIXED (fixed), eventbox_start_calendar, 230+30+10, 82);
+    gtk_fixed_put (GTK_FIXED (fixed), eventbox_start_calendar, 230+30+10, 82);
 //#else
   //  gtk_fixed_put (GTK_FIXED (fixed), eventbox_start_calendar, 230-10, 82);
 //#endif
- 	g_signal_connect (G_OBJECT(eventbox_start_calendar), "button_press_event", G_CALLBACK(HandleStartCalendarPress), this);
+    g_signal_connect (G_OBJECT(eventbox_start_calendar), "button_press_event", G_CALLBACK(HandleStartCalendarPress), this);
 
     label_to = gtk_label_new (_("To :"));
     gtk_widget_show (label_to);
@@ -284,7 +284,7 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     button_query = gtk_button_new_with_mnemonic (_("Query"));
     gtk_widget_show (button_query);
 //#ifdef VET
- 	gtk_fixed_put (GTK_FIXED (fixed), button_query, 500+58, 82);
+    gtk_fixed_put (GTK_FIXED (fixed), button_query, 500+58, 82);
 //#else
   //  gtk_fixed_put (GTK_FIXED (fixed), button_query, 500, 82);
 //#endif
@@ -315,8 +315,8 @@ GtkWidget* ViewWorkList::CreateWorkListWin(GtkWidget *parent)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_worklist = create_worklist_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_worklist);
-	gtk_widget_set_size_request (m_treeview_worklist, 790, 260+100);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_worklist);
+    gtk_widget_set_size_request (m_treeview_worklist, 790, 260+100);
     gtk_widget_show (m_treeview_worklist);
 
     SysDicomSetting sysDicomSetting;
@@ -374,15 +374,15 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
 
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
-	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Scheduled Date"), renderer, "text", COL_SCHEDULED_DATE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 #ifdef VET
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 170, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 170, NULL);
 #else
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
 #endif
     renderer = gtk_cell_renderer_text_new();
 #ifdef VET
@@ -391,17 +391,17 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     column = gtk_tree_view_column_new_with_attributes(_("patient ID"), renderer, "text", COL_PATIENT_ID, NULL);
 #endif
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Name"), renderer, "text", COL_NAME, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Gender"), renderer, "text", COL_Gender, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 80, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Accession Number"), renderer, "text", COL_ACCESSION_NUMBER, NULL);
@@ -411,19 +411,19 @@ GtkWidget* ViewWorkList::create_worklist_treeview()
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Birth Date"), renderer, "text", COL_BIRTH_DATE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
     renderer = gtk_cell_renderer_text_new();
    column = gtk_tree_view_column_new_with_attributes(_("Exam Description"), renderer, "text", COL_EXAM_DESCRIPTION, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
 
     model = create_worklist_model();
     if (model != NULL)
-		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
+        gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
     g_object_unref (model);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* ViewWorkList::create_worklist_model()
@@ -431,15 +431,15 @@ GtkTreeModel* ViewWorkList::create_worklist_model()
     GtkListStore *store;
 
     store = gtk_list_store_new(NUM_COLS,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING);
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING);
 
-	return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL (store);
 }
 
 void ViewWorkList::InitScheduledDate()
@@ -474,7 +474,7 @@ void ViewWorkList::InitScheduledDate()
 
 void ViewWorkList::StartCalendarPress(GtkWidget *widget, GdkEventButton *event)
 {
-	ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
+    ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
 }
 
 void ViewWorkList::SetStartDate(int year, int month, int day)
@@ -502,7 +502,7 @@ void ViewWorkList::SetStartDate(int year, int month, int day)
 
 void ViewWorkList::EndCalendarPress(GtkWidget *widget, GdkEventButton *event)
 {
-	ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::END, this);
+    ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::END, this);
 }
 
 void ViewWorkList::SetEndDate(int year, int month, int day)
@@ -549,28 +549,28 @@ void ViewWorkList::LoadPatientInfo()
 
      //printf("-----Query patientID patientName accessionNumber requestedProcedureID startDate endDate:%s %s %s %s %s %s\n",patientID, patientName, accessionNumber, requestedProcedureID ,startDate ,endDate);
 
-	char name[256] = {0};
-	snprintf(name, 256, "*%s*", patientName);
-	name[255] = '\0';
+    char name[256] = {0};
+    snprintf(name, 256, "*%s*", patientName);
+    name[255] = '\0';
 
      m_query = CDCMMan::GetMe()->QueryWorklist(patientID, name,accessionNumber,requestedProcedureID, startDate, endDate);
 }
 #ifndef VET
 int StartExam(gpointer data)
 {
-	string errmsg;
-	// archive patient info
-	if (g_patientInfo.ArchivePatientInfo(errmsg)) {
+    string errmsg;
+    // archive patient info
+    if (g_patientInfo.ArchivePatientInfo(errmsg)) {
         ViewNewPat::GetInstance()->UpdateStudyInfo();
         g_menuCalc.ClearAllData();
-		// archive and clear image and viedo
-		//g_patientInfo.ArchiveImg();
-		// archive report
-		g_patientInfo.ArchiveReport();
-		// archive and clear image and viedo
-		g_patientInfo.ArchiveImg();
-		// clear patient info
-		g_patientInfo.ClearAll();
+        // archive and clear image and viedo
+        //g_patientInfo.ArchiveImg();
+        // archive report
+        g_patientInfo.ArchiveReport();
+        // archive and clear image and viedo
+        g_patientInfo.ArchiveImg();
+        // clear patient info
+        g_patientInfo.ClearAll();
         ViewNewPat::GetInstance()->ClearStudyInfo();
         // clear desctiption and comment
         ViewReport::GetInstance()->ClearIndicationandComments();
@@ -645,13 +645,13 @@ int StartExam(gpointer data)
         //  ViewWorkList::GetInstance()->GetSelectedPatInfo();
         // ViewWorkList::GetInstance()->DestroyWin();
        // ViewNewPat::GetInstance()->DestroyWindow();
-	} else {
+    } else {
           if (GTK_IS_WIDGET(ViewWorkList::GetInstance()->GetWindow())) {
-			ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewWorkList::GetInstance()->GetWindow()), ViewDialog::ERROR, _(errmsg.c_str()), NULL);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewWorkList::GetInstance()->GetWindow()), ViewDialog::ERROR, _(errmsg.c_str()), NULL);
         }
 
     }
-	return 0;
+    return 0;
 }
 int InserInfo(gpointer data)
 {
@@ -660,11 +660,11 @@ int InserInfo(gpointer data)
 }
 void ViewWorkList::InserPatInfo()
 {
-	PatientInfo::Name patientName;
-	ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
-	string doctorName;
-	ChangePersonNameFormatForShow(m_query[selectedIndex].wlStudyDoctor, doctorName);
-	ViewNewPat::GetInstance()->InsertPatientInfo(m_query[selectedIndex].wlPatientID.c_str(),patientName,m_query[selectedIndex].wlPatientBirthDate,m_query[selectedIndex].wlPatientAge,m_query[selectedIndex].wlPatientSex.c_str(),m_query[selectedIndex].wlPatientSize.c_str(),m_query[selectedIndex].wlPatientWeight.c_str(),m_query[selectedIndex].wlPatientAddress.c_str(),doctorName.c_str(),m_query[selectedIndex].wlStudyDescription.c_str());
+    PatientInfo::Name patientName;
+    ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
+    string doctorName;
+    ChangePersonNameFormatForShow(m_query[selectedIndex].wlStudyDoctor, doctorName);
+    ViewNewPat::GetInstance()->InsertPatientInfo(m_query[selectedIndex].wlPatientID.c_str(),patientName,m_query[selectedIndex].wlPatientBirthDate,m_query[selectedIndex].wlPatientAge,m_query[selectedIndex].wlPatientSex.c_str(),m_query[selectedIndex].wlPatientSize.c_str(),m_query[selectedIndex].wlPatientWeight.c_str(),m_query[selectedIndex].wlPatientAddress.c_str(),doctorName.c_str(),m_query[selectedIndex].wlStudyDescription.c_str());
     DestroyWin();
 }
 
@@ -759,8 +759,8 @@ void ViewWorkList::ImportPatInfo()
     }
 #ifndef VET
     GetSelectedPatInfo();
-	PatientInfo::Name patientName;
-	ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
+    PatientInfo::Name patientName;
+    ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
     g_patientInfo.UpdatePatInfoToTopArea(patientName,m_query[selectedIndex].wlPatientSex,m_query[selectedIndex].wlPatientAge,m_query[selectedIndex].wlPatientID);
 #endif
     DestroyWin();
@@ -770,42 +770,42 @@ void ViewWorkList::ImportPatInfo()
 
 void ViewWorkList::ChangePersonNameFormat(string wlPersonName, string &firstName, string &lastName, string &midName)
 {
-	int nPos = -1;
-	int nPosT = -1;
+    int nPos = -1;
+    int nPosT = -1;
 
-	if ((nPos = wlPersonName.find('^')) != -1)
-	{
-		lastName = wlPersonName.substr(0, nPos);
-		if ((nPosT = wlPersonName.find('^', nPos+1)) != -1)
-		{
-			firstName = wlPersonName.substr(nPos+1, nPosT-nPos-1);
-			midName = wlPersonName.substr(nPosT+1);
-		}
-		else
-		{
-			firstName = wlPersonName.substr(nPos+1);
-			midName = "";
-		}
-	}
-	else
-	{
-		lastName = wlPersonName;
-		firstName = "";
-		midName = "";
-	}
+    if ((nPos = wlPersonName.find('^')) != -1)
+    {
+        lastName = wlPersonName.substr(0, nPos);
+        if ((nPosT = wlPersonName.find('^', nPos+1)) != -1)
+        {
+            firstName = wlPersonName.substr(nPos+1, nPosT-nPos-1);
+            midName = wlPersonName.substr(nPosT+1);
+        }
+        else
+        {
+            firstName = wlPersonName.substr(nPos+1);
+            midName = "";
+        }
+    }
+    else
+    {
+        lastName = wlPersonName;
+        firstName = "";
+        midName = "";
+    }
 }
 
 void ViewWorkList::ChangePersonNameFormatForShow(string wlPersonName, string &name)
 {
-	string firstName, lastName, midName;
+    string firstName, lastName, midName;
 
-	ChangePersonNameFormat(wlPersonName, firstName, lastName, midName);
-	SysGeneralSetting sgs;
-	 int lang = sgs.GetLanguage();
-	 if(!lang)
-		 name = firstName + " " + midName + " " + lastName;
-	 else
-		 name = lastName + firstName;
+    ChangePersonNameFormat(wlPersonName, firstName, lastName, midName);
+    SysGeneralSetting sgs;
+     int lang = sgs.GetLanguage();
+     if(!lang)
+         name = firstName + " " + midName + " " + lastName;
+     else
+         name = lastName + firstName;
 }
 #ifndef VET
 
@@ -820,11 +820,11 @@ void ViewWorkList::GetSelectedPatInfo()
 
     info.p.id = m_query[selectedIndex].wlPatientID;
 
-	PatientInfo::Name patientName;
-	ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
-	info.p.name.last = patientName.last;
-	info.p.name.first = patientName.first;
-	info.p.name.mid = patientName.mid;
+    PatientInfo::Name patientName;
+    ChangePersonNameFormat(m_query[selectedIndex].wlPatientName, patientName.first, patientName.last, patientName.mid);
+    info.p.name.last = patientName.last;
+    info.p.name.first = patientName.first;
+    info.p.name.mid = patientName.mid;
 
     if(strcmp(buf,"F")==0)
         info.p.sex = 0;
@@ -939,18 +939,18 @@ void ViewWorkList::ButtonDetailClicked(GtkButton *button)
         if(m_query.size()==0)
             return;
         else
-		{
-			string patientName;
-			ChangePersonNameFormatForShow(m_query[path_num].wlPatientName, patientName);
-			string doctorName;
-			ChangePersonNameFormatForShow(m_query[path_num].wlStudyDoctor, doctorName);
+        {
+            string patientName;
+            ChangePersonNameFormatForShow(m_query[path_num].wlPatientName, patientName);
+            string doctorName;
+            ChangePersonNameFormatForShow(m_query[path_num].wlStudyDoctor, doctorName);
             m_patDetail.InsertPatDetail(m_query[path_num].wlPatientID.c_str(),patientName.c_str(),m_query[path_num].wlPatientBirthDate,m_query[path_num].wlPatientAge,m_query[path_num].wlPatientSex.c_str(),m_query[path_num].wlPatientSize.c_str(),m_query[path_num].wlPatientWeight.c_str(),m_query[path_num].wlPatientAddress.c_str(),doctorName.c_str(),m_query[path_num].wlStudyDescription.c_str(),m_query[path_num].wlRequestedProcedureID.c_str(),m_query[path_num].wlAccessionNumber.c_str(),m_query[path_num].wlScheduleDate);
-		}
+        }
     }
     else
     {
 #ifdef VET
- 		ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
                 ViewDialog::INFO,
                 _("No animal is selected!"),
                 NULL);
@@ -996,12 +996,12 @@ void ViewWorkList::ButtonTransferClicked(GtkButton *button)
 
         }
         else
-		{
-			PatientInfo::Name patientName;
-			ChangePersonNameFormat(m_query[path_num].wlPatientName, patientName.first, patientName.last, patientName.mid);
-			string doctorName;
-			ChangePersonNameFormatForShow(m_query[path_num].wlStudyDoctor, doctorName);
-			ViewNewPat::GetInstance()->InsertPatientInfo(m_query[path_num].wlPatientID.c_str(),patientName,m_query[path_num].wlPatientBirthDate,m_query[path_num].wlPatientAge,m_query[path_num].wlPatientSex.c_str(),m_query[path_num].wlPatientSize.c_str(),m_query[path_num].wlPatientWeight.c_str(),m_query[path_num].wlPatientAddress.c_str(),doctorName.c_str(),m_query[path_num].wlStudyDescription.c_str());
+        {
+            PatientInfo::Name patientName;
+            ChangePersonNameFormat(m_query[path_num].wlPatientName, patientName.first, patientName.last, patientName.mid);
+            string doctorName;
+            ChangePersonNameFormatForShow(m_query[path_num].wlStudyDoctor, doctorName);
+            ViewNewPat::GetInstance()->InsertPatientInfo(m_query[path_num].wlPatientID.c_str(),patientName,m_query[path_num].wlPatientBirthDate,m_query[path_num].wlPatientAge,m_query[path_num].wlPatientSex.c_str(),m_query[path_num].wlPatientSize.c_str(),m_query[path_num].wlPatientWeight.c_str(),m_query[path_num].wlPatientAddress.c_str(),doctorName.c_str(),m_query[path_num].wlStudyDescription.c_str());
             ViewNewPat::GetInstance()->SetStudyInfo(m_query[path_num]);
             DestroyWin();
         }
@@ -1125,8 +1125,8 @@ void ViewWorkList::DisplayPatientRecord()
             sprintf(birthDate_buf,"%s","");
         }
 
-		string patientName;
-		ChangePersonNameFormatForShow(m_query[i].wlPatientName, patientName);
+        string patientName;
+        ChangePersonNameFormatForShow(m_query[i].wlPatientName, patientName);
 
         gtk_list_store_append(GTK_LIST_STORE(model), &iter);
         gtk_list_store_set(GTK_LIST_STORE(model), &iter,
@@ -1146,10 +1146,10 @@ void ViewWorkList::DisplayPatientRecord()
 
 gboolean UpdateAutoQuery(gpointer data)
 {
-	ViewWorkList *tmp;
-	tmp = (ViewWorkList *)data;
-	tmp->GetAndDisplayPatientRecord();
-	return TRUE;
+    ViewWorkList *tmp;
+    tmp = (ViewWorkList *)data;
+    tmp->GetAndDisplayPatientRecord();
+    return TRUE;
 }
 
 void ViewWorkList::AutoQuery()
@@ -1310,8 +1310,8 @@ void ViewWorkList::GetAndDisplayPatientRecord()
             sprintf(birthDate_buf,"%s","");
         }
 
-		string patientName;
-		ChangePersonNameFormatForShow(m_query[i].wlPatientName, patientName);
+        string patientName;
+        ChangePersonNameFormatForShow(m_query[i].wlPatientName, patientName);
 
         gtk_list_store_append(GTK_LIST_STORE(model), &iter);
         gtk_list_store_set(GTK_LIST_STORE(model), &iter,
@@ -1427,26 +1427,26 @@ void ViewWorkList::ClearQueryRes(void)
 
 static gboolean ExitWindow(gpointer data)
 {
-	ViewWorkList *tmp;
-	tmp = (ViewWorkList *)data;
-	tmp->DestroyWin();
-	return FALSE;
+    ViewWorkList *tmp;
+    tmp = (ViewWorkList *)data;
+    tmp->DestroyWin();
+    return FALSE;
 }
 
 void ViewWorkList::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-			g_timeout_add(100, ExitWindow, this);
-			FakeEscKey();
-			break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+            g_timeout_add(100, ExitWindow, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 
 void ViewWorkList::CloseWindow(GtkWidget *window)
@@ -1571,7 +1571,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_container_add (GTK_CONTAINER (frame_detail), fixed);
 
 #ifdef VET
-	label_ID = gtk_label_new (_("ID :"));
+    label_ID = gtk_label_new (_("ID :"));
 #else
     label_ID = gtk_label_new (_("Patient ID :"));
 #endif
@@ -1591,7 +1591,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     //gtk_widget_set_sensitive(m_entry_ID,false);
 
 #ifdef VET
- 	label_name = gtk_label_new (_("Animal Name:"));
+    label_name = gtk_label_new (_("Animal Name:"));
 #else
     label_name = gtk_label_new (_("Patient Name :"));
 #endif
@@ -1599,7 +1599,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed), label_name, 200-20, 8);
     gtk_label_set_use_markup (GTK_LABEL (label_name), TRUE);
 #ifdef VET
- 	 gtk_widget_set_size_request (label_name, 130+10+5, 30);
+     gtk_widget_set_size_request (label_name, 130+10+5, 30);
 #else
     gtk_widget_set_size_request (label_name, 130+10, 30);
 #endif
@@ -1608,7 +1608,7 @@ GtkWidget* PatDetail::CreatePatDetailWin(GtkWidget *parent)
     m_entry_name = gtk_entry_new ();
     gtk_widget_show (m_entry_name);
 #ifdef VET
- 	gtk_fixed_put (GTK_FIXED (fixed), m_entry_name, 330-10+5, 8);
+    gtk_fixed_put (GTK_FIXED (fixed), m_entry_name, 330-10+5, 8);
     gtk_widget_set_size_request (m_entry_name, 200-20, 30);
 #else
     gtk_fixed_put (GTK_FIXED (fixed), m_entry_name, 330-10, 8);
@@ -2016,26 +2016,26 @@ void PatDetail::ClearData()
 #if 1
 static gboolean ExitDetailWindow(gpointer data)
 {
-	PatDetail *tmp;
-	tmp = (PatDetail *)data;
-	tmp->DestroyPatDetailWin();
-	return FALSE;
+    PatDetail *tmp;
+    tmp = (PatDetail *)data;
+    tmp->DestroyPatDetailWin();
+    return FALSE;
 }
 
 void PatDetail::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-			g_timeout_add(100, ExitDetailWindow, this);
-			FakeEscKey();
-			break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+            g_timeout_add(100, ExitDetailWindow, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 #endif
 void PatDetail::DestroyPatDetailWin(void)

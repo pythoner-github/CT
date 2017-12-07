@@ -15,8 +15,8 @@ SysGeneralSetting::SysGeneralSetting()
 SysGeneralSetting::~SysGeneralSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 
@@ -95,7 +95,7 @@ int SysGeneralSetting::GetScreenProtect(void)
     case 4: ScreenSaver = 30; break;
     case 5: ScreenSaver = 45; break;
     case 6: ScreenSaver = 60; break;
-	default: ScreenSaver = 0;
+    default: ScreenSaver = 0;
     }
     return ScreenSaver;
 }

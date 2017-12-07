@@ -14,8 +14,8 @@ SysPrinterSetting::SysPrinterSetting()
 SysPrinterSetting::~SysPrinterSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 
@@ -41,17 +41,17 @@ int SysPrinterSetting::GetMediaSize(void)
 
 int SysPrinterSetting::GetLandscape(void)
 {
-	return ptrIni->ReadInt("PrinterSetting", "Landscape");
+    return ptrIni->ReadInt("PrinterSetting", "Landscape");
 }
 
 int SysPrinterSetting::GetPageSize(void)
 {
-	return ptrIni->ReadInt("PrinterSetting", "PageSize");
+    return ptrIni->ReadInt("PrinterSetting", "PageSize");
 }
 
 int SysPrinterSetting::GetSonyGamma(void)
 {
-	return ptrIni->ReadInt("PrinterSetting", "SonyGamma");
+    return ptrIni->ReadInt("PrinterSetting", "SonyGamma");
 }
 
 void SysPrinterSetting::SetCopies(int copies)
@@ -96,17 +96,17 @@ void SysPrinterSetting::SyncFile(void)
 
 void SysPrinterSetting::DefaultFactory(void)
 {
-	if(ViewPrintSetting::GetInstance()->SonyURI()){
-		printf("/////////////// 01\n");
-		ptrIni->WriteInt("PrinterSetting", "Copies", 1);
-		ptrIni->WriteInt("PrinterSetting", "Landscape", 0);
-		ptrIni->WriteInt("PrinterSetting", "PageSize", 0);
-		ptrIni->WriteInt("PrinterSetting", "SonyGamma", 0);
+    if(ViewPrintSetting::GetInstance()->SonyURI()){
+        printf("/////////////// 01\n");
+        ptrIni->WriteInt("PrinterSetting", "Copies", 1);
+        ptrIni->WriteInt("PrinterSetting", "Landscape", 0);
+        ptrIni->WriteInt("PrinterSetting", "PageSize", 0);
+        ptrIni->WriteInt("PrinterSetting", "SonyGamma", 0);
     }
     else{
         ptrIni->WriteInt("PrinterSetting", "Copies", 1);
-		ptrIni->WriteInt("PrinterSetting", "Gamma", 1000);
-		ptrIni->WriteInt("PrinterSetting", "Brightness", 100);
-		ptrIni->WriteInt("PrinterSetting", "MediaSzie", 0);
+        ptrIni->WriteInt("PrinterSetting", "Gamma", 1000);
+        ptrIni->WriteInt("PrinterSetting", "Brightness", 100);
+        ptrIni->WriteInt("PrinterSetting", "MediaSzie", 0);
     }
 }

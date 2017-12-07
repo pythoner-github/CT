@@ -120,12 +120,12 @@ void ConfigToUSB::DestroyWindow(void)
             if(model)
                 g_object_unref(model);
         }
-        //	PRINTF("%s: List length is %d\n", __FUNCTION__, g_list_length(m_listBranch));
+        //  PRINTF("%s: List length is %d\n", __FUNCTION__, g_list_length(m_listBranch));
         g_list_free(m_listBranch);
         m_listBranch = NULL;
     }
 
-    //	m_vecPath.clear();
+    //  m_vecPath.clear();
 
     if(GTK_IS_WIDGET(m_window)) {
         g_keyInterface.Pop();
@@ -161,7 +161,7 @@ static void progress_callback(goffset current, goffset total, gpointer data)
         return;
 
     double prac = (double)current/total;
-    //	PRINTF("prac = %f\n", prac);
+    //  PRINTF("prac = %f\n", prac);
     if(prac >= 0 && prac <= 1.0)
     {
         gdk_threads_enter();
@@ -320,7 +320,7 @@ void ConfigToUSB::BtnOKClicked(GtkButton *button)
     {
         g_timeout_add(1000, LoadSelectedData, NULL);
 
-        //	PRINTF("Load From U disk!\n");
+        //  PRINTF("Load From U disk!\n");
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::PRG_CANCEL,
                 _("Please wait, sending data to USB storage..."),
@@ -381,7 +381,7 @@ void ConfigToUSB::ToggleData(GtkCellRendererToggle *cell, gchar *path_str)
     else
         return;
 
-    //	PRINTF("Toggle path: %s\n", path_str);
+    //  PRINTF("Toggle path: %s\n", path_str);
     GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(treeview));
     GtkTreeIter iter;
     GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
@@ -461,12 +461,12 @@ void ConfigToUSB::UpdateRootModel(void)
         PRINTF("DIR: %s\n", ent->d_name);
         if(ent->d_name[0]=='.')
             continue;
-        //	if(ent->d_type==DT_DIR)
+        //  if(ent->d_type==DT_DIR)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, USERCONFIG_PARENT_PATH, ent->d_name, NULL);
         //export file of default dir or  userconfig dir
         if(g_file_test(tmpPath, G_FILE_TEST_IS_DIR) && ((strcmp(ent->d_name, "userconfig") == 0) || (strcmp(ent->d_name, "default") == 0)))
         {
-            //	PRINTF("DIR: %s\n", ent->d_name);
+            //  PRINTF("DIR: %s\n", ent->d_name);
             gtk_list_store_append(store, &iter);
             gtk_list_store_set(store, &iter,
                     COL_CHECKED, FALSE,
@@ -510,14 +510,14 @@ GtkTreeModel* ConfigToUSB::LoadBranchModel(gchar *branch)
     {
         if(ent->d_name[0]=='.')
             continue;
-        //	if(ent->d_type==DT_REG)
+        //  if(ent->d_type==DT_REG)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, path, ent->d_name, NULL);
         if(g_file_test(tmpPath, G_FILE_TEST_IS_REGULAR))
         {
-            //	if(fm.CompareSuffix(ent->d_name, "jpg")==0 || fm.CompareSuffix(ent->d_name, "bmp")==0 || fm.CompareSuffix(ent->d_name, "emp")==0 || fm.CompareSuffix(ent->d_name, "avi")==0 || fm.CompareSuffix(ent->d_name, "cine")==0)
+            //  if(fm.CompareSuffix(ent->d_name, "jpg")==0 || fm.CompareSuffix(ent->d_name, "bmp")==0 || fm.CompareSuffix(ent->d_name, "emp")==0 || fm.CompareSuffix(ent->d_name, "avi")==0 || fm.CompareSuffix(ent->d_name, "cine")==0)
             if (fm.CompareSuffix(ent->d_name, "ini")==0)
             {
-                //	PRINTF("	FILE: %s\n", ent->d_name);
+                //  PRINTF("    FILE: %s\n", ent->d_name);
                 gtk_list_store_append(store, &iter);
                 gtk_list_store_set(store, &iter,
                         COL_CHECKED, FALSE,
@@ -547,7 +547,7 @@ void ConfigToUSB::RootSelectionChanged(GtkTreeSelection *selection)
     {
         gtk_tree_model_get(model, &iter, COL_NAME, &text, -1);
         GtkTreePath* path = gtk_tree_model_get_path(model, &iter);
-        //	PRINTF("Selection path: %s\n", gtk_tree_path_to_string(path));
+        //  PRINTF("Selection path: %s\n", gtk_tree_path_to_string(path));
         UpdateBranchModel(atoi(gtk_tree_path_to_string(path)));
         gtk_tree_path_free (path);
         g_free(text);
@@ -595,7 +595,7 @@ gboolean ConfigToUSB::GetAllSelectPath(void)
         GList *list = g_list_first(m_listBranch);
         while(list)
         {
-            //	PRINTF("New Branch\n");
+            //  PRINTF("New Branch\n");
             if(!validRoot || !list->data)
             {
                 validRoot = gtk_tree_model_iter_next(modelRoot, &iterRoot);
@@ -604,7 +604,7 @@ gboolean ConfigToUSB::GetAllSelectPath(void)
             }
 
             gtk_tree_model_get(modelRoot, &iterRoot, COL_CHECKED, &checkedRoot, COL_NAME, &nameRoot, -1);
-            //	PRINTF("Root Name=%s\n", nameRoot);
+            //  PRINTF("Root Name=%s\n", nameRoot);
 
             modelBranch = GTK_TREE_MODEL(list->data);
             validBranch = gtk_tree_model_get_iter_first(modelBranch, &iterBranch);
@@ -612,15 +612,15 @@ gboolean ConfigToUSB::GetAllSelectPath(void)
             while(validBranch)
             {
                 gtk_tree_model_get(modelBranch, &iterBranch, COL_CHECKED, &checkedBranch, COL_NAME, &nameBranch, -1);
-                //	PRINTF("Branch Name=%s, Checked=%d\n", nameBranch, checkedBranch);
+                //  PRINTF("Branch Name=%s, Checked=%d\n", nameBranch, checkedBranch);
                 if(checkedBranch)
                 {
                     gchar *path = g_build_path(G_DIR_SEPARATOR_S, USERCONFIG_PARENT_PATH, nameRoot, nameBranch, NULL);
-                    //		PRINTF("Push to vector: %s\n", path);
+                    //      PRINTF("Push to vector: %s\n", path);
                     m_vecPath.push_back(path);
                     gchar pathIni[255];
                     fm.GetIniFilePath(path, pathIni);
-                    //			PRINTF("Ini path is: %s\n", pathIni);
+                    //          PRINTF("Ini path is: %s\n", pathIni);
                     m_vecPath.push_back(pathIni);
 
                     g_free(path);

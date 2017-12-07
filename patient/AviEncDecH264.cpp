@@ -14,7 +14,7 @@
 #endif
 
 #ifdef __cplusplus
-#  define UINT64_C(c)	c ## ULL
+#  define UINT64_C(c)   c ## ULL
 #endif
 
 extern "C"
@@ -123,8 +123,8 @@ int avc_to_avi( FILE* outputfile ,FILE* inputfile ,int fps)
     int b_eof;
     int b_key;
     int b_slice;
-	int type;
-	int i_data2;
+    int type;
+    int i_data2;
 
     uint8_t data[DATA_MAX];
 
@@ -220,9 +220,9 @@ int avc_to_avi( FILE* outputfile ,FILE* inputfile ,int fps)
 
         b_key = h264.b_key;
 
-		type = nal.i_type;
+        type = nal.i_type;
 
-		i_data2 = vb.i_data;
+        i_data2 = vb.i_data;
 
         if( b_slice && vb.i_data && ( nal.i_type == NAL_SPS || nal.i_type == NAL_PPS ) )
         {
@@ -696,7 +696,7 @@ int nal_decode( nal_t *nal, uint8_t  *p_data, int i_data )
         *dst++ = *src++;
     }
 
-	nal->i_payload = dst - nal->p_payload;
+    nal->i_payload = dst - nal->p_payload;
     return 0;
 }
 
@@ -906,8 +906,8 @@ int save_to_replay(uint8_t *buf, int width, int height)
 {
     // add image to replay memory
         Image::AutoTracePara para;
-		Image image((unsigned int*)buf, para);
-		Replay::GetInstance()->AddOneCineImg(image);
+        Image image((unsigned int*)buf, para);
+        Replay::GetInstance()->AddOneCineImg(image);
         return 0;
 }
 
@@ -1056,15 +1056,15 @@ end:
         avcodec_close(video_dec_ctx);
     }
 
-	if (rgb_buf)
-	{
-		av_free(rgb_buf);
-	}
+    if (rgb_buf)
+    {
+        av_free(rgb_buf);
+    }
 
-	if (fmt_ctx)
-	{
-		avformat_close_input(&fmt_ctx);
-	}
+    if (fmt_ctx)
+    {
+        avformat_close_input(&fmt_ctx);
+    }
 
     if (ret<0)
     {

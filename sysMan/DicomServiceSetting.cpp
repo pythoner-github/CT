@@ -11,6 +11,7 @@
 #include "sysMan/ButtonCallBack.h"
 #include "sysMan/DicomPrint.h"
 //#include  "DicomSendPrinter.h"
+
 vector<string> m_group_device_service;
 
 const char *frames[6]={
@@ -49,8 +50,8 @@ GtkWidget* DicomServiceSetting::CreateDicomWindow(GtkWidget *parent)
     GtkWidget *label_storage_commitment;
     GtkWidget *fixed_query_retrieve;
     GtkWidget *label_query_retrieve;
-	GtkWidget *printFixed;
-	GtkWidget *label_print;
+    GtkWidget *printFixed;
+    GtkWidget *label_print;
 
     fixed_service = gtk_fixed_new ();
     gtk_widget_show (fixed_service);
@@ -107,10 +108,10 @@ GtkWidget* DicomServiceSetting::CreateDicomWindow(GtkWidget *parent)
     gtk_widget_show (label_query_retrieve);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (m_service_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (m_service_notebook), service_notebook_page++), label_query_retrieve);
 
-	printFixed = DicomPrint::GetInstance()->createNotePrint();
-	gtk_container_add (GTK_CONTAINER (m_service_notebook), printFixed);
+    printFixed = DicomPrint::GetInstance()->createNotePrint();
+    gtk_container_add (GTK_CONTAINER (m_service_notebook), printFixed);
 
-	label_print = gtk_label_new (_("Print"));
+    label_print = gtk_label_new (_("Print"));
     gtk_widget_show (label_print);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (m_service_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (m_service_notebook), service_notebook_page++), label_print);
 
@@ -139,8 +140,8 @@ void DicomServiceSetting::notebookChanged(GtkNotebook *notebook, GtkNotebookPage
        case 4:
             init_query_retrieve_setting();
             break;
-		case 5:
-			DicomPrint::GetInstance()->init_print_setting();
+        case 5:
+            DicomPrint::GetInstance()->init_print_setting();
         default:
             break;
     }
@@ -280,8 +281,8 @@ GtkWidget* DicomServiceSetting::Create_note_storage(void)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_storage = create_service_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_storage);
-	gtk_widget_set_size_request (m_treeview_storage, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_storage);
+    gtk_widget_set_size_request (m_treeview_storage, 250, 120);
     gtk_widget_show (m_treeview_storage);
 
     button_storage_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -300,7 +301,7 @@ GtkWidget* DicomServiceSetting::Create_note_storage(void)
     gtk_widget_show (button_storage_connect);
     gtk_fixed_put (GTK_FIXED (fixed_list), button_storage_connect, 270, 170);
 #ifdef VET
- 	 gtk_widget_set_size_request (button_storage_connect, 300, 35);
+     gtk_widget_set_size_request (button_storage_connect, 300, 35);
 #else
     gtk_widget_set_size_request (button_storage_connect, 105+100, 35);
 #endif
@@ -467,8 +468,8 @@ GtkWidget* DicomServiceSetting::Create_note_worklist(void)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_worklist = create_service_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_worklist);
-	gtk_widget_set_size_request (m_treeview_worklist, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_worklist);
+    gtk_widget_set_size_request (m_treeview_worklist, 250, 120);
     gtk_widget_show (m_treeview_worklist);
 
     button_worklist_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -487,7 +488,7 @@ GtkWidget* DicomServiceSetting::Create_note_worklist(void)
     gtk_widget_show (button_worklist_connect);
     gtk_fixed_put (GTK_FIXED (fixed_list), button_worklist_connect, 270, 170);
 #ifdef VET
- 	 gtk_widget_set_size_request (button_worklist_connect, 195, 35);
+     gtk_widget_set_size_request (button_worklist_connect, 195, 35);
 #else
     gtk_widget_set_size_request (button_worklist_connect, 105+100, 35);
 #endif
@@ -635,8 +636,8 @@ GtkWidget* DicomServiceSetting::Create_note_mpps(void)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_mpps = create_service_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_mpps);
-	gtk_widget_set_size_request (m_treeview_mpps, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_mpps);
+    gtk_widget_set_size_request (m_treeview_mpps, 250, 120);
     gtk_widget_show (m_treeview_mpps);
 
     button_mpps_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -796,8 +797,8 @@ GtkWidget* DicomServiceSetting::Create_note_storage_commitment(void)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_storage_commitment = create_service_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_storage_commitment);
-	gtk_widget_set_size_request (m_treeview_storage_commitment, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_storage_commitment);
+    gtk_widget_set_size_request (m_treeview_storage_commitment, 250, 120);
     gtk_widget_show (m_treeview_storage_commitment);
 
     button_storage_commitment_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -956,8 +957,8 @@ GtkWidget* DicomServiceSetting::Create_note_query_retrieve(void)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview_query_retrieve = create_service_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_query_retrieve);
-	gtk_widget_set_size_request (m_treeview_query_retrieve, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview_query_retrieve);
+    gtk_widget_set_size_request (m_treeview_query_retrieve, 250, 120);
     gtk_widget_show (m_treeview_query_retrieve);
 
     button_query_retrieve_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -990,39 +991,39 @@ GtkWidget* DicomServiceSetting::create_service_treeview()
 
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
-	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Device"), renderer, "text", COL_STORAGE_DEVICE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Service Name"), renderer, "text", COL_SERVICE_NAME, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 200, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 200, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("AE Title"), renderer, "text", COL_AE_TITLE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Port"), renderer, "text", COL_PORT, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Default"), renderer, "text", COL_DEFAULT, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
 
     model = create_service_model();
     if (model != NULL)
-		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
+        gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
     g_object_unref (model);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* DicomServiceSetting::create_service_model()
@@ -1030,13 +1031,13 @@ GtkTreeModel* DicomServiceSetting::create_service_model()
     GtkListStore *store;
 
     store = gtk_list_store_new(NUM_COLS,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING,
-			G_TYPE_STRING);
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING,
+            G_TYPE_STRING);
 
-	return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL (store);
 }
 
 void DicomServiceSetting::GetSingleServiceAttribute(string device, string serviceName,string aeTitle, int port, bool isDefault,void *data)
@@ -2380,7 +2381,7 @@ void DicomServiceSetting::QueryRetrieveDeviceChanged(GtkComboBox *combobox)
 }
 void DicomServiceSetting::ChangeServiceNoteBook(int page)
 {
-	 gtk_notebook_set_current_page(GTK_NOTEBOOK(m_service_notebook), page);
+     gtk_notebook_set_current_page(GTK_NOTEBOOK(m_service_notebook), page);
 
 }
 void DicomServiceSetting::ButtonQueryRetrieveAddClicked(GtkButton *button)
@@ -2621,7 +2622,7 @@ gboolean DicomServiceSetting::KeyFilter(GtkWidget *entry, GdkEventKey *event)
                 case GDK_Delete:
                 case GDK_Home:
                 case GDK_End:
-				case GDK_Tab:
+                case GDK_Tab:
                         return FALSE;
                 default:
                         return TRUE;

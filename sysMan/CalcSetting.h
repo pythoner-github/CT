@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  CalcSetting.h
- *
- *    Description:
- *
- *        Version:  1.0
- *        Created:  10/29/2012 04:09:21 AM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  YOUR NAME (),
- *        Company:
- *
- * =====================================================================================
- */
-
 #ifndef __CALC_SETTING_H__
 #define __CALC_SETTING_H__
 
@@ -95,16 +77,16 @@ class CustomCalc:public FakeXEvent
         GtkWidget *m_entry_name;
         GtkWidget *m_entry_export_name;
         GtkWidget *m_combobox_type;
-		GtkWidget *m_combobox_method;
-		GtkWidget *label_type;
-		GtkWidget *label_method;
-		GtkWidget *m_window;
-		GtkWidget *fixed1;
-		GtkWidget *m_frame_new_notice;
-		GtkWidget *m_label_notice;
-		GtkWidget *fixed_new_notice;
-		GtkWidget *m_label_notice1;
-		GtkWidget *m_label_notice2;
+        GtkWidget *m_combobox_method;
+        GtkWidget *label_type;
+        GtkWidget *label_method;
+        GtkWidget *m_window;
+        GtkWidget *fixed1;
+        GtkWidget *m_frame_new_notice;
+        GtkWidget *m_label_notice;
+        GtkWidget *fixed_new_notice;
+        GtkWidget *m_label_notice1;
+        GtkWidget *m_label_notice2;
         GtkWidget *m_label_notice3;
         GtkWidget *m_progress_bar;
         GtkWidget *button_right;
@@ -208,7 +190,7 @@ class CalcSetting
         void GetCustomCalcMeasure(int Etype, int &measure_type, string &calc_name);
         int GetCalcMaxEtype();
         void GetDepartmentForCustomMeasure(int Etype, string &department);
-		vector<string> GetSelectedVec() {return m_vecPath;}
+        vector<string> GetSelectedVec() {return m_vecPath;}
         vector<string> GetSelectedVec1() {return m_vecPath1;}
         gboolean GetSelectPath(void);
         const gchar* GetExamName(void);
@@ -244,7 +226,7 @@ class CalcSetting
         vector<string> m_vecPath;
         vector<string> m_vecPath1;
 
-		int GetSequence(const char *exam_type);
+        int GetSequence(const char *exam_type);
 
         int  create_exam_calc_model(vector<string> &vecExamItem_calc);
         void add_columns_calc(GtkTreeView *treeview);

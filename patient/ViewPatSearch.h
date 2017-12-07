@@ -23,29 +23,29 @@ private:
 
 #ifdef VET
     enum {
-	ID_COL,
-	ANIMAL_COL,
+    ID_COL,
+    ANIMAL_COL,
         OWNER_COL,
         VARIETY_COL,
-	GENDER_COL,
-	BIRTHDATE_COL,
+    GENDER_COL,
+    BIRTHDATE_COL,
         AGE_COL,
-	EXAMDATE_COL,
-	EXAMID_COL,
-	EXAMTYPE_COL,
-	N_COLUMNS
+    EXAMDATE_COL,
+    EXAMID_COL,
+    EXAMTYPE_COL,
+    N_COLUMNS
     };
 #else
     enum {
-	ID_COL,
-	NAME_COL,
-	GENDER_COL,
-	BIRTHDATE_COL,
+    ID_COL,
+    NAME_COL,
+    GENDER_COL,
+    BIRTHDATE_COL,
         AGE_COL,
-	EXAMDATE_COL,
-	EXAMID_COL,
-	EXAMTYPE_COL,
-	N_COLUMNS
+    EXAMDATE_COL,
+    EXAMID_COL,
+    EXAMTYPE_COL,
+    N_COLUMNS
     };
 #endif
 // signal handle

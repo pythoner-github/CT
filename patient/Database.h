@@ -16,69 +16,69 @@ public:
    //enum RetType {SQLOK, DBERR, NOID};
 #ifdef VET
     struct NewPatSearchTerm{
-	string id;
-	string animal_name;
-	string owner_name;
-	string species;
-	string gender;
-	string birthYear;
-	string birthMonth;
-	string birthDay;
-	string age; //range(0-999) sample 10
-	string ageUnit; //range(0,1,2 means Y/M/D), sample 0
-	string examDateStartYear;
-	string examDateStartMonth;
-	string examDateStartDay;
-	string examDateEndYear;
-	string examDateEndMonth;
-	string examDateEndDay;
+    string id;
+    string animal_name;
+    string owner_name;
+    string species;
+    string gender;
+    string birthYear;
+    string birthMonth;
+    string birthDay;
+    string age; //range(0-999) sample 10
+    string ageUnit; //range(0,1,2 means Y/M/D), sample 0
+    string examDateStartYear;
+    string examDateStartMonth;
+    string examDateStartDay;
+    string examDateEndYear;
+    string examDateEndMonth;
+    string examDateEndDay;
     };
 #else
     //enum RetType {SQLOK, DBERR, NOID};
     struct NewPatSearchTerm{
-	string id;
-	PatientInfo::Name name;
-	string totalName;
-	string gender;
-	string birthYear;
-	string birthMonth;
-	string birthDay;
-	string age; //range(0-999) sample 10
-	string ageUnit; //range(0,1,2 means Y/M/D), sample 0
-	string examDateStartYear;
-	string examDateStartMonth;
-	string examDateStartDay;
-	string examDateEndYear;
-	string examDateEndMonth;
-	string examDateEndDay;
+    string id;
+    PatientInfo::Name name;
+    string totalName;
+    string gender;
+    string birthYear;
+    string birthMonth;
+    string birthDay;
+    string age; //range(0-999) sample 10
+    string ageUnit; //range(0,1,2 means Y/M/D), sample 0
+    string examDateStartYear;
+    string examDateStartMonth;
+    string examDateStartDay;
+    string examDateEndYear;
+    string examDateEndMonth;
+    string examDateEndDay;
     };
 #endif
 
 #ifdef VET
     struct NewPatSearchResult{
-	string ID;
-	string animal_name;
-	string owner_name;
-	string species;
-	string gender;
-	string birthDate;
-	string age; // 010Y/M/D
-	string examDate;
-	string examID;
-	string examType;
-	string examDoctor; // to be finshed
+    string ID;
+    string animal_name;
+    string owner_name;
+    string species;
+    string gender;
+    string birthDate;
+    string age; // 010Y/M/D
+    string examDate;
+    string examID;
+    string examType;
+    string examDoctor; // to be finshed
     };
 #else
     struct NewPatSearchResult{
-	string ID;
-	string name;
-	string gender;
-	string birthDate;
-	string age; // 010Y/M/D
-	string examDate;
-	string examID;
-	string examType;
-	string examDoctor; // to be finshed
+    string ID;
+    string name;
+    string gender;
+    string birthDate;
+    string age; // 010Y/M/D
+    string examDate;
+    string examID;
+    string examType;
+    string examDoctor; // to be finshed
     };
 #endif
     bool OpenDB(void);

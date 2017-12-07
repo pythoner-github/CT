@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  MeasureSetting.h
- *
- *    Description:
- *
- *        Version:  1.0
- *        Created:  18/4/2016
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  zhang jingxia
- *        Company:
- *
- * =====================================================================================
- */
-
 #ifndef __MEASURE_SETTING_H__
 #define __MEASURE_SETTING_H__
 
@@ -70,7 +52,7 @@ class MeasureSetting
 
         static MeasureSetting* m_ptrInstance;
 
-		int GetSequence(const char *exam_type);
+        int GetSequence(const char *exam_type);
 
         int  create_exam_calc_model(vector<string> &vecExamItem_calc);
         void add_columns_calc(GtkTreeView *treeview);

@@ -323,7 +323,7 @@ gboolean DicomLocalSetting::KeyFilter(GtkWidget *entry, GdkEventKey *event)
                 case GDK_Delete:
                 case GDK_Home:
                 case GDK_End:
-				case GDK_Tab:
+                case GDK_Tab:
                         return FALSE;
                 default:
                         return TRUE;

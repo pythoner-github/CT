@@ -45,10 +45,10 @@ CAuthorize *m_ptrInstance = NULL;
 
 CAuthorize *CAuthorize::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new CAuthorize;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new CAuthorize;
 
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 CAuthorize::CAuthorize() : m_timeoutIdUkey(0)
@@ -61,90 +61,90 @@ CAuthorize::~CAuthorize()
 
 void CAuthorize::Excute(int argc, char *argv[])
 {
-	SysGeneralSetting sysGS;
+    SysGeneralSetting sysGS;
     int index_fid = sysGS.GetFID();
-	//int status = CheckAuthorize(FEATURE);
+    //int status = CheckAuthorize(FEATURE);
     int status = CheckAuthorize(index_fid);
-	PRINTF("status=%d\n", status);
+    PRINTF("status=%d\n", status);
     if (status < 0)
     {
         setlocale(LC_ALL, "");
         bindtextdomain(PACKAGE, LOCALEDIR);
         bind_textdomain_codeset(PACKAGE, "UTF-8");
-		textdomain(PACKAGE);
+        textdomain(PACKAGE);
 
-		SysGeneralSetting *sysGeneral = new SysGeneralSetting;
-		int index_lang = sysGeneral->GetLanguage();
-		delete sysGeneral;
+        SysGeneralSetting *sysGeneral = new SysGeneralSetting;
+        int index_lang = sysGeneral->GetLanguage();
+        delete sysGeneral;
 
-		if (ZH == index_lang)
-		{
-			setenv("LANG", "zh_CN.UTF-8", 1);
-			setenv("LANGUAGE", "zh_CN:zh", 1);
-		}
-		else if (RU == index_lang)
-		{
-			setenv("LANG", "ru_RU.UTF-8", 1);
-			setenv("LANGUAGE", "ru_RU:ru", 1);
-		}
-		else if (PL == index_lang)
-		{
-			setenv("LANG", "pl_PL.UTF-8", 1);
-			setenv("LANGUAGE", "pl_PL:pl", 1);
-		}
-        else if (ES == index_lang)
-		{
-			setenv("LANG", "es_ES.UTF-8", 1);
-			setenv("LANGUAGE", "es_ES:ES", 1);
-		}
-
-		else if (FR == index_lang)
-		{
-			setenv("LANG", "fr_FR.UTF-8", 1);
-			setenv("LANGUAGE", "fr_FR:fr", 1);
+        if (ZH == index_lang)
+        {
+            setenv("LANG", "zh_CN.UTF-8", 1);
+            setenv("LANGUAGE", "zh_CN:zh", 1);
         }
-		else if (DE == index_lang)
-		{
-			setenv("LANG", "de_DE.UTF-8", 1);
-			setenv("LANGUAGE", "de_DE:de", 1);
-		}
-		else
-		{
-			setenv("LANG", "en_US.UTF-8", 1);
-			setenv("LANGUAGE", "en_US:en", 1);
-		}
+        else if (RU == index_lang)
+        {
+            setenv("LANG", "ru_RU.UTF-8", 1);
+            setenv("LANGUAGE", "ru_RU:ru", 1);
+        }
+        else if (PL == index_lang)
+        {
+            setenv("LANG", "pl_PL.UTF-8", 1);
+            setenv("LANGUAGE", "pl_PL:pl", 1);
+        }
+        else if (ES == index_lang)
+        {
+            setenv("LANG", "es_ES.UTF-8", 1);
+            setenv("LANGUAGE", "es_ES:ES", 1);
+        }
 
-		if(!g_thread_supported())
-			g_thread_init(NULL);
-		gdk_threads_init();
-		gtk_init(&argc, &argv);
+        else if (FR == index_lang)
+        {
+            setenv("LANG", "fr_FR.UTF-8", 1);
+            setenv("LANGUAGE", "fr_FR:fr", 1);
+        }
+        else if (DE == index_lang)
+        {
+            setenv("LANG", "de_DE.UTF-8", 1);
+            setenv("LANGUAGE", "de_DE:de", 1);
+        }
+        else
+        {
+            setenv("LANG", "en_US.UTF-8", 1);
+            setenv("LANGUAGE", "en_US:en", 1);
+        }
 
-		SetTheme(RC_PATH);
-		if (status == -1)
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::NODEVICE, true);
-		else if (status == -2)
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::EXPIRE, true);
-		else
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::NOAUTHORIZE, true);
+        if(!g_thread_supported())
+            g_thread_init(NULL);
+        gdk_threads_init();
+        gtk_init(&argc, &argv);
+
+        SetTheme(RC_PATH);
+        if (status == -1)
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::NODEVICE, true);
+        else if (status == -2)
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::EXPIRE, true);
+        else
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::NOAUTHORIZE, true);
 
         gdk_threads_enter();
         gtk_main();
         gdk_threads_leave();
     }
 
-	AddTimeout();
+    AddTimeout();
 
 }
 
 void CAuthorize::AddTimeout()
 {
-	if (!m_timeoutIdUkey)
-		m_timeoutIdUkey = g_timeout_add(600000, CallbackUKey, this);
+    if (!m_timeoutIdUkey)
+        m_timeoutIdUkey = g_timeout_add(600000, CallbackUKey, this);
 }
 
 gboolean CAuthorize::CallbackUKey(gpointer data)
 {
-	CAuthorize *pClass = (CAuthorize *)data;
+    CAuthorize *pClass = (CAuthorize *)data;
 
     SysGeneralSetting sysGS;
     int index_fid = sysGS.GetFID();
@@ -154,21 +154,21 @@ gboolean CAuthorize::CallbackUKey(gpointer data)
     //int status = pClass->CheckAuthorize(FEATURE);
     if (status < 0)
     {
-		if (status == -1)
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::NODEVICE, false);
-		else if (status == -2)
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::EXPIRE, false);
-		else
-			CLicenseDialog::GetInstance()->Create(CLicenseDialog::NOAUTHORIZE, false);
+        if (status == -1)
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::NODEVICE, false);
+        else if (status == -2)
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::EXPIRE, false);
+        else
+            CLicenseDialog::GetInstance()->Create(CLicenseDialog::NOAUTHORIZE, false);
 
-		if (pClass->m_timeoutIdUkey)
-		{
-			g_source_remove(pClass->m_timeoutIdUkey);
-			pClass->m_timeoutIdUkey = 0;
-		}
-	}
+        if (pClass->m_timeoutIdUkey)
+        {
+            g_source_remove(pClass->m_timeoutIdUkey);
+            pClass->m_timeoutIdUkey = 0;
+        }
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 /*
@@ -186,78 +186,78 @@ int CAuthorize::CheckAuthorize(unsigned int feature)
     // 与锁建立会话
     status = hasp_login(feature, (hasp_vendor_code_t *)vendor_code, &handle);
 
-	switch (status)
-	{
-		case HASP_STATUS_OK:
-			hasp_logout(handle);
-			PRINTF("UKEY: HASP_STATUS_OK\n");
-			return 0;
-		case HASP_HASP_NOT_FOUND:
-			PRINTF("UKEY: HASP_HASP_NOT_FOUND\n");
-			return -1;
-		case HASP_FEATURE_EXPIRED:
-			PRINTF("UKEY: HASP_FEATURE_EXPIRED\n");
-			return -2;
-		case HASP_FEATURE_NOT_FOUND:
-			PRINTF("UKEY: HASP_FEATURE_NOT_FOUND\n");
-			return -3;
-		case HASP_FEATURE_TYPE_NOT_IMPL:
-			PRINTF("UKEY: HASP_FEATURE_TYPE_NOT_IMPL\n");
-			return -3;
-		case HASP_TMOF:
-			PRINTF("UKEY: HASP_TMOF\n");
-			return -3;
-		case HASP_INSUF_MEM:
-			PRINTF("UKEY: HASP_INSUF_MEM\n");
-			return -3;
-		case HASP_INV_VCODE:
-			PRINTF("UKEY: HASP_INV_VCODE\n");
-			return -3;
-		case HASP_NO_DRIVER:
-			PRINTF("UKEY: HASP_NO_DRIVER\n");
-			return -3;
-		case HASP_NO_VLIB:
-			PRINTF("UKEY: HASP_NO_VLIB\n");
-			return -3;
-		case HASP_OLD_DRIVER:
-			PRINTF("UKEY: HASP_OLD_DRIVER\n");
-			return -3;
-		case HASP_UNKNOWN_VCODE:
-			PRINTF("UKEY: HASP_UNKNOWN_VCODE\n");
-			return -3;
-		case HASP_TOO_MANY_USERS:
-			PRINTF("UKEY: HASP_TOO_MANY_USERS\n");
-			return -3;
-		case HASP_OLD_LM:
-			PRINTF("UKEY: HASP_OLD_LM\n");
-			return -3;
-		case HASP_DEVICE_ERR:
-			PRINTF("UKEY: HASP_DEVICE_ERR\n");
-			return -3;
-		case HASP_TIME_ERR:
-			PRINTF("UKEY: HASP_TIME_ERR\n");
-			return -3;
-		case HASP_HARDWARE_MODIFIED:
-			PRINTF("UKEY: HASP_HARDWARE_MODIFIED\n");
-			return -3;
-		case HASP_TS_DETECTED:
-			PRINTF("UKEY: HASP_TS_DETECTED\n");
-			return -3;
-		case HASP_LOCAL_COMM_ERR:
-			PRINTF("UKEY: HASP_LOCAL_COMM_ERR\n");
-			return -3;
-		case HASP_REMOTE_COMM_ERR:
-			PRINTF("UKEY: HASP_REMOTE_COMM_ERR\n");
-			return -3;
-		case HASP_OLD_VLIB:
-			PRINTF("UKEY: HASP_OLD_VLIB\n");
-			return -3;
-		case HASP_CLONE_DETECTED:
-			PRINTF("UKEY: HASP_CLONE_DETECTED\n");
-			return -3;
-		default:
-			break;
-	}
+    switch (status)
+    {
+        case HASP_STATUS_OK:
+            hasp_logout(handle);
+            PRINTF("UKEY: HASP_STATUS_OK\n");
+            return 0;
+        case HASP_HASP_NOT_FOUND:
+            PRINTF("UKEY: HASP_HASP_NOT_FOUND\n");
+            return -1;
+        case HASP_FEATURE_EXPIRED:
+            PRINTF("UKEY: HASP_FEATURE_EXPIRED\n");
+            return -2;
+        case HASP_FEATURE_NOT_FOUND:
+            PRINTF("UKEY: HASP_FEATURE_NOT_FOUND\n");
+            return -3;
+        case HASP_FEATURE_TYPE_NOT_IMPL:
+            PRINTF("UKEY: HASP_FEATURE_TYPE_NOT_IMPL\n");
+            return -3;
+        case HASP_TMOF:
+            PRINTF("UKEY: HASP_TMOF\n");
+            return -3;
+        case HASP_INSUF_MEM:
+            PRINTF("UKEY: HASP_INSUF_MEM\n");
+            return -3;
+        case HASP_INV_VCODE:
+            PRINTF("UKEY: HASP_INV_VCODE\n");
+            return -3;
+        case HASP_NO_DRIVER:
+            PRINTF("UKEY: HASP_NO_DRIVER\n");
+            return -3;
+        case HASP_NO_VLIB:
+            PRINTF("UKEY: HASP_NO_VLIB\n");
+            return -3;
+        case HASP_OLD_DRIVER:
+            PRINTF("UKEY: HASP_OLD_DRIVER\n");
+            return -3;
+        case HASP_UNKNOWN_VCODE:
+            PRINTF("UKEY: HASP_UNKNOWN_VCODE\n");
+            return -3;
+        case HASP_TOO_MANY_USERS:
+            PRINTF("UKEY: HASP_TOO_MANY_USERS\n");
+            return -3;
+        case HASP_OLD_LM:
+            PRINTF("UKEY: HASP_OLD_LM\n");
+            return -3;
+        case HASP_DEVICE_ERR:
+            PRINTF("UKEY: HASP_DEVICE_ERR\n");
+            return -3;
+        case HASP_TIME_ERR:
+            PRINTF("UKEY: HASP_TIME_ERR\n");
+            return -3;
+        case HASP_HARDWARE_MODIFIED:
+            PRINTF("UKEY: HASP_HARDWARE_MODIFIED\n");
+            return -3;
+        case HASP_TS_DETECTED:
+            PRINTF("UKEY: HASP_TS_DETECTED\n");
+            return -3;
+        case HASP_LOCAL_COMM_ERR:
+            PRINTF("UKEY: HASP_LOCAL_COMM_ERR\n");
+            return -3;
+        case HASP_REMOTE_COMM_ERR:
+            PRINTF("UKEY: HASP_REMOTE_COMM_ERR\n");
+            return -3;
+        case HASP_OLD_VLIB:
+            PRINTF("UKEY: HASP_OLD_VLIB\n");
+            return -3;
+        case HASP_CLONE_DETECTED:
+            PRINTF("UKEY: HASP_CLONE_DETECTED\n");
+            return -3;
+        default:
+            break;
+    }
 
-	return -3;
+    return -3;
 }

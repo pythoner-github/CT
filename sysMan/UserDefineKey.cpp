@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: UserDefineKey
- * @brief: manage userDefine key, realize key p1 and p2 functin acording to system setting
- *
- * version: V1.0
- * date: 2010-5-28
- * @author: zhanglei
- */
-
 #include "sysMan/UserDefineKey.h"
 #include "display/gui_global.h"
 #include "Def.h"
@@ -28,41 +17,41 @@
 
 #if defined(EMP_322)
 const string UserDefineKey::KeyFunctionList[MAX_KEY] = {
-	N_("NULL"),
-	//N_("THI"),
-	N_("TSI"),
-	//N_("Save Image"),
-	N_("Save Video"),
-	//N_("Send DCM Image"),
-	N_("Print Screen"),
-	//N_("Steer"),
-	N_("PIP"),
-	N_("Biopsy")
-	//N_("Spectrum Sound"),
-	//N_("HPRF"),
-	//N_("Display Biopsy Line"),
-	//N_("Center Line"),
-	//N_("Auto Trace"),
-	//N_("ECG"),
+    N_("NULL"),
+    //N_("THI"),
+    N_("TSI"),
+    //N_("Save Image"),
+    N_("Save Video"),
+    //N_("Send DCM Image"),
+    N_("Print Screen"),
+    //N_("Steer"),
+    N_("PIP"),
+    N_("Biopsy")
+    //N_("Spectrum Sound"),
+    //N_("HPRF"),
+    //N_("Display Biopsy Line"),
+    //N_("Center Line"),
+    //N_("Auto Trace"),
+    //N_("ECG"),
 };
 #else
 const string UserDefineKey::KeyFunctionList[MAX_KEY] = {
-	N_("NULL"),
-	//N_("THI"),
-	N_("TSI"),
-	//N_("Save Image"),
-	N_("Save Video"),
-	//N_("Send DCM Image"),
-	N_("Print Screen"),
-	N_("Steer"),
-	N_("PIP"),
-	N_("Spectrum Sound"),
-	N_("HPRF"),
+    N_("NULL"),
+    //N_("THI"),
+    N_("TSI"),
+    //N_("Save Image"),
+    N_("Save Video"),
+    //N_("Send DCM Image"),
+    N_("Print Screen"),
+    N_("Steer"),
+    N_("PIP"),
+    N_("Spectrum Sound"),
+    N_("HPRF"),
     N_("Image Preset"),
-	N_("Biopsy"),
-	//N_("Center Line"),
-	//N_("Auto Trace"),
-	//N_("ECG"),
+    N_("Biopsy"),
+    //N_("Center Line"),
+    //N_("Auto Trace"),
+    //N_("ECG"),
 };
 #endif
 
@@ -75,9 +64,9 @@ UserDefineKey::~UserDefineKey()
 
 void UserDefineKey::PressKeyP1(void)
 {
-	SysUserDefinedKey ud;
+    SysUserDefinedKey ud;
     int func = ud.GetFuncP1();
-	if(PRINT == func)
+    if(PRINT == func)
     {
         PrintScreen ps;
         ps.PrintP1();
@@ -90,7 +79,7 @@ void UserDefineKey::PressKeyP1(void)
 
 void UserDefineKey::PressKeyP2(void)
 {
-	SysUserDefinedKey ud;
+    SysUserDefinedKey ud;
     int func = ud.GetFuncP2();
     if(PRINT == func)
     {
@@ -108,7 +97,7 @@ void UserDefineKey::PressKeyP2(void)
 }
 void UserDefineKey::PressKeyP3(void)
 {
-	SysUserDefinedKey ud;
+    SysUserDefinedKey ud;
     int func = ud.GetFuncP3();
     if(PRINT == func)
     {
@@ -122,85 +111,85 @@ void UserDefineKey::PressKeyP3(void)
     else
     {
         FactoryCreate((EKeyFunc)func);
-	}
+    }
 }
 
 void UserDefineKey::FactoryCreate(EKeyFunc type)
 {
-	ModeStatus ms;
-	PrintScreen ps;
+    ModeStatus ms;
+    PrintScreen ps;
     switch (type)
     {
-    	case NONE:
-			break;
+        case NONE:
+            break;
 /*
 #if defined(EMP_322)
-		case THI:
-			if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
-			{
+        case THI:
+            if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
+            {
                 D2ChgTHI(ROTATE);
-			}
-			break;
+            }
+            break;
 #endif
 */
-		case TSI:
-			if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
-			{
-				Img2D::GetInstance()->ChangeTSI(ROTATE);
-			}
-			break;
+        case TSI:
+            if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
+            {
+                Img2D::GetInstance()->ChangeTSI(ROTATE);
+            }
+            break;
 
-		case SAVE_CINE:
-			if (ms.GetFreezeMode() != FreezeMode::UNFREEZE)
-			{
+        case SAVE_CINE:
+            if (ms.GetFreezeMode() != FreezeMode::UNFREEZE)
+            {
                 ReplayChgSaveCine();
-			}
-			break;
+            }
+            break;
 
-		case PRINT:
+        case PRINT:
             //if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
              //   FreezeMode::GetInstance()->PressFreeze();
            // ps.Print();
            // HintArea::GetInstance()->UpdateHint(_("[PRINT]: Not realize now."), 2);
-			break;
+            break;
         case BIOPSY:
-			{
-				KeyBiopsy kb;
-				kb.Execute();
-			}
-			break;
+            {
+                KeyBiopsy kb;
+                kb.Execute();
+            }
+            break;
 
 #if defined(EMP_322)
-		case PIP:
-			g_menu2D.BtnPIP(NULL);
-			break;
+        case PIP:
+            g_menu2D.BtnPIP(NULL);
+            break;
 #else
 
-		case STEER:
-			if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
-			{
-				D2ChgSteer(ROTATE);
-			}
-			break;
+        case STEER:
+            if (ms.GetFreezeMode() == FreezeMode::UNFREEZE)
+            {
+                D2ChgSteer(ROTATE);
+            }
+            break;
 
-		case PIP:
-			g_menu2D.BtnPIP(NULL);
-			break;
+        case PIP:
+            g_menu2D.BtnPIP(NULL);
+            break;
 
-		case PW_SOUND:
-			ImgPw::GetInstance()->ChangeSoundStatus(ROTATE);
-			break;
+        case PW_SOUND:
+            ImgPw::GetInstance()->ChangeSoundStatus(ROTATE);
+            break;
 
-		case HPRF:
-			if (ms.IsSpectrumMode() || ms.IsSpectrumColorMode())
-			{
+        case HPRF:
+            if (ms.IsSpectrumMode() || ms.IsSpectrumColorMode())
+            {
                 if (ImgPw::GetInstance()->GetHPRFStatus())
                     ImgPw::GetInstance()->ChangeHPRF(FALSE);
                 else
                     ImgPw::GetInstance()->ChangeHPRF(TRUE);
                 //ImgPw::GetInstance()->ChangeHPRF(ROTATE);
-			}
-			break;
+            }
+            break;
 
         case IMAGE_PRESET:
             {
@@ -216,7 +205,7 @@ void UserDefineKey::FactoryCreate(EKeyFunc type)
             }
             break;
 #endif
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }

@@ -1,21 +1,20 @@
-// -*- c++ -*-
 #ifndef _VIEW_PRINT_PREVIEW_H_
 #define _VIEW_PRINT_PREVIEW_H_
 
 #include "display/FakeXEvent.h"
 #include <string>
-	//GtkWidget *GetMainWindow(void);
+    //GtkWidget *GetMainWindow(void);
 class ViewPrintPreview : public FakeXEvent
 {
 public:
     ~ViewPrintPreview();
     static ViewPrintPreview* GetInstance();
     void CreateWindow();
-	void CreateWindow(const char* path, GtkWidget *parent);
+    void CreateWindow(const char* path, GtkWidget *parent);
     void CreateWindow2(void);
-	GtkWidget *GetMainWindow(void);
+    GtkWidget *GetMainWindow(void);
     int GetReportPage(void) { return report_page_count; }
-	void CreatePages(char *path);
+    void CreatePages(char *path);
     void BtnPrintClicked(GtkButton *button);
     void ClickedPrintButton(GtkButton *button);
      void CreatePagesForRetrieve(char *path,string indication,string comments,vector<string> imageFileName);
@@ -47,9 +46,9 @@ private:
     #define MAX_IMAGE       (2)
 #endif
 
-    //#define IMAGE_SCALE		(0.7)
-    #define IMG_SCALE_WIDTH		(440)//(IMG_W*IMAGE_SCALE)
-    //#define IMG_SCALE_HEIGHT	(IMG_H*IMAGE_SCALE)
+    //#define IMAGE_SCALE       (0.7)
+    #define IMG_SCALE_WIDTH     (440)//(IMG_W*IMAGE_SCALE)
+    //#define IMG_SCALE_HEIGHT  (IMG_H*IMAGE_SCALE)
 
     GdkGC *pagegc;
     GdkPixmap *pagepixmap;
@@ -61,7 +60,7 @@ private:
     int report_page_count;
     bool page_num;
     char *m_path;
-	void InitReportPagePath(char *path);
+    void InitReportPagePath(char *path);
     char *GetReportPageName(int page);
     int SavePageByPixmap(const char *path);
     void AddTextToPageByPixmap(int &x, int &y, char *text, PangoFontDescription *font);
@@ -93,10 +92,10 @@ private:
 
     // signal connect
     static gboolean HandleDeleteEvent(GtkWidget *widget, GdkEvent *event, ViewPrintPreview *data)
-	{ data->BtnExitClicked(NULL); return FALSE; }
+    { data->BtnExitClicked(NULL); return FALSE; }
 
     static gboolean HandleDeleteWinEvent(GtkWidget *widget, GdkEvent *event, ViewPrintPreview *data)
-	{ data->BtnExitWinClicked(NULL); return FALSE; }
+    { data->BtnExitWinClicked(NULL); return FALSE; }
 
     static void on_button_print_clicked(GtkButton *button, ViewPrintPreview *data) { data->BtnPrintClicked(button); }
     static void on_button_exit_clicked(GtkButton *button, ViewPrintPreview *data) { data->BtnExitClicked(button); }

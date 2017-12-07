@@ -1,4 +1,3 @@
-// -*- c++ -*-
 #ifndef VIEW_SYSTEM_H
 #define VIEW_SYSTEM_H
 #include <gtk/gtk.h>
@@ -10,6 +9,7 @@
 #include "sysMan/CalcSetting.h"
 #define NUM_KB 10
 #include <sqlite3.h>
+
 //typedef void (*pSetExamPara)(void);
 using namespace std;
 #define MAXNUMBER 100
@@ -45,9 +45,9 @@ public:
     ~ViewSystem();
 
 #if defined(EMP_322)
-		static const int MAX_KEY = 6;
+        static const int MAX_KEY = 6;
 #else
-		static const int MAX_KEY = 10;//8;//9;
+        static const int MAX_KEY = 10;//8;//9;
 #endif
 
         static ViewSystem* GetInstance();
@@ -79,7 +79,7 @@ public:
     void tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data);
     void CreateDefineItemFormUsbToHost(char *name);
     void ChangeNoteBookPage(int page);
-	void ChangeDicomNoteBookPage(int page);
+    void ChangeDicomNoteBookPage(int page);
 
     ////>option fuction
     void UpdateOptionStatus(bool status);
@@ -95,15 +95,15 @@ private:
     ViewSystem();
     void KeyEvent(unsigned char keyValue);
     int m_kbIndex;
-	bool m_vgaInterl;
+    bool m_vgaInterl;
     GtkWidget *m_combobox_vga;
     //PItem m_itemIndex;
    // vector<enum PItem> m_vecItemIndex[NUM_KB];
 
     enum {
-	PRT_BRAND,
-	PRT_MODEL,
- 	CNUM_COLS
+    PRT_BRAND,
+    PRT_MODEL,
+    CNUM_COLS
     };
 
     enum {
@@ -250,7 +250,7 @@ private:
     GtkWidget *m_checkbutton_autocalc_pgmean;
     GtkWidget *m_radiobutton_result_small;
     GtkWidget *m_radiobutton_result_big;
-	GtkWidget *m_combobox_heart_beat_cycle;
+    GtkWidget *m_combobox_heart_beat_cycle;
     GtkWidget *m_combobox_unit_dist;
     GtkWidget *m_combobox_unit_area;
     GtkWidget *m_combobox_unit_vol;
@@ -432,7 +432,7 @@ private:
     void BtnNewCheckPartCancelClicked(GtkButton *button);
 
     static void on_entry_templet_insert(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position, ViewSystem *data)
-	{ data->EntrytempletInsert(editable, new_text, new_text_length, position); }
+    { data->EntrytempletInsert(editable, new_text, new_text_length, position); }
 
 #endif  //add by jhuang end
 
@@ -550,14 +550,14 @@ private:
     GtkTreeIter m_optionIter;
 
 #ifdef VET
-	GtkCellRenderer *m_cellrenderer_text;
+    GtkCellRenderer *m_cellrenderer_text;
 #endif
-	GtkCellRenderer *m_cellrenderer_comment_text;
-	GtkCellRenderer *m_cellrenderer_comment_text1;
-	//hlx
+    GtkCellRenderer *m_cellrenderer_comment_text;
+    GtkCellRenderer *m_cellrenderer_comment_text1;
+    //hlx
 #ifdef VET
-	GtkWidget *button_edit_dept;
-	GtkWidget *button_return_dept;
+    GtkWidget *button_edit_dept;
+    GtkWidget *button_return_dept;
     GtkWidget *button_get_current;
     GtkWidget *button_default_image;
 #endif
@@ -686,14 +686,14 @@ private:
     void SpinbuttonInsertTime(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     void SpinbuttonInsertHour(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     void SpinbuttonInsertGain(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
-	void add_columns_comment(GtkTreeView *treeview);
-	void add_columns_comment1(GtkTreeView *treeview);
+    void add_columns_comment(GtkTreeView *treeview);
+    void add_columns_comment1(GtkTreeView *treeview);
 
 #ifdef VET
-	void add_columns(GtkTreeView *treeview);
-	void BtnImageEditClicked(GtkButton *button);
-	void BtnImageReturnClicked(GtkButton *button);
-	void BtnEditCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text);
+    void add_columns(GtkTreeView *treeview);
+    void BtnImageEditClicked(GtkButton *button);
+    void BtnImageReturnClicked(GtkButton *button);
+    void BtnEditCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text);
 #endif
   void SpinbuttonInsertAngle(GtkEditable *editable, gchar *new_text, gint new_text_length, gint *position);
     gboolean SpinbuttonOutputAngle(GtkSpinButton *spin);
@@ -811,11 +811,11 @@ private:
     static gboolean on_spinbutton_output_angle(GtkSpinButton *spin, ViewSystem *data)
     { return data->SpinbuttonOutputAngle(spin); }
 #ifdef VET
-	static void HandleImageBtnEditDept(GtkButton *button, ViewSystem *data) {data->BtnImageEditClicked(button);}
-	static void HandleImageBtnReturnDept(GtkButton *button, ViewSystem *data) {data->BtnImageReturnClicked(button);}
-	static void on_button_edit_cell_callback(GtkCellRendererText *cell, gchar *path_string, gchar *new_text, ViewSystem *data){
-		data->BtnEditCellChanged(cell, path_string, new_text);
-	}
+    static void HandleImageBtnEditDept(GtkButton *button, ViewSystem *data) {data->BtnImageEditClicked(button);}
+    static void HandleImageBtnReturnDept(GtkButton *button, ViewSystem *data) {data->BtnImageReturnClicked(button);}
+    static void on_button_edit_cell_callback(GtkCellRendererText *cell, gchar *path_string, gchar *new_text, ViewSystem *data){
+        data->BtnEditCellChanged(cell, path_string, new_text);
+    }
 #endif
     static void on_common_treeview_selection_changed(GtkTreeSelection *treeselection, ViewSystem *data)
     { data->CommonTreeviewSelectionChanged(treeselection); }

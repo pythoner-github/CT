@@ -7,8 +7,8 @@
 //#define USER_PATH  "/mnt/harddisk/emp/res/username"
 
 typedef struct NameList{
-	char name[50];
-	struct NameList *next;
+    char name[50];
+    struct NameList *next;
 }namelist, *nmlst;
 //extern nmlst Head;
 

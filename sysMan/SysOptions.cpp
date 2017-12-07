@@ -11,8 +11,8 @@ SysOptions::SysOptions()
 SysOptions::~SysOptions()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 
@@ -164,7 +164,7 @@ void SysOptions::DefaultFactory(void)
     int cineMedia=0;
     int cineAutoName=1;
     int displayFormat=1;
-	int mouseSpeed = 1;
+    int mouseSpeed = 1;
 
     ptrIni->WriteInt("Options", "BiopsyLine", biopsyLine);
     ptrIni->WriteInt("Options", "CenterLine", centerLine);

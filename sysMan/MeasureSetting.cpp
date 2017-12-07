@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  MeasureSetting.cpp
- *
- *    Description:
- *
- *        Version:  1.0
- *        Created:  18/4/2016 04:09:16 AM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  zhang jingxia
- *        Company:
- *
- * =====================================================================================
- */
-
 #include <dirent.h>
 #include "sysMan/MeasureSetting.h"
 #include "Def.h"
@@ -35,6 +17,7 @@
 #include "sysMan/UserSelect.h"
 #include "display/TopArea.h"
 #include "sysMan/CalcSetting.h"
+
 using std::vector;
 #ifdef EMP_322
 extern const char *examType_calc[];
@@ -85,14 +68,14 @@ void MeasureSetting::CreateDefineItem_calc(vector<string>& vecExamItem_calc)
     int group_length(0);
     group_length = useritemgroup.size();
     for (int i= 0 ; i <  group_length; i++)
-	{
-		if (useritemgroup[i].length() != 0)
-		{
-			sprintf(src_group ,"%s", useritemgroup[i].c_str());
-			examitem.GetUserItem(src_group, userselect, probelist, useritem, department, firstgenitem);
-			string username=useritem;
-			vecExamItem_calc.push_back(username);
-		}
+    {
+        if (useritemgroup[i].length() != 0)
+        {
+            sprintf(src_group ,"%s", useritemgroup[i].c_str());
+            examitem.GetUserItem(src_group, userselect, probelist, useritem, department, firstgenitem);
+            string username=useritem;
+            vecExamItem_calc.push_back(username);
+        }
     }
 }
 
@@ -141,7 +124,7 @@ int MeasureSetting::ItemNameTransEtype(char *select_name)
         }
     }
 
-	return select_num;
+    return select_num;
 }
 
 string MeasureSetting::ItemMenuTransEnglish(int item_num)
@@ -241,7 +224,7 @@ GtkTreeModel* MeasureSetting::create_item_calc_model1()
     char exam_type[256];
     ExamItem exam;
     exam.TransItemName(exam_type_name, exam_type);
-	int sequence = GetSequence(exam_type);
+    int sequence = GetSequence(exam_type);
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_sequence_calc), sequence);
 
     vector<string> vecItemCalc1;
@@ -550,17 +533,17 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     exam_size = vecExamItem_calc.size();
 
     for (int i = 0; i <exam_size; i++)
-	{
+    {
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_exam_calc), _(vecExamItem_calc[i].c_str()));
     }
     for (int i = 0; i <exam_size; i++)
-	{
-		string curExamType;
-		TopArea::GetInstance()->GetCheckPart(curExamType);
-		if (strcmp(curExamType.c_str(), _(vecExamItem_calc[i].c_str())) == 0)
-		{
-			gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_exam_calc), i);
-			break;
+    {
+        string curExamType;
+        TopArea::GetInstance()->GetCheckPart(curExamType);
+        if (strcmp(curExamType.c_str(), _(vecExamItem_calc[i].c_str())) == 0)
+        {
+            gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_exam_calc), i);
+            break;
         }
     }
     g_signal_connect(m_combobox_exam_calc, "changed", G_CALLBACK(HandleExamCalcChanged), this);
@@ -606,15 +589,15 @@ GtkWidget* MeasureSetting::CreateMeasureWindow(GtkWidget *parent)
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_sequence_calc), _("None"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_sequence_calc), _("Repeat"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_sequence_calc), _("Next"));
-	//////////////////////////////
+    //////////////////////////////
     ExamItem exam;
-	char path11[256];
+    char path11[256];
     sprintf(path11, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
     IniFile ini1(path11);
     string username;
     username = exam.ReadDefaultUserSelect(&ini1);
-	string examType = exam.ReadDefaultProbeDefaultItemName(&ini1);
-	char exam_type[256];
+    string examType = exam.ReadDefaultProbeDefaultItemName(&ini1);
+    char exam_type[256];
     exam.TransItemNameEng(examType.c_str(), exam_type);
     int sequence = GetSequence(exam_type);
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_sequence_calc), sequence);
@@ -698,14 +681,14 @@ const gchar* MeasureSetting::GetExamName(void)
 
 int MeasureSetting::GetSequence(const char *exam_type)
 {
-	ExamItem exam;
-	char path11[256];
+    ExamItem exam;
+    char path11[256];
     sprintf(path11, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
     IniFile ini1(path11);
     string username;
     username = exam.ReadDefaultUserSelect(&ini1);
-	string examType = exam.ReadDefaultProbeDefaultItemName(&ini1);
-	char path1[256];
+    string examType = exam.ReadDefaultProbeDefaultItemName(&ini1);
+    char path1[256];
     if(strcmp(username.c_str(), "System Default") == 0)
     {
         sprintf(path1, "%s%s", CFG_RES_PATH, MEASURE_FILE);
@@ -716,8 +699,8 @@ int MeasureSetting::GetSequence(const char *exam_type)
     }
     IniFile ini(path1);
     IniFile *ptrIni_calc = &ini;
-	int squence = ptrIni_calc->ReadInt(exam_type, "Sequence");
-	return squence;
+    int squence = ptrIni_calc->ReadInt(exam_type, "Sequence");
+    return squence;
 }
 
 GtkTreeIter MeasureSetting::InsertUniqueCalc(GtkTreeModel *model, const char *str)
@@ -757,7 +740,7 @@ void MeasureSetting::ButtonSelectOneCalcClicked(GtkButton *button)
     if(!exam_type_name)
         return;
     char exam_type[256];
-	ExamItem exam;
+    ExamItem exam;
     exam.TransItemName(exam_type_name, exam_type);
     vector<string> vecItem_Calc;
     vecItem_Calc.clear();
@@ -812,11 +795,11 @@ void MeasureSetting::ButtonSelectOneCalcClicked(GtkButton *button)
 
     sprintf(SelectNum, "Calc%d",number+1);
     int select_num = ItemNameTransEtype(select_name);
-	if (select_num == -1)
-	{
-		PRINTF("Fail to ItemNameTransEtype, not exist the etype!\n");
-		return;
-	}
+    if (select_num == -1)
+    {
+        PRINTF("Fail to ItemNameTransEtype, not exist the etype!\n");
+        return;
+    }
 
     ptrIni->WriteInt(exam_type, SelectNum, select_num);
     ptrIni->WriteInt(exam_type, "Number", number+1);
@@ -850,13 +833,13 @@ void MeasureSetting::ButtonSelectAllCalcClicked(GtkButton *button)
     if(!exam_type_name)
         return;
 
-	// if m_treeview_item_calc is empty
-	GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_item_calc));
-	if (gtk_tree_model_iter_n_children(model, NULL) == 0)
-	{
-		PRINTF("=========== tree view department items is empty!\n");
-		return;
-	}
+    // if m_treeview_item_calc is empty
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_item_calc));
+    if (gtk_tree_model_iter_n_children(model, NULL) == 0)
+    {
+        PRINTF("=========== tree view department items is empty!\n");
+        return;
+    }
 
     char exam_type[256];
     ExamItem exam;
@@ -935,8 +918,8 @@ void MeasureSetting::ButtonSelectAllCalcClicked(GtkButton *button)
     //更新Exam Item和 Department 列表
     ChangeModel2();
 
-	if (g_menuMeasure.GetExamItem() == exam_type)
-		g_menuMeasure.ChangeExamItem(exam_type);
+    if (g_menuMeasure.GetExamItem() == exam_type)
+        g_menuMeasure.ChangeExamItem(exam_type);
 
 }
 
@@ -989,10 +972,10 @@ void MeasureSetting::ButtonBackOneClicked(GtkButton *button)
 
     int item_length(0);
     item_length = vecDelete_Calc.size();
-	int squence_copy;
-	squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
+    int squence_copy;
+    squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
     ptrIni_calc->RemoveGroup(exam_type);
-	ptrIni_calc->SyncConfigFile();
+    ptrIni_calc->SyncConfigFile();
 
     for(int i=0;i<item_length;i++)
     {
@@ -1002,7 +985,7 @@ void MeasureSetting::ButtonBackOneClicked(GtkButton *button)
     }
 
     ptrIni_calc->WriteInt(exam_type, "Number", item_length);
-	ptrIni_calc->WriteInt(exam_type, "Sequence", squence_copy);
+    ptrIni_calc->WriteInt(exam_type, "Sequence", squence_copy);
     ptrIni_calc->SyncConfigFile();
 
     GtkTreeModel *new_model1 = create_item_calc_model1();
@@ -1014,8 +997,8 @@ void MeasureSetting::ButtonBackOneClicked(GtkButton *button)
 
     ChangeModel();
 
-	if (g_menuMeasure.GetExamItem() == exam_type)
-		g_menuMeasure.ChangeExamItem(exam_type);
+    if (g_menuMeasure.GetExamItem() == exam_type)
+        g_menuMeasure.ChangeExamItem(exam_type);
 }
 
 void MeasureSetting::ButtonBackAllClicked(GtkButton *button)
@@ -1026,39 +1009,39 @@ void MeasureSetting::ButtonBackAllClicked(GtkButton *button)
         return;
 
     char exam_type[256];
-	ExamItem exam;
-	exam.TransItemName(exam_type_name, exam_type);
-	char path[256];
-	sprintf(path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
-	IniFile ini1(path);
-	string username;
-	username = exam.ReadDefaultUserSelect(&ini1);
-	char path1[256];
-	if(strcmp(username.c_str(), "System Default") == 0)
-	{
-		sprintf(path1, "%s%s", CFG_RES_PATH, MEASURE_FILE);
-	}
-	else
-	{
-		sprintf(path1, "%s%s%s%s", CFG_RES_PATH, MEASURE_PATH, username.c_str(), ".ini");
-	}
-	IniFile ini(path1);
-	IniFile *ptrIni = &ini;
+    ExamItem exam;
+    exam.TransItemName(exam_type_name, exam_type);
+    char path[256];
+    sprintf(path, "%s%s", CFG_RES_PATH, STORE_DEFAULT_ITEM_PATH);
+    IniFile ini1(path);
+    string username;
+    username = exam.ReadDefaultUserSelect(&ini1);
+    char path1[256];
+    if(strcmp(username.c_str(), "System Default") == 0)
+    {
+        sprintf(path1, "%s%s", CFG_RES_PATH, MEASURE_FILE);
+    }
+    else
+    {
+        sprintf(path1, "%s%s%s%s", CFG_RES_PATH, MEASURE_PATH, username.c_str(), ".ini");
+    }
+    IniFile ini(path1);
+    IniFile *ptrIni = &ini;
 
-	int squence_copy;
-	squence_copy= ptrIni->ReadInt(exam_type, "Sequence");
+    int squence_copy;
+    squence_copy= ptrIni->ReadInt(exam_type, "Sequence");
 
-	ptrIni->RemoveGroup(exam_type);
+    ptrIni->RemoveGroup(exam_type);
 
-	ptrIni->WriteInt(exam_type, "Number", 0);
-	ptrIni->WriteInt(exam_type, "Sequence", squence_copy);
-	ptrIni->SyncConfigFile();
+    ptrIni->WriteInt(exam_type, "Number", 0);
+    ptrIni->WriteInt(exam_type, "Sequence", squence_copy);
+    ptrIni->SyncConfigFile();
 
-	//更新列表
-	ChangeModel2();
+    //更新列表
+    ChangeModel2();
 
-	if (g_menuMeasure.GetExamItem() == exam_type)
-		g_menuMeasure.ChangeExamItem(exam_type);
+    if (g_menuMeasure.GetExamItem() == exam_type)
+        g_menuMeasure.ChangeExamItem(exam_type);
 }
 
 void MeasureSetting::ButtonDownClicked(GtkButton *button)
@@ -1110,9 +1093,9 @@ void MeasureSetting::ButtonDownClicked(GtkButton *button)
         IniFile ini(path1);
         IniFile *ptrIni_calc = &ini;
 
-		int squence_copy;
-		squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
-		ptrIni_calc->RemoveGroup(exam_type);
+        int squence_copy;
+        squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
+        ptrIni_calc->RemoveGroup(exam_type);
         ptrIni_calc->SyncConfigFile();
 
         swap(vecDelete_Calc[path_num], vecDelete_Calc[path_num+1]);
@@ -1142,8 +1125,8 @@ void MeasureSetting::ButtonDownClicked(GtkButton *button)
         gtk_tree_path_free (path);
     }
 
-	if (g_menuMeasure.GetExamItem() == exam_type)
-		g_menuMeasure.ChangeExamItem(exam_type);
+    if (g_menuMeasure.GetExamItem() == exam_type)
+        g_menuMeasure.ChangeExamItem(exam_type);
 }
 
 void MeasureSetting::ButtonUpClicked(GtkButton *button)
@@ -1196,8 +1179,8 @@ void MeasureSetting::ButtonUpClicked(GtkButton *button)
     IniFile ini(path1);
     IniFile *ptrIni_calc = &ini;
 
-	int squence_copy;
-	squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
+    int squence_copy;
+    squence_copy= ptrIni_calc->ReadInt(exam_type, "Sequence");
     ptrIni_calc->RemoveGroup(exam_type);
     ptrIni_calc->SyncConfigFile();
 
@@ -1211,7 +1194,7 @@ void MeasureSetting::ButtonUpClicked(GtkButton *button)
     }
 
     ptrIni_calc->WriteInt(exam_type, "Number", item_length);
-	ptrIni_calc->WriteInt(exam_type, "Sequence", squence_copy);
+    ptrIni_calc->WriteInt(exam_type, "Sequence", squence_copy);
     ptrIni_calc->SyncConfigFile();
 
     GtkTreeModel *new_model1 = create_item_calc_model1();
@@ -1228,8 +1211,8 @@ void MeasureSetting::ButtonUpClicked(GtkButton *button)
     }
     gtk_tree_path_free (path);
 
-	if (g_menuMeasure.GetExamItem() == exam_type)
-		g_menuMeasure.ChangeExamItem(exam_type);
+    if (g_menuMeasure.GetExamItem() == exam_type)
+        g_menuMeasure.ChangeExamItem(exam_type);
 }
 
 void MeasureSetting::ButtonDefaultClicked(GtkButton *button)
@@ -1270,7 +1253,7 @@ void MeasureSetting::ButtonDefaultClicked(GtkButton *button)
     //更新Exam Item 和Departmen 列表
     ChangeModel2();
 
-	g_menuMeasure.ChangeAllMeasureItems();
+    g_menuMeasure.ChangeAllMeasureItems();
 }
 
 //获得exam_type检查部位下所有测量项的item，push到vector中

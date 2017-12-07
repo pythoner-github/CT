@@ -20,13 +20,13 @@ ViewPrinterAdd::ViewPrinterAdd()
 ViewPrinterAdd::~ViewPrinterAdd()
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 ViewPrinterAdd* ViewPrinterAdd::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new ViewPrinterAdd;
+    m_ptrInstance = new ViewPrinterAdd;
 
     return m_ptrInstance;
 }
@@ -207,7 +207,7 @@ void ViewPrinterAdd::BtnAddClicked(GtkButton *button)
     const char* prt_name = gtk_entry_get_text(GTK_ENTRY(m_entry_printer_name));
     PRINTF("print name : %s\nuri : %s\nppd file : %s\n", prt_name, m_uriName.c_str(), m_ppdFileName.c_str());
     prt.AddPrinter(prt_name, m_uriName.c_str(), m_ppdFileName.c_str());
-	PeripheralMan::GetInstance()->SwitchPrinterDriver();
+    PeripheralMan::GetInstance()->SwitchPrinterDriver();
     ViewSystem::GetInstance()->update_specific_printer_model();
     DestroyWindow();
 }
@@ -223,10 +223,10 @@ void ViewPrinterAdd::KeyEvent(unsigned char keyValue)
 
     switch(keyValue) {
     case KEY_ESC:
-	BtnCancelClicked(NULL);
-	break;
+    BtnCancelClicked(NULL);
+    break;
     default:
-	break;
+    break;
     }
 }
 

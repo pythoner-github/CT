@@ -500,7 +500,7 @@ void ViewNewPat::CreateWindow(void)
     gtk_widget_set_size_request (notebook, 800, 250);
 //hlx
 #ifdef VET
-	fixed_tab_card = create_note_card();
+    fixed_tab_card = create_note_card();
     gtk_container_add (GTK_CONTAINER (notebook), fixed_tab_card);
 
     label_card = gtk_label_new (_("CARD"));
@@ -753,7 +753,7 @@ void ViewNewPat::LoadPatData(void)
 
 void ViewNewPat::UpdateNameLength()
 {
-	SysGeneralSetting sgs;
+    SysGeneralSetting sgs;
     if(ZH == sgs.GetLanguage())
     {
         m_pat_name_last = 31;
@@ -827,7 +827,7 @@ void ViewNewPat::BirthDateYearDelete(GtkEditable *editable, gint start_pos, gint
     string new_str = gtk_entry_get_text(GTK_ENTRY(editable));
     new_str.erase(start_pos, end_pos);
     if (new_str.length() != 4) {
-     	gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
+        gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
         gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAge), 0);
     }
 }
@@ -877,7 +877,7 @@ void ViewNewPat::BirthDateMonthDelete(GtkEditable *editable, gint start_pos, gin
         const char *day_text = gtk_entry_get_text(GTK_ENTRY(m_entryBirthDay));
         AutoCalcAge(atoi(year_text), month, atoi(day_text));
     } else {
-     	gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
+        gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
         gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAge), 0);
     }
 }
@@ -940,7 +940,7 @@ void ViewNewPat::BirthDateDayDelete(GtkEditable *editable, gint start_pos, gint 
             AutoCalcAge(year, month, day);
         }
     } else {
-     	gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
+        gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
         gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAge), 0);
     }
 }
@@ -954,7 +954,7 @@ gboolean ViewNewPat::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
 
 void ViewNewPat::DestroyWindow(void)
 {
-    if(GTK_IS_WIDGET(m_window))	{
+    if(GTK_IS_WIDGET(m_window)) {
         g_keyInterface.Pop();
         gtk_widget_destroy(m_window);
         if (g_keyInterface.Size() == 1)
@@ -964,76 +964,76 @@ void ViewNewPat::DestroyWindow(void)
 }
 GtkWidget* ViewNewPat::create_note_general(void)
 {
-	GtkWidget *fixed_tab_general;
-	// GtkWidget *entry_stature;
-	// GtkWidget *entry_weight;
-	// GtkWidget *entry_BSA;
-	GtkWidget *label_stature;
-	GtkWidget *label_weight;
-	GtkWidget *label_BSA;
-	GtkWidget *label_cm;
-	GtkWidget *label_kg;
-	GtkWidget *label_m2;
+    GtkWidget *fixed_tab_general;
+    // GtkWidget *entry_stature;
+    // GtkWidget *entry_weight;
+    // GtkWidget *entry_BSA;
+    GtkWidget *label_stature;
+    GtkWidget *label_weight;
+    GtkWidget *label_BSA;
+    GtkWidget *label_cm;
+    GtkWidget *label_kg;
+    GtkWidget *label_m2;
 
-	fixed_tab_general = gtk_fixed_new ();
-	gtk_widget_show (fixed_tab_general);
+    fixed_tab_general = gtk_fixed_new ();
+    gtk_widget_show (fixed_tab_general);
 
-	m_entry_stature = gtk_entry_new ();
-	gtk_widget_show (m_entry_stature);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_stature, 110, 10);
-	gtk_widget_set_size_request (m_entry_stature, 100, 30);
-	gtk_entry_set_max_length(GTK_ENTRY(m_entry_stature), 3);
-	g_signal_connect(G_OBJECT(m_entry_stature), "insert_text", G_CALLBACK(on_entry_stature), this);
-	g_signal_connect(G_OBJECT(m_entry_stature), "focus-out-event", G_CALLBACK(HandleStatureFocusOut), this);
+    m_entry_stature = gtk_entry_new ();
+    gtk_widget_show (m_entry_stature);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_stature, 110, 10);
+    gtk_widget_set_size_request (m_entry_stature, 100, 30);
+    gtk_entry_set_max_length(GTK_ENTRY(m_entry_stature), 3);
+    g_signal_connect(G_OBJECT(m_entry_stature), "insert_text", G_CALLBACK(on_entry_stature), this);
+    g_signal_connect(G_OBJECT(m_entry_stature), "focus-out-event", G_CALLBACK(HandleStatureFocusOut), this);
 
-	m_entry_weight = gtk_entry_new ();
-	gtk_widget_show (m_entry_weight);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_weight, 110, 45);
-	gtk_entry_set_max_length(GTK_ENTRY(m_entry_weight), 6);
-	gtk_widget_set_size_request (m_entry_weight, 100, 30);
-	g_signal_connect(G_OBJECT(m_entry_weight), "insert_text", G_CALLBACK(on_entry_weight), this);
-	g_signal_connect(G_OBJECT(m_entry_weight), "focus-out-event", G_CALLBACK(HandleWeightFocusOut), this);
+    m_entry_weight = gtk_entry_new ();
+    gtk_widget_show (m_entry_weight);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_weight, 110, 45);
+    gtk_entry_set_max_length(GTK_ENTRY(m_entry_weight), 6);
+    gtk_widget_set_size_request (m_entry_weight, 100, 30);
+    g_signal_connect(G_OBJECT(m_entry_weight), "insert_text", G_CALLBACK(on_entry_weight), this);
+    g_signal_connect(G_OBJECT(m_entry_weight), "focus-out-event", G_CALLBACK(HandleWeightFocusOut), this);
 
-	m_entry_BSA = gtk_entry_new ();
-	gtk_widget_show (m_entry_BSA);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_BSA, 110, 80);
-	gtk_widget_set_size_request (m_entry_BSA, 100, 30);
-	gtk_editable_set_editable (GTK_EDITABLE(m_entry_BSA), FALSE);
+    m_entry_BSA = gtk_entry_new ();
+    gtk_widget_show (m_entry_BSA);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), m_entry_BSA, 110, 80);
+    gtk_widget_set_size_request (m_entry_BSA, 100, 30);
+    gtk_editable_set_editable (GTK_EDITABLE(m_entry_BSA), FALSE);
 
-	label_stature = gtk_label_new (_("Stature:"));
-	gtk_widget_show (label_stature);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_stature, 10, 10);
-	gtk_widget_set_size_request (label_stature, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_stature), 0.9, 0.5);
+    label_stature = gtk_label_new (_("Stature:"));
+    gtk_widget_show (label_stature);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_stature, 10, 10);
+    gtk_widget_set_size_request (label_stature, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_stature), 0.9, 0.5);
 
-	label_weight = gtk_label_new (_("Weight:"));
-	gtk_widget_show (label_weight);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_weight, 10, 45);
-	gtk_widget_set_size_request (label_weight, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_weight), 0.9, 0.5);
+    label_weight = gtk_label_new (_("Weight:"));
+    gtk_widget_show (label_weight);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_weight, 10, 45);
+    gtk_widget_set_size_request (label_weight, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_weight), 0.9, 0.5);
 
-	label_BSA = gtk_label_new (_("BSA:"));
-	gtk_widget_show (label_BSA);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_BSA, 10, 80);
-	gtk_widget_set_size_request (label_BSA, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_BSA), 0.9, 0.5);
+    label_BSA = gtk_label_new (_("BSA:"));
+    gtk_widget_show (label_BSA);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_BSA, 10, 80);
+    gtk_widget_set_size_request (label_BSA, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_BSA), 0.9, 0.5);
 
-	label_cm = gtk_label_new ("cm");
-	gtk_widget_show (label_cm);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_cm, 210, 10);
-	gtk_widget_set_size_request (label_cm, 30, 30);
+    label_cm = gtk_label_new ("cm");
+    gtk_widget_show (label_cm);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_cm, 210, 10);
+    gtk_widget_set_size_request (label_cm, 30, 30);
 
-	label_kg = gtk_label_new ("kg");
-	gtk_widget_show (label_kg);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_kg, 210, 45);
-	gtk_widget_set_size_request (label_kg, 30, 30);
+    label_kg = gtk_label_new ("kg");
+    gtk_widget_show (label_kg);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_kg, 210, 45);
+    gtk_widget_set_size_request (label_kg, 30, 30);
 
-	label_m2 = gtk_label_new ("m²");
-	gtk_widget_show (label_m2);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_m2, 210, 80);
-	gtk_widget_set_size_request (label_m2, 30, 30);
+    label_m2 = gtk_label_new ("m²");
+    gtk_widget_show (label_m2);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_general), label_m2, 210, 80);
+    gtk_widget_set_size_request (label_m2, 30, 30);
 
-	return fixed_tab_general;
+    return fixed_tab_general;
 }
 
 const gchar* ViewNewPat::GetLMP(void)
@@ -1101,9 +1101,9 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
         gtk_label_set_text(GTK_LABEL(m_warming_label), "");
     }
 
-	//year = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year));
-	if (strlen(year)) {
-		if ((g_date_valid_year((GDateYear)atoi(year)) == FALSE) || (atoi(year) > year_now)
+    //year = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year));
+    if (strlen(year)) {
+        if ((g_date_valid_year((GDateYear)atoi(year)) == FALSE) || (atoi(year) > year_now)
                 || (abs(atoi(year) - year_now) > 1)
                 || (((abs(atoi(year) - year_now)) > 0) && (atoi(month) != 0) && (atoi(month) < month_now)))
         {
@@ -1154,16 +1154,16 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
             ///>clear
             gtk_label_set_text(GTK_LABEL(m_warming_label), "");
         }
-	}
-	else
-	{
-		gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
-		gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
+    }
+    else
+    {
+        gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
+        gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
         return;
-	}
-	//month = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month));
-	if (strlen(month)) {
-		if ((g_date_valid_month((GDateMonth)atoi(month)) == FALSE)
+    }
+    //month = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month));
+    if (strlen(month)) {
+        if ((g_date_valid_month((GDateMonth)atoi(month)) == FALSE)
                 || ((atoi(year) == year_now) && (atoi(month) > month_now))
                 || ((atoi(year) < year_now) && (atoi(month) < month_now)))
         {
@@ -1205,11 +1205,11 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
             gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
             gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
             PRINTF("Invalid Month!\n");
-			return;
-		}
+            return;
+        }
         else
             gtk_label_set_text(GTK_LABEL(m_warming_label), "");
-	}
+    }
     else
     {
         gtk_label_set_text(GTK_LABEL(m_warming_label), "");
@@ -1217,9 +1217,9 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
         gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
         return;
     }
-	//day = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day));
-	if (strlen(day)) {
-		if ((g_date_valid_day((GDateDay)atoi(day)) == FALSE)
+    //day = gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day));
+    if (strlen(day)) {
+        if ((g_date_valid_day((GDateDay)atoi(day)) == FALSE)
                 || ((atoi(year) < year_now) && (atoi(month) == month_now) && (atoi(day) < day_now))
                 || ((atoi(year) == year_now) && (atoi(month) == month_now) && (atoi(day) > day_now)))
         {
@@ -1258,22 +1258,22 @@ void ViewNewPat::OBFocusOut(GtkWidget *widget, GdkEventFocus *event)
             }
 
             gtk_label_set_text(GTK_LABEL(m_warming_label), warming);
-			//gtk_entry_set_text(GTK_ENTRY(widget), "");
-			gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
-			gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
-			PRINTF("Invalid Day!\n");
-			return;
-		}
+            //gtk_entry_set_text(GTK_ENTRY(widget), "");
+            gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
+            gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
+            PRINTF("Invalid Day!\n");
+            return;
+        }
         else
             gtk_label_set_text(GTK_LABEL(m_warming_label), "");
-	}
-	else
-	{
+    }
+    else
+    {
         gtk_label_set_text(GTK_LABEL(m_warming_label), "");
-		gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
-		gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
-		return;
-	}
+        gtk_entry_set_text(GTK_ENTRY(m_entry_ob_GA), "");
+        gtk_entry_set_text(GTK_ENTRY(m_entry_ob_EDD), "");
+        return;
+    }
 
     gtk_widget_show(m_warming_label);
     Calc_GA_EDD(year, month, day);
@@ -1321,83 +1321,83 @@ void ViewNewPat::Calc_GA_EDD(const gchar *year, const gchar *month, const gchar 
 
 void ViewNewPat::CalcBSA(void)
 {
-	if (!gtk_entry_get_text_length(GTK_ENTRY(m_entry_stature)) ||
-			       !gtk_entry_get_text_length(GTK_ENTRY(m_entry_weight)))
-		return ;
-	double stature = atof(gtk_entry_get_text(GTK_ENTRY(m_entry_stature)));
-	double weight = atof(gtk_entry_get_text(GTK_ENTRY(m_entry_weight)));
+    if (!gtk_entry_get_text_length(GTK_ENTRY(m_entry_stature)) ||
+                   !gtk_entry_get_text_length(GTK_ENTRY(m_entry_weight)))
+        return ;
+    double stature = atof(gtk_entry_get_text(GTK_ENTRY(m_entry_stature)));
+    double weight = atof(gtk_entry_get_text(GTK_ENTRY(m_entry_weight)));
 
-	double bsa;
-	SysCalculateSetting sysCalc;
-	if (sysCalc.GetBSAMethod())
-		bsa = pow(weight, 0.425)*pow(stature, 0.725)*71.84/10000; //Occidental
-	else
-		bsa = pow(weight, 0.425)*pow(stature, 0.725)*73.58/10000; //Oriental
-	char bsa_str[10];
-	sprintf(bsa_str, "%.2f", bsa);
-	gtk_entry_set_text(GTK_ENTRY(m_entry_BSA), bsa_str);
+    double bsa;
+    SysCalculateSetting sysCalc;
+    if (sysCalc.GetBSAMethod())
+        bsa = pow(weight, 0.425)*pow(stature, 0.725)*71.84/10000; //Occidental
+    else
+        bsa = pow(weight, 0.425)*pow(stature, 0.725)*73.58/10000; //Oriental
+    char bsa_str[10];
+    sprintf(bsa_str, "%.2f", bsa);
+    gtk_entry_set_text(GTK_ENTRY(m_entry_BSA), bsa_str);
 
 }
 void ViewNewPat::StatureFocusOut(GtkWidget *widget, GdkEventFocus *event)
 {
-	CalcBSA();
+    CalcBSA();
 }
 
 void ViewNewPat::WeightFocusOut(GtkWidget *widget, GdkEventFocus *event)
 {
-	CalcBSA();
+    CalcBSA();
 }
 
 GtkWidget* ViewNewPat::create_note_ob(void)
 {
-	GtkWidget *fixed_tab_ob;
-	// GtkWidget *entry_ob_year;
-	// GtkWidget *entry_ob_month;
-	// GtkWidget *entry_ob_day;
-	GtkWidget *label_ob_year_spacing;
-	GtkWidget *label_ob_month_spacing;
-	//    GtkWidget *entry_ob_GA;
-	//    GtkWidget *entry_ob_EDD;
-	//    GtkWidget *entry_ob_gravida;
-	//    GtkWidget *entry_ob_ectopic;
-	//    GtkWidget *entry_ob_gestations;
-	//    GtkWidget *entry_ob_para;
-	//    GtkWidget *entry_ob_aborta;
-	GtkWidget *label_ob_gravida;
-	GtkWidget *label_ob_ectopic;
-	GtkWidget *label_ob_gestations;
-	GtkWidget *label_ob_para;
-	GtkWidget *label_ob_aborta;
-	GtkWidget *label_ob_GA;
-	GtkWidget *label_ob_edd;
-	//    GtkWidget *combobox_ob_date;
+    GtkWidget *fixed_tab_ob;
+    // GtkWidget *entry_ob_year;
+    // GtkWidget *entry_ob_month;
+    // GtkWidget *entry_ob_day;
+    GtkWidget *label_ob_year_spacing;
+    GtkWidget *label_ob_month_spacing;
+    //    GtkWidget *entry_ob_GA;
+    //    GtkWidget *entry_ob_EDD;
+    //    GtkWidget *entry_ob_gravida;
+    //    GtkWidget *entry_ob_ectopic;
+    //    GtkWidget *entry_ob_gestations;
+    //    GtkWidget *entry_ob_para;
+    //    GtkWidget *entry_ob_aborta;
+    GtkWidget *label_ob_gravida;
+    GtkWidget *label_ob_ectopic;
+    GtkWidget *label_ob_gestations;
+    GtkWidget *label_ob_para;
+    GtkWidget *label_ob_aborta;
+    GtkWidget *label_ob_GA;
+    GtkWidget *label_ob_edd;
+    //    GtkWidget *combobox_ob_date;
 
-	fixed_tab_ob = gtk_fixed_new ();
-	gtk_widget_show (fixed_tab_ob);
+    fixed_tab_ob = gtk_fixed_new ();
+    gtk_widget_show (fixed_tab_ob);
 
-	m_entry_ob_year = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_year);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_year, 110, 10);
-	gtk_widget_set_size_request (m_entry_ob_year, 48, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_year), 9679);
-	g_signal_connect(G_OBJECT(m_entry_ob_year), "insert_text", G_CALLBACK(on_entry_ob_year), this);
-	g_signal_connect(G_OBJECT(m_entry_ob_year), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
+    m_entry_ob_year = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_year);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_year, 110, 10);
+    gtk_widget_set_size_request (m_entry_ob_year, 48, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_year), 9679);
+    g_signal_connect(G_OBJECT(m_entry_ob_year), "insert_text", G_CALLBACK(on_entry_ob_year), this);
+    g_signal_connect(G_OBJECT(m_entry_ob_year), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
 
-	m_entry_ob_month = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_month);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_month, 170+5, 10);
-	gtk_widget_set_size_request (m_entry_ob_month, /*24*/48, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_month), 9679);
-	g_signal_connect(G_OBJECT(m_entry_ob_month), "insert_text", G_CALLBACK(on_entry_ob_month), this);
-	g_signal_connect(G_OBJECT(m_entry_ob_month), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
+    m_entry_ob_month = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_month);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_month, 170+5, 10);
+    gtk_widget_set_size_request (m_entry_ob_month, /*24*/48, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_month), 9679);
+    g_signal_connect(G_OBJECT(m_entry_ob_month), "insert_text", G_CALLBACK(on_entry_ob_month), this);
+    g_signal_connect(G_OBJECT(m_entry_ob_month), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
 
-	m_entry_ob_day = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_day);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_day, /*206*/230+13, 10);
-	gtk_widget_set_size_request (m_entry_ob_day, /*24*/48, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_day), 9679);
-	g_signal_connect(G_OBJECT(m_entry_ob_day), "insert_text", G_CALLBACK(on_entry_ob_day), this);
-	g_signal_connect(G_OBJECT(m_entry_ob_day), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
+    m_entry_ob_day = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_day);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_day, /*206*/230+13, 10);
+    gtk_widget_set_size_request (m_entry_ob_day, /*24*/48, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_day), 9679);
+    g_signal_connect(G_OBJECT(m_entry_ob_day), "insert_text", G_CALLBACK(on_entry_ob_day), this);
+    g_signal_connect(G_OBJECT(m_entry_ob_day), "focus-out-event", G_CALLBACK(HandleOBFocusOut), this);
     GtkWidget *label_ob_day_spacing;
     if(m_date_format == 0)
     {
@@ -1426,122 +1426,122 @@ GtkWidget* ViewNewPat::create_note_ob(void)
         label_ob_month_spacing = gtk_label_new (_("M  "));
         label_ob_day_spacing = gtk_label_new(_("Y  "));
     }
-	gtk_widget_show (label_ob_year_spacing);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_year_spacing, 158, 10);
-	gtk_widget_set_size_request (label_ob_year_spacing, 12+5, 30);
+    gtk_widget_show (label_ob_year_spacing);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_year_spacing, 158, 10);
+    gtk_widget_set_size_request (label_ob_year_spacing, 12+5, 30);
 
-	gtk_widget_show (label_ob_month_spacing);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_month_spacing, 194+24+5, 10);
-	gtk_widget_set_size_request (label_ob_month_spacing, 12+8, 30);
+    gtk_widget_show (label_ob_month_spacing);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_month_spacing, 194+24+5, 10);
+    gtk_widget_set_size_request (label_ob_month_spacing, 12+8, 30);
 
-	gtk_widget_show (label_ob_day_spacing);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_day_spacing, 230+48+13, 10);
-	gtk_widget_set_size_request (label_ob_day_spacing, 12+5, 30);
+    gtk_widget_show (label_ob_day_spacing);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_day_spacing, 230+48+13, 10);
+    gtk_widget_set_size_request (label_ob_day_spacing, 12+5, 30);
 
-	m_entry_ob_GA = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_GA);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_GA, 110, 45);
-	gtk_widget_set_size_request (m_entry_ob_GA, 100, 30);
-	gtk_editable_set_editable (GTK_EDITABLE (m_entry_ob_GA), FALSE);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_GA), 9679);
+    m_entry_ob_GA = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_GA);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_GA, 110, 45);
+    gtk_widget_set_size_request (m_entry_ob_GA, 100, 30);
+    gtk_editable_set_editable (GTK_EDITABLE (m_entry_ob_GA), FALSE);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_GA), 9679);
 
-	m_entry_ob_EDD = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_EDD);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_EDD, 110, 80);
-	gtk_widget_set_size_request (m_entry_ob_EDD, 100, 30);
-	gtk_editable_set_editable (GTK_EDITABLE (m_entry_ob_EDD), FALSE);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_EDD), 9679);
+    m_entry_ob_EDD = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_EDD);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_EDD, 110, 80);
+    gtk_widget_set_size_request (m_entry_ob_EDD, 100, 30);
+    gtk_editable_set_editable (GTK_EDITABLE (m_entry_ob_EDD), FALSE);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_EDD), 9679);
 
     ///>提示语
-	m_warming_label = gtk_label_new ("");
-	gtk_widget_hide (m_warming_label);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_warming_label, 10, 180);
-	gtk_widget_set_size_request (m_warming_label, 450, 30);
-	gtk_misc_set_alignment (GTK_MISC (m_warming_label), 0, 0.5); ///左对齐
+    m_warming_label = gtk_label_new ("");
+    gtk_widget_hide (m_warming_label);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_warming_label, 10, 180);
+    gtk_widget_set_size_request (m_warming_label, 450, 30);
+    gtk_misc_set_alignment (GTK_MISC (m_warming_label), 0, 0.5); ///左对齐
     gtk_widget_modify_fg(m_warming_label, GTK_STATE_NORMAL, g_red);
 
-	m_entry_ob_gravida = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_gravida);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_gravida, 450, 10);
-	gtk_widget_set_size_request (m_entry_ob_gravida, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_gravida), 8226);
+    m_entry_ob_gravida = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_gravida);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_gravida, 450, 10);
+    gtk_widget_set_size_request (m_entry_ob_gravida, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_gravida), 8226);
 
-	m_entry_ob_ectopic = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_ectopic);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_ectopic, 450, 45);
-	gtk_widget_set_size_request (m_entry_ob_ectopic, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_ectopic), 8226);
+    m_entry_ob_ectopic = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_ectopic);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_ectopic, 450, 45);
+    gtk_widget_set_size_request (m_entry_ob_ectopic, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_ectopic), 8226);
 
-	m_entry_ob_gestations = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_gestations);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_gestations, 450, 80);
-	gtk_widget_set_size_request (m_entry_ob_gestations, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_gestations), 8226);
+    m_entry_ob_gestations = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_gestations);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_gestations, 450, 80);
+    gtk_widget_set_size_request (m_entry_ob_gestations, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_gestations), 8226);
 
-	m_entry_ob_para = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_para);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_para, 450, 115);
-	gtk_widget_set_size_request (m_entry_ob_para, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_para), 8226);
+    m_entry_ob_para = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_para);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_para, 450, 115);
+    gtk_widget_set_size_request (m_entry_ob_para, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_para), 8226);
 
-	m_entry_ob_aborta = gtk_entry_new ();
-	gtk_widget_show (m_entry_ob_aborta);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_aborta, 450, 150);
-	gtk_widget_set_size_request (m_entry_ob_aborta, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_aborta), 8226);
+    m_entry_ob_aborta = gtk_entry_new ();
+    gtk_widget_show (m_entry_ob_aborta);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_entry_ob_aborta, 450, 150);
+    gtk_widget_set_size_request (m_entry_ob_aborta, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_ob_aborta), 8226);
 
-	label_ob_gravida = gtk_label_new (_("Gravida:"));
-	gtk_widget_show (label_ob_gravida);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_gravida, 350, 10);
-	gtk_widget_set_size_request (label_ob_gravida, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_gravida), 0.9, 0.5);
+    label_ob_gravida = gtk_label_new (_("Gravida:"));
+    gtk_widget_show (label_ob_gravida);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_gravida, 350, 10);
+    gtk_widget_set_size_request (label_ob_gravida, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_gravida), 0.9, 0.5);
 
-	label_ob_ectopic = gtk_label_new (_("Ectopic:"));
-	gtk_widget_show (label_ob_ectopic);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_ectopic, 350, 45);
-	gtk_widget_set_size_request (label_ob_ectopic, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_ectopic), 0.9, 0.5);
+    label_ob_ectopic = gtk_label_new (_("Ectopic:"));
+    gtk_widget_show (label_ob_ectopic);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_ectopic, 350, 45);
+    gtk_widget_set_size_request (label_ob_ectopic, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_ectopic), 0.9, 0.5);
 
-	label_ob_gestations = gtk_label_new (_("Gestations:"));
-	gtk_widget_show (label_ob_gestations);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_gestations, 350, 80);
-	gtk_widget_set_size_request (label_ob_gestations, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_gestations), 0.9, 0.5);
+    label_ob_gestations = gtk_label_new (_("Gestations:"));
+    gtk_widget_show (label_ob_gestations);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_gestations, 350, 80);
+    gtk_widget_set_size_request (label_ob_gestations, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_gestations), 0.9, 0.5);
 
-	label_ob_para = gtk_label_new (_("Para:"));
-	gtk_widget_show (label_ob_para);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_para, 350, 115);
-	gtk_widget_set_size_request (label_ob_para, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_para), 0.9, 0.5);
+    label_ob_para = gtk_label_new (_("Para:"));
+    gtk_widget_show (label_ob_para);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_para, 350, 115);
+    gtk_widget_set_size_request (label_ob_para, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_para), 0.9, 0.5);
 
-	label_ob_aborta = gtk_label_new (_("Aborta:"));
-	gtk_widget_show (label_ob_aborta);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_aborta, 350, 150);
-	gtk_widget_set_size_request (label_ob_aborta, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_aborta), 0.9, 0.5);
+    label_ob_aborta = gtk_label_new (_("Aborta:"));
+    gtk_widget_show (label_ob_aborta);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_aborta, 350, 150);
+    gtk_widget_set_size_request (label_ob_aborta, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_aborta), 0.9, 0.5);
 
-	label_ob_GA = gtk_label_new (_("GW:"));
-	gtk_widget_show (label_ob_GA);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_GA, 10, 45);
-	gtk_widget_set_size_request (label_ob_GA, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_GA), 0.9, 0.5);
+    label_ob_GA = gtk_label_new (_("GW:"));
+    gtk_widget_show (label_ob_GA);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_GA, 10, 45);
+    gtk_widget_set_size_request (label_ob_GA, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_GA), 0.9, 0.5);
 
-	label_ob_edd = gtk_label_new (_("EDD:"));
-	gtk_widget_show (label_ob_edd);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_edd, 10, 80);
-	gtk_widget_set_size_request (label_ob_edd, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_ob_edd), 0.9, 0.5);
+    label_ob_edd = gtk_label_new (_("EDD:"));
+    gtk_widget_show (label_ob_edd);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), label_ob_edd, 10, 80);
+    gtk_widget_set_size_request (label_ob_edd, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_ob_edd), 0.9, 0.5);
 
-	m_combobox_ob_date = gtk_combo_box_new_text ();
-	gtk_widget_show (m_combobox_ob_date);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_combobox_ob_date, 10, 10);
-	gtk_widget_set_size_request (m_combobox_ob_date, 100, 30);
-	gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_ob_date), _("LMP"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_ob_date), _("Ovul. Date"));
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_ob_date), 0);
-	g_signal_connect(G_OBJECT(m_combobox_ob_date), "changed", G_CALLBACK(on_combobox_ob_date_changed), this);
+    m_combobox_ob_date = gtk_combo_box_new_text ();
+    gtk_widget_show (m_combobox_ob_date);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_ob), m_combobox_ob_date, 10, 10);
+    gtk_widget_set_size_request (m_combobox_ob_date, 100, 30);
+    gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_ob_date), _("LMP"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_ob_date), _("Ovul. Date"));
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_ob_date), 0);
+    g_signal_connect(G_OBJECT(m_combobox_ob_date), "changed", G_CALLBACK(on_combobox_ob_date_changed), this);
 
-	return fixed_tab_ob;
+    return fixed_tab_ob;
 }
 
 void ViewNewPat::ComboboxOBDateChanged(GtkComboBox *widget)
@@ -1571,166 +1571,166 @@ void ViewNewPat::ComboboxOBDateChanged(GtkComboBox *widget)
 
 GtkWidget* ViewNewPat::create_note_card(void)
 {
-	GtkWidget *fixed_tab_card;
-	//    GtkWidget *entry_hr;
-	//    GtkWidget *entry_bp_high;
-	//    GtkWidget *entry_bp_low;
-	GtkWidget *label_bp_entry;
-	GtkWidget *label_bp;
-	GtkWidget *label_hr;
-	GtkWidget *label_bpm;
-	GtkWidget *label_mmhg;
+    GtkWidget *fixed_tab_card;
+    //    GtkWidget *entry_hr;
+    //    GtkWidget *entry_bp_high;
+    //    GtkWidget *entry_bp_low;
+    GtkWidget *label_bp_entry;
+    GtkWidget *label_bp;
+    GtkWidget *label_hr;
+    GtkWidget *label_bpm;
+    GtkWidget *label_mmhg;
 
-	fixed_tab_card = gtk_fixed_new ();
-	gtk_widget_show (fixed_tab_card);
+    fixed_tab_card = gtk_fixed_new ();
+    gtk_widget_show (fixed_tab_card);
 
-	m_entry_hr = gtk_entry_new ();
-	gtk_widget_show (m_entry_hr);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_hr, 115+28, 15);
-	gtk_widget_set_size_request (m_entry_hr, 100, 30);
-	gtk_entry_set_max_length(GTK_ENTRY(m_entry_hr), 4);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_hr), 8226);
-	g_signal_connect(G_OBJECT(m_entry_hr), "insert_text", G_CALLBACK(on_entry_hr), this);
+    m_entry_hr = gtk_entry_new ();
+    gtk_widget_show (m_entry_hr);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_hr, 115+28, 15);
+    gtk_widget_set_size_request (m_entry_hr, 100, 30);
+    gtk_entry_set_max_length(GTK_ENTRY(m_entry_hr), 4);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_hr), 8226);
+    g_signal_connect(G_OBJECT(m_entry_hr), "insert_text", G_CALLBACK(on_entry_hr), this);
 
-	m_entry_bp_high = gtk_entry_new ();
-	gtk_widget_show (m_entry_bp_high);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_bp_high, 115+28, 55);
-	gtk_widget_set_size_request (m_entry_bp_high, 50, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_bp_high), 8226);
+    m_entry_bp_high = gtk_entry_new ();
+    gtk_widget_show (m_entry_bp_high);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_bp_high, 115+28, 55);
+    gtk_widget_set_size_request (m_entry_bp_high, 50, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_bp_high), 8226);
 
-	label_bp_entry = gtk_label_new ("/");
-	gtk_widget_show (label_bp_entry);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bp_entry, 165+28, 55);
-	gtk_widget_set_size_request (label_bp_entry, 15, 30);
+    label_bp_entry = gtk_label_new ("/");
+    gtk_widget_show (label_bp_entry);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bp_entry, 165+28, 55);
+    gtk_widget_set_size_request (label_bp_entry, 15, 30);
 
-	m_entry_bp_low = gtk_entry_new ();
-	gtk_widget_show (m_entry_bp_low);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_bp_low, 180+28, 55);
-	gtk_widget_set_size_request (m_entry_bp_low, 50, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_bp_low), 8226);
+    m_entry_bp_low = gtk_entry_new ();
+    gtk_widget_show (m_entry_bp_low);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), m_entry_bp_low, 180+28, 55);
+    gtk_widget_set_size_request (m_entry_bp_low, 50, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_bp_low), 8226);
 
-	label_hr = gtk_label_new (_("HR:"));
-	gtk_widget_show (label_hr);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_hr, 5, 15);
-	gtk_widget_set_size_request (label_hr, 110, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_hr), 0.9, 0.5);
+    label_hr = gtk_label_new (_("HR:"));
+    gtk_widget_show (label_hr);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_hr, 5, 15);
+    gtk_widget_set_size_request (label_hr, 110, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_hr), 0.9, 0.5);
 
-	label_bp = gtk_label_new (_("BP(High/Low):"));
-	gtk_widget_show (label_bp);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bp, 5, 55);
-	gtk_widget_set_size_request (label_bp, 110+28, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_bp), 0.9, 0.5);
+    label_bp = gtk_label_new (_("BP(High/Low):"));
+    gtk_widget_show (label_bp);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bp, 5, 55);
+    gtk_widget_set_size_request (label_bp, 110+28, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_bp), 0.9, 0.5);
 
-	label_bpm = gtk_label_new ("bpm");
-	gtk_widget_show (label_bpm);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bpm, 215+28, 15);
-	gtk_widget_set_size_request (label_bpm, 40, 30);
+    label_bpm = gtk_label_new ("bpm");
+    gtk_widget_show (label_bpm);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_bpm, 215+28, 15);
+    gtk_widget_set_size_request (label_bpm, 40, 30);
 
-	label_mmhg = gtk_label_new ("mmHg");
-	gtk_widget_show (label_mmhg);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_mmhg, 230+28, 55);
-	gtk_widget_set_size_request (label_mmhg, 50, 30);
+    label_mmhg = gtk_label_new ("mmHg");
+    gtk_widget_show (label_mmhg);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_card), label_mmhg, 230+28, 55);
+    gtk_widget_set_size_request (label_mmhg, 50, 30);
 
-	return fixed_tab_card;
+    return fixed_tab_card;
 }
 
 GtkWidget* ViewNewPat::create_note_uro(void)
 {
-	GtkWidget *fixed_tab_uro;
-	//    GtkWidget *entry_uro_psa;
-	GtkWidget *label_uro_psa;
-	GtkWidget *label_uro_psa_unit;
+    GtkWidget *fixed_tab_uro;
+    //    GtkWidget *entry_uro_psa;
+    GtkWidget *label_uro_psa;
+    GtkWidget *label_uro_psa_unit;
 
-	fixed_tab_uro = gtk_fixed_new ();
-	gtk_widget_show (fixed_tab_uro);
+    fixed_tab_uro = gtk_fixed_new ();
+    gtk_widget_show (fixed_tab_uro);
 
-	m_entry_uro_psa = gtk_entry_new ();
-	gtk_widget_show (m_entry_uro_psa);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_uro), m_entry_uro_psa, 115, 16);
-	gtk_widget_set_size_request (m_entry_uro_psa, 100, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_uro_psa), 8226);
+    m_entry_uro_psa = gtk_entry_new ();
+    gtk_widget_show (m_entry_uro_psa);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_uro), m_entry_uro_psa, 115, 16);
+    gtk_widget_set_size_request (m_entry_uro_psa, 100, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_uro_psa), 8226);
 
-	label_uro_psa = gtk_label_new (_("PSA:"));
-	gtk_widget_show (label_uro_psa);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_uro), label_uro_psa, 15, 15);
-	gtk_widget_set_size_request (label_uro_psa, 100, 30);
-	gtk_misc_set_alignment (GTK_MISC (label_uro_psa), 0.9, 0.5);
+    label_uro_psa = gtk_label_new (_("PSA:"));
+    gtk_widget_show (label_uro_psa);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_uro), label_uro_psa, 15, 15);
+    gtk_widget_set_size_request (label_uro_psa, 100, 30);
+    gtk_misc_set_alignment (GTK_MISC (label_uro_psa), 0.9, 0.5);
 
-	label_uro_psa_unit = gtk_label_new ("ng / ml");
-	gtk_widget_show (label_uro_psa_unit);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_uro), label_uro_psa_unit, 215, 15);
-	gtk_widget_set_size_request (label_uro_psa_unit, 60, 30);
+    label_uro_psa_unit = gtk_label_new ("ng / ml");
+    gtk_widget_show (label_uro_psa_unit);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_uro), label_uro_psa_unit, 215, 15);
+    gtk_widget_set_size_request (label_uro_psa_unit, 60, 30);
 
-	return fixed_tab_uro;
+    return fixed_tab_uro;
 }
 
 GtkWidget* ViewNewPat::create_note_other(void)
 {
-	GtkWidget *fixed_tab_other;
+    GtkWidget *fixed_tab_other;
 
-	GtkWidget *label_other_tel;
-	//    GtkWidget *entry_other_tel;
-	GtkWidget *label_other_address;
-	//    GtkWidget *entry_other_address;
+    GtkWidget *label_other_tel;
+    //    GtkWidget *entry_other_tel;
+    GtkWidget *label_other_address;
+    //    GtkWidget *entry_other_address;
 
-	fixed_tab_other = gtk_fixed_new ();
-	gtk_widget_show (fixed_tab_other);
+    fixed_tab_other = gtk_fixed_new ();
+    gtk_widget_show (fixed_tab_other);
 
 //hlx
 #ifdef VET
-	label_other_tel = gtk_label_new (_("Owner Telephone:"));
+    label_other_tel = gtk_label_new (_("Owner Telephone:"));
 #else
-	label_other_tel = gtk_label_new (_("Telephone:"));
+    label_other_tel = gtk_label_new (_("Telephone:"));
 #endif
-	gtk_widget_show (label_other_tel);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), label_other_tel, 10, 10);
+    gtk_widget_show (label_other_tel);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), label_other_tel, 10, 10);
 #ifdef VET
-	gtk_widget_set_size_request (label_other_tel, 140, 30);
+    gtk_widget_set_size_request (label_other_tel, 140, 30);
 #else
-	gtk_widget_set_size_request (label_other_tel, 100, 30);
+    gtk_widget_set_size_request (label_other_tel, 100, 30);
 #endif
 
-	m_entry_other_tel = gtk_entry_new ();
+    m_entry_other_tel = gtk_entry_new ();
     gtk_entry_set_max_length(GTK_ENTRY(m_entry_other_tel), 20);
-	gtk_widget_show (m_entry_other_tel);
+    gtk_widget_show (m_entry_other_tel);
 #ifdef VET
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_tel, 150, 10);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_tel, 150, 10);
 #else
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_tel, 110, 10);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_tel, 110, 10);
 #endif
-	gtk_widget_set_size_request (m_entry_other_tel, 150, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_other_tel), 9679);
+    gtk_widget_set_size_request (m_entry_other_tel, 150, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_other_tel), 9679);
 #ifdef VET
     g_signal_connect(G_OBJECT(m_entry_other_tel), "insert_text", G_CALLBACK(on_entry_name_insert), this);
 
-	label_other_address = gtk_label_new (_("Owner Address:"));
+    label_other_address = gtk_label_new (_("Owner Address:"));
 #else
-	label_other_address = gtk_label_new (_("Address:"));
+    label_other_address = gtk_label_new (_("Address:"));
 #endif
-	gtk_widget_show (label_other_address);
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), label_other_address, 10, 45);
+    gtk_widget_show (label_other_address);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), label_other_address, 10, 45);
 #ifdef VET
-	gtk_widget_set_size_request (label_other_address, 140, 30);
+    gtk_widget_set_size_request (label_other_address, 140, 30);
 #else
-	gtk_widget_set_size_request (label_other_address, 100, 30);
+    gtk_widget_set_size_request (label_other_address, 100, 30);
 #endif
 
-	m_entry_other_address = gtk_entry_new ();
+    m_entry_other_address = gtk_entry_new ();
     gtk_entry_set_max_length(GTK_ENTRY(m_entry_other_address), 100);
-	gtk_widget_show (m_entry_other_address);
+    gtk_widget_show (m_entry_other_address);
 #ifdef VET
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_address, 150, 45);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_address, 150, 45);
 #else
-	gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_address, 110, 45);
+    gtk_fixed_put (GTK_FIXED (fixed_tab_other), m_entry_other_address, 110, 45);
 #endif
 
-	gtk_widget_set_size_request (m_entry_other_address, 350, 30);
-	gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_other_address), 9679);
+    gtk_widget_set_size_request (m_entry_other_address, 350, 30);
+    gtk_entry_set_invisible_char (GTK_ENTRY (m_entry_other_address), 9679);
 
 #ifdef VET
-	g_signal_connect(G_OBJECT(m_entry_other_address), "insert_text", G_CALLBACK(on_entry_name_insert), this);
+    g_signal_connect(G_OBJECT(m_entry_other_address), "insert_text", G_CALLBACK(on_entry_name_insert), this);
 #endif
-	return fixed_tab_other;
+    return fixed_tab_other;
 }
 
 void ViewNewPat::FillPatInfo(const PatientInfo::Patient &pat_info)
@@ -2053,7 +2053,7 @@ void ViewNewPat::BtnSearchClicked(GtkButton *button)
 
 static gboolean ExitWindow(gpointer data)
 {
-	ViewNewPat *tmp;
+    ViewNewPat *tmp;
     tmp = (ViewNewPat *)data;
     tmp->DestroyWindow();
 
@@ -2062,19 +2062,19 @@ static gboolean ExitWindow(gpointer data)
 
 void ViewNewPat::KeyEvent(unsigned char keyValue)
 {
-	FakeXEvent::KeyEvent(keyValue);
+    FakeXEvent::KeyEvent(keyValue);
 
-	switch(keyValue)
-	{
-		case KEY_ESC:
-		case KEY_PATIENT:
-			g_timeout_add(100, ExitWindow, this);
-			FakeEscKey();
-			break;
+    switch(keyValue)
+    {
+        case KEY_ESC:
+        case KEY_PATIENT:
+            g_timeout_add(100, ExitWindow, this);
+            FakeEscKey();
+            break;
 
-		default:
-			break;
-	}
+        default:
+            break;
+    }
 }
 void ViewNewPat::BtnCancelClicked(GtkButton *button)
 {
@@ -2105,7 +2105,7 @@ void ViewNewPat::BtnOkClicked(GtkButton *button)
         if(CDCMRegister::GetMe()->IsAuthorize())
 #endif
     {
-		EditStudyInfo(info);
+        EditStudyInfo(info);
         SysDicomSetting sysDicomSetting;
         if(!g_patientInfo.GetExist())
         {
@@ -2180,12 +2180,12 @@ DCMMPPSELEMENT ViewNewPat::GetMPPSElement(PatientInfo::Info &info)
 
 void ViewNewPat::EditStudyInfo(PatientInfo::Info &info)
 {
-	SysGeneralSetting sgs;
-	 int lang = sgs.GetLanguage();
-	 if(!lang)
+    SysGeneralSetting sgs;
+     int lang = sgs.GetLanguage();
+     if(!lang)
         m_studyInfo.stPatientName = info.p.name.last + '^' + info.p.name.first + '^' + info.p.name.mid;
-	 else
-		 m_studyInfo.stPatientName = info.p.name.last + info.p.name.first;
+     else
+         m_studyInfo.stPatientName = info.p.name.last + info.p.name.first;
 
         m_studyInfo.stPatientID = info.p.id;
         string year, mon, day, birthDate,studyDate;
@@ -2344,7 +2344,7 @@ void ViewNewPat::ChkBtnPatIDClicked(GtkButton *button)
     if (value)
     {
         string ID = GenPatID();
-	    gtk_entry_set_text(GTK_ENTRY(m_entryPatID), ID.c_str());
+        gtk_entry_set_text(GTK_ENTRY(m_entryPatID), ID.c_str());
         sys.SetAutoGeneratedID(1);
         sys.SyncFile();
     }
@@ -2360,14 +2360,14 @@ void ViewNewPat::ChkBtnPatIDClicked(GtkButton *button)
 /*
 void ViewNewPat::BtnExamPauseClicked(GtkButton *button)
 {
-	// set patient info
+    // set patient info
     PatientInfo::Info info;
     GetPatInfo(info);
     g_patientInfo.SetInfo(info);
 
-	// archive patient info to temp area
+    // archive patient info to temp area
 
-	// clear data in dialog
+    // clear data in dialog
     ClearData();
 }
 */
@@ -2624,18 +2624,18 @@ bool ViewNewPat::AutoCalcAge(const int year, const int month, const int day)
     // int day = atoi(day_text);
 
     if (g_date_valid_dmy((GDateDay)day, (GDateMonth)month, (GDateYear)year) == FALSE) {
-	return false;
+    return false;
     }
 
     int age, age_unit;
     if (CalcAge (year, month, day, age, age_unit)) {
-	ostringstream strm;
-	strm << age;
-	gtk_entry_set_text(GTK_ENTRY(m_entryAge), strm.str().c_str());
+    ostringstream strm;
+    strm << age;
+    gtk_entry_set_text(GTK_ENTRY(m_entryAge), strm.str().c_str());
         gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAge), age_unit);
         return true;
     } else {
-	gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
+    gtk_entry_set_text(GTK_ENTRY(m_entryAge), "");
         gtk_combo_box_set_active(GTK_COMBO_BOX(m_comboboxAge), 0);
         return false;
     }
@@ -2723,98 +2723,98 @@ void ViewNewPat::ClearExamData(void)
 
 void ViewNewPat::GetPatInfo(PatientInfo::Info &info)
 {
-	const gchar *pat_id = gtk_entry_get_text(GTK_ENTRY(m_entryPatID));
+    const gchar *pat_id = gtk_entry_get_text(GTK_ENTRY(m_entryPatID));
 
 #ifdef VET
     const gchar *animal_name = gtk_entry_get_text(GTK_ENTRY(m_entryAnimalName));
     const gchar *owner_name = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(m_comboboxOwnerName))));
     int species_index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxSpecies));
 #else
-	const gchar *name_last = gtk_entry_get_text(GTK_ENTRY(m_entryNameLast));
-	const gchar *name_first = gtk_entry_get_text(GTK_ENTRY(m_entryNameFirst));
-	const gchar *name_mid = NULL;
-	if (!m_langCN)
-		name_mid = gtk_entry_get_text(GTK_ENTRY(m_entryNameMid));
-	else
-		name_mid = "";
+    const gchar *name_last = gtk_entry_get_text(GTK_ENTRY(m_entryNameLast));
+    const gchar *name_first = gtk_entry_get_text(GTK_ENTRY(m_entryNameFirst));
+    const gchar *name_mid = NULL;
+    if (!m_langCN)
+        name_mid = gtk_entry_get_text(GTK_ENTRY(m_entryNameMid));
+    else
+        name_mid = "";
 #endif
 
-	const gchar *age_text = gtk_entry_get_text(GTK_ENTRY(m_entryAge));
-	int age_unit_index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxAge));
-	const gchar *birth_year = gtk_entry_get_text(GTK_ENTRY(m_entryBirthYear));
-	const gchar *birth_month = gtk_entry_get_text(GTK_ENTRY(m_entryBirthMonth));
-	const gchar *birth_day = gtk_entry_get_text(GTK_ENTRY(m_entryBirthDay));
+    const gchar *age_text = gtk_entry_get_text(GTK_ENTRY(m_entryAge));
+    int age_unit_index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxAge));
+    const gchar *birth_year = gtk_entry_get_text(GTK_ENTRY(m_entryBirthYear));
+    const gchar *birth_month = gtk_entry_get_text(GTK_ENTRY(m_entryBirthMonth));
+    const gchar *birth_day = gtk_entry_get_text(GTK_ENTRY(m_entryBirthDay));
 
-	int gender_index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxGender));
-	// if (gender_index == -1)
-	// 	gender_index = 0;
+    int gender_index = gtk_combo_box_get_active(GTK_COMBO_BOX(m_comboboxGender));
+    // if (gender_index == -1)
+    //  gender_index = 0;
 
-	GtkTextBuffer *buffer;
-	GtkTextIter start, end;
-	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(m_textview_comment));
-	gtk_text_buffer_get_start_iter(buffer, &start);
-	gtk_text_buffer_get_end_iter(buffer, &end);
-	const gchar *comment = gtk_text_buffer_get_text(buffer, &start, &end, FALSE);
+    GtkTextBuffer *buffer;
+    GtkTextIter start, end;
+    buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(m_textview_comment));
+    gtk_text_buffer_get_start_iter(buffer, &start);
+    gtk_text_buffer_get_end_iter(buffer, &end);
+    const gchar *comment = gtk_text_buffer_get_text(buffer, &start, &end, FALSE);
 
-	const gchar *telephone = gtk_entry_get_text(GTK_ENTRY(m_entry_other_tel));
-	const gchar *address = gtk_entry_get_text(GTK_ENTRY(m_entry_other_address));
+    const gchar *telephone = gtk_entry_get_text(GTK_ENTRY(m_entry_other_tel));
+    const gchar *address = gtk_entry_get_text(GTK_ENTRY(m_entry_other_address));
 
-	gchar *diagnostician = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_comboboxentry_diagnostician));
-	gchar *physician = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_comboboxentry_physician));
+    gchar *diagnostician = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_comboboxentry_diagnostician));
+    gchar *physician = gtk_combo_box_get_active_text(GTK_COMBO_BOX(m_comboboxentry_physician));
 
-	info.p.id = pat_id;
+    info.p.id = pat_id;
 
 #ifdef VET
     info.p.animal_name = animal_name;
     info.p.owner_name = owner_name;
     info.p.species = species_index;
 #else
-	info.p.name.last = name_last;
-	info.p.name.first = name_first;
-	info.p.name.mid = name_mid;
+    info.p.name.last = name_last;
+    info.p.name.first = name_first;
+    info.p.name.mid = name_mid;
 #endif
-	info.p.sex = gender_index;
-	info.p.age = atoi(age_text);
-	info.p.ageUnit = age_unit_index;
-	info.p.birthDate.year = atoi(birth_year);
-	info.p.birthDate.month = atoi(birth_month);
-	info.p.birthDate.day = atoi(birth_day);
-	info.e.comment = comment;
-	info.e.examDoctor = diagnostician;
-	info.e.reportDoctor = physician;
+    info.p.sex = gender_index;
+    info.p.age = atoi(age_text);
+    info.p.ageUnit = age_unit_index;
+    info.p.birthDate.year = atoi(birth_year);
+    info.p.birthDate.month = atoi(birth_month);
+    info.p.birthDate.day = atoi(birth_day);
+    info.e.comment = comment;
+    info.e.examDoctor = diagnostician;
+    info.e.reportDoctor = physician;
 
-	int examYear, examMonth, examDay;
-	int examHour, examMin, examSec;
-	GetCurrentDateTime(examYear, examMonth, examDay, examHour, examMin, examSec);
-	info.e.examDate.year = examYear;
-	info.e.examDate.month = examMonth;
-	info.e.examDate.day = examDay;
-	info.e.examTime.hour = examHour;
-	info.e.examTime.minute = examMin;
-	info.e.examTime.second = examSec;
+    int examYear, examMonth, examDay;
+    int examHour, examMin, examSec;
+    GetCurrentDateTime(examYear, examMonth, examDay, examHour, examMin, examSec);
+    info.e.examDate.year = examYear;
+    info.e.examDate.month = examMonth;
+    info.e.examDate.day = examDay;
+    info.e.examTime.hour = examHour;
+    info.e.examTime.minute = examMin;
+    info.e.examTime.second = examSec;
 
-	TopArea::GetInstance()->GetCheckPart(info.e.examType);
+    TopArea::GetInstance()->GetCheckPart(info.e.examType);
 
-	// general
+    // general
 #ifndef VET
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_stature))) {
-	    const char *stature = gtk_entry_get_text(GTK_ENTRY(m_entry_stature));
-	    info.e.height = atoi(stature);
-	} else {
-	    info.e.height = 0;
-	}
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_weight))) {
-	    const char *weight = gtk_entry_get_text(GTK_ENTRY(m_entry_weight));
-	    info.e.weight = atof(weight);
-	} else {
-	    info.e.weight = 0.0;
-	}
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_BSA))) {
-	    const char* BSA = gtk_entry_get_text(GTK_ENTRY(m_entry_BSA));
-	    info.e.BSA = atof(BSA);
-	} else {
-	    info.e.BSA = 0.0;
-	}
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_stature))) {
+        const char *stature = gtk_entry_get_text(GTK_ENTRY(m_entry_stature));
+        info.e.height = atoi(stature);
+    } else {
+        info.e.height = 0;
+    }
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_weight))) {
+        const char *weight = gtk_entry_get_text(GTK_ENTRY(m_entry_weight));
+        info.e.weight = atof(weight);
+    } else {
+        info.e.weight = 0.0;
+    }
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_BSA))) {
+        const char* BSA = gtk_entry_get_text(GTK_ENTRY(m_entry_BSA));
+        info.e.BSA = atof(BSA);
+    } else {
+        info.e.BSA = 0.0;
+    }
 
     //ob
     int iYear, iMonth, iDay;
@@ -2836,11 +2836,11 @@ void ViewNewPat::GetPatInfo(PatientInfo::Info &info)
         iMonth = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month)));
         iYear = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day)));
     }
-	if (gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_ob_date))) {
+    if (gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_ob_date))) {
         /*
-		info.ob.OvulateDate.year = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year)));
-		info.ob.OvulateDate.month = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month)));
-		info.ob.OvulateDate.day = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day)));
+        info.ob.OvulateDate.year = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year)));
+        info.ob.OvulateDate.month = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month)));
+        info.ob.OvulateDate.day = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day)));
         */
         info.ob.OvulateDate.year = iYear;
         info.ob.OvulateDate.month = iMonth;
@@ -2850,79 +2850,79 @@ void ViewNewPat::GetPatInfo(PatientInfo::Info &info)
         info.ob.LMPDate.day = 0;
     } else {
         /*
-		info.ob.LMPDate.year = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year)));
-		info.ob.LMPDate.month = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month)));
-		info.ob.LMPDate.day = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day)));
+        info.ob.LMPDate.year = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_year)));
+        info.ob.LMPDate.month = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_month)));
+        info.ob.LMPDate.day = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_day)));
         */
         info.ob.LMPDate.year = iYear;
         info.ob.LMPDate.month = iMonth;
         info.ob.LMPDate.day = iDay;
         info.ob.OvulateDate.year = 0;
-		info.ob.OvulateDate.month = 0;
-		info.ob.OvulateDate.day = 0;
-	}
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_gravida)))
-	    info.ob.pregCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_gravida)));
-	else
-	    info.ob.pregCount = -1;
+        info.ob.OvulateDate.month = 0;
+        info.ob.OvulateDate.day = 0;
+    }
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_gravida)))
+        info.ob.pregCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_gravida)));
+    else
+        info.ob.pregCount = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_ectopic)))
-	    info.ob.abnormalPregCount = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_ectopic)));
-	else
-	    info.ob.abnormalPregCount = -1;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_ectopic)))
+        info.ob.abnormalPregCount = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_ectopic)));
+    else
+        info.ob.abnormalPregCount = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_gestations)))
-	    info.ob.fetusCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_gestations)));
-	else
-	    info.ob.fetusCount = -1;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_gestations)))
+        info.ob.fetusCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_gestations)));
+    else
+        info.ob.fetusCount = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_para)))
-	    info.ob.deliveryCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_para)));
-	else
-	    info.ob.deliveryCount = -1;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_para)))
+        info.ob.deliveryCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_para)));
+    else
+        info.ob.deliveryCount = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_aborta)))
-	    info.ob.miscarryCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_aborta)));
-	else
-	    info.ob.miscarryCount = -1;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_ob_aborta)))
+        info.ob.miscarryCount= atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_ob_aborta)));
+    else
+        info.ob.miscarryCount = -1;
 #endif
 
-	// card
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_hr)))
-	    info.car.HR = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_hr)));
-	else
-	    info.car.HR = -1;
+    // card
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_hr)))
+        info.car.HR = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_hr)));
+    else
+        info.car.HR = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_bp_high)))
-	    info.car.pressureHigh = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_bp_high)));
-	else
-	    info.car.pressureHigh = -1;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_bp_high)))
+        info.car.pressureHigh = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_bp_high)));
+    else
+        info.car.pressureHigh = -1;
 
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_bp_low)))
-	    info.car.pressureLow = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_bp_low)));
-	else
-	    info.car.pressureLow = -1;
-	// URO
-	if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_uro_psa)))
-	    info.uro.PSA = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_uro_psa)));
-	else
-	    info.uro.PSA = -1;
-	// Other
-	info.p.telephone = telephone;
-	info.p.address = address;
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_bp_low)))
+        info.car.pressureLow = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_bp_low)));
+    else
+        info.car.pressureLow = -1;
+    // URO
+    if (gtk_entry_get_text_length(GTK_ENTRY(m_entry_uro_psa)))
+        info.uro.PSA = atoi(gtk_entry_get_text(GTK_ENTRY(m_entry_uro_psa)));
+    else
+        info.uro.PSA = -1;
+    // Other
+    info.p.telephone = telephone;
+    info.p.address = address;
 }
 
 void ViewNewPat::EventBoxCalendarPress(GtkWidget *widget, GdkEventButton *event)
 {
-	ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
+    ViewCalendar::GetInstance()->CreateWindow(m_window, ViewCalendar::START, this);
 }
 
 void ViewNewPat::SetStartDate(int year, int month, int day)
 {
-	guint i;
+    guint i;
     int pos, iCurrent;
-	char tmp[10];
-	char str[2];
+    char tmp[10];
+    char str[2];
 
     //add restirction
     time_t now;
@@ -2999,12 +2999,12 @@ void ViewNewPat::InsertPatientInfo(const char *ID, PatientInfo::Name patientName
     }
     else
     {
-		char name_last[m_pat_name_max_len+1] = {0};
-		char name_first[m_pat_name_max_len+1]= {0};
-		char name_mid[m_pat_name_max_len+1]= {0};
-		strncpy(name_last, patientName.last.c_str(), m_pat_name_max_len);
-		strncpy(name_first, patientName.first.c_str(), m_pat_name_max_len);
-		strncpy(name_mid, patientName.mid.c_str(), m_pat_name_max_len);
+        char name_last[m_pat_name_max_len+1] = {0};
+        char name_first[m_pat_name_max_len+1]= {0};
+        char name_mid[m_pat_name_max_len+1]= {0};
+        strncpy(name_last, patientName.last.c_str(), m_pat_name_max_len);
+        strncpy(name_first, patientName.first.c_str(), m_pat_name_max_len);
+        strncpy(name_mid, patientName.mid.c_str(), m_pat_name_max_len);
         gtk_entry_set_text(GTK_ENTRY(m_entryNameLast), name_last);
         gtk_entry_set_text(GTK_ENTRY(m_entryNameFirst), name_first);
         gtk_entry_set_text(GTK_ENTRY(m_entryNameMid), name_mid);

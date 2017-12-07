@@ -8,7 +8,7 @@ TraceItem g_traceCalcItem;
 
 void GetTraceItem(struct TraceItem &calcItem)
 {
-	calcItem= g_traceCalcItem;
+    calcItem= g_traceCalcItem;
 }
 
 SysMeasurementSetting::SysMeasurementSetting()
@@ -21,8 +21,8 @@ SysMeasurementSetting::SysMeasurementSetting()
 SysMeasurementSetting::~SysMeasurementSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 
@@ -314,7 +314,7 @@ void SysMeasurementSetting::DefaultFactory(void)
     bool hr = false;
     bool pgmax = false;
     bool pgmean = false;
-	int heartBeatCycle = 2;
+    int heartBeatCycle = 2;
     int dist=0;
     int area=0;
     int vol=0;
@@ -357,14 +357,14 @@ void SysMeasurementSetting::DefaultFactory(void)
 
 void SysMeasurementSetting::UpdateTraceItemSetting(void)
 {
-	g_traceCalcItem.psSet = GetAutoCalcPS();
-	g_traceCalcItem.edSet = GetAutoCalcED();
-	g_traceCalcItem.riSet = GetAutoCalcRI();
-	g_traceCalcItem.sdSet = GetAutoCalcSD();
-	g_traceCalcItem.tamaxSet = GetAutoCalcTAmax();
-	g_traceCalcItem.piSet = GetAutoCalcPI();
-	g_traceCalcItem.timeSet = GetAutoCalcTime();
-	g_traceCalcItem.hrSet = GetAutoCalcHR();
-	g_traceCalcItem.pgmaxSet = GetAutoCalcPGmax();
-	g_traceCalcItem.pgmeanSet = GetAutoCalcPGmean();
+    g_traceCalcItem.psSet = GetAutoCalcPS();
+    g_traceCalcItem.edSet = GetAutoCalcED();
+    g_traceCalcItem.riSet = GetAutoCalcRI();
+    g_traceCalcItem.sdSet = GetAutoCalcSD();
+    g_traceCalcItem.tamaxSet = GetAutoCalcTAmax();
+    g_traceCalcItem.piSet = GetAutoCalcPI();
+    g_traceCalcItem.timeSet = GetAutoCalcTime();
+    g_traceCalcItem.hrSet = GetAutoCalcHR();
+    g_traceCalcItem.pgmaxSet = GetAutoCalcPGmax();
+    g_traceCalcItem.pgmeanSet = GetAutoCalcPGmean();
 }

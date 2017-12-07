@@ -170,7 +170,7 @@ void ViewCD::CreateWindow(GtkWidget *parent, vector<string> vec, bool is_cd)
     fixed = gtk_fixed_new ();
     gtk_container_add (GTK_CONTAINER (m_window), fixed);
 
-    /*	create file tree	*/
+    /*  create file tree    */
     GtkWidget *sw_from = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw_from), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sw_from), GTK_SHADOW_OUT);
@@ -390,7 +390,7 @@ void ViewCD::UpdateSize(bool is_cd)
     {
         gtk_tree_model_get(model, &iter1, 0, &val1, -1);
         folder = g_build_filename(STORE_PATH, val1, NULL);
-        //	PRINTF("folder: %s\n", folder);
+        //  PRINTF("folder: %s\n", folder);
         m_vecFolder.push_back(folder);
         g_free(folder);
 
@@ -420,13 +420,13 @@ void ViewCD::UpdateSize(bool is_cd)
         if( stat((*it).c_str(), &buf)==0 )
         {
             m_estimated += buf.st_size;
-            //	PRINTF("file: %s, size: %d\n", (*it).c_str(), buf.st_size);
+            //  PRINTF("file: %s, size: %d\n", (*it).c_str(), buf.st_size);
         }
     }
-	if(m_estimated > 0)
-		m_estimated = m_estimated + m_estimated / 10;
+    if(m_estimated > 0)
+        m_estimated = m_estimated + m_estimated / 10;
 
-	PRINTF("Estimated size: %llu\n", m_estimated);
+    PRINTF("Estimated size: %llu\n", m_estimated);
 
     SetEstimatedSize( (float)m_estimated/1024/1024 );
 
@@ -732,7 +732,7 @@ void ViewCD::BtnDelClicked(GtkButton *button)
         int row = atoi(path_string);
         vector<string>::iterator iter = find(m_vecFolderNew.begin(), m_vecFolderNew.end(), m_vecFolderNew[row]);
         if(iter != m_vecFolderNew.end())
-            m_vecFolderNew.erase(iter);	//find and erase it from the vector
+            m_vecFolderNew.erase(iter); //find and erase it from the vector
         gtk_tree_path_free (treePath);
         g_free(path_string);
 
@@ -803,7 +803,7 @@ gboolean ViewCD::PrepareData(vector<string> folder, vector<string> path)
         gchar *basename = g_path_get_basename((*it).c_str());
         gchar *dirname = g_path_get_dirname((*it).c_str());
         gchar *parent = g_path_get_basename(dirname);
-        //	PRINTF("basename: %s, dirname: %s, parent: %s\n", basename, dirname, parent);
+        //  PRINTF("basename: %s, dirname: %s, parent: %s\n", basename, dirname, parent);
 
         sprintf(buf, "%s//%s=%s/%s\n", parent, basename, dirname, basename);
         PRINTF("buf: %s\n", buf);
@@ -857,7 +857,7 @@ gboolean ViewCD::MakeIsoCallback(GIOChannel *source, GIOCondition condition)
         gtk_progress_bar_set_text(Lprogressbar, Lsbuf2);
 #endif
     }
-    else if(strstr(buffer, MKISOFS_ERROR) && !strstr(buffer, MKISOFS_IGNORE))	//error with mkisofs
+    else if(strstr(buffer, MKISOFS_ERROR) && !strstr(buffer, MKISOFS_IGNORE))   //error with mkisofs
     {
         m_cont = 0;
         if (!strstr(buffer, MKISOFS_NOSPACE))
@@ -898,7 +898,7 @@ gboolean ViewCD::MakeIso()
     guint event, eventerr;
     gchar *cmdline, **cmd;
     GIOChannel *comerr, *com;
-    //	gint64 last_track_addr, next_writable_addr;
+    //  gint64 last_track_addr, next_writable_addr;
 
     if(!PeripheralMan::GetInstance()->CheckDisc())
         return FALSE;
@@ -926,7 +926,7 @@ gboolean ViewCD::MakeIso()
         PRINTF("MakeISO error: shell pares argv\n");
         return FALSE;
     }
-    //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
+    //  PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
     GError *error = NULL;
     status = g_spawn_async_with_pipes(NULL, cmd, NULL,
@@ -959,10 +959,10 @@ gboolean ViewCD::MakeIso()
         gtk_main_iteration();
     }
 
-    /* exit mkisofs process	*/
+    /* exit mkisofs process */
     waitpid(pid, &cmdstatus, 0);
     if ((WIFEXITED(cmdstatus) && WEXITSTATUS(cmdstatus)!=0) //command exit normal with error
-            || (!(WIFEXITED(cmdstatus))))	//command exit abnormal
+            || (!(WIFEXITED(cmdstatus))))   //command exit abnormal
     {
         PRINTF("mkisofs command exit with error\n");
         return FALSE;
@@ -1026,7 +1026,7 @@ gboolean ViewCD::BurnCD(const char *device)
         PRINTF("BurnCD error: shell pares argv\n");
         return FALSE;
     }
-    //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
+    //  PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
     status = g_spawn_async_with_pipes(NULL, cmd, NULL,
             (GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
@@ -1057,10 +1057,10 @@ gboolean ViewCD::BurnCD(const char *device)
         gtk_main_iteration();
     }
 
-    /* exit mkisofs process	*/
+    /* exit mkisofs process */
     waitpid(pid, &cmdstatus, 0);
     if ((WIFEXITED(cmdstatus) && WEXITSTATUS(cmdstatus)!=0) //command exit normal with error
-            || (!(WIFEXITED(cmdstatus))))	//command exit abnormal
+            || (!(WIFEXITED(cmdstatus))))   //command exit abnormal
     {
         PRINTF("BurnCD command exit with error\n");
         return FALSE;
@@ -1127,7 +1127,7 @@ gboolean ViewCD::BurnDVD(gboolean is_blank, const char *device)
         PRINTF("BurnDVD error: shell pares argv\n");
         return FALSE;
     }
-    //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
+    //  PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
     status = g_spawn_async_with_pipes(NULL, cmd, NULL,
             (GSpawnFlags ) (G_SPAWN_DO_NOT_REAP_CHILD),
@@ -1158,10 +1158,10 @@ gboolean ViewCD::BurnDVD(gboolean is_blank, const char *device)
         gtk_main_iteration();
     }
 
-    /* exit mkisofs process	*/
+    /* exit mkisofs process */
     waitpid(pid, &cmdstatus, 0);
     if ((WIFEXITED(cmdstatus) && WEXITSTATUS(cmdstatus)!=0) //command exit normal with error
-            || (!(WIFEXITED(cmdstatus))))	//command exit abnormal
+            || (!(WIFEXITED(cmdstatus))))   //command exit abnormal
     {
         PRINTF("BurnDVD command exit with error\n");
         return FALSE;
@@ -1208,7 +1208,7 @@ gboolean TimeoutUpdateDialog(gpointer data)
 void ViewCD::HintDialog(guint timeout, int type, const char *info)
 {
     // if(type==ViewDialog::HINT)
-    // 	g_timeout_add(timeout, TimeoutHintDialog, (void*)info);
+    //  g_timeout_add(timeout, TimeoutHintDialog, (void*)info);
     if(type==ViewDialog::INFO)
         g_timeout_add(timeout, TimeoutInfoDialog, (void*)info);
     else if(type < 0)

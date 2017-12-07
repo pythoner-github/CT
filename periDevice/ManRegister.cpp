@@ -1,16 +1,3 @@
-/*
- * 2015, 深圳恩普电子技术有线公司
- *
- * @file: ManRegister.cpp
- * @brief: implement for the CManRegister class, generate unique register key for each computer,
- * and it can generate license file, and judge that whether the inputing key is authorised.
- *
- *
- * @version: 1.0
- * @author: lihuamei
- * @date: 2015-11-10
- */
-
 #include "periDevice/ManRegister.h"
 #include <stdio.h>
 #include <sys/ioctl.h>
@@ -60,19 +47,19 @@ CManRegister* CManRegister::m_ptrInstance = NULL;
 
 void CManRegister::Create(string resFileDir)
 {
-	if(m_ptrInstance == NULL)
-		m_ptrInstance = new CManRegister(resFileDir);
+    if(m_ptrInstance == NULL)
+        m_ptrInstance = new CManRegister(resFileDir);
 }
 
 void CManRegister::Destroy()
 {
-	if(m_ptrInstance != NULL)
-		delete m_ptrInstance, m_ptrInstance = NULL;
+    if(m_ptrInstance != NULL)
+        delete m_ptrInstance, m_ptrInstance = NULL;
 }
 
 CManRegister* CManRegister::GetInstance()
 {
-	return m_ptrInstance;
+    return m_ptrInstance;
 }
 
 CManRegister::CManRegister(string resFileDir) : m_resFilePath(""), m_isAuthorize(false)
@@ -81,14 +68,14 @@ CManRegister::CManRegister(string resFileDir) : m_resFilePath(""), m_isAuthorize
         m_optAuthorize[i] = false;//true;
     m_currentFileName = "";
     m_currentIndex = 0;
-	if (resFileDir == "")
-		m_resFilePath = resFileDir + "/mnt/disk3" + DIR_SEPARATOR;
-	else if (resFileDir.at(resFileDir.length()-1) != DIR_SEPARATOR_CHAR)
-		m_resFilePath = resFileDir + DIR_SEPARATOR_CHAR;
-	else
-		m_resFilePath = resFileDir;
+    if (resFileDir == "")
+        m_resFilePath = resFileDir + "/mnt/disk3" + DIR_SEPARATOR;
+    else if (resFileDir.at(resFileDir.length()-1) != DIR_SEPARATOR_CHAR)
+        m_resFilePath = resFileDir + DIR_SEPARATOR_CHAR;
+    else
+        m_resFilePath = resFileDir;
 
-	string registerKey = "";
+    string registerKey = "";
     /**查找当前目录下所有文件名称
      * 读取文件内容，校验，赋值
      */
@@ -135,15 +122,15 @@ CManRegister::~CManRegister()
  */
 bool CManRegister::GenerateLicenseFile(string destFileDir, string fileName)
 {
-	if (access(destFileDir.c_str(), F_OK) < 0)
-	{
-		PRINTF("The directory used to store the license is invalid!\n");
-		return false;
-	}
+    if (access(destFileDir.c_str(), F_OK) < 0)
+    {
+        PRINTF("The directory used to store the license is invalid!\n");
+        return false;
+    }
     if(fileName == "")
     {
-		PRINTF("The optional fuction is invalid!\n");
-		return false;
+        PRINTF("The optional fuction is invalid!\n");
+        return false;
     }
     for(int j = 0; j < MAX_OPTIONAL_NUM; j++)
     {
@@ -153,43 +140,43 @@ bool CManRegister::GenerateLicenseFile(string destFileDir, string fileName)
     m_currentFileName = fileName;
 
     string destFilePath = "";
-	if (destFileDir.at(destFileDir.length()-1) != DIR_SEPARATOR_CHAR)
-		destFilePath = destFileDir + DIR_SEPARATOR_CHAR + LICENSE_FILENAME;
-	else
-		destFilePath = destFileDir + LICENSE_FILENAME;
+    if (destFileDir.at(destFileDir.length()-1) != DIR_SEPARATOR_CHAR)
+        destFilePath = destFileDir + DIR_SEPARATOR_CHAR + LICENSE_FILENAME;
+    else
+        destFilePath = destFileDir + LICENSE_FILENAME;
 
     string srcFilePath = m_resFilePath + LICENSE_FILENAME;
     PRINTF("srcFilePath:%s\n", srcFilePath.c_str());
 
-	if (access(srcFilePath.c_str(), F_OK) == 0)
-	{
-		PRINTF("The license file have existed!\n");
-		if (rename(srcFilePath.c_str(), destFilePath.c_str()) < 0)
-		{
-			PRINTF("Fail to mv license file!\n");
-			return false;
-		}
-		return true;
-	}
+    if (access(srcFilePath.c_str(), F_OK) == 0)
+    {
+        PRINTF("The license file have existed!\n");
+        if (rename(srcFilePath.c_str(), destFilePath.c_str()) < 0)
+        {
+            PRINTF("Fail to mv license file!\n");
+            return false;
+        }
+        return true;
+    }
 
-	int fd = open(destFilePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
+    int fd = open(destFilePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
 
-	if (fd < 0)
-	{
-		PRINTF("Fail to open license file!\n");
-		return false;
-	}
+    if (fd < 0)
+    {
+        PRINTF("Fail to open license file!\n");
+        return false;
+    }
 
-	char code[MAXSIZE_LICENSE_LENGTH] = {0};
-	GenerateLicenseCode(code);
-	if (write(fd, code, MAXSIZE_LICENSE_LENGTH) < 0)
-	{
-		PRINTF("Fail to write license file!\n");
-		return false;
-	}
+    char code[MAXSIZE_LICENSE_LENGTH] = {0};
+    GenerateLicenseCode(code);
+    if (write(fd, code, MAXSIZE_LICENSE_LENGTH) < 0)
+    {
+        PRINTF("Fail to write license file!\n");
+        return false;
+    }
 
-	close(fd);
-	PRINTF("Success to generate license file!\n");
+    close(fd);
+    PRINTF("Success to generate license file!\n");
     return true;
 }
 
@@ -199,58 +186,58 @@ bool CManRegister::GenerateLicenseFile(string destFileDir, string fileName)
  */
 bool CManRegister::SaveRegisterKeyFile(string registerKey)
 {
-	string filePath = m_resFilePath + m_currentFileName; //KEY_FILENAME;
-	int fd = open(filePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
+    string filePath = m_resFilePath + m_currentFileName; //KEY_FILENAME;
+    int fd = open(filePath.c_str(), O_CREAT|O_TRUNC|O_RDWR, 00777);
 
-	if (fd < 0)
-	{
-		PRINTF("Fail to open register key file!\n");
-		return false;
-	}
+    if (fd < 0)
+    {
+        PRINTF("Fail to open register key file!\n");
+        return false;
+    }
 
-	if (write(fd, registerKey.c_str(), registerKey.length()+1) < 0)
-	{
-		PRINTF("Fail to write register key file!\n");
-		return false;
-	}
+    if (write(fd, registerKey.c_str(), registerKey.length()+1) < 0)
+    {
+        PRINTF("Fail to write register key file!\n");
+        return false;
+    }
 
-	close(fd);
-	return true;
+    close(fd);
+    return true;
 }
 
 bool CManRegister::ReadRegisterKeyFile(string &registerKey, string fileName)
 {
-	string filePath = m_resFilePath + fileName;
-	int fd = open(filePath.c_str(), O_RDWR);
+    string filePath = m_resFilePath + fileName;
+    int fd = open(filePath.c_str(), O_RDWR);
 
-	if (fd < 0)
-	{
-		PRINTF("Fail to open register key file!\n");
-		return false;
-	}
+    if (fd < 0)
+    {
+        PRINTF("Fail to open register key file!\n");
+        return false;
+    }
 
-	char key[256] = {0};
-	char *pKey = key;
-	int i = 0;
-	while (1)
-	{
-		if (read(fd, pKey, 1) < 0)
-		{
-			PRINTF("Fail to read register key file!\n");
-			return false;
-		}
+    char key[256] = {0};
+    char *pKey = key;
+    int i = 0;
+    while (1)
+    {
+        if (read(fd, pKey, 1) < 0)
+        {
+            PRINTF("Fail to read register key file!\n");
+            return false;
+        }
 
-		if (pKey == 0 || i == 255)
-			break;
+        if (pKey == 0 || i == 255)
+            break;
 
-		i++;
-		pKey++;
-	}
+        i++;
+        pKey++;
+    }
 
-	registerKey = key;
+    registerKey = key;
 
-	close(fd);
-	return true;
+    close(fd);
+    return true;
 }
 
 /**
@@ -266,20 +253,20 @@ bool CManRegister::CheckAuthorize(string registerKey, int optionIndex)
     }
     m_currentIndex = optionIndex;
     PRINTF("check inputkey:%s  generateKey[%d]:%s\n", registerKey.c_str(), m_currentIndex,  GenerateRegisterKey(m_currentIndex).c_str());
-	if (registerKey != GenerateRegisterKey(m_currentIndex))
+    if (registerKey != GenerateRegisterKey(m_currentIndex))
     {
         PRINTF("key is not valid!\n");
-		return false;
+        return false;
     }
 
     m_currentFileName = Optional[optionIndex];
-	if (!SaveRegisterKeyFile(registerKey))
-	{
-		PRINTF("Fail to save register key file!\n");
-		return false;
-	}
+    if (!SaveRegisterKeyFile(registerKey))
+    {
+        PRINTF("Fail to save register key file!\n");
+        return false;
+    }
 
-	return true;
+    return true;
 }
 
 /**
@@ -315,15 +302,15 @@ void CManRegister::SetAuthorize(string optional, bool status)
  */
 void CManRegister::GetFiles(const char *path, vector<string>& files)
 {
-	const char *name;
-	GDir *dir;
-	GError *err = NULL;
+    const char *name;
+    GDir *dir;
+    GError *err = NULL;
     dir = g_dir_open(path, 0, &err);
     if(!dir)
     {
         PRINTF("%s: g_dir_open with error: %s\n", __FUNCTION__, err->message);
         return;
-	}
+    }
     name = g_dir_read_name(dir);
     if(name == NULL)
     {
@@ -339,62 +326,62 @@ void CManRegister::GetFiles(const char *path, vector<string>& files)
         name = g_dir_read_name(dir);
     }
 
-	g_dir_close(dir);
+    g_dir_close(dir);
 }
 
 string CManRegister::GenerateRegisterKey(int optionalIndex)
 {
-	unsigned char scsiID[MAXSIZE_SD];
-	unsigned char macID[MAXSIZE_MAC];
+    unsigned char scsiID[MAXSIZE_SD];
+    unsigned char macID[MAXSIZE_MAC];
     unsigned char optValue[MAXSIZE_VALUE];
     memset(scsiID, 0, sizeof(scsiID));
     memset(macID, 0, sizeof(macID));
     memset(optValue, 0, MAXSIZE_VALUE);
 
-	GetSCSIDiskID(scsiID);
-	GetMacID(macID);
+    GetSCSIDiskID(scsiID);
+    GetMacID(macID);
     GetValue(optValue, optionalIndex);
 
-	int i;
-	unsigned int segA = 0, segB = 0, segC = 0, segD = 0;
-	for (i = 0; i < 20; i++)
-		segA += (unsigned int)(scsiID[i] * pow((double)2, (double)i));
+    int i;
+    unsigned int segA = 0, segB = 0, segC = 0, segD = 0;
+    for (i = 0; i < 20; i++)
+        segA += (unsigned int)(scsiID[i] * pow((double)2, (double)i));
 
-	for (i = 0; i < 6; i++)
-		segB += (unsigned int)(macID[i] * pow((double)3, (double)i));
+    for (i = 0; i < 6; i++)
+        segB += (unsigned int)(macID[i] * pow((double)3, (double)i));
 
-	for (i = 0; i < 6; i++)
-		segC += (unsigned int)(macID[i] * pow((double)10, (double)i));
+    for (i = 0; i < 6; i++)
+        segC += (unsigned int)(macID[i] * pow((double)10, (double)i));
 
     for(i = 0; i < MAXSIZE_VALUE; i++)
         segD += (unsigned)(optValue[i] * pow((double)2, (double)i));
 
-	char key[256];
+    char key[256];
     memset(key, 0, sizeof(key));
     if(optionalIndex == 0)
         sprintf(key, "%x%x%x", segA, segB, segC);
     else
         sprintf(key, "%x%x%x%x", segA, segB, segC, segD);
-	PRINTF("Key is %s\n", key);
+    PRINTF("Key is %s\n", key);
 
-	return key;
+    return key;
 }
 
 bool CManRegister::GetSCSIDiskID(unsigned char *serialNumber)
 {
-	int fd;
+    int fd;
 
     fd = OpenSCSIDevice(SCSIDISK_NAME);
     if (fd < 0)
-	{
+    {
         PRINTF("Could not open SCSI device %s\n", SCSIDISK_NAME);
-		return false;
+        return false;
     }
 
    if (SCSIInquiryUnitSerialNumber(fd, serialNumber) < 0)
    {
-	   PRINTF("Fail to inquiry serial number!\n");
-	   return false;
+       PRINTF("Fail to inquiry serial number!\n");
+       return false;
    }
 
    return true;
@@ -402,7 +389,7 @@ bool CManRegister::GetSCSIDiskID(unsigned char *serialNumber)
 
 int CManRegister::GetMacID(unsigned char *mac)
 {
-	int sock, ret;
+    int sock, ret;
     struct ifreq ifr;
     sock = socket(AF_INET, SOCK_STREAM, 0);
     memset(&ifr, 0, sizeof(ifr));
@@ -425,13 +412,13 @@ int CManRegister::OpenSCSIDevice(const char *dev)
 {
     int fd, vers;
     if ((fd = open(dev, O_RDWR)) < 0)
-	{
+    {
         PRINTF("ERROR could not open device %s\n", dev);
         return -1;
     }
 
     if ((ioctl(fd, SG_GET_VERSION_NUM, &vers) < 0) || (vers < 30000))
-	{
+    {
         PRINTF("/dev is not an sg device, or old sg driver\n");
         close(fd);
         return -1;
@@ -455,13 +442,13 @@ int CManRegister::SCSIInquiryUnitSerialNumber(int fd, unsigned char *serialNumbe
 
     res = SCSIIO(fd, cdb, sizeof(cdb), SG_DXFER_FROM_DEV, data, &data_size, sense, &sense_len);
     if (res)
-	{
+    {
         PRINTF("SCSI_IO failed\n");
         return -1;
     }
     if (sense_len)
-	{
-		PRINTF("sense_len = 0\n");
+    {
+        PRINTF("sense_len = 0\n");
         return -1;
     }
 
@@ -471,13 +458,13 @@ int CManRegister::SCSIInquiryUnitSerialNumber(int fd, unsigned char *serialNumbe
     /* Unit Serial Number */
     PRINTF("Unit Serial Number:");
     for (i = 0; i < pl; i++)
-	{
-		PRINTF("%c", data[i+4]);
-		PRINTF("%02x ", data[i+4]);
-		if (i < MAXSIZE_SD)
-			serialNumber[i] = data[i+4] & 0xff;
-	}
-	PRINTF("\n");
+    {
+        PRINTF("%c", data[i+4]);
+        PRINTF("%02x ", data[i+4]);
+        if (i < MAXSIZE_SD)
+            serialNumber[i] = data[i+4] & 0xff;
+    }
+    PRINTF("\n");
 
     return 0;
 }
@@ -545,48 +532,48 @@ int CManRegister::SCSIIO(int fd, unsigned char *cdb, unsigned char cdb_size, int
  */
 void CManRegister::GenerateLicenseCode(char *code)
 {
-	unsigned int randBit = 10;
-	char *ptrCurPos = code;
+    unsigned int randBit = 10;
+    char *ptrCurPos = code;
 
-	unsigned char scsiID[MAXSIZE_SD] = {0};
-	unsigned char macID[MAXSIZE_MAC] = {0};
+    unsigned char scsiID[MAXSIZE_SD] = {0};
+    unsigned char macID[MAXSIZE_MAC] = {0};
     unsigned char value[MAXSIZE_VALUE] = {0};
 
-	GetSCSIDiskID(scsiID);
-	GetMacID(macID);
+    GetSCSIDiskID(scsiID);
+    GetMacID(macID);
     GetValue(value, m_currentIndex);
 
-	sprintf(ptrCurPos, "%010d", GetRand());
-	ptrCurPos += randBit;
+    sprintf(ptrCurPos, "%010d", GetRand());
+    ptrCurPos += randBit;
 
-	char offset = (char)(10 + GetSecond()/2);
-	*ptrCurPos = offset;
-	ptrCurPos++;
+    char offset = (char)(10 + GetSecond()/2);
+    *ptrCurPos = offset;
+    ptrCurPos++;
 
-	int i;
-	for (i = 0; i < offset; i+=randBit)
-	{
-		sprintf(ptrCurPos, "%010d", GetRand());
-		if (offset - i < (int)randBit)
-			ptrCurPos += (offset - i);
-		else
-			ptrCurPos += randBit;
-	}
+    int i;
+    for (i = 0; i < offset; i+=randBit)
+    {
+        sprintf(ptrCurPos, "%010d", GetRand());
+        if (offset - i < (int)randBit)
+            ptrCurPos += (offset - i);
+        else
+            ptrCurPos += randBit;
+    }
 
-	memcpy(ptrCurPos, scsiID, MAXSIZE_SD);
-	ptrCurPos += MAXSIZE_SD;
+    memcpy(ptrCurPos, scsiID, MAXSIZE_SD);
+    ptrCurPos += MAXSIZE_SD;
 
-	for (i = 0; i < offset; i+=randBit)
-	{
-		sprintf(ptrCurPos, "%010d", GetRand());
-		if (offset - i < (int)randBit)
-			ptrCurPos += (offset - i);
-		else
-			ptrCurPos += randBit;
-	}
+    for (i = 0; i < offset; i+=randBit)
+    {
+        sprintf(ptrCurPos, "%010d", GetRand());
+        if (offset - i < (int)randBit)
+            ptrCurPos += (offset - i);
+        else
+            ptrCurPos += randBit;
+    }
 
-	memcpy(ptrCurPos, macID, MAXSIZE_MAC);
-	ptrCurPos += MAXSIZE_MAC;
+    memcpy(ptrCurPos, macID, MAXSIZE_MAC);
+    ptrCurPos += MAXSIZE_MAC;
 
     for (i = 0; i < offset; i+=randBit)
     {
@@ -604,21 +591,21 @@ void CManRegister::GenerateLicenseCode(char *code)
 
 unsigned int CManRegister::GetRand()
 {
-	unsigned int randNumber;
-	if(m_seed == 0)
-	{
-		srand((int)time(0));
-		m_seed = 1;
-	}
-	randNumber = (unsigned int)rand();
-	return randNumber;
+    unsigned int randNumber;
+    if(m_seed == 0)
+    {
+        srand((int)time(0));
+        m_seed = 1;
+    }
+    randNumber = (unsigned int)rand();
+    return randNumber;
 }
 
 unsigned int CManRegister::GetSecond()
 {
-	time_t getTime;
+    time_t getTime;
     struct tm *p;
-	time(&getTime);
+    time(&getTime);
     p = localtime(&getTime);
-	return p->tm_sec;
+    return p->tm_sec;
 }

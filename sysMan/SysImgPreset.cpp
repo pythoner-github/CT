@@ -4,8 +4,8 @@
 
 void ExecSetting(ExamItem::EItem itemIndex)
 {
-	ExamItem examItem;
-	ExamItem::ParaItem paraItem;
+    ExamItem examItem;
+    ExamItem::ParaItem paraItem;
     int probeIndex = ViewSystem::GetInstance()->GetProbeType();
     if (probeIndex != -1) {
          char *itemName="Adult Abdomen";
@@ -33,7 +33,7 @@ void SetKidAbdo(void)
 
 void SetEarlyPreg(void)
 {
-	ExecSetting(ExamItem::EARLY_PREG);
+    ExecSetting(ExamItem::EARLY_PREG);
 }
 
 void SetMiddleLaterPreg(void)

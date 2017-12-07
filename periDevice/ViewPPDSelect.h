@@ -21,8 +21,8 @@ private:
     enum {
         NAME,
         PATH,
-		SIZE,
-		MODIFIED,
+        SIZE,
+        MODIFIED,
         NUM_COLS
     };
 

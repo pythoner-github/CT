@@ -34,8 +34,8 @@ public:
     int GetCineMedia(void);
     // param 0-manual 1-auto
     int GetCineAutoName(void);
-	// speed: 0-high 1-middle 2-low
-	int GetMouseSpeed(void);
+    // speed: 0-high 1-middle 2-low
+    int GetMouseSpeed(void);
 
     void SetBiopsyLine(int biopsyLine);
     void SetCenterLine(int centerLine);
@@ -50,7 +50,7 @@ public:
     void SetCineFormat(int cineFormat);
     void SetCineMedia(int cineMedia);
     void SetCineAutoName(int cineAutoName);
-	void SetMouseSpeed(int mouseSpeed);
+    void SetMouseSpeed(int mouseSpeed);
     void SyncFile(void);
     void DefaultFactory(void);
 private:

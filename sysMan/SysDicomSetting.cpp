@@ -16,8 +16,8 @@ SysDicomSetting::SysDicomSetting()
 SysDicomSetting::~SysDicomSetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 

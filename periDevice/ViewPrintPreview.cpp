@@ -213,12 +213,12 @@ void ViewPrintPreview::Printing(void)
             const int landscape = sps.GetLandscape();
             const int pagesize = sps.GetPageSize();
             if (landscape < LandscapeMax && media_size < MediaSizeMax && media_size >= 0 && copies > 0) {
-            	if(ViewPrintSetting::GetInstance()->SonyURI())
-                	 sprintf(options, "gamma=%d brightness=%d media=%s scaling=100 %s PageSize=%s", sps.GetGamma(),//mirror
-                			 sps.GetBrightness(), PrinterMediaSize[media_size], PrinterDirection[landscape], PrinterPageSize[pagesize]);
+                if(ViewPrintSetting::GetInstance()->SonyURI())
+                     sprintf(options, "gamma=%d brightness=%d media=%s scaling=100 %s PageSize=%s", sps.GetGamma(),//mirror
+                             sps.GetBrightness(), PrinterMediaSize[media_size], PrinterDirection[landscape], PrinterPageSize[pagesize]);
                 else
                     sprintf(options, "gamma=%d brightness=%d media=%s", sps.GetGamma(), sps.GetBrightness(),
-                    		PrinterMediaSize[media_size]);
+                            PrinterMediaSize[media_size]);
                 grp_options = options;
             } else {
                 grp_options = NULL;
@@ -228,17 +228,17 @@ void ViewPrintPreview::Printing(void)
             if (vet < 0) {
                 if(vet == -2) {
                     ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
-							ViewDialog::INFO,
-							_("No printer found or specified."),
-							NULL);
-				}
-				else {
-					ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
-							ViewDialog::INFO,
-							_("Failed to print!"),
-							NULL);
-				}
-			}
+                            ViewDialog::INFO,
+                            _("No printer found or specified."),
+                            NULL);
+                }
+                else {
+                    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window),
+                            ViewDialog::INFO,
+                            _("Failed to print!"),
+                            NULL);
+                }
+            }
         }
     }
 }
@@ -249,10 +249,10 @@ void ViewPrintPreview::KeyEvent(unsigned char keyValue)
 
     switch(keyValue) {
     case KEY_ESC:
-	BtnExitClicked(NULL);
-	break;
+    BtnExitClicked(NULL);
+    break;
     default:
-	break;
+    break;
     }
 }
 
@@ -271,7 +271,7 @@ void ViewPrintPreview::CreateWindow()
     GtkWidget *image_button_setting;
     GtkWidget *label_button_setting;
     GtkWidget *button_setting;
- 	GtkWidget * fixed_image;
+    GtkWidget * fixed_image;
 
     m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_widget_set_size_request (m_window, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -422,7 +422,7 @@ void ViewPrintPreview::CreateWindow(const char* path, GtkWidget *parent)
     GtkWidget *label_button_setting;
     GtkWidget *button_setting;
 
-	m_imgPath = path;
+    m_imgPath = path;
 
     m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_widget_set_size_request (m_window, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -506,14 +506,14 @@ void ViewPrintPreview::CreateWindow(const char* path, GtkWidget *parent)
     gtk_fixed_put (GTK_FIXED (fixed_window), button_exit, 884, 688);
 
     g_signal_connect ((gpointer) button_print, "clicked",
-		      G_CALLBACK (on_button_print_clicked),
-		      this);
+              G_CALLBACK (on_button_print_clicked),
+              this);
     g_signal_connect ((gpointer) button_exit, "clicked",
-		      G_CALLBACK (on_button_exit_clicked),
-		      this);
+              G_CALLBACK (on_button_exit_clicked),
+              this);
     g_signal_connect ((gpointer) button_setting, "clicked",
-		      G_CALLBACK (on_button_setting_clicked),
-		      this);
+              G_CALLBACK (on_button_setting_clicked),
+              this);
 
     g_keyInterface.Push(this);
     gtk_widget_show_all(m_window);
@@ -541,7 +541,7 @@ GtkWidget* ViewPrintPreview::CreateReportWindow(GtkWidget *fix, int viewmode)
         int grap_y = 20;
         for(int i = 0; i < report_page_count; i++)
         {
-	        char *pathname = GetReportPageName(i);
+            char *pathname = GetReportPageName(i);
             GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(pathname, NULL);
             GtkWidget *print_image = gtk_image_new_from_pixbuf(pixbuf);
             gtk_fixed_put(GTK_FIXED(fixed_image), print_image, 38, (REPORT_HEIGHT + grap_y)*i);
@@ -554,7 +554,7 @@ GtkWidget* ViewPrintPreview::CreateReportWindow(GtkWidget *fix, int viewmode)
         int grap_y = 20;
         for(int i = 0; i < report_page_count; i++)
         {
-        	char *pathname = GetReportPageName(i);
+            char *pathname = GetReportPageName(i);
             int width = 650*REPORT_WIDTH/REPORT_HEIGHT;
             int height = 650;
             GError *error = NULL;
@@ -692,7 +692,7 @@ void ViewPrintPreview::BtnExitClicked(GtkButton *button)
 #include "periDevice/Printfunctions.h"
 void ViewPrintPreview::BtnPrintClicked(GtkButton *button)
 {
-	if(MODE_PRINT_NEW) //new print some error 20130424, jhuang
+    if(MODE_PRINT_NEW) //new print some error 20130424, jhuang
     {
        // char device[128];
       //  if(PeripheralMan::GetInstance()->GetPrinterDev(device))
@@ -705,38 +705,38 @@ void ViewPrintPreview::BtnPrintClicked(GtkButton *button)
       //  {
        //     ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::INFO, _("No printer found."), NULL);
       //  }
-	}
-	else
-		Printing();
+    }
+    else
+        Printing();
 }
 
 void ViewPrintPreview::QuickPrintScreen(const char *path)
 {
-	if(MODE_PRINT_NEW) //new print some error 20130424, jhuang
+    if(MODE_PRINT_NEW) //new print some error 20130424, jhuang
     {
         Printmain::GetInstance()->GetPrintOptions();
         Printfunctions::GetInstance()->PrintFunc(path);
-	}
-	else
-		Printing();
+    }
+    else
+        Printing();
 }
 
 void ViewPrintPreview::BtnSettingClicked(GtkButton *button)
 {
     if(MODE_PRINT_NEW) //new setting some error 20130424, jhuang
-		Printmain::GetInstance()->ViewPrintWindowCreat(GTK_WINDOW(m_window));
-	else
-		ViewPrintSetting::GetInstance()->CreateWindow(GTK_WINDOW(m_window));
+        Printmain::GetInstance()->ViewPrintWindowCreat(GTK_WINDOW(m_window));
+    else
+        ViewPrintSetting::GetInstance()->CreateWindow(GTK_WINDOW(m_window));
 }
 
 GtkWidget *ViewPrintPreview::GetMainWindow(void)
 {
-	return m_window;
+    return m_window;
 }
 
 GtkWidget *GetMainWindow(void)
 {
-	return ViewPrintPreview::GetInstance()->GetMainWindow();
+    return ViewPrintPreview::GetInstance()->GetMainWindow();
 }
 
 //lhm
@@ -816,114 +816,114 @@ void ViewPrintPreview::Item_To_Get()
    struct print_re_item item;
    memset(&item, 0x0, sizeof(item));
 
-	char id[50], name[60], check_num[50], sex[50], age[50], section[50], check_date[50], check_doctor[50], report_doctor[50], ul_idea[2000], comment[2000];
-	char tmp[1000];
+    char id[50], name[60], check_num[50], sex[50], age[50], section[50], check_date[50], check_doctor[50], report_doctor[50], ul_idea[2000], comment[2000];
+    char tmp[1000];
 
-	PatientInfo::Info report_info;
-	g_patientInfo.GetInfo(report_info);
-	strcpy(id, report_info.p.id.c_str());
-	sprintf(name, "%s %s %s", report_info.p.name.last.c_str(), report_info.p.name.first.c_str(), report_info.p.name.mid.c_str());
-	strcpy(check_num, report_info.e.examNum.c_str());
+    PatientInfo::Info report_info;
+    g_patientInfo.GetInfo(report_info);
+    strcpy(id, report_info.p.id.c_str());
+    sprintf(name, "%s %s %s", report_info.p.name.last.c_str(), report_info.p.name.first.c_str(), report_info.p.name.mid.c_str());
+    strcpy(check_num, report_info.e.examNum.c_str());
 #ifdef VET
-	if (report_info.p.sex == 0)
-	    strcpy(sex, _("Female "));
-	else if (report_info.p.sex == 1)
-	    strcpy(sex, _("Male "));
-	else
-	    strcpy(sex, _("Other"));
+    if (report_info.p.sex == 0)
+        strcpy(sex, _("Female "));
+    else if (report_info.p.sex == 1)
+        strcpy(sex, _("Male "));
+    else
+        strcpy(sex, _("Other"));
 #else
-	if (report_info.p.sex == 0)
-	    strcpy(sex, _("Female"));
-	else if (report_info.p.sex == 1)
-	    strcpy(sex, _("Male"));
-	else
-	    strcpy(sex, _("Other"));
+    if (report_info.p.sex == 0)
+        strcpy(sex, _("Female"));
+    else if (report_info.p.sex == 1)
+        strcpy(sex, _("Male"));
+    else
+        strcpy(sex, _("Other"));
 #endif
 
     sprintf(age, "%d", report_info.p.age);
 
     string part;
-	TopArea::GetInstance()->GetCheckPart(part);
-	strcpy(section, part.c_str());
-	char dayTmp[4], monthTmp[4], yearTmp[6];
-	itoa(report_info.e.examDate.day, dayTmp, 10);
-	if (strlen(dayTmp)==1){dayTmp[2]='\0', dayTmp[1] = dayTmp[0]; dayTmp[0] = '0';}
-	itoa(report_info.e.examDate.month, monthTmp, 10);
-	if (strlen(monthTmp)==1){monthTmp[2]='\0', monthTmp[1] = monthTmp[0]; monthTmp[0] = '0';}
-	itoa(report_info.e.examDate.year, yearTmp, 10);
+    TopArea::GetInstance()->GetCheckPart(part);
+    strcpy(section, part.c_str());
+    char dayTmp[4], monthTmp[4], yearTmp[6];
+    itoa(report_info.e.examDate.day, dayTmp, 10);
+    if (strlen(dayTmp)==1){dayTmp[2]='\0', dayTmp[1] = dayTmp[0]; dayTmp[0] = '0';}
+    itoa(report_info.e.examDate.month, monthTmp, 10);
+    if (strlen(monthTmp)==1){monthTmp[2]='\0', monthTmp[1] = monthTmp[0]; monthTmp[0] = '0';}
+    itoa(report_info.e.examDate.year, yearTmp, 10);
 
-	SysGeneralSetting sys;
-	int date_format = sys.GetDateFormat();
-	if (date_format == 1)
-		sprintf(check_date, "%s-%s-%s", monthTmp, dayTmp, yearTmp);
-	else if (date_format == 2)
-		sprintf(check_date, "%s-%s-%s", dayTmp, monthTmp, yearTmp);
-	else
-		sprintf(check_date, "%s-%s-%s", yearTmp, monthTmp, dayTmp);
+    SysGeneralSetting sys;
+    int date_format = sys.GetDateFormat();
+    if (date_format == 1)
+        sprintf(check_date, "%s-%s-%s", monthTmp, dayTmp, yearTmp);
+    else if (date_format == 2)
+        sprintf(check_date, "%s-%s-%s", dayTmp, monthTmp, yearTmp);
+    else
+        sprintf(check_date, "%s-%s-%s", yearTmp, monthTmp, dayTmp);
 
-	string hospital;
-	SysGeneralSetting get_hospital;
-	get_hospital.GetHospital(hospital);
+    string hospital;
+    SysGeneralSetting get_hospital;
+    get_hospital.GetHospital(hospital);
     sprintf(tmp, "%s", hospital.c_str());
 
-	strcpy(check_doctor, report_info.e.examDoctor.c_str());
-	strcpy(report_doctor, report_info.e.reportDoctor.c_str());
+    strcpy(check_doctor, report_info.e.examDoctor.c_str());
+    strcpy(report_doctor, report_info.e.reportDoctor.c_str());
 
-	//snprintf(ul_idea, sizeof(ul_idea), ViewReport::GetInstance()->GetIndication()); //save warning: format not a string literal and no format arguments
-	sprintf(ul_idea, "%s", ViewReport::GetInstance()->GetIndication());
-	sprintf(comment, "%s", ViewReport::GetInstance()->GetComments());
-	//snprintf(comment, sizeof(comment), ViewReport::GetInstance()->GetComments());
+    //snprintf(ul_idea, sizeof(ul_idea), ViewReport::GetInstance()->GetIndication()); //save warning: format not a string literal and no format arguments
+    sprintf(ul_idea, "%s", ViewReport::GetInstance()->GetIndication());
+    sprintf(comment, "%s", ViewReport::GetInstance()->GetComments());
+    //snprintf(comment, sizeof(comment), ViewReport::GetInstance()->GetComments());
 
-	item.id = id;
-	item.name = name;
-	item.check_num = check_num;
-	item.sex = sex;
-	item.age = age;
-	item.section = section;
-	item.diag_date = check_date;
-	//item.hospital = (char*)(hospital.c_str());
+    item.id = id;
+    item.name = name;
+    item.check_num = check_num;
+    item.sex = sex;
+    item.age = age;
+    item.section = section;
+    item.diag_date = check_date;
+    //item.hospital = (char*)(hospital.c_str());
     item.hospital = tmp;
     item.diag_doctor = check_doctor;
     item.report_doctor = report_doctor;
     item.ul_idea = ul_idea;
     item.comment = comment;
-	for (int i=0; i<2; i++) item.image_data[i] = NULL;
+    for (int i=0; i<2; i++) item.image_data[i] = NULL;
 
-	vector<string> imageName;
-	imageName = ViewReport::GetInstance()->GetSelectImage();
-	ImgMan::ImgItem printImg[2];
-	float imgScale = 0.7;
-	int lenOfLine = 0;
-	int imageNums = imageName.size();
-	if (imageNums > 2)
-		imageNums = 2;	//现在最多能传入2幅图片
-	GdkPixbuf *buf[2];
-	int i, j;
-	for (i=0; i<2; i++) item.image_data[i] = NULL;
+    vector<string> imageName;
+    imageName = ViewReport::GetInstance()->GetSelectImage();
+    ImgMan::ImgItem printImg[2];
+    float imgScale = 0.7;
+    int lenOfLine = 0;
+    int imageNums = imageName.size();
+    if (imageNums > 2)
+        imageNums = 2;  //现在最多能传入2幅图片
+    GdkPixbuf *buf[2];
+    int i, j;
+    for (i=0; i<2; i++) item.image_data[i] = NULL;
 
-	for (i=0; i<imageNums; i++)//现在最多能传入2幅图片
-	{
-		if(ImgMan::GetInstance()->ReadSnap(imageName[i].c_str(), &printImg[i]) == 0)
-		{
-			buf[i] = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, IMG_W*imgScale, IMG_H*imgScale);
-			//buf[i] = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, width_w, height_w);
-			//gdk_pixbuf_scale(printImg[i].pixbuf, buf[i], 0, 0, width_w, height_w, (-80)*imgScale, (-120)*imgScale, imgScale, imgScale, GDK_INTERP_HYPER);
-			gdk_pixbuf_scale(printImg[i].pixbuf, buf[i], 0, 0, IMG_W*imgScale, IMG_H*imgScale, (-80)*imgScale, (-120)*imgScale, imgScale, imgScale, GDK_INTERP_HYPER);
-			lenOfLine = gdk_pixbuf_get_rowstride(buf[i]);
+    for (i=0; i<imageNums; i++)//现在最多能传入2幅图片
+    {
+        if(ImgMan::GetInstance()->ReadSnap(imageName[i].c_str(), &printImg[i]) == 0)
+        {
+            buf[i] = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, IMG_W*imgScale, IMG_H*imgScale);
+            //buf[i] = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, width_w, height_w);
+            //gdk_pixbuf_scale(printImg[i].pixbuf, buf[i], 0, 0, width_w, height_w, (-80)*imgScale, (-120)*imgScale, imgScale, imgScale, GDK_INTERP_HYPER);
+            gdk_pixbuf_scale(printImg[i].pixbuf, buf[i], 0, 0, IMG_W*imgScale, IMG_H*imgScale, (-80)*imgScale, (-120)*imgScale, imgScale, imgScale, GDK_INTERP_HYPER);
+            lenOfLine = gdk_pixbuf_get_rowstride(buf[i]);
             item.image_data[i] = (char*)gdk_pixbuf_get_pixels(buf[i]);
             g_object_unref(printImg[i].pixbuf);
         }
-		else
-		{
-			if(i>0)
-			{
-				for(j=0; j<i; j++)
-					g_object_unref(buf[j]);
-			}
-			PRINTF("%s: ReadSnap %d Error!\n", __FUNCTION__, i);
-			return ;
-		}
-	}
+        else
+        {
+            if(i>0)
+            {
+                for(j=0; j<i; j++)
+                    g_object_unref(buf[j]);
+            }
+            PRINTF("%s: ReadSnap %d Error!\n", __FUNCTION__, i);
+            return ;
+        }
+    }
 
     Draw_To_Report(item, lenOfLine, imageNums);
 }
@@ -933,7 +933,7 @@ void ViewPrintPreview::Draw_To_Report(struct print_re_item Item, int lenOfline, 
     char ulTemp[2000];
     memset(ulTemp, 0x0, 2000);
     char *report_head = _("REPORT OF ULTRASOUND");
- 	char *hospital = _("Hospital: ");
+    char *hospital = _("Hospital: ");
     char *check_date = _("Exam Date:  ");
     char *id = _("ID: ");
     char *check_num = _("Exam ID:  ");
@@ -1201,10 +1201,10 @@ int ViewPrintPreview::SaveReport_To_Print(const char *path)
 
 char *ViewPrintPreview::GetReportPageName(int page)
 {
-	char *pathname = (char *)malloc(512);
-	sprintf(pathname, "%s/report_page%d.png", m_path, page+1);
+    char *pathname = (char *)malloc(512);
+    sprintf(pathname, "%s/report_page%d.png", m_path, page+1);
     PRINTF("----report pathname=%s\n", pathname);
-	return pathname;
+    return pathname;
 }
 
 int ViewPrintPreview::SavePageByPixmap(const char *path)
@@ -1236,12 +1236,12 @@ void ViewPrintPreview::AddTextToPageByPixmap(int &x, int &y, char *text, PangoFo
     int w, h; ////REPORT_WIDTH, REPORT_HEIGHT
     if(text == NULL)
     {
-		char *pathname = GetReportPageName(report_page_count);
+        char *pathname = GetReportPageName(report_page_count);
         if(0 == SavePageByPixmap(pathname))
         {
             report_page_count++;
         }
-		free(pathname);
+        free(pathname);
 
         if (pagegc != NULL)
         {
@@ -1309,7 +1309,7 @@ void ViewPrintPreview::AddTextToPageByPixmap(int &x, int &y, char *text, PangoFo
                 free(pathname);
             return;
         }
-		free(pathname);
+        free(pathname);
         g_object_unref(pagegc);
         g_object_unref(pagelayout);
         g_object_unref(pagepixmap);
@@ -1349,7 +1349,7 @@ void ViewPrintPreview::AddTextToPageByPixmap(int &x, int &y, char *text, PangoFo
     x += w;
     y += 4;
    PRINTF("AddTextToPageByPixmap(exit:text:%s,  x = %d, y = %d)\n",text,  x, y);
-	return;
+    return;
 }
 
 void ViewPrintPreview::AddImageToPageByPixmap(int &x, int &y, GdkPixbuf *pixbuf)
@@ -1386,7 +1386,7 @@ void ViewPrintPreview::AddImageToPageByPixmap(int &x, int &y, GdkPixbuf *pixbuf)
         {
             return;
         }
-		free(pathname);
+        free(pathname);
         g_object_unref(pagegc);
         g_object_unref(pagelayout);
         g_object_unref(pagepixmap );
@@ -1430,13 +1430,13 @@ void ViewPrintPreview::InitReportPagePath(char *path)
         m_path = NULL;
     }
 
-	if(NULL == path)
-	{
-		m_path = (char *)malloc(512);
-		sprintf(m_path, "%s", "./res/reportpage");
-	}
-	else
-	{
+    if(NULL == path)
+    {
+        m_path = (char *)malloc(512);
+        sprintf(m_path, "%s", "./res/reportpage");
+    }
+    else
+    {
         m_path = (char *)malloc(512);
         sprintf(m_path, "%s", path);
     }
@@ -1539,7 +1539,7 @@ void ViewPrintPreview::CreatePages(char *path)
     else if (report_info.p.sex == 1)
         strcpy(sexstr, _("Male "));
 #else
-	if (report_info.p.sex == 0)
+    if (report_info.p.sex == 0)
         strcpy(sexstr, _("Female"));
     else if (report_info.p.sex == 1)
         strcpy(sexstr, _("Male"));
@@ -1773,8 +1773,8 @@ void ViewPrintPreview::CreatePages(char *path)
             gdk_pixbuf_scale(image.pixbuf, pixbuf, 0, 0, dest_w, dest_h, offset_x*scale, offset_y*scale, scale, scale, GDK_INTERP_HYPER);
             //也可用composite得到新的pixbuf，下面的结果与scale相同
             //gdk_pixbuf_composite(image.pixbuf, pixbuf, 0, 0, dest_w, dest_h, offset_x*scale, offset_y*scale, scale, scale, GDK_INTERP_HYPER, 255);
-            //	printf("source pixbuf w = %d, h = %d\n", gdk_pixbuf_get_width(image.pixbuf), gdk_pixbuf_get_height(image.pixbuf));
-            //	printf("pixbuf w = %d, h = %d\n", gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf));
+            //  printf("source pixbuf w = %d, h = %d\n", gdk_pixbuf_get_width(image.pixbuf), gdk_pixbuf_get_height(image.pixbuf));
+            //  printf("pixbuf w = %d, h = %d\n", gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf));
             AddImageToPageByPixmap(x, y, pixbuf);
 
             g_object_unref(pixbuf);
@@ -1959,19 +1959,19 @@ void ViewPrintPreview::CreatePages(char *path)
 #ifndef VET
 void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,string comments,vector<string> imageFileName)
 {
-	char *report_head = _("REPORT OF ULTRASOUND");
-	char *hospitalstr = _("Hospital: ");
-	char *check_date = _("Exam Date:  ");
-	char *id = _("ID: ");
-	char *check_num = _("Exam ID:  ");
-	char *name = _("Name: ");
-	char *sex = _("Gender: ");
-	char *age = _("Age: ");
-	char *section = _("Exam Type: ");
-	char *ul_idea = _("Descriptor: ");
-	char *comment = _("Comments: ");
-	char *check_doctor = _("Diagnostician: ");
-	char *report_doctor = _("Physician: ");
+    char *report_head = _("REPORT OF ULTRASOUND");
+    char *hospitalstr = _("Hospital: ");
+    char *check_date = _("Exam Date:  ");
+    char *id = _("ID: ");
+    char *check_num = _("Exam ID:  ");
+    char *name = _("Name: ");
+    char *sex = _("Gender: ");
+    char *age = _("Age: ");
+    char *section = _("Exam Type: ");
+    char *ul_idea = _("Descriptor: ");
+    char *comment = _("Comments: ");
+    char *check_doctor = _("Diagnostician: ");
+    char *report_doctor = _("Physician: ");
 
     struct print_re_item ReportItem;
 
@@ -2042,8 +2042,8 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
     itoa(report_info.e.examDate.year, yearTmp, 10);
     yearTmp[4]='\0';
 
-	SysGeneralSetting sys;
-	int date_format = sys.GetDateFormat();
+    SysGeneralSetting sys;
+    int date_format = sys.GetDateFormat();
     if (date_format == 1)
     {
         sprintf(check_datestr, "%s-%s-%s", monthTmp, dayTmp, yearTmp);
@@ -2057,29 +2057,29 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
         sprintf(check_datestr, "%s-%s-%s", yearTmp, monthTmp, dayTmp);
     }
 
-	string hospital;
-	SysGeneralSetting get_hospital;
-	get_hospital.GetHospital(hospital);
+    string hospital;
+    SysGeneralSetting get_hospital;
+    get_hospital.GetHospital(hospital);
     sprintf(tmp, "%s", hospital.c_str());
-	strcpy(check_doctorstr, report_info.e.examDoctor.c_str());
+    strcpy(check_doctorstr, report_info.e.examDoctor.c_str());
     strcpy(report_doctorstr, report_info.e.reportDoctor.c_str());
     sprintf(ul_ideastr, "%s", indication.c_str());
     sprintf(commentstr, "%s", comments.c_str());
 
-	ReportItem.id = idstr;
-	ReportItem.name = namestr;
-	ReportItem.check_num = check_numstr;
-	ReportItem.sex = sexstr;
-	ReportItem.age = agestr;
-	ReportItem.section = sectionstr;
-	ReportItem.diag_date = check_datestr;
+    ReportItem.id = idstr;
+    ReportItem.name = namestr;
+    ReportItem.check_num = check_numstr;
+    ReportItem.sex = sexstr;
+    ReportItem.age = agestr;
+    ReportItem.section = sectionstr;
+    ReportItem.diag_date = check_datestr;
     ReportItem.hospital = tmp;
     ReportItem.diag_doctor = check_doctorstr;
     ReportItem.report_doctor = report_doctorstr;
     ReportItem.ul_idea = ul_ideastr;
     ReportItem.comment = commentstr;
 
-	InitReportPagePath(path);
+    InitReportPagePath(path);
     report_page_count = 0;
 
     char ulTemp[2000];
@@ -2154,14 +2154,14 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
     int xy = y;
 
     int max_image_count = MAX_IMAGE;
-	vector<string> imageName = imageFileName;
-	int imageNums = imageName.size();
-	if(imageNums > max_image_count)imageNums = max_image_count;
+    vector<string> imageName = imageFileName;
+    int imageNums = imageName.size();
+    if(imageNums > max_image_count)imageNums = max_image_count;
 
     for(int i = 0; i < imageNums; i++)
     {
-		GdkPixbuf *pixbuf = NULL;
-	    ImgMan::ImgItem image;
+        GdkPixbuf *pixbuf = NULL;
+        ImgMan::ImgItem image;
         y = xy;
         if(imageNums > 1)
         {
@@ -2173,22 +2173,22 @@ void ViewPrintPreview::CreatePagesForRetrieve(char *path,string indication,strin
         }
         char absPath[512];
         sprintf(absPath,"%s/%s",path,imageName[i].c_str());
-		if(ImgMan::GetInstance()->ReadSnap(absPath, &image) == 0)
+        if(ImgMan::GetInstance()->ReadSnap(absPath, &image) == 0)
         {
-			//截取区域起始位置及大小，原图大小844x660
-			int offset_x = 0;
-			int offset_y = -100;
-			int src_w = 750;
-			int src_h = 560;
-			//目标大小宽度固定为440，根据宽度计算出scale再计算出高度
-			int dest_w = IMG_SCALE_WIDTH;
-			double scale = (double)dest_w / src_w;
-			int dest_h = src_h * scale;
-			pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, dest_w, dest_h);
-			gdk_pixbuf_scale(image.pixbuf, pixbuf, 0, 0, dest_w, dest_h, offset_x*scale, offset_y*scale, scale, scale, GDK_INTERP_HYPER);
+            //截取区域起始位置及大小，原图大小844x660
+            int offset_x = 0;
+            int offset_y = -100;
+            int src_w = 750;
+            int src_h = 560;
+            //目标大小宽度固定为440，根据宽度计算出scale再计算出高度
+            int dest_w = IMG_SCALE_WIDTH;
+            double scale = (double)dest_w / src_w;
+            int dest_h = src_h * scale;
+            pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, dest_w, dest_h);
+            gdk_pixbuf_scale(image.pixbuf, pixbuf, 0, 0, dest_w, dest_h, offset_x*scale, offset_y*scale, scale, scale, GDK_INTERP_HYPER);
 
-			//pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, IMG_SCALE_WIDTH, IMG_SCALE_HEIGHT);
-			//gdk_pixbuf_scale(image.pixbuf, pixbuf, 0, 0, IMG_SCALE_WIDTH, IMG_SCALE_HEIGHT, (-80)*IMAGE_SCALE, (-120)*IMAGE_SCALE, IMAGE_SCALE, IMAGE_SCALE, GDK_INTERP_HYPER);
+            //pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, IMG_SCALE_WIDTH, IMG_SCALE_HEIGHT);
+            //gdk_pixbuf_scale(image.pixbuf, pixbuf, 0, 0, IMG_SCALE_WIDTH, IMG_SCALE_HEIGHT, (-80)*IMAGE_SCALE, (-120)*IMAGE_SCALE, IMAGE_SCALE, IMAGE_SCALE, GDK_INTERP_HYPER);
 
             AddImageToPageByPixmap(x, y, pixbuf);
             g_object_unref(pixbuf);
@@ -2384,7 +2384,7 @@ void ViewPrintPreview::ExposeImage(GtkWidget *widget, GdkEventExpose *event)
 
     cairo_t *cr;
     cr = gdk_cairo_create(widget->window);
-	char *pathname = GetReportPageName(i);
+    char *pathname = GetReportPageName(i);
 
     SysGeneralSetting sysGeneralSetting;
     if(sysGeneralSetting.GetPrintViewMode())
@@ -2424,9 +2424,9 @@ void ViewPrintPreview::ClickedPrintButton(GtkButton *button)
         for(int i = 0; i < report_page_count; i++)
         {
             GError *error = NULL;
-    		char *pathname = GetReportPageName(i);
+            char *pathname = GetReportPageName(i);
             GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(pathname, &error);
-    		free(pathname);
+            free(pathname);
             if(pixbuf && !error)
             {
                 m_imgPath = PRINTIMAGE;

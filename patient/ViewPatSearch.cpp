@@ -17,13 +17,13 @@ ViewPatSearch::ViewPatSearch()
 ViewPatSearch::~ViewPatSearch()
 {
     if (m_ptrInstance != NULL)
-	delete m_ptrInstance;
+    delete m_ptrInstance;
 }
 
 ViewPatSearch* ViewPatSearch::GetInstance()
 {
     if (m_ptrInstance == NULL)
-	m_ptrInstance = new ViewPatSearch;
+    m_ptrInstance = new ViewPatSearch;
 
     return m_ptrInstance;
 }
@@ -54,16 +54,16 @@ void ViewPatSearch::CreateWindow(GtkWindow *parent, const vector<Database::NewPa
     button_ok = create_button_icon(label_ok, image_ok);
     gtk_fixed_put (GTK_FIXED (fixed), button_ok, 390, 380);
     g_signal_connect ((gpointer) button_ok, "clicked",
-		      G_CALLBACK (on_button_ok_clicked),
-		      this);
+              G_CALLBACK (on_button_ok_clicked),
+              this);
 
     GtkWidget *image_exit = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
     GtkWidget *label_exit = gtk_label_new_with_mnemonic (_("Exit"));
     button_exit = create_button_icon(label_exit, image_exit);
     gtk_fixed_put (GTK_FIXED (fixed), button_exit, 520, 380);
     g_signal_connect ((gpointer) button_exit, "clicked",
-		      G_CALLBACK (on_button_exit_clicked),
-		      this);
+              G_CALLBACK (on_button_exit_clicked),
+              this);
 
     scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow);
@@ -131,32 +131,32 @@ void ViewPatSearch::CreateWindow(GtkWindow *parent, const vector<Database::NewPa
     GtkTreeIter treeIter;
     vector<Database::NewPatSearchResult>::const_iterator iter;
     for (iter = result.begin(); iter != result.end(); ++iter) {
-	gtk_list_store_append (store, &treeIter);
+    gtk_list_store_append (store, &treeIter);
 #ifdef VET
-	gtk_list_store_set(store, &treeIter,
-			   ID_COL, iter->ID.c_str(),
-			   ANIMAL_COL, iter->animal_name.c_str(),
-			   OWNER_COL, iter->owner_name.c_str(),
-			   VARIETY_COL, iter->species.c_str(),
-			   GENDER_COL, iter->gender.c_str(),
-			   BIRTHDATE_COL, iter->birthDate.c_str(),
-			   AGE_COL, iter->age.c_str(),
-			   EXAMDATE_COL, iter->examDate.c_str(),
-			   EXAMID_COL, iter->examID.c_str(),
-			   EXAMTYPE_COL, iter->examType.c_str(),
-			   -1);
+    gtk_list_store_set(store, &treeIter,
+               ID_COL, iter->ID.c_str(),
+               ANIMAL_COL, iter->animal_name.c_str(),
+               OWNER_COL, iter->owner_name.c_str(),
+               VARIETY_COL, iter->species.c_str(),
+               GENDER_COL, iter->gender.c_str(),
+               BIRTHDATE_COL, iter->birthDate.c_str(),
+               AGE_COL, iter->age.c_str(),
+               EXAMDATE_COL, iter->examDate.c_str(),
+               EXAMID_COL, iter->examID.c_str(),
+               EXAMTYPE_COL, iter->examType.c_str(),
+               -1);
 
 #else
-	gtk_list_store_set(store, &treeIter,
-			   ID_COL, iter->ID.c_str(),
-			   NAME_COL, iter->name.c_str(),
-			   GENDER_COL, iter->gender.c_str(),
-			   BIRTHDATE_COL, iter->birthDate.c_str(),
-			   AGE_COL, iter->age.c_str(),
-			   EXAMDATE_COL, iter->examDate.c_str(),
-			   EXAMID_COL, iter->examID.c_str(),
-			   EXAMTYPE_COL, iter->examType.c_str(),
-			   -1);
+    gtk_list_store_set(store, &treeIter,
+               ID_COL, iter->ID.c_str(),
+               NAME_COL, iter->name.c_str(),
+               GENDER_COL, iter->gender.c_str(),
+               BIRTHDATE_COL, iter->birthDate.c_str(),
+               AGE_COL, iter->age.c_str(),
+               EXAMDATE_COL, iter->examDate.c_str(),
+               EXAMID_COL, iter->examID.c_str(),
+               EXAMTYPE_COL, iter->examType.c_str(),
+               -1);
 #endif
     }
     gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), GTK_TREE_MODEL(store));
@@ -207,12 +207,12 @@ void ViewPatSearch::BtnExitClicked(GtkButton *button)
 
 void ViewPatSearch::DestroyWindow(void)
 {
-	if(GTK_IS_WIDGET(m_window))
-	{
-		g_keyInterface.Pop();
-		gtk_widget_destroy(m_window);
+    if(GTK_IS_WIDGET(m_window))
+    {
+        g_keyInterface.Pop();
+        gtk_widget_destroy(m_window);
         m_window = NULL;
-	}
+    }
 }
 
 void ViewPatSearch::KeyEvent(unsigned char keyValue)
@@ -221,9 +221,9 @@ void ViewPatSearch::KeyEvent(unsigned char keyValue)
 
     switch(keyValue) {
     case KEY_ESC:
-	BtnExitClicked(NULL);
-	break;
+    BtnExitClicked(NULL);
+    break;
     default:
-	break;
+    break;
     }
 }

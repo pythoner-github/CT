@@ -137,26 +137,26 @@ static common_printer common_printer_data[] = {
 #ifdef VET
 #ifdef EMP_355
 static ExamPara ExamItemArray[] = {
-		{"", N_("Dog"),  ExamItem::DOG},
-		{"", N_("Cat"),  ExamItem::CAT},
-		{"", N_("Bovine"),  ExamItem::BOVINE},
-		{"", N_("Equine"),  ExamItem::EQUINE},
-		{"", N_("Swine"),  ExamItem::SWINE},
-		{"", N_("Sheep"),  ExamItem::SHEEP},
-		};
+        {"", N_("Dog"),  ExamItem::DOG},
+        {"", N_("Cat"),  ExamItem::CAT},
+        {"", N_("Bovine"),  ExamItem::BOVINE},
+        {"", N_("Equine"),  ExamItem::EQUINE},
+        {"", N_("Swine"),  ExamItem::SWINE},
+        {"", N_("Sheep"),  ExamItem::SHEEP},
+        };
 #else
 static ExamPara ExamItemArray[] = {
-		{"", N_("User1"),  ExamItem::USER1},
-		{"", N_("User2"),  ExamItem::USER2},
-		{"", N_("User3"),  ExamItem::USER3},
-		{"", N_("User4"),  ExamItem::USER4},
-		{"", N_("User5"),  ExamItem::USER5},
-		{"", N_("User6"),  ExamItem::USER6},
-		{"", N_("User7"),  ExamItem::USER7},
-		{"", N_("User8"),  ExamItem::USER8},
-		{"", N_("User9"),  ExamItem::USER9},
-		{"", N_("User10"), ExamItem::USER10}
-		};
+        {"", N_("User1"),  ExamItem::USER1},
+        {"", N_("User2"),  ExamItem::USER2},
+        {"", N_("User3"),  ExamItem::USER3},
+        {"", N_("User4"),  ExamItem::USER4},
+        {"", N_("User5"),  ExamItem::USER5},
+        {"", N_("User6"),  ExamItem::USER6},
+        {"", N_("User7"),  ExamItem::USER7},
+        {"", N_("User8"),  ExamItem::USER8},
+        {"", N_("User9"),  ExamItem::USER9},
+        {"", N_("User10"), ExamItem::USER10}
+        };
 #endif
 #else
 const static ExamPara ExamItemArray[] = {
@@ -214,7 +214,7 @@ ViewSystem::ViewSystem(void)
     m_itemIndex = -1;
     m_bmIndex = 0;
     m_bpwIndex = 0;
-	m_page_num = 0;
+    m_page_num = 0;
     m_calc_page_num = 0;
     m_itemName = NULL;
     m_save_or_new_flag = 0;
@@ -222,7 +222,7 @@ ViewSystem::ViewSystem(void)
     m_current_note_page = 0;
     m_frameRegisterInfo = NULL;
     m_powerOffFlag = false;
-	m_vgaInterl=true;
+    m_vgaInterl=true;
 }
 
 ViewSystem* ViewSystem::m_ptrInstance = NULL;
@@ -392,8 +392,8 @@ bool ViewSystem::CloseDB(void)
 {
     if (sqlite3_close(CustomReport_db) != SQLITE_OK)
     {
-    	PRINTF("Database Close Error:%s\n", sqlite3_errmsg(CustomReport_db));
-    	return false;
+        PRINTF("Database Close Error:%s\n", sqlite3_errmsg(CustomReport_db));
+        return false;
     }
     CustomReport_db = 0;
     return true;
@@ -625,8 +625,8 @@ bool ViewSystem::LocalizationDB(void)
 
                 if (sqlite3_prepare(CustomReport_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK)
                 {
-                	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
-                	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
+                    ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+                    PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
                     CloseDB();
                     return false;
                 }
@@ -672,7 +672,7 @@ bool ViewSystem::LocalizationDB(void)
     strcat(buffer, "COMMIT;\n");
     if (sqlite3_exec(CustomReport_db_bak, buffer, 0, 0, &errmsg) != SQLITE_OK)  // costed 100ms, slower than sqlite3.6
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
         PRINTF("Init CustomReport_db_bak Error: %s\n", sqlite3_errmsg(CustomReport_db_bak));
         sqlite3_free(errmsg);
         return false;
@@ -681,7 +681,7 @@ bool ViewSystem::LocalizationDB(void)
     sqlite3_close(CustomReport_db_bak);
     if(rename(CustomReport_PATH_BAK, CustomReport_PATH) != 0)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL);
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL);
         PRINTF("rename(%s, %s) error\n", CustomReport_PATH_BAK, CustomReport_PATH);
         return false;
     }
@@ -703,9 +703,9 @@ GtkTreeModel *ViewSystem:: CreateTreeModel(void)
 
     if(sqlite3_prepare(CustomReport_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
-    	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
-    	return false;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+        PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
+        return false;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE)
     {
@@ -723,8 +723,8 @@ GtkTreeModel *ViewSystem:: CreateTreeModel(void)
 
         if(sqlite3_prepare(CustomReport_db, sql2.c_str(), sql2.size(), &stmt2, 0) != SQLITE_OK)
         {
-        	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
-        	return false;
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+            return false;
         }
         while (sqlite3_step(stmt2) != SQLITE_DONE)
         {
@@ -745,7 +745,7 @@ GtkTreeModel *ViewSystem:: CreateTreeModel(void)
         if (sqlite3_exec(CustomReport_db, sql3.c_str(), 0, 0, NULL) != SQLITE_OK)
         {
             ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR, _("Database error!"), NULL);
-        	return false;
+            return false;
         }
     }
     else
@@ -1024,10 +1024,10 @@ void ViewSystem::TreeSelectionChanged(GtkTreeSelection *selection)
             {
                 if(CheckButtonArr[id])
                 {
-						if(id == AVERRES_START_ID + 2 || id == AVERRES_START_ID + 3)
-                    		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(CheckButtonArr[id]), (CHECK_VALUE == ShowArr[id+2]));
-						else
-                    		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(CheckButtonArr[id]), (CHECK_VALUE == ShowArr[id]));
+                        if(id == AVERRES_START_ID + 2 || id == AVERRES_START_ID + 3)
+                            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(CheckButtonArr[id]), (CHECK_VALUE == ShowArr[id+2]));
+                        else
+                            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(CheckButtonArr[id]), (CHECK_VALUE == ShowArr[id]));
                 }
             }
         }
@@ -1083,42 +1083,42 @@ void ViewSystem::ChkBtnClicked(GtkButton *button)
     {
         if((GtkWidget*)button == CheckButtonArr[id])
         {
-		    //average
-		    if(id == AVERRES_START_ID + 2  || id == AVERRES_START_ID + 3)
-		    {
-				if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-				{
-					ShowArr[id + 2] = CHECK_VALUE;
-				}
-				else
-				{
-					ShowArr[id + 2] = UNCHECK_VALUE;
-				}
-			}
-			else
-			{
-				if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-				{
-				    ShowArr[id] = CHECK_VALUE;
-				}
-				else
-				{
-				    ShowArr[id] = UNCHECK_VALUE;
-				}
+            //average
+            if(id == AVERRES_START_ID + 2  || id == AVERRES_START_ID + 3)
+            {
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+                {
+                    ShowArr[id + 2] = CHECK_VALUE;
+                }
+                else
+                {
+                    ShowArr[id + 2] = UNCHECK_VALUE;
+                }
+            }
+            else
+            {
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+                {
+                    ShowArr[id] = CHECK_VALUE;
+                }
+                else
+                {
+                    ShowArr[id] = UNCHECK_VALUE;
+                }
 
-				//average
-				if(id == AVERRES_START_ID || id == AVERRES_START_ID + 1)
-				{
-				    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-				    {
-				        ShowArr[id + 2] = CHECK_VALUE;
-				    }
-				    else
-				    {
-				        ShowArr[id + 2] = UNCHECK_VALUE;
-				    }
-				}
-			}
+                //average
+                if(id == AVERRES_START_ID || id == AVERRES_START_ID + 1)
+                {
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+                    {
+                        ShowArr[id + 2] = CHECK_VALUE;
+                    }
+                    else
+                    {
+                        ShowArr[id + 2] = UNCHECK_VALUE;
+                    }
+                }
+            }
         }
     }
 }
@@ -1322,7 +1322,7 @@ GtkWidget* ViewSystem::AddFrameForOthers(const char *title, int *h)
     }
     else if(!strcmp(title, averagestr))
     {
-		 int k = 0;
+         int k = 0;
         count = AverRes_COUNT - 2;
         idstart = AVERRES_START_ID;
         labstr[k++] = _("AUA");
@@ -2062,21 +2062,21 @@ bool ViewSystem::UniqueItem(const char *sections, const char *templet, const cha
     OpenDB();
     if (sqlite3_prepare(CustomReport_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK)
     {
-    	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
-    	return false;
+        PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
+        return false;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE)
     {
-    	if (strcmp(sqlite3_column_name(stmt, 0), "num_result") == 0)
-    	    result = sqlite3_column_int(stmt, 0);
+        if (strcmp(sqlite3_column_name(stmt, 0), "num_result") == 0)
+            result = sqlite3_column_int(stmt, 0);
     }
     sqlite3_finalize(stmt);
     CloseDB();
 
     if (result)
-	    return false;
+        return false;
     else
-	    return true;
+        return true;
 }
 
 GtkTreeIter ViewSystem::InsertUniqueComment(GtkTreeModel *model, const char *str)
@@ -2154,11 +2154,11 @@ GtkTreeIter ViewSystem::InsertUnique(GtkTreeModel *model, GtkTreeIter *iter, con
     gboolean has_node = gtk_tree_model_iter_children(model, &tmp_iter, iter);
     while (has_node == TRUE)
     {
-    	gtk_tree_model_get(model, &tmp_iter, 0, &strtmp, -1);
-    	if (strcmp(strtmp, str) == 0)
-    	    return tmp_iter;
-    	else
-    	    has_node = gtk_tree_model_iter_next(model, &tmp_iter);
+        gtk_tree_model_get(model, &tmp_iter, 0, &strtmp, -1);
+        if (strcmp(strtmp, str) == 0)
+            return tmp_iter;
+        else
+            has_node = gtk_tree_model_iter_next(model, &tmp_iter);
     }
     return tmp_iter;
 }
@@ -2285,7 +2285,7 @@ void ViewSystem::BtnOkClicked(GtkButton *button)
             }
         }
 
-    	if (gtk_tree_model_iter_has_child(model, &iter) == FALSE)
+        if (gtk_tree_model_iter_has_child(model, &iter) == FALSE)
             stream << "UPDATE CustomReport SET childsection = '" << new_string  << "' WHERE sections = '" << sections  << "' AND templet = '" << templet << "'";
         else
             stream << "INSERT INTO CustomReport VALUES('"  << sections << "', '"  << templet << "', '"  << sectionstr[child][init_language] << "', '')";
@@ -2296,9 +2296,9 @@ void ViewSystem::BtnOkClicked(GtkButton *button)
     OpenDB();
     if (sqlite3_exec(CustomReport_db, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,  _("Database error!"), NULL);
-    	PRINTF("INSERT or UPDATE error:%s!\n", errmsg);
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,  _("Database error!"), NULL);
+        PRINTF("INSERT or UPDATE error:%s!\n", errmsg);
+        return;
     }
     CloseDB();
 
@@ -2550,10 +2550,10 @@ void ViewSystem::BtnDeleteClicked(GtkButton *button)
     }
     else if (tree_depth == 2)
     {
-    	GtkTreeIter parent;
-    	gtk_tree_model_get(model, &iter, 0, &temp, -1);
-    	gtk_tree_model_iter_parent(model, &parent, &iter);
-    	gtk_tree_model_get(model, &parent, 0, &sections, -1);
+        GtkTreeIter parent;
+        gtk_tree_model_get(model, &iter, 0, &temp, -1);
+        gtk_tree_model_iter_parent(model, &parent, &iter);
+        gtk_tree_model_get(model, &parent, 0, &sections, -1);
 
         if(NULL != strstr(temp, defaultflag))
         {
@@ -2564,12 +2564,12 @@ void ViewSystem::BtnDeleteClicked(GtkButton *button)
             templet = temp;
         }
 
-    	int nChild = gtk_tree_model_iter_n_children(model, &parent);
-    	if (nChild == 1)
-    	    stream << "UPDATE CustomReport SET templet = '' " << "WHERE sections = '" << sections << "'";
-    	else if (nChild > 1)
-    	    stream << "DELETE FROM CustomReport WHERE sections = '" << sections << "' AND templet = '" << templet << "'";
-    	else
+        int nChild = gtk_tree_model_iter_n_children(model, &parent);
+        if (nChild == 1)
+            stream << "UPDATE CustomReport SET templet = '' " << "WHERE sections = '" << sections << "'";
+        else if (nChild > 1)
+            stream << "DELETE FROM CustomReport WHERE sections = '" << sections << "' AND templet = '" << templet << "'";
+        else
             PRINTF("no node to delete\n");
     }
     else if (tree_depth == 3)
@@ -2605,9 +2605,9 @@ void ViewSystem::BtnDeleteClicked(GtkButton *button)
     OpenDB();
     if (sqlite3_exec(CustomReport_db, sql.c_str(), NULL, NULL, &errmsg) != SQLITE_OK)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,  _("Database error!"), NULL);
-    	PRINTF("DELETE ERROR:%s!\n", errmsg);
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,  _("Database error!"), NULL);
+        PRINTF("DELETE ERROR:%s!\n", errmsg);
+        return;
     }
     CloseDB();
 
@@ -2909,9 +2909,9 @@ bool ViewSystem::ReadRecordFromDB(const char * sections, const char* templet, co
 
     if (sqlite3_prepare(CustomReport_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
-    	PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
-    	return false;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+        PRINTF("SELECT ERROR:%s!\n", sqlite3_errmsg(CustomReport_db));
+        return false;
     }
 
     while (sqlite3_step(stmt) != SQLITE_DONE)
@@ -2997,8 +2997,8 @@ void ViewSystem::apply_report_setting(void)
 
         if(sqlite3_prepare(CustomReport_db, sql2.c_str(), sql2.size(), &stmt2, 0) != SQLITE_OK)
         {
-        	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
-        	return;
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+            return;
         }
         while (sqlite3_step(stmt2) != SQLITE_DONE)
         {
@@ -3032,7 +3032,7 @@ void ViewSystem::apply_report_setting(void)
         }
         else
         {
-        	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Blank template can't apply!"), NULL);
+            ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Blank template can't apply!"), NULL);
         }
         CloseDB();
     }
@@ -3057,12 +3057,12 @@ bool ViewSystem::CheckFlagFromReportTemplet(int id)
 
     if(sqlite3_prepare(CustomReport_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK)
     {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,   _("Database error!"), NULL);
         if ((id == OTHERS_COMMENT_SHOW_ID) || (id == OTHERS_INDICTION_SHOW_ID))
         {
             return true;
         }
-    	return false;
+        return false;
     }
 
     while (sqlite3_step(stmt) != SQLITE_DONE)
@@ -3403,10 +3403,10 @@ gboolean ViewSystem::WindowDeleteEvent(GtkWidget *widget, GdkEvent *event)
 
 static gboolean PowerOff(gpointer data)
 {
-	execlp("poweroff", "poweroff", NULL);	//system() is deprecated; when memory is lack, it will be not run!
-	perror("PowerOff Failed");
+    execlp("poweroff", "poweroff", NULL);   //system() is deprecated; when memory is lack, it will be not run!
+    perror("PowerOff Failed");
 
-	return FALSE;
+    return FALSE;
 }
 
 static gboolean ExitWindowSystem(gpointer data)
@@ -3498,13 +3498,13 @@ GtkWidget* ViewSystem::create_note_general(void)
     gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_language), "中文");
 
 #ifdef EMP_355
-	label_vga=gtk_label_new(_("<b>VGA Source:</b>"));
-	gtk_widget_show(label_vga);
+    label_vga=gtk_label_new(_("<b>VGA Source:</b>"));
+    gtk_widget_show(label_vga);
     gtk_fixed_put(GTK_FIXED(fixed_general),label_vga,30+20,390);
     gtk_widget_set_size_request (label_vga, 135, 30);
     gtk_label_set_use_markup (GTK_LABEL (label_vga), TRUE);
     gtk_misc_set_alignment (GTK_MISC (label_vga), 0.9, 0.5);
-	m_combobox_vga= gtk_combo_box_new_text();
+    m_combobox_vga= gtk_combo_box_new_text();
     gtk_widget_show (m_combobox_vga);
     gtk_fixed_put (GTK_FIXED (fixed_general), m_combobox_vga, 165+20, 390);
     gtk_widget_set_size_request (m_combobox_vga, 100, 30);
@@ -3754,11 +3754,11 @@ GtkWidget* ViewSystem::create_note_general(void)
     g_signal_connect ((gpointer) button_default, "clicked", G_CALLBACK (on_button_general_default_clicked), this);
 
     // g_signal_connect ((gpointer) m_combobox_language, "changed",
-    // 		      G_CALLBACK (on_combobox_language_changed),
-    // 		      this);
+    //            G_CALLBACK (on_combobox_language_changed),
+    //            this);
     // g_signal_connect ((gpointer) combobox_screen_saver, "changed",
-    // 		      G_CALLBACK (on_combobox_screen_saver_changed),
-    // 		      NULL);
+    //            G_CALLBACK (on_combobox_screen_saver_changed),
+    //            NULL);
     return fixed_general;
 }
 
@@ -4047,7 +4047,7 @@ void ViewSystem::BtnDelPrinterClicked(GtkButton *button)
     if (!prnt_name.empty()) {
         Printer prnt;
         prnt.DeletePrinter(prnt_name.c_str());
-		PeripheralMan::GetInstance()->SwitchPrinterDriver();
+        PeripheralMan::GetInstance()->SwitchPrinterDriver();
     }
     update_specific_printer_model();
 }
@@ -4256,7 +4256,7 @@ void ViewSystem::save_general_setting(void)
             Printer print;
             sysGeneralSetting.SetPrinterMethod(1);
             print.SetDefault(default_print.c_str());
-			PeripheralMan::GetInstance()->SwitchPrinterDriver();
+            PeripheralMan::GetInstance()->SwitchPrinterDriver();
             update_specific_printer_model();
         }
     }
@@ -5103,9 +5103,9 @@ void ViewSystem::init_option_setting(SysOptions* sysOptions)
 
     // int index_biopsy_display = sysOptions->GetBiopsyLine();
     // if (index_biopsy_display == 0)
-    // 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_on), TRUE);
+    //  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_on), TRUE);
     // else
-    // 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_off), TRUE);
+    //  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_off), TRUE);
 
     int index_center_display = sysOptions->GetCenterLine();
     if (index_center_display == 0)
@@ -5168,8 +5168,8 @@ void ViewSystem::init_option_setting(SysOptions* sysOptions)
     int index_video_file = sysOptions->GetCineAutoName();
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_video_file), index_video_file);
 
-	int mouse_speed = sysOptions->GetMouseSpeed();
-	if (mouse_speed <= 0)
+    int mouse_speed = sysOptions->GetMouseSpeed();
+    if (mouse_speed <= 0)
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_high), TRUE);
     else if (mouse_speed == 1)
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_middle), TRUE);
@@ -5185,9 +5185,9 @@ void ViewSystem::save_option_setting(void)
 
     // unsigned char biopsyIndex;
     // if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_on)))
-    // 	biopsyIndex = 0;
+    //  biopsyIndex = 0;
     // else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_biopsy_off)))
-    // 	biopsyIndex = 1;
+    //  biopsyIndex = 1;
     // sysOptions.SetBiopsyLine(biopsyIndex);
 
     unsigned char centerLineIndex = 0;
@@ -5222,15 +5222,15 @@ void ViewSystem::save_option_setting(void)
     {
         KeyboardSound(true);
     }
-	int mouseSpeed;
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_low)))
+    int mouseSpeed;
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_low)))
         mouseSpeed = 2;
     else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_middle)))
         mouseSpeed = 1;
     else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_mouse_speed_high)))
         mouseSpeed = 0;
-	sysOptions.SetMouseSpeed(mouseSpeed);
-	g_keyInterface.SetMouseSpeed(mouseSpeed);
+    sysOptions.SetMouseSpeed(mouseSpeed);
+    g_keyInterface.SetMouseSpeed(mouseSpeed);
 
     unsigned char m_bmIndex = 0;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobtn_total)))
@@ -5458,7 +5458,7 @@ GtkWidget* ViewSystem::create_note_image(void)
 #endif
     GtkWidget *bin_entry_dia;
 
-	SysGeneralSetting sysGS;
+    SysGeneralSetting sysGS;
 
     int i;
     char buf[50];
@@ -5957,7 +5957,7 @@ GtkWidget* ViewSystem::create_note_image(void)
     //gtk_fixed_put (GTK_FIXED (fixed_2d_m_mode), m_combobox_scan_range, 105, 90);
     gtk_widget_set_size_request (m_combobox_scan_range, 100, 30);
     gtk_table_attach_defaults (GTK_TABLE (table_2d_m_mode), m_combobox_scan_range, 1, 2, 2, 3);
-    for (i = 0; i < Img2D::MAX_ANGLE; i ++)	{
+    for (i = 0; i < Img2D::MAX_ANGLE; i ++) {
         sprintf(buf , "%d", i);
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_scan_range), buf);
     }
@@ -5974,7 +5974,7 @@ GtkWidget* ViewSystem::create_note_image(void)
     //gtk_fixed_put (GTK_FIXED (fixed_2d_m_mode), m_combobox_dynamic_range, 370, 90);
     gtk_widget_set_size_request (m_combobox_dynamic_range, 100, 30);
     gtk_table_attach_defaults (GTK_TABLE (table_2d_m_mode), m_combobox_dynamic_range, 3, 4, 2, 3);
-    for (i = 0; i < Calc2D::MAX_DYNAMIC_INDEX; i ++)	{
+    for (i = 0; i < Calc2D::MAX_DYNAMIC_INDEX; i ++)    {
         sprintf(buf , "%ddB", Img2D::DYNAMIC_DATA_D[i]);
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_dynamic_range), buf);
     }
@@ -6025,7 +6025,7 @@ GtkWidget* ViewSystem::create_note_image(void)
     //gtk_fixed_put (GTK_FIXED (fixed_2d_m_mode), m_combobox_steer, 105, 170);
     gtk_widget_set_size_request (m_combobox_steer, 100, 30);
     gtk_table_attach_defaults (GTK_TABLE (table_2d_m_mode), m_combobox_steer, 1, 2, 4, 5);
-    for (i = 0; i < Img2D::MAX_STEER; i ++)	{
+    for (i = 0; i < Img2D::MAX_STEER; i ++) {
         sprintf(buf, "%d°", Img2D::STEER_ANGLE[i]);
         gtk_combo_box_append_text (GTK_COMBO_BOX (m_combobox_steer), buf);
     }
@@ -7378,9 +7378,9 @@ void ViewSystem::DeleteItemClicked(GtkButton *button)
     GtkTreeModel *model;
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(selected_node, &model, &iter) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one item to be delete!"), NULL); //请先选择待删除的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one item to be delete!"), NULL); //请先选择待删除的结点!
+        return;
     }
 
     GtkTreePath *path = gtk_tree_model_get_path(model, &iter);
@@ -7425,7 +7425,7 @@ void ViewSystem::DeleteItemClicked(GtkButton *button)
                    if (strcmp(str0.c_str(),_(ExamItemArray[i].name.c_str()))==0)
                     {
                         ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-								_("Fail to delete! Can not delete the defaulted exam item!"), NULL);
+                                _("Fail to delete! Can not delete the defaulted exam item!"), NULL);
                         return;
                     }
                 }
@@ -8536,9 +8536,9 @@ void ViewSystem::get_itemName(char *itemName)
 
 void ViewSystem::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, GtkTreePath *path, gpointer user_data)
 {
-	const char *str="";
-	static char lastStr[30] = "";
-	bool d_press = (bool)user_data;
+    const char *str="";
+    static char lastStr[30] = "";
+    bool d_press = (bool)user_data;
     str = gtk_tree_path_to_string(path);
     if (d_press)
     {
@@ -8555,8 +8555,8 @@ void ViewSystem::tree_auto_scroll(GtkTreeView *tree_view, GtkTreeIter *iter, Gtk
     }
 
     gtk_tree_view_expand_row(tree_view, path, FALSE);
-	gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
-	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
+    gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
+    gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(tree_view), path, NULL, TRUE, 0.5, 0.5);
  }
 
 gboolean ViewSystem::BtnExamDepartmentClicked(GtkWidget *widget, GdkEventButton *event)
@@ -8949,8 +8949,8 @@ void ViewSystem::create_note_tvout(void)
     gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_video), 0);
 #ifdef EMP_355
      g_signal_connect ((gpointer) m_combobox_video, "changed",
-     		      G_CALLBACK (on_combobox_video_changed),
-     		      this);
+                  G_CALLBACK (on_combobox_video_changed),
+                  this);
 #endif
 
 #if 0
@@ -9155,7 +9155,7 @@ void ViewSystem::save_tvout_setting(void)
             Printer print;
             sysGeneralSetting.SetPrinterMethod(1);
             print.SetDefault(default_print.c_str());
-			PeripheralMan::GetInstance()->SwitchPrinterDriver();
+            PeripheralMan::GetInstance()->SwitchPrinterDriver();
             update_specific_printer_model();
         }
     }
@@ -9297,13 +9297,13 @@ void ViewSystem::CalcnotebookChanged(GtkNotebook *notebook, GtkNotebookPage *pag
 void ViewSystem::VgaChanged(GtkComboBox *box)
 {
   int indexVga= gtk_combo_box_get_active(box);
-	FpgaCtrl2D* fpga=new FpgaCtrl2D();
-	fpga->VGADisplay((INT16U)(indexVga));
-	if (0==indexVga)
-	    m_vgaInterl=true;
-	else
-		m_vgaInterl=false;
-	delete fpga;
+    FpgaCtrl2D* fpga=new FpgaCtrl2D();
+    fpga->VGADisplay((INT16U)(indexVga));
+    if (0==indexVga)
+        m_vgaInterl=true;
+    else
+        m_vgaInterl=false;
+    delete fpga;
 }
 
 void ViewSystem::LanguageChanged(GtkComboBox *box)
@@ -10158,15 +10158,15 @@ int ViewSystem::OptionOptEvent(GtkWidget *widget, GdkEvent *event)
 
     //create popup-menu
     GtkWidget *menu = gtk_menu_new();
-	GtkWidget *installItem = gtk_menu_item_new_with_label(_("Install"));
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), installItem);
-	g_signal_connect(G_OBJECT (installItem), "activate", G_CALLBACK(HandleMenuInstallActivate), this);
+    GtkWidget *installItem = gtk_menu_item_new_with_label(_("Install"));
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), installItem);
+    g_signal_connect(G_OBJECT (installItem), "activate", G_CALLBACK(HandleMenuInstallActivate), this);
     gtk_widget_show(installItem);
 
-	GtkWidget *uninstallItem = gtk_menu_item_new_with_label(_("Uninstall"));
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), uninstallItem);
-	g_signal_connect(G_OBJECT (uninstallItem), "activate", G_CALLBACK(HandleMenuUninstallActivate), this);
-	gtk_widget_show(uninstallItem);
+    GtkWidget *uninstallItem = gtk_menu_item_new_with_label(_("Uninstall"));
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), uninstallItem);
+    g_signal_connect(G_OBJECT (uninstallItem), "activate", G_CALLBACK(HandleMenuUninstallActivate), this);
+    gtk_widget_show(uninstallItem);
 
     if(CManRegister::GetInstance()->IsAuthorize(CManRegister::Optional[row]))
         gtk_widget_set_sensitive(installItem, false);
@@ -10174,12 +10174,12 @@ int ViewSystem::OptionOptEvent(GtkWidget *widget, GdkEvent *event)
         gtk_widget_set_sensitive(uninstallItem, false);
 
     if (event->type == GDK_BUTTON_PRESS ) {
-		GdkEventButton *bevent = (GdkEventButton *) event;
-		gtk_menu_popup (GTK_MENU (menu), NULL, NULL, NULL, NULL,
-				bevent->button, bevent->time);
-		return TRUE;
-	}
-	return FALSE;
+        GdkEventButton *bevent = (GdkEventButton *) event;
+        gtk_menu_popup (GTK_MENU (menu), NULL, NULL, NULL, NULL,
+                bevent->button, bevent->time);
+        return TRUE;
+    }
+    return FALSE;
 }
 
 /**
@@ -10419,7 +10419,7 @@ void ViewSystem::ButtonDeleteClicked(GtkButton *button)
     string department_copy;
     department_copy= ptrIni_comment->ReadString(probe_exam.c_str(), "Department");
     ptrIni_comment->RemoveGroup(probe_exam.c_str());
-	ptrIni_comment->SyncConfigFile();
+    ptrIni_comment->SyncConfigFile();
 
     for(int i=0;i<item_length;i++)
     {
@@ -10512,7 +10512,7 @@ void ViewSystem::ButtonDeleteSelectClicked(GtkButton *button)
     int item_length(0);
     item_length = vecDeleteComment.size();
     ptrIni_comment->RemoveGroup(department);
-	ptrIni_comment->SyncConfigFile();
+    ptrIni_comment->SyncConfigFile();
 
     for(int i=0;i<item_length;i++)
     {
@@ -11083,7 +11083,7 @@ GtkWidget* ViewSystem::create_note_measure(void)
 
     //GtkWidget *hseparator_1;
     GtkWidget *button_measure_default;
-	GtkWidget *label_heart_beat_cycle;
+    GtkWidget *label_heart_beat_cycle;
 
     fixed_measure = gtk_fixed_new ();
     gtk_widget_show (fixed_measure);
@@ -11425,11 +11425,11 @@ GtkWidget* ViewSystem::create_note_measure(void)
 
     label_heart_beat_cycle = gtk_label_new (_("<b>Heart Beat:</b>"));
     gtk_label_set_use_markup (GTK_LABEL (label_heart_beat_cycle ), TRUE);
-	gtk_misc_set_alignment (GTK_MISC (label_heart_beat_cycle ), 0, 0.5);
+    gtk_misc_set_alignment (GTK_MISC (label_heart_beat_cycle ), 0, 0.5);
     gtk_fixed_put (GTK_FIXED (fixed_measure), label_heart_beat_cycle , 50, 400);
     gtk_widget_set_size_request (label_heart_beat_cycle, 100, 30);
     gtk_widget_show (label_heart_beat_cycle );
-	m_combobox_heart_beat_cycle = gtk_combo_box_new_text ();
+    m_combobox_heart_beat_cycle = gtk_combo_box_new_text ();
     gtk_widget_show (m_combobox_heart_beat_cycle );
     gtk_fixed_put (GTK_FIXED (fixed_measure), m_combobox_heart_beat_cycle , 100 + 60, 400);
     gtk_widget_set_size_request (m_combobox_heart_beat_cycle , 100, 30);
@@ -11607,9 +11607,9 @@ void ViewSystem::init_measure_setting(SysMeasurementSetting* sysMeasure)
     // int traceMethod = sysMeasure->GetTraceInMeasure();
     // switch (traceMethod) {
     // case 0:
-    // 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_trace_auto), TRUE); break;
+    //  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_trace_auto), TRUE); break;
     // case 1:
-    // 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_trace_manual), TRUE); break;
+    //  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(m_radiobutton_trace_manual), TRUE); break;
     // }
 
     int meaResult = sysMeasure->GetMeasureResult();
@@ -11650,34 +11650,34 @@ void ViewSystem::init_measure_setting(SysMeasurementSetting* sysMeasure)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmax), sysMeasure->GetAutoCalcPGmax());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmean), sysMeasure->GetAutoCalcPGmean());
 
-	int unitDist = sysMeasure->GetUnitDist();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_dist), unitDist);
+    int unitDist = sysMeasure->GetUnitDist();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_dist), unitDist);
 
-	int unitArea = sysMeasure->GetUnitArea();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_area), unitArea);
+    int unitArea = sysMeasure->GetUnitArea();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_area), unitArea);
 
-	int unitVol = sysMeasure->GetUnitVol();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_vol), unitVol);
+    int unitVol = sysMeasure->GetUnitVol();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_vol), unitVol);
 
-	int unitTime = sysMeasure->GetUnitTime();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_time), unitTime);
+    int unitTime = sysMeasure->GetUnitTime();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_time), unitTime);
 
-	int unitVel = sysMeasure->GetUnitVel();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_vel), unitVel);
+    int unitVel = sysMeasure->GetUnitVel();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_vel), unitVel);
 
-//	int unitSlope = sysMeasure->GetUnitSlope();
-//	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_slope), unitSlope);
+//  int unitSlope = sysMeasure->GetUnitSlope();
+//  gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_slope), unitSlope);
 
-	int unitAccel = sysMeasure->GetUnitAccel();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_accel), unitAccel);
+    int unitAccel = sysMeasure->GetUnitAccel();
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_accel), unitAccel);
 
     int unitEfw = sysMeasure->GetUnitEfw();
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_efw), unitEfw);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_unit_efw), unitEfw);
 
-	int heartBeatCycleIndex = sysMeasure->GetHeartBeatCycle() - 1;
-	if (heartBeatCycleIndex < 0)
-		heartBeatCycleIndex = 0;
-	gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_heart_beat_cycle), heartBeatCycleIndex);
+    int heartBeatCycleIndex = sysMeasure->GetHeartBeatCycle() - 1;
+    if (heartBeatCycleIndex < 0)
+        heartBeatCycleIndex = 0;
+    gtk_combo_box_set_active(GTK_COMBO_BOX(m_combobox_heart_beat_cycle), heartBeatCycleIndex);
 
     delete sysMeasure;
 }
@@ -11724,9 +11724,9 @@ void ViewSystem::save_measure_setting(void)
   //  ImageArea::GetInstance()->UpdateMeaResultArea(meaResult);
 
     // if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_trace_auto)))
-    // 	trace = 0;
+    //  trace = 0;
     // else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_trace_manual)))
-    // 	trace = 1;
+    //  trace = 1;
     // sysMeasure.SetTraceInMeasure(trace);
 
     unsigned char trace = 0;
@@ -11759,31 +11759,31 @@ void ViewSystem::save_measure_setting(void)
     sysMeasure.SetAutoCalcPGmean(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_checkbutton_autocalc_pgmean)));
 
     int unitDist = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_dist));
-	sysMeasure.SetUnitDist(unitDist);
+    sysMeasure.SetUnitDist(unitDist);
 
     int unitArea = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_area));
-	sysMeasure.SetUnitArea(unitArea);
+    sysMeasure.SetUnitArea(unitArea);
 
     int unitVol = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_vol));
-	sysMeasure.SetUnitVol(unitVol);
+    sysMeasure.SetUnitVol(unitVol);
 
     int unitTime = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_time));
-	sysMeasure.SetUnitTime(unitTime);
+    sysMeasure.SetUnitTime(unitTime);
 
     int unitVel = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_vel));
-	sysMeasure.SetUnitVel(unitVel);
+    sysMeasure.SetUnitVel(unitVel);
 
    // int unitSlope = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_slope));
-	//sysMeasure.SetUnitSlope(unitSlope);
+    //sysMeasure.SetUnitSlope(unitSlope);
 
     int unitAccel = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_accel));
-	sysMeasure.SetUnitAccel(unitAccel);
+    sysMeasure.SetUnitAccel(unitAccel);
 
     int unitEfw = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_unit_efw));
-	sysMeasure.SetUnitEfw(unitEfw);
+    sysMeasure.SetUnitEfw(unitEfw);
 
     int heartBeatCycle = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_heart_beat_cycle));
-	sysMeasure.SetHeartBeatCycle(heartBeatCycle+1);
+    sysMeasure.SetHeartBeatCycle(heartBeatCycle+1);
 
     sysMeasure.SyncFile();
     sysMeasure.UpdateTraceItemSetting();
@@ -11925,7 +11925,7 @@ GtkWidget* ViewSystem::create_note_key_config(void)
     gtk_frame_set_label_widget (GTK_FRAME (frame_key_p3), label_key_p3);
     gtk_label_set_use_markup (GTK_LABEL (label_key_p3), TRUE);
 #endif
-	return fixed_key_config;
+    return fixed_key_config;
 
 }
 
@@ -11964,7 +11964,7 @@ void ViewSystem::save_key_config(void)
             m_p2_func_index = i;
         if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_key_p3[i])))
             m_p3_func_index = i;
-	}
+    }
 #else
  for(int i = 0;i < MAX_KEY;i++)
     {
@@ -11972,7 +11972,7 @@ void ViewSystem::save_key_config(void)
             m_p1_func_index = i;
         if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(m_radiobutton_key_p2[i])))
             m_p2_func_index = i;
-	}
+    }
 #endif
     sysDefine.SetFuncP1(m_p1_func_index);
     sysDefine.SetFuncP2(m_p2_func_index);
@@ -12579,7 +12579,7 @@ void ViewSystem::save_calc_setting(void)
 
 GtkWidget* ViewSystem::create_note_info(void)
 {
-	 GtkWidget *fixed_info;
+     GtkWidget *fixed_info;
 #ifdef EMP_3410
     GtkWidget *frame_version;
     GtkWidget *scrolledwindow_version;
@@ -12734,7 +12734,7 @@ GtkWidget* ViewSystem::create_note_info(void)
     gtk_widget_show(btnExport);
     gtk_fixed_put (GTK_FIXED (fixed_register_info), btnExport, 330-200-10, 5+200+10+YT);
     gtk_widget_set_size_request (btnExport, 200, 35);
-	g_signal_connect (G_OBJECT(btnExport), "clicked", G_CALLBACK(HandleBtnExportClicked), this);
+    g_signal_connect (G_OBJECT(btnExport), "clicked", G_CALLBACK(HandleBtnExportClicked), this);
     GtkWidget *hseparator1 = gtk_hseparator_new ();
     gtk_widget_show (hseparator1);
     gtk_fixed_put (GTK_FIXED (fixed_register_info), hseparator1, 8, 5+200+10+35+5+YT);
@@ -12761,7 +12761,7 @@ GtkWidget* ViewSystem::create_note_info(void)
     gtk_widget_show(btnRegister);
     gtk_fixed_put (GTK_FIXED (fixed_register_info), btnRegister, 330-10-100, 5+200+10+34+5+16+20+35+30+15+YT-20);
     gtk_widget_set_size_request (btnRegister, 100, 35);
-	g_signal_connect (G_OBJECT(btnRegister), "clicked", G_CALLBACK(HandleBtnRegisterClicked), this);
+    g_signal_connect (G_OBJECT(btnRegister), "clicked", G_CALLBACK(HandleBtnRegisterClicked), this);
 
     GtkWidget *labelWarning = gtk_label_new(_("If the registeration is successful, it will take effect after the machine is rebooted."));
     gtk_widget_show(labelWarning);
@@ -12859,20 +12859,20 @@ void ViewSystem::init_info_setting(void)
     gchar *b1 = _("Software version");
     gchar *b2 = _("FPGA version");
 
-	if(g_authorizationOn)
-	{
-		int rest = CEmpAuthorization::GetRestTime();
-		if (rest == CEmpAuthorization::PERMANENTDAY)
-		{
-			buf = g_strdup_printf("%s: %s\n%s\n\n%s: %s", b1, soft.c_str(), _("This is charging software, the period of validity is permanent."), b2, fpga.c_str());
-		}
-		else
-		{
-			buf = g_strdup_printf("%s: %s\n%s %d %s\n\n%s: %s", b1, soft.c_str(), _("This is charging software, the period of validity is"), rest, _("days."), b2, fpga.c_str());
-		}
-	}
-	else
-		buf = g_strdup_printf("%s: %s\n\n%s: %s", b1, soft.c_str(), b2, fpga.c_str());
+    if(g_authorizationOn)
+    {
+        int rest = CEmpAuthorization::GetRestTime();
+        if (rest == CEmpAuthorization::PERMANENTDAY)
+        {
+            buf = g_strdup_printf("%s: %s\n%s\n\n%s: %s", b1, soft.c_str(), _("This is charging software, the period of validity is permanent."), b2, fpga.c_str());
+        }
+        else
+        {
+            buf = g_strdup_printf("%s: %s\n%s %d %s\n\n%s: %s", b1, soft.c_str(), _("This is charging software, the period of validity is"), rest, _("days."), b2, fpga.c_str());
+        }
+    }
+    else
+        buf = g_strdup_printf("%s: %s\n\n%s: %s", b1, soft.c_str(), b2, fpga.c_str());
     gtk_text_buffer_set_text (gtk_text_view_get_buffer (GTK_TEXT_VIEW (m_textview_version)), buf, -1);
     g_free(buf);
 }
@@ -13018,7 +13018,7 @@ void  ViewSystem::create_exam_comment_model(vector<int> index)
 
     int probeIndex = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_probe_comment));
 #if 0
-	ExamItem::ParaItem paraItem;
+    ExamItem::ParaItem paraItem;
     ExamItem examItem;
     for(int i=0;i<10;i++)
     {
@@ -13163,7 +13163,7 @@ GtkTreeModel* ViewSystem::create_exam_item_model(vector<int> index)
     string str_check_part("");
     TopArea::GetInstance()->GetCheckPart(str_check_part);
 #if 0
-	ExamItem::ParaItem paraItem;
+    ExamItem::ParaItem paraItem;
     ExamItem examItem;
     for(int i=0;i<10;i++)
     {
@@ -13288,27 +13288,27 @@ next:
 #ifdef VET
 void ViewSystem::add_columns(GtkTreeView *treeview)
 {
-	gint col_offset;
-	GtkTreeViewColumn *column;
+    gint col_offset;
+    GtkTreeViewColumn *column;
 
-	m_cellrenderer_text = gtk_cell_renderer_text_new();
-	col_offset = gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (treeview),
-			-1,_("User"),m_cellrenderer_text, "text", 0,NULL);
-	column = gtk_tree_view_get_column (GTK_TREE_VIEW (treeview), col_offset - 1);
-	gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
+    m_cellrenderer_text = gtk_cell_renderer_text_new();
+    col_offset = gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (treeview),
+            -1,_("User"),m_cellrenderer_text, "text", 0,NULL);
+    column = gtk_tree_view_get_column (GTK_TREE_VIEW (treeview), col_offset - 1);
+    gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
 }
 #endif
 
 void ViewSystem::add_columns_comment(GtkTreeView *treeview)
 {
-	gint col_offset;
-	GtkTreeViewColumn *column;
+    gint col_offset;
+    GtkTreeViewColumn *column;
 
-	m_cellrenderer_comment_text = gtk_cell_renderer_text_new();
-	col_offset = gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (treeview),
-			-1,_("Select Item"),m_cellrenderer_comment_text, "text", 0,NULL);
-	column = gtk_tree_view_get_column (GTK_TREE_VIEW (treeview), col_offset - 1);
-	gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
+    m_cellrenderer_comment_text = gtk_cell_renderer_text_new();
+    col_offset = gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (treeview),
+            -1,_("Select Item"),m_cellrenderer_comment_text, "text", 0,NULL);
+    column = gtk_tree_view_get_column (GTK_TREE_VIEW (treeview), col_offset - 1);
+    gtk_tree_view_column_set_clickable (GTK_TREE_VIEW_COLUMN (column), TRUE);
 }
 void ViewSystem::add_columns_comment1(GtkTreeView *treeview)
 {
@@ -13351,11 +13351,11 @@ void ViewSystem::KeyEvent(unsigned char keyValue)
     {
         case KEY_ESC:
         case KEY_SYSTEM:
-			if (!m_vgaInterl)
-			{
+            if (!m_vgaInterl)
+            {
                     gtk_combo_box_set_active(GTK_COMBO_BOX(ViewSystem::GetInstance()->GetVGACombobox()), 0);
-					return;
-			}
+                    return;
+            }
         case KEY_P1:
             g_timeout_add(700, ExitWindow, this);
             FakeEscKey();
@@ -13376,15 +13376,15 @@ void ViewSystem::BtnExitClicked(GtkButton *button)
 
 void ViewSystem::BtnApplyClicked(GtkButton *button)
 {
-	//if language changed, relocalize the CustomReport.db
+    //if language changed, relocalize the CustomReport.db
     SysGeneralSetting sys;
     int langage = sys.GetLanguage();
     int index_lang = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_language));
     if(langage != index_lang)
-	{
-		InitDB();
-		LocalizationDB(); // 110~120ms
-	}
+    {
+        InitDB();
+        LocalizationDB(); // 110~120ms
+    }
 
     apply_report_setting();//add by jhuang
     save_general_setting();
@@ -13404,15 +13404,15 @@ void ViewSystem::BtnApplyClicked(GtkButton *button)
 bool system_save = false;
 void ViewSystem::BtnSaveClicked(GtkButton *button)
 {
-	//if language changed, relocalize the CustomReport.db
+    //if language changed, relocalize the CustomReport.db
     SysGeneralSetting sys;
     int langage = sys.GetLanguage();
     int index_lang = gtk_combo_box_get_active(GTK_COMBO_BOX(m_combobox_language));
     if(langage != index_lang)
-	{
-		InitDB();
-		LocalizationDB(); // 110~120ms
-	}
+    {
+        InitDB();
+        LocalizationDB(); // 110~120ms
+    }
 
     /*BtnSave2Clicked(NULL);//add by jhuang
     save_general_setting();
@@ -13427,7 +13427,7 @@ void ViewSystem::BtnSaveClicked(GtkButton *button)
     save_calc_setting();
 #endif
     DestroyWindow();
-	system_save = true;*/
+    system_save = true;*/
 
     BtnSave2Clicked(NULL);//add by jhuang
     save_general_setting();
@@ -13556,15 +13556,15 @@ void ViewSystem::BtnCommentDefaultClicked(GtkButton *button)
 // {
 //     int active = gtk_combo_box_get_active (widget);
 //     if (active) {
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_ip), TRUE);
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_mask), TRUE);
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_gateway), TRUE);
-// //	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_dns), TRUE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_ip), TRUE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_mask), TRUE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_gateway), TRUE);
+// //   gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_dns), TRUE);
 //     } else {
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_ip), FALSE);
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_mask), FALSE);
-// 	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_gateway), FALSE);
-// //	gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_dns), FALSE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_ip), FALSE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_mask), FALSE);
+//  gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_gateway), FALSE);
+// //   gtk_widget_set_sensitive(GTK_WIDGET(m_entry_network_dns), FALSE);
 //     }
 // }
 
@@ -13602,7 +13602,7 @@ void ViewSystem::DoDicomTest()
         CDCMMan::GetMe()->SetRemoteIP(host_ip);
         CDCMMan::GetMe()->SetRemotePort(atoi(host_port));
         CDCMMan::GetMe()->SetLocalAE(local_ae);
-        //		CDCMMan::GetMe()->SetLocalPort(atoi(local_port));
+        //      CDCMMan::GetMe()->SetLocalPort(atoi(local_port));
 
         if(CDCMMan::GetMe()->TestLink())
         {
@@ -13666,66 +13666,66 @@ void ViewSystem::EntryIPInsert(GtkEditable *editable, gchar *new_text, gint new_
 #ifdef VET
 void ViewSystem:: BtnEditCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text)
 {
-	ExamItem::ParaItem paraItem;
-	ExamItem examItem;
-	int probeIndex = -1;
-	int itemIndex = -1;
+    ExamItem::ParaItem paraItem;
+    ExamItem examItem;
+    int probeIndex = -1;
+    int itemIndex = -1;
     char *itemName =NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	GtkTreePath *path;
+    GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreePath *path;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_exam_type));
-	path = gtk_tree_path_new_from_string(path_string);
-	gtk_tree_model_get_iter(GTK_TREE_MODEL(model), &iter, path);
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_exam_type));
+    path = gtk_tree_path_new_from_string(path_string);
+    gtk_tree_model_get_iter(GTK_TREE_MODEL(model), &iter, path);
 //get old_text
     char old_text[256];
     gtk_tree_model_get(model,&iter,0,&old_text,-1);
 
-	GetImageNoteSelection(probeIndex, itemIndex, itemName);
-	if (probeIndex == -1 || itemIndex == -1) return;
+    GetImageNoteSelection(probeIndex, itemIndex, itemName);
+    if (probeIndex == -1 || itemIndex == -1) return;
     if (strlen(new_text) == 0)
-	{
+    {
         char default_text[20]={0};
-		snprintf(default_text, 20, "User defined %d", itemIndex+1);
-		char *tmp_text = g_strdup(default_text);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, tmp_text, -1);
-		g_free(tmp_text);
-		//gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, g_strdup(default_text), -1);
-	}
-	else
+        snprintf(default_text, 20, "User defined %d", itemIndex+1);
+        char *tmp_text = g_strdup(default_text);
+        gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, tmp_text, -1);
+        g_free(tmp_text);
+        //gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, g_strdup(default_text), -1);
+    }
+    else
     {
         //printf("%s\n", paraItem.alias);
-		char *tmp_text = g_strdup(new_text);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, tmp_text, -1);
-		g_free(tmp_text);
-		//gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, g_strdup(new_text), -1);
-	}
+        char *tmp_text = g_strdup(new_text);
+        gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, tmp_text, -1);
+        g_free(tmp_text);
+        //gtk_tree_store_set(GTK_TREE_STORE(model), &iter, 0, g_strdup(new_text), -1);
+    }
 
-	gtk_tree_path_free(path);
+    gtk_tree_path_free(path);
 }
 
 void ViewSystem::BtnImageEditClicked(GtkButton *button)
 {
     gtk_widget_hide(button_default_image);
-	gtk_widget_hide(button_get_current);
-	gtk_widget_hide(button_edit_dept);
-	gtk_widget_show(button_return_dept);
+    gtk_widget_hide(button_get_current);
+    gtk_widget_hide(button_edit_dept);
+    gtk_widget_show(button_return_dept);
 
-	g_object_set(m_cellrenderer_text, "editable", TRUE, NULL);
+    g_object_set(m_cellrenderer_text, "editable", TRUE, NULL);
 //  g_signal_connect(m_cellrenderer_text, "editing_started", G_CALLBACK(on_entry_user_item_insert), this);
 
-	g_signal_connect(m_cellrenderer_text, "edited", G_CALLBACK(on_button_edit_cell_callback), this);
+    g_signal_connect(m_cellrenderer_text, "edited", G_CALLBACK(on_button_edit_cell_callback), this);
 }
 
 void ViewSystem::BtnImageReturnClicked(GtkButton *button)
 {
-	gtk_widget_show(button_default_image);
-	gtk_widget_show(button_get_current);
-	gtk_widget_show(button_edit_dept);
-	gtk_widget_hide(button_return_dept);
+    gtk_widget_show(button_default_image);
+    gtk_widget_show(button_get_current);
+    gtk_widget_show(button_edit_dept);
+    gtk_widget_hide(button_return_dept);
 
-	g_object_set(m_cellrenderer_text, "editable", FALSE, NULL);
+    g_object_set(m_cellrenderer_text, "editable", FALSE, NULL);
 }
 
 #endif
@@ -13926,9 +13926,9 @@ void ViewSystem::BtnImageSaveClicked(GtkButton *button)
     GtkTreeModel *model_vet;
     GtkTreeIter iter_vet;
     if (gtk_tree_selection_get_selected(selected_node, &model_vet, &iter_vet) != TRUE) {
-    	ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
-    					  _("Please select one item to be save!"), NULL); //请先选择保存的结点!
-    	return;
+        ViewDialog::GetInstance()->Create(GTK_WINDOW(m_window), ViewDialog::ERROR,
+                          _("Please select one item to be save!"), NULL); //请先选择保存的结点!
+        return;
     }
 #endif
     gtk_label_set_text(GTK_LABEL(m_label_check_part), (_("Clicking OK will override the previous data, whether\n to continue the operation.")));

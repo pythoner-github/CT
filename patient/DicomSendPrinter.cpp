@@ -43,7 +43,7 @@ DicomSendPrinter *DicomSendPrinter::GetInstance()
 GtkWidget* DicomSendPrinter::CreateItem(GtkWidget **button, GtkWidget **checkButton, char *id)
 {
     GtkWidget *vbox;
-    //	GtkWidget *hbox;
+    //  GtkWidget *hbox;
 
     vbox = gtk_vbox_new (FALSE, 0);
 
@@ -79,7 +79,7 @@ void DicomSendPrinter::getPositionSize(areaImgInfo_t positionsize,FilmSize films
 {
     float size;
 
-    size = 	(float)positionsize.width/(float)positionsize.height;
+    size =  (float)positionsize.width/(float)positionsize.height;
 
     PRINTF("size = %f\n",(float)positionsize.width/(float)positionsize.height);
 
@@ -146,7 +146,7 @@ void DicomSendPrinter::BtnExitClicked()
         gtk_widget_destroy(m_window);
         g_keyInterface.Pop();
         m_window = NULL;
-	}
+    }
 
 }
 
@@ -405,11 +405,11 @@ void DicomSendPrinter::CreateWindow(vector<string> examID,Format format,FilmSize
 
     m_hboxFunc = gtk_hbox_new(TRUE, 10);
     gtk_fixed_put(GTK_FIXED(fixedContent), m_hboxFunc, (734- 120)*SCALE_WIDTH, 643*SCALE_HEIGHT);
-    //	gtk_widget_set_size_request(m_hboxFunc, 380, 45);
-    //	gtk_widget_set_size_request(m_hboxFunc, (-1)*SCALE_WIDTH, 45*SCALE_HEIGHT);
+    //  gtk_widget_set_size_request(m_hboxFunc, 380, 45);
+    //  gtk_widget_set_size_request(m_hboxFunc, (-1)*SCALE_WIDTH, 45*SCALE_HEIGHT);
     gtk_widget_set_size_request(m_hboxFunc, -1, 45*SCALE_HEIGHT);
 
-	image = gtk_image_new_from_stock("gtk-clear", GTK_ICON_SIZE_BUTTON);
+    image = gtk_image_new_from_stock("gtk-clear", GTK_ICON_SIZE_BUTTON);
     btnClear= gtk_label_new_with_mnemonic (_("Clear"));
     btnClear = create_button_icon(btnClear, image);
     gtk_box_pack_start(GTK_BOX (m_hboxFunc), btnClear, FALSE, TRUE, 0);
@@ -665,7 +665,7 @@ void DicomSendPrinter::GetSnapsName(string examID, vector<string> &vec)
         {
             if(ent->d_name[0]=='.')
                 continue;
-            //			if(ent->d_type==DT_DIR)
+            //          if(ent->d_type==DT_DIR)
             gchar *absPath = g_build_path(G_DIR_SEPARATOR_S, SLIDE_PATH, ent->d_name, NULL);
             if(g_file_test(absPath, G_FILE_TEST_IS_DIR))
             {
@@ -746,7 +746,7 @@ void DicomSendPrinter::UpdateCurPat(string examID, int curPat, int totalPat, boo
         gtk_label_set_text(GTK_LABEL(m_labName), buf);
         gtk_label_set_ellipsize(GTK_LABEL(m_labName),PANGO_ELLIPSIZE_END);
 
-        //	float result[MEA_TIMES_MULTI];
+        //  float result[MEA_TIMES_MULTI];
         sprintf(buf, "%s: %s  ", _("Owner"), result.owner_name.c_str());
         gtk_label_set_text(GTK_LABEL(m_labOwner), buf);
 
@@ -932,7 +932,7 @@ void DicomSendPrinter::InitImageInfo(int index)
 
     DrawImgInfo_t drawImgInfo;
 
-    size = 	(float)m_rectangleInfo[index].width/(float)m_rectangleInfo[index].height;
+    size =  (float)m_rectangleInfo[index].width/(float)m_rectangleInfo[index].height;
 
     PRINTF("size = %f\n",(float)m_rectangleInfo[index].width/(float)m_rectangleInfo[index].height);
 

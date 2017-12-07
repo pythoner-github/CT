@@ -69,8 +69,8 @@ class ConfigToHost: public FakeXEvent
 
         //signal handle
         gboolean WindowDeleteEvent(GtkWidget *widget, GdkEvent *event);
-        //	void BtnSelectAllClicked(GtkButton *button);
-        //	void BtnDeselectClicked(GtkButton *button);
+        //  void BtnSelectAllClicked(GtkButton *button);
+        //  void BtnDeselectClicked(GtkButton *button);
         void BtnOKClicked(GtkButton *button);
         void BtnCalcImportOKClicked(GtkButton *button);
         void BtnCancelClicked(GtkButton *button);
@@ -88,8 +88,8 @@ class ConfigToHost: public FakeXEvent
         static void on_button_ok_clicked(GtkButton *button, ConfigToHost* data) { data->BtnOKClicked(button); }
         static void on_button_calc_ok_clicked(GtkButton *button, ConfigToHost* data) { data->BtnCalcImportOKClicked(button); }
         static void on_button_cancel_clicked(GtkButton *button, ConfigToHost* data) { data->BtnCancelClicked(button); }
-        //	static void on_button_select_all_clicked(GtkButton *button, ConfigToHost* data) { data->BtnSelectAllClicked(button); }
-        //	static void on_button_deselect_clicked(GtkButton *button, ConfigToHost* data) { data->BtnSelectAllClicked(button); }
+        //  static void on_button_select_all_clicked(GtkButton *button, ConfigToHost* data) { data->BtnSelectAllClicked(button); }
+        //  static void on_button_deselect_clicked(GtkButton *button, ConfigToHost* data) { data->BtnSelectAllClicked(button); }
 };
 
 #endif

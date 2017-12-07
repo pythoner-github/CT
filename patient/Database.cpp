@@ -34,11 +34,11 @@ Database::~Database(void)
 bool Database::CreateTable(void)
 {
     if (access(PATIENT_DB, F_OK)) {
-	sqlite3 *db = 0;
-	char *errmsg;
+    sqlite3 *db = 0;
+    char *errmsg;
 
-	if (sqlite3_open(PATIENT_DB, &db) != SQLITE_OK)
-	    return false;
+    if (sqlite3_open(PATIENT_DB, &db) != SQLITE_OK)
+        return false;
 #ifdef VET
         const char *sql_pat_info = "CREATE TABLE patient_info(\
                                     ID VARCHAR(50) NOT NULL,\
@@ -58,7 +58,7 @@ bool Database::CreateTable(void)
                                     )";
 #else
 
-	const char *sql_pat_info = "CREATE TABLE patient_info(\
+    const char *sql_pat_info = "CREATE TABLE patient_info(\
                ID VARCHAR(50) NOT NULL,\
                LastName VARCHAR(20) NOT NULL DEFAULT '',\
                FirstName VARCHAR(20) NOT NULL DEFAULT '',\
@@ -75,12 +75,12 @@ bool Database::CreateTable(void)
                PRIMARY KEY (ID)\
                )";
 #endif
-	if (sqlite3_exec(db, sql_pat_info, 0, 0, &errmsg) != SQLITE_OK) {
-	    PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
-	    sqlite3_free(errmsg);
-	    return false;
-	}
-	const char *sql_exam_info = "CREATE TABLE exam_info(\
+    if (sqlite3_exec(db, sql_pat_info, 0, 0, &errmsg) != SQLITE_OK) {
+        PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
+        sqlite3_free(errmsg);
+        return false;
+    }
+    const char *sql_exam_info = "CREATE TABLE exam_info(\
                PatID VARCHAR(50) NOT NULL,\
                ExamID INTEGER NOT NULL,\
                ExamType VARCHAR(20) NOT NULL DEFAULT '',\
@@ -115,23 +115,23 @@ bool Database::CreateTable(void)
                PRIMARY KEY (ExamID),\
                FOREIGN KEY (PatID) REFERENCES patient_info(ID)\
                )";
-	if (sqlite3_exec(db, sql_exam_info, 0, 0, &errmsg) != SQLITE_OK) {
-	    PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
-	    sqlite3_free(errmsg);
-	    return false;
-	}
+    if (sqlite3_exec(db, sql_exam_info, 0, 0, &errmsg) != SQLITE_OK) {
+        PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
+        sqlite3_free(errmsg);
+        return false;
+    }
 
-	const char *sql_doctor_info = "CREATE TABLE doctor_info(\
+    const char *sql_doctor_info = "CREATE TABLE doctor_info(\
                ID INTEGER NOT NULL,\
                Name VARCHAR(50) NOT NULL DEFAULT '',\
                PRIMARY KEY (ID)\
                )";
-	if (sqlite3_exec(db, sql_doctor_info, 0, 0, &errmsg) != SQLITE_OK) {
-	    PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
-	    sqlite3_free(errmsg);
-	    return false;
-	}
-	sqlite3_close(db);
+    if (sqlite3_exec(db, sql_doctor_info, 0, 0, &errmsg) != SQLITE_OK) {
+        PRINTF("Create Table Error: %s\n", sqlite3_errmsg(db));
+        sqlite3_free(errmsg);
+        return false;
+    }
+    sqlite3_close(db);
     }
     return true;
 }
@@ -139,8 +139,8 @@ bool Database::CreateTable(void)
 bool Database::OpenDB(void)
 {
     if (sqlite3_open(PATIENT_DB, &m_db) != SQLITE_OK) {
-	PRINTF("Database Open Error!\n");
-	return false;
+    PRINTF("Database Open Error!\n");
+    return false;
     }
     return true;
 }
@@ -148,8 +148,8 @@ bool Database::OpenDB(void)
 bool Database::CloseDB(void)
 {
     if (sqlite3_close(m_db) != SQLITE_OK) {
-	PRINTF("Database Close Error:%s\n", sqlite3_errmsg(m_db));
-	return false;
+    PRINTF("Database Close Error:%s\n", sqlite3_errmsg(m_db));
+    return false;
     }
     m_db = 0;
     return true;
@@ -169,15 +169,15 @@ bool Database::ArchivePat(PatientInfo::Info &info, string &errorMsg)
 #else
         errorMsg = _("No Patient ID.");
 #endif
-	//errorMsg = _("No Patient ID.");
-	return FALSE;
+    //errorMsg = _("No Patient ID.");
+    return FALSE;
     }
 
     if (sqlite3_exec(m_db, "begin transaction", 0, 0, &errmsg) != SQLITE_OK) {
-    	PRINTF("Archive Error:%s\n", sqlite3_errmsg(m_db));
-	errorMsg = sqlite3_errmsg(m_db);
-	sqlite3_free(errmsg);
-	return FALSE;
+        PRINTF("Archive Error:%s\n", sqlite3_errmsg(m_db));
+    errorMsg = sqlite3_errmsg(m_db);
+    sqlite3_free(errmsg);
+    return FALSE;
     }
 
     string year, month, day;
@@ -200,20 +200,20 @@ bool Database::ArchivePat(PatientInfo::Info &info, string &errorMsg)
             << info.p.address << "', '"
             << info.p.comment << "');";
 #else
-	streamPat << "INSERT INTO patient_info VALUES('"
-		  << info.p.id << "', '"
-		  << info.p.name.last << "', '"
-		  << info.p.name.first << "', '"
-		  << info.p.name.mid << "', '"
-		  << info.p.sex << "', '"
-		  << year <<"', '"
-		  << month << "', '"
-		  << day << "', '"
+    streamPat << "INSERT INTO patient_info VALUES('"
+          << info.p.id << "', '"
+          << info.p.name.last << "', '"
+          << info.p.name.first << "', '"
+          << info.p.name.mid << "', '"
+          << info.p.sex << "', '"
+          << year <<"', '"
+          << month << "', '"
+          << day << "', '"
           << info.p.age << "', '"
           << info.p.ageUnit << "', '"
-		  << info.p.telephone << "', '"
-		  << info.p.address << "', '"
-		  << info.p.comment << "');";
+          << info.p.telephone << "', '"
+          << info.p.address << "', '"
+          << info.p.comment << "');";
    #endif
  }
  else
@@ -234,20 +234,20 @@ bool Database::ArchivePat(PatientInfo::Info &info, string &errorMsg)
             << "Comment = '" << info.p.comment << "'"
             << "WHERE ID = '" << info.p.id << "';";
 #else
-	streamPat << "UPDATE patient_info SET "
-		  << "LastName = '" << info.p.name.last << "', "
-		  << "FirstName = '" << info.p.name.first << "', "
-		  << "MidName = '" << info.p.name.mid << "', "
-		  << "Sex = '" << info.p.sex << "', "
-		  << "BirthYear = '" << year <<"', "
-		  << "BirthMonth = '" << month << "', "
-		  << "BirthDay = '" << day << "', "
+    streamPat << "UPDATE patient_info SET "
+          << "LastName = '" << info.p.name.last << "', "
+          << "FirstName = '" << info.p.name.first << "', "
+          << "MidName = '" << info.p.name.mid << "', "
+          << "Sex = '" << info.p.sex << "', "
+          << "BirthYear = '" << year <<"', "
+          << "BirthMonth = '" << month << "', "
+          << "BirthDay = '" << day << "', "
           << "Age = '" << info.p.age << "', "
           << "AgeUnit = '" << info.p.ageUnit << "', "
-		  << "Telephone = '" << info.p.telephone << "', "
-		  << "Address = '" << info.p.address << "', "
-		  << "Comment = '" << info.p.comment << "'"
-		  << "WHERE ID = '" << info.p.id << "';";
+          << "Telephone = '" << info.p.telephone << "', "
+          << "Address = '" << info.p.address << "', "
+          << "Comment = '" << info.p.comment << "'"
+          << "WHERE ID = '" << info.p.id << "';";
 #endif
  }
 
@@ -257,55 +257,55 @@ bool Database::ArchivePat(PatientInfo::Info &info, string &errorMsg)
  if (sqlite3_exec(m_db, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
      PRINTF("Archive Insert or Update Error:%s\n", sqlite3_errmsg(m_db));
         errorMsg = sqlite3_errmsg(m_db);
-    	sqlite3_free(errmsg);
+        sqlite3_free(errmsg);
         sqlite3_exec(m_db, "rollback transaction", 0, 0, 0);
-    	return FALSE;
+        return FALSE;
     }
 
     ChangeDateFormatToString(info.e.examDate.year, info.e.examDate.month, info.e.examDate.day, year, month, day);
     string line=info.e.comment;
     streamExam << "INSERT INTO exam_info VALUES('"
-	       << info.p.id << "', "
-	       << "NULL, '"
-	       << info.e.examType << "', '"
-	       << year << "', '"
-	       << month << "', '"
-	       << day << "', '"
-	       << info.e.examTime.hour << "', '"
-	       << info.e.examTime.minute << "', '"
-	       << info.e.examTime.second << "', '"
-	       << info.e.height << "', '"
-	       << info.e.weight << "', '"
-	       << info.e.BSA << "', '"
-	       << info.ob.LMPDate.year << "', '"
-	       << info.ob.LMPDate.month << "', '"
-	       << info.ob.LMPDate.day << "', '"
-	       << info.ob.OvulateDate.year << "', '"
-	       << info.ob.OvulateDate.month << "', '"
-	       << info.ob.OvulateDate.day << "', '"
-	       << info.ob.pregCount << "', '"
-	       << info.ob.abnormalPregCount << "', '"
-	       << info.ob.fetusCount << "', '"
-	       << info.ob.deliveryCount << "', '"
-	       << info.ob.miscarryCount << "', '"
-	       << info.car.HR << "', '"
-	       << info.car.pressureHigh << "', '"
-	       << info.car.pressureLow << "', '"
-	       << info.uro.PSA << "', '"
-	       << info.e.examDoctor << "', '"
-	       << info.e.reportDoctor << "', '"
-	      // << info.e.comment << "', '"
-	       << line<< "', '"
-	       << info.e.imagePath << "');";
+           << info.p.id << "', "
+           << "NULL, '"
+           << info.e.examType << "', '"
+           << year << "', '"
+           << month << "', '"
+           << day << "', '"
+           << info.e.examTime.hour << "', '"
+           << info.e.examTime.minute << "', '"
+           << info.e.examTime.second << "', '"
+           << info.e.height << "', '"
+           << info.e.weight << "', '"
+           << info.e.BSA << "', '"
+           << info.ob.LMPDate.year << "', '"
+           << info.ob.LMPDate.month << "', '"
+           << info.ob.LMPDate.day << "', '"
+           << info.ob.OvulateDate.year << "', '"
+           << info.ob.OvulateDate.month << "', '"
+           << info.ob.OvulateDate.day << "', '"
+           << info.ob.pregCount << "', '"
+           << info.ob.abnormalPregCount << "', '"
+           << info.ob.fetusCount << "', '"
+           << info.ob.deliveryCount << "', '"
+           << info.ob.miscarryCount << "', '"
+           << info.car.HR << "', '"
+           << info.car.pressureHigh << "', '"
+           << info.car.pressureLow << "', '"
+           << info.uro.PSA << "', '"
+           << info.e.examDoctor << "', '"
+           << info.e.reportDoctor << "', '"
+          // << info.e.comment << "', '"
+           << line<< "', '"
+           << info.e.imagePath << "');";
     sql = streamExam.str();
     PRINTF("sql: %s\n", sql.c_str());
 
     if (sqlite3_exec(m_db, sql.c_str(), 0, 0, &errmsg) != SQLITE_OK) {
-    	PRINTF("Archive Insert Error:%s\n", sqlite3_errmsg(m_db));
+        PRINTF("Archive Insert Error:%s\n", sqlite3_errmsg(m_db));
         errorMsg = sqlite3_errmsg(m_db);
-    	sqlite3_free(errmsg);
+        sqlite3_free(errmsg);
         sqlite3_exec(m_db, "rollback transaction", 0, 0, 0);
-    	return FALSE;
+        return FALSE;
     }
 
     if (!GetDoctorExist(info.e.examDoctor.c_str())) {
@@ -365,15 +365,15 @@ void Database::Testdb(void)
     string sql = "SELECT ID, LastName, FirstName, MidName FROM patient_info ORDER BY ID";
 
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    return ;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	int col_count = sqlite3_column_count(stmt);
-	for (int i = 0; i < col_count; i++) {
-	    PRINTF("%s  ", sqlite3_column_name(stmt, i));
-	    PRINTF("%s\n", sqlite3_column_text(stmt, i));
-	}
+    int col_count = sqlite3_column_count(stmt);
+    for (int i = 0; i < col_count; i++) {
+        PRINTF("%s  ", sqlite3_column_name(stmt, i));
+        PRINTF("%s\n", sqlite3_column_text(stmt, i));
+    }
     }
     sqlite3_finalize(stmt);
 }
@@ -383,19 +383,19 @@ void Database::TestBinddb(char *id)
     sqlite3_stmt *stmt=NULL;
     string sql = "SELECT ID, LastName, FirstName, MidName FROM patient_info WHERE ID=?";
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    return ;
     }
     if (sqlite3_bind_text(stmt, 1, id, strlen(id), SQLITE_TRANSIENT) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	sqlite3_finalize(stmt);
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    sqlite3_finalize(stmt);
+    return ;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	int col_count = sqlite3_column_count(stmt);
-	for (int i = 0; i < col_count; i++) {
-	    PRINTF("%s\n", sqlite3_column_text(stmt, i));
-	}
+    int col_count = sqlite3_column_count(stmt);
+    for (int i = 0; i < col_count; i++) {
+        PRINTF("%s\n", sqlite3_column_text(stmt, i));
+    }
     }
     sqlite3_finalize(stmt);
 }
@@ -412,18 +412,18 @@ void Database::GetPatExamInfo(const char *examID, PatientInfo::Info &info)
     string sql = "SELECT ID, LastName, FirstName, MidName, Sex, BirthYear, BirthMonth, BirthDay, Age, AgeUnit, Telephone, Address, Height, Weight, BSA, LMPYear, LMPMonth, LMPDay, OvulateYear, OvulateMonth, OvulateDay, PregCount, abnormalPregCount, FetusCount, DeliveryCount, MiscarryCount, HR, PressureHigh, PressureLow, PSA, ExamDr, ReportDr, ExamComment FROM patient_info, exam_info WHERE patient_info.ID = exam_info.PatID AND exam_info.ExamID = ?";
 #endif
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    return ;
     }
     if (sqlite3_bind_text(stmt, 1, examID, strlen(examID), SQLITE_TRANSIENT) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	sqlite3_finalize(stmt);
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    sqlite3_finalize(stmt);
+    return ;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
         int col = 0;
-	if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
-	    info.p.id.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
+        info.p.id.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 #ifdef VET
         if (strcmp(sqlite3_column_name(stmt, col), "AnimalName") == 0)
@@ -436,108 +436,108 @@ void Database::GetPatExamInfo(const char *examID, PatientInfo::Info &info)
             info.p.species = sqlite3_column_int(stmt, col);
             ++col;
 #else
-	if (strcmp(sqlite3_column_name(stmt, col), "LastName") == 0)
-	    info.p.name.last.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "LastName") == 0)
+        info.p.name.last.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "FirstName") == 0)
-	    info.p.name.first.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "FirstName") == 0)
+        info.p.name.first.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "MidName") == 0)
-	    info.p.name.mid.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "MidName") == 0)
+        info.p.name.mid.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 #endif
 
-	if (strcmp(sqlite3_column_name(stmt, col), "Sex") == 0)
-	    info.p.sex = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Sex") == 0)
+        info.p.sex = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthYear") == 0)
-	    info.p.birthDate.year = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthYear") == 0)
+        info.p.birthDate.year = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthMonth") == 0)
-	    info.p.birthDate.month = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthMonth") == 0)
+        info.p.birthDate.month = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthDay") == 0)
-	    info.p.birthDate.day = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthDay") == 0)
+        info.p.birthDate.day = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
-	    info.p.age = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
+        info.p.age = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
-	    info.p.ageUnit = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
+        info.p.ageUnit = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Telephone") == 0)
-	    info.p.telephone.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "Telephone") == 0)
+        info.p.telephone.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Address") == 0)
-	    info.p.address.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "Address") == 0)
+        info.p.address.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Height") == 0)
-	    info.e.height = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Height") == 0)
+        info.e.height = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Weight") == 0)
-	    info.e.weight = sqlite3_column_double(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Weight") == 0)
+        info.e.weight = sqlite3_column_double(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BSA") == 0)
-	    info.e.BSA = sqlite3_column_double(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BSA") == 0)
+        info.e.BSA = sqlite3_column_double(stmt, col);
         ++col;
 // ob
-	if (strcmp(sqlite3_column_name(stmt, col), "LMPYear") == 0)
-	    info.ob.LMPDate.year = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "LMPYear") == 0)
+        info.ob.LMPDate.year = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "LMPMonth") == 0)
-	    info.ob.LMPDate.month = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "LMPMonth") == 0)
+        info.ob.LMPDate.month = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "LMPDay") == 0)
-	    info.ob.LMPDate.day = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "LMPDay") == 0)
+        info.ob.LMPDate.day = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "OvulateYear") == 0)
-	    info.ob.OvulateDate.year = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "OvulateYear") == 0)
+        info.ob.OvulateDate.year = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "OvulateMonth") == 0)
-	    info.ob.OvulateDate.month = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "OvulateMonth") == 0)
+        info.ob.OvulateDate.month = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "OvulateDay") == 0)
-	    info.ob.OvulateDate.day = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "OvulateDay") == 0)
+        info.ob.OvulateDate.day = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "PregCount") == 0)
-	    info.ob.pregCount = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "PregCount") == 0)
+        info.ob.pregCount = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "AbnormalPregCount") == 0)
-	    info.ob.abnormalPregCount = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "AbnormalPregCount") == 0)
+        info.ob.abnormalPregCount = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "FetusCount") == 0)
-	    info.ob.fetusCount = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "FetusCount") == 0)
+        info.ob.fetusCount = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "DeliveryCount") == 0)
-	    info.ob.deliveryCount = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "DeliveryCount") == 0)
+        info.ob.deliveryCount = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "MiscarryCount") == 0)
-	    info.ob.miscarryCount = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "MiscarryCount") == 0)
+        info.ob.miscarryCount = sqlite3_column_int(stmt, col);
         ++col;
 // car
-	if (strcmp(sqlite3_column_name(stmt, col), "HR") == 0)
-	    info.car.HR = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "HR") == 0)
+        info.car.HR = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "PressureHigh") == 0)
-	    info.car.pressureHigh = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "PressureHigh") == 0)
+        info.car.pressureHigh = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "PressureLow") == 0)
-	    info.car.pressureLow = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "PressureLow") == 0)
+        info.car.pressureLow = sqlite3_column_int(stmt, col);
         ++col;
 // uro
-	if (strcmp(sqlite3_column_name(stmt, col), "PSA") == 0)
-	    info.uro.PSA = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "PSA") == 0)
+        info.uro.PSA = sqlite3_column_int(stmt, col);
         ++col;
 
-	if (strcmp(sqlite3_column_name(stmt, col), "ExamDr") == 0)
-	    info.e.examDoctor.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ExamDr") == 0)
+        info.e.examDoctor.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 
-	if (strcmp(sqlite3_column_name(stmt, col), "ReportDr") == 0)
-	    info.e.reportDoctor.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ReportDr") == 0)
+        info.e.reportDoctor.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "ExamComment") == 0)
-	    info.e.comment.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ExamComment") == 0)
+        info.e.comment.assign((const char *)sqlite3_column_text(stmt, col));
     }
     sqlite3_finalize(stmt);
 }
@@ -554,8 +554,8 @@ void Database::GetPatInfo(const char *patID, PatientInfo::Patient &pat_info)
     string sql = "SELECT ID, LastName, FirstName, MidName, Sex, BirthYear, BirthMonth, BirthDay, Age, AgeUnit, Telephone, Address, Comment FROM patient_info WHERE ID = ?";
 #endif
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	return ;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    return ;
     }
     if (patID == NULL)
         return;
@@ -566,7 +566,7 @@ void Database::GetPatInfo(const char *patID, PatientInfo::Patient &pat_info)
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
         int col = 0;
-	if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
+    if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
             pat_info.id.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 #ifdef VET
@@ -591,32 +591,32 @@ void Database::GetPatInfo(const char *patID, PatientInfo::Patient &pat_info)
         ++col;
 #endif
 
-	if(strcmp(sqlite3_column_name(stmt, col), "Sex") == 0)
-	    pat_info.sex = sqlite3_column_int(stmt, col);
+    if(strcmp(sqlite3_column_name(stmt, col), "Sex") == 0)
+        pat_info.sex = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthYear") == 0)
-	    pat_info.birthDate.year = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthYear") == 0)
+        pat_info.birthDate.year = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthMonth") == 0)
-	    pat_info.birthDate.month = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthMonth") == 0)
+        pat_info.birthDate.month = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthDay") == 0)
-	    pat_info.birthDate.day = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthDay") == 0)
+        pat_info.birthDate.day = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
-	    pat_info.age = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
+        pat_info.age = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
-	    pat_info.ageUnit = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
+        pat_info.ageUnit = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Telephone") == 0)
-	    pat_info.telephone.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "Telephone") == 0)
+        pat_info.telephone.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Address") == 0)
-	    pat_info.address.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "Address") == 0)
+        pat_info.address.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "Comment") == 0)
-	    pat_info.comment.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "Comment") == 0)
+        pat_info.comment.assign((const char *)sqlite3_column_text(stmt, col));
     }
     sqlite3_finalize(stmt);
 }
@@ -631,17 +631,17 @@ string Database::GetPatIDExist(const char *id)
         return false;
     string sql = "SELECT count(*) AS Count_ID, ID FROM patient_info WHERE ID=?";
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("-******%s\n", sqlite3_errmsg(m_db));
-	return false;
+    PRINTF("-******%s\n", sqlite3_errmsg(m_db));
+    return false;
     }
     if (sqlite3_bind_text(stmt, 1, id, strlen(id), SQLITE_TRANSIENT) != SQLITE_OK) {
-	PRINTF("---------%s\n", sqlite3_errmsg(m_db));
-	sqlite3_finalize(stmt);
-	return false;
+    PRINTF("---------%s\n", sqlite3_errmsg(m_db));
+    sqlite3_finalize(stmt);
+    return false;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (sqlite3_column_int(stmt, 0))
-	    exist_id = (const char *)sqlite3_column_text(stmt, 1);
+    if (sqlite3_column_int(stmt, 0))
+        exist_id = (const char *)sqlite3_column_text(stmt, 1);
     }
     sqlite3_finalize(stmt);
     return exist_id;
@@ -659,17 +659,17 @@ bool Database::GetDoctorExist(const char *doc_name)
 
     string sql = "SELECT count(*) AS Count_doc FROM doctor_info WHERE Name=?";
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	return false;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    return false;
     }
     if (sqlite3_bind_text(stmt, 1, doc_name, strlen(doc_name), SQLITE_TRANSIENT) != SQLITE_OK) {
-	PRINTF("%s\n", sqlite3_errmsg(m_db));
-	sqlite3_finalize(stmt);
-	return false;
+    PRINTF("%s\n", sqlite3_errmsg(m_db));
+    sqlite3_finalize(stmt);
+    return false;
     }
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (sqlite3_column_int(stmt, 0))
-	    doc_count = atoi((const char*)sqlite3_column_text(stmt, 0));
+    if (sqlite3_column_int(stmt, 0))
+        doc_count = atoi((const char*)sqlite3_column_text(stmt, 0));
     }
     sqlite3_finalize(stmt);
 
@@ -734,33 +734,33 @@ bool Database::NewPatSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>& 
            << sql_name << ", Sex, "
            << sql_birthdate << ", "
            << sql_examdate << ", ExamID, ExamType, Age, AgeUnit "
-	       << "FROM patient_info, exam_info "
-	       << "WHERE patient_info.ID = exam_info.PatID "
-	       << "AND patient_info.ID LIKE '" << term.id << "' "
-	       << "AND patient_info.LastName LIKE '" << term.name.last << "' "
- 	       << "AND patient_info.FirstName LIKE '" << term.name.first << "' "
- 	       << "AND patient_info.MidName LIKE '" << term.name.mid << "' "
-	       << "AND patient_info.Sex LIKE '" << term.gender << "' "
- 	       << "AND patient_info.BirthYear LIKE '" << term.birthYear << "' "
- 	       << "AND patient_info.BirthMonth LIKE '" << term.birthMonth << "' "
- 	       << "AND patient_info.BirthDay LIKE '" << term.birthDay << "' "
- 	       << "AND patient_info.Age LIKE '" << term.age << "' "
- 	       << "AND patient_info.AgeUnit LIKE '" << term.ageUnit << "' "
-	       << "ORDER BY ID";
+           << "FROM patient_info, exam_info "
+           << "WHERE patient_info.ID = exam_info.PatID "
+           << "AND patient_info.ID LIKE '" << term.id << "' "
+           << "AND patient_info.LastName LIKE '" << term.name.last << "' "
+           << "AND patient_info.FirstName LIKE '" << term.name.first << "' "
+           << "AND patient_info.MidName LIKE '" << term.name.mid << "' "
+           << "AND patient_info.Sex LIKE '" << term.gender << "' "
+           << "AND patient_info.BirthYear LIKE '" << term.birthYear << "' "
+           << "AND patient_info.BirthMonth LIKE '" << term.birthMonth << "' "
+           << "AND patient_info.BirthDay LIKE '" << term.birthDay << "' "
+           << "AND patient_info.Age LIKE '" << term.age << "' "
+           << "AND patient_info.AgeUnit LIKE '" << term.ageUnit << "' "
+           << "ORDER BY ID";
 #endif
     sql = streamTerm.str();
     PRINTF("sql = %s\n", sql.c_str());
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-    	PRINTF("%s\n", sqlite3_errmsg(m_db));
-    	return false;
+        PRINTF("%s\n", sqlite3_errmsg(m_db));
+        return false;
     }
 
     result.clear();
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	NewPatSearchResult tmp;
+    NewPatSearchResult tmp;
         int col = 0;
-	if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
-	    tmp.ID.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ID") == 0)
+        tmp.ID.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
 #ifdef VET
         if (strcmp(sqlite3_column_name(stmt, col), "AnimalName") == 0)
@@ -780,35 +780,35 @@ bool Database::NewPatSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>& 
         ++col;
 #endif
 
-	if (strcmp(sqlite3_column_name(stmt, col), "Sex") == 0) {
-	    int sex = sqlite3_column_int(stmt, col);
+    if (strcmp(sqlite3_column_name(stmt, col), "Sex") == 0) {
+        int sex = sqlite3_column_int(stmt, col);
             GetSexString(sex, tmp.gender);
-	}
+    }
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "BirthDate") == 0)
-	    tmp.birthDate.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "BirthDate") == 0)
+        tmp.birthDate.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "ExamDate") == 0)
-	{
-		tmp.examDate.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ExamDate") == 0)
+    {
+        tmp.examDate.assign((const char *)sqlite3_column_text(stmt, col));
        ++col;
-	}
-	if (strcmp(sqlite3_column_name(stmt, col), "ExamID") == 0)
-	    tmp.examID.assign((const char *)sqlite3_column_text(stmt, col));
+    }
+    if (strcmp(sqlite3_column_name(stmt, col), "ExamID") == 0)
+        tmp.examID.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "ExamType") == 0)
-	    tmp.examType.assign((const char *)sqlite3_column_text(stmt, col));
+    if (strcmp(sqlite3_column_name(stmt, col), "ExamType") == 0)
+        tmp.examType.assign((const char *)sqlite3_column_text(stmt, col));
         ++col;
         int age = 0;
         int ageUnit = 0;
-	if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
+    if (strcmp(sqlite3_column_name(stmt, col), "Age") == 0)
             age = sqlite3_column_int(stmt, col);
         ++col;
-	if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
+    if (strcmp(sqlite3_column_name(stmt, col), "AgeUnit") == 0)
             ageUnit = sqlite3_column_int(stmt, col);
         GenAgeStr(age, ageUnit, tmp.age);
 
-	result.push_back(tmp);
+    result.push_back(tmp);
     }
     sqlite3_finalize(stmt);
     return true;
@@ -820,14 +820,14 @@ bool Database::DoctorSearch(vector<string> *result)
     sqlite3_stmt *stmt=NULL;
     string sql = "SELECT Name FROM doctor_info ORDER BY ID";
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-    	PRINTF("%s\n", sqlite3_errmsg(m_db));
-    	return false;
+        PRINTF("%s\n", sqlite3_errmsg(m_db));
+        return false;
     }
     result->clear();
     string doc_name;
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "Name") == 0)
-	    doc_name = (const char *)sqlite3_column_text(stmt, 0);
+    if (strcmp(sqlite3_column_name(stmt, 0), "Name") == 0)
+        doc_name = (const char *)sqlite3_column_text(stmt, 0);
         if (!doc_name.empty())
             result->push_back(doc_name);
     }
@@ -841,14 +841,14 @@ bool Database::OwnerNameSearch(vector<string> *result)
     sqlite3_stmt *stmt=NULL;
     string sql = "SELECT OwnerName FROM patient_info ORDER BY ID";
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-    	PRINTF("%s\n", sqlite3_errmsg(m_db));
-    	return false;
+        PRINTF("%s\n", sqlite3_errmsg(m_db));
+        return false;
     }
     result->clear();
     string doc_name;
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-	if (strcmp(sqlite3_column_name(stmt, 0), "OwnerName") == 0)
-	    doc_name = (const char *)sqlite3_column_text(stmt, 0);
+    if (strcmp(sqlite3_column_name(stmt, 0), "OwnerName") == 0)
+        doc_name = (const char *)sqlite3_column_text(stmt, 0);
         if (!doc_name.empty())
             result->push_back(doc_name);
     }
@@ -975,23 +975,23 @@ bool Database::ArchiveSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>&
                << sql_name << ", Sex, "
                << sql_birthdate << ", "
                << sql_examdate << ", ExamID, ExamType, Age, AgeUnit "
-	       << "FROM patient_info, exam_info "
-	       << "WHERE patient_info.ID = exam_info.PatID "
-	       << "AND patient_info.ID LIKE '" << term.id << "' "
-	       << "AND Name LIKE '" << term.totalName << "' "
-	       << "AND patient_info.Sex LIKE '" << term.gender << "' "
-			//<< "AND BirthDate >= '" << birthBegin << "' " << "AND BirthDate <= '" << birthEnd << "' "
+           << "FROM patient_info, exam_info "
+           << "WHERE patient_info.ID = exam_info.PatID "
+           << "AND patient_info.ID LIKE '" << term.id << "' "
+           << "AND Name LIKE '" << term.totalName << "' "
+           << "AND patient_info.Sex LIKE '" << term.gender << "' "
+            //<< "AND BirthDate >= '" << birthBegin << "' " << "AND BirthDate <= '" << birthEnd << "' "
            << "AND patient_info.Age LIKE '" << term.age << "' "
            << "AND patient_info.AgeUnit LIKE '" << term.ageUnit << "' "
          //<< "AND ExamDate >= '" << examBegin << "' " << "AND ExamDate <= '" << examEnd << "' " //2012.09.04
-	       << "ORDER BY ID";
+           << "ORDER BY ID";
 #endif
     sql = streamTerm.str();
     PRINTF("sql: %s\n", sql.c_str());
 
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-    	PRINTF("%s\n", sqlite3_errmsg(m_db));
-    	return false;
+        PRINTF("%s\n", sqlite3_errmsg(m_db));
+        return false;
     }
 
     // get search result
@@ -1000,7 +1000,7 @@ bool Database::ArchiveSearch(NewPatSearchTerm& term, vector<NewPatSearchResult>&
         int col=1;
         NewPatSearchResult tmp;
         if (strcmp(sqlite3_column_name(stmt, 0), "ID") == 0)
-	    tmp.ID.assign((const char *)sqlite3_column_text(stmt, 0));
+        tmp.ID.assign((const char *)sqlite3_column_text(stmt, 0));
 #ifdef VET
         if (strcmp(sqlite3_column_name(stmt, col), "AnimalName") == 0)
             tmp.animal_name.assign((const char *)sqlite3_column_text(stmt, col));
@@ -1419,17 +1419,17 @@ bool Database::CommonSearch(string examID, NewPatSearchResult &result)
                << sql_name << ", Sex, "
                << sql_birthdate << ", "
                << sql_examdate << ", ExamID, ExamType, Age, AgeUnit "
-	       << "FROM patient_info, exam_info "
-	       << "WHERE patient_info.ID = exam_info.PatID "
- 	       << "AND exam_info.ExamID = '" << examID << "' "
-	       << "ORDER BY ID";
+           << "FROM patient_info, exam_info "
+           << "WHERE patient_info.ID = exam_info.PatID "
+           << "AND exam_info.ExamID = '" << examID << "' "
+           << "ORDER BY ID";
 #endif
     sql = streamTerm.str();
     PRINTF("sql =%s\n", sql.c_str());
 
     if (sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, 0) != SQLITE_OK) {
-    	PRINTF("%s\n", sqlite3_errmsg(m_db));
-    	return false;
+        PRINTF("%s\n", sqlite3_errmsg(m_db));
+        return false;
     }
 
     while (sqlite3_step(stmt) != SQLITE_DONE) {
@@ -1515,9 +1515,9 @@ bool Database::CommonSearch(string examID, NewPatSearchResult &result)
 
         int age = 0;
         int ageUnit = 0;
-	if (strcmp(sqlite3_column_name(stmt, 7), "Age") == 0)
+    if (strcmp(sqlite3_column_name(stmt, 7), "Age") == 0)
             age = sqlite3_column_int(stmt, 7);
-	if (strcmp(sqlite3_column_name(stmt, 8), "AgeUnit") == 0)
+    if (strcmp(sqlite3_column_name(stmt, 8), "AgeUnit") == 0)
             ageUnit = sqlite3_column_int(stmt, 8);
         GenAgeStr(age, ageUnit, result.age);
 #endif
@@ -1598,55 +1598,55 @@ bool Database::GetExamIDCurrent(string &examID)
 ///>private
 void Database::GetBirthRange(string age, string ageUnit, string &birthBegin, string &birthEnd)
 {
-	int year, mon, day;
+    int year, mon, day;
 
-	// get current date
-	GetCurrentDate(year, mon, day);
-	if (strcmp(age.c_str(), "%") == 0)
-	{
-		GetDateString(0, 0, 0, birthBegin);
-		GetDateString(year, mon, day, birthEnd);
-		return;
-	}
+    // get current date
+    GetCurrentDate(year, mon, day);
+    if (strcmp(age.c_str(), "%") == 0)
+    {
+        GetDateString(0, 0, 0, birthBegin);
+        GetDateString(year, mon, day, birthEnd);
+        return;
+    }
 
-	GDate* curDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
-	GDate* beginDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
-	GDate* endDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
-	int unit = atoi(ageUnit.c_str());
-	int iAge = atoi(age.c_str());
-	switch(unit)
-	{
-		case 0: //年
-			g_date_subtract_years(beginDate, iAge+1);
-			g_date_subtract_years(endDate, iAge);
-			break;
+    GDate* curDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
+    GDate* beginDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
+    GDate* endDate = g_date_new_dmy((GDateDay)day, (GDateMonth)mon, (GDateYear)year);
+    int unit = atoi(ageUnit.c_str());
+    int iAge = atoi(age.c_str());
+    switch(unit)
+    {
+        case 0: //年
+            g_date_subtract_years(beginDate, iAge+1);
+            g_date_subtract_years(endDate, iAge);
+            break;
 
-		case 1: //月
-			g_date_subtract_months(beginDate, iAge+1);
-			g_date_subtract_months(endDate, iAge);
-			break;
+        case 1: //月
+            g_date_subtract_months(beginDate, iAge+1);
+            g_date_subtract_months(endDate, iAge);
+            break;
 
-		case 2: //日
-			g_date_subtract_days(beginDate, iAge+1);
-			g_date_subtract_days(endDate, iAge);
-			break;
+        case 2: //日
+            g_date_subtract_days(beginDate, iAge+1);
+            g_date_subtract_days(endDate, iAge);
+            break;
 
-		default:
-			PRINTF("range of ageUnit is out of range\n");
-			break;
-	}
+        default:
+            PRINTF("range of ageUnit is out of range\n");
+            break;
+    }
 
-	year = (int)g_date_get_year(beginDate);
-	mon = (int)g_date_get_month(beginDate);
-	day = (int)g_date_get_day(beginDate);
-	GetDateString(year, mon, day, birthBegin);
+    year = (int)g_date_get_year(beginDate);
+    mon = (int)g_date_get_month(beginDate);
+    day = (int)g_date_get_day(beginDate);
+    GetDateString(year, mon, day, birthBegin);
 
-	year = (int)g_date_get_year(endDate);
-	mon = (int)g_date_get_month(endDate);
-	day = (int)g_date_get_day(endDate);
-	GetDateString(year, mon, day, birthEnd);
+    year = (int)g_date_get_year(endDate);
+    mon = (int)g_date_get_month(endDate);
+    day = (int)g_date_get_day(endDate);
+    GetDateString(year, mon, day, birthEnd);
 
-	g_date_free(curDate);
-	g_date_free(beginDate);
-	g_date_free(endDate);
+    g_date_free(curDate);
+    g_date_free(beginDate);
+    g_date_free(endDate);
 }

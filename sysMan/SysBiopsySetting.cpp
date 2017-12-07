@@ -12,8 +12,8 @@ SysBiopsySetting::SysBiopsySetting()
 SysBiopsySetting::~SysBiopsySetting()
 {
     if (ptrIni != NULL) {
-	delete ptrIni;
-	ptrIni = NULL;
+    delete ptrIni;
+    ptrIni = NULL;
     }
 }
 #if 1

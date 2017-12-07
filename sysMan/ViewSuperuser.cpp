@@ -40,7 +40,7 @@ std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 #elif defined(EMP_430)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
 {
-	"35C60E", "65L40E", "65C10E", "65C15D", "35D50D"
+    "35C60E", "65L40E", "65C10E", "65C15D", "35D50D"
 };
 #elif defined(EMP_440)
 std::string ViewSuperuser::m_probeName[WPORBE_NUM] =
@@ -81,7 +81,7 @@ ViewSuperuser::ViewSuperuser()
     m_timer = 0;
     m_statusDemo = TRUE;
     m_probeType = 0;
-	m_window = NULL;
+    m_window = NULL;
 
 #ifdef TRANSDUCER
    m_tranPressCorrect = 0;
@@ -116,7 +116,7 @@ void ViewSuperuser::DestroyWindow(void)
     if(!m_strProbeAlias.empty())
         m_strProbeAlias.clear();
 
-    if(GTK_IS_WIDGET(m_window))	{
+    if(GTK_IS_WIDGET(m_window)) {
         Exit();
         gtk_widget_destroy(m_window);
         if (g_keyInterface.Size() == 1)
@@ -166,17 +166,17 @@ void ViewSuperuser::CreateWindow(void)
 
     const int WINDOW_W = 480+140;
     const int WINDOW_H = 640;
-	m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_widget_set_size_request (m_window, WINDOW_W, WINDOW_H);
-	gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
-	gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
-	gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
-	gtk_window_set_title (GTK_WINDOW (m_window), "超级用户工具");
-	gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
-	g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
+    m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_widget_set_size_request (m_window, WINDOW_W, WINDOW_H);
+    gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
+    gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
+    gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
+    gtk_window_set_title (GTK_WINDOW (m_window), "超级用户工具");
+    gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
+    g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
 
-	fixed = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (m_window), fixed);
+    fixed = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (m_window), fixed);
 
     const int NOTEBOOK_W = WINDOW_W - 40;
     const int NOTEBOOK_H = 540 + 20;
@@ -193,9 +193,9 @@ void ViewSuperuser::CreateWindow(void)
     gtk_fixed_put(GTK_FIXED(fixed), tableHint, 20, 600);
 
     m_labelHint = gtk_label_new("");
-	gtk_table_attach (GTK_TABLE (tableHint), m_labelHint, 0, 1, 0, 1,
-			(GtkAttachOptions) (GTK_FILL),
-			(GtkAttachOptions) (GTK_FILL), 0, 0);
+    gtk_table_attach (GTK_TABLE (tableHint), m_labelHint, 0, 1, 0, 1,
+            (GtkAttachOptions) (GTK_FILL),
+            (GtkAttachOptions) (GTK_FILL), 0, 0);
 
     //> create note probe
     int notebook_counter(0);
@@ -226,14 +226,14 @@ void ViewSuperuser::CreateWindow(void)
 #endif
 
 #ifdef TRANSDUCER
-	labelExit = gtk_label_new_with_mnemonic("确定");
+    labelExit = gtk_label_new_with_mnemonic("确定");
 #else
-	labelExit = gtk_label_new_with_mnemonic("退出");
+    labelExit = gtk_label_new_with_mnemonic("退出");
 #endif
-	imageExit = gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_BUTTON);
-	btnExit = create_button_icon(labelExit, imageExit);
-	gtk_fixed_put (GTK_FIXED (fixed), btnExit, 340+140, 570);
-	g_signal_connect (G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
+    imageExit = gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_BUTTON);
+    btnExit = create_button_icon(labelExit, imageExit);
+    gtk_fixed_put (GTK_FIXED (fixed), btnExit, 340+140, 570);
+    g_signal_connect (G_OBJECT(btnExit), "clicked", G_CALLBACK(HandleBtnExitClicked), this);
 
     gtk_widget_show_all(m_window);
     g_keyInterface.Pop();
@@ -258,17 +258,17 @@ void ViewSuperuser::CreateDemoWindow(void)
 
     MultiFuncFactory::GetInstance()->Create(MultiFuncFactory::NONE);
 
-	m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_widget_set_size_request (m_window, 480, 320);
-	gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
-	gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
-	gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
-	gtk_window_set_title (GTK_WINDOW (m_window), "进入演示");
-	gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
-	g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
+    m_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_widget_set_size_request (m_window, 480, 320);
+    gtk_window_set_position (GTK_WINDOW (m_window), GTK_WIN_POS_CENTER);
+    gtk_window_set_modal (GTK_WINDOW (m_window), TRUE);
+    gtk_window_set_resizable (GTK_WINDOW (m_window), FALSE);
+    gtk_window_set_title (GTK_WINDOW (m_window), "进入演示");
+    gtk_window_set_transient_for(GTK_WINDOW(m_window), GTK_WINDOW(ViewMain::GetInstance()->GetMainWindow()));
+    g_signal_connect (G_OBJECT(m_window), "delete-event", G_CALLBACK(HandleWindowDeleteEvent), this);
 
-	fixed = gtk_fixed_new ();
-	gtk_container_add (GTK_CONTAINER (m_window), fixed);
+    fixed = gtk_fixed_new ();
+    gtk_container_add (GTK_CONTAINER (m_window), fixed);
 
     labelDemo = gtk_label_new_with_mnemonic("进入演示功能");
     imageDemo = gtk_image_new_from_stock(GTK_STOCK_YES, GTK_ICON_SIZE_BUTTON);
@@ -292,33 +292,33 @@ void ViewSuperuser::CreateDemoWindow(void)
 
 GtkWidget *ViewSuperuser::create_probe_treeview(void)
 {
-	GtkWidget *treeview;
-	GtkTreeModel *model;
-	GtkCellRenderer *render;
-	GtkTreeViewColumn *column;
+    GtkWidget *treeview;
+    GtkTreeModel *model;
+    GtkCellRenderer *render;
+    GtkTreeViewColumn *column;
 
-	treeview = gtk_tree_view_new();
-	g_object_set(G_OBJECT(treeview),
-			"enable-search", FALSE,
-			"headers-visible", FALSE,
-			"sensitive", FALSE,
-			NULL);
+    treeview = gtk_tree_view_new();
+    g_object_set(G_OBJECT(treeview),
+            "enable-search", FALSE,
+            "headers-visible", FALSE,
+            "sensitive", FALSE,
+            NULL);
 
-	render = gtk_cell_renderer_text_new();
+    render = gtk_cell_renderer_text_new();
 #ifdef EMP_355
-	gtk_cell_renderer_set_fixed_size(render, -1, 33);
+    gtk_cell_renderer_set_fixed_size(render, -1, 33);
 #else
-	gtk_cell_renderer_set_fixed_size(render, -1, 25);
+    gtk_cell_renderer_set_fixed_size(render, -1, 25);
 #endif
-	column = gtk_tree_view_column_new_with_attributes("Porbe", render, "text", 0, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+    column = gtk_tree_view_column_new_with_attributes("Porbe", render, "text", 0, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 
-	model = create_probe_model();
-	if(model != NULL)
-		gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), model);
-	g_object_unref(model);
+    model = create_probe_model();
+    if(model != NULL)
+        gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), model);
+    g_object_unref(model);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* ViewSuperuser::create_probe_model(void)
@@ -326,12 +326,12 @@ GtkTreeModel* ViewSuperuser::create_probe_model(void)
     GtkListStore  *store;
     GtkTreeIter    iter;
 
-	store = gtk_list_store_new(1, G_TYPE_STRING);
-	for (unsigned int i = 0; i < ProbeMan::MAX_SOCKET; i++) {
-		gtk_list_store_append (store, &iter);
-		gtk_list_store_set(store, &iter, 0, "No Probe", -1);
-	}
-	return GTK_TREE_MODEL (store);
+    store = gtk_list_store_new(1, G_TYPE_STRING);
+    for (unsigned int i = 0; i < ProbeMan::MAX_SOCKET; i++) {
+        gtk_list_store_append (store, &iter);
+        gtk_list_store_set(store, &iter, 0, "No Probe", -1);
+    }
+    return GTK_TREE_MODEL (store);
 }
 
 void ViewSuperuser::MachineChanged(GtkComboBox *combobox)
@@ -500,16 +500,16 @@ void ViewSuperuser::Exit(void)
  */
 gboolean ViewSuperuser::UpdateProbeStatus(const char* socket, const char* status)
 {
-	GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeviewProbe));
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeviewProbe));
 
-	GtkTreeIter iter;
-	if(gtk_tree_model_get_iter_from_string(model, &iter, socket))
-	{
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter, 0, status, -1);
-		return TRUE;
-	}
-	else
-		return FALSE;
+    GtkTreeIter iter;
+    if(gtk_tree_model_get_iter_from_string(model, &iter, socket))
+    {
+        gtk_list_store_set(GTK_LIST_STORE(model), &iter, 0, status, -1);
+        return TRUE;
+    }
+    else
+        return FALSE;
 }
 
 static gboolean ExitWindow(gpointer data)
@@ -633,86 +633,86 @@ GtkWidget* ViewSuperuser::CreateNoteProbe(void)
     GtkWidget *fixed = gtk_fixed_new();
     gtk_widget_show (fixed);
 
-	GtkWidget *frameProbe = gtk_frame_new (NULL);
-	gtk_fixed_put (GTK_FIXED (fixed), frameProbe, 20, 10);
-	gtk_widget_set_size_request (frameProbe, 440, 140);
-	gtk_frame_set_shadow_type (GTK_FRAME (frameProbe), GTK_SHADOW_OUT);
+    GtkWidget *frameProbe = gtk_frame_new (NULL);
+    gtk_fixed_put (GTK_FIXED (fixed), frameProbe, 20, 10);
+    gtk_widget_set_size_request (frameProbe, 440, 140);
+    gtk_frame_set_shadow_type (GTK_FRAME (frameProbe), GTK_SHADOW_OUT);
 
     GtkWidget *labelProbe = gtk_label_new ("探头工具");
     gtk_frame_set_label_widget (GTK_FRAME (frameProbe), labelProbe);
     gtk_label_set_use_markup (GTK_LABEL (labelProbe), TRUE);
 
-	GtkWidget *tableProbe = gtk_table_new(3, 2, FALSE);
-	gtk_table_set_row_spacing(GTK_TABLE(tableProbe), 0, 10);
-	gtk_table_set_col_spacings(GTK_TABLE(tableProbe), 10);
-	gtk_container_set_border_width(GTK_CONTAINER(tableProbe), 10);
-	gtk_container_add (GTK_CONTAINER (frameProbe), tableProbe);
+    GtkWidget *tableProbe = gtk_table_new(3, 2, FALSE);
+    gtk_table_set_row_spacing(GTK_TABLE(tableProbe), 0, 10);
+    gtk_table_set_col_spacings(GTK_TABLE(tableProbe), 10);
+    gtk_container_set_border_width(GTK_CONTAINER(tableProbe), 10);
+    gtk_container_add (GTK_CONTAINER (frameProbe), tableProbe);
 
-	GtkWidget *comboboxMachine = gtk_combo_box_new_text();
-	gtk_table_attach_defaults(GTK_TABLE(tableProbe), comboboxMachine, 0, 1, 0, 1);
+    GtkWidget *comboboxMachine = gtk_combo_box_new_text();
+    gtk_table_attach_defaults(GTK_TABLE(tableProbe), comboboxMachine, 0, 1, 0, 1);
 
 #if defined(EMP_360)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G60");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G60");
 #elif defined(EMP_161)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-3000");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-3000");
 #elif defined(EMP_322)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2900Plus");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2900Plus");
 #elif defined(EMP_313)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2800");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "EMP-2800");
 #elif (defined(EMP_430)|| defined(EMP_440))
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "A60");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "A60");
 #elif defined(EMP_355)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G30Plus");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G30Plus");
 #else
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G70");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxMachine), "G70");
 #endif
 
-	gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxMachine), 0);
-	g_signal_connect (G_OBJECT(comboboxMachine), "changed", G_CALLBACK(HandleMachineChanged), this);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxMachine), 0);
+    g_signal_connect (G_OBJECT(comboboxMachine), "changed", G_CALLBACK(HandleMachineChanged), this);
 
-	GtkWidget *comboboxProbe = gtk_combo_box_new_text();
-	gtk_table_attach_defaults(GTK_TABLE(tableProbe), comboboxProbe, 0, 1, 1, 2);
+    GtkWidget *comboboxProbe = gtk_combo_box_new_text();
+    gtk_table_attach_defaults(GTK_TABLE(tableProbe), comboboxProbe, 0, 1, 1, 2);
     int i;
     for (i = 0; i < WPORBE_NUM; i ++)
     {
         gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxProbe), m_probeName[i].c_str());
     }
-	gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxProbe), 0);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxProbe), 0);
     m_probeType = 0;
-	g_signal_connect (G_OBJECT(comboboxProbe), "changed", G_CALLBACK(HandleProbeChanged), this);
+    g_signal_connect (G_OBJECT(comboboxProbe), "changed", G_CALLBACK(HandleProbeChanged), this);
 
-	GtkWidget *labelWrite = gtk_label_new_with_mnemonic("写探头");
-	GtkWidget *imageWrite = gtk_image_new_from_stock(GTK_STOCK_EDIT, GTK_ICON_SIZE_BUTTON);
-	GtkWidget *btnWrite = create_button_icon(labelWrite, imageWrite);
-	gtk_table_attach_defaults(GTK_TABLE(tableProbe), btnWrite, 1, 2, 0, 2);
-	g_signal_connect (G_OBJECT(btnWrite), "clicked", G_CALLBACK(HandleBtnWriteClicked), this);
+    GtkWidget *labelWrite = gtk_label_new_with_mnemonic("写探头");
+    GtkWidget *imageWrite = gtk_image_new_from_stock(GTK_STOCK_EDIT, GTK_ICON_SIZE_BUTTON);
+    GtkWidget *btnWrite = create_button_icon(labelWrite, imageWrite);
+    gtk_table_attach_defaults(GTK_TABLE(tableProbe), btnWrite, 1, 2, 0, 2);
+    g_signal_connect (G_OBJECT(btnWrite), "clicked", G_CALLBACK(HandleBtnWriteClicked), this);
 
-	m_treeviewProbe = create_probe_treeview();
-	gtk_tree_view_set_grid_lines(GTK_TREE_VIEW(m_treeviewProbe), GTK_TREE_VIEW_GRID_LINES_HORIZONTAL);
-	gtk_table_attach_defaults(GTK_TABLE(tableProbe), m_treeviewProbe, 2, 3, 0, 2);
+    m_treeviewProbe = create_probe_treeview();
+    gtk_tree_view_set_grid_lines(GTK_TREE_VIEW(m_treeviewProbe), GTK_TREE_VIEW_GRID_LINES_HORIZONTAL);
+    gtk_table_attach_defaults(GTK_TABLE(tableProbe), m_treeviewProbe, 2, 3, 0, 2);
 
     // single aperture
     GtkWidget *frameAperture = gtk_frame_new (NULL);
-	gtk_fixed_put (GTK_FIXED (fixed), frameAperture, 20, 180);
-	gtk_widget_set_size_request (frameAperture, 200-90, 70);
-	gtk_frame_set_shadow_type (GTK_FRAME (frameAperture), GTK_SHADOW_OUT);
+    gtk_fixed_put (GTK_FIXED (fixed), frameAperture, 20, 180);
+    gtk_widget_set_size_request (frameAperture, 200-90, 70);
+    gtk_frame_set_shadow_type (GTK_FRAME (frameAperture), GTK_SHADOW_OUT);
 
     GtkWidget *labelAperutre = gtk_label_new ("暗道测试工具");
     gtk_frame_set_label_widget (GTK_FRAME (frameAperture), labelAperutre);
     gtk_label_set_use_markup (GTK_LABEL (labelAperutre), TRUE);
 
-	GtkWidget *tableAperture = gtk_table_new(1, 1, FALSE);
-	gtk_table_set_row_spacing(GTK_TABLE(tableAperture), 0, 10);
-	gtk_table_set_col_spacings(GTK_TABLE(tableAperture), 10);
-	gtk_container_set_border_width(GTK_CONTAINER(tableAperture), 10);
-	gtk_container_add (GTK_CONTAINER (frameAperture), tableAperture);
+    GtkWidget *tableAperture = gtk_table_new(1, 1, FALSE);
+    gtk_table_set_row_spacing(GTK_TABLE(tableAperture), 0, 10);
+    gtk_table_set_col_spacings(GTK_TABLE(tableAperture), 10);
+    gtk_container_set_border_width(GTK_CONTAINER(tableAperture), 10);
+    gtk_container_add (GTK_CONTAINER (frameAperture), tableAperture);
 
-	GtkWidget *comboboxAperture = gtk_combo_box_new_text();
-	gtk_table_attach_defaults(GTK_TABLE(tableAperture), comboboxAperture, 0, 1, 0, 1);
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxAperture), "OFF");
-	gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxAperture), "ON");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxAperture), -1);
-	g_signal_connect (G_OBJECT(comboboxAperture), "changed", G_CALLBACK(HandleChgAperture), this);
+    GtkWidget *comboboxAperture = gtk_combo_box_new_text();
+    gtk_table_attach_defaults(GTK_TABLE(tableAperture), comboboxAperture, 0, 1, 0, 1);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxAperture), "OFF");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(comboboxAperture), "ON");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(comboboxAperture), -1);
+    g_signal_connect (G_OBJECT(comboboxAperture), "changed", G_CALLBACK(HandleChgAperture), this);
 
 #ifdef TRANSDUCER
    // Transducer
@@ -813,7 +813,7 @@ GtkWidget* ViewSuperuser::CreateNoteProbe(void)
     gtk_cell_renderer_set_alignment(render, 0.5, 0.5);
     GtkTreeViewColumn *column = gtk_tree_view_column_new_with_attributes("探头型号", render, "text", EPM_COLUMN, NULL);
     gtk_tree_view_column_set_alignment(column, 0.5);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(m_treeView), column);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(m_treeView), column);
     g_object_set(G_OBJECT(column), "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 100, NULL);
 
     m_render = gtk_cell_renderer_text_new();
@@ -894,7 +894,7 @@ void ViewSuperuser::TreeSelectionChanged(GtkTreeSelection *selection)
     GtkTreeIter iter;
     //如果没有选中任何结点,直接返回
     if (gtk_tree_selection_get_selected(selection, &model, &iter) != TRUE)
-	return;
+    return;
 
     //g_print("model=%s, len=%d, alias=%s, len=%d, alias size=%d\n", m_probeModel, strlen(m_probeModel), m_probeAlias, strlen(m_probeAlias), sizeof(m_probeAlias));
     if(strlen(m_probeModel)!=0 & strlen(m_probeAlias)!=0)
@@ -949,10 +949,10 @@ void ViewSuperuser::BtnEditClicked(GtkButton *button)
     column_tree_view = gtk_tree_view_get_column(GTK_TREE_VIEW(m_treeView), 1);
 
     gtk_tree_view_set_cursor_on_cell(GTK_TREE_VIEW(m_treeView),
-    				     path,
-    				     column_tree_view,
-    				     m_render,
-    				     TRUE);
+                         path,
+                         column_tree_view,
+                         m_render,
+                         TRUE);
     gtk_tree_path_free (path);
 }
 
@@ -967,7 +967,7 @@ void ViewSuperuser::BtnFactoryClicked(GtkButton *button)
     gtk_tree_model_get_iter_first(model, &iter);
 
     gchar *alias;
-	gtk_tree_model_get (model, &iter, 1, &alias, -1);
+    gtk_tree_model_get (model, &iter, 1, &alias, -1);
 
     for(int i = 0; i < NUM_PROBE; i++)
     {
@@ -988,17 +988,17 @@ void ViewSuperuser::BtnFactoryClicked(GtkButton *button)
 
 void ViewSuperuser:: EditedCellChanged(GtkCellRendererText *cell, gchar *path_string, gchar *new_text)
 {
-	//GtkTreeModel *model = (GtkTreeModel*)data;
-	GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeView));
-	GtkTreePath *path;
-	path = gtk_tree_path_new_from_string(path_string);
-	GtkTreeIter iter;
-	gtk_tree_model_get_iter(GTK_TREE_MODEL(model), &iter, path);
+    //GtkTreeModel *model = (GtkTreeModel*)data;
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeView));
+    GtkTreePath *path;
+    path = gtk_tree_path_new_from_string(path_string);
+    GtkTreeIter iter;
+    gtk_tree_model_get_iter(GTK_TREE_MODEL(model), &iter, path);
 
     if (strlen(new_text) != 0)
     {
         char *tmp_text = g_strdup(new_text);
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter, 1, tmp_text, -1);
+        gtk_list_store_set(GTK_LIST_STORE(model), &iter, 1, tmp_text, -1);
         g_free(tmp_text);
     }
     gtk_tree_path_free(path);

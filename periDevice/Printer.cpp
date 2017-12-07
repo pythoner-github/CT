@@ -27,7 +27,7 @@ Printer::Printer(void)
 bool Printer::GetPrinters(void)
 {
     int num_dests = 0;          /* Number of user destinations */
-    cups_dest_t	*dests = NULL;  /* User destinations */
+    cups_dest_t *dests = NULL;  /* User destinations */
 
     cupsFreeDests(num_dests, dests);
     num_dests = cupsGetDests(&dests);
@@ -306,37 +306,37 @@ void Printer::GetJobs(void)
 
 bool Printer::IsSonyPrinter()
 {
-	char *file = GetDefaultPrinterPPD();
-	ppd_file_t *ppd;
-	bool ret = 0;
-	if((ppd = ppdOpenFile(file)) == NULL)
-	{
-		PRINTF("ppdOpenfile error!\n");
+    char *file = GetDefaultPrinterPPD();
+    ppd_file_t *ppd;
+    bool ret = 0;
+    if((ppd = ppdOpenFile(file)) == NULL)
+    {
+        PRINTF("ppdOpenfile error!\n");
         return ret;
-	}
+    }
     //printf("%s-%s: Printer's manufacturer is %s\n", __FILE__, __FUNCTION__, ppd->manufacturer);
-	if(ppd->manufacturer)
-	{
-		char *ptr = strcasestr(ppd->manufacturer, "SONY");
-		if(ptr)
-			ret = 1;
-	}
-	else
-	{
-		PRINTF("Printer's manufacturer is NULL\n");
-	}
-	ppdClose(ppd);
-	if(file)
-	{
-		unlink(file);
-		free(file);
-	}
-	return ret;
+    if(ppd->manufacturer)
+    {
+        char *ptr = strcasestr(ppd->manufacturer, "SONY");
+        if(ptr)
+            ret = 1;
+    }
+    else
+    {
+        PRINTF("Printer's manufacturer is NULL\n");
+    }
+    ppdClose(ppd);
+    if(file)
+    {
+        unlink(file);
+        free(file);
+    }
+    return ret;
 }
 char* Printer::GetDefaultPrinterPPD(void)
 {
-	char *ppd;
-	cups_dest_t	*dests;         /* Destinations */
+    char *ppd;
+    cups_dest_t *dests;         /* Destinations */
     int num_dests = cupsGetDests(&dests);
     cups_dest_t *dest;          /* Current destination */
     if (num_dests == 0 || !dests || (dest = cupsGetDest(NULL, NULL, num_dests, dests)) == NULL) {
@@ -344,10 +344,10 @@ char* Printer::GetDefaultPrinterPPD(void)
         cupsFreeDests(num_dests, dests);
         return false;
     }
-	ppd = g_strdup(cupsGetPPD(dest->name));
+    ppd = g_strdup(cupsGetPPD(dest->name));
     cupsFreeDests(num_dests, dests);
     PRINTF("ppd is %s",ppd);
-	return ppd;
+    return ppd;
 }
 bool Printer::SetDefault(const char *printer)
 {
@@ -358,7 +358,7 @@ bool Printer::SetDefault(const char *printer)
     if ((instance = strrchr((char *)printer, '/')) != NULL)
         *instance++ = '\0';
 
-    cups_dest_t	*dests;         /* Destinations */
+    cups_dest_t *dests;         /* Destinations */
     int num_dests = cupsGetDests(&dests);
 
     cups_dest_t *dest;          /* Current destination */
@@ -421,10 +421,10 @@ int Printer::print(char *printer, const char* filename, const char *grp_options,
         }
     }
     if (printer == NULL)
-	{
+    {
         cupsFreeDests(num_dests, dests);
         return -2;
-	}
+    }
 #if 0
     else if ((instance = strrchr(printer, '/')) != NULL)
         *instance++ = '\0';
@@ -457,13 +457,13 @@ int Printer::print(char *printer, const char* filename, const char *grp_options,
     int job_id = cupsPrintFiles(printer, num_files, files, filename, num_options, options);
     if (job_id < 1) {
         PRINTF("Print Error: %s\n", cupsLastErrorString());
-		cupsFreeOptions(num_options, options);
-		cupsFreeDests(num_dests, dests);
+        cupsFreeOptions(num_options, options);
+        cupsFreeDests(num_dests, dests);
         return -1;
     }
 
-	cupsFreeOptions(num_options, options);
-	cupsFreeDests(num_dests, dests);
+    cupsFreeOptions(num_options, options);
+    cupsFreeDests(num_dests, dests);
 
     return 0;
 }
@@ -502,7 +502,7 @@ bool Printer::CancelAllJobs(void)
 // lpinfo.c show_devices()
 bool Printer::GetUsbPrinterUri(string &uri)
 {
-    ipp_t *request;		/* IPP Request */
+    ipp_t *request;     /* IPP Request */
     ipp_t *response;            /* IPP Response */
     ipp_attribute_t *attr;      /* Current attribute */
     const char *device_class;   /* Pointer to device-class */
@@ -614,7 +614,7 @@ bool Printer::GetUsbPrinterUri(string &uri)
 // lpadmin.c validate_name()
 bool Printer::ValidateName(const char *name)
 {
-    const char	*ptr;			/* Pointer into name */
+    const char  *ptr;           /* Pointer into name */
     /*
      * Scan the whole name...
      */

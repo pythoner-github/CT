@@ -87,9 +87,9 @@ void ConfigToHost::CreateCalcImportWindow(GtkWindow *parent)
         gtk_tree_view_set_model (GTK_TREE_VIEW(m_treeRoot), modelRoot);
     g_object_unref (modelRoot);
 
- 	m_chkbtnDel = gtk_check_button_new_with_mnemonic(_("Delete data from USB storage after import."));
-	gtk_fixed_put (GTK_FIXED (fixed), m_chkbtnDel, 20, 190);
-	gtk_widget_set_size_request (m_chkbtnDel, -1, 30);
+    m_chkbtnDel = gtk_check_button_new_with_mnemonic(_("Delete data from USB storage after import."));
+    gtk_fixed_put (GTK_FIXED (fixed), m_chkbtnDel, 20, 190);
+    gtk_widget_set_size_request (m_chkbtnDel, -1, 30);
 
     GtkWidget *label_notice = gtk_label_new (_("Import data to override the current exam data!"));
     gtk_misc_set_alignment (GTK_MISC(label_notice), 0, 0.5);
@@ -237,7 +237,7 @@ void ConfigToHost::DestroyWindow(void)
             if(model)
                 g_object_unref(model);
         }
-        //	PRINTF("%s: List length is %d\n", __FUNCTION__, g_list_length(m_listBranch));
+        //  PRINTF("%s: List length is %d\n", __FUNCTION__, g_list_length(m_listBranch));
         g_list_free(m_listBranch);
         m_listBranch = NULL;
     }
@@ -276,7 +276,7 @@ static void progress_callback(goffset current, goffset total, gpointer data)
         return;
 
     double prac = (double)current/total;
-    //	PRINTF("prac = %f\n", prac);
+    //  PRINTF("prac = %f\n", prac);
     if(prac >= 0 && prac <= 1.0)
     {
         gdk_threads_enter();
@@ -348,7 +348,7 @@ static gboolean LoadSelectedCalcData()
                 }
             }
         g_free(basename);
-        //	PRINTF("Dest Path: %s\n", destPath);
+        //  PRINTF("Dest Path: %s\n", destPath);
         GFile *src = g_file_new_for_path((*ite).c_str());
         GFile *dest = g_file_new_for_path(destPath);
         g_free(destPath);
@@ -645,7 +645,7 @@ static gboolean LoadSelectedData(gpointer data)
             }
         }
         g_free(basename);
-        //	PRINTF("Dest Path: %s\n", destPath);
+        //  PRINTF("Dest Path: %s\n", destPath);
         GFile *src = g_file_new_for_path((*ite).c_str());
         GFile *dest = g_file_new_for_path(destPath);
         g_free(destPath);
@@ -903,7 +903,7 @@ void ConfigToHost::ToggleData(GtkCellRendererToggle *cell, gchar *path_str)
     else
         return;
 
-    //	PRINTF("Toggle path: %s\n", path_str);
+    //  PRINTF("Toggle path: %s\n", path_str);
     GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(treeview));
     GtkTreeIter iter;
     GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
@@ -982,7 +982,7 @@ void ConfigToHost::UpdateCalcRootModel(void)
     {
         if(ent->d_name[0]=='.')
             continue;
-        //	if(ent->d_type==DT_DIR)
+        //  if(ent->d_type==DT_DIR)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, ent->d_name, NULL);
         PRINTF("DIR: %s\n", tmpPath);
         if(g_file_test(tmpPath, G_FILE_TEST_IS_DIR))
@@ -1019,7 +1019,7 @@ void ConfigToHost::UpdateRootModel(void)
     {
         if(ent->d_name[0]=='.')
             continue;
-        //	if(ent->d_type==DT_DIR)
+        //  if(ent->d_type==DT_DIR)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, ent->d_name, NULL);
         PRINTF("DIR: %s\n", tmpPath);
         if(g_file_test(tmpPath, G_FILE_TEST_IS_DIR))
@@ -1068,14 +1068,14 @@ GtkTreeModel* ConfigToHost::LoadBranchModel(gchar *branch)
     {
         if(ent->d_name[0]=='.')
             continue;
-        //	if(ent->d_type==DT_REG)
+        //  if(ent->d_type==DT_REG)
         gchar *tmpPath = g_build_path(G_DIR_SEPARATOR_S, path, ent->d_name, NULL);
         if(g_file_test(tmpPath, G_FILE_TEST_IS_REGULAR))
         {
-            //	if(fm.CompareSuffix(ent->d_name, "jpg")==0 || fm.CompareSuffix(ent->d_name, "bmp")==0 || fm.CompareSuffix(ent->d_name, "emp")==0 || fm.CompareSuffix(ent->d_name, "avi")==0 || fm.CompareSuffix(ent->d_name, "cine")==0)
+            //  if(fm.CompareSuffix(ent->d_name, "jpg")==0 || fm.CompareSuffix(ent->d_name, "bmp")==0 || fm.CompareSuffix(ent->d_name, "emp")==0 || fm.CompareSuffix(ent->d_name, "avi")==0 || fm.CompareSuffix(ent->d_name, "cine")==0)
             if(fm.CompareSuffix(ent->d_name, "ini")==0)
             {
-                //	PRINTF("	FILE: %s\n", ent->d_name);
+                //  PRINTF("    FILE: %s\n", ent->d_name);
                 gtk_list_store_append(store, &iter);
                 gtk_list_store_set(store, &iter,
                         COL_CHECKED, FALSE,
@@ -1137,7 +1137,7 @@ void ConfigToHost::RootSelectionChanged(GtkTreeSelection *selection)
     {
         gtk_tree_model_get(model, &iter, COL_NAME, &text, -1);
         GtkTreePath* path = gtk_tree_model_get_path(model, &iter);
-        //	PRINTF("Selection path: %s\n", gtk_tree_path_to_string(path));
+        //  PRINTF("Selection path: %s\n", gtk_tree_path_to_string(path));
         UpdateBranchModel(atoi(gtk_tree_path_to_string(path)));
         gtk_tree_path_free (path);
         g_free(text);
@@ -1209,7 +1209,7 @@ gboolean ConfigToHost::GetAllSelectPath(void)
         GList *list = g_list_first(m_listBranch);
         while(list)
         {
-            //	PRINTF("New Branch\n");
+            //  PRINTF("New Branch\n");
             if(!validRoot || !list->data)
             {
                 validRoot = gtk_tree_model_iter_next(modelRoot, &iterRoot);
@@ -1218,7 +1218,7 @@ gboolean ConfigToHost::GetAllSelectPath(void)
             }
 
             gtk_tree_model_get(modelRoot, &iterRoot, COL_CHECKED, &checkedRoot, COL_NAME, &nameRoot, -1);
-            //	PRINTF("Root Name=%s\n", nameRoot);
+            //  PRINTF("Root Name=%s\n", nameRoot);
 
             modelBranch = GTK_TREE_MODEL(list->data);
             validBranch = gtk_tree_model_get_iter_first(modelBranch, &iterBranch);
@@ -1226,7 +1226,7 @@ gboolean ConfigToHost::GetAllSelectPath(void)
             while(validBranch)
             {
                 gtk_tree_model_get(modelBranch, &iterBranch, COL_CHECKED, &checkedBranch, COL_NAME, &nameBranch, -1);
-                //	PRINTF("Branch Name=%s, Checked=%d\n", nameBranch, checkedBranch);
+                //  PRINTF("Branch Name=%s, Checked=%d\n", nameBranch, checkedBranch);
                 if(checkedBranch)
                 {
                     gchar *path = g_build_path(G_DIR_SEPARATOR_S, UDISK_DATA_PATH, nameRoot, nameBranch, NULL);

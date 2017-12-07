@@ -4,16 +4,17 @@
 #include <gdk/gdkkeysyms.h>
 #include <string>
 #include <vector>
+
 class DicomSend;
 typedef void (*HandleMenuItemCDActivate_t)(GtkMenuItem *menuitem, gpointer *data) ;
 using namespace std;
 class DicomSend
 {
 public:
-	DicomSend();
-	~DicomSend();
+    DicomSend();
+    ~DicomSend();
 void destroyItem();
-	vector<GtkWidget*> m_vecItem;
+    vector<GtkWidget*> m_vecItem;
     static DicomSend *GetInstance();
 static int HandleDicomBtnExportEvent(GtkWidget *widget, GdkEvent *event, DicomSend *data) ;
 

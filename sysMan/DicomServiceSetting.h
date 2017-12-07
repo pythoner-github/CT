@@ -26,7 +26,7 @@ class DicomServiceSetting
         };
 
         void init_service_setting();
-	void ChangeServiceNoteBook(int page);
+    void ChangeServiceNoteBook(int page);
     private:
         DicomServiceSetting();
         ~DicomServiceSetting();

@@ -26,10 +26,10 @@ class ViewDicomDataSelect: public FakeXEvent
 
     private:
         enum{
-		COL_CHECKED,
-		COL_NAME,
-		NUM_COLS
-	};
+        COL_CHECKED,
+        COL_NAME,
+        NUM_COLS
+    };
         enum
         {
             COL_QUALITY,
@@ -55,7 +55,7 @@ class ViewDicomDataSelect: public FakeXEvent
 
         PatientInfo::Info m_info;
 
-        deque<Image> deq;	///< each frames in deque (input)
+        deque<Image> deq;   ///< each frames in deque (input)
         vector<DCMDICOMDIRSTUDYLEVEL> vecStudyLevel;
 
         static PatientInfo m_patientInfo;

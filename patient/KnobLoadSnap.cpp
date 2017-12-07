@@ -1,14 +1,3 @@
-/*
- * 2009, 深圳恩普电子技术有限公司
- *
- * @file: KnobLoadSnap
- * @brief: knob in freeze mode
- *
- * version: V1.0
- * date: 2009-8-31
- * @author: zhanglei
- */
-
 #include "patient/KnobLoadSnap.h"
 #include "display/KnobMenu.h"
 #include "Def.h"
@@ -16,22 +5,22 @@
 
 #if (defined (EMP_322) || defined(EMP_313))
 KnobMenu::KnobItem KnobLoadSnapMenu[6] = {
-	{N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
-	{N_("Previous Snap"), N_("Press"), PRESS, NULL, ReviewPreviousSnap},
-	{N_("Slide Play"), "", MIN, ReviewSlidePlay, PressReviewSlidePlay},
-	{N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL}
+    {N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
+    {N_("Previous Snap"), N_("Press"), PRESS, NULL, ReviewPreviousSnap},
+    {N_("Slide Play"), "", MIN, ReviewSlidePlay, PressReviewSlidePlay},
+    {N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL}
 };
 #else
 KnobMenu::KnobItem KnobLoadSnapMenu[5] = {
-	//{N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
-	{N_("Snap"), "", MIN, ChgReviewSnap, NULL},
-	//{N_("Previous Snap"), N_("Press"), PRESS, NULL, ReviewPreviousSnap},
-	{N_("Slide Play"), "", MIN, ReviewSlidePlay, PressReviewSlidePlay},
-	{N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
-	{"", "", ERROR, NULL, NULL},
-	{"", "", ERROR, NULL, NULL}
+    //{N_("Next Snap"), N_("Press"), PRESS, NULL, ReviewNextSnap},
+    {N_("Snap"), "", MIN, ChgReviewSnap, NULL},
+    //{N_("Previous Snap"), N_("Press"), PRESS, NULL, ReviewPreviousSnap},
+    {N_("Slide Play"), "", MIN, ReviewSlidePlay, PressReviewSlidePlay},
+    {N_("Slide Speed"), "", MIN, ReviewSlideSpeed, PressReviewSlideSpeed},
+    {"", "", ERROR, NULL, NULL},
+    {"", "", ERROR, NULL, NULL}
 };
 #endif
 void KnobLoadSnapCreate()
@@ -41,10 +30,10 @@ void KnobLoadSnapCreate()
 ///> knob menu need to be sync
 void SyncKnobReview(EKnobReview type, const char* s, EKnobReturn status, bool update)
 {
-	sprintf(KnobLoadSnapMenu[type].value, "%s", s);
-	KnobLoadSnapMenu[type].status = status;
-	if (update)
-		KnobMenu::GetInstance()->Update();
+    sprintf(KnobLoadSnapMenu[type].value, "%s", s);
+    KnobLoadSnapMenu[type].status = status;
+    if (update)
+        KnobMenu::GetInstance()->Update();
 }
 
 ///> callback function
@@ -69,34 +58,34 @@ EKnobReturn ChgReviewSnap(EKnobOper oper)
 
 EKnobReturn ReviewNextSnap(void)
 {
-	g_menuReview.NextSnap();
-	g_menuReview.ExitSlide();
-	return PRESS;
+    g_menuReview.NextSnap();
+    g_menuReview.ExitSlide();
+    return PRESS;
 }
 
 EKnobReturn ReviewPreviousSnap(void)
 {
-	g_menuReview.PreviousSnap();
-	g_menuReview.ExitSlide();
-	return PRESS;
+    g_menuReview.PreviousSnap();
+    g_menuReview.ExitSlide();
+    return PRESS;
 }
 //按键切换，改变幻灯片播放的开与关
 EKnobReturn PressReviewSlidePlay(void)
 {
-	EKnobOper oper = ROTATE;
-	return g_menuReview.SlidePlay(oper);
+    EKnobOper oper = ROTATE;
+    return g_menuReview.SlidePlay(oper);
 }
 EKnobReturn ReviewSlidePlay(EKnobOper oper)
 {
-	return g_menuReview.SlidePlay(oper);
+    return g_menuReview.SlidePlay(oper);
 }
 //按键切换，改变播放速度
 EKnobReturn PressReviewSlideSpeed(void)
 {
-	EKnobOper oper = ROTATE;
-	return g_menuReview.SlideSpeed(oper);
+    EKnobOper oper = ROTATE;
+    return g_menuReview.SlideSpeed(oper);
 }
 EKnobReturn ReviewSlideSpeed(EKnobOper oper)
 {
-	return g_menuReview.SlideSpeed(oper);
+    return g_menuReview.SlideSpeed(oper);
 }

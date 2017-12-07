@@ -1,10 +1,3 @@
-/*
- * Printdefaults.h
- *
- *  Created on: 2012-8-6
- *      Author: yangyaoqing
- */
-
 #ifndef PRINTDEFAULTS_H_
 #define PRINTDEFAULTS_H_
 

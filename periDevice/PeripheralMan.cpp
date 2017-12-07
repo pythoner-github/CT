@@ -19,108 +19,108 @@ PeripheralMan* PeripheralMan::m_ptrInstance = NULL;
 
 PeripheralMan* PeripheralMan::GetInstance()
 {
-	if (m_ptrInstance == NULL)
-		m_ptrInstance = new PeripheralMan;
-	return m_ptrInstance;
+    if (m_ptrInstance == NULL)
+        m_ptrInstance = new PeripheralMan;
+    return m_ptrInstance;
 }
 
 PeripheralMan::PeripheralMan()
 {
-	m_dbus = NULL;
-	m_ctx = NULL;
+    m_dbus = NULL;
+    m_ctx = NULL;
 
-	m_cont = 1;
+    m_cont = 1;
 
-	m_disc.state = PLUGOUT;
-	m_disc.is_mounted = FALSE;
-	m_disc.is_blank = FALSE;
-	m_disc.is_appendable = FALSE;
-	m_disc.udi.assign("");
-	m_disc.device.assign("");
-	m_disc.disc_type.assign("");
-	m_disc.capacity = 0;
-	m_disc.data_size = 0;
-	m_disc.last_track_addr = 0;
-	m_disc.next_writable_addr = 0;
+    m_disc.state = PLUGOUT;
+    m_disc.is_mounted = FALSE;
+    m_disc.is_blank = FALSE;
+    m_disc.is_appendable = FALSE;
+    m_disc.udi.assign("");
+    m_disc.device.assign("");
+    m_disc.disc_type.assign("");
+    m_disc.capacity = 0;
+    m_disc.data_size = 0;
+    m_disc.last_track_addr = 0;
+    m_disc.next_writable_addr = 0;
 
-	m_printer.state = PLUGOUT;
-	m_printer.udi.assign("");
-	m_printer.device.assign("");
+    m_printer.state = PLUGOUT;
+    m_printer.udi.assign("");
+    m_printer.device.assign("");
 
-	m_storage.state = PLUGOUT;
-	m_storage.is_mounted = FALSE;
-	m_storage.udi.assign("");
-	m_storage.device.assign("");
-	m_storage.fstype.assign("");
+    m_storage.state = PLUGOUT;
+    m_storage.is_mounted = FALSE;
+    m_storage.udi.assign("");
+    m_storage.device.assign("");
+    m_storage.fstype.assign("");
         m_storage.data_size = 0;
         m_storage.capacity = 0;
 }
 
 PeripheralMan::~PeripheralMan()
 {
-	if (m_ptrInstance != NULL)
-		delete m_ptrInstance;
+    if (m_ptrInstance != NULL)
+        delete m_ptrInstance;
 }
 
 bool PeripheralMan::get_property_string(char **val, LibHalContext *ctx, const char *udi, const char *key, DBusError *error)
 {
-	*val = libhal_device_get_property_string(ctx, udi, key, error);
-	if(dbus_error_is_set(&m_error))
-	{
-		PRINTF("DBus Error: %s\n", m_error.message);
-		LIBHAL_FREE_DBUS_ERROR(&m_error);
-		return FALSE;
-	}
-	return TRUE;
+    *val = libhal_device_get_property_string(ctx, udi, key, error);
+    if(dbus_error_is_set(&m_error))
+    {
+        PRINTF("DBus Error: %s\n", m_error.message);
+        LIBHAL_FREE_DBUS_ERROR(&m_error);
+        return FALSE;
+    }
+    return TRUE;
 }
 
 bool PeripheralMan::get_property_bool(bool *val, LibHalContext *ctx, const char *udi, const char *key, DBusError *error)
 {
-	*val = libhal_device_get_property_bool(ctx, udi, key, error);
-	if(dbus_error_is_set(&m_error))
-	{
-		PRINTF("DBus Error: %s\n", m_error.message);
-		LIBHAL_FREE_DBUS_ERROR(&m_error);
-		return FALSE;
-	}
-	return TRUE;
+    *val = libhal_device_get_property_bool(ctx, udi, key, error);
+    if(dbus_error_is_set(&m_error))
+    {
+        PRINTF("DBus Error: %s\n", m_error.message);
+        LIBHAL_FREE_DBUS_ERROR(&m_error);
+        return FALSE;
+    }
+    return TRUE;
 }
 
 bool PeripheralMan::get_property_uint64(guint64 *val, LibHalContext *ctx, const char *udi, const char *key, DBusError *error)
 {
-	*val = libhal_device_get_property_uint64(ctx, udi, key, error);
-	if(dbus_error_is_set(&m_error))
-	{
-		PRINTF("DBus Error: %s\n", m_error.message);
-		LIBHAL_FREE_DBUS_ERROR(&m_error);
-		return FALSE;
-	}
-	return TRUE;
+    *val = libhal_device_get_property_uint64(ctx, udi, key, error);
+    if(dbus_error_is_set(&m_error))
+    {
+        PRINTF("DBus Error: %s\n", m_error.message);
+        LIBHAL_FREE_DBUS_ERROR(&m_error);
+        return FALSE;
+    }
+    return TRUE;
 }
 
 void PeripheralMan::GetDiscSessionInfo(gint64 *last, gint64 *next)
 {
-	*last = m_disc.last_track_addr;
-	*next = m_disc.next_writable_addr;
+    *last = m_disc.last_track_addr;
+    *next = m_disc.next_writable_addr;
 }
 
 bool PeripheralMan::CheckDiscInfo()
 {
-	if(m_disc.state==PLUGIN && !m_disc.is_mounted)
-	{
-		ViewCD* ptrCD = ViewCD::GetInstance();
-		if(ptrCD->GetWindow())
-			ptrCD->SetBackupStatus(ViewCD::SCAN);
+    if(m_disc.state==PLUGIN && !m_disc.is_mounted)
+    {
+        ViewCD* ptrCD = ViewCD::GetInstance();
+        if(ptrCD->GetWindow())
+            ptrCD->SetBackupStatus(ViewCD::SCAN);
 
-		if(m_disc.disc_type.find("cd") == 0)
-			return CheckCdMediaInfo();
-		else if(m_disc.disc_type.find("dvd") == 0)
-			return CheckDvdMediaInfo();
-	}
-	else
-		return FALSE;
+        if(m_disc.disc_type.find("cd") == 0)
+            return CheckCdMediaInfo();
+        else if(m_disc.disc_type.find("dvd") == 0)
+            return CheckDvdMediaInfo();
+    }
+    else
+        return FALSE;
 
-	return FALSE;
+    return FALSE;
 }
 
 bool PeripheralMan::CheckUSBInfo()
@@ -216,7 +216,7 @@ bool PeripheralMan::CheckDvdMediaInfo()
         PRINTF("%s-%d: g_shell_parse_argv error!\n", __FILE__, __LINE__);
         return FALSE;
     }
-    //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
+    //  PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
     status = g_spawn_async_with_pipes(NULL, cmd, NULL,
             (GSpawnFlags)(G_SPAWN_DO_NOT_REAP_CHILD),
@@ -241,10 +241,10 @@ bool PeripheralMan::CheckDvdMediaInfo()
         gtk_main_iteration();
     }
 
-    /* exit get msinfo process	*/
+    /* exit get msinfo process  */
     waitpid(pid, &cmdstatus, 0);
     if ((WIFEXITED(cmdstatus) && WEXITSTATUS(cmdstatus)!=0) //command exit normal with error
-            || (!(WIFEXITED(cmdstatus))))	//command exit abnormal
+            || (!(WIFEXITED(cmdstatus))))   //command exit abnormal
     {
         PRINTF("get dvd size command exit with error\n");
         return FALSE;
@@ -367,7 +367,7 @@ bool PeripheralMan::CheckCdMediaInfo()
         PRINTF("%s-%d: g_shell_parse_argv error!\n", __FILE__, __LINE__);
         return FALSE;
     }
-    //	PRINTF("cmd: %s arg num=%d\n", cmd, arg);
+    //  PRINTF("cmd: %s arg num=%d\n", cmd, arg);
 
     status = g_spawn_async_with_pipes(NULL, cmd, NULL,
             (GSpawnFlags)(G_SPAWN_DO_NOT_REAP_CHILD),
@@ -398,10 +398,10 @@ bool PeripheralMan::CheckCdMediaInfo()
         gtk_main_iteration();
     }
 
-    /* exit get msinfo process	*/
+    /* exit get msinfo process  */
     waitpid(pid, &cmdstatus, 0);
     if ((WIFEXITED(cmdstatus) && WEXITSTATUS(cmdstatus)!=0) //command exit normal with error
-            || (!(WIFEXITED(cmdstatus))))	//command exit abnormal
+            || (!(WIFEXITED(cmdstatus))))   //command exit abnormal
     {
         PRINTF("get msinfo command exit with error\n");
         return FALSE;
@@ -481,8 +481,8 @@ void PeripheralMan::VolumeDetails(const char *udi)
             if(CheckDiscInfo())
             {
                 ptrCD->UpdateSize(true);
-                //	if(ptrCD->GetWindow())
-                //		ptrCD->SetBackupStatus(ViewCD::SCAN);
+                //  if(ptrCD->GetWindow())
+                //      ptrCD->SetBackupStatus(ViewCD::SCAN);
             }
             gdk_threads_leave();
         }
@@ -565,7 +565,7 @@ void PeripheralMan::PrinterDetails(const char *udi)
     m_printer.udi.assign(udi, strlen(udi));
 
     ViewIcon::GetInstance()->Printer(TRUE);
-    //	PRINTF("printer state=%d, device=%s, udi=%s\n", m_printer.state, m_printer.device.c_str(), m_printer.udi.c_str());
+    //  PRINTF("printer state=%d, device=%s, udi=%s\n", m_printer.state, m_printer.device.c_str(), m_printer.udi.c_str());
 
     free(device);
 
@@ -591,7 +591,7 @@ void PeripheralMan::DevAdded(LibHalContext *ctx, const char *udi)
 
 void PeripheralMan::DevRemoved(LibHalContext *ctx, const char *udi)
 {
-    if(!strcmp(udi, m_storage.udi.c_str()))	//USB Storage
+    if(!strcmp(udi, m_storage.udi.c_str())) //USB Storage
     {
         PRINTF("Removed Usb Device: %s\n", m_storage.device.c_str());
         m_storage.state = PLUGOUT;
@@ -611,7 +611,7 @@ void PeripheralMan::DevRemoved(LibHalContext *ctx, const char *udi)
         }
         ViewIcon::GetInstance()->Udisk(FALSE);
     }
-    else if(!strcmp(udi, m_printer.udi.c_str()))	//Printer
+    else if(!strcmp(udi, m_printer.udi.c_str()))    //Printer
     {
         PRINTF("Removed Printer Device: %s\n", m_printer.device.c_str());
         m_printer.state = PLUGOUT;
@@ -619,7 +619,7 @@ void PeripheralMan::DevRemoved(LibHalContext *ctx, const char *udi)
         m_printer.udi.assign("");
         ViewIcon::GetInstance()->Printer(FALSE);
     }
-    else if(!strcmp(udi, m_disc.udi.c_str()))	//disc
+    else if(!strcmp(udi, m_disc.udi.c_str()))   //disc
     {
         PRINTF("Removed Disc Device: %s\n", m_disc.device.c_str());
         m_disc.state = PLUGOUT;
@@ -692,7 +692,7 @@ static void* CheckNetCable(void* argv)
     char buffer[1024];
     struct inotify_event *event;
     const char *path = "/sys/class/net/eth0/carrier";
-    //	const char *path = "/tmp/1";
+    //  const char *path = "/tmp/1";
 
     fd = inotify_init();
     if(fd < 0)
@@ -920,14 +920,14 @@ bool PeripheralMan::MountUsbStorage()
 {
     if(!m_storage.is_mounted)
     {
-		//printf("::::::::::::::::::: fstype = %s\n", m_storage.fstype.c_str());
-        //	if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), MS_SYNCHRONOUS, NULL) < 0) //use sync flag is very slow!
-        //	if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), 0, NULL) < 0)
-		char option[100];
-		if(strcmp(m_storage.fstype.c_str(), "vfat")==0) //支持FAT16，FAT32
-			sprintf(option, "shortname=mixed,iocharset=utf8,flush");
-		else	//经测试，支持NTFS，不支持exFat，其他未测
-			sprintf(option, "iocharset=utf8");
+        //printf("::::::::::::::::::: fstype = %s\n", m_storage.fstype.c_str());
+        //  if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), MS_SYNCHRONOUS, NULL) < 0) //use sync flag is very slow!
+        //  if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), 0, NULL) < 0)
+        char option[100];
+        if(strcmp(m_storage.fstype.c_str(), "vfat")==0) //支持FAT16，FAT32
+            sprintf(option, "shortname=mixed,iocharset=utf8,flush");
+        else    //经测试，支持NTFS，不支持exFat，其他未测
+            sprintf(option, "iocharset=utf8");
         if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), 0, option) < 0)
         //if(mount(m_storage.device.c_str(), UDISK_PATH, m_storage.fstype.c_str(), 0, "iocharset=utf8,flush") < 0)
         {
@@ -971,20 +971,20 @@ bool PeripheralMan::UmountUsbStorage()
 
 void PeripheralMan::SwitchPrinterDriver()
 {
-	Printer printer;
-	bool isSony = printer.IsSonyPrinter();
-	if(isSony)
-		LoadUsblp();
-	else
-		UnLoadUsblp();
+    Printer printer;
+    bool isSony = printer.IsSonyPrinter();
+    if(isSony)
+        LoadUsblp();
+    else
+        UnLoadUsblp();
 }
 void PeripheralMan::LoadUsblp()
 {
-	_system_("modprobe usblp");
-	printf("%s-%s: modprobe usblp\n", __FILE__, __FUNCTION__);
+    _system_("modprobe usblp");
+    printf("%s-%s: modprobe usblp\n", __FILE__, __FUNCTION__);
 }
 void PeripheralMan::UnLoadUsblp()
 {
-	_system_("modprobe -r usblp");
-	printf("%s-%s: modprobe -r usblp\n", __FILE__, __FUNCTION__);
+    _system_("modprobe -r usblp");
+    printf("%s-%s: modprobe -r usblp\n", __FILE__, __FUNCTION__);
 }

@@ -20,11 +20,11 @@ ButtonCallBack::~ButtonCallBack()
 ButtonCallBack * ButtonCallBack::GetInstance()
 {
 
-	if(NULL == m_pInstance)
-	{
-		m_pInstance = new ButtonCallBack();
-	}
-	return m_pInstance;
+    if(NULL == m_pInstance)
+    {
+        m_pInstance = new ButtonCallBack();
+    }
+    return m_pInstance;
 }
 void ButtonCallBack::PrintDeviceChanged(GtkComboBox *combobox,GtkWidget *m_combobox_worklist_device,GtkWidget *m_entry_worklist_name)
 {
@@ -115,10 +115,10 @@ bool ButtonCallBack::ButtonPrintDeleteClicked(GtkButton *button,GtkWidget *m_tre
                 -1);
 
         //CDCMMan::GetMe()->DeleteWorklistService(device);
-		 CDCMMan::GetMe()->DeletePrintService(device);
-		 CDCMMan::GetMe()->DeletePrintServiceConfiguration(device);
+         CDCMMan::GetMe()->DeletePrintService(device);
+         CDCMMan::GetMe()->DeletePrintServiceConfiguration(device);
         gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
-		return TRUE;
+        return TRUE;
     }
     else
     {
@@ -127,7 +127,7 @@ bool ButtonCallBack::ButtonPrintDeleteClicked(GtkButton *button,GtkWidget *m_tre
             ViewDialog::INFO,
             _("No device is selected!"),
             NULL);
-		return FALSE;
+        return FALSE;
 
     }
 }
@@ -193,109 +193,109 @@ void ButtonCallBack::ButtonPrintClearClicked(GtkButton *button,GtkWidget *m_comb
 
 char * ButtonCallBack::GtkTreeDeviceGet(GtkWidget *m_treeview_worklist)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
     gboolean exist = FALSE;
-	char *device;
-	bool ret;
-	GtkTreeSelection *selected;
-	selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
+    char *device;
+    bool ret;
+    GtkTreeSelection *selected;
+    selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
-	while(exist)
-	{
-		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
-		if(ret == TRUE)
-		{
-			gtk_tree_model_get(model,&iter,COL_STORAGE_DEVICE,&device,-1);
-			break;
-		}
-		exist = gtk_tree_model_iter_next(model, &iter);
+    while(exist)
+    {
+        ret = gtk_tree_selection_iter_is_selected (selected,&iter);
+        if(ret == TRUE)
+        {
+            gtk_tree_model_get(model,&iter,COL_STORAGE_DEVICE,&device,-1);
+            break;
+        }
+        exist = gtk_tree_model_iter_next(model, &iter);
 
-	}
-	return device;
+    }
+    return device;
 }
 
 char * ButtonCallBack::GtkTreeServiceGet(GtkWidget *m_treeview_worklist)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
     gboolean exist = FALSE;
-	char *service;
-	bool ret;
-	GtkTreeSelection *selected;
-	selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
+    char *service;
+    bool ret;
+    GtkTreeSelection *selected;
+    selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
-	while(exist)
-	{
-		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
-		if(ret == TRUE)
-		{
-			gtk_tree_model_get(model,&iter,COL_SERVICE_NAME,&service,-1);
-			break;
-		}
-		exist = gtk_tree_model_iter_next(model, &iter);
+    while(exist)
+    {
+        ret = gtk_tree_selection_iter_is_selected (selected,&iter);
+        if(ret == TRUE)
+        {
+            gtk_tree_model_get(model,&iter,COL_SERVICE_NAME,&service,-1);
+            break;
+        }
+        exist = gtk_tree_model_iter_next(model, &iter);
 
-	}
-	return service;
+    }
+    return service;
 
 }
 
 char * ButtonCallBack::GtkTreeAEGet(GtkWidget *m_treeview_worklist)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
     gboolean exist = FALSE;
-	char *ae;
-	bool ret;
-	GtkTreeSelection *selected;
-	selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
+    char *ae;
+    bool ret;
+    GtkTreeSelection *selected;
+    selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
-	while(exist)
-	{
-		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
-		if(ret == TRUE)
-		{
-			gtk_tree_model_get(model,&iter,COL_AE_TITLE,&ae,-1);
-			break;
-		}
-		exist = gtk_tree_model_iter_next(model, &iter);
+    while(exist)
+    {
+        ret = gtk_tree_selection_iter_is_selected (selected,&iter);
+        if(ret == TRUE)
+        {
+            gtk_tree_model_get(model,&iter,COL_AE_TITLE,&ae,-1);
+            break;
+        }
+        exist = gtk_tree_model_iter_next(model, &iter);
 
-	}
+    }
 
-	return ae;
+    return ae;
 
 }
 
 char * ButtonCallBack::GtkTreePortGet(GtkWidget *m_treeview_worklist)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+    GtkTreeModel *model;
+    GtkTreeIter iter;
     gboolean exist = FALSE;
-	char *port;
+    char *port;
 
-	bool ret;
-	GtkTreeSelection *selected;
-	selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
+    bool ret;
+    GtkTreeSelection *selected;
+    selected= gtk_tree_view_get_selection(GTK_TREE_VIEW(m_treeview_worklist));
 
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(m_treeview_worklist));
     exist = gtk_tree_model_get_iter_first(model, &iter);
 
-	while(exist)
-	{
-		ret = gtk_tree_selection_iter_is_selected (selected,&iter);
-		if(ret == TRUE)
-		{
-			gtk_tree_model_get(model,&iter,COL_PORT,&port,-1);
-			break;
-		}
-		exist = gtk_tree_model_iter_next(model, &iter);
+    while(exist)
+    {
+        ret = gtk_tree_selection_iter_is_selected (selected,&iter);
+        if(ret == TRUE)
+        {
+            gtk_tree_model_get(model,&iter,COL_PORT,&port,-1);
+            break;
+        }
+        exist = gtk_tree_model_iter_next(model, &iter);
 
-	}
+    }
 
-	return port;
+    return port;
 
 }
 void ButtonCallBack::ButtonPrintAddClicked(GtkButton *button,GtkWidget *m_combobox_worklist_device,GtkWidget *m_entry_worklist_AE,GtkWidget *m_entry_worklist_port,GtkWidget *m_entry_worklist_name,GtkWidget *m_treeview_worklist)
@@ -307,7 +307,7 @@ printf("========================================================================
 
     if(ae[0] == '\0' ||port[0] == '\0'||device[0] == '\0')
     {
-		CDCMMan::GetMe()->DeletePrintService(device);
+        CDCMMan::GetMe()->DeletePrintService(device);
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::INFO,
                 _("Device ,AE or Port is empty, please input!"),
@@ -343,7 +343,7 @@ printf("========================================================================
 
         if (strcmp(device_tmp0,device_tmp1)==0)
         {
-			CDCMMan::GetMe()->DeletePrintService(device);
+            CDCMMan::GetMe()->DeletePrintService(device);
             //printf("Add failed\n");
             ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                     ViewDialog::INFO,
@@ -359,7 +359,7 @@ printf("========================================================================
 
     if(!CDCMMan::GetMe()->AddPrintService(device, tmp_serviceName, ae, atoi(port)))
     {
-		CDCMMan::GetMe()->DeletePrintService(device);
+        CDCMMan::GetMe()->DeletePrintService(device);
         ViewDialog::GetInstance()->Create(GTK_WINDOW(ViewSystem::GetInstance()->GetWindow()),
                 ViewDialog::INFO,
                 _("Add failed,device has been existed\n"),

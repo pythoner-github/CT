@@ -128,8 +128,8 @@ GtkWidget* DicomServerSetting::CreateDicomWindow(GtkWidget *parent)
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollWin), GTK_SHADOW_IN);
 
     m_treeview = create_server_treeview();
-	gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview);
-	gtk_widget_set_size_request (m_treeview, 250, 120);
+    gtk_container_add(GTK_CONTAINER(scrollWin), m_treeview);
+    gtk_widget_set_size_request (m_treeview, 250, 120);
     gtk_widget_show (m_treeview);
 
     button_delete = gtk_button_new_with_mnemonic (_("Delete"));
@@ -143,33 +143,33 @@ GtkWidget* DicomServerSetting::CreateDicomWindow(GtkWidget *parent)
 
 GtkWidget* DicomServerSetting::create_server_treeview()
 {
-	GtkWidget *treeview;
+    GtkWidget *treeview;
     GtkTreeModel *model = NULL;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
 
     treeview = gtk_tree_view_new ();
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview), FALSE);
-	gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
+    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (treeview), TRUE);
 
-	renderer = gtk_cell_renderer_toggle_new ();
-	//g_signal_connect (G_OBJECT(renderer), "toggled", G_CALLBACK (HandleToggleRecord), this);
+    renderer = gtk_cell_renderer_toggle_new ();
+    //g_signal_connect (G_OBJECT(renderer), "toggled", G_CALLBACK (HandleToggleRecord), this);
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("Device"), renderer, "text", COL_DEVICE, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 180, NULL);
 
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new_with_attributes(_("IP Address"), renderer, "text", COL_IP, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
+    g_object_set(G_OBJECT(column),  "sizing", GTK_TREE_VIEW_COLUMN_FIXED, "fixed-width", 120, NULL);
 
     model = create_device_model();
     if (model != NULL)
-		gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
+        gtk_tree_view_set_model (GTK_TREE_VIEW(treeview), model);
     g_object_unref (model);
 
-	return treeview;
+    return treeview;
 }
 
 GtkTreeModel* DicomServerSetting::create_device_model()
@@ -177,10 +177,10 @@ GtkTreeModel* DicomServerSetting::create_device_model()
     GtkListStore *store;
 
     store = gtk_list_store_new(NUM_COLS,
-			G_TYPE_STRING,
-			G_TYPE_STRING);
+            G_TYPE_STRING,
+            G_TYPE_STRING);
 
-	return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL (store);
 }
 
 void DicomServerSetting::GetSingleServerAttribute(string device, string ip, void *data)
