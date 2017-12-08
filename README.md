@@ -1,4 +1,4 @@
-环境准备
+# 环境准备
 
     1) 安装操作系统(32位)
         ubuntu 14.04.5(windows上, 可以安装在VirtualBox虚拟机上)
@@ -15,14 +15,17 @@
         apt install libgoocanvas-dev libxtst-dev libdbus-glib-1-dev libopencv-dev libsqlite3-dev libcups2-dev libx264-dev
         apt install libxml2-dev libssl-dev libwrap0-dev
 
-版本编译
+# 版本编译
+
     make
     strip 09001Color
 
-i18n文件生成
+# i18n文件生成
+
     ./update_po.sh
 
-版本调试
+# 版本调试
+
     1) 将文件09001Color拷贝到U盘(例如U盘的CT目录下)
     2) 将U盘插到设备上
     3) 按Ctrl+Alt+T, 将会弹出命令行窗口
