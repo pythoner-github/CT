@@ -1550,7 +1550,7 @@ void ScanMode::Enter4D()
 
         const string SECTION = "Upgrade";
         char path[256];
-        sprintf(path, "%s", "/mnt/harddisk/emp/11002/11002");
+        sprintf(path, "%s", "/mnt/harddisk/ct/11002/11002");
         if (execl(path,"11002",(char *)0) < 0)
             perror("execlp error\n");
     }

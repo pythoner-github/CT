@@ -33,9 +33,9 @@
 #define WINDOWINSCREENBORDER 50
 
 /* PATHS */
-#define DEF_GTKLPRC "/mnt/harddisk/emp/printer"//"/etc/printer"
+#define DEF_GTKLPRC "/mnt/harddisk/ct/printer"//"/etc/printer"
 
-#define GTKLPRC_USER "mnt/harddisk/emp/.printer"
+#define GTKLPRC_USER "mnt/harddisk/ct/.printer"
 //#define GTKLPRC_USER "home/yang/.printer"//test
 #define GTKLPRC_GLOBAL "printerrc"
 

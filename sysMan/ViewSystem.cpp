@@ -6774,10 +6774,10 @@ void ViewSystem::CreateDefineItemFormUsbToHost(char *name)
     if(strcmp(name, "System Default") ==0)
 /*
 #ifdef CT_355
-        sprintf(path_defined, "%s%s%s", "/mnt/udisk/emp-data/userconfig/", name, ".ini");
+        sprintf(path_defined, "%s%s%s", "/mnt/udisk/ct-data/userconfig/", name, ".ini");
         //sprintf(path_defined, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, "SystemDefault", ".ini");
     else
-        sprintf(path_defined, "%s%s%s", "/mnt/udisk/emp-data/userconfig/", name, ".ini");
+        sprintf(path_defined, "%s%s%s", "/mnt/udisk/ct-data/userconfig/", name, ".ini");
 #else
 */
         sprintf(path_defined, "%s%s%s%s", CFG_RES_PATH, EXAM_ITEM_FILE, "SystemDefault", ".ini");

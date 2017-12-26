@@ -330,9 +330,9 @@ void Init::WriteLogHead()
 
     ///> get realse configure version of software
     if (version->GetRealse() == VersionConfig::CT_CHI)
-        (*sysLog) << "software is config to chinese language of emperor." << endl;
+        (*sysLog) << "software is config to chinese language." << endl;
     else if (version->GetRealse() == VersionConfig::CT_EN)
-        (*sysLog) << "software is config to english language of emperor." << endl;
+        (*sysLog) << "software is config to english language." << endl;
 }
 
 void Init::ExitSystem()
